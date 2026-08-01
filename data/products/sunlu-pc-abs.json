@@ -1,0 +1,149 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-pc-abs",
+  "materialId": "abs-pc",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU PC-ABS",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Dieses Blatt deklariert den Prüfkörper: Jede mechanische Zeile trägt die Orientierung (X-Y beziehungsweise Z-X), und auf Seite zwei sind die Prüfkörper als gedruckte Teile mit eingetragener Z-Achse gezeichnet. Damit sind die Werte mit denen von Bambu Lab und Prusa Polymers vergleichbar — und nicht mit der ASTM-Reihe desselben Herstellers.\n\nBefund zu diesem Datenblatt: 70 kJ/m² gekerbte Schlagzähigkeit an einem gedruckten Prüfkörper ist aussergewöhnlich hoch — spritzgegossenes PC-ABS liegt bei 40 bis 55 kJ/m², gedruckt deutlich darunter, weil die Kerbe auf die Schichtgrenzen trifft. Der Wert steht mit niedriger Konfidenz. Die Zeile für den Zug-E-Modul ist im Blatt leer, ebenso die Werte quer zur Schichtebene (Z-X), obwohl die Zeile dafür vorgesehen ist.",
+    "en": "This sheet declares the specimen: every mechanical row carries the orientation (X-Y or Z-X), and page two draws the specimens as printed parts with the Z axis marked. The values are therefore comparable with those from Bambu Lab and Prusa Polymers — and not with the same manufacturer's ASTM series.\n\nFinding on this datasheet: 70 kJ/m² notched impact on a printed specimen is exceptionally high — injection moulded PC-ABS sits at 40 to 55 kJ/m², printed considerably lower because the notch meets the layer boundaries. The value stands at low confidence. The tensile modulus row is empty in the sheet, as are the values across the layer plane (Z-X), although the row is provided for them."
+  },
+  "features": {
+    "de": "Eines der wenigen Blätter überhaupt, das eine Bauraumtemperatur nennt: 90 bis 100 °C. Zusammen mit 105 °C Betttemperatur beschreibt das eine Maschine mit beheizter, geschlossener Kammer — ohne die ist dieser Werkstoff nicht sinnvoll zu verarbeiten.",
+    "en": "One of very few sheets that states a chamber temperature at all: 90 to 100 °C. Together with a 105 °C bed this describes a machine with a heated, enclosed chamber — without one this material cannot sensibly be processed."
+  },
+  "datasheet": {
+    "title": "SUNLU PC-ABS — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "ohne Datumsangabe",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527-2, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 70,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2300,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 70,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hardnessShoreD": {
+      "value": 80,
+      "unit": "Shore D",
+      "testStandard": "ISO 868, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 102,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 106,
+      "unit": "°C",
+      "testStandard": "ISO 11357-3, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.081,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "min": 260,
+      "max": 280,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 105,
+      "unit": "°C",
+      "min": 100,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "chamberTemperature": {
+      "value": 95,
+      "unit": "°C",
+      "min": 90,
+      "max": 100,
+      "conditions": "im Blatt als „Room Temp.“ geführt; der Hinweistext nennt „90-100 °C Box sealing printing“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 70,
+      "max": 80,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU PC-ABS",
+        "title": "SUNLU PC-ABS — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/PC-ABS-TDS.txt. Prüfkörper deklariert (gedruckt, mit Orientierung).",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/PC-ABS-TDS.txt for verification. Specimen declared (printed, with orientation)."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-pla-matte",
+  "materialId": "pla",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU PLA Matte",
+  "origin": "China",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt nennt keine Orientierung und führt eine Zeile „Mold Shrinkage“ nach ASTM D955 — einen Spritzgussversuch. Die mechanischen Werte beschreiben deshalb mit hoher Wahrscheinlichkeit den Rohstoff, nicht das gedruckte Bauteil. Da das Blatt es nicht ausspricht, steht der Prüfkörper als „nicht deklariert“; für einen Vergleich mit den gedruckten Werten von Bambu Lab, Prusa Polymers oder den beiden ISO-Blättern von SUNLU selbst sind diese Zahlen nicht geeignet.\n\nDie ASTM-Reihe misst die Kerbschlagzähigkeit nicht einheitlich: mal nach ISO 180 in kJ/m², mal nach ASTM D256 in J/m. Beide Werte lassen sich nur mit der Prüfkörperdicke ineinander umrechnen. Innerhalb des eigenen Sortiments sind die Blätter damit nicht direkt vergleichbar; umgerechnet wurde hier nichts.\n\nBefund zu diesem Datenblatt: Der Zug-E-Modul von 4780 MPa liegt mehr als doppelt so hoch wie der Biege-E-Modul von 2234 MPa aus demselben Blatt. Bei Thermoplasten liegen beide Werte üblicherweise dicht beieinander, der Biegemodul eher leicht darüber. Zugleich wäre PLA Matte damit deutlich steifer als das PLA+ desselben Hauses (3170 MPa), obwohl es weniger fest ist. Der Wert steht mit niedriger Konfidenz.",
+    "en": "This sheet states no orientation and carries a “Mold Shrinkage” row to ASTM D955 — an injection moulding test. The mechanical values therefore most likely describe the raw material, not the printed part. As the sheet does not say so, the specimen stands as “not declared”; these figures are not suitable for comparison with the printed values from Bambu Lab, Prusa Polymers or SUNLU's own two ISO sheets.\n\nThe ASTM series does not measure notched impact consistently: sometimes to ISO 180 in kJ/m², sometimes to ASTM D256 in J/m. The two can only be converted into each other using the specimen thickness. Within its own range the sheets are therefore not directly comparable; nothing was converted here.\n\nFinding on this datasheet: The tensile modulus of 4780 MPa is more than twice the flexural modulus of 2234 MPa from the same sheet. For thermoplastics the two normally sit close together, with the flexural figure slightly higher if anything. At the same time PLA Matte would be markedly stiffer than this house's PLA+ (3170 MPa) while being less strong. The value stands at low confidence."
+  },
+  "datasheet": {
+    "title": "SUNLU PLA Matte — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "Stand 2024-01-26",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 50.5,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 4780,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 1 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 9.6,
+      "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 61,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2234,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 40,
+      "unit": "J/m",
+      "testStandard": "ASTM D256, 3,2 mm, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 53,
+      "unit": "°C",
+      "testStandard": "ASTM D648, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 58.8,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 162.6,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 54,
+      "unit": "°C",
+      "testStandard": "ASTM D1525, 5 kg, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.3,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": null,
+      "unit": "%",
+      "min": 0.1,
+      "max": 0.3,
+      "testStandard": "ASTM D955, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 205,
+      "max": 215,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU PLA Matte",
+        "title": "SUNLU PLA Matte — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/PLA_Matte.txt. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/PLA_Matte.txt for verification. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+        }
+      }
+    ]
+  }
+}

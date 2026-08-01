@@ -1,0 +1,143 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-asa",
+  "materialId": "asa",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU ASA",
+  "origin": "China",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt nennt keine Orientierung und führt eine Zeile „Mold Shrinkage“ nach ASTM D955 — einen Spritzgussversuch. Die mechanischen Werte beschreiben deshalb mit hoher Wahrscheinlichkeit den Rohstoff, nicht das gedruckte Bauteil. Da das Blatt es nicht ausspricht, steht der Prüfkörper als „nicht deklariert“; für einen Vergleich mit den gedruckten Werten von Bambu Lab, Prusa Polymers oder den beiden ISO-Blättern von SUNLU selbst sind diese Zahlen nicht geeignet.\n\nDie ASTM-Reihe misst die Kerbschlagzähigkeit nicht einheitlich: mal nach ISO 180 in kJ/m², mal nach ASTM D256 in J/m. Beide Werte lassen sich nur mit der Prüfkörperdicke ineinander umrechnen. Innerhalb des eigenen Sortiments sind die Blätter damit nicht direkt vergleichbar; umgerechnet wurde hier nichts.\n\nBefund zu diesem Datenblatt: Das Blatt nennt einen Schmelzpunkt für einen amorphen Werkstoff. Amorphe Thermoplaste haben keinen Schmelzpunkt, sondern einen Erweichungsbereich oberhalb der Glasübergangstemperatur — die Zeile wurde deshalb nicht übernommen.\n\nDer genannte Schmelzpunkt von 120 °C läge zudem nur zwölf Kelvin über der eigenen Glasübergangstemperatur von 108 °C — auch als Erweichungsangabe ergibt das keinen Sinn.",
+    "en": "This sheet states no orientation and carries a “Mold Shrinkage” row to ASTM D955 — an injection moulding test. The mechanical values therefore most likely describe the raw material, not the printed part. As the sheet does not say so, the specimen stands as “not declared”; these figures are not suitable for comparison with the printed values from Bambu Lab, Prusa Polymers or SUNLU's own two ISO sheets.\n\nThe ASTM series does not measure notched impact consistently: sometimes to ISO 180 in kJ/m², sometimes to ASTM D256 in J/m. The two can only be converted into each other using the specimen thickness. Within its own range the sheets are therefore not directly comparable; nothing was converted here.\n\nFinding on this datasheet: The sheet states a melting point for an amorphous material. Amorphous thermoplastics have no melting point but a softening range above the glass transition — the row was therefore not imported.\n\nThe stated melting point of 120 °C would moreover sit only twelve kelvin above the sheet's own glass transition of 108 °C — even read as a softening figure this makes no sense."
+  },
+  "features": {
+    "de": "Mit HDT-B 96 °C und Vicat 105 °C das wärmefesteste ASA-Blatt der Datenbank. Der Handelsname lautet „Self-restraint ASA“; das Blatt erklärt nicht, worauf sich das bezieht.",
+    "en": "With HDT-B 96 °C and Vicat 105 °C the most heat-resistant ASA sheet in the database. The trade name reads “Self-restraint ASA”; the sheet does not explain what that refers to."
+  },
+  "datasheet": {
+    "title": "SUNLU ASA — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "Stand 2024-01-26",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2220,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 1 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 15,
+      "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 73,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2114,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 18,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 96,
+      "unit": "°C",
+      "testStandard": "ASTM D648, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 108,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 105,
+      "unit": "°C",
+      "testStandard": "ASTM D1525, 5 kg, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.06,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": null,
+      "unit": "%",
+      "min": 0.4,
+      "max": 0.9,
+      "testStandard": "ASTM D955, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 255,
+      "max": 265,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU ASA",
+        "title": "SUNLU ASA — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/ASA.txt. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/ASA.txt for verification. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+        }
+      }
+    ]
+  }
+}

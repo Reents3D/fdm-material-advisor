@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-petg",
+  "materialId": "petg",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU PETG",
+  "origin": "China",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt nennt keine Orientierung und führt eine Zeile „Mold Shrinkage“ nach ASTM D955 — einen Spritzgussversuch. Die mechanischen Werte beschreiben deshalb mit hoher Wahrscheinlichkeit den Rohstoff, nicht das gedruckte Bauteil. Da das Blatt es nicht ausspricht, steht der Prüfkörper als „nicht deklariert“; für einen Vergleich mit den gedruckten Werten von Bambu Lab, Prusa Polymers oder den beiden ISO-Blättern von SUNLU selbst sind diese Zahlen nicht geeignet.\n\nDie ASTM-Reihe misst die Kerbschlagzähigkeit nicht einheitlich: mal nach ISO 180 in kJ/m², mal nach ASTM D256 in J/m. Beide Werte lassen sich nur mit der Prüfkörperdicke ineinander umrechnen. Innerhalb des eigenen Sortiments sind die Blätter damit nicht direkt vergleichbar; umgerechnet wurde hier nichts.\n\nBefund zu diesem Datenblatt: Das Blatt nennt einen Schmelzpunkt für einen amorphen Werkstoff. Amorphe Thermoplaste haben keinen Schmelzpunkt, sondern einen Erweichungsbereich oberhalb der Glasübergangstemperatur — die Zeile wurde deshalb nicht übernommen.\n\nAuffällig ist zudem die Kombination aus 61,4 MPa Zugfestigkeit und nur 5,3 % Bruchdehnung. PETG wird gerade wegen seiner Zähigkeit gewählt; andere Hersteller nennen 20 bis 100 %. Ein PETG, das bei 5 % bricht, verhält sich im Bauteil eher wie PLA.",
+    "en": "This sheet states no orientation and carries a “Mold Shrinkage” row to ASTM D955 — an injection moulding test. The mechanical values therefore most likely describe the raw material, not the printed part. As the sheet does not say so, the specimen stands as “not declared”; these figures are not suitable for comparison with the printed values from Bambu Lab, Prusa Polymers or SUNLU's own two ISO sheets.\n\nThe ASTM series does not measure notched impact consistently: sometimes to ISO 180 in kJ/m², sometimes to ASTM D256 in J/m. The two can only be converted into each other using the specimen thickness. Within its own range the sheets are therefore not directly comparable; nothing was converted here.\n\nFinding on this datasheet: The sheet states a melting point for an amorphous material. Amorphous thermoplastics have no melting point but a softening range above the glass transition — the row was therefore not imported.\n\nAlso striking is the combination of 61.4 MPa tensile strength with only 5.3 % elongation at break. PETG is chosen precisely for its toughness; other manufacturers state 20 to 100 %. A PETG that breaks at 5 % behaves in a part more like PLA."
+  },
+  "datasheet": {
+    "title": "SUNLU PETG — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "Stand 2024-01-26",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 61.4,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2990,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 1 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 5.3,
+      "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 74.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1686,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 35,
+      "unit": "J/m",
+      "testStandard": "ASTM D256, 3,2 mm, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 63,
+      "unit": "°C",
+      "testStandard": "ASTM D648, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 65.5,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ASTM D1525, 5 kg, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.3,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": null,
+      "unit": "%",
+      "min": 0.1,
+      "max": 0.5,
+      "testStandard": "ASTM D955, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 230,
+      "max": 240,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "min": 60,
+      "max": 70,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU PETG",
+        "title": "SUNLU PETG — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/PETG.txt. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/PETG.txt for verification. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+        }
+      }
+    ]
+  }
+}

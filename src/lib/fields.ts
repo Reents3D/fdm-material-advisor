@@ -66,6 +66,7 @@ export const FIELDS: FieldDef[] = [
   q("mechanics", "charpyUnnotchedZ", "Charpy ungekerbt Z", "Charpy unnotched Z", "kJ/m²"),
   q("mechanics", "charpyNotchedXy", "Charpy gekerbt X-Y", "Charpy notched X-Y", "kJ/m²"),
   q("mechanics", "izodNotchedXy", "Izod gekerbt X-Y", "Izod notched X-Y", "kJ/m²"),
+  q("mechanics", "izodNotchedZ", "Izod gekerbt Z", "Izod notched Z", "kJ/m²"),
   q("mechanics", "anisotropyFactorImpact", "Anisotropiefaktor Schlag", "Anisotropy factor impact", "-"),
   q("mechanics", "hardnessShoreD", "Härte Shore D", "Hardness Shore D", "Shore D"),
   r("mechanics", "toughness", "Zähigkeit", "Toughness"),

@@ -1,0 +1,150 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-pla-high-speed",
+  "materialId": "pla",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU High Speed PLA",
+  "origin": "China",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt nennt keine Orientierung und führt eine Zeile „Mold Shrinkage“ nach ASTM D955 — einen Spritzgussversuch. Die mechanischen Werte beschreiben deshalb mit hoher Wahrscheinlichkeit den Rohstoff, nicht das gedruckte Bauteil. Da das Blatt es nicht ausspricht, steht der Prüfkörper als „nicht deklariert“; für einen Vergleich mit den gedruckten Werten von Bambu Lab, Prusa Polymers oder den beiden ISO-Blättern von SUNLU selbst sind diese Zahlen nicht geeignet.\n\nDie ASTM-Reihe misst die Kerbschlagzähigkeit nicht einheitlich: mal nach ISO 180 in kJ/m², mal nach ASTM D256 in J/m. Beide Werte lassen sich nur mit der Prüfkörperdicke ineinander umrechnen. Innerhalb des eigenen Sortiments sind die Blätter damit nicht direkt vergleichbar; umgerechnet wurde hier nichts.",
+    "en": "This sheet states no orientation and carries a “Mold Shrinkage” row to ASTM D955 — an injection moulding test. The mechanical values therefore most likely describe the raw material, not the printed part. As the sheet does not say so, the specimen stands as “not declared”; these figures are not suitable for comparison with the printed values from Bambu Lab, Prusa Polymers or SUNLU's own two ISO sheets.\n\nThe ASTM series does not measure notched impact consistently: sometimes to ISO 180 in kJ/m², sometimes to ASTM D256 in J/m. The two can only be converted into each other using the specimen thickness. Within its own range the sheets are therefore not directly comparable; nothing was converted here."
+  },
+  "features": {
+    "de": "Der Schnelldruck-Typ unterscheidet sich messbar vom PLA+ desselben Hauses: höhere Glasübergangstemperatur (67,2 statt 61 °C) und höhere HDT (57,3 statt 53,8 °C), dafür ein Drittel der Kerbschlagzähigkeit (5,9 statt 19,8 kJ/m²). Beides passt zu einer auf schnelle Kristallisation eingestellten Rezeptur.",
+    "en": "The high-speed grade differs measurably from this house's PLA+: higher glass transition (67.2 instead of 61 °C) and higher HDT (57.3 instead of 53.8 °C), but a third of the notched impact (5.9 instead of 19.8 kJ/m²). Both fit a formulation tuned for fast crystallisation."
+  },
+  "datasheet": {
+    "title": "SUNLU High Speed PLA — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "Stand 2024-01-26",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 54.1,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3282,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 1 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 13.9,
+      "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 75.2,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2357,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 5.9,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 4 mm, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 57.3,
+      "unit": "°C",
+      "testStandard": "ASTM D648, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 67.2,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 165.3,
+      "unit": "°C",
+      "testStandard": "ASTM D7426, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 54,
+      "unit": "°C",
+      "testStandard": "ASTM D1525, 5 kg, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.26,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": null,
+      "unit": "%",
+      "min": 0.1,
+      "max": 0.3,
+      "testStandard": "ASTM D955, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 205,
+      "max": 215,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU High Speed PLA",
+        "title": "SUNLU High Speed PLA — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/High_Speed_PLA.txt. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/High_Speed_PLA.txt for verification. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+        }
+      }
+    ]
+  }
+}

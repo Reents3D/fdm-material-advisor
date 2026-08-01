@@ -28,6 +28,9 @@ const ROWS: [string, string, string][] = [
   ["charpyNotchedXy", "Charpy gekerbt", "Charpy notched"],
   ["izodUnnotchedXy", "Izod ungekerbt", "Izod unnotched"],
   ["izodNotchedXy", "Izod gekerbt", "Izod notched"],
+  // Quer zur Schichtebene. Nur SUNLU nennt sie beim PA6-CF - genau daran haengt der
+  // Anisotropiefaktor, den fast alle Blaetter verschweigen.
+  ["izodNotchedZ", "Izod gekerbt Z", "Izod notched Z"],
   ["interlayerAdhesion", "Schichthaftung", "Interlayer adhesion"],
   ["hdtA", "HDT-A (1,8 MPa)", "HDT-A (1.8 MPa)"],
   ["hdtB", "HDT-B (0,45 MPa)", "HDT-B (0.45 MPa)"],

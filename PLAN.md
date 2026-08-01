@@ -14,7 +14,7 @@
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
 | **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ◑ begonnen: Herstellerprodukte mit TDS-Download (6 Produkte, 3 Marken). Offen: Sunlu, mehr Extrudr/AzureFilm, Use Cases, Preise |
+| **4 — Datenausbau** | ⬤ weit: 108 Herstellerprodukte aus 7 Marken mit Datenblattbeleg. Offen: mehr AzureFilm (Cloudflare), restliche Bambu-Blätter, Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
@@ -150,7 +150,8 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 - [x] Pflichtfeld `specimenType` — trennt gedruckte Prüfkörper von Rohstoffkennwerten
 - [x] Datenblatt-Download je Produkt mit Version und Abrufdatum
 - [x] Prusament PLA / PETG / ASA (gedruckt), AzureFilm PLA / PETG (Rohstoff), Extrudr PLA NX2
-- [ ] **Sunlu** — Datenblätter noch nicht erschlossen
+- [x] **SUNLU** — 9 Produkte; zwei Blattfamilien, die ISO-Reihe (PC-ABS, PA6-CF) deklariert
+      gedruckte Prüfkörper mit Orientierung. „Easy PA“ bewusst ausgelassen, siehe Importer
 - [ ] Extrudr: PETG, GreenTEC, ASA-Serie
 - [ ] AzureFilm: ASA (URL lieferte 403), PCTG, ABS
 - [ ] Prusament: PC Blend, PVB, PA11-CF, PLA Blend

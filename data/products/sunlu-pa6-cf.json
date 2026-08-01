@@ -1,0 +1,155 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sunlu-pa6-cf",
+  "materialId": "pa6-cf",
+  "brand": "SUNLU",
+  "manufacturer": "SUNLU Group",
+  "productName": "SUNLU PA6-CF",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Dieses Blatt deklariert den Prüfkörper: Jede mechanische Zeile trägt die Orientierung (X-Y beziehungsweise Z-X), und auf Seite zwei sind die Prüfkörper als gedruckte Teile mit eingetragener Z-Achse gezeichnet. Damit sind die Werte mit denen von Bambu Lab und Prusa Polymers vergleichbar — und nicht mit der ASTM-Reihe desselben Herstellers.\n\nBefund zu diesem Datenblatt: Die Festigkeitswerte sind die höchsten der ganzen Datenbank: 170 MPa Zugfestigkeit und 11000 MPa Biege-E-Modul an einem gedruckten Prüfkörper. Zum Vergleich steht das ebenfalls gedruckte PA6-CF von Bambu Lab mit 102 MPa und 4430 MPa im selben Werkstofftyp. Beide Blätter geben rund 20 % Carbonfaser an. Ein Unterschied dieser Grössenordnung zwischen zwei gedruckten Prüfkörpern desselben Werkstofftyps ist erklärungsbedürftig — die Werte stehen deshalb mit niedriger Konfidenz, bis sie sich gegenprüfen lassen.",
+    "en": "This sheet declares the specimen: every mechanical row carries the orientation (X-Y or Z-X), and page two draws the specimens as printed parts with the Z axis marked. The values are therefore comparable with those from Bambu Lab and Prusa Polymers — and not with the same manufacturer's ASTM series.\n\nFinding on this datasheet: The strength figures are the highest in the entire database: 170 MPa tensile strength and 11000 MPa flexural modulus on a printed specimen. For comparison, the equally printed PA6-CF from Bambu Lab sits at 102 MPa and 4430 MPa within the same material type. Both sheets state around 20 % carbon fibre. A difference of this magnitude between two printed specimens of the same material type calls for explanation — the values therefore stand at low confidence until they can be cross-checked."
+  },
+  "features": {
+    "de": "Das aussagekräftigste Blatt des Herstellers: Es beschriftet jede mechanische Zeile mit der Orientierung, zeigt auf Seite zwei Zeichnungen der Prüfkörper mit eingetragener Z-Achse und liefert die Kerbschlagzähigkeit in beiden Richtungen — 9,7 kJ/m² in der Schichtebene gegen 3,8 kJ/m² quer dazu. Daraus ergibt sich ein Anisotropiefaktor von 0,39: Quer zur Schicht bleiben knapp 40 % der Schlagzähigkeit übrig. Genau diese Zahl fehlt in fast allen Datenblättern.",
+    "en": "The manufacturer's most informative sheet: it labels every mechanical row with the orientation, shows drawings of the specimens with the Z axis marked on page two, and gives notched impact in both directions — 9.7 kJ/m² in the layer plane against 3.8 kJ/m² across it. That yields an anisotropy factor of 0.39: across the layers barely 40 % of the impact strength remains. Precisely this figure is missing from almost every datasheet."
+  },
+  "datasheet": {
+    "title": "SUNLU PA6-CF — Technical Data Sheet",
+    "url": "https://www.3dsunlu.com",
+    "version": "ohne Datumsangabe",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3dsunlu.com",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 170,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "testStandard": "ISO 527-2, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 245,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 11000,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 9.7,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedZ": {
+      "value": 3.8,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 84,
+      "unit": "Shore D",
+      "testStandard": "ISO 868, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 209,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 65,
+      "unit": "°C",
+      "testStandard": "ISO 11357-3, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "testStandard": "ISO 11357-3, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 280,
+      "unit": "°C",
+      "min": 270,
+      "max": 290,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "min": 50,
+      "max": 70,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 95,
+      "unit": "°C",
+      "min": 80,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "SUNLU Group",
+        "productName": "SUNLU PA6-CF",
+        "title": "SUNLU PA6-CF — Technical Data Sheet",
+        "url": "https://www.3dsunlu.com",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/PA6-CF-TDS.txt. Prüfkörper deklariert (gedruckt, mit Orientierung).",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/PA6-CF-TDS.txt for verification. Specimen declared (printed, with orientation)."
+        }
+      }
+    ]
+  }
+}
