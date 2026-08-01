@@ -1,70 +1,113 @@
 {
   "$schema": "../../schema/material.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "tpu-85a",
+  "id": "pa6",
   "identity": {
-    "name": "TPU 85A",
-    "family": "TPU",
-    "polymerClass": "elastomer",
+    "name": "PA6",
+    "family": "PA",
+    "polymerClass": "semi-crystalline",
     "variant": [
-      "flexible"
+      "basic"
     ],
     "aliases": [
-      "weiches TPU",
-      "Flex SemiSoft",
-      "TPU Shore A 85",
-      "TPE 85A"
+      "Polyamid 6",
+      "Nylon 6",
+      "PA 6"
     ],
-    "trademarkNotice": {
-      "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
-      "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
-    },
     "abstract": {
-      "de": "TPU 85A ist das weichste Elastomer dieser Datenbank: 550 % Bruchdehnung, Glasübergang bei −34 °C und damit auch im Kalten noch nachgiebig. Für Dichtungen, Dämpfer und Greifer. Grenzen: sehr langsam zu drucken, Direktextruder praktisch zwingend, kein Konstruktionswerkstoff.",
-      "en": "TPU 85A is the softest elastomer in this database: 550 % elongation, glass transition at −34 °C and therefore still compliant in the cold. For seals, dampers and grippers. Limits: very slow to print, a direct extruder is practically mandatory, not a structural material."
+      "de": "PA6 unverstärkt ist der zähe, verschleissfeste Grundtyp der Polyamidreihe: hohe Schlagzähigkeit, gute Gleiteigenschaften und Beständigkeit gegen Öle, Fette und Kraftstoffe. Der Preis dafür ist Wasser — PA6 nimmt bis zu 3 % auf und verändert dabei Steifigkeit, Mass und Glasübergangstemperatur. Im Druck heisst das: trocknen, trocken halten, beheizte Kammer.",
+      "en": "Unfilled PA6 is the tough, wear-resistant base grade of the polyamide range: high impact strength, good sliding properties and resistance to oils, greases and fuels. The price is water — PA6 takes up to 3 % and changes stiffness, dimensions and glass transition in the process. In printing that means: dry it, keep it dry, heated chamber."
     },
     "positioning": {
-      "de": "Wenn es weich sein muss und auch bei Kälte weich bleiben soll.",
-      "en": "When it has to be soft and stay soft in the cold."
-    }
+      "de": "Der zähe Grundtyp — wenn das Bauteil einstecken muss statt steif zu sein.",
+      "en": "The tough base grade — when the part has to take a hit rather than stay stiff."
+    },
+    "notToBeConfusedWith": [
+      {
+        "materialId": "pa6-cf",
+        "reason": {
+          "de": "PA6-CF ist derselbe Grundwerkstoff mit rund 20 % Carbonfaser. Die Faser vervierfacht die Steifigkeit und hebt die Wärmeformbeständigkeit massiv — sie kostet aber genau das, wofür man unverstärktes PA6 nimmt: die Zähigkeit. Wer ein Bauteil braucht, das nachgibt statt zu brechen, ist beim unverstärkten Typ richtig.",
+          "en": "PA6-CF is the same base material with about 20 % carbon fibre. The fibre quadruples stiffness and lifts heat resistance massively — but it costs exactly what unfilled PA6 is chosen for: toughness. Anyone needing a part that yields rather than breaks belongs with the unfilled grade."
+        }
+      },
+      {
+        "materialId": "pa12",
+        "reason": {
+          "de": "PA12 nimmt deutlich weniger Wasser auf (rund 1 % gegen 3 %) und ist damit masshaltiger und im Druck gutmütiger. PA6 ist dafür fester, steifer und wärmeformbeständiger. Die Wahl zwischen beiden ist fast immer eine Feuchtefrage, keine Festigkeitsfrage.",
+          "en": "PA12 takes up considerably less water (around 1 % against 3 %) and is therefore more dimensionally stable and better behaved in printing. PA6 in return is stronger, stiffer and more heat resistant. The choice between them is almost always a moisture question, not a strength question."
+        }
+      }
+    ]
   },
   "mechanics": {
     "density": {
-      "value": 1.18,
+      "value": 1.13,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "tensileStrengthXy": {
-      "value": 22,
-      "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "elongationAtBreakXy": {
-      "value": 550,
-      "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "hardnessShoreD": {
-      "value": 47,
-      "unit": "Shore D",
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Umgerechnet aus Shore A 85 — Shore D ist bei sehr weichen Elastomeren nur eine grobe Näherung.",
-        "en": "Converted from Shore A 85 — Shore D is only a rough approximation for very soft elastomers."
+        "de": "Standardwert für unverstärktes PA6. Gefülltes PA6 liegt darunter (PA6-CF 1,09) oder darüber (PA6-GF 1,21).",
+        "en": "Standard value for unfilled PA6. Filled PA6 sits below (PA6-CF 1.09) or above (PA6-GF 1.21)."
+      }
+    },
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "min": 45,
+      "max": 70,
+      "orientation": "XY",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Gilt für den trockenen Zustand. PA6 nimmt bis zu 3 % Wasser auf; konditioniert fällt die Steifigkeit deutlich, die Zähigkeit steigt, und die Glasübergangstemperatur rutscht unter Raumtemperatur. Ein Bauteil, das im Betrieb Feuchte zieht, verhält sich anders als der Prüfkörper.",
+        "en": "Applies to the dry state. PA6 takes up to 3 % water; conditioned, stiffness drops markedly, toughness rises, and the glass transition slides below room temperature. A part that picks up moisture in service behaves differently from the specimen."
+      }
+    },
+    "tensileModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "min": 1500,
+      "max": 2400,
+      "orientation": "XY",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Gilt für den trockenen Zustand. PA6 nimmt bis zu 3 % Wasser auf; konditioniert fällt die Steifigkeit deutlich, die Zähigkeit steigt, und die Glasübergangstemperatur rutscht unter Raumtemperatur. Ein Bauteil, das im Betrieb Feuchte zieht, verhält sich anders als der Prüfkörper.",
+        "en": "Applies to the dry state. PA6 takes up to 3 % water; conditioned, stiffness drops markedly, toughness rises, and the glass transition slides below room temperature. A part that picks up moisture in service behaves differently from the specimen."
+      }
+    },
+    "elongationAtBreakXy": {
+      "value": 20,
+      "unit": "%",
+      "min": 10,
+      "max": 40,
+      "orientation": "XY",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Gilt für den trockenen Zustand. PA6 nimmt bis zu 3 % Wasser auf; konditioniert fällt die Steifigkeit deutlich, die Zähigkeit steigt, und die Glasübergangstemperatur rutscht unter Raumtemperatur. Ein Bauteil, das im Betrieb Feuchte zieht, verhält sich anders als der Prüfkörper.",
+        "en": "Applies to the dry state. PA6 takes up to 3 % water; conditioned, stiffness drops markedly, toughness rises, and the glass transition slides below room temperature. A part that picks up moisture in service behaves differently from the specimen."
       }
     },
     "toughness": {
-      "value": 5,
+      "value": 4,
       "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Die Stärke dieses Werkstoffs. Unverstärktes PA6 bricht nicht spröde, es gibt nach — der Grund, warum es bei Zahnrädern, Klemmen und Schnapphaken steht.",
+        "en": "The strength of this material. Unfilled PA6 does not break brittle, it yields — the reason it is used for gears, clamps and snap hooks."
+      }
+    },
+    "notchSensitivity": {
+      "value": 2,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "creepTendency": {
+      "value": 3,
+      "scale": "creepTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
@@ -72,126 +115,185 @@
       "value": 4,
       "scale": "wearResistance",
       "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
-    "fatigueResistance": {
-      "value": 5,
-      "scale": "fatigueResistance",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "confidence": "estimated",
+      "note": {
+        "de": "Gute Gleit- und Verschleisseigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
+        "en": "Good sliding and wear properties even without lubrication — the classic use for bearing bushes and gears."
+      }
     }
   },
   "thermal": {
-    "vicatB50": {
-      "value": 98,
+    "hdtA": {
+      "value": 60,
       "unit": "°C",
-      "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "recommendedMaxServiceTemperature": {
-      "value": 75,
-      "unit": "°C",
-      "conditions": "unbelastet, Luft, dauerhaft",
+      "min": 50,
+      "max": 75,
+      "testStandard": "ISO 75, 1,8 MPa",
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
-        "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
+        "de": "Der grosse Abstand zwischen HDT-A und HDT-B ist bei teilkristallinen Polyamiden typisch und keine Datenblattschwäche: Unter kleiner Last trägt die Kristallphase weit über den Glasübergang hinaus, unter grosser Last nicht.",
+        "en": "The large gap between HDT-A and HDT-B is typical of semi-crystalline polyamides and no datasheet weakness: under low load the crystalline phase carries far beyond the glass transition, under high load it does not."
+      }
+    },
+    "hdtB": {
+      "value": 160,
+      "unit": "°C",
+      "min": 140,
+      "max": 180,
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "glassTransition": {
+      "value": 60,
+      "unit": "°C",
+      "conditions": "trocken",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Gilt für den trockenen Zustand. PA6 nimmt bis zu 3 % Wasser auf; konditioniert fällt die Steifigkeit deutlich, die Zähigkeit steigt, und die Glasübergangstemperatur rutscht unter Raumtemperatur. Ein Bauteil, das im Betrieb Feuchte zieht, verhält sich anders als der Prüfkörper.",
+        "en": "Applies to the dry state. PA6 takes up to 3 % water; conditioned, stiffness drops markedly, toughness rises, and the glass transition slides below room temperature. A part that picks up moisture in service behaves differently from the specimen."
+      }
+    },
+    "meltingTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 215,
+      "max": 225,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "min": 70,
+      "max": 90,
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Konservativ angesetzt und bewusst nicht an der HDT-B orientiert. Oberhalb des Glasübergangs kriecht das Material unter Dauerlast.",
+        "en": "Set conservatively and deliberately not oriented on HDT-B. Above the glass transition the material creeps under sustained load."
       }
     }
   },
   "processing": {
     "nozzleTemperature": {
-      "value": 235,
+      "value": 260,
       "unit": "°C",
-      "min": 220,
-      "max": 250,
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "min": 240,
+      "max": 280,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
     },
     "bedTemperature": {
-      "value": 70,
+      "value": 75,
       "unit": "°C",
-      "min": 50,
+      "min": 60,
       "max": 90,
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
     },
     "chamberRequirement": {
-      "value": "not-required",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "value": "recommended",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Ohne beheizte Kammer sind grössere Bauteile durch Verzug kaum beherrschbar. Für kleine Teile geht es, für XXL nicht.",
+        "en": "Without a heated chamber, larger parts are barely controllable due to warping. For small parts it works, for XXL it does not."
+      }
     },
     "dryingTemperature": {
-      "value": 60,
+      "value": 80,
       "unit": "°C",
+      "min": 70,
+      "max": 90,
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "dryingTime": {
-      "value": 6,
+      "value": 10,
       "unit": "h",
+      "min": 6,
+      "max": 16,
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "printability": {
-      "value": 1,
+      "value": 2,
       "scale": "printability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "warpingTendency": {
-      "value": 1,
+      "value": 4,
       "scale": "warpingTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "hygroscopy": {
-      "value": 4,
+      "value": 5,
       "scale": "hygroscopy",
       "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "confidence": "estimated",
+      "note": {
+        "de": "Der höchste Wert der Skala, und er ist verdient: Eine offene Rolle PA6 zieht binnen Stunden so viel Feuchte, dass der Druck sichtbar schäumt und die Schichthaftung einbricht.",
+        "en": "The highest value on the scale, and it is deserved: an open spool of PA6 pulls enough moisture within hours that the print visibly foams and layer adhesion collapses."
+      }
     },
     "abrasiveness": {
       "value": 1,
       "scale": "abrasiveness",
       "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
-    "stringingTendency": {
-      "value": 5,
-      "scale": "stringingTendency",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "confidence": "estimated",
+      "note": {
+        "de": "Unverstärkt ist PA6 nicht abrasiv — eine Messingdüse reicht. Das gilt für die gefüllten Varianten ausdrücklich NICHT.",
+        "en": "Unfilled, PA6 is not abrasive — a brass nozzle suffices. That expressly does NOT hold for the filled variants."
+      }
     }
   },
   "durability": {
     "uvResistance": {
-      "value": 3,
+      "value": 2,
       "scale": "uvResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "weatherResistance": {
-      "value": 3,
+      "value": 2,
       "scale": "weatherResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "hydrolysisResistance": {
-      "value": 3,
+      "value": 2,
       "scale": "hydrolysisResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
+    "waterAbsorption": {
+      "value": 2.7,
+      "unit": "%",
+      "min": 2,
+      "max": 3.5,
+      "testStandard": "ISO 62, Sättigung",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Gilt für den trockenen Zustand. PA6 nimmt bis zu 3 % Wasser auf; konditioniert fällt die Steifigkeit deutlich, die Zähigkeit steigt, und die Glasübergangstemperatur rutscht unter Raumtemperatur. Ein Bauteil, das im Betrieb Feuchte zieht, verhält sich anders als der Prüfkörper.",
+        "en": "Applies to the dry state. PA6 takes up to 3 % water; conditioned, stiffness drops markedly, toughness rises, and the glass transition slides below room temperature. A part that picks up moisture in service behaves differently from the specimen."
+      }
+    },
     "chemicalResistance": [
       {
         "chemicalId": "chem_water",
-        "rating": "resistant",
+        "rating": "limited",
         "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
       },
       {
         "chemicalId": "chem_salt_water",
@@ -205,7 +307,7 @@
       },
       {
         "chemicalId": "chem_steam",
-        "rating": "not-resistant",
+        "rating": "limited",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -215,9 +317,13 @@
       },
       {
         "chemicalId": "chem_mineral_oil",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
       },
       {
         "chemicalId": "chem_grease",
@@ -241,7 +347,7 @@
       },
       {
         "chemicalId": "chem_coolant_mwf",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -251,7 +357,7 @@
       },
       {
         "chemicalId": "chem_brake_fluid",
-        "rating": "not-resistant",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -261,7 +367,7 @@
       },
       {
         "chemicalId": "chem_petrol_diesel",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -271,7 +377,7 @@
       },
       {
         "chemicalId": "chem_ipa",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -281,7 +387,7 @@
       },
       {
         "chemicalId": "chem_ethanol",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -291,7 +397,7 @@
       },
       {
         "chemicalId": "chem_acetone",
-        "rating": "not-resistant",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -301,7 +407,7 @@
       },
       {
         "chemicalId": "chem_mek",
-        "rating": "not-resistant",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -311,7 +417,7 @@
       },
       {
         "chemicalId": "chem_surface_disinfectant",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -331,7 +437,7 @@
       },
       {
         "chemicalId": "chem_hydrogen_peroxide",
-        "rating": "limited",
+        "rating": "not-resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -341,7 +447,7 @@
       },
       {
         "chemicalId": "chem_dilute_acid",
-        "rating": "limited",
+        "rating": "not-resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -351,7 +457,7 @@
       },
       {
         "chemicalId": "chem_dilute_alkali",
-        "rating": "not-resistant",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -371,7 +477,7 @@
       },
       {
         "chemicalId": "chem_strong_alkali",
-        "rating": "not-resistant",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -381,7 +487,7 @@
       },
       {
         "chemicalId": "chem_ester",
-        "rating": "limited",
+        "rating": "resistant",
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -395,37 +501,13 @@
     "foodContact": {
       "status": {
         "value": "not-declared",
-        "source": "src_extrudr_tds",
-        "confidence": "medium"
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Spalten, in denen sich Keime halten.",
+        "en": "Even with a food-contact compliant material the FDM PART is not automatically compliant: the layer structure forms crevices in which germs survive."
       }
-    },
-    "flameRetardancy": {
-      "ul94": {
-        "value": "not-classified",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      }
-    },
-    "printEmissions": {
-      "concernLevel": {
-        "value": "low",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      "extractionRecommended": {
-        "value": false,
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      }
-    },
-    "translucency": {
-      "value": "opaque",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
     }
   },
   "finishing": {
@@ -436,23 +518,26 @@
       "confidence": "estimated"
     },
     "paintAdhesion": {
-      "value": 1,
+      "value": 2,
       "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Polyamide sind unpolar und schlecht benetzbar — ohne Haftvermittler oder Vorbehandlung hält kein Lack dauerhaft.",
+        "en": "Polyamides are non-polar and poorly wettable — without a bonding agent or pre-treatment no paint holds permanently."
+      }
+    },
+    "sandability": {
+      "value": 3,
+      "scale": "sandability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "bondability": {
-      "value": 3,
+      "value": 2,
       "scale": "bondability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
-    },
-    "chemicalSmoothing": {
-      "suitable": {
-        "value": false,
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      }
     }
   },
   "commercial": {
@@ -469,28 +554,23 @@
       "confidence": "estimated"
     },
     "smallSeriesSuitability": {
-      "value": 2,
+      "value": 3,
       "scale": "smallSeriesSuitability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 900,
+        "value": 400,
         "unit": "mm",
         "min": 200,
-        "max": 1800,
+        "max": 700,
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
-          "de": "Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
-          "en": "Estimated from chamber requirement and warping tendency, not backed by our own production."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht durch eigene Fertigung belegt.",
+          "en": "Estimated from warping tendency and chamber requirement, not backed by own production."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
       }
     },
     "reentsPortfolioStatus": {
@@ -500,55 +580,35 @@
     }
   },
   "governance": {
-    "lastReviewed": "2026-08-01",
-    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe ausstehend",
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Typprofil aus Ableitung) - fachliche Freigabe ausstehend",
     "reviewCycleMonths": 12,
     "dataCompleteness": null,
     "sources": [
-      {
-        "id": "src_extrudr_tds",
-        "type": "manufacturer-tds",
-        "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "TPU 85A",
-        "title": "TPU 85A — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-semisoft-TDS-de.pdf",
-        "retrievedAt": "2026-08-01",
-        "confidenceCeiling": "high",
-        "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
-        }
-      },
       {
         "id": "estimate_reasoning",
         "type": "estimate",
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
+          "en": "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."
+        }
       }
     ],
     "openQuestions": [
       {
-        "id": "oq_specimen_type",
+        "id": "oq_pa6_primary_source",
         "question": {
-          "de": "Extrudr deklariert den Prüfkörpertyp nicht. Beim Hersteller erfragen, ob gedruckt oder spritzgegossen gemessen wurde.",
-          "en": "Extrudr does not declare the specimen type. Ask the manufacturer whether values were measured printed or moulded."
+          "de": "Ein Herstellerdatenblatt für unverstärktes PA6 mit deklarierten gedruckten Prüfkörpern würde dieses Typprofil von Schätzung auf Beleg heben. Welcher Hersteller im Portfolio führt eins?",
+          "en": "A manufacturer datasheet for unfilled PA6 with declared printed specimens would lift this type profile from estimate to evidence. Which manufacturer in the portfolio has one?"
         },
         "blocking": false,
         "affectsFields": [
-          "mechanics"
-        ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
+          "mechanics.tensileStrengthXy",
+          "mechanics.tensileModulusXy",
+          "thermal.hdtB"
         ]
       }
     ]

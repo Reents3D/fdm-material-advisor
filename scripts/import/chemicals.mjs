@@ -175,6 +175,35 @@ const C = [
     eff: t("Verseift Polyester. PETG, PET-CF und PC fallen dadurch aus dem Feld — obwohl gerade PETG der naheliegende Griff wäre.",
            "Saponifies polyesters. PETG, PET-CF and PC drop out of the field — even though PETG would be the obvious choice."),
     conc: t("Bezugsgrösse sind etwa 10 %.", "The reference is roughly 10 %.") },
+
+  /* Nachtrag 2026-08-02: Diese drei Medien kamen dazu, weil Herstellerdatenblätter sie
+     als eigene Zeile führen (SUNLU nennt starke und schwache Säuren/Laugen getrennt) und
+     sich ihre Angaben sonst nirgends ablegen liessen. Eine "starke Säure" ist chemisch
+     etwas anderes als eine verdünnte, nicht bloss mehr davon. */
+  { id: "chem_strong_acid", cat: "saeure-lauge", agg: 5,
+    name: t("Starke Säure", "Strong acid"),
+    ex: t("Salzsäure, Schwefelsäure, Salpetersäure, Batteriesäure unverdünnt, Beizen",
+          "Hydrochloric, sulphuric and nitric acid, undiluted battery acid, pickling baths"),
+    eff: t("Greift Polyamide und Polycarbonat schnell an und baut Polyester hydrolytisch ab. Nur wenige Werkstoffe halten dagegen — PPS ist unter den druckbaren die verlässlichste Wahl.",
+           "Attacks polyamides and polycarbonate quickly and hydrolytically degrades polyesters. Few materials hold up — among the printable ones PPS is the most reliable choice."),
+    conc: t("Gemeint ist pH unter 3 beziehungsweise die technisch übliche Konzentration.",
+            "Meant is pH below 3 or the technically usual concentration.") },
+  { id: "chem_strong_alkali", cat: "saeure-lauge", agg: 5,
+    name: t("Starke Lauge", "Strong alkali"),
+    ex: t("Konzentrierte Natronlauge, Kalilauge, alkalische Entfettungsbäder, Ätznatron",
+          "Concentrated caustic soda, potassium hydroxide, alkaline degreasing baths, lye"),
+    eff: t("Verseift Polyester und Polycarbonat regelrecht. ABS und Polyamid halten dagegen erstaunlich gut — hier dreht sich die übliche Reihenfolge um.",
+           "Saponifies polyesters and polycarbonate outright. ABS and polyamide hold up surprisingly well — here the usual order reverses."),
+    conc: t("Gemeint ist pH über 10 beziehungsweise die technisch übliche Konzentration.",
+            "Meant is pH above 10 or the technically usual concentration.") },
+  { id: "chem_ester", cat: "loesemittel", agg: 4,
+    name: t("Ester", "Esters"),
+    ex: t("Ethylacetat, Butylacetat, Nagellackentferner, viele Lackverdünner und Klebstoffe",
+          "Ethyl acetate, butyl acetate, nail polish remover, many paint thinners and adhesives"),
+    eff: t("Löst und quillt amorphe Werkstoffe — ABS, PC und PMMA reagieren deutlich. Teilkristalline Polyamide stecken es weg. Praxisrelevant vor allem beim Lackieren und Verkleben.",
+           "Dissolves and swells amorphous materials — ABS, PC and PMMA react markedly. Semi-crystalline polyamides shrug it off. Relevant in practice above all when painting and bonding."),
+    conc: t("Bezugsgrösse ist das reine Lösemittel bei Raumtemperatur.",
+            "The reference is the neat solvent at room temperature.") },
 ];
 
 const outS = path.join(ROOT, "schema");

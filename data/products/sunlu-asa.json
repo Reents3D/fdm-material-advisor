@@ -120,6 +120,114 @@
       "confidence": "medium"
     }
   },
+  "chemicalResistance": [
+    {
+      "chemicalId": "chem_dilute_acid",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Excellent“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_strong_acid",
+      "rating": "limited",
+      "conditions": "Herstellerangabe „Fair“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_dilute_alkali",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Excellent“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_strong_alkali",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Excellent“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_water",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Excellent“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_ethanol",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Good“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt nennt als Zeile nur die Stoffgruppe („Alcohol“ beziehungsweise „Ketone“), nicht das einzelne Medium. Die Angabe gilt hier deshalb für beide im Register geführten Vertreter der Gruppe.",
+        "en": "The datasheet names only the substance group as a row (“Alcohol” or “Ketone”), not the individual medium. The statement therefore applies here to both representatives of the group carried in the register."
+      }
+    },
+    {
+      "chemicalId": "chem_ipa",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Good“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt nennt als Zeile nur die Stoffgruppe („Alcohol“ beziehungsweise „Ketone“), nicht das einzelne Medium. Die Angabe gilt hier deshalb für beide im Register geführten Vertreter der Gruppe.",
+        "en": "The datasheet names only the substance group as a row (“Alcohol” or “Ketone”), not the individual medium. The statement therefore applies here to both representatives of the group carried in the register."
+      }
+    },
+    {
+      "chemicalId": "chem_acetone",
+      "rating": "not-resistant",
+      "conditions": "Herstellerangabe „Poor“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt nennt als Zeile nur die Stoffgruppe („Alcohol“ beziehungsweise „Ketone“), nicht das einzelne Medium. Die Angabe gilt hier deshalb für beide im Register geführten Vertreter der Gruppe.",
+        "en": "The datasheet names only the substance group as a row (“Alcohol” or “Ketone”), not the individual medium. The statement therefore applies here to both representatives of the group carried in the register."
+      }
+    },
+    {
+      "chemicalId": "chem_mek",
+      "rating": "not-resistant",
+      "conditions": "Herstellerangabe „Poor“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt nennt als Zeile nur die Stoffgruppe („Alcohol“ beziehungsweise „Ketone“), nicht das einzelne Medium. Die Angabe gilt hier deshalb für beide im Register geführten Vertreter der Gruppe.",
+        "en": "The datasheet names only the substance group as a row (“Alcohol” or “Ketone”), not the individual medium. The statement therefore applies here to both representatives of the group carried in the register."
+      }
+    },
+    {
+      "chemicalId": "chem_petrol_diesel",
+      "rating": "resistant",
+      "conditions": "Herstellerangabe „Good“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    {
+      "chemicalId": "chem_ester",
+      "rating": "limited",
+      "conditions": "Herstellerangabe „Fair“, ohne Angabe von Konzentration, Temperatur und Dauer",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  ],
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "thicknessMm": 1.5,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt kein Prüfzeugnis und keine Prüfstelle, deshalb niedrige Konfidenz.",
+        "en": "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement. The sheet names no certificate and no test house, hence low confidence."
+      }
+    }
+  },
   "governance": {
     "lastReviewed": "2026-08-01",
     "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",

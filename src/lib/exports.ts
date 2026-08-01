@@ -45,6 +45,13 @@ const SPECIMEN: Record<string, { de: string; en: string }> = {
   undeclared: { de: "nicht angegeben", en: "undeclared" },
 };
 
+const RESISTANCE: Record<string, { de: string; en: string }> = {
+  resistant: { de: "beständig", en: "resistant" },
+  limited: { de: "bedingt beständig", en: "limited" },
+  "not-resistant": { de: "nicht beständig", en: "not resistant" },
+  unknown: { de: "keine Angabe", en: "unknown" },
+};
+
 const conf = (c: Confidence | undefined, lang: string): string =>
   c ? pick(lang, CONFIDENCE[c].de, CONFIDENCE[c].en) : "";
 
@@ -160,6 +167,17 @@ export interface ExportableProduct {
   specimenNote?: { de: string; en: string };
   datasheet: { title: string; url: string; version?: string; retrievedAt: string };
   properties: Record<string, Quantity | undefined>;
+  /** Bestaendigkeitsangaben AUS DEM PRODUKTDATENBLATT, nicht die abgeleitete Familienmatrix. */
+  chemicalResistance?: {
+    chemicalId: string; rating: string; conditions?: string;
+    source: string; confidence: Confidence; note?: { de: string; en: string };
+  }[];
+  compliance?: {
+    ul94?: {
+      value: string | null; thicknessMm?: number; testStandard?: string;
+      source: string; confidence: Confidence; note?: { de: string; en: string };
+    };
+  };
 }
 
 export function productRows(
@@ -183,14 +201,41 @@ export function productRows(
   const rows: CsvRow[] = [head];
   for (const p of products) {
     const specimen = SPECIMEN[p.specimenType];
+    const specimenLabel = specimen ? pick(lang, specimen.de, specimen.en) : p.specimenType;
+    const lead = [p.id, p.brand, p.manufacturer, p.productName, p.materialId,
+      name.get(p.materialId) ?? "", specimenLabel];
+
     for (const [field, v] of Object.entries(p.properties)) {
       if (!v) continue;
       rows.push([
-        p.id, p.brand, p.manufacturer, p.productName, p.materialId, name.get(p.materialId) ?? "",
-        specimen ? pick(lang, specimen.de, specimen.en) : p.specimenType,
-        label.get(field) ?? field, field,
+        ...lead, label.get(field) ?? field, field,
         v.value, v.unit, v.min ?? null, v.max ?? null,
         v.testStandard ?? "", v.conditions ?? "", conf(v.confidence, lang),
+        p.datasheet.url, p.datasheet.retrievedAt,
+      ]);
+    }
+
+    // Bestaendigkeit und Brandschutz stehen in derselben Tabelle statt in einer eigenen
+    // Datei: Wer nach einem Produkt filtert, will alles dazu sehen, nicht zwei Dateien
+    // zusammenfuehren muessen. Die Spalte "Feld" trennt die Arten sauber.
+    for (const cr of p.chemicalResistance ?? []) {
+      const label = RESISTANCE[cr.rating] ?? { de: cr.rating, en: cr.rating };
+      rows.push([
+        ...lead, pick(lang, "Chemikalienbeständigkeit", "Chemical resistance"),
+        `chemicalResistance.${cr.chemicalId}`,
+        pick(lang, label.de, label.en), "", null, null,
+        "", cr.conditions ?? "", conf(cr.confidence, lang),
+        p.datasheet.url, p.datasheet.retrievedAt,
+      ]);
+    }
+
+    const ul94 = p.compliance?.ul94;
+    if (ul94?.value) {
+      rows.push([
+        ...lead, pick(lang, "Brandverhalten UL94", "Flammability UL94"), "compliance.ul94",
+        ul94.value, "", null, null,
+        ul94.testStandard ?? "",
+        ul94.thicknessMm ? `${ul94.thicknessMm} mm` : "", conf(ul94.confidence, lang),
         p.datasheet.url, p.datasheet.retrievedAt,
       ]);
     }

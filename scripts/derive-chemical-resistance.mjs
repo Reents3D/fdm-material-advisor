@@ -41,42 +41,49 @@ const R = "resistant", L = "limited", N = "not-resistant";
 /* Reihenfolge = Reihenfolge im Register, damit die Matrix lesbar bleibt:
    water, salt_water, steam, mineral_oil, grease, hydraulic_oil, coolant_mwf,
    brake_fluid, petrol_diesel, ipa, ethanol, acetone, mek, surface_disinfectant,
-   bleach, hydrogen_peroxide, dilute_acid, dilute_alkali */
+   bleach, hydrogen_peroxide, dilute_acid, dilute_alkali,
+   strong_acid, strong_alkali, ester */
 const ORDER = ["chem_water", "chem_salt_water", "chem_steam", "chem_mineral_oil", "chem_grease",
   "chem_hydraulic_oil", "chem_coolant_mwf", "chem_brake_fluid", "chem_petrol_diesel", "chem_ipa",
   "chem_ethanol", "chem_acetone", "chem_mek", "chem_surface_disinfectant", "chem_bleach",
-  "chem_hydrogen_peroxide", "chem_dilute_acid", "chem_dilute_alkali"];
+  "chem_hydrogen_peroxide", "chem_dilute_acid", "chem_dilute_alkali",
+  /* Nachtrag 2026-08-02 - siehe Kommentar an der Matrix. */
+  "chem_strong_acid", "chem_strong_alkali", "chem_ester"];
 
+/* Die drei letzten Spalten (starke Saeure, starke Lauge, Ester) kamen 2026-08-02 dazu.
+   Sie kehren an zwei Stellen die uebliche Reihenfolge um: ABS und Polyamid halten
+   starke Lauge besser aus als die Polyester, und Polyamid - sonst der Loesemittelheld -
+   ist gegen starke Saeure der empfindlichste Werkstoff im Feld. */
 const FAMILY = {
   /* Polyester: Esterbindung wird von Lauge verseift und von Heissdampf hydrolysiert.
      Das ist der Grund, warum PETG an der Fraese scheitert - Kuehlschmierstoff ist alkalisch. */
-  PLA: [R, R, N, R, R, R, N, N, L, R, L, L, N, L, L, L, L, N],
-  PHA: [R, R, N, R, R, R, N, N, L, R, L, L, N, L, L, L, L, N],
-  PETG: [R, R, N, R, R, R, N, N, L, L, L, N, N, L, L, L, R, N],
-  PET: [R, R, N, R, R, R, N, N, L, L, L, N, N, L, L, L, R, N],
+  PLA: [R, R, N, R, R, R, N, N, L, R, L, L, N, L, L, L, L, N, N, N, N],
+  PHA: [R, R, N, R, R, R, N, N, L, R, L, L, N, L, L, L, L, N, N, N, N],
+  PETG: [R, R, N, R, R, R, N, N, L, L, L, N, N, L, L, L, R, N, N, N, N],
+  PET: [R, R, N, R, R, R, N, N, L, L, L, N, N, L, L, L, R, N, N, N, N],
 
   /* Styrolcopolymere: gegen Saeure und Lauge unempfindlich, gegen Ketone chancenlos.
      Aceton loest ABS vollstaendig - was bei der Dampfglaettung erwuenscht ist. */
-  ABS: [R, R, N, L, R, L, L, N, N, L, L, N, N, L, L, L, R, R],
-  ASA: [R, R, N, L, R, L, L, N, N, L, L, N, N, L, L, L, R, R],
+  ABS: [R, R, N, L, R, L, L, N, N, L, L, N, N, L, L, L, R, R, L, R, N],
+  ASA: [R, R, N, L, R, L, L, N, N, L, L, N, N, L, L, L, R, R, L, R, N],
 
   /* Polycarbonat: beruechtigt fuer Spannungsrissbildung schon bei Alkoholen und
      Flaechendesinfektion - der haeufigste Ausfall in der Praxis, nicht das Aufloesen. */
-  PC: [R, R, N, R, R, L, N, N, N, L, N, N, N, N, L, L, R, N],
+  PC: [R, R, N, R, R, L, N, N, N, L, N, N, N, N, L, L, R, N, N, N, N],
 
   /* Polyamide: gegen Oele, Kraftstoffe und Loesemittel hervorragend, gegen Saeure und
      Oxidationsmittel schlecht - und Wasser ist hier ein Kennwertproblem, kein Angriff. */
-  PA: [L, L, L, R, R, R, R, R, R, R, R, R, R, R, N, N, N, R],
+  PA: [L, L, L, R, R, R, R, R, R, R, R, R, R, R, N, N, N, R, N, R, R],
 
   /* PPS ist der Ausreisser: praktisch gegen alles bestaendig, was hier gelistet ist. */
-  PPS: [R, R, R, R, R, R, R, R, R, R, R, R, R, R, L, L, R, R],
+  PPS: [R, R, R, R, R, R, R, R, R, R, R, R, R, R, L, L, R, R, R, R, R],
 
   /* PMMA: optisch brillant, chemisch das Sorgenkind. Spannungsrisse schon durch IPA. */
-  PMMA: [R, R, N, L, L, N, L, N, N, N, N, N, N, N, L, L, R, L],
+  PMMA: [R, R, N, L, L, N, L, N, N, N, N, N, N, N, L, L, R, L, L, L, N],
 
   /* TPU wird ueberwiegend auf Polyesterbasis geliefert - daher dieselbe Laugen- und
      Hydrolyseschwaeche wie bei den Polyestern, bei sehr guter Oelbestaendigkeit. */
-  TPU: [L, L, N, R, R, R, L, N, L, L, L, N, N, L, N, L, L, N],
+  TPU: [L, L, N, R, R, R, L, N, L, L, L, N, N, L, N, L, L, N, N, N, L],
 };
 
 /* Werkstoffbezogene Abweichungen von der Familienmatrix, jede mit Grund. */

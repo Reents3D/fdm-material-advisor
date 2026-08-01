@@ -323,6 +323,69 @@
         "de": "Bezugsgrösse sind etwa 10 %.",
         "en": "The reference is roughly 10 %."
       }
+    },
+    {
+      "id": "chem_strong_acid",
+      "name": {
+        "de": "Starke Säure",
+        "en": "Strong acid"
+      },
+      "category": "saeure-lauge",
+      "examples": {
+        "de": "Salzsäure, Schwefelsäure, Salpetersäure, Batteriesäure unverdünnt, Beizen",
+        "en": "Hydrochloric, sulphuric and nitric acid, undiluted battery acid, pickling baths"
+      },
+      "effect": {
+        "de": "Greift Polyamide und Polycarbonat schnell an und baut Polyester hydrolytisch ab. Nur wenige Werkstoffe halten dagegen — PPS ist unter den druckbaren die verlässlichste Wahl.",
+        "en": "Attacks polyamides and polycarbonate quickly and hydrolytically degrades polyesters. Few materials hold up — among the printable ones PPS is the most reliable choice."
+      },
+      "aggressiveness": 5,
+      "concentration": {
+        "de": "Gemeint ist pH unter 3 beziehungsweise die technisch übliche Konzentration.",
+        "en": "Meant is pH below 3 or the technically usual concentration."
+      }
+    },
+    {
+      "id": "chem_strong_alkali",
+      "name": {
+        "de": "Starke Lauge",
+        "en": "Strong alkali"
+      },
+      "category": "saeure-lauge",
+      "examples": {
+        "de": "Konzentrierte Natronlauge, Kalilauge, alkalische Entfettungsbäder, Ätznatron",
+        "en": "Concentrated caustic soda, potassium hydroxide, alkaline degreasing baths, lye"
+      },
+      "effect": {
+        "de": "Verseift Polyester und Polycarbonat regelrecht. ABS und Polyamid halten dagegen erstaunlich gut — hier dreht sich die übliche Reihenfolge um.",
+        "en": "Saponifies polyesters and polycarbonate outright. ABS and polyamide hold up surprisingly well — here the usual order reverses."
+      },
+      "aggressiveness": 5,
+      "concentration": {
+        "de": "Gemeint ist pH über 10 beziehungsweise die technisch übliche Konzentration.",
+        "en": "Meant is pH above 10 or the technically usual concentration."
+      }
+    },
+    {
+      "id": "chem_ester",
+      "name": {
+        "de": "Ester",
+        "en": "Esters"
+      },
+      "category": "loesemittel",
+      "examples": {
+        "de": "Ethylacetat, Butylacetat, Nagellackentferner, viele Lackverdünner und Klebstoffe",
+        "en": "Ethyl acetate, butyl acetate, nail polish remover, many paint thinners and adhesives"
+      },
+      "effect": {
+        "de": "Löst und quillt amorphe Werkstoffe — ABS, PC und PMMA reagieren deutlich. Teilkristalline Polyamide stecken es weg. Praxisrelevant vor allem beim Lackieren und Verkleben.",
+        "en": "Dissolves and swells amorphous materials — ABS, PC and PMMA react markedly. Semi-crystalline polyamides shrug it off. Relevant in practice above all when painting and bonding."
+      },
+      "aggressiveness": 4,
+      "concentration": {
+        "de": "Bezugsgrösse ist das reine Lösemittel bei Raumtemperatur.",
+        "en": "The reference is the neat solvent at room temperature."
+      }
     }
   ]
 }

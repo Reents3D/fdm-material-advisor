@@ -1,6 +1,6 @@
 /** Herstellerprodukte. Getrennt von den Werkstofftypen — siehe scripts/import/manufacturer-products.mjs. */
 
-import type { I18nText, Quantity } from "../engine/types";
+import type { Confidence, I18nText, Quantity } from "../engine/types";
 
 export interface Product {
   schemaVersion: string;
@@ -17,6 +17,21 @@ export interface Product {
   datasheet: { title: string; url: string; version?: string; retrievedAt: string };
   productUrl?: string;
   properties: Record<string, Quantity | undefined>;
+  /** Bestaendigkeitsangaben AUS DEM PRODUKTDATENBLATT - nicht die abgeleitete Familienmatrix. */
+  chemicalResistance?: {
+    chemicalId: string;
+    rating: "resistant" | "limited" | "not-resistant" | "unknown";
+    conditions?: string;
+    source: string;
+    confidence: Confidence;
+    note?: I18nText;
+  }[];
+  compliance?: {
+    ul94?: {
+      value: string | null; thicknessMm?: number; testStandard?: string;
+      source: string; confidence: Confidence; note?: I18nText;
+    };
+  };
   governance: { lastReviewed: string; reviewedBy: string; sources: unknown[] };
 }
 

@@ -23,13 +23,14 @@
  *     sogar Schlagzähigkeit in beiden Richtungen, woraus sich ein Anisotropiefaktor
  *     ergibt.
  *
- * NICHT AUFGENOMMEN: "Easy PA". Schmelzpunkt 198 °C und Dichte 1,08 g/cm³ passen zu
- * keinem der geführten Polyamidtypen (PA12 schmilzt bei 178 °C, PA6 bei 220 °C), und
- * das Blatt sagt nicht, welches Polyamid es ist. Es einem vorhandenen Typ zuzuordnen
- * hiesse, eine Vergleichbarkeit zu behaupten, die es nicht gibt.
+ * ZU "EASY PA": Das Blatt sagt nicht, welches Polyamid es ist, und Schmelzpunkt (198 °C)
+ * wie Dichte (1,08 g/cm³) passen zu keinem Typ sauber — beides deutet auf ein
+ * PA6/66-Copolymer. Das Produkt ist dem 2026-08-02 angelegten Typ PA6 zugeordnet, weil
+ * es dort fachlich am nächsten steht; die Abweichung steht als Befund am Produkt, damit
+ * niemand die Werte für reines PA6 hält.
  */
 
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -70,6 +71,95 @@ const MIXED_UNITS = t(
 const join = (...parts) => t(
   parts.filter(Boolean).map((x) => x.de).join("\n\n"),
   parts.filter(Boolean).map((x) => x.en).join("\n\n"));
+
+/* ------------------------------------- Chemikalien und Brandschutz aus dem Blatt */
+
+/**
+ * SUNLU fuehrt in jedem Blatt eine Bestaendigkeitstabelle und eine UL94-Zeile. Beides
+ * wird hier AUS DEM COMMITTETEN TEXTAUSZUG gelesen statt abgetippt: So bleibt der
+ * Datenblattauszug die Quelle, und ein Tippfehler kann sich nicht einschleichen.
+ *
+ * Die Klassen des Blattes sind gröber als unsere Skala. "Excellent" und "Good" landen
+ * beide auf "resistant" - das ist ein Informationsverlust, aber ein ehrlicher: unsere
+ * Skala kennt nur drei Stufen, und eine vierte zu erfinden hiesse, eine Genauigkeit zu
+ * behaupten, die die Bewertung nicht hat.
+ */
+const CLASS_MAP = {
+  excellent: "resistant", good: "resistant",
+  fair: "limited", normal: "limited",
+  poor: "not-resistant",
+};
+
+/** Zeile im Blatt -> Medien-IDs des Registers. */
+const CHEM_MAP = [
+  [/^Weak\s+Acid/i, ["chem_dilute_acid"]],
+  [/^Strong\s+Acid/i, ["chem_strong_acid"]],
+  [/^Weak\s+Bases/i, ["chem_dilute_alkali"]],
+  [/^Strong\s+Bases/i, ["chem_strong_alkali"]],
+  [/^Deionized\s+Water/i, ["chem_water"]],
+  // Das Blatt sagt nur "Alcohol" beziehungsweise "Ketone" - die Aussage gilt also fuer
+  // die ganze Stoffgruppe und wird auf beide gefuehrten Vertreter uebertragen.
+  [/^Alcohol/i, ["chem_ethanol", "chem_ipa"]],
+  [/^Ketone/i, ["chem_acetone", "chem_mek"]],
+  [/^Petroleum\s+Fuels/i, ["chem_petrol_diesel"]],
+  [/^Ester/i, ["chem_ester"]],
+];
+
+const GROUP_NOTE = t(
+  "Das Datenblatt nennt als Zeile nur die Stoffgruppe („Alcohol“ beziehungsweise „Ketone“), nicht das einzelne Medium. Die Angabe gilt hier deshalb für beide im Register geführten Vertreter der Gruppe.",
+  "The datasheet names only the substance group as a row (“Alcohol” or “Ketone”), not the individual medium. The statement therefore applies here to both representatives of the group carried in the register.");
+
+const UNDOCUMENTED_CLASS = t(
+  "Das Blatt verwendet hier die Klasse „Normal“, die in seiner eigenen Legende („Excellent, Good, Fair, Poor“) nicht vorkommt. Sie wurde als mittlere Stufe gelesen.",
+  "The sheet uses the class “Normal” here, which does not appear in its own legend (“Excellent, Good, Fair, Poor”). It was read as the middle level.");
+
+function readSheet(file) {
+  return readFileSync(path.join(ROOT, "data/_sources/sunlu-tds", `${file}.txt`), "utf8");
+}
+
+function chemicalsFrom(file) {
+  const text = readSheet(file);
+  const out = [];
+  for (const raw of text.split("\n")) {
+    const line = raw.trim().replace(/\s+/g, " ");
+    for (const [pattern, ids] of CHEM_MAP) {
+      if (!pattern.test(line)) continue;
+      const m = line.match(/(Excellent|Good|Fair|Normal|Poor)\s*$/i);
+      if (!m) break;
+      const klass = m[1].toLowerCase();
+      const rating = CLASS_MAP[klass];
+      const notes = [];
+      if (ids.length > 1) notes.push(GROUP_NOTE);
+      if (klass === "normal") notes.push(UNDOCUMENTED_CLASS);
+      for (const id of ids) {
+        out.push({
+          chemicalId: id, rating,
+          conditions: `Herstellerangabe „${m[1]}“, ohne Angabe von Konzentration, Temperatur und Dauer`,
+          source: "src_tds", confidence: "low",
+          ...(notes.length ? { note: join(...notes) } : {}),
+        });
+      }
+      break;
+    }
+  }
+  return out;
+}
+
+function ul94From(file) {
+  const line = readSheet(file).split("\n").find((l) => /Flammability/i.test(l));
+  if (!line) return undefined;
+  const m = line.match(/\b(V-0|V-1|V-2|5VA|5VB|HB)\b\s*$/);
+  const thickness = line.match(/([\d.]+)\s*mm/);
+  if (!m) return undefined;
+  return {
+    value: m[1],
+    ...(thickness ? { thicknessMm: Number(thickness[1]) } : {}),
+    testStandard: "UL 94",
+    source: "src_tds", confidence: "low",
+    note: t("HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt kein Prüfzeugnis und keine Prüfstelle, deshalb niedrige Konfidenz.",
+            "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement. The sheet names no certificate and no test house, hence low confidence."),
+  };
+}
 
 /* ------------------------------------------------------------- die Produkte */
 
@@ -212,6 +302,28 @@ const P = [
     anomaly: t("Das Blatt nennt keine Shore-Härte. Für ein Elastomer ist das die wichtigste Kenngrösse überhaupt — ohne sie lässt sich nicht sagen, ob dieses TPU einer 85A- oder einer 98A-Type entspricht. Es ist hier dem in der Datenbank geführten Typ TPU 95A zugeordnet, weil die übrigen Werte dazu passen; eine Herstellerangabe ist das ausdrücklich nicht. Die Zeile zur Kerbschlagzähigkeit trägt statt einer Zahl den Eintrag „non-destructive“ — bei einem Elastomer eine sinnvolle Angabe, ein Zahlenwert wäre irreführend.",
                "The sheet states no Shore hardness. For an elastomer that is the single most important figure — without it one cannot say whether this TPU corresponds to an 85A or a 98A grade. It is assigned here to the TPU 95A type carried in the database because the remaining values fit; that is expressly not a manufacturer statement. The notched impact row carries the entry “non-destructive” instead of a number — for an elastomer a sensible statement; a numeric value would mislead.") },
 
+  { id: "sunlu-easy-pa", material: "pa6", name: "SUNLU Easy PA", file: "TDS-EASY_PA", family: "astm",
+    props: {
+      tensileStrengthXy: q(75, "MPa", { std: "ASTM D638, 50 mm/min" }),
+      tensileModulusXy: q(1790, "MPa", { std: "ASTM D638, 1 mm/min" }),
+      elongationAtBreakXy: q(32, "%", { std: "ASTM D638, 50 mm/min" }),
+      flexuralStrengthXy: q(98, "MPa", { std: "ASTM D790, 2 mm/min" }),
+      flexuralModulusXy: q(2350, "MPa", { std: "ASTM D790, 2 mm/min" }),
+      izodNotchedXy: q(62, "J/m", { std: "ASTM D256, 3,2 mm, 23 °C" }),
+      hdtB: q(121, "°C", { std: "ASTM D648, 0,45 MPa" }),
+      glassTransition: q(65, "°C", { std: "ASTM D7426, 10 °C/min" }),
+      meltingTemperature: q(198, "°C", { std: "ASTM D7426, 10 °C/min" }),
+      vicatB50: q(135, "°C", { std: "ASTM D1525, 5 kg, 50 °C/h" }),
+      density: q(1.08, "g/cm³", { std: "ASTM D792, 23 °C" }),
+      shrinkage: range(1.3, 1.6, "%", { std: "ASTM D955, 23 °C" }),
+      nozzleTemperature: q(260, "°C", { min: 255, max: 265 }),
+      bedTemperature: q(40, "°C", { min: 30, max: 50 }),
+    },
+    anomaly: t("Welches Polyamid das ist, sagt das Blatt nicht — und die Zahlen passen zu keinem der geführten Typen sauber. Der Schmelzpunkt von 198 °C liegt zwischen PA12 (178 °C) und PA6 (220 °C), die Dichte von 1,08 g/cm³ unter beiden. Beides deutet auf ein PA6/66-Copolymer hin, wie es unter Namen wie „Easy PA“ üblich ist: leichter zu drucken, weniger verzugsanfällig, dafür weniger wärmeformbeständig als reines PA6. Das Produkt ist dem Typ PA6 zugeordnet, weil es dort fachlich am nächsten steht — die Abweichung im Schmelzpunkt steht hier, damit niemand die Werte für reines PA6 hält.",
+               "Which polyamide this is the sheet does not say — and the figures fit none of the carried types cleanly. The melting point of 198 °C sits between PA12 (178 °C) and PA6 (220 °C), the density of 1.08 g/cm³ below both. Both point to a PA6/66 copolymer, as is customary under names like “Easy PA”: easier to print, less prone to warping, but less heat resistant than pure PA6. The product is assigned to the PA6 type because that is technically the closest — the deviation in melting point stands here so that nobody mistakes the values for pure PA6."),
+    features: t("Bemerkenswert ist die Betttemperatur von nur 30 bis 50 °C. Polyamide brauchen normalerweise 60 bis 100 °C und eine Kammer; ein PA, das bei 40 °C haftet, ist genau das Verkaufsversprechen des Namens.",
+                "Notable is the bed temperature of only 30 to 50 °C. Polyamides normally need 60 to 100 °C and a chamber; a PA that adheres at 40 °C is precisely the promise the name makes.") },
+
   /* ---- B · ISO-Reihe, gedruckte Prüfkörper mit Orientierung --------------- */
 
   { id: "sunlu-pc-abs", material: "abs-pc", name: "SUNLU PC-ABS", file: "PC-ABS-TDS", family: "iso",
@@ -268,7 +380,7 @@ const SPECIMEN_ISO = t(
 const out = path.join(ROOT, "data/products");
 mkdirSync(out, { recursive: true });
 
-let n = 0, na = 0;
+let n = 0, na = 0, nc = 0, nu = 0;
 for (const p of P) {
   const iso = p.family === "iso";
   const base = iso ? SPECIMEN_ISO : join(ASTM_SPECIMEN, MIXED_UNITS);
@@ -289,6 +401,8 @@ for (const p of P) {
     },
     productUrl: SITE,
     properties: p.props,
+    chemicalResistance: chemicalsFrom(p.file),
+    ...(ul94From(p.file) ? { compliance: { ul94: ul94From(p.file) } } : {}),
     governance: {
       lastReviewed: RETRIEVED,
       reviewedBy: "Claude Code (Erstimport aus Herstellerdatenblatt)",
@@ -305,7 +419,8 @@ for (const p of P) {
   writeFileSync(path.join(out, `${p.id}.json`), `${JSON.stringify(rec, null, 2)}\n`);
   n++;
   if (p.anomaly) na++;
+  nc += rec.chemicalResistance.length;
+  if (rec.compliance) nu++;
 }
 
-console.log(`${n} SUNLU-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund)`);
-console.log(`  Easy PA bewusst ausgelassen: Schmelzpunkt 198 °C und Dichte 1,08 g/cm³ passen zu keinem geführten Polyamidtyp.`);
+console.log(`${n} SUNLU-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund, ${nc} Bestaendigkeitsangaben, ${nu} mit UL94)`);

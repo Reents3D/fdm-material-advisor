@@ -32,7 +32,7 @@
     "import:extrudr": "node scripts/import/extrudr.mjs",
     "import:azurefilm": "node scripts/import/azurefilm.mjs",
     "import:manufacturers": "node scripts/import/manufacturer-products.mjs",
-    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:sunlu",
+    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:pa6 && npm run import:sunlu && npm run import:ultrafuse",
     "import:3djake": "node scripts/import/3djake.mjs",
     "import:m4p": "node scripts/import/material4print.mjs",
     "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs",
@@ -40,7 +40,9 @@
     "import:chemicals": "node scripts/import/chemicals.mjs",
     "derive:chemicals": "node scripts/derive-chemical-resistance.mjs",
     "import:glossary": "node scripts/import/glossary.mjs",
-    "import:sunlu": "node scripts/import/sunlu.mjs"
+    "import:sunlu": "node scripts/import/sunlu.mjs",
+    "import:ultrafuse": "node scripts/import/ultrafuse.mjs",
+    "import:pa6": "node scripts/import/pa6.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

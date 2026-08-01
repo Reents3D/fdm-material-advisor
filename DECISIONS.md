@@ -571,6 +571,38 @@ Relative Pfade brechen, sobald dieselbe HTML unter einer tieferen Adresse ausgel
 
 ---
 
+## ADR-015 — Herstellerangabe und Ableitung bleiben getrennt
+
+**Status:** entschieden · **Datum:** 2026-08-02
+
+Herstellerdatenblätter enthalten Aussagen, für die es am Werkstofftyp längst ein Feld gibt:
+Chemikalienbeständigkeit und UL94. Naheliegend wäre gewesen, sie dorthin zu schreiben.
+Das Produktschema hat stattdessen **eigene** Felder dafür bekommen.
+
+**Der Grund ist der Unterschied in der Aussage.** Die Beständigkeitsmatrix am Werkstofftyp
+ist eine **Ableitung aus der Polymerfamilie** — sie sagt, wie sich PETG üblicherweise gegen
+Aceton verhält. Was im Datenblatt von SUNLU PETG steht, ist eine **Aussage über ein
+konkretes Produkt**. Beide benutzen dieselbe Skala und meinen Verschiedenes. Sie in dasselbe
+Feld zu schreiben, hiesse, die Herkunft zu verlieren — genau das, was ADR-001 verhindern
+soll.
+
+**Praktisch heisst das:** Ein Hersteller kann der Ableitung widersprechen, und beides steht
+nebeneinander. Wer das eine für das andere hält, sieht es an Quelle und Konfidenz.
+
+**Die Grenze der Herstellerangaben steht am Wert.** Kein Blatt nennt Konzentration,
+Temperatur oder Dauer. „Good gegen Alkohol" ist ohne diese drei Angaben keine Freigabe,
+sondern eine Vorauswahl. Alle importierten Angaben stehen deshalb auf Konfidenz `low`, und
+die Bedingung „Herstellerangabe ohne Konzentration, Temperatur und Dauer" hängt an jedem
+einzelnen Eintrag.
+
+**Folge:** Das Medienregister wuchs von 18 auf 21 Einträge (starke Säure, starke Lauge,
+Ester), weil Datenblätter diese Medien als eigene Zeile führen und sich ihre Angaben sonst
+nirgends hätten ablegen lassen. Eine starke Säure ist chemisch etwas anderes als eine
+verdünnte, nicht bloss mehr davon — an zwei Stellen kehrt sich die gewohnte Reihenfolge
+sogar um: ABS und Polyamid halten starke Lauge besser aus als die Polyester.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

@@ -1,0 +1,282 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "ultrafuse-pet-cf15",
+  "materialId": "pet-cf",
+  "brand": "Ultrafuse",
+  "manufacturer": "Forward AM / BASF 3D Printing Solutions BV",
+  "productName": "Ultrafuse PET CF15",
+  "origin": "Niederlande",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard im gesamten Bestand: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
+    "en": "Printed specimens in three build orientations: XY flat, XZ on edge, ZX upright. The sheet additionally states the print parameters used to make the specimens — nozzle temperature, bed temperature, nozzle diameter and print speed. That is the highest evidentiary standard in the entire dataset: the values can not only be placed in context, they can be reprinted."
+  },
+  "features": {
+    "de": "Der Anisotropiefaktor steht hier nicht als Ableitung, sondern schwarz auf weiss im Blatt: 12,5 von 63,2 MPa bleiben stehend erhalten — 20 %. Bei der ungekerbten Schlagzähigkeit sind es 1,3 von 27,8 kJ/m², also knapp 5 %. Wer ein Bauteil aus PET CF15 stehend druckt und liegend rechnet, verrechnet sich um den Faktor fünf bis zwanzig. Bemerkenswert ist auch die Dichte: Sie wurde am gedruckten Teil bestimmt (1,366 g/cm³) und nicht am Filament — das schliesst die Porosität mit ein.",
+    "en": "The anisotropy factor is not a derivation here but stated in black and white: 12.5 of 63.2 MPa remain when printed upright — 20 %. For unnotched impact it is 1.3 of 27.8 kJ/m², barely 5 %. Anyone printing a PET CF15 part upright while calculating with flat values is out by a factor of five to twenty. The density is notable too: it was determined on the printed part (1.366 g/cm³) rather than on the filament — which includes the porosity."
+  },
+  "datasheet": {
+    "title": "Ultrafuse PET CF15 — Technical Data Sheet",
+    "url": "https://forward-am.com/wp-content/uploads/2021/07/Ultrafuse_PET_CF15_TDS_EN_v3.3.pdf",
+    "version": "3.3 (14.11.2019)",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 63.2,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.7,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 6178,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 108,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXy": {
+      "value": 5452,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
+      "value": 5.4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXy": {
+      "value": 27.8,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "izodNotchedXy": {
+      "value": 5.7,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "izodUnnotchedXy": {
+      "value": 25.1,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXz": {
+      "value": 145,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XZ",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXz": {
+      "value": 6293,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XZ",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXz": {
+      "value": 32,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XZ",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 12.5,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusZ": {
+      "value": 2822,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthZ": {
+      "value": 19.7,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusZ": {
+      "value": 2253,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedZ": {
+      "value": 0.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedZ": {
+      "value": 1.3,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "izodNotchedZ": {
+      "value": 2,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtA": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 108,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "glassTransition": {
+      "value": 79,
+      "unit": "°C",
+      "testStandard": "ISO 11357-2",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "meltingTemperature": {
+      "value": 245,
+      "unit": "°C",
+      "testStandard": "ISO 11357-3",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "density": {
+      "value": 1.366,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "conditions": "am GEDRUCKTEN Bauteil gemessen, nicht am Filament",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 250,
+      "max": 270,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 65,
+      "max": 85,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "printSpeed": {
+      "value": 55,
+      "unit": "mm/s",
+      "min": 30,
+      "max": 80,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "minNozzleDiameter": {
+      "value": 0.6,
+      "unit": "mm",
+      "conditions": "Rubin oder gehärtet",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "dryingTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "conditions": "4 bis 16 h im Umluft- oder Vakuumtrockner",
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Forward AM / BASF 3D Printing Solutions BV",
+        "productName": "Ultrafuse PET CF15",
+        "title": "Ultrafuse PET CF15 — Technical Data Sheet",
+        "url": "https://forward-am.com/wp-content/uploads/2021/07/Ultrafuse_PET_CF15_TDS_EN_v3.3.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Textauszug unter data/_sources/ultrafuse-tds/Ultrafuse_PET_CF15_TDS_EN_v3.3.txt.",
+          "en": "Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Text extract at data/_sources/ultrafuse-tds/Ultrafuse_PET_CF15_TDS_EN_v3.3.txt."
+        }
+      }
+    ]
+  }
+}

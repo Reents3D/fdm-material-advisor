@@ -11,26 +11,43 @@
 import { useState } from "react";
 import { PRODUCTS, productsByMaterial, type Product } from "../data/products";
 import { byId } from "../data/materials";
+import { CHEMICALS } from "../data/chemicals";
 import { Chip, Disclosure, cx, fmt, text } from "../components/ui";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
 
+/**
+ * Die Zeilen des Vergleichs.
+ *
+ * Die Z-Zeilen stehen jeweils direkt unter ihrer XY-Zeile, damit der Einbruch quer zur
+ * Schicht ins Auge springt statt am Tabellenende zu verschwinden. Nur wenige Hersteller
+ * geben sie ueberhaupt an - Ultrafuse in drei Orientierungen, SUNLU beim PA6-CF -, und
+ * genau daran haengt die Aussage, um die es in diesem Werkzeug geht.
+ */
 const ROWS: [string, string, string][] = [
   ["tensileStrengthXy", "Zugfestigkeit", "Tensile strength"],
-  ["tensileStrengthXz", "Zugfestigkeit XZ", "Tensile strength XZ"],
+  ["tensileStrengthXz", "Zugfestigkeit XZ (hochkant)", "Tensile strength XZ (on edge)"],
+  ["tensileStrengthZ", "Zugfestigkeit Z (stehend)", "Tensile strength Z (upright)"],
   ["tensileModulusXy", "E-Modul", "Modulus"],
+  ["tensileModulusZ", "E-Modul Z (stehend)", "Modulus Z (upright)"],
   ["elongationAtBreakXy", "Bruchdehnung", "Elongation at break"],
+  ["elongationAtBreakZ", "Bruchdehnung Z (stehend)", "Elongation at break Z (upright)"],
   ["elongationAtYieldXy", "Dehnung an der Streckgrenze", "Elongation at yield"],
   ["flexuralStrengthXy", "Biegefestigkeit", "Flexural strength"],
+  ["flexuralStrengthXz", "Biegefestigkeit XZ (hochkant)", "Flexural strength XZ (on edge)"],
+  ["flexuralStrengthZ", "Biegefestigkeit Z (stehend)", "Flexural strength Z (upright)"],
   ["flexuralModulusXy", "Biegemodul", "Flexural modulus"],
+  ["flexuralModulusXz", "Biegemodul XZ (hochkant)", "Flexural modulus XZ (on edge)"],
+  ["flexuralModulusZ", "Biegemodul Z (stehend)", "Flexural modulus Z (upright)"],
   ["charpyUnnotchedXy", "Charpy ungekerbt", "Charpy unnotched"],
+  ["charpyUnnotchedXz", "Charpy ungekerbt XZ (hochkant)", "Charpy unnotched XZ (on edge)"],
+  ["charpyUnnotchedZ", "Charpy ungekerbt Z (stehend)", "Charpy unnotched Z (upright)"],
   ["charpyNotchedXy", "Charpy gekerbt", "Charpy notched"],
+  ["charpyNotchedZ", "Charpy gekerbt Z (stehend)", "Charpy notched Z (upright)"],
   ["izodUnnotchedXy", "Izod ungekerbt", "Izod unnotched"],
   ["izodNotchedXy", "Izod gekerbt", "Izod notched"],
-  // Quer zur Schichtebene. Nur SUNLU nennt sie beim PA6-CF - genau daran haengt der
-  // Anisotropiefaktor, den fast alle Blaetter verschweigen.
-  ["izodNotchedZ", "Izod gekerbt Z", "Izod notched Z"],
+  ["izodNotchedZ", "Izod gekerbt Z (stehend)", "Izod notched Z (upright)"],
   ["interlayerAdhesion", "Schichthaftung", "Interlayer adhesion"],
   ["hdtA", "HDT-A (1,8 MPa)", "HDT-A (1.8 MPa)"],
   ["hdtB", "HDT-B (0,45 MPa)", "HDT-B (0.45 MPa)"],
@@ -54,6 +71,65 @@ const SPECIMEN: Record<Product["specimenType"], { de: string; en: string; tone: 
   moulded: { de: "Rohstoffkennwert (spritzgegossen)", en: "raw-material value (moulded)", tone: "bad" },
   undeclared: { de: "Prüfkörper nicht deklariert", en: "specimen not declared", tone: "ok" },
 };
+
+/** Bestaendigkeitsklassen aus dem Produktdatenblatt, zweisprachig und farbig. */
+const RESISTANCE: Record<string, { de: string; en: string; tone: "good" | "ok" | "bad" }> = {
+  resistant: { de: "beständig", en: "resistant", tone: "good" },
+  limited: { de: "bedingt", en: "limited", tone: "ok" },
+  "not-resistant": { de: "nicht beständig", en: "not resistant", tone: "bad" },
+  unknown: { de: "keine Angabe", en: "unknown", tone: "ok" },
+};
+
+/**
+ * Was der HERSTELLER zu Medien und Brandverhalten sagt.
+ *
+ * Bewusst getrennt von der Familienmatrix am Werkstofftyp: Diese Angaben stehen im
+ * Datenblatt des konkreten Produkts und sind damit eine andere Aussage als eine
+ * Ableitung aus der Polymerfamilie — auch wenn beide dieselbe Skala benutzen.
+ */
+function ProductClaims({ p, lang }: { p: Product; lang: Lang }) {
+  const chem = p.chemicalResistance ?? [];
+  const ul94 = p.compliance?.ul94;
+  if (!chem.length && !ul94?.value) return null;
+  const nameOf = (id: string) => CHEMICALS.find((c) => c.id === id)?.name;
+
+  return (
+    <div className="mt-3 pt-3 border-t border-hairline dark:border-[#1E2B3D]">
+      <p className="eyebrow mb-2">
+        {lang === "de" ? "Angaben aus diesem Datenblatt" : "Statements from this datasheet"}
+      </p>
+
+      {ul94?.value && (
+        <p className="text-sm mb-2">
+          <span className="muted">UL94: </span>
+          <Chip tone={ul94.value === "HB" ? "ok" : "good"}>{ul94.value}</Chip>
+          {ul94.thicknessMm ? <span className="muted text-xs"> bei {ul94.thicknessMm} mm</span> : null}
+          {ul94.note ? <span className="block text-xs muted mt-1 leading-relaxed">{text(ul94.note, lang)}</span> : null}
+        </p>
+      )}
+
+      {chem.length > 0 && (
+        <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-xs">
+          {chem.map((cr) => {
+            const cls = RESISTANCE[cr.rating] ?? RESISTANCE.unknown;
+            const n = nameOf(cr.chemicalId);
+            return (
+              <span key={cr.chemicalId} className="inline-flex items-center gap-1.5">
+                <span className="muted">{n ? text(n, lang) : cr.chemicalId}</span>
+                <Chip tone={cls.tone}>{lang === "de" ? cls.de : cls.en}</Chip>
+              </span>
+            );
+          })}
+        </div>
+      )}
+      <p className="text-xs muted mt-2 leading-relaxed">
+        {lang === "de"
+          ? "Herstellerangaben ohne Konzentration, Temperatur und Dauer — als Vorauswahl brauchbar, als Freigabe nicht."
+          : "Manufacturer statements without concentration, temperature and duration — usable for pre-selection, not as a release."}
+      </p>
+    </div>
+  );
+}
 
 export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: string) => void }) {
   const grouped = productsByMaterial();
@@ -283,7 +359,8 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
         {products.map((p) => {
           const note = p.specimenNote ? text(p.specimenNote, lang) : "";
           const feat = p.features ? text(p.features, lang) : "";
-          if (!note && !feat) return null;
+          const hasClaims = (p.chemicalResistance?.length ?? 0) > 0 || !!p.compliance?.ul94?.value;
+          if (!note && !feat && !hasClaims) return null;
           const isFinding = /Befund zu diesem Datenblatt|Finding on this datasheet/.test(note);
           return (
             <Disclosure key={p.id} tone={isFinding ? "warn" : "neutral"}
@@ -299,6 +376,7 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
               }>
               {note && <p className="leading-relaxed whitespace-pre-line">{note}</p>}
               {feat && <p className="leading-relaxed mt-2.5 muted">{feat}</p>}
+              <ProductClaims p={p} lang={lang} />
             </Disclosure>
           );
         })}

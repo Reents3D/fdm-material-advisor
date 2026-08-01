@@ -1,0 +1,321 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "ultrafuse-paht-cf15",
+  "materialId": "paht-cf",
+  "brand": "Ultrafuse",
+  "manufacturer": "Forward AM / BASF 3D Printing Solutions BV",
+  "productName": "Ultrafuse PAHT CF15",
+  "origin": "Niederlande",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard im gesamten Bestand: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
+    "en": "Printed specimens in three build orientations: XY flat, XZ on edge, ZX upright. The sheet additionally states the print parameters used to make the specimens — nozzle temperature, bed temperature, nozzle diameter and print speed. That is the highest evidentiary standard in the entire dataset: the values can not only be placed in context, they can be reprinted."
+  },
+  "features": {
+    "de": "Das einzige Blatt im Bestand, das dieselben Kennwerte TROCKEN und KONDITIONIERT nebeneinanderstellt (23 °C, 50 % rF, 72 h). Der Unterschied ist kein Detail: Die HDT bei 0,45 MPa fällt von 145 auf 128 °C, die Poisson-Zahl steigt von 0,44 auf 0,51. Ein Polyamid nimmt Wasser auf, und das Datenblatt sagt hier ausnahmsweise, was das kostet. Stehend gedruckt bleiben von 103,2 MPa noch 18,2 übrig — 18 %.",
+    "en": "The only sheet in the dataset that places the same values DRY and CONDITIONED side by side (23 °C, 50 % RH, 72 h). The difference is no detail: HDT at 0.45 MPa falls from 145 to 128 °C, Poisson's ratio rises from 0.44 to 0.51. A polyamide takes up water, and for once the datasheet says what that costs. Printed upright, 18.2 MPa remain of 103.2 — 18 %."
+  },
+  "datasheet": {
+    "title": "Ultrafuse PAHT CF15 — Technical Data Sheet",
+    "url": "https://forward-am.com/wp-content/uploads/2024/10/Ultrafuse_PAHT_CF15_TDS_EN_v3.5-1.pdf",
+    "version": "4.0",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 103.2,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 5 mm/min",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtBreakXy": {
+      "value": 1.8,
+      "unit": "%",
+      "testStandard": "ISO 527, 5 mm/min",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 8386,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 1 mm/min",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 160.7,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXy": {
+      "value": 8258,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
+      "value": 4.8,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXy": {
+      "value": 20.6,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "izodNotchedXy": {
+      "value": 4.9,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "izodUnnotchedXy": {
+      "value": 16.4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "orientation": "XY",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXz": {
+      "value": 171.8,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XZ",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXz": {
+      "value": 7669,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "XZ",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXz": {
+      "value": 19.3,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "XZ",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 18.2,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 5 mm/min",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.5,
+      "unit": "%",
+      "testStandard": "ISO 527, 5 mm/min",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusZ": {
+      "value": 3532,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 1 mm/min",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthZ": {
+      "value": 50.8,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusZ": {
+      "value": 2715,
+      "unit": "MPa",
+      "testStandard": "ISO 178, 2 mm/min",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedZ": {
+      "value": 1.3,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedZ": {
+      "value": 2.9,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-2",
+      "orientation": "Z",
+      "conditions": "trocken",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtA": {
+      "value": 92,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 1,8 MPa",
+      "conditions": "trocken; konditioniert 91 °C",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 145,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 0,45 MPa",
+      "conditions": "trocken; KONDITIONIERT nur 128 °C (23 °C, 50 % rF, 72 h)",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "vicatB50": {
+      "value": 205,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 N",
+      "conditions": "trocken; konditioniert 192 °C",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "vicatA": {
+      "value": 221,
+      "unit": "°C",
+      "testStandard": "ISO 306, 10 N",
+      "conditions": "trocken; konditioniert 217 °C",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "glassTransition": {
+      "value": 70,
+      "unit": "°C",
+      "testStandard": "ISO 11357-2",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "meltingTemperature": {
+      "value": 234,
+      "unit": "°C",
+      "testStandard": "ISO 11357-3",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hardnessShoreD": {
+      "value": 72,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619-1",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "density": {
+      "value": 1.203,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "conditions": "am FILAMENT gemessen, konditioniert",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "min": 260,
+      "max": 280,
+      "conditions": "für die Prüfkörper wurden 285 °C verwendet",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "min": 100,
+      "max": 120,
+      "conditions": "für die Prüfkörper wurden 110 °C verwendet",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "printSpeed": {
+      "value": 55,
+      "unit": "mm/s",
+      "min": 30,
+      "max": 80,
+      "conditions": "für die Prüfkörper 45 mm/s",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "minNozzleDiameter": {
+      "value": 0.6,
+      "unit": "mm",
+      "conditions": "Rubin oder gehärtet",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "dryingTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "conditions": "mindestens 4 bis 16 h im Umluft- oder Vakuumtrockner",
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Forward AM / BASF 3D Printing Solutions BV",
+        "productName": "Ultrafuse PAHT CF15",
+        "title": "Ultrafuse PAHT CF15 — Technical Data Sheet",
+        "url": "https://forward-am.com/wp-content/uploads/2024/10/Ultrafuse_PAHT_CF15_TDS_EN_v3.5-1.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Textauszug unter data/_sources/ultrafuse-tds/Ultrafuse_PAHT_CF15_TDS_EN_v4.0.txt.",
+          "en": "Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Text extract at data/_sources/ultrafuse-tds/Ultrafuse_PAHT_CF15_TDS_EN_v4.0.txt."
+        }
+      }
+    ]
+  }
+}
