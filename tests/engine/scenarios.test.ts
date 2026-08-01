@@ -44,10 +44,17 @@ describe("Szenario: Aussenbauteil, 5 Jahre, UV", () => {
   });
 
   it("über fünf Jahre überleben nur ausdrücklich witterungsfeste Werkstoffe", () => {
-    const surviving = ids(select(MATERIALS, req).ranked);
+    const r = select(MATERIALS, req);
+    const surviving = ids(r.ranked);
     expect(surviving.length).toBeGreaterThan(0);
-    // ASA-Familie plus TPU-ESD (UV-beständig laut Extrudr-Datenblatt).
-    for (const id of surviving) expect(id, `${id} ist kein 5-Jahres-Aussenmaterial`).toMatch(/^(asa|tpu-esd)/);
+    /* Geprueft wird die REGEL, nicht eine Namensliste: Wer fuenf Jahre draussen bestehen
+       soll, muss eine belegte Witterungsbestaendigkeit von mindestens 4 tragen. Eine feste
+       Liste wuerde bei jedem neuen witterungsfesten Werkstoff falsch werden - so geschehen,
+       als PMMA dazukam, das fuer Aussenverglasung der Standardwerkstoff ist. */
+    for (const m of r.ranked) {
+      const w = (m.material.durability as { weatherResistance?: { value?: number } })?.weatherResistance?.value;
+      expect(w ?? 0, `${m.material.id} hat keine ausreichende Witterungsbeständigkeit`).toBeGreaterThanOrEqual(4);
+    }
     for (const id of ["pla", "abs", "pc", "petg"]) expect(surviving).not.toContain(id);
   });
 
@@ -201,9 +208,17 @@ describe("Szenario: Brandschutz und ESD", () => {
     for (const id of ["pc", "petg-cf", "abs", "asa"]) expect(surviving).not.toContain(id);
   });
 
-  it("ESD erfüllt nur ein deklariertes ESD-Compound - Kohlenstofffaser zählt nicht", () => {
+  it("ESD erfüllt nur ein deklariertes ESD-Compound - Kohlenstofffaser allein zählt nicht", () => {
     const r = select(MATERIALS, { esd: true });
-    expect(ids(r.ranked)).toEqual(["tpu-esd"]);
+    // Jeder Treffer muss eine deklarierte Einstufung tragen - nicht bloss Kohlenstoff enthalten.
+    for (const m of r.ranked) {
+      const cls = (m.material.compliance as { esd?: { classification?: { value?: string } } })?.esd?.classification?.value;
+      expect(["dissipative", "conductive"], `${m.material.id} ohne ESD-Einstufung`).toContain(cls);
+    }
+    // Steife ESD-Werkstoffe sind seit Material4Print vorhanden - vorher gab es nur ein Elastomer.
+    expect(ids(r.ranked)).toContain("esd-abs");
+    expect(ids(r.ranked)).toContain("tpu-esd");
+    // PETG-CF enthaelt Kohlenstofffaser, aber keine gemessene Einstufung - bleibt draussen.
     const cf = r.rejected.find((x) => x.material.id === "petg-cf")!;
     expect(cf.failed.some((f) => f.constraintId === "esd")).toBe(true);
   });

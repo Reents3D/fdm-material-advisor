@@ -1,0 +1,360 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "esd-pla",
+  "identity": {
+    "name": "ESD-PLA",
+    "family": "PLA",
+    "polymerClass": "semi-crystalline",
+    "variant": [
+      "ESD"
+    ],
+    "aliases": [
+      "ableitfähiges PLA",
+      "antistatisches PLA",
+      "PLA ESD"
+    ],
+    "abstract": {
+      "de": "ESD-PLA ist der einfachste Einstieg in ableitfähige Bauteile: Oberflächenwiderstand 10^6 bis 10^8 Ohm, gedruckt wie normales PLA ohne Kammer. Für Ablagen, Einsätze und Handhabungshilfen in der Elektronikfertigung. Grenzen: nur 65 bis 70 °C Wärmeformbeständigkeit, damit nicht für Lötnähe oder dauerwarme Umgebungen geeignet.",
+      "en": "ESD-PLA is the simplest entry into dissipative parts: surface resistance 10^6 to 10^8 ohm, printed like normal PLA without a chamber. For trays, inserts and handling aids in electronics manufacturing. Limits: only 65 to 70 °C heat deflection, so unsuitable near soldering or in permanently warm environments."
+    },
+    "positioning": {
+      "de": "Ableitfähig ohne Kammer — solange es nicht warm wird.",
+      "en": "Dissipative without an enclosure — as long as it does not get warm."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 37,
+      "unit": "MPa",
+      "testStandard": "ISO 527 bzw. ASTM D638",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2150,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3800,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "toughness": {
+      "value": 2,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 4,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 67,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
+        "en": "Our own conservative recommendation with margin to the softening limit."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 210,
+      "max": 230,
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "min": 40,
+      "max": 65,
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "chamberRequirement": {
+      "value": "not-required",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 50,
+      "unit": "°C",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "dryingTime": {
+      "value": 4,
+      "unit": "h",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "printability": {
+      "value": 4,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 1,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 2,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 3,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 2,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 2,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "src_m4p_tds",
+        "confidence": "medium"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "esd": {
+      "classification": {
+        "value": "dissipative",
+        "source": "src_m4p_tds",
+        "confidence": "medium",
+        "note": {
+          "de": "Herstellerangabe Oberflächenwiderstand 1e+6 bis 1e+8 Ohm nach ASTM D257 — das liegt im ableitfähigen Bereich.",
+          "en": "Manufacturer states a surface resistance of 1e+6 to 1e+8 ohm to ASTM D257 — that is within the dissipative range."
+        }
+      },
+      "surfaceResistivity": {
+        "value": 10000000,
+        "unit": "Ω/sq",
+        "min": 1000000,
+        "max": 100000000,
+        "testStandard": "ASTM D257",
+        "source": "src_m4p_tds",
+        "confidence": "medium"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "low",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "opaque",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 3,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 3,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 4,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 2,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 3,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 900,
+        "unit": "mm",
+        "min": 200,
+        "max": 1800,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
+          "en": "Estimated from chamber requirement and warping tendency, not backed by our own production."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_m4p_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Material 4 Print GmbH & Co. KG",
+        "productName": "ESD-PLA",
+        "title": "ESD-PLA — Material Data Sheet",
+        "url": "https://www.material4print.de/pages/materialdatenblatter",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_ESD-PLA.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
+          "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_ESD-PLA.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_printed_values",
+        "question": {
+          "de": "Alle Kennwerte dieses Typs stammen aus Rohstoffdatenblättern. Werte an gedruckten Prüfkörpern ergänzen, sobald eine Quelle vorliegt.",
+          "en": "All values for this type come from raw-material datasheets. Add printed-specimen values as soon as a source is available."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics"
+        ]
+      },
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
+          "en": "Add a second independent manufacturer source for this material type."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      }
+    ]
+  }
+}

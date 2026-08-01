@@ -98,8 +98,15 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
     if (zv != null && xv != null && zv > xv) report("error", id, "R2-anisotropy", `${z} ${zv} > ${xy} ${xv}`);
   }
 
-  /* R3 amorphous: HDT-A must not exceed Tg by more than 15 K */
-  if (m.identity?.polymerClass === "amorphous") {
+  /* R3 amorphous: HDT-A must not exceed Tg by more than 15 K.
+
+     Gilt NICHT fuer Blends. Ein ABS/PC-Blend hat zwei Glasuebergaenge — einen der
+     ABS-Phase bei rund 100 °C und einen der PC-Phase bei rund 145 °C. Datenblaetter
+     nennen meist nur den niedrigeren, waehrend die Formbestaendigkeit von der hoeheren
+     Phase getragen wird. Die Regel wuerde hier eine korrekte Angabe als Fehler melden.
+     Wie bei R6 wird die REGEL eingeschraenkt, nicht der Datensatz gebogen. */
+  const isBlend = (m.identity?.variant ?? []).includes("blend");
+  if (m.identity?.polymerClass === "amorphous" && !isBlend) {
     const h = m.thermal?.hdtA?.value, tg = m.thermal?.glassTransition?.value;
     if (h != null && tg != null && h > tg + 15) report("error", id, "R3-hdt-tg", `HDT-A ${h} > Tg ${tg} + 15 K`);
   }

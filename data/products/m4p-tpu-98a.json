@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "m4p-tpu-98a",
+  "materialId": "tpu-98a",
+  "brand": "Material4Print",
+  "manufacturer": "Material 4 Print GmbH & Co. KG",
+  "productName": "M4P TPU 98A",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
+    "en": "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible."
+  },
+  "features": {
+    "de": "Praktisch deckungsgleich mit Extrudr Flex Medium (Shore 98A, Weiterreissfestigkeit 170 gegen 175 kN/m, Abrieb 25 mm³). Zwei Marken, ein Grundpolymer — genau die Erkenntnis, für die ein Herstellervergleich da ist.",
+    "en": "Practically identical to Extrudr Flex Medium (Shore 98A, tear strength 170 against 175 kN/m, abrasion 25 mm³). Two brands, one base polymer — precisely the insight a manufacturer comparison exists for."
+  },
+  "datasheet": {
+    "title": "M4P TPU 98A — Material Data Sheet",
+    "url": "https://www.material4print.de/pages/materialdatenblatter",
+    "version": "2021-04-12",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.material4print.de/pages/materialdatenblatter",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/5A/500",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 116,
+      "unit": "°C",
+      "testStandard": "ISO 306 (A50)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 98,
+      "unit": "Shore A",
+      "testStandard": "ISO 868",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tearStrength": {
+      "value": 175,
+      "unit": "kN/m",
+      "testStandard": "ISO 34-1B",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 25,
+      "unit": "mm³",
+      "testStandard": "ISO 4649-A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 215,
+      "max": 235,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 42,
+      "unit": "°C",
+      "min": 35,
+      "max": 50,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Material 4 Print GmbH & Co. KG",
+        "productName": "M4P TPU 98A",
+        "title": "M4P TPU 98A — Material Data Sheet",
+        "url": "https://www.material4print.de/pages/materialdatenblatter",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_TPU_98A.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
+          "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_TPU_98A.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
+        }
+      }
+    ]
+  }
+}

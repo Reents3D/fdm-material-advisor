@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "m4p-esd-abs",
+  "materialId": "esd-abs",
+  "brand": "Material4Print",
+  "manufacturer": "Material 4 Print GmbH & Co. KG",
+  "productName": "M4P ESD-ABS",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
+    "en": "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible."
+  },
+  "features": {
+    "de": "88 °C Wärmeformbeständigkeit machen ESD-ABS zum wärmefestesten ableitfähigen Werkstoff dieser Datenbank — für Vorrichtungen und Gehäuse in der Elektronikfertigung, wo TPU-ESD zu weich ist.",
+    "en": "88 °C heat deflection makes ESD-ABS the most heat-resistant dissipative material in this database — for jigs and enclosures in electronics manufacturing where TPU-ESD is too soft."
+  },
+  "datasheet": {
+    "title": "M4P ESD-ABS — Material Data Sheet",
+    "url": "https://www.material4print.de/pages/materialdatenblatter",
+    "version": "2021-04-12",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.material4print.de/pages/materialdatenblatter",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 527 (Streckspannung)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 88,
+      "unit": "°C",
+      "testStandard": "ISO 75/Bf",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 262,
+      "unit": "°C",
+      "min": 250,
+      "max": 275,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Material 4 Print GmbH & Co. KG",
+        "productName": "M4P ESD-ABS",
+        "title": "M4P ESD-ABS — Material Data Sheet",
+        "url": "https://www.material4print.de/pages/materialdatenblatter",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_ESD-ABS.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
+          "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_ESD-ABS.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
+        }
+      }
+    ]
+  }
+}

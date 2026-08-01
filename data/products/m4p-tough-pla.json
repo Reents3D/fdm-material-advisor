@@ -1,0 +1,136 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "m4p-tough-pla",
+  "materialId": "pla-tough",
+  "brand": "Material4Print",
+  "manufacturer": "Material 4 Print GmbH & Co. KG",
+  "productName": "M4P Tough PLA",
+  "origin": "Deutschland",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.\n\nBefund zu diesem Datenblatt: Dieses Blatt widerspricht sich auf derselben Seite. An der Kennwerttabelle steht als Fussnote „3D printet part with 100% in-fill“, in der Fusszeile darunter der auf allen Material4Print-Blättern gleiche Satz „These data were taken from the raw material manufacturer“. Beides kann nicht zutreffen. Wir folgen der spezifischen Fussnote an der Tabelle und führen den Datensatz als gedruckten Prüfkörper — die Fusszeile erscheint unverändert auf allen 14 Blättern und ist damit erkennbar Standardtext.",
+    "en": "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible.\n\nFinding on this datasheet: This sheet contradicts itself on the same page. The properties table carries the footnote “3D printet part with 100% in-fill”, while the page footer below states the sentence common to all Material4Print sheets, “These data were taken from the raw material manufacturer”. Both cannot hold. We follow the specific footnote on the table and record the dataset as a printed specimen — the footer appears unchanged on all 14 sheets and is therefore recognisably boilerplate."
+  },
+  "features": {
+    "de": "Der einzige Datensatz dieser Marke an einem gedruckten Bauteil — und einer der wenigen überhaupt mit Temper-Werten in Klammern: Schlagzähigkeit 160 auf 230 J/m, Wärmeformbeständigkeit 75 auf 85 °C nach 15 Minuten bei 110 °C.",
+    "en": "The only dataset from this brand on a printed part — and one of the few anywhere with annealed values in brackets: impact 160 to 230 J/m, heat deflection 75 to 85 °C after 15 minutes at 110 °C."
+  },
+  "datasheet": {
+    "title": "M4P Tough PLA — Material Data Sheet",
+    "url": "https://www.material4print.de/pages/materialdatenblatter",
+    "version": "2021-04-12",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.material4print.de/pages/materialdatenblatter",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ASTM D638 (Bruchspannung)",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2870,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 73,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2410,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 160,
+      "unit": "J/m",
+      "testStandard": "ASTM D256",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Getempert (110 °C, 15 min) nennt das Blatt 230 J/m statt 160 J/m — ein Plus von 44 %.",
+        "en": "Annealed (110 °C, 15 min) the sheet states 230 J/m instead of 160 J/m — a gain of 44 %."
+      }
+    },
+    "hdtB": {
+      "value": 75,
+      "unit": "°C",
+      "testStandard": "ASTM E2092",
+      "conditions": "gedrucktes Bauteil, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Getempert (110 °C, 15 min) nennt das Blatt 85 °C statt 75 °C.",
+        "en": "Annealed (110 °C, 15 min) the sheet states 85 °C instead of 75 °C."
+      }
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 217,
+      "unit": "°C",
+      "min": 205,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 52,
+      "unit": "°C",
+      "min": 40,
+      "max": 65,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Material 4 Print GmbH & Co. KG",
+        "productName": "M4P Tough PLA",
+        "title": "M4P Tough PLA — Material Data Sheet",
+        "url": "https://www.material4print.de/pages/materialdatenblatter",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_Tough_PLA.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
+          "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_Tough_PLA.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
+        }
+      }
+    ]
+  }
+}

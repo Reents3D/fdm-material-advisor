@@ -1,0 +1,349 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "pmma",
+  "identity": {
+    "name": "PMMA",
+    "family": "PMMA",
+    "polymerClass": "amorphous",
+    "variant": [
+      "basic",
+      "translucent"
+    ],
+    "aliases": [
+      "Acrylglas",
+      "Polymethylmethacrylat",
+      "Plexiglas",
+      "Acryl"
+    ],
+    "abstract": {
+      "de": "PMMA ist der Werkstoff für lichtführende und transparenzfähige Bauteile: Glasübergang 105 °C, hohe Witterungs- und UV-Beständigkeit, schleif- und polierbar. Die hier erfasste Type ist schlagzähmodifiziert (49 % Bruchdehnung statt der 2 bis 5 % von klassischem Acrylglas). Grenzen: geringe Festigkeit von 35 MPa, kerbempfindlich, und im FDM-Druck wird echte Transparenz durch die Schichtstruktur nie erreicht.",
+      "en": "PMMA is the material for light-guiding and translucency-capable parts: glass transition 105 °C, high weather and UV resistance, sandable and polishable. The grade recorded here is impact-modified (49 % elongation instead of the 2 to 5 % of classic acrylic). Limits: low strength of 35 MPa, notch sensitive, and in FDM printing true transparency is never reached because of the layer structure."
+    },
+    "positioning": {
+      "de": "Wenn Licht durch soll — mit der ehrlichen Einschränkung, dass FDM keine Klarsicht liefert.",
+      "en": "When light has to pass through — with the honest caveat that FDM does not deliver clarity."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.17,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 35,
+      "unit": "MPa",
+      "testStandard": "ISO 527 bzw. ASTM D638",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 49,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1800,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "toughness": {
+      "value": 2,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 5,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 77,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 105,
+      "unit": "°C",
+      "testStandard": "ISO 11357",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 50,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
+        "en": "Our own conservative recommendation with margin to the softening limit."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 255,
+      "unit": "°C",
+      "min": 240,
+      "max": 270,
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "chamberRequirement": {
+      "value": "recommended",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "dryingTime": {
+      "value": 4,
+      "unit": "h",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    },
+    "printability": {
+      "value": 2,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 3,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 3,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 5,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 5,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "src_m4p_tds",
+        "confidence": "medium"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "HB",
+        "source": "src_m4p_tds",
+        "confidence": "medium"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "low",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "translucent",
+      "source": "src_m4p_tds",
+      "confidence": "medium"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 4,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 3,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 4,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 4,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 2,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 3,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 900,
+        "unit": "mm",
+        "min": 200,
+        "max": 1800,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
+          "en": "Estimated from chamber requirement and warping tendency, not backed by our own production."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_m4p_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Material 4 Print GmbH & Co. KG",
+        "productName": "PMMA",
+        "title": "PMMA — Material Data Sheet",
+        "url": "https://www.material4print.de/pages/materialdatenblatter",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_PMMA.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
+          "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_PMMA.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_printed_values",
+        "question": {
+          "de": "Alle Kennwerte dieses Typs stammen aus Rohstoffdatenblättern. Werte an gedruckten Prüfkörpern ergänzen, sobald eine Quelle vorliegt.",
+          "en": "All values for this type come from raw-material datasheets. Add printed-specimen values as soon as a source is available."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics"
+        ]
+      },
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
+          "en": "Add a second independent manufacturer source for this material type."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      }
+    ]
+  }
+}
