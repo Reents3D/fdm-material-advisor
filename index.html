@@ -20,8 +20,11 @@
     <meta property="og:site_name" content="Reents3D" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://reents3d.github.io/fdm-material-advisor/og-image.png" />
-    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <!-- Relativ, nicht %BASE_URL%: der Entwicklungsserver setzt die Basis davor ein
+         zweites Mal und erzeugt /fdm-material-advisor/fdm-material-advisor/... Die
+         relative Form ist in beiden Faellen richtig - auch nach dem Domainwechsel. -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Materialberater" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23204B63'/%3E%3Cpath d='M8 22V10h7a4 4 0 0 1 0 8h-3l5 4' stroke='%2395C6E5' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
     <script type="application/ld+json">
@@ -37,7 +40,7 @@
           "de",
           "en"
         ],
-        "description": "Kostenloser, quelloffener Materialberater für den FDM-3D-Druck. 31 Werkstofftypen und 92 Herstellerprodukte, jeder Kennwert mit Quelle, Prüfnorm und Konfidenzangabe.",
+        "description": "Kostenloser, quelloffener Materialberater für den FDM-3D-Druck. 31 Werkstofftypen und 99 Herstellerprodukte, jeder Kennwert mit Quelle, Prüfnorm und Konfidenzangabe.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -62,7 +65,7 @@
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "FDM-Materialberater — offene Materialdatenbank",
-        "description": "Offene Datenbank mit 31 FDM-Werkstofftypen und 92 Herstellerprodukten. Jeder Kennwert trägt Quelle, Prüfnorm, Prüfbedingung und Konfidenz; Datenblattwidersprüche sind dokumentiert statt geglättet.",
+        "description": "Offene Datenbank mit 31 FDM-Werkstofftypen und 99 Herstellerprodukten. Jeder Kennwert trägt Quelle, Prüfnorm, Prüfbedingung und Konfidenz; Datenblattwidersprüche sind dokumentiert statt geglättet.",
         "url": "https://reents3d.github.io/fdm-material-advisor/",
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "creator": {

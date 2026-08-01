@@ -1,0 +1,114 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-easypetg",
+  "materialId": "petg",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE easyPETG",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "Der Nachfolger des älteren „3DJAKE PETG“: 53 statt 50 MPa Zugfestigkeit, 31 statt 23 % Bruchdehnung. Beide Blätter stehen nebeneinander in der Datenbank, weil beide Produkte im Handel sind — der Unterschied zeigt, wie stark „PETG“ schon innerhalb einer Marke streut.",
+    "en": "The successor to the older “3DJAKE PETG”: 53 instead of 50 MPa tensile strength, 31 instead of 23 % elongation at break. Both sheets sit side by side in the database because both products are on sale — the difference shows how widely “PETG” already scatters within a single brand."
+  },
+  "datasheet": {
+    "title": "3DJAKE easyPETG — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/3DJake_easyPETG.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 53,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527-2",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 31,
+      "unit": "%",
+      "testStandard": "ISO 527-2",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 71,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2190,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 78,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "Wandstärke mindestens 4 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 240,
+      "unit": "°C",
+      "min": 230,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 60,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE easyPETG",
+        "title": "3DJAKE easyPETG — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/3DJake_easyPETG.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

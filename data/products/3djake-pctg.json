@@ -1,0 +1,120 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-pctg",
+  "materialId": "pctg",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE PCTG",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "Das sauberste Blatt der Reihe: beide HDT-Lasten sind angegeben (76 °C bei 0,455 MPa, 64 °C bei 1,8 MPa) statt nur der geschmeichelten, und Streck- und Bruchspannung stehen getrennt. 220 % Bruchdehnung erklären, warum PCTG dort gewählt wird, wo PETG zu spröde bricht.",
+    "en": "The cleanest sheet in the series: both HDT loads are given (76 °C at 0.455 MPa, 64 °C at 1.8 MPa) rather than only the flattering one, and yield and break stress are stated separately. 220 % elongation at break explains why PCTG is chosen where PETG breaks too brittle."
+  },
+  "datasheet": {
+    "title": "3DJAKE PCTG — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_PCTG_V2.pdf",
+    "version": "2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 44,
+      "unit": "MPa",
+      "testStandard": "ISO 527 (Streckspannung; Bruchspannung 46 MPa)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4.4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 220,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 64,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 76,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 250,
+      "max": 270,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE PCTG",
+        "title": "3DJAKE PCTG — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_PCTG_V2.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-tpu-a95",
+  "materialId": "tpu-95a",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE TPU A95",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Der Biege-E-Modul von 23500 kg/cm² wurde nicht übernommen: umgerechnet sind das rund 2300 MPa. Ein Elastomer mit Shore 95A liegt bei 20 bis 80 MPa — der Wert ist um etwa den Faktor dreißig zu hoch und liegt verdächtig nah am Zug-E-Modul im ASA-Blatt desselben Hauses (22100 kg/cm²). Ebenso stehen die VICAT A von 95 °C und die Schmelztemperatur von 190 °C wortgleich im ASA-Blatt.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: The flexural modulus of 23500 kg/cm² was not imported: converted, that is about 2300 MPa. An elastomer at Shore 95A sits at 20 to 80 MPa — the value is roughly thirty times too high and lies suspiciously close to the tensile modulus in this house's ASA sheet (22100 kg/cm²). Likewise the VICAT A of 95 °C and the melting temperature of 190 °C appear verbatim in the ASA sheet."
+  },
+  "datasheet": {
+    "title": "3DJAKE TPU A95 — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_TPU_A95_V2.pdf",
+    "version": "2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ASTM D412",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 400,
+      "unit": "%",
+      "testStandard": "ASTM D412",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 95,
+      "unit": "Shore A",
+      "testStandard": "ASTM D2240",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.5,
+      "unit": "%",
+      "testStandard": "ISO 294-4",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 60,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE TPU A95",
+        "title": "3DJAKE TPU A95 — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_TPU_A95_V2.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

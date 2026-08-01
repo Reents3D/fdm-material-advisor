@@ -38,6 +38,15 @@ const MODULUS_FINDING = t(
   "Das Datenblatt nennt einen Zug-E-Modul von rund 380 bis 390 MPa. Für PLA ist das um den Faktor zehn zu niedrig — PLA liegt bei 3000 bis 3900 MPa, und das Schwesterprodukt ecoPLA desselben Hauses steht mit 3500 MPa im Blatt. Ein Werkstoff mit 390 MPa Steifigkeit und gleichzeitig 45 MPa Streckspannung müsste sich vor dem Fließen um über zehn Prozent elastisch dehnen, was PLA nicht tut. Der Wert wurde deshalb nicht übernommen; naheliegend ist ein verschobenes Komma.",
   "The datasheet states a tensile modulus of roughly 380 to 390 MPa. For PLA that is ten times too low — PLA sits at 3000 to 3900 MPa, and the sister product ecoPLA from the same house is listed at 3500 MPa. A material with 390 MPa stiffness and at the same time 45 MPa yield stress would have to stretch elastically by more than ten percent before yielding, which PLA does not. The value was therefore not imported; a misplaced decimal point is the obvious explanation.");
 
+/**
+ * Die vier Blaetter der Fassung 2.0 vom 01.03.2024 (ASA, PCTG, TPU A95, niceBIO) laufen
+ * erkennbar aus einer gemeinsamen Vorlage. Drei von ihnen tragen dieselbe
+ * Schmelztemperatur "190 °C ± 10 °C" und dieselbe VICAT A von 95 °C - auch dort, wo das
+ * fachlich nicht sein kann. Das ist der Grund, warum diese Blaetter mit niedrigerem
+ * Konfidenz-Ceiling stehen als die neueren Blaetter der Fassung 1.0 vom 01.10.2024,
+ * die saubere ISO-Einheiten und eine Fussnote zur Wandstaerke beim Vicat-Versuch tragen.
+ */
+
 const P = [
   { id: "3djake-ecopla", material: "pla", name: "3DJAKE ecoPLA", file: "TDS_ecoPLA_v1.4", version: "1.3",
     props: {
@@ -154,6 +163,113 @@ const P = [
       nozzleTemperature: q(220, "°C", { min: 210, max: 230 }),
     },
     anomaly: MODULUS_FINDING },
+  /* ---- Nachtrag 2026-08-01: die restlichen Eigenmarken-Datenblaetter ------- */
+
+  { id: "3djake-abs", material: "abs", name: "3DJAKE ABS", file: "3DJake_ABS", version: "1.0",
+    props: {
+      tensileStrengthXy: q(49, "MPa", { std: "ASTM D638" }),
+      tensileModulusXy: q(2350, "MPa", { std: "ASTM D638" }),
+      elongationAtYieldXy: q(5, "%", { std: "ASTM D638" }),
+      elongationAtBreakXy: q(10, "%", { std: "ASTM D638" }),
+      flexuralStrengthXy: q(78, "MPa", { std: "ASTM D790" }),
+      flexuralModulusXy: q(2550, "MPa", { std: "ASTM D790" }),
+      hdtB: q(85, "°C", { std: "ASTM D648" }),
+      vicatA: q(92, "°C", { std: "im Blatt als ASTM D792 angegeben", confidence: "low" }),
+      density: q(1.06, "g/cm³", { std: "ASTM D792" }),
+      nozzleTemperature: q(235, "°C", { min: 220, max: 250 }),
+      bedTemperature: q(105, "°C", { min: 100, max: 110 }),
+    },
+    anomaly: t("Zwei Zeilen des Blattes nennen die falsche Norm beziehungsweise die falsche Einheit: Die VICAT-Temperatur steht unter ASTM D792 — das ist die Dichtebestimmung im Auftriebsverfahren, der Vicat-Versuch ist ASTM D1525. Und der Schmelzindex steht mit „21 g/cm³“ da; ein MFR wird in g/10 min gemessen, g/cm³ ist eine Dichte. Beide Zeilen wurden nicht übernommen beziehungsweise nur mit Vermerk. Die übrigen Werte sind in sich schlüssig.",
+               "Two rows of the sheet cite the wrong standard or the wrong unit: the VICAT temperature sits under ASTM D792 — that is density by buoyancy, the Vicat test is ASTM D1525. And the melt flow rate reads “21 g/cm³”; an MFR is measured in g/10 min, g/cm³ is a density. Both rows were left out or carried with a note. The remaining values are internally consistent."),
+    features: t("Das jüngere der beiden ABS-Blätter des Hauses (01.10.2024) und das schlüssigere: 49 MPa Zugfestigkeit bei 10 % Bruchdehnung passen zusammen, während das Schwesterprodukt niceABS mit 34 % Bruchdehnung und 58 kJ/m² ungekerbter Schlagzähigkeit eher das Granulat beschreibt.",
+                "The younger of the two ABS sheets from this house (01.10.2024) and the more coherent one: 49 MPa tensile at 10 % elongation fit together, whereas the sister product niceABS with 34 % elongation and 58 kJ/m² unnotched impact rather describes the pellets.") },
+
+  { id: "3djake-asa", material: "asa", name: "3DJAKE ASA", file: "Technical_Data_Sheet_ASA_V2", version: "2.0",
+    props: {
+      density: q(1.1, "g/cm³", { std: "ISO 1183" }),
+      vicatA: q(95, "°C", { std: "ISO 306", confidence: "low" }),
+      shrinkage: q(0.5, "%", { std: "ISO 294-4" }),
+      nozzleTemperature: q(230, "°C", { min: 210, max: 250 }),
+      bedTemperature: q(80, "°C", { min: 60, max: 100 }),
+    },
+    anomaly: t("Die beiden mechanischen Zeilen wurden NICHT übernommen, weil Eigenschaft und Prüfnorm einander widersprechen: „Tensile strength 800 kg/cm²“ und „Tensile modulus 22100 kg/cm²“ stehen beide unter ASTM D790 — das ist die Norm für den BIEGEversuch, für Zug wäre es D638. Umgerechnet ergäben 800 kg/cm² rund 78 MPa Zugfestigkeit; das erreicht kein gedrucktes und kaum ein spritzgegossenes ASA (typisch 40 bis 45 MPa), als Biegefestigkeit wäre der Wert dagegen plausibel. Welche der beiden Angaben stimmt, lässt sich dem Blatt nicht entnehmen — deshalb steht keine von beiden in der Datenbank. Hinzu kommt: Das Blatt nennt für das amorphe ASA eine Schmelztemperatur, und im Fließtext steht „PLA can be used on all common desktop FDM printers“ — ein stehengebliebener Satz aus der PLA-Vorlage.",
+               "The two mechanical rows were NOT imported because property and test standard contradict each other: “Tensile strength 800 kg/cm²” and “Tensile modulus 22100 kg/cm²” both sit under ASTM D790 — the standard for the FLEXURAL test; tensile would be D638. Converted, 800 kg/cm² would be about 78 MPa tensile strength; no printed and barely any moulded ASA reaches that (typically 40 to 45 MPa), whereas as a flexural strength the value would be plausible. Which of the two readings holds cannot be taken from the sheet — so neither is in the database. On top of that the sheet states a melting temperature for amorphous ASA, and the body text reads “PLA can be used on all common desktop FDM printers” — a leftover sentence from the PLA template.") },
+
+  { id: "3djake-pctg", material: "pctg", name: "3DJAKE PCTG", file: "Technical_Data_Sheet_PCTG_V2", version: "2.0",
+    props: {
+      tensileStrengthXy: q(44, "MPa", { std: "ISO 527 (Streckspannung; Bruchspannung 46 MPa)" }),
+      elongationAtYieldXy: q(4.4, "%", { std: "ISO 527" }),
+      elongationAtBreakXy: q(220, "%", { std: "ISO 527" }),
+      flexuralStrengthXy: q(60, "MPa", { std: "ISO 178" }),
+      flexuralModulusXy: q(1600, "MPa", { std: "ISO 178" }),
+      hdtA: q(64, "°C", { std: "ISO 75, 1,8 MPa" }),
+      hdtB: q(76, "°C", { std: "ISO 75, 0,455 MPa" }),
+      density: q(1.23, "g/cm³", { std: "ASTM D792" }),
+      nozzleTemperature: q(260, "°C", { min: 250, max: 270 }),
+      bedTemperature: q(100, "°C", { min: 90, max: 110 }),
+    },
+    features: t("Das sauberste Blatt der Reihe: beide HDT-Lasten sind angegeben (76 °C bei 0,455 MPa, 64 °C bei 1,8 MPa) statt nur der geschmeichelten, und Streck- und Bruchspannung stehen getrennt. 220 % Bruchdehnung erklären, warum PCTG dort gewählt wird, wo PETG zu spröde bricht.",
+                "The cleanest sheet in the series: both HDT loads are given (76 °C at 0.455 MPa, 64 °C at 1.8 MPa) rather than only the flattering one, and yield and break stress are stated separately. 220 % elongation at break explains why PCTG is chosen where PETG breaks too brittle.") },
+
+  { id: "3djake-tpu-a95", material: "tpu-95a", name: "3DJAKE TPU A95", file: "Technical_Data_Sheet_TPU_A95_V2", version: "2.0",
+    props: {
+      tensileStrengthXy: q(55, "MPa", { std: "ASTM D412" }),
+      elongationAtBreakXy: q(400, "%", { std: "ASTM D412" }),
+      hardnessShoreA: q(95, "Shore A", { std: "ASTM D2240" }),
+      density: q(1.2, "g/cm³", { std: "ISO 1183" }),
+      shrinkage: q(0.5, "%", { std: "ISO 294-4" }),
+      nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
+      bedTemperature: q(75, "°C", { min: 60, max: 90 }),
+    },
+    anomaly: t("Der Biege-E-Modul von 23500 kg/cm² wurde nicht übernommen: umgerechnet sind das rund 2300 MPa. Ein Elastomer mit Shore 95A liegt bei 20 bis 80 MPa — der Wert ist um etwa den Faktor dreißig zu hoch und liegt verdächtig nah am Zug-E-Modul im ASA-Blatt desselben Hauses (22100 kg/cm²). Ebenso stehen die VICAT A von 95 °C und die Schmelztemperatur von 190 °C wortgleich im ASA-Blatt.",
+               "The flexural modulus of 23500 kg/cm² was not imported: converted, that is about 2300 MPa. An elastomer at Shore 95A sits at 20 to 80 MPa — the value is roughly thirty times too high and lies suspiciously close to the tensile modulus in this house's ASA sheet (22100 kg/cm²). Likewise the VICAT A of 95 °C and the melting temperature of 190 °C appear verbatim in the ASA sheet.") },
+
+  { id: "3djake-mattepla", material: "pla", name: "3DJAKE mattePLA", file: "3DJake_mattePLA", version: "1.0",
+    props: {
+      tensileStrengthXy: q(47, "MPa", { std: "ISO 527" }),
+      tensileModulusXy: q(2600, "MPa", { std: "ISO 527" }),
+      elongationAtYieldXy: q(4, "%", { std: "ISO 527" }),
+      elongationAtBreakXy: q(19, "%", { std: "ISO 527-2" }),
+      flexuralModulusXy: q(2650, "MPa", { std: "ISO 178" }),
+      vicatA: q(60, "°C", { std: "ISO 306", conditions: "Wandstärke mindestens 4 mm" }),
+      density: q(1.3, "g/cm³", { std: "ISO 1183" }),
+      nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
+      bedTemperature: q(30, "°C", { min: 0, max: 60 }),
+    },
+    features: t("Die Dichte von 1,3 g/cm³ gegenüber 1,24 beim ecoPLA zeigt die mineralische Füllung, die den matten Effekt macht — sie kostet Steifigkeit (2600 statt 3500 MPa). Bemerkenswert ist die Fussnote: Die Temperaturbeständigkeit gilt ausdrücklich erst ab 4 mm Wandstärke. Solche Einschränkungen stehen selten im Blatt, obwohl sie für dünnwandige Teile den Unterschied machen.",
+                "The density of 1.3 g/cm³ against 1.24 for ecoPLA shows the mineral filling that creates the matte effect — it costs stiffness (2600 instead of 3500 MPa). The footnote is notable: temperature resistance explicitly applies only from 4 mm wall thickness. Such qualifications rarely appear on a datasheet even though they make the difference for thin-walled parts.") },
+
+  { id: "3djake-easypetg", material: "petg", name: "3DJAKE easyPETG", file: "3DJake_easyPETG", version: "1.0",
+    props: {
+      tensileStrengthXy: q(53, "MPa", { std: "ISO 527-2" }),
+      elongationAtYieldXy: q(4, "%", { std: "ISO 527-2" }),
+      elongationAtBreakXy: q(31, "%", { std: "ISO 527-2" }),
+      flexuralStrengthXy: q(71, "MPa", { std: "ISO 178" }),
+      flexuralModulusXy: q(2190, "MPa", { std: "ISO 178" }),
+      vicatA: q(78, "°C", { std: "ISO 306", conditions: "Wandstärke mindestens 4 mm" }),
+      density: q(1.29, "g/cm³", { std: "ASTM D792" }),
+      nozzleTemperature: q(240, "°C", { min: 230, max: 250 }),
+      bedTemperature: q(75, "°C", { min: 60, max: 90 }),
+    },
+    features: t("Der Nachfolger des älteren „3DJAKE PETG“: 53 statt 50 MPa Zugfestigkeit, 31 statt 23 % Bruchdehnung. Beide Blätter stehen nebeneinander in der Datenbank, weil beide Produkte im Handel sind — der Unterschied zeigt, wie stark „PETG“ schon innerhalb einer Marke streut.",
+                "The successor to the older “3DJAKE PETG”: 53 instead of 50 MPa tensile strength, 31 instead of 23 % elongation at break. Both sheets sit side by side in the database because both products are on sale — the difference shows how widely “PETG” already scatters within a single brand.") },
+
+  { id: "3djake-nicebio", material: "pla", name: "3DJAKE niceBIO", file: "Technical_Data_Sheet_niceBIO_V2", version: "2.0",
+    props: {
+      tensileStrengthXy: q(55, "MPa", { std: "ISO 527" }),
+      flexuralModulusXy: q(5100, "MPa", { std: "im Blatt als ISO 527 angegeben; für Biegeversuche wäre ISO 178 einschlägig", confidence: "low" }),
+      charpyNotchedXy: q(43, "kJ/m²", { std: "ISO 179-1/1eA", confidence: "low" }),
+      hdtB: q(54, "°C", { std: "ISO 75" }),
+      vicatA: q(146, "°C", { std: "ISO 306", confidence: "low" }),
+      density: q(1.33, "g/cm³", { std: "ISO 1183" }),
+      shrinkage: q(0.4, "%", { std: "ISO 294-4" }),
+      nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
+      bedTemperature: q(30, "°C", { min: 0, max: 60 }),
+    },
+    anomaly: t("Dieses Blatt widerspricht sich an drei Stellen. Erstens: „Breaking stress 2 %“ — eine Spannung in Prozent gibt es nicht; gemeint ist offenkundig die Bruchdehnung, aber weil das Blatt es nicht sagt, steht der Wert nicht in der Datenbank. Zweitens: VICAT A 146 °C neben HDT-B 54 °C. Zwischen beiden liegen 92 Kelvin; für denselben Werkstoff ist das nicht plausibel, und 146 °C wären für einen PLA-Biokompound aussergewöhnlich. Drittens: 43 kJ/m² gekerbte Schlagzähigkeit passen nicht zu einem Werkstoff, der laut demselben Blatt bei 2 % bricht — gekerbt liegt selbst Polycarbonat bei 10 bis 15 kJ/m². Die Werte stehen als Herstellerangabe mit niedriger Konfidenz, geglättet wird nichts.",
+               "This sheet contradicts itself in three places. First: “Breaking stress 2 %” — there is no such thing as a stress in percent; elongation at break is obviously meant, but because the sheet does not say so, the value is not in the database. Second: VICAT A 146 °C next to HDT-B 54 °C. That is 92 kelvin apart; for the same material this is not plausible, and 146 °C would be exceptional for a PLA bio compound. Third: 43 kJ/m² notched impact does not fit a material that breaks at 2 % according to the same sheet — notched, even polycarbonate sits at 10 to 15 kJ/m². The values stand as manufacturer statements at low confidence; nothing is smoothed."),
+    features: t("Kein unverstärktes PLA, sondern ein PLA-Biokompound: Dichte 1,33 g/cm³ und ein Biege-E-Modul von 5100 MPa liegen weit über dem ecoPLA desselben Hauses (1,24 g/cm³, 3500 MPa Zug-E-Modul). Der Hersteller gibt an, das Material sei industriell kompostierbar und enthalte neben PLA weitere Bestandteile.",
+                "Not an unfilled PLA but a PLA bio compound: density 1.33 g/cm³ and a flexural modulus of 5100 MPa sit far above this house's ecoPLA (1.24 g/cm³, 3500 MPa tensile modulus). The manufacturer states the material is industrially compostable and contains further components besides PLA.") },
 ];
 
 const SPECIMEN_NOTE = t(

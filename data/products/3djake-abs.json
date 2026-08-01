@@ -1,0 +1,127 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-abs",
+  "materialId": "abs",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ABS",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Zwei Zeilen des Blattes nennen die falsche Norm beziehungsweise die falsche Einheit: Die VICAT-Temperatur steht unter ASTM D792 — das ist die Dichtebestimmung im Auftriebsverfahren, der Vicat-Versuch ist ASTM D1525. Und der Schmelzindex steht mit „21 g/cm³“ da; ein MFR wird in g/10 min gemessen, g/cm³ ist eine Dichte. Beide Zeilen wurden nicht übernommen beziehungsweise nur mit Vermerk. Die übrigen Werte sind in sich schlüssig.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: Two rows of the sheet cite the wrong standard or the wrong unit: the VICAT temperature sits under ASTM D792 — that is density by buoyancy, the Vicat test is ASTM D1525. And the melt flow rate reads “21 g/cm³”; an MFR is measured in g/10 min, g/cm³ is a density. Both rows were left out or carried with a note. The remaining values are internally consistent."
+  },
+  "features": {
+    "de": "Das jüngere der beiden ABS-Blätter des Hauses (01.10.2024) und das schlüssigere: 49 MPa Zugfestigkeit bei 10 % Bruchdehnung passen zusammen, während das Schwesterprodukt niceABS mit 34 % Bruchdehnung und 58 kJ/m² ungekerbter Schlagzähigkeit eher das Granulat beschreibt.",
+    "en": "The younger of the two ABS sheets from this house (01.10.2024) and the more coherent one: 49 MPa tensile at 10 % elongation fit together, whereas the sister product niceABS with 34 % elongation and 58 kJ/m² unnotched impact rather describes the pellets."
+  },
+  "datasheet": {
+    "title": "3DJAKE ABS — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/3DJake_ABS.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 49,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2350,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 78,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2550,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 92,
+      "unit": "°C",
+      "testStandard": "im Blatt als ASTM D792 angegeben",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "density": {
+      "value": 1.06,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 220,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 105,
+      "unit": "°C",
+      "min": 100,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ABS",
+        "title": "3DJAKE ABS — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/3DJake_ABS.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

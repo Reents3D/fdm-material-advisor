@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-nicebio",
+  "materialId": "pla",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE niceBIO",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Dieses Blatt widerspricht sich an drei Stellen. Erstens: „Breaking stress 2 %“ — eine Spannung in Prozent gibt es nicht; gemeint ist offenkundig die Bruchdehnung, aber weil das Blatt es nicht sagt, steht der Wert nicht in der Datenbank. Zweitens: VICAT A 146 °C neben HDT-B 54 °C. Zwischen beiden liegen 92 Kelvin; für denselben Werkstoff ist das nicht plausibel, und 146 °C wären für einen PLA-Biokompound aussergewöhnlich. Drittens: 43 kJ/m² gekerbte Schlagzähigkeit passen nicht zu einem Werkstoff, der laut demselben Blatt bei 2 % bricht — gekerbt liegt selbst Polycarbonat bei 10 bis 15 kJ/m². Die Werte stehen als Herstellerangabe mit niedriger Konfidenz, geglättet wird nichts.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: This sheet contradicts itself in three places. First: “Breaking stress 2 %” — there is no such thing as a stress in percent; elongation at break is obviously meant, but because the sheet does not say so, the value is not in the database. Second: VICAT A 146 °C next to HDT-B 54 °C. That is 92 kelvin apart; for the same material this is not plausible, and 146 °C would be exceptional for a PLA bio compound. Third: 43 kJ/m² notched impact does not fit a material that breaks at 2 % according to the same sheet — notched, even polycarbonate sits at 10 to 15 kJ/m². The values stand as manufacturer statements at low confidence; nothing is smoothed."
+  },
+  "features": {
+    "de": "Kein unverstärktes PLA, sondern ein PLA-Biokompound: Dichte 1,33 g/cm³ und ein Biege-E-Modul von 5100 MPa liegen weit über dem ecoPLA desselben Hauses (1,24 g/cm³, 3500 MPa Zug-E-Modul). Der Hersteller gibt an, das Material sei industriell kompostierbar und enthalte neben PLA weitere Bestandteile.",
+    "en": "Not an unfilled PLA but a PLA bio compound: density 1.33 g/cm³ and a flexural modulus of 5100 MPa sit far above this house's ecoPLA (1.24 g/cm³, 3500 MPa tensile modulus). The manufacturer states the material is industrially compostable and contains further components besides PLA."
+  },
+  "datasheet": {
+    "title": "3DJAKE niceBIO — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_niceBIO_V2.pdf",
+    "version": "2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 5100,
+      "unit": "MPa",
+      "testStandard": "im Blatt als ISO 527 angegeben; für Biegeversuche wäre ISO 178 einschlägig",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 43,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1/1eA",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 54,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 146,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "density": {
+      "value": 1.33,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.4,
+      "unit": "%",
+      "testStandard": "ISO 294-4",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 30,
+      "unit": "°C",
+      "min": 0,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE niceBIO",
+        "title": "3DJAKE niceBIO — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_niceBIO_V2.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

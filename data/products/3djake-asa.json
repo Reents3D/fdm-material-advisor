@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-asa",
+  "materialId": "asa",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ASA",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Die beiden mechanischen Zeilen wurden NICHT übernommen, weil Eigenschaft und Prüfnorm einander widersprechen: „Tensile strength 800 kg/cm²“ und „Tensile modulus 22100 kg/cm²“ stehen beide unter ASTM D790 — das ist die Norm für den BIEGEversuch, für Zug wäre es D638. Umgerechnet ergäben 800 kg/cm² rund 78 MPa Zugfestigkeit; das erreicht kein gedrucktes und kaum ein spritzgegossenes ASA (typisch 40 bis 45 MPa), als Biegefestigkeit wäre der Wert dagegen plausibel. Welche der beiden Angaben stimmt, lässt sich dem Blatt nicht entnehmen — deshalb steht keine von beiden in der Datenbank. Hinzu kommt: Das Blatt nennt für das amorphe ASA eine Schmelztemperatur, und im Fließtext steht „PLA can be used on all common desktop FDM printers“ — ein stehengebliebener Satz aus der PLA-Vorlage.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: The two mechanical rows were NOT imported because property and test standard contradict each other: “Tensile strength 800 kg/cm²” and “Tensile modulus 22100 kg/cm²” both sit under ASTM D790 — the standard for the FLEXURAL test; tensile would be D638. Converted, 800 kg/cm² would be about 78 MPa tensile strength; no printed and barely any moulded ASA reaches that (typically 40 to 45 MPa), whereas as a flexural strength the value would be plausible. Which of the two readings holds cannot be taken from the sheet — so neither is in the database. On top of that the sheet states a melting temperature for amorphous ASA, and the body text reads “PLA can be used on all common desktop FDM printers” — a leftover sentence from the PLA template."
+  },
+  "datasheet": {
+    "title": "3DJAKE ASA — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_ASA_V2.pdf",
+    "version": "2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "density": {
+      "value": 1.1,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 95,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "shrinkage": {
+      "value": 0.5,
+      "unit": "%",
+      "testStandard": "ISO 294-4",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 210,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "min": 60,
+      "max": 100,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ASA",
+        "title": "3DJAKE ASA — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/Technical_Data_Sheet_ASA_V2.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}
