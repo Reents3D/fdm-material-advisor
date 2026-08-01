@@ -1,6 +1,10 @@
 /**
- * Import: Herstellerprodukte (Prusament, Extrudr, …).
- * AzureFilm liegt in einem eigenen Skript: scripts/import/azurefilm.mjs
+ * Import: Herstellerprodukte — derzeit nur Prusa Polymers.
+ *
+ * Extrudr und AzureFilm haben eigene Skripte, weil beide vollstaendig aus den
+ * Herstellerdatenblaettern erfasst sind:
+ *   scripts/import/extrudr.mjs
+ *   scripts/import/azurefilm.mjs
  *
  * WARUM EINE EIGENE EBENE NEBEN data/materials/?
  * `data/materials/` beschreibt den WERKSTOFFTYP (PETG, ASA, …) — darauf arbeitet die
@@ -16,7 +20,7 @@
  *   moulded  Werte stammen aus dem Rohstoffdatenblatt, also spritzgegossen.
  *            Nominelle Bruchdehnungen weit über dem gedruckt Erreichbaren sind das
  *            deutlichste Anzeichen.
- *   undeclared  Datenblatt sagt es nicht (Extrudr).
+ *   undeclared  Datenblatt sagt es nicht.
  *
  * Die Angabe allein reicht allerdings nicht. AzureFilm deklariert "printed" UND nennt
  * die Druckparameter — darunter 20 % Infill. Ein Kennwert aus einem 20-%-Prüfkörper ist
@@ -142,38 +146,6 @@ const PRODUCTS = [
       nozzleTemperature: q(260, "°C", { min: 250, max: 270 }),
       bedTemperature: q(110, "°C", { min: 105, max: 115 }),
     },
-  },
-
-  /* ------------------------------------------------------------- Extrudr */
-  {
-    id: "extrudr-pla-nx2",
-    materialId: "pla",
-    brand: "Extrudr",
-    manufacturer: "FD3D GmbH (Extrudr)",
-    productName: "Extrudr PLA NX2 Matt",
-    origin: "Österreich",
-    specimenType: "undeclared",
-    specimenNote: t(
-      "Das Datenblatt nennt Prüfnormen und Druckeinstellungen, sagt aber nicht, ob die Kennwerte an gedruckten oder spritzgegossenen Prüfkörpern ermittelt wurden. Die Kombination aus 47 MPa und 19 % nomineller Bruchdehnung deutet auf Rohstoffwerte hin.",
-      "The datasheet names test standards and print settings but does not state whether values were measured on printed or injection-moulded specimens. The combination of 47 MPa and 19 % nominal elongation suggests raw-material values."),
-    datasheet: {
-      title: "Extrudr PLA NX2 Matt — Technisches Datenblatt (DE)",
-      url: "https://filamentworld.de/fact-sheets/Extrudr_PLA-NX2_Datenblatt_DE.pdf",
-    },
-    productUrl: "https://www.extrudr.com/de/shop-eu/page/datasheets/",
-    props: {
-      tensileStrengthXy: q(47, "MPa", { std: "ISO 527", orientation: "n/a", confidence: "medium" }),
-      tensileModulusXy: q(2600, "MPa", { std: "ISO 527", orientation: "n/a", confidence: "medium" }),
-      elongationAtBreakXy: q(19, "%", { std: "ISO 527-2 (nominell)", orientation: "n/a", confidence: "medium" }),
-      flexuralModulusXy: q(2650, "MPa", { std: "ISO 178", orientation: "n/a", confidence: "medium" }),
-      charpyNotchedXy: q(7, "kJ/m²", { std: "ISO 179/1eA (gekerbt)", orientation: "n/a", confidence: "medium" }),
-      vicatA: q(60, "°C", { std: "ISO 306 (Methode A)", confidence: "medium" }),
-      nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
-      bedTemperature: q(40, "°C", { min: 20, max: 60 }),
-    },
-    features: t(
-      "Matte Oberfläche, CO2-neutral zertifiziert, verbesserte UV-Beständigkeit, entspricht FDA-, RoHS- und Spielzeugsicherheits-Bestimmungen. Kein geschlossener Bauraum und keine gehärtete Düse nötig.",
-      "Matte surface, certified CO2-neutral, improved UV resistance, complies with FDA, RoHS and toy safety regulations. No enclosure and no hardened nozzle required."),
   },
 ];
 
