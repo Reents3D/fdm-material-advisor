@@ -1,0 +1,140 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pla-matte",
+  "materialId": "pla",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PLA Matte",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht als einziger Hersteller dieser Datenbank für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet.",
+    "en": "Bambu Lab measures on PRINTED specimens and is the only manufacturer in this database to publish both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs."
+  },
+  "datasheet": {
+    "title": "Bambu PLA Matte — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PLA_Matte_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.31,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 32,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 25,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 1960,
+      "unit": "MPa",
+      "tolerance": 90,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXy": {
+      "value": 2360,
+      "unit": "MPa",
+      "tolerance": 250,
+      "testStandard": "ISO 178, GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 53,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 178, GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtA": {
+      "value": 52,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 58,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "glassTransition": {
+      "value": 61,
+      "unit": "°C",
+      "testStandard": "DSC, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 190,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "min": 35,
+      "max": 45,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "chamberTemperature": {
+      "value": 35,
+      "unit": "°C",
+      "min": 25,
+      "max": 45,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (maschineller Import aus dem Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PLA Matte",
+        "title": "Bambu PLA Matte — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PLA_Matte_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Der Textauszug liegt zur Nachprüfung in data/_sources/bambu-tds/ im Repository.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. The text extract is kept in data/_sources/bambu-tds/ in the repository for verification."
+        }
+      }
+    ]
+  }
+}

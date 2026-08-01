@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pc-fr",
+  "materialId": "pc-fr",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PC FR",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht als einziger Hersteller dieser Datenbank für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet.",
+    "en": "Bambu Lab measures on PRINTED specimens and is the only manufacturer in this database to publish both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs."
+  },
+  "datasheet": {
+    "title": "Bambu PC FR — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PC_FR_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.18,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 21,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 1670,
+      "unit": "MPa",
+      "tolerance": 40,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXy": {
+      "value": 1890,
+      "unit": "MPa",
+      "tolerance": 70,
+      "testStandard": "ISO 178, GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 90,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178, GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtA": {
+      "value": 108,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 113,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "vicatA": {
+      "value": 114,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "glassTransition": {
+      "value": 145,
+      "unit": "°C",
+      "testStandard": "DSC, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "min": 260,
+      "max": 280,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (maschineller Import aus dem Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PC FR",
+        "title": "Bambu PC FR — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PC_FR_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Der Textauszug liegt zur Nachprüfung in data/_sources/bambu-tds/ im Repository.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. The text extract is kept in data/_sources/bambu-tds/ in the repository for verification."
+        }
+      }
+    ]
+  }
+}

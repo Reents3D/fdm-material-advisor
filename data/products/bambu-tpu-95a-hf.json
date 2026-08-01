@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-tpu-95a-hf",
+  "materialId": "tpu-95a",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu TPU 95A HF",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht als einziger Hersteller dieser Datenbank für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet.",
+    "en": "Bambu Lab measures on PRINTED specimens and is the only manufacturer in this database to publish both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs."
+  },
+  "datasheet": {
+    "title": "Bambu TPU 95A HF — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_TPU_95A_HF_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 27.3,
+      "unit": "MPa",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 22.3,
+      "unit": "MPa",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 9.8,
+      "unit": "MPa",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527, GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXy": {
+      "value": 123.2,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179, GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 220,
+      "max": 240,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 32.5,
+      "unit": "°C",
+      "min": 30,
+      "max": 35,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "chamberTemperature": {
+      "value": 35,
+      "unit": "°C",
+      "min": 25,
+      "max": 45,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (maschineller Import aus dem Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu TPU 95A HF",
+        "title": "Bambu TPU 95A HF — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_TPU_95A_HF_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Der Textauszug liegt zur Nachprüfung in data/_sources/bambu-tds/ im Repository.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. The text extract is kept in data/_sources/bambu-tds/ in the repository for verification."
+        }
+      }
+    ]
+  }
+}

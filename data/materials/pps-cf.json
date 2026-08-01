@@ -1,0 +1,433 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "pps-cf",
+  "identity": {
+    "name": "PPS-CF",
+    "family": "PPS",
+    "polymerClass": "semi-crystalline",
+    "variant": [
+      "high-temp",
+      "CF"
+    ],
+    "aliases": [
+      "Polyphenylensulfid carbonfaserverstärkt",
+      "PPS Carbon",
+      "Polyphenylene Sulfide CF"
+    ],
+    "abstract": {
+      "de": "PPS-CF ist der wärmefesteste Werkstoff dieser Datenbank: 235 °C Formbeständigkeit unter 1,8 MPa Last, Vicat 268 °C, dazu 8230 MPa Steifigkeit. Für Bauteile in Motornähe, Sterilisation und Chemieanlagen. Grenzen: extrem anisotrop — quer zur Schicht bleiben 28 % der Festigkeit —, braucht 310–340 °C Düse und eine auf 60–90 °C beheizte Kammer, was nur wenige Anlagen können.",
+      "en": "PPS-CF is the most heat-resistant material in this database: 235 °C deflection under 1.8 MPa load, Vicat 268 °C, plus 8230 MPa stiffness. For parts near engines, in sterilisation and chemical plant. Limits: extremely anisotropic — 28 % of strength remains across the layers — and it needs a 310–340 °C nozzle and a chamber at 60–90 °C, which few machines can do."
+    },
+    "positioning": {
+      "de": "Wenn 200 °C nicht reichen — und die Anlage mitspielt.",
+      "en": "When 200 °C is not enough — and the machine can keep up."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.26,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 87,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthZ": {
+      "value": 24,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 8230,
+      "unit": "MPa",
+      "tolerance": 270,
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 142,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "flexuralModulusXy": {
+      "value": 7160,
+      "unit": "MPa",
+      "tolerance": 280,
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXy": {
+      "value": 6.2,
+      "unit": "kJ/m²",
+      "tolerance": 1.6,
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedZ": {
+      "value": 2.8,
+      "unit": "kJ/m²",
+      "tolerance": 0.4,
+      "testStandard": "ISO 179",
+      "orientation": "Z",
+      "conditions": "gedruckter Prüfkörper, X1E, 100 % Infill, Kammer 60 °C, Düse 320 °C, 60 mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.28,
+      "unit": "-",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "source": "src_bambu_tds",
+      "confidence": "high",
+      "note": {
+        "de": "24 MPa in Z geteilt durch 87 MPa in X-Y desselben Datenblatts — der schlechteste Wert der Datenbank.",
+        "en": "24 MPa in Z divided by 87 MPa in X-Y of the same datasheet — the worst value in the database."
+      }
+    },
+    "toughness": {
+      "value": 2,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 4,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "creepTendency": {
+      "value": 1,
+      "scale": "creepTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "wearResistance": {
+      "value": 5,
+      "scale": "wearResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 235,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 264,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "vicatB50": {
+      "value": 268,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "glassTransition": {
+      "value": 100,
+      "unit": "°C",
+      "testStandard": "DSC, 10 °C/min",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 200,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Abstand zu HDT-A.",
+        "en": "Our own conservative recommendation with margin to HDT-A."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 325,
+      "unit": "°C",
+      "min": 310,
+      "max": 340,
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "min": 100,
+      "max": 120,
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    },
+    "chamberRequirement": {
+      "value": "mandatory",
+      "source": "src_bambu_tds",
+      "confidence": "high",
+      "note": {
+        "de": "Kammer 60–90 °C laut Datenblatt.",
+        "en": "Chamber 60–90 °C per the datasheet."
+      }
+    },
+    "dryingTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "dryingTime": {
+      "value": 12,
+      "unit": "h",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "printability": {
+      "value": 1,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 5,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 4,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 5,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 3,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 3,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hydrolysisResistance": {
+      "value": 5,
+      "scale": "hydrolysisResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "moderate",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "opaque",
+      "source": "src_bambu_tds",
+      "confidence": "high"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 2,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 1,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 1,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 5,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 1,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 1,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 250,
+        "unit": "mm",
+        "min": 100,
+        "max": 400,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Kammerbedarf und extreme Verzugsneigung begrenzen die Bauteilgrösse stark.",
+          "en": "Chamber requirement and extreme warping tendency limit part size severely."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_bambu_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PPS-CF",
+        "title": "Bambu PPS-CF — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PPS-CF_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Datenblatt mit gedruckten Prüfkörpern, beiden Orientierungen, Streuungen UND vollständig offengelegten Druckparametern der Prüfkörper.",
+          "en": "Datasheet with printed specimens, both orientations, scatter figures AND fully disclosed specimen print parameters."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle für PPS-CF ergänzen.",
+          "en": "Add a second independent manufacturer source for PPS-CF."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      }
+    ]
+  }
+}
