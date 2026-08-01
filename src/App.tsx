@@ -22,6 +22,7 @@ import { Explorer } from "./views/Explorer";
 import { Matrix } from "./views/Matrix";
 import { Brands } from "./views/Brands";
 import { UseCases } from "./views/UseCases";
+import { Glossary } from "./views/Glossary";
 import { Compliance } from "./views/Compliance";
 
 export type Route =
@@ -34,6 +35,7 @@ export type Route =
   | { view: "matrix" }
   | { view: "brands" }
   | { view: "usecases" }
+  | { view: "glossary" }
   | { view: "compliance" };
 
 /* ---------------------------------------------------- URL <-> state mapping */
@@ -59,6 +61,7 @@ function parseHash(): { route: Route; params: URLSearchParams } {
   if (view === "matrix") return { route: { view: "matrix" }, params };
   if (view === "brands") return { route: { view: "brands" }, params };
   if (view === "usecases") return { route: { view: "usecases" }, params };
+  if (view === "glossar" || view === "glossary") return { route: { view: "glossary" }, params };
   if (view === "compliance") return { route: { view: "compliance" }, params };
   return { route: { view: "home" }, params };
 }
@@ -178,6 +181,7 @@ export function App() {
         {route.view === "matrix" && <Matrix t={t} lang={state.lang} navigate={navigate} />}
         {route.view === "brands" && <Brands t={t} lang={state.lang} navigate={navigate} />}
         {route.view === "usecases" && <UseCases t={t} lang={state.lang} />}
+        {route.view === "glossary" && <Glossary t={t} lang={state.lang} />}
         {route.view === "compliance" && <Compliance t={t} lang={state.lang} navigate={navigate} />}
       </main>
 

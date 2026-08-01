@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reents3d.github.io/fdm-material-advisor/schema/glossary.schema.json",
+  "title": "Glossar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "terms"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "term",
+          "category",
+          "short",
+          "detail"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "term": {
+            "$ref": "#/$defs/i18n"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "enum": [
+              "mechanik",
+              "thermik",
+              "pruefung",
+              "verarbeitung",
+              "regulatorik",
+              "methodik"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "short": {
+            "$ref": "#/$defs/i18n",
+            "description": "Ein Satz. Was ist das."
+          },
+          "detail": {
+            "$ref": "#/$defs/i18n",
+            "description": "Warum es fuer die Werkstoffwahl zaehlt."
+          },
+          "pitfall": {
+            "$ref": "#/$defs/i18n",
+            "description": "Der verbreitete Irrtum zu diesem Begriff."
+          },
+          "seeAlso": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "i18n": {
+      "type": "object",
+      "required": [
+        "de",
+        "en"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "de": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

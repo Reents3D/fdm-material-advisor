@@ -16,6 +16,13 @@ const TARGETS = [
   { dir: "data/usecases", schema: "schema/usecase.schema.json" },
 ];
 
+/* Einzeldateien mit eigenem Schema. Ohne diesen Block waeren chemical.schema.json und
+   glossary.schema.json reine Dekoration - geschrieben, aber nie angewendet. */
+const SINGLE = [
+  { file: "data/chemicals.json", schema: "schema/chemical.schema.json" },
+  { file: "data/glossary.json", schema: "schema/glossary.schema.json" },
+];
+
 let failed = 0;
 let checked = 0;
 
@@ -35,6 +42,21 @@ for (const target of TARGETS) {
     for (const e of validate.errors) {
       console.log(`      ${e.instancePath || "/"} ${e.message} ${JSON.stringify(e.params)}`);
     }
+  }
+}
+
+for (const target of SINGLE) {
+  const schemaPath = path.join(ROOT, target.schema);
+  const filePath = path.join(ROOT, target.file);
+  if (!existsSync(schemaPath) || !existsSync(filePath)) continue;
+  const validate = ajv.compile(JSON.parse(readFileSync(schemaPath, "utf8")));
+  const data = JSON.parse(readFileSync(filePath, "utf8"));
+  checked++;
+  if (validate(data)) continue;
+  failed++;
+  console.log(`FAIL  ${target.file}`);
+  for (const e of validate.errors) {
+    console.log(`      ${e.instancePath || "/"} ${e.message} ${JSON.stringify(e.params)}`);
   }
 }
 

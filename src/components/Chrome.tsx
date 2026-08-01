@@ -22,6 +22,7 @@ const NAV = [
   { path: "compliance", key: "ui.compliance", match: "compliance" },
   { path: "compare", key: "ui.start.compare", match: "compare" },
   { path: "explorer", key: "ui.start.explorer", match: "explorer" },
+  { path: "glossar", key: "ui.glossary", match: "glossary" },
 ];
 
 export function Header({ lang, onLang, t, view }: {
@@ -37,7 +38,7 @@ export function Header({ lang, onLang, t, view }: {
               className="h-9 w-auto dark:brightness-0 dark:invert" width={200} height={36} />
           </a>
 
-          <nav className="ml-auto hidden lg:flex items-center gap-1 text-sm" aria-label="Hauptnavigation">
+          <nav className="ml-auto hidden 2xl:flex items-center gap-1 text-sm" aria-label="Hauptnavigation">
             {NAV.map((n) => (
               <a key={n.path} href={`#/${n.path}`}
                 className={cx(
@@ -51,7 +52,7 @@ export function Header({ lang, onLang, t, view }: {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 ml-auto lg:ml-0">
+          <div className="flex items-center gap-3 ml-auto 2xl:ml-0">
             <div className="flex items-center rounded-lg overflow-hidden border border-hairline dark:border-[#1E2B3D]">
               {LANGS.map((l) => (
                 <button key={l} onClick={() => onLang(l)} aria-pressed={lang === l}
@@ -74,8 +75,10 @@ export function Header({ lang, onLang, t, view }: {
           </div>
         </div>
 
-        {/* Navigation auf schmalen Viewports */}
-        <nav className="lg:hidden border-t border-hairline dark:border-[#1E2B3D] overflow-x-auto"
+        {/* Zweite Zeile fuer die Navigation. Ab acht Eintraegen passt sie neben Logo,
+            Sprachwahl und CTA erst ab 1536 px in eine Zeile - darunter lief die Kopfzeile
+            horizontal ueber. Die zweite Zeile scrollt und bleibt vollstaendig erreichbar. */}
+        <nav className="2xl:hidden border-t border-hairline dark:border-[#1E2B3D] overflow-x-auto"
           aria-label="Hauptnavigation mobil">
           <div className="flex gap-1 px-4 py-2 text-sm min-w-max">
             {NAV.map((n) => (
