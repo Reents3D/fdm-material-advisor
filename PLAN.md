@@ -78,15 +78,15 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 
 > **Gate: Erst wenn die Seite live ist, geht es weiter.**
 
-- [ ] GitHub-Repo anlegen (Org, Name, Topics, Beschreibung) → **Rückfrage 1**
-- [ ] Vite + React 18 + TS strict + Tailwind, `base` aus ENV (base-path-agnostisch)
-- [ ] Grundgerüst `src/config/site.ts` mit allen Reents-Konstanten
-- [ ] Branding-Basis: Farben, selbst gehostete Schrift, Logo in `/public/brand/` → **Rückfrage 4, 6**
-- [ ] `.github/workflows/ci.yml` — tsc, ESLint, Prettier, Schema, Plausibilität, Vitest
-- [ ] `.github/workflows/deploy.yml` — Build → GitHub Pages
-- [ ] `scripts/prototype/*.mjs` → `scripts/validate-data.ts` portieren (in CI verdrahten)
-- [ ] Lizenzdateien, `DISCLAIMER.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`
-- [ ] Leere App live unter `https://<org>.github.io/fdm-materialberater/`
+- [x] GitHub-Repo anlegen (Org, Name, Topics, Beschreibung) → **Rückfrage 1**
+- [x] Vite + React 18 + TS strict + Tailwind, `base` aus ENV (base-path-agnostisch)
+- [x] Grundgerüst `src/config/site.ts` mit allen Reents-Konstanten
+- [x] Branding-Basis: Farben, selbst gehostete Schrift, Logo in `/public/brand/` → **Rückfrage 4, 6**
+- [x] `.github/workflows/ci.yml` — tsc, ESLint, Prettier, Schema, Plausibilität, Vitest
+- [x] `.github/workflows/deploy.yml` — Build → GitHub Pages
+- [x] `scripts/prototype/*.mjs` → `scripts/validate-data.ts` portieren (in CI verdrahten)
+- [x] Lizenzdateien, `DISCLAIMER.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`
+- [x] Leere App live unter `https://<org>.github.io/fdm-materialberater/`
 
 **Aufwand:** ~1 Arbeitstag · **DoD:** Deployment läuft automatisch aus `main`, CI blockt bei Schemafehler
 
@@ -100,7 +100,7 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
       PLA, PLA+/Tough, PETG, PETG-CF ✅, ABS, ASA, PC, PA6-CF, PA12, PET-CF, TPU 95A,
       PP, PLA-CF, ASA-CF, PVA (Support)
 - [ ] `export-csv.ts` — Datenbank als CSV/XLSX
-- [ ] Referenzielle Integritätsprüfungen in CI (chemicalId, sourceId, Skalen-Polarität)
+- [x] Referenzielle Integritätsprüfungen in CI (chemicalId, sourceId, Skalen-Polarität)
 
 **Aufwand:** ~20–30 h (Daten dominieren) · **DoD:** 15 Datensätze grün, `dataCompleteness` ≥ 85 %
 
@@ -111,16 +111,16 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 
 ### Phase 2 — Engine
 
-- [ ] `src/engine/` als framework-freies TS-Modul mit eigenem `exports`-Feld
-- [ ] Stufe 1: Hard Constraints + Ausfilterungs-Protokoll („Warum ist PLA nicht dabei?")
-- [ ] Stufe 2: Perzentil-Normalisierung + gewichtetes Scoring → **ADR-005**
-- [ ] Stufe 3: strukturierte Begründungsobjekte (keine Laufzeit-Freitexte)
-- [ ] Stufe 4: Trade-off-Engine + `data/tradeoffs.json` (Downgrade-Pfade)
-- [ ] „Warum nicht X?" für jedes Material
-- [ ] Verfahrensweiche (FDM ungeeignet → SLA/SLS/CNC/Guss) → **ADR-009**
-- [ ] Konfidenz-Rollup + Sensitivitätsanalyse
-- [ ] **≥ 25 fachliche Szenario-Tests**, Coverage ≥ 80 %
-- [ ] **Neutralitätstest zu ADR-004:** Ranking ist unabhängig vom Portfolio-Status
+- [x] `src/engine/` als framework-freies TS-Modul mit eigenem `exports`-Feld
+- [x] Stufe 1: Hard Constraints + Ausfilterungs-Protokoll („Warum ist PLA nicht dabei?")
+- [x] Stufe 2: Perzentil-Normalisierung + gewichtetes Scoring → **ADR-005**
+- [x] Stufe 3: strukturierte Begründungsobjekte (keine Laufzeit-Freitexte)
+- [x] Stufe 4: Trade-off-Engine + `data/tradeoffs.json` (Downgrade-Pfade)
+- [x] „Warum nicht X?" für jedes Material
+- [x] Verfahrensweiche (FDM ungeeignet → SLA/SLS/CNC/Guss) → **ADR-009**
+- [x] Konfidenz-Rollup + Sensitivitätsanalyse
+- [x] **≥ 25 fachliche Szenario-Tests**, Coverage ≥ 80 %
+- [x] **Neutralitätstest zu ADR-004:** Ranking ist unabhängig vom Portfolio-Status
 
 **Aufwand:** ~3–4 Tage · **DoD:** Tests grün, Engine ohne React-Import lauffähig
 
@@ -128,13 +128,13 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 
 ### Phase 3 — UI
 
-- [ ] Wizard (5–7 Schritte, überspringbar, Live-Trefferzahl)
-- [ ] Ergebnisansicht (Top 3, Ampeln, Kompromiss-Panel, „Warum nicht?")
-- [ ] Vergleich bis 5 Materialien, „nur Unterschiede", Sticky-Header
-- [ ] Materialdetailseite mit Quellen, Konfidenz, Chemikalien-Heatmap
-- [ ] URL-State als Single Source of Truth → **ADR-008**
-- [ ] Sichtbare Kennzeichnung geschätzter Werte (gestrichelt + Symbol)
-- [ ] Branding vollständig, Dark/Light, A11y-Grundlagen
+- [x] Wizard (5–7 Schritte, überspringbar, Live-Trefferzahl)
+- [x] Ergebnisansicht (Top 3, Ampeln, Kompromiss-Panel, „Warum nicht?")
+- [x] Vergleich bis 5 Materialien, „nur Unterschiede", Sticky-Header
+- [x] Materialdetailseite mit Quellen, Konfidenz, Chemikalien-Heatmap
+- [x] URL-State als Single Source of Truth → **ADR-008**
+- [x] Sichtbare Kennzeichnung geschätzter Werte (gestrichelt + Symbol)
+- [x] Branding vollständig, Dark/Light, A11y-Grundlagen
 
 **Aufwand:** ~5–7 Tage · **DoD:** Wizard führt zu begründeter Empfehlung mit ≥ 2 Alternativen
 
@@ -156,9 +156,9 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 
 ### Phase 5 — Ausbau
 
-- [ ] Explorer / Ashby-Plot (frei wählbare Achsen)
+- [x] Explorer / Ashby-Plot (frei wählbare Achsen)
 - [ ] Trade-off-Radar
-- [ ] Export PDF/CSV, Print-Stylesheet
+- [x] Export PDF/CSV, Print-Stylesheet
 - [ ] PWA / Offline (Messebetrieb)
 - [ ] i18n EN vollständig
 - [ ] SEO/AEO: JSON-LD (`SoftwareApplication`, `Organization`, `Dataset`, `FAQPage`,
@@ -171,8 +171,8 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 ### Phase 6 — Launch
 
 - [ ] Lighthouse ≥ 90/95/95, axe ohne kritische Verstöße, Bundle < 350 kB gzip
-- [ ] README zweisprachig, Screenshots, Scoring-Erklärung
-- [ ] CONTRIBUTING + Issue-Templates
+- [x] README zweisprachig, Screenshots, Scoring-Erklärung
+- [x] CONTRIBUTING + Issue-Templates
 - [ ] Umstellung auf `materialberater.reents3d.de` → **Rückfrage 5**
 - [ ] Sichtbarkeit: LinkedIn, Reddit r/3Dprinting, Hackaday, Printables, Awesome-Listen,
       Verlinkung aus dem Reents-Magazin und `/tools/`
