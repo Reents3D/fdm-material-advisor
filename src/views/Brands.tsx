@@ -90,6 +90,52 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
             ? "Die Angabe allein reicht allerdings nicht. AzureFilm deklariert gedruckte Prüfkörper und nennt als einziger Hersteller die vollständigen Druckparameter — und genau dadurch wird sichtbar, dass PLA, PLA Silk und ASA mit nur 20 % Infill geprüft wurden. Ein Kennwert aus einem halb gefüllten Prüfkörper beschreibt eine Geometrie, keinen Werkstoff. Deshalb steht die Prüfbedingung hier an jedem einzelnen Wert und nicht nur in einer Fussnote."
             : "The declaration alone is not enough. AzureFilm declares printed specimens and is the only manufacturer to state the full print parameters — which is precisely what reveals that PLA, PLA Silk and ASA were tested at only 20 % infill. A value from a half-filled specimen describes a geometry, not a material. That is why the test condition appears here on every single value, not just in a footnote."}
         </p>
+
+        {/* Der beste Beleg fuer die These dieses Werkzeugs stammt von einem Rohstoffhersteller
+            selbst: ein Datenblatt, das beide Spalten nebeneinander stellt. */}
+        <div className="mt-4 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
+          <p className="text-sm leading-relaxed max-w-3xl">
+            {lang === "de"
+              ? "Wie gross der Unterschied ist, beziffert ein Rohstoffhersteller selbst. Shenzhen Zhinengpai stellt in einem PLA-Datenblatt beide Spalten nebeneinander — dasselbe Material, einmal gedruckt (210 °C, 0,4 mm Düse, 2 Perimeter, 100 % Infill), einmal spritzgegossen:"
+              : "How large the difference is has been quantified by a raw-material producer itself. Shenzhen Zhinengpai places both columns side by side in one PLA datasheet — the same material, once printed (210 °C, 0.4 mm nozzle, 2 perimeters, 100 % infill), once injection moulded:"}
+          </p>
+          <div className="overflow-x-auto mt-3">
+            <table className="text-sm border-separate border-spacing-0 min-w-max">
+              <thead>
+                <tr className="text-left">
+                  <th className="font-medium py-1.5 pr-6" />
+                  <th className="font-medium py-1.5 pr-6">{lang === "de" ? "gedruckt" : "printed"}</th>
+                  <th className="font-medium py-1.5 pr-6">{lang === "de" ? "spritzgegossen" : "moulded"}</th>
+                  <th className="font-medium py-1.5">{lang === "de" ? "gedruckt erreicht" : "printed reaches"}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {([
+                  [lang === "de" ? "Zugfestigkeit" : "Tensile strength", "40,5 MPa", "55,3 MPa", "73 %"],
+                  [lang === "de" ? "Bruchdehnung" : "Elongation at break", "3,2 %", "25,5 %", "13 %"],
+                  [lang === "de" ? "Biegefestigkeit" : "Flexural strength", "72,5 MPa", "85,5 MPa", "85 %"],
+                  [lang === "de" ? "Izod gekerbt" : "Izod notched", "3,5 kJ/m²", "5,6 kJ/m²", "63 %"],
+                ] as const).map(([label, pr, mo, pct]) => (
+                  <tr key={label} className="border-t border-hairline/70 dark:border-[#172233]">
+                    <td className="py-1.5 pr-6 muted">{label}</td>
+                    <td className="py-1.5 pr-6 tabular-nums font-medium">{pr}</td>
+                    <td className="py-1.5 pr-6 tabular-nums muted">{mo}</td>
+                    <td className="py-1.5 tabular-nums font-semibold hl">{pct}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs muted mt-3 max-w-3xl leading-relaxed">
+            {lang === "de"
+              ? "Die Bruchdehnung bricht am stärksten ein: Ein gedrucktes Teil erreicht ein Achtel des Wertes, den dasselbe Granulat spritzgegossen liefert. Wer ein Rohstoffdatenblatt für die Auslegung heranzieht, rechnet an dieser Stelle um den Faktor acht daneben. "
+              : "Elongation collapses hardest: a printed part reaches an eighth of what the same pellets deliver when injection moulded. Anyone using a raw-material datasheet for design is off by a factor of eight at this point. "}
+            <a href="https://3d.nice-cdn.com/upload/file/TDS_PLA.pdf" target="_blank" rel="noopener nofollow"
+              className="hl hover:underline">
+              {lang === "de" ? "Datenblatt ansehen" : "View datasheet"} →
+            </a>
+          </p>
+        </div>
       </Card>
 
       <div className="flex flex-wrap gap-1.5 mb-5 no-print">

@@ -1,0 +1,134 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-abs-cf",
+  "materialId": "abs",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ABS CF",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "Das Gegenstück zu Datenblättern, die die CF-Variante vom Grundtyp abschreiben: Dichte, Steifigkeit und Bruchdehnung unterscheiden sich sichtbar vom unverstärkten niceABS, und das Blatt nennt zusätzlich Kerbschlagwerte bei −30 °C (7 kJ/m² gegen 14 bei Raumtemperatur).",
+    "en": "The counterpart to datasheets that copy the CF grade from the base type: density, stiffness and elongation differ visibly from unfilled niceABS, and the sheet additionally gives notched impact at −30 °C (7 kJ/m² against 14 at room temperature)."
+  },
+  "datasheet": {
+    "title": "3DJAKE ABS CF — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ABS-CF.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 59,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3000,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 7,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 85,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3080,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 14,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 14,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180/1A, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 87,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa, flachkant",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 98,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.08,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1/A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 220,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 105,
+      "unit": "°C",
+      "min": 100,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ABS CF",
+        "title": "3DJAKE ABS CF — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ABS-CF.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

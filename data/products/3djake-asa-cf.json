@@ -1,0 +1,125 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-asa-cf",
+  "materialId": "asa-cf",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ASA CF",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "93 MPa Biegefestigkeit und HDT-A 93 °C — der Wert bei 1,8 MPa Last, nicht der geschmeichelte bei 0,45 MPa. Datenblätter, die HDT-A angeben, machen es sich schwerer und sind deshalb aussagekräftiger.",
+    "en": "93 MPa flexural strength and HDT-A of 93 °C — the figure at 1.8 MPa load, not the flattering one at 0.45 MPa. Datasheets that state HDT-A make it harder for themselves and are therefore more informative."
+  },
+  "datasheet": {
+    "title": "3DJAKE ASA CF — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ASA-CF.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 93,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3100,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 9,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 9.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180/1A, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 93,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa, flachkant",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 101,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.12,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1/A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 250,
+      "unit": "°C",
+      "min": 240,
+      "max": 260,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ASA CF",
+        "title": "3DJAKE ASA CF — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ASA-CF.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

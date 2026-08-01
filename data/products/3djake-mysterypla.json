@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-mysterypla",
+  "materialId": "pla",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE mysteryPLA",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Das Datenblatt nennt einen Zug-E-Modul von rund 380 bis 390 MPa. Für PLA ist das um den Faktor zehn zu niedrig — PLA liegt bei 3000 bis 3900 MPa, und das Schwesterprodukt ecoPLA desselben Hauses steht mit 3500 MPa im Blatt. Ein Werkstoff mit 390 MPa Steifigkeit und gleichzeitig 45 MPa Streckspannung müsste sich vor dem Fließen um über zehn Prozent elastisch dehnen, was PLA nicht tut. Der Wert wurde deshalb nicht übernommen; naheliegend ist ein verschobenes Komma.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: The datasheet states a tensile modulus of roughly 380 to 390 MPa. For PLA that is ten times too low — PLA sits at 3000 to 3900 MPa, and the sister product ecoPLA from the same house is listed at 3500 MPa. A material with 390 MPa stiffness and at the same time 45 MPa yield stress would have to stretch elastically by more than ten percent before yielding, which PLA does not. The value was therefore not imported; a misplaced decimal point is the obvious explanation."
+  },
+  "datasheet": {
+    "title": "3DJAKE mysteryPLA — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_mysteryPLA_v1.1.pdf",
+    "version": "1.1",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 44.8,
+      "unit": "MPa",
+      "testStandard": "ISO 527 (Streckspannung)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 10.1,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 20,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 2.6,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.234,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 210,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE mysteryPLA",
+        "title": "3DJAKE mysteryPLA — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_mysteryPLA_v1.1.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

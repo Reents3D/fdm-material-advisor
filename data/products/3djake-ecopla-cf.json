@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-ecopla-cf",
+  "materialId": "pla",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ecoPLA CF",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "Eigenständig geprüft, nicht vom Grundtyp abgeschrieben: gegenüber dem ecoPLA steigen Dichte (1,26 statt 1,24), Steifigkeit (4300 statt 3500 MPa) und Festigkeit (55 statt 45 MPa), während die Bruchdehnung fällt. Genau so verhält sich eine Carbonfaser-Füllung.",
+    "en": "Independently tested rather than copied from the base grade: against ecoPLA, density (1.26 instead of 1.24), stiffness (4300 instead of 3500 MPa) and strength (55 instead of 45 MPa) all rise while elongation falls. That is exactly how carbon fibre filling behaves."
+  },
+  "datasheet": {
+    "title": "3DJAKE ecoPLA CF — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ecoPLA-CF.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 4300,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.5,
+      "unit": "%",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eA",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 65,
+      "unit": "°C",
+      "testStandard": "ISO 75-1, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.26,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1/A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 210,
+      "max": 240,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "min": 20,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ecoPLA CF",
+        "title": "3DJAKE ecoPLA CF — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_ecoPLA-CF.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-ecopla",
+  "materialId": "pla",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE ecoPLA",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens."
+  },
+  "features": {
+    "de": "Der meistverkaufte Werkstoff des Hauses. Das Datenblatt kennzeichnet die Dichte als Literaturwert statt als Messung und nennt bei der Bruchdehnung nur eine Obergrenze — beides ehrlicher als eine erfundene Nachkommastelle.",
+    "en": "The house's best-selling material. The datasheet marks density as a literature value rather than a measurement and gives only an upper bound for elongation — both more honest than an invented decimal place."
+  },
+  "datasheet": {
+    "title": "3DJAKE ecoPLA — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_ecoPLA_v1.4.pdf",
+    "version": "1.3",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 45,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3500,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ISO 527-1 (≤ 5)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt weist diesen Wert ausdrücklich als „Literaturwert“ aus, nicht als eigene Messung — eine Offenheit, die man selten sieht.",
+        "en": "The datasheet explicitly marks this value as a “literature value”, not an own measurement — a candour one rarely sees."
+      }
+    },
+    "glassTransition": {
+      "value": 60,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 205,
+      "unit": "°C",
+      "min": 195,
+      "max": 215,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 48,
+      "unit": "°C",
+      "min": 35,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE ecoPLA",
+        "title": "3DJAKE ecoPLA — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_ecoPLA_v1.4.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "3djake-niceabs",
+  "materialId": "abs",
+  "brand": "3DJAKE",
+  "manufacturer": "Niceshops GmbH (3DJAKE)",
+  "productName": "3DJAKE niceABS",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: 34 % Bruchdehnung und 58 kJ/m² ungekerbte Schlagzähigkeit erreicht ein gedrucktes ABS-Bauteil nicht — gedruckt liegen die Werte bei rund 5 bis 15 % beziehungsweise deutlich darunter. Die Zahlen beschreiben mit hoher Wahrscheinlichkeit das Granulat. Da das Blatt den Prüfkörper nicht deklariert, bleiben sie als Herstellerangabe stehen, sind aber nicht mit den gedruckten Werten von Bambu Lab oder Prusa vergleichbar.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: 34 % elongation at break and 58 kJ/m² unnotched impact are not reached by a printed ABS part — printed values are around 5 to 15 % and considerably lower respectively. The figures most likely describe the pellets. As the sheet does not declare the specimen, they remain as a manufacturer statement but are not comparable with the printed values from Bambu Lab or Prusa."
+  },
+  "datasheet": {
+    "title": "3DJAKE niceABS — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_niceABS.pdf",
+    "version": "1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.3djake.de/3djake/3djake-filament",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 43.6,
+      "unit": "MPa",
+      "testStandard": "ISO 527 (Streckspannung)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2030,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 34,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 58,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 97,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.1,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 245,
+      "unit": "°C",
+      "min": 235,
+      "max": 255,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Niceshops GmbH (3DJAKE)",
+        "productName": "3DJAKE niceABS",
+        "title": "3DJAKE niceABS — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/TDS_niceABS.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
+          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+        }
+      }
+    ]
+  }
+}
