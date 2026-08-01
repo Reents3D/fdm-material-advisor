@@ -76,7 +76,7 @@ export function Results({ result, state, t, navigate, update }: {
           <div className="grid gap-3">
             {top.map((rec, i) => (
               <Card key={rec.material.id} className={cx(
-                i === 0 && !rec.unverifiedConstraints.length && "border-brand-600 dark:border-brand-400",
+                i === 0 && !rec.unverifiedConstraints.length && "border-petrol-600 dark:border-petrol-400",
                 rec.unverifiedConstraints.length > 0 && "border-dashed opacity-90",
               )}>
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
@@ -204,13 +204,13 @@ export function Results({ result, state, t, navigate, update }: {
         )}
       </Section>
 
-      <Card className="border-brand-600/40 bg-brand-50 dark:bg-brand-900/20 no-print">
+      <Card className="border-petrol-600/40 bg-petrol-50 dark:bg-petrol-900/20 no-print">
         <p className="text-sm mb-2 font-medium">{t("ui.ctaResult")}</p>
         <p className="text-xs muted mb-3">
           {SITE.facts.machines} · {SITE.facts.maxPart} · {SITE.facts.finishing} · {SITE.facts.location}
         </p>
         <a href={trackedUrl(SITE.urls.contact)} target="_blank" rel="noopener"
-          className="inline-block px-3 py-1.5 rounded text-sm font-medium bg-brand-700 text-white hover:bg-brand-600 dark:bg-brand-300 dark:text-ink">
+          className="inline-block px-3 py-1.5 rounded text-sm font-medium bg-petrol-700 text-white hover:bg-petrol-600 dark:bg-petrol-300 dark:text-ink">
           {SITE.contact.company} →
         </a>
       </Card>

@@ -9,7 +9,7 @@ import { useState } from "react";
 import { MATERIALS } from "../data/materials";
 import { dataCompleteness } from "../engine";
 import type { Material, Quantity, Rating, Choice } from "../engine/types";
-import { Card, Chip, ConfidenceMark, cx, fmt, text } from "../components/ui";
+import { Button, Card, Chip, ConfidenceMark, cx, fmt, text } from "../components/ui";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -21,8 +21,16 @@ const conf = (v: unknown) =>
 
 type SortKey = "name" | "strength" | "hdt" | "aniso" | "density" | "completeness";
 
+const ATTRIBUTION = {
+  de: "Materialdaten: FDM-Materialberater der Reents Technologies GmbH (https://reents3d.de), "
+    + "lizenziert unter CC BY 4.0. Quelle: https://github.com/Reents3D/fdm-material-advisor",
+  en: "Material data: FDM Material Advisor by Reents Technologies GmbH (https://reents3d.de), "
+    + "licensed under CC BY 4.0. Source: https://github.com/Reents3D/fdm-material-advisor",
+};
+
 export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: string) => void }) {
   const [q, setQ] = useState("");
+  const [copied, setCopied] = useState(false);
   const [sort, setSort] = useState<SortKey>("name");
   const [desc, setDesc] = useState(false);
 
@@ -72,7 +80,7 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
 
       <div className="overflow-x-auto -mx-4 px-4">
         <table className="w-full text-sm min-w-max">
-          <thead className="border-b border-neutral-300 dark:border-neutral-700">
+          <thead className="border-b border-hairline dark:border-[#1E2B3D]">
             <tr>
               {head("name", t("ui.material"))}
               <th className="text-left font-medium py-2 px-2">Familie</th>
@@ -91,7 +99,7 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
               const aniso = num(m.mechanics?.anisotropyFactorTensile);
               return (
                 <tr key={m.id}
-                  className="border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-900 cursor-pointer"
+                  className="border-b border-hairline/70 dark:border-[#172233] hover:bg-neutral-50 dark:hover:bg-neutral-900 cursor-pointer"
                   onClick={() => navigate(`material/${m.id}`)}>
                   <td className="py-2 px-2 font-medium">
                     <a href={`#/material/${m.id}`} className="hl hover:underline" onClick={(e) => e.stopPropagation()}>
@@ -127,6 +135,21 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
           ? "Zug in MPa, HDT-B in °C nach ISO 75 bei 0,45 MPa, Dichte in g/cm³. Aniso = Anteil der Zugfestigkeit, der senkrecht zur Schicht erhalten bleibt."
           : "Tensile in MPa, HDT-B in °C per ISO 75 at 0.45 MPa, density in g/cm³. Aniso = share of tensile strength remaining perpendicular to the layers."}
       </p>
+
+      {/* Nachnutzung: CC BY verlangt Namensnennung — hier kopierfertig. */}
+      <Card className="mt-8 bg-petrol-50/60 dark:bg-white/[0.03]">
+        <h2 className="font-display font-bold text-[15px] mb-1.5">{t("ui.attribution")}</h2>
+        <p className="text-sm muted leading-relaxed mb-3 max-w-3xl">{t("ui.attributionText")}</p>
+        <pre className="text-xs bg-white dark:bg-[#0B121F] border border-hairline dark:border-[#1E2B3D] rounded-lg p-3 overflow-x-auto whitespace-pre-wrap">
+{ATTRIBUTION[lang]}
+        </pre>
+        <div className="mt-3 no-print">
+          <Button variant="outline"
+            onClick={() => { void navigator.clipboard?.writeText(ATTRIBUTION[lang]); setCopied(true); setTimeout(() => setCopied(false), 2000); }}>
+            {copied ? t("ui.attributionCopied") : t("ui.attributionCopy")}
+          </Button>
+        </div>
+      </Card>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 mt-8">
         {filtered.map((m) => (

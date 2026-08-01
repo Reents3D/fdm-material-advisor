@@ -97,6 +97,19 @@ export function buildExplanations(
     out.push({ type: "hint", key: "hint.drying", params: { temp: dryT, hours: dryH }, evidence: "processing.dryingTemperature" });
   }
 
+  const annealing = (m.thermal as { annealing?: { requiredForDatasheetValues?: Flag; temperature?: Quantity; duration?: Quantity } } | undefined)?.annealing;
+  if (annealing?.requiredForDatasheetValues?.value === true) {
+    out.push({
+      type: "risk", key: "hint.annealingRequired",
+      params: {
+        min: annealing.temperature?.min ?? annealing.temperature?.value ?? 0,
+        max: annealing.temperature?.max ?? annealing.temperature?.value ?? 0,
+        hours: annealing.duration?.min ?? annealing.duration?.value ?? 0,
+      },
+      evidence: "thermal.annealing",
+    });
+  }
+
   const chamber = (m.processing?.chamberRequirement as { value?: string } | undefined)?.value;
   if (chamber === "mandatory") out.push({ type: "hint", key: "hint.chamberMandatory", params: {}, evidence: "processing.chamberRequirement" });
 

@@ -23,7 +23,7 @@
     },
     "abstract": {
       "de": "PET-CF ist der Temperaturspezialist: 182 °C HDT bei 1,8 MPa - mehr als das Doppelte von PC - bei hoher Steifigkeit und geringer Feuchteaufnahme. Für heiße, formstabile Technikteile. Grenzen: Mit 4,5 % Bruchdehnung sehr spröde, Z-Festigkeit nur 47 %, Kammer und gehärtete Düse zwingend.",
-      "en": "PET-CF is the temperature specialist: 182 °C HDT at 1.8 MPa - more than double PC - with high stiffness and low moisture uptake. For hot, dimensionally stable technical parts. Limits: very brittle at 4.5 % elongation, Z strength only 47 %, chamber and hardened nozzle mandatory."
+      "en": "PET-CF is the temperature specialist: 182 °C HDT at 1.8 MPa - more than double PC - with high stiffness and low moisture uptake. These values require an annealing oven. For hot, dimensionally stable technical parts. Limits: very brittle at 4.5 % elongation, Z strength only 47 %, chamber and hardened nozzle mandatory."
     },
     "positioning": {
       "de": "Höchste Wärmeformbeständigkeit im Feld - erkauft mit Sprödigkeit.",
@@ -253,6 +253,38 @@
       "note": {
         "de": "Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
         "en": "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."
+      }
+    },
+    "annealing": {
+      "possible": {
+        "value": true,
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      "requiredForDatasheetValues": {
+        "value": true,
+        "source": "src_bambu_tds",
+        "confidence": "high"
+      },
+      "temperature": {
+        "value": 110,
+        "unit": "°C",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "min": 80,
+        "max": 140
+      },
+      "duration": {
+        "value": 12,
+        "unit": "h",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "min": 6,
+        "max": 12
+      },
+      "note": {
+        "de": "Prüfkörper wurden vor der Prüfung getempert und getrocknet; die Datenblattwerte gelten daher für den getemperten Zustand.",
+        "en": "Specimens were annealed and dried before testing; the datasheet values therefore apply to the annealed condition."
       }
     }
   },
@@ -698,30 +730,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_reents_portfolio",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von PET-CF bei Reents3D?",
-          "en": "QUESTION FOR RIKO: portfolio status of PET-CF at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.reentsPortfolioStatus"
-        ],
-        "assignee": "Riko Reents"
-      },
-      {
-        "id": "oq_reents_xxl",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde PET-CF bei Reents3D prozesssicher gefahren?",
-          "en": "QUESTION FOR RIKO: up to what edge length has PET-CF been run reliably at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.xxl.maxSensibleEdgeMm"
-        ],
-        "assignee": "Riko Reents"
-      },
       {
         "id": "oq_price_survey",
         "question": {

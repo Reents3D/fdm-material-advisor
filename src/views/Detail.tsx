@@ -5,7 +5,7 @@
 
 import { byId, MATERIALS } from "../data/materials";
 import { dataCompleteness, confidenceProfile } from "../engine";
-import type { ChemicalResistance, Quantity, Rating, Flag, Choice, Material } from "../engine/types";
+import type { ChemicalResistance, Quantity, Rating, Flag, Material } from "../engine/types";
 import { SITE, trackedUrl } from "../config/site";
 import { Card, Chip, ConfidenceMark, RatingBar, Section, Value, cx, text } from "../components/ui";
 import type { Lang } from "../i18n";
@@ -43,7 +43,6 @@ export function Detail({ id, t, lang, navigate, state, update }: {
   const completeness = dataCompleteness(m);
   const conf = confidenceProfile(m);
   const total = Object.values(conf).reduce((a, b) => a + b, 0);
-  const portfolio = (m.commercial as { reentsPortfolioStatus?: Choice } | undefined)?.reentsPortfolioStatus?.value;
 
   return (
     <article>
@@ -58,9 +57,6 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           <Chip tone="neutral">{m.identity.family}</Chip>
           <Chip tone="neutral">{m.identity.polymerClass === "amorphous" ? "amorph" : m.identity.polymerClass === "semi-crystalline" ? "teilkristallin" : m.identity.polymerClass}</Chip>
           {m.identity.variant.map((v) => <Chip key={v} tone="brand">{v}</Chip>)}
-          {portfolio && portfolio !== "unknown" && (
-            <Chip tone="neutral">{t(`ui.portfolioBadge.${portfolio}`)}</Chip>
-          )}
         </div>
         {/* First 40 words answer "what is it for and where are the limits" — AEO surface. */}
         <p className="text-base leading-relaxed max-w-3xl">{text(m.identity.abstract, lang)}</p>
@@ -90,7 +86,7 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           <div className="text-xs muted mb-1">{t("ui.confidence")} ({total})</div>
           <div className="flex h-3 rounded overflow-hidden" role="img"
             aria-label={`high ${conf.high}, medium ${conf.medium}, low ${conf.low}, estimated ${conf.estimated}`}>
-            {([["high", "bg-good"], ["medium", "bg-brand-500"], ["low", "bg-ok"], ["estimated", "bg-amber-400"]] as const)
+            {([["high", "bg-good"], ["medium", "bg-petrol-500"], ["low", "bg-ok"], ["estimated", "bg-amber-400"]] as const)
               .map(([k, c]) => conf[k] ? <span key={k} className={c} style={{ width: `${(conf[k] / total) * 100}%` }} /> : null)}
           </div>
           <div className="flex flex-wrap gap-x-3 text-xs muted mt-1.5">
@@ -130,10 +126,10 @@ export function Detail({ id, t, lang, navigate, state, update }: {
         </ul>
       </Section>
 
-      {m.governance.openQuestions?.length ? (
+      {m.governance.openQuestions?.some((q) => !q.assignee) ? (
         <Section title={t("ui.openQuestions")}>
           <ul className="space-y-1.5 text-sm">
-            {m.governance.openQuestions.map((q) => (
+            {m.governance.openQuestions.filter((q) => !q.assignee).map((q) => (
               <li key={q.id} className="flex gap-2">
                 <span className={cx("text-xs mt-0.5 shrink-0", q.blocking ? "text-bad" : "muted")}>
                   {q.blocking ? "●" : "○"}
@@ -158,11 +154,11 @@ export function Detail({ id, t, lang, navigate, state, update }: {
         </button>
       </div>
 
-      <Card className="border-brand-600/40 bg-brand-50 dark:bg-brand-900/20 no-print">
+      <Card className="border-petrol-600/40 bg-petrol-50 dark:bg-petrol-900/20 no-print">
         <p className="text-sm font-medium mb-1">{t("ui.ctaDetail")}</p>
         <p className="text-xs muted mb-3">{t("ui.portfolioNeutral")}</p>
         <a href={trackedUrl(SITE.urls.contact)} target="_blank" rel="noopener"
-          className="inline-block px-3 py-1.5 rounded text-sm font-medium bg-brand-700 text-white hover:bg-brand-600 dark:bg-brand-300 dark:text-ink">
+          className="inline-block px-3 py-1.5 rounded text-sm font-medium bg-petrol-700 text-white hover:bg-petrol-600 dark:bg-petrol-300 dark:text-ink">
           {SITE.brand} →
         </a>
       </Card>
@@ -197,7 +193,7 @@ function PropertyGroup({ title, node, lang, t, skip = [] }: {
         <table className="w-full text-sm">
           <tbody>
             {rows.map(([key, v]) => (
-              <tr key={key} className="border-b border-neutral-100 dark:border-neutral-800 last:border-0 align-top">
+              <tr key={key} className="border-b border-hairline/70 dark:border-[#172233] last:border-0 align-top">
                 <th scope="row" className="text-left font-normal muted py-2 px-3 w-52">{humanise(key, lang)}</th>
                 <td className="py-2 px-3 w-40">
                   {isQ(v) ? <Value q={v} lang={lang} /> : isR(v) ? <RatingBar r={v} lang={lang} /> : null}

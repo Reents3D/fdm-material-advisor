@@ -29,7 +29,7 @@ export function ConfidenceMark({ c, lang }: { c: Confidence | null | undefined; 
   };
   const style: Record<Confidence, string> = {
     high: "bg-good/10 text-good border-good/30",
-    medium: "bg-brand-500/10 text-brand-700 dark:text-brand-300 border-brand-500/30",
+    medium: "bg-petrol-500/10 text-petrol-700 dark:text-petrol-300 border-petrol-500/30",
     low: "bg-ok/10 text-ok border-ok/30",
     estimated: "border-dashed border-amber-500/70 text-amber-700 dark:text-amber-400 bg-amber-500/5",
   };
@@ -72,7 +72,7 @@ export function RatingBar({ r, lang }: { r?: Rating; lang: Lang }) {
         {[1, 2, 3, 4, 5].map((i) => (
           <span
             key={i}
-            className={cx("w-2 h-3 rounded-[1px]", i <= (r.value ?? 0) ? "bg-brand-600 dark:bg-brand-300" : "bg-neutral-200 dark:bg-neutral-700")}
+            className={cx("w-2 h-3 rounded-[1px]", i <= (r.value ?? 0) ? "bg-petrol-600 dark:bg-petrol-300" : "bg-neutral-200 dark:bg-neutral-700")}
           />
         ))}
       </span>
@@ -99,25 +99,28 @@ export function ScoreMeter({ score, label }: { score: number | null; label?: str
 /* ------------------------------------------------------------------ layout */
 
 export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx("surface p-4 print-break", className)}>{children}</div>;
+  return <div className={cx("surface p-5 print-break", className)}>{children}</div>;
 }
 
 export function Button({
   children, onClick, variant = "primary", disabled, type = "button", className, ariaLabel,
 }: {
-  children: ReactNode; onClick?: () => void; variant?: "primary" | "ghost" | "outline";
+  children: ReactNode; onClick?: () => void; variant?: "primary" | "ghost" | "outline" | "cta";
   disabled?: boolean; type?: "button" | "submit"; className?: string; ariaLabel?: string;
 }) {
+  // 12 px Radius und Petrol wie im Corporate Design. Versalien bleiben dem CTA
+  // vorbehalten - bei Bedienelementen wie "Drucken / PDF" kosten sie Lesbarkeit.
   const styles = {
-    primary: "bg-brand-700 text-white hover:bg-brand-600 dark:bg-brand-300 dark:text-ink dark:hover:bg-brand-200",
-    outline: "border border-neutral-300 dark:border-neutral-700 hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-300",
-    ghost: "hover:bg-neutral-100 dark:hover:bg-neutral-800",
+    cta: "bg-petrol-700 text-canvas uppercase font-bold text-[13px] tracking-wide hover:bg-petrol-600 dark:bg-petrol-300 dark:text-ink dark:hover:bg-petrol-200 px-5 py-2.5",
+    primary: "bg-petrol-700 text-canvas font-semibold hover:bg-petrol-600 dark:bg-petrol-300 dark:text-ink dark:hover:bg-petrol-200 px-4 py-2",
+    outline: "border border-hairline dark:border-[#1E2B3D] font-medium hover:border-petrol-400 hover:text-petrol-700 dark:hover:text-petrol-300 px-4 py-2",
+    ghost: "font-medium hover:bg-petrol-50 dark:hover:bg-white/5 px-3 py-2",
   }[variant];
   return (
     <button
       type={type} onClick={onClick} disabled={disabled} aria-label={ariaLabel}
       className={cx(
-        "px-3 py-1.5 rounded text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
+        "rounded-xl text-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
         styles, className,
       )}
     >
@@ -133,7 +136,7 @@ export function Toggle({
     <label className="flex items-start gap-2.5 cursor-pointer py-1.5 group">
       <input
         type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)}
-        className="mt-0.5 w-4 h-4 accent-brand-700 dark:accent-brand-300 cursor-pointer"
+        className="mt-0.5 w-4 h-4 accent-petrol-700 dark:accent-petrol-300 cursor-pointer"
       />
       <span className="text-sm">
         {label}
@@ -147,7 +150,7 @@ export function Section({ title, children, right }: { title: string; children: R
   return (
     <section className="mb-6 print-break">
       <div className="flex items-baseline justify-between gap-4 mb-2">
-        <h2 className="text-sm font-semibold uppercase tracking-wide muted">{title}</h2>
+        <h2 className="eyebrow">{title}</h2>
         {right}
       </div>
       {children}
@@ -157,9 +160,9 @@ export function Section({ title, children, right }: { title: string; children: R
 
 export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "good" | "ok" | "bad" | "brand" }) {
   const tones = {
-    neutral: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300",
+    neutral: "bg-petrol-50 dark:bg-white/5 text-petrol-800 dark:text-petrol-200",
     good: "bg-good/10 text-good", ok: "bg-ok/10 text-ok", bad: "bg-bad/10 text-bad",
-    brand: "bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-200",
+    brand: "bg-petrol-100 dark:bg-petrol-900 text-petrol-700 dark:text-petrol-200",
   }[tone];
-  return <span className={cx("inline-block px-1.5 py-0.5 rounded text-[11px] font-medium", tones)}>{children}</span>;
+  return <span className={cx("inline-block px-2 py-0.5 rounded-md text-[11px] font-semibold", tones)}>{children}</span>;
 }

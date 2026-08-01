@@ -178,6 +178,7 @@ const TDS = {
     nozzle: [260, 290], bed: [80, 100], chamber: [45, 60], dry: [80, 8, 12], speed: 100, overhang: 70,
     minNozzle: 0.4, recNozzle: 0.6,
     acid: "not-resistant", alkali: "not-resistant", oil: "resistant", flammability: "flammable",
+    anneal: { temp: 105, min: 80, max: 130, hours: 12, hMin: 6, hMax: 12, requiredForValues: true },
   },
   "pet-cf": {
     doc: { v: "V3.0", file: "07689de83afd4cc480f136c7697e6de3.pdf",
@@ -190,6 +191,7 @@ const TDS = {
     nozzle: [260, 290], bed: [80, 100], chamber: [45, 60], dry: [80, 8, 12], speed: 100, overhang: 70,
     minNozzle: 0.4, recNozzle: 0.6,
     acid: "not-resistant", alkali: "not-resistant", oil: "resistant", flammability: "flammable",
+    anneal: { temp: 110, min: 80, max: 140, hours: 12, hMin: 6, hMax: 12, requiredForValues: true },
   },
   "tpu-95a": {
     doc: { v: "V2.0", file: "Bambu_TPU_95A_Technical_Data_Sheet.pdf",
@@ -402,8 +404,8 @@ const META = {
     filler: "carbon-fibre-chopped",
     aliases: ["Nylon 6 Carbon", "PA6 Carbon Fiber", "Polyamid 6 CF"],
     abstract: t(
-      "PA6-CF ist der stärkste Werkstoff im Feld: 102 MPa Zugfestigkeit und 164 °C HDT bei nur 1,09 g/cm³ - für hochbelastete Vorrichtungen, Ersatzteile und motornahe Bauteile. Grenzen: Es nimmt 2,35 % Wasser auf und verändert dabei sein Verhalten, die Z-Festigkeit fällt auf 47 %, und ohne Kammer und Trocknung ist es nicht prozesssicher.",
-      "PA6-CF is the strongest material in this field: 102 MPa tensile strength and 164 °C HDT at only 1.09 g/cm³ - for highly loaded jigs, spare parts and near-engine components. Limits: it absorbs 2.35 % water and changes behaviour accordingly, Z strength drops to 47 %, and without a chamber and drying it is not process reliable."),
+      "PA6-CF ist der stärkste Werkstoff im Feld: 102 MPa Zugfestigkeit und 164 °C HDT bei nur 1,09 g/cm³ - für hochbelastete Vorrichtungen, Ersatzteile und motornahe Bauteile. Diese Werte gelten nur GETEMPERT - ohne Temperofen deutlich weniger. Grenzen: Es nimmt 2,35 % Wasser auf und verändert dabei sein Verhalten, die Z-Festigkeit fällt auf 47 %, und ohne Kammer und Trocknung ist es nicht prozesssicher.",
+      "PA6-CF is the strongest material in this field: 102 MPa tensile strength and 164 °C HDT at only 1.09 g/cm³ - for highly loaded jigs, spare parts and near-engine components. These values apply ANNEALED only - markedly lower without an oven. Limits: it absorbs 2.35 % water and changes behaviour accordingly, Z strength drops to 47 %, and without a chamber and drying it is not process reliable."),
     positioning: t(
       "Der Hochleistungswerkstoff für tragende Technikteile - mit dem höchsten Prozessaufwand.",
       "The high-performance material for load-bearing technical parts - with the highest process effort."),
@@ -430,7 +432,7 @@ const META = {
     aliases: ["PET Carbon Fiber", "PET-CF17", "Fiberon PET-CF"],
     abstract: t(
       "PET-CF ist der Temperaturspezialist: 182 °C HDT bei 1,8 MPa - mehr als das Doppelte von PC - bei hoher Steifigkeit und geringer Feuchteaufnahme. Für heiße, formstabile Technikteile. Grenzen: Mit 4,5 % Bruchdehnung sehr spröde, Z-Festigkeit nur 47 %, Kammer und gehärtete Düse zwingend.",
-      "PET-CF is the temperature specialist: 182 °C HDT at 1.8 MPa - more than double PC - with high stiffness and low moisture uptake. For hot, dimensionally stable technical parts. Limits: very brittle at 4.5 % elongation, Z strength only 47 %, chamber and hardened nozzle mandatory."),
+      "PET-CF is the temperature specialist: 182 °C HDT at 1.8 MPa - more than double PC - with high stiffness and low moisture uptake. These values require an annealing oven. For hot, dimensionally stable technical parts. Limits: very brittle at 4.5 % elongation, Z strength only 47 %, chamber and hardened nozzle mandatory."),
     positioning: t(
       "Höchste Wärmeformbeständigkeit im Feld - erkauft mit Sprödigkeit.",
       "Highest heat resistance in this field - paid for with brittleness."),
@@ -586,6 +588,7 @@ function buildMaterial(id, d, m) {
   if (d.anneal) {
     thermal.annealing = {
       possible: flag(true, { source: SRC, confidence: "medium" }),
+      requiredForDatasheetValues: flag(!!d.anneal.requiredForValues, { source: SRC, confidence: d.anneal.requiredForValues ? "high" : "medium" }),
       temperature: q(d.anneal.temp, "°C", { min: d.anneal.min, max: d.anneal.max, source: SRC }),
       duration: q(d.anneal.hours, "h", { min: d.anneal.hMin, max: d.anneal.hMax, source: SRC }),
       note: id === "pla"
@@ -759,14 +762,6 @@ function buildMaterial(id, d, m) {
 
   /* open questions */
   const oq = [
-    { id: "oq_reents_portfolio", question: t(
-        `RÜCKFRAGE AN RIKO: Portfolio-Status von ${m.name} bei Reents3D?`,
-        `QUESTION FOR RIKO: portfolio status of ${m.name} at Reents3D?`),
-      blocking: true, affectsFields: ["commercial.reentsPortfolioStatus"], assignee: "Riko Reents" },
-    { id: "oq_reents_xxl", question: t(
-        `RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde ${m.name} bei Reents3D prozesssicher gefahren?`,
-        `QUESTION FOR RIKO: up to what edge length has ${m.name} been run reliably at Reents3D?`),
-      blocking: true, affectsFields: ["commercial.xxl.maxSensibleEdgeMm"], assignee: "Riko Reents" },
     { id: "oq_price_survey", question: t(
         "Preiserhebung über mindestens fünf Anbieter durchführen.",
         "Carry out a price survey across at least five suppliers."),

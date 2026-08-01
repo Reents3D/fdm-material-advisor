@@ -95,19 +95,25 @@ gerankt, das sie belegt erfüllt. Es erscheint als „nicht belegt" ganz unten.
 
 ---
 
-## Kein Anbieter-Bias
+## Herstellerunabhängig
 
-Dieses Werkzeug wird von der **Reents Technologies GmbH** betrieben, die selbst
-3D-Druck-Dienstleistungen anbietet. Das ist ein offensichtlicher Interessenkonflikt.
+Betrieben wird das Werkzeug von der **Reents Technologies GmbH** — einem
+3D-Druck-**Dienstleister**, keinem Materialhersteller. Es gibt kein eigenes Filament zu
+bewerben: Alle gängigen Werkstoffe werden eingekauft und auf demselben Maschinenpark
+verarbeitet.
 
-Deshalb: Ob Reents3D ein Material führt, steht als neutrales Info-Badge im Datensatz und
-geht **unter keinen Umständen** in Filterung oder Scoring ein. Die Entscheidung ist als
-[ADR-004](DECISIONS.md#adr-004) festgehalten und wird durch einen Test erzwungen
-([`portfolio-neutrality.test.ts`](tests/engine/portfolio-neutrality.test.ts)): identische
-Rankings bei „alles auf Lager", „nichts auf Lager" und gemischt.
+Konkret heißt das:
 
-Ein Berater, der zum eigenen Lagerbestand hin lügt, ist wertlos — und das merken genau
-die Ingenieure, die wir erreichen wollen.
+- **Kein Hersteller zahlt für Platzierung**, es gibt keine Affiliate-Links.
+- Die Reihenfolge folgt allein aus den eingegebenen Anforderungen und den
+  Datenblattwerten.
+- Ob ein Material gerade im Haus vorrätig ist, geht **unter keinen Umständen** in
+  Filterung oder Scoring ein. Festgehalten als [ADR-004](DECISIONS.md#adr-004) und
+  erzwungen durch [`portfolio-neutrality.test.ts`](tests/engine/portfolio-neutrality.test.ts):
+  identische Rankings bei „alles vorrätig", „nichts vorrätig" und gemischt.
+
+Beschaffung ist ein Bestell-, kein Auswahlproblem — deshalb kostet Neutralität hier
+nichts und ist einfach die richtige Voreinstellung.
 
 ---
 
@@ -187,11 +193,25 @@ Bauteilfreigabe.**
 
 Vollständig: **[DISCLAIMER.md](DISCLAIMER.md)**
 
-## Lizenz
+## Lizenz und Nachnutzung
 
 - **Code:** [MIT](LICENSE)
-- **Daten und Schema:** [CC BY 4.0](LICENSE-DATA) — Nachnutzung erwünscht, Namensnennung
-  vorausgesetzt. Begründung der Trennung: [ADR-002](DECISIONS.md#adr-002)
+- **Daten und Schema:** [CC BY 4.0](LICENSE-DATA) — Begründung: [ADR-002](DECISIONS.md#adr-002)
+
+**Nachnutzung ist ausdrücklich erwünscht.** CC BY 4.0 verlangt dafür verbindlich
+Namensnennung, Lizenzhinweis und einen Link auf die Quelle — das ist keine Bitte, sondern
+Lizenzbedingung. Bitte verwenden Sie diese Angabe:
+
+> Materialdaten: **FDM-Materialberater** der [Reents Technologies GmbH](https://reents3d.de),
+> lizenziert unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de).
+> Quelle: https://github.com/Reents3D/fdm-material-advisor
+
+Als HTML:
+
+```html
+Materialdaten: <a href="https://reents3d.de">FDM-Materialberater, Reents Technologies GmbH</a>,
+<a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>
+```
 
 Marken Dritter gehören ihren Inhabern und werden nur zur Quellenangabe genannt.
 

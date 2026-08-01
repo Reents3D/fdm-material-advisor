@@ -78,6 +78,14 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
     else pass("hardenedNozzle", "constraint.nozzle.pass", {}, "processing.hardenedNozzleRequired");
   }
 
+  /* --- annealing oven ------------------------------------------------------ */
+  if (req.annealingOvenAvailable === false) {
+    const ann = (m.thermal as { annealing?: { requiredForDatasheetValues?: Flag } } | undefined)?.annealing;
+    const needed = ann?.requiredForDatasheetValues?.value;
+    if (needed === true) fail("annealingOven", "constraint.annealing.fail", {}, "thermal.annealing");
+    else pass("annealingOven", "constraint.annealing.pass", {}, "thermal.annealing");
+  }
+
   /* --- outdoor ----------------------------------------------------------- */
   if (req.outdoorYears != null) {
     const life = num(m.durability?.outdoorServiceLife);

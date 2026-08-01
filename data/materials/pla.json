@@ -256,6 +256,11 @@
         "source": "src_bambu_tds",
         "confidence": "medium"
       },
+      "requiredForDatasheetValues": {
+        "value": false,
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
       "temperature": {
         "value": 55,
         "unit": "°C",
@@ -702,30 +707,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_reents_portfolio",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von PLA bei Reents3D?",
-          "en": "QUESTION FOR RIKO: portfolio status of PLA at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.reentsPortfolioStatus"
-        ],
-        "assignee": "Riko Reents"
-      },
-      {
-        "id": "oq_reents_xxl",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde PLA bei Reents3D prozesssicher gefahren?",
-          "en": "QUESTION FOR RIKO: up to what edge length has PLA been run reliably at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.xxl.maxSensibleEdgeMm"
-        ],
-        "assignee": "Riko Reents"
-      },
       {
         "id": "oq_price_survey",
         "question": {

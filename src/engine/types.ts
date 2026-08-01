@@ -125,6 +125,12 @@ export interface Requirements {
   chamberAvailable?: boolean;
   /** Hardened nozzle available? false excludes abrasive filled materials. */
   hardenedNozzleAvailable?: boolean;
+  /**
+   * Convection oven for post-print annealing? false excludes materials whose datasheet
+   * values only hold after annealing (PET-CF, PA6-CF). Without the oven those numbers
+   * are simply not achievable, so offering them would be misleading.
+   */
+  annealingOvenAvailable?: boolean;
   /** Required outdoor service life in years. */
   outdoorYears?: number;
   /** Part must be food-contact declared. */

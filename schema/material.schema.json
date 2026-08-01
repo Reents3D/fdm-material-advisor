@@ -283,6 +283,10 @@
           "additionalProperties": false,
           "properties": {
             "possible": { "$ref": "#/$defs/flag" },
+            "requiredForDatasheetValues": {
+              "description": "true = die Kennwerte dieses Datensatzes wurden an getemperten Pruefkoerpern ermittelt und sind ohne Temperofen NICHT erreichbar.",
+              "$ref": "#/$defs/flag"
+            },
             "temperature": { "$ref": "#/$defs/qDegC" },
             "duration": { "$ref": "#/$defs/qHours" },
             "hdtGain": { "$ref": "#/$defs/qDegC" },

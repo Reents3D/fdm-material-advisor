@@ -41,10 +41,24 @@ export const SITE = {
     ink: "#1D1D1B",
   },
 
+  /**
+   * Reents3D ist 3D-Druck-DIENSTLEISTER, kein Materialhersteller. Es gibt kein eigenes
+   * Filament zu bewerben und keinen Grund, eine Marke zu bevorzugen - alle gaengigen
+   * Materialien werden eingekauft und verarbeitet.
+   */
+  independent: true,
+
+  /** Reale Bauraeume der Grossformatanlagen (mm). */
+  buildVolumes: [
+    { name: "XXL", x: 1800, y: 2400, z: 1800 },
+    { name: "Hochformat", x: 1200, y: 1200, z: 2200 },
+  ],
+  maxEdgeMm: 2400,
+
   /** Verifiable facts only. No superlatives — credibility is the marketing. */
   facts: {
     machines: "über 50 Anlagen",
-    maxPart: "Bauteile bis 2,4 m am Stück",
+    maxPart: "Bauraum bis 1.800 × 2.400 × 1.800 mm",
     processes: "FDM, SLA, SLS",
     finishing: "Veredelung inhouse",
     location: "Holm bei Hamburg",

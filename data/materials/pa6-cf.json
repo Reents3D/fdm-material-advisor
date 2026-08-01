@@ -22,8 +22,8 @@
       "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
     },
     "abstract": {
-      "de": "PA6-CF ist der stärkste Werkstoff im Feld: 102 MPa Zugfestigkeit und 164 °C HDT bei nur 1,09 g/cm³ - für hochbelastete Vorrichtungen, Ersatzteile und motornahe Bauteile. Grenzen: Es nimmt 2,35 % Wasser auf und verändert dabei sein Verhalten, die Z-Festigkeit fällt auf 47 %, und ohne Kammer und Trocknung ist es nicht prozesssicher.",
-      "en": "PA6-CF is the strongest material in this field: 102 MPa tensile strength and 164 °C HDT at only 1.09 g/cm³ - for highly loaded jigs, spare parts and near-engine components. Limits: it absorbs 2.35 % water and changes behaviour accordingly, Z strength drops to 47 %, and without a chamber and drying it is not process reliable."
+      "de": "PA6-CF ist der stärkste Werkstoff im Feld: 102 MPa Zugfestigkeit und 164 °C HDT bei nur 1,09 g/cm³ - für hochbelastete Vorrichtungen, Ersatzteile und motornahe Bauteile. Diese Werte gelten nur GETEMPERT - ohne Temperofen deutlich weniger. Grenzen: Es nimmt 2,35 % Wasser auf und verändert dabei sein Verhalten, die Z-Festigkeit fällt auf 47 %, und ohne Kammer und Trocknung ist es nicht prozesssicher.",
+      "en": "PA6-CF is the strongest material in this field: 102 MPa tensile strength and 164 °C HDT at only 1.09 g/cm³ - for highly loaded jigs, spare parts and near-engine components. These values apply ANNEALED only - markedly lower without an oven. Limits: it absorbs 2.35 % water and changes behaviour accordingly, Z strength drops to 47 %, and without a chamber and drying it is not process reliable."
     },
     "positioning": {
       "de": "Der Hochleistungswerkstoff für tragende Technikteile - mit dem höchsten Prozessaufwand.",
@@ -250,6 +250,38 @@
       "note": {
         "de": "Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
         "en": "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."
+      }
+    },
+    "annealing": {
+      "possible": {
+        "value": true,
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      "requiredForDatasheetValues": {
+        "value": true,
+        "source": "src_bambu_tds",
+        "confidence": "high"
+      },
+      "temperature": {
+        "value": 105,
+        "unit": "°C",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "min": 80,
+        "max": 130
+      },
+      "duration": {
+        "value": 12,
+        "unit": "h",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "min": 6,
+        "max": 12
+      },
+      "note": {
+        "de": "Prüfkörper wurden vor der Prüfung getempert und getrocknet; die Datenblattwerte gelten daher für den getemperten Zustand.",
+        "en": "Specimens were annealed and dried before testing; the datasheet values therefore apply to the annealed condition."
       }
     }
   },
@@ -695,30 +727,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_reents_portfolio",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von PA6-CF bei Reents3D?",
-          "en": "QUESTION FOR RIKO: portfolio status of PA6-CF at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.reentsPortfolioStatus"
-        ],
-        "assignee": "Riko Reents"
-      },
-      {
-        "id": "oq_reents_xxl",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde PA6-CF bei Reents3D prozesssicher gefahren?",
-          "en": "QUESTION FOR RIKO: up to what edge length has PA6-CF been run reliably at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.xxl.maxSensibleEdgeMm"
-        ],
-        "assignee": "Riko Reents"
-      },
       {
         "id": "oq_price_survey",
         "question": {

@@ -83,15 +83,15 @@ export function Compare({ state, t, update, navigate }: {
             return (
               <button key={m.id} onClick={() => toggle(m.id)} disabled={full} aria-pressed={on}
                 className={cx("px-2 py-1 rounded text-xs border transition-colors disabled:opacity-30",
-                  on ? "bg-brand-700 text-white border-brand-700 dark:bg-brand-300 dark:text-ink dark:border-brand-300"
-                     : "border-neutral-300 dark:border-neutral-700 hover:border-brand-500")}>
+                  on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
+                     : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
                 {m.identity.name}
               </button>
             );
           })}
         </div>
         {selected.length > 0 && (
-          <div className="flex items-center gap-4 mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="flex items-center gap-4 mt-3 pt-3 border-t border-hairline dark:border-[#1E2B3D]">
             <Toggle checked={diffOnly} onChange={setDiffOnly} label={t("ui.onlyDifferences")} />
             <Button variant="ghost" onClick={() => update({ compare: [] })}>{t("ui.reset")}</Button>
             <Button variant="ghost" onClick={() => print()}>{t("ui.print")}</Button>
@@ -109,13 +109,13 @@ export function Compare({ state, t, update, navigate }: {
         <>
           <div className="overflow-x-auto -mx-4 px-4">
             <table className="w-full text-sm border-separate border-spacing-0 min-w-max">
-              <thead className="sticky top-14 bg-white dark:bg-[#141414] z-10">
+              <thead className="sticky top-14 bg-white dark:bg-[#070E18] z-10">
                 <tr>
-                  <th className="text-left font-medium py-2 pr-3 sticky left-0 bg-white dark:bg-[#141414] w-48 min-w-48">
+                  <th className="text-left font-medium py-2 pr-3 sticky left-0 bg-white dark:bg-[#070E18] w-48 min-w-48">
                     {t("ui.material")}
                   </th>
                   {selected.map((m) => (
-                    <th key={m.id} className="text-left font-semibold py-2 px-3 min-w-36 border-b border-neutral-200 dark:border-neutral-800">
+                    <th key={m.id} className="text-left font-semibold py-2 px-3 min-w-36 border-b border-hairline dark:border-[#1E2B3D]">
                       <a href={`#/material/${m.id}`} className="hl hover:underline">{m.identity.name}</a>
                       <span className="block text-xs muted font-normal">{m.identity.family}</span>
                     </th>
@@ -135,14 +135,14 @@ export function Compare({ state, t, update, navigate }: {
                     <>
                       <tr key={g.path as string}>
                         <td colSpan={selected.length + 1}
-                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#141414]">
+                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#070E18]">
                           {lang === "de" ? g.title[0] : g.title[1]}
                         </td>
                       </tr>
                       {rows.map((f) => (
-                        <tr key={`${g.path as string}.${f}`} className="border-b border-neutral-100 dark:border-neutral-800">
+                        <tr key={`${g.path as string}.${f}`} className="border-b border-hairline/70 dark:border-[#172233]">
                           <th scope="row"
-                            className="text-left font-normal muted py-1.5 pr-3 sticky left-0 bg-white dark:bg-[#141414]">
+                            className="text-left font-normal muted py-1.5 pr-3 sticky left-0 bg-white dark:bg-[#070E18]">
                             {LABEL[f] ?? f}
                           </th>
                           {selected.map((m) => {

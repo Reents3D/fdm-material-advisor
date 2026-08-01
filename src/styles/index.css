@@ -1,68 +1,154 @@
 @import "tailwindcss";
 
-/* Reents3D brand tokens. Changing the palette is one edit here + src/config/site.ts. */
-@theme {
-  --color-ink: #1D1D1B;
-  --color-brand-50:  #eef5f9;
-  --color-brand-100: #d6e8f2;
-  --color-brand-200: #b5d7e9;
-  --color-brand-300: #95C6E5;
-  --color-brand-400: #5e9dc4;
-  --color-brand-500: #3b7ba3;
-  --color-brand-600: #2a5f80;
-  --color-brand-700: #204B63;
-  --color-brand-800: #17384a;
-  --color-brand-900: #102838;
+/* ============================================================================
+   Corporate Design der Reents Technologies GmbH
+   Tokens abgenommen von der Unternehmenswebsite (Stand 2026-08-01), nicht geraten:
+   Petrol #0C4251, Akzent #88BBD7, Tinte #0B1220, Flaeche #F9FAFB, Rahmen #E5E7EB.
+   Montserrat fuer Ueberschriften, Sora fuer Fliesstext - beide selbst gehostet.
 
-  /* Rating palette kept deliberately OUT of the brand blues: an amber/blue mix is
-     unreadable as a judgement scale. */
-  --color-good: #1a7f4b;
-  --color-ok:   #b06f00;
+   Hinweis: Das Logo traegt noch die aeltere Markenpalette (#204B63/#95C6E5/#1D1D1B).
+   Das ist gewollt - Logos werden nicht umgefaerbt. Die Toene harmonieren.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/montserrat-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("./fonts/sora-var.woff2") format("woff2-variations");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Marke */
+  --color-petrol-50:  #eef4f6;
+  --color-petrol-100: #d5e4e9;
+  --color-petrol-200: #a9c7d1;
+  --color-petrol-300: #88BBD7;   /* Akzent-Hellblau aus dem CD */
+  --color-petrol-400: #4d8298;
+  --color-petrol-500: #2a6377;
+  --color-petrol-600: #164e62;
+  --color-petrol-700: #0C4251;   /* Primaerfarbe */
+  --color-petrol-800: #093442;
+  --color-petrol-900: #072731;
+
+  --color-ink:        #0B1220;   /* Fliesstext / Ueberschriften */
+  --color-inksoft:    #4B5563;   /* Sekundaertext */
+  --color-canvas:     #F9FAFB;   /* Seitenflaeche */
+  --color-hairline:   #E5E7EB;   /* Rahmen */
+
+  /* Bewertungsfarben bewusst ausserhalb der Markentoene - eine Ampel in
+     Petrol/Hellblau ist als Bewertung nicht lesbar. */
+  --color-good: #14794a;
+  --color-ok:   #a86a00;
   --color-bad:  #b3261e;
 
-  --font-sans: "Inter var", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: Sora, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: Montserrat, ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
   :root { color-scheme: light dark; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
   body {
-    @apply bg-white text-ink antialiased;
+    background: var(--color-canvas);
+    color: var(--color-ink);
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+
+  /* Ueberschriften laufen im CD auf Montserrat, Fliesstext auf Sora. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
   @media (prefers-color-scheme: dark) {
-    body { @apply bg-[#141414] text-neutral-100; }
+    body { background: #070E18; color: #E8EDF2; }
   }
+
   :focus-visible {
-    outline: 2px solid var(--color-brand-400);
+    outline: 2px solid var(--color-petrol-400);
     outline-offset: 2px;
-    border-radius: 3px;
+    border-radius: 4px;
   }
+
   @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }
   }
+
+  ::selection { background: #88BBD7; color: #0B1220; }
 }
 
 @layer components {
-  .surface { @apply bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg; }
-  .muted   { @apply text-neutral-600 dark:text-neutral-400; }
-  .hl      { @apply text-brand-700 dark:text-brand-300; }
+  /* Flaechen: weisse Karte auf Canvas, Haarlinie statt Schatten - wie im CD. */
+  .surface {
+    background: #fff;
+    border: 1px solid var(--color-hairline);
+    border-radius: 12px;
+  }
 
-  /* Estimated values must be visually distinct — non-negotiable per ADR-003. */
+  .muted { color: var(--color-inksoft); }
+  .hl { color: var(--color-petrol-700); }
+
+  /* Sektionslabel im CD: klein, Versalien, gesperrt, Petrol */
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-petrol-700);
+  }
+
+  .font-display { font-family: var(--font-display); }
+
+  /* Hero-Verlauf der Website: Petrol -> Hellblau -> Tinte */
+  .hero-gradient {
+    background-image: linear-gradient(100deg, #0C4251 0%, #4d8298 30%, #88BBD7 52%, #0B1220 88%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Geschaetzte Werte muessen sichtbar bleiben - ADR-003. */
   .estimated {
-    @apply border border-dashed border-amber-500/70 rounded px-1 -mx-1;
+    border: 1px dashed #c08a1a;
+    border-radius: 4px;
+    padding: 0 4px;
+    margin: 0 -4px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .surface { background: #0E1725; border-color: #1E2B3D; }
+    .muted { color: #93A1B2; }
+    .hl { color: #88BBD7; }
+    .eyebrow { color: #88BBD7; }
+    .hero-gradient {
+      background-image: linear-gradient(100deg, #88BBD7 0%, #a9c7d1 38%, #E8EDF2 88%);
+    }
   }
 }
 
-/* Decision documents get printed for project files. Make that not look broken. */
+/* Entscheider drucken das fuer die Projektakte. */
 @media print {
   @page { margin: 14mm; }
   body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
   .no-print { display: none !important; }
   .print-break { break-inside: avoid; page-break-inside: avoid; }
+  .hero-gradient { color: #0C4251 !important; -webkit-text-fill-color: #0C4251 !important; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
   .surface { border: 1px solid #bbb !important; background: #fff !important; }
 }

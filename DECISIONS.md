@@ -256,17 +256,19 @@ Ein Konfidenz-Attribut am selben Feld leistet dasselbe.
 
 ### Kontext
 
-Das Tool wird von der Reents Technologies GmbH betrieben und ist Teil ihrer
-Außendarstellung. Jeder Datensatz führt ein Feld `commercial.reentsPortfolioStatus`
-(`standard` / `on-request` / `partner-production` / `not-in-portfolio` / `unknown`).
+Das Tool wird von der Reents Technologies GmbH betrieben. Entscheidend für die
+Bewertung dieser Konstellation: **Reents3D ist 3D-Druck-Dienstleister, kein
+Materialhersteller.** Es gibt kein eigenes Filament zu bewerben, keine Vertriebsmarge
+auf ein Material und keinen Grund, eine Herstellermarke zu bevorzugen — alle gängigen
+Werkstoffe werden eingekauft und auf demselben Maschinenpark verarbeitet.
 
-Damit entsteht eine naheliegende Versuchung: Materialien, die Reents3D ohnehin fährt,
-im Ranking leicht zu bevorzugen — als „Verfügbarkeitsbonus" wäre das sogar begründbar
-formulierbar. Der Effekt wäre kurzfristig positiv (mehr Anfragen auf Lagermaterial) und
-technisch praktisch unsichtbar, weil er in einer Gewichtungskonstante verschwindet.
+Der strukturelle Interessenkonflikt, den ein Materialhersteller mit einem solchen Tool
+hätte, besteht hier also nicht. Was bleibt, ist ein schwächerer, aber realer Effekt:
+Materialien, die im Haus vorrätig sind, ließen sich bequemer fertigen. Ein
+„Verfügbarkeitsbonus" wäre begründbar formulierbar und würde technisch unsichtbar in
+einer Gewichtungskonstante verschwinden.
 
 Diese Entscheidung wird **vorab** festgehalten, nicht erst wenn die Frage gestellt wird.
-Genau dann ist der Druck nämlich am größten und der Widerstand am kleinsten.
 
 ### Entscheidung
 
@@ -290,14 +292,24 @@ Stufe 2 (Scoring) der Engine ein.**
 - Die Empfehlung bleibt fachlich verteidigbar. Das ist die einzige Eigenschaft, die das
   Tool überhaupt wertvoll macht.
 - Die Zielgruppe mit dem höchsten Auftragswert — Ingenieure und Konstrukteure — prüft
-  Werkzeuge dieser Art gezielt auf Anbieter-Bias. Ein entdeckter Bias kostet mehr
-  Glaubwürdigkeit, als jeder Lagerbestandsvorteil einbringt.
-- Der Verzicht ist selbst ein Verkaufsargument und kann offen kommuniziert werden.
+  Werkzeuge dieser Art gezielt auf Bevorzugung. Ein entdeckter Bias kostet mehr
+  Glaubwürdigkeit, als jeder Bequemlichkeitsvorteil einbringt.
+- Die Unabhängigkeit lässt sich offen und ohne Abwehrhaltung kommunizieren: Ein
+  Dienstleister, der alles verarbeitet, hat schlicht keinen Grund zu lügen.
 
 **Negativ**
 
-- Das Tool empfiehlt gelegentlich Materialien, die Reents3D nicht fährt. Das ist
-  beabsichtigt und wird über den Portfolio-Badge und die Verfahrensweiche aufgefangen.
+- Das Tool empfiehlt gelegentlich Materialien, die gerade nicht vorrätig sind. Das ist
+  beabsichtigt; Beschaffung ist ein Bestell-, kein Auswahlproblem.
+
+### Kommunikation
+
+Nach außen wird das **nicht** als Eingeständnis eines Interessenkonflikts formuliert.
+Die sachlich richtige Aussage lautet: *herstellerunabhängig — kein Hersteller zahlt für
+Platzierung, es gibt keine Affiliate-Links, die Reihenfolge folgt allein aus
+Anforderungen und Datenblattwerten.* Eine Formulierung, die einen Konflikt einräumt,
+den es strukturell nicht gibt, schadet der Glaubwürdigkeit mehr als sie nützt und stellt
+zudem Wettbewerber implizit unter Verdacht. Das ist ausdrücklich nicht gewollt.
 
 **Abgrenzung**
 
@@ -315,6 +327,11 @@ wird. Entweder das Ranking ist neutral oder es ist Werbung.
 Zurückgestellt, nicht verworfen. Ein ausdrücklich vom Nutzer gesetzter Filter
 („nur bei Reents3D verfügbare Materialien zeigen") ist transparent und damit unbedenklich.
 Er wird erst umgesetzt, wenn der Portfolio-Status gepflegt ist, und niemals als Default.
+
+**Aktueller Stand:** Das Feld wird derzeit **gar nicht angezeigt**. Geplant ist stattdessen
+eine eigene Übersichtsseite „Fertigung bei Reents3D" mit der Angabe, welches Material auf
+welchem Bauraum gefertigt werden kann (XXL 1.800 × 2.400 × 1.800 mm, Hochformat
+1.200 × 1.200 × 2.200 mm) — getrennt von der Materialbewertung.
 
 ---
 

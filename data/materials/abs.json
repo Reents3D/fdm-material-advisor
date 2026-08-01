@@ -654,30 +654,6 @@
     ],
     "openQuestions": [
       {
-        "id": "oq_reents_portfolio",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von ABS bei Reents3D?",
-          "en": "QUESTION FOR RIKO: portfolio status of ABS at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.reentsPortfolioStatus"
-        ],
-        "assignee": "Riko Reents"
-      },
-      {
-        "id": "oq_reents_xxl",
-        "question": {
-          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde ABS bei Reents3D prozesssicher gefahren?",
-          "en": "QUESTION FOR RIKO: up to what edge length has ABS been run reliably at Reents3D?"
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.xxl.maxSensibleEdgeMm"
-        ],
-        "assignee": "Riko Reents"
-      },
-      {
         "id": "oq_price_survey",
         "question": {
           "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",

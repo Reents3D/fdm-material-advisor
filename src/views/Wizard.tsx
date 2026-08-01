@@ -7,6 +7,7 @@ import { MATERIALS } from "../data/materials";
 import { select } from "../engine";
 import { CRITERIA } from "../engine/criteria";
 import { Button, Card, Toggle, cx } from "../components/ui";
+import { SITE } from "../config/site";
 import type { AppState } from "../App";
 
 const TOTAL = 7;
@@ -39,8 +40,8 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
           {t("ui.results.count", { n: live })}
         </span>
       </div>
-      <div className="h-1 bg-neutral-200 dark:bg-neutral-800 rounded mb-6 overflow-hidden">
-        <div className="h-full bg-brand-600 dark:bg-brand-300 transition-all" style={{ width: `${(step / TOTAL) * 100}%` }} />
+      <div className="h-1 bg-neutral-200 dark:bg-white/5 rounded mb-6 overflow-hidden">
+        <div className="h-full bg-petrol-600 dark:bg-petrol-300 transition-all" style={{ width: `${(step / TOTAL) * 100}%` }} />
       </div>
 
       <Card>
@@ -93,7 +94,7 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
             <Toggle checked={req.maxEdgeMm !== undefined} onChange={(v) => set({ maxEdgeMm: v ? 500 : undefined })}
               label={t("wiz.4.edge")} />
             {req.maxEdgeMm !== undefined && (
-              <Slider label={t("wiz.4.edge")} min={50} max={2400} step={50} unit="mm"
+              <Slider label={t("wiz.4.edge")} min={50} max={SITE.maxEdgeMm} step={50} unit="mm"
                 value={req.maxEdgeMm} onChange={(v) => set({ maxEdgeMm: v })} />
             )}
             <Toggle checked={req.quantity !== undefined} onChange={(v) => set({ quantity: v ? 10 : undefined })}
@@ -131,8 +132,8 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
                       }}
                       aria-pressed={on}
                       className={cx("px-2 py-1 rounded text-xs border transition-colors",
-                        on ? "bg-brand-700 text-white border-brand-700 dark:bg-brand-300 dark:text-ink dark:border-brand-300"
-                           : "border-neutral-300 dark:border-neutral-700 hover:border-brand-500")}>
+                        on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
+                           : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
                       {label}
                     </button>
                   );
@@ -140,12 +141,15 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
               </div>
             </div>
 
-            <div className="mt-5 pt-4 border-t border-neutral-200 dark:border-neutral-800">
+            <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
               <div className="text-sm font-medium mb-1">{t("wiz.shop.title")}</div>
               <Toggle checked={req.chamberAvailable !== false}
                 onChange={(v) => set({ chamberAvailable: v ? undefined : false })} label={t("wiz.shop.chamber")} />
               <Toggle checked={req.hardenedNozzleAvailable !== false}
                 onChange={(v) => set({ hardenedNozzleAvailable: v ? undefined : false })} label={t("wiz.shop.nozzle")} />
+              <Toggle checked={req.annealingOvenAvailable !== false}
+                onChange={(v) => set({ annealingOvenAvailable: v ? undefined : false })}
+                label={t("wiz.shop.oven")} hint={t("wiz.shop.ovenHint")} />
             </div>
           </Step>
         )}
@@ -159,7 +163,7 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
                   <input id={`w-${c.id}`} type="range" min={0} max={5} step={1}
                     value={req.weights?.[c.id] ?? 0}
                     onChange={(e) => update({ req: { ...req, weights: { ...req.weights, [c.id]: Number(e.target.value) } } })}
-                    className="accent-brand-700 dark:accent-brand-300" />
+                    className="accent-petrol-700 dark:accent-petrol-300" />
                   <span className="text-xs tabular-nums muted text-right">{req.weights?.[c.id] ?? 0}</span>
                 </div>
               ))}
@@ -167,7 +171,7 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
           </Step>
         )}
 
-        <div className="flex items-center justify-between gap-2 mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800">
+        <div className="flex items-center justify-between gap-2 mt-6 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
           <Button variant="ghost" onClick={() => (step > 1 ? go(step - 1) : navigate(""))}>
             ← {t("ui.back")}
           </Button>
@@ -197,8 +201,8 @@ function Choice({ active, onClick, children }: { active: boolean; onClick: () =>
   return (
     <button onClick={onClick} aria-pressed={active}
       className={cx("px-3 py-2 rounded border text-sm text-left transition-colors",
-        active ? "border-brand-600 bg-brand-50 dark:bg-brand-900/40 dark:border-brand-400 font-medium"
-               : "border-neutral-300 dark:border-neutral-700 hover:border-brand-400")}>
+        active ? "border-petrol-600 bg-petrol-50 dark:bg-petrol-900/40 dark:border-petrol-400 font-medium"
+               : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-400")}>
       {children}
     </button>
   );
@@ -215,7 +219,7 @@ function Slider({ label, min, max, step, value, unit, onChange }: {
       </div>
       <input type="range" min={min} max={max} step={step} value={value} aria-label={label}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full accent-brand-700 dark:accent-brand-300" />
+        className="w-full accent-petrol-700 dark:accent-petrol-300" />
     </div>
   );
 }

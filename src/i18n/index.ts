@@ -90,7 +90,11 @@ const de: Dict = {
   "ui.portfolioBadge.on-request": "auf Anfrage",
   "ui.portfolioBadge.partner-production": "Partnerfertigung",
   "ui.portfolioBadge.not-in-portfolio": "nicht im Portfolio",
-  "ui.portfolioNeutral": "Der Portfolio-Status beeinflusst das Ranking nicht.",
+  "ui.portfolioNeutral": "Reents3D ist 3D-Druck-Dienstleister, kein Materialhersteller — die Bewertung ist herstellerunabhängig.",
+  "ui.attribution": "Daten nachnutzen",
+  "ui.attributionText": "Die Materialdatenbank steht unter CC BY 4.0. Nachnutzung ist ausdrücklich erwünscht — die Lizenz verlangt dabei Namensnennung, Lizenzhinweis und einen Link auf die Quelle.",
+  "ui.attributionCopy": "Quellenangabe kopieren",
+  "ui.attributionCopied": "Kopiert",
 
   /* --- wizard ------------------------------------------------------------ */
   "wiz.1.title": "Wo wird das Bauteil eingesetzt?",
@@ -123,6 +127,8 @@ const de: Dict = {
   "wiz.shop.title": "Ihre Fertigungsmöglichkeiten",
   "wiz.shop.chamber": "Beheizte Kammer verfügbar",
   "wiz.shop.nozzle": "Gehärtete Düse verfügbar",
+  "wiz.shop.oven": "Temperofen verfügbar",
+  "wiz.shop.ovenHint": "Manche Werkstoffe erreichen ihre Datenblattwerte nur getempert — PET-CF und PA6-CF etwa verlieren ohne Umluftofen einen Grossteil ihrer Wärmeformbeständigkeit.",
 
   /* --- criteria labels --------------------------------------------------- */
   "criterion.strength.label": "Festigkeit",
@@ -186,6 +192,8 @@ const de: Dict = {
   "constraint.chamber.warn": "Kammer empfohlen — ohne sie drohen Verzug und Delamination.",
   "constraint.chamber.fail": "Braucht eine beheizte Kammer.",
   "constraint.chamber.unknown": "Kammerbedarf nicht hinterlegt.",
+  "constraint.annealing.pass": "Braucht keine Temperung.",
+  "constraint.annealing.fail": "Erreicht die Datenblattwerte nur nach Temperung im Umluftofen.",
   "constraint.nozzle.pass": "Läuft auf einer Messingdüse.",
   "constraint.nozzle.fail": "Braucht eine gehärtete Düse (abrasiv).",
   "constraint.outdoor.pass": "Aussen einsetzbar: rund {actual} Jahre, gefordert {required}.",
@@ -225,6 +233,7 @@ const de: Dict = {
   "hint.hardenedNozzle": "Gehärtete Düse erforderlich — Messing ist nach wenigen Stunden aufgeweitet.",
   "hint.drying": "Vor dem Druck {hours} h bei {temp} °C trocknen und trocken fördern.",
   "hint.chamberMandatory": "Nur mit beheizter Kammer prozesssicher.",
+  "hint.annealingRequired": "TEMPEROFEN NÖTIG: Die Kennwerte oben gelten für getemperte Bauteile ({min}–{max} °C, {hours} h Umluft). Ungetempert fallen Festigkeit und vor allem Wärmeformbeständigkeit deutlich ab.",
   "hint.temperatureBasis":
     "Wir rechnen mit {recommended} °C Dauereinsatz, nicht mit der HDT von {hdtB} °C — die HDT ist ein Vergleichswert, keine Einsatzgrenze.",
   "gap.noData": "Keine Daten für {criterion} — fliesst nicht in die Bewertung ein.",
@@ -318,6 +327,10 @@ const en: Dict = {
   "ui.portfolioBadge.on-request": "on request",
   "ui.portfolioBadge.partner-production": "partner production",
   "ui.portfolioBadge.not-in-portfolio": "not in portfolio",
+  "ui.attribution": "Reusing the data",
+  "ui.attributionText": "The material database is licensed CC BY 4.0. Reuse is explicitly welcome — the licence requires attribution, a licence notice and a link to the source.",
+  "ui.attributionCopy": "Copy attribution",
+  "ui.attributionCopied": "Copied",
   "ui.portfolioNeutral": "Portfolio status does not influence the ranking.",
 
   "wiz.1.title": "Where is the part used?",
@@ -350,6 +363,8 @@ const en: Dict = {
   "wiz.shop.title": "Your production capabilities",
   "wiz.shop.chamber": "Heated chamber available",
   "wiz.shop.nozzle": "Hardened nozzle available",
+  "wiz.shop.oven": "Annealing oven available",
+  "wiz.shop.ovenHint": "Some materials only reach their datasheet values when annealed — PET-CF and PA6-CF lose most of their heat resistance without a convection oven.",
 
   "criterion.strength.label": "Strength",
   "criterion.stiffness.label": "Stiffness",
@@ -410,6 +425,8 @@ const en: Dict = {
   "constraint.chamber.warn": "Chamber recommended — without one expect warping and delamination.",
   "constraint.chamber.fail": "Requires a heated chamber.",
   "constraint.chamber.unknown": "Chamber requirement not on record.",
+  "constraint.annealing.pass": "Needs no annealing.",
+  "constraint.annealing.fail": "Reaches its datasheet values only after annealing in a convection oven.",
   "constraint.nozzle.pass": "Runs on a brass nozzle.",
   "constraint.nozzle.fail": "Requires a hardened nozzle (abrasive).",
   "constraint.outdoor.pass": "Outdoor capable: about {actual} years, {required} required.",
@@ -448,6 +465,7 @@ const en: Dict = {
   "hint.hardenedNozzle": "Hardened nozzle required — brass widens within hours.",
   "hint.drying": "Dry {hours} h at {temp} °C before printing and feed dry.",
   "hint.chamberMandatory": "Only process reliable with a heated chamber.",
+  "hint.annealingRequired": "ANNEALING OVEN REQUIRED: the values above apply to annealed parts ({min}–{max} °C, {hours} h convection). Un-annealed, strength and especially heat resistance drop markedly.",
   "hint.temperatureBasis":
     "We use {recommended} °C continuous service, not the HDT of {hdtB} °C — HDT is a comparison figure, not a service limit.",
   "gap.noData": "No data for {criterion} — excluded from the assessment.",

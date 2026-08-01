@@ -12,10 +12,39 @@ Copyright (c) 2026 Reents Technologies GmbH
 Sie dürfen die Datenbank teilen, bearbeiten und auch kommerziell nutzen -
 solange Sie die Herkunft nennen.
 
-Angemessene Namensnennung, zum Beispiel:
+## Gewuenschte Namensnennung (bitte so verwenden)
 
-    Materialdaten: FDM-Materialberater (Reents Technologies GmbH),
-    CC BY 4.0, https://github.com/Reents3D/fdm-material-advisor
+Die Lizenz verpflichtet Sie zu Namensnennung, Lizenzhinweis und einem Link auf das
+Material. Wir bitten darum, dabei auch auf reents3d.de zu verlinken:
+
+Text:
+
+    Materialdaten: FDM-Materialberater der Reents Technologies GmbH (https://reents3d.de),
+    lizenziert unter CC BY 4.0.
+    Quelle: https://github.com/Reents3D/fdm-material-advisor
+
+HTML:
+
+    Materialdaten: <a href="https://reents3d.de">FDM-Materialberater,
+    Reents Technologies GmbH</a>, <a
+    href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>
+
+BibTeX:
+
+    @misc{fdm_material_advisor,
+      title  = {FDM-Materialberater: offene Materialdatenbank fuer den FDM-3D-Druck},
+      author = {{Reents Technologies GmbH}},
+      year   = {2026},
+      url    = {https://github.com/Reents3D/fdm-material-advisor},
+      note   = {CC BY 4.0}
+    }
+
+Zur Reichweite dieser Pflicht: Namensnennung, Lizenzhinweis und Link auf das Material
+sind nach CC BY 4.0 Abschnitt 3(a) verbindlich. Die konkrete FORM der Nennung darf der
+Lizenzgeber vorgeben; Nachnutzer muessen ihr "in angemessener Weise" folgen. Der Link auf
+reents3d.de ist damit die von uns gewuenschte Attributionsform - er laesst sich aber
+schwaecher durchsetzen als Name und Lizenzhinweis. Dies ist eine Zusammenfassung des
+Lizenztextes, keine Rechtsberatung.
 
 ## Wichtige Abgrenzung
 
