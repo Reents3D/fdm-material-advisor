@@ -1,0 +1,355 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "pa12",
+  "identity": {
+    "name": "PA12",
+    "family": "PA",
+    "polymerClass": "semi-crystalline",
+    "variant": [
+      "basic"
+    ],
+    "aliases": [
+      "Polyamid 12",
+      "Nylon 12",
+      "PA 12"
+    ],
+    "trademarkNotice": {
+      "de": "DuraPro, GreenTEC und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
+      "en": "DuraPro, GreenTEC and Flex are product designations of FD3D GmbH (Extrudr)."
+    },
+    "abstract": {
+      "de": "PA12 ist das zähste und feuchteunempfindlichste der gängigen Polyamide: über 50 % Bruchdehnung, Vicat 142 °C und deutlich geringere Wasseraufnahme als PA6. Für Funktionsteile, Schnappverbindungen und Gleitelemente. Grenzen: geringere Festigkeit und Steifigkeit als faserverstärkte Typen, braucht Kammer und Trocknung.",
+      "en": "PA12 is the toughest and least moisture-sensitive of the common polyamides: over 50 % elongation at break, Vicat 142 °C and markedly lower water uptake than PA6. For functional parts, snap fits and sliding elements. Limits: lower strength and stiffness than fibre-filled grades, needs a chamber and drying."
+    },
+    "positioning": {
+      "de": "Zäh statt steif — und deutlich gutmütiger bei Feuchte als PA6.",
+      "en": "Tough rather than stiff — and far more forgiving about moisture than PA6."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.01,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 43,
+      "unit": "MPa",
+      "testStandard": "ISO 527 bzw. ASTM D638",
+      "orientation": "n/a",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 50,
+      "unit": "%",
+      "testStandard": "ISO 527 (nominell)",
+      "orientation": "n/a",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "toughness": {
+      "value": 5,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "creepTendency": {
+      "value": 3,
+      "scale": "creepTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 1,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "wearResistance": {
+      "value": 5,
+      "scale": "wearResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "vicatB50": {
+      "value": 142,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 115,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
+        "en": "Our own conservative recommendation with margin to the softening limit."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 275,
+      "unit": "°C",
+      "min": 260,
+      "max": 290,
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "min": 105,
+      "max": 115,
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "chamberRequirement": {
+      "value": "mandatory",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "dryingTime": {
+      "value": 8,
+      "unit": "h",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "printability": {
+      "value": 2,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 3,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 4,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 2,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 3,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hydrolysisResistance": {
+      "value": 4,
+      "scale": "hydrolysisResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "src_extrudr_tds",
+        "confidence": "medium"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "HB",
+        "source": "src_extrudr_tds",
+        "confidence": "high"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "moderate",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "opaque",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 1,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 2,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 4,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 3,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 3,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 400,
+        "unit": "mm",
+        "min": 200,
+        "max": 800,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
+          "en": "Estimated from chamber requirement and warping tendency, not backed by our own production."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_extrudr_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FD3D GmbH (Extrudr)",
+        "productName": "PA12",
+        "title": "PA12 — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-TDS-de.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_specimen_type",
+        "question": {
+          "de": "Extrudr deklariert den Prüfkörpertyp nicht. Beim Hersteller erfragen, ob gedruckt oder spritzgegossen gemessen wurde.",
+          "en": "Extrudr does not declare the specimen type. Ask the manufacturer whether values were measured printed or moulded."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics"
+        ]
+      },
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
+          "en": "Add a second independent manufacturer source for this material type."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "extrudr-greentec",
+  "materialId": "greentec",
+  "brand": "Extrudr",
+  "manufacturer": "FD3D GmbH (Extrudr)",
+  "productName": "Extrudr GreenTEC",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
+  },
+  "datasheet": {
+    "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 46,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3200,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 14,
+      "unit": "%",
+      "testStandard": "ISO 527-2 (nominell)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 19,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 218,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 115,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.3,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 20,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FD3D GmbH (Extrudr)",
+        "productName": "Extrudr GreenTEC",
+        "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+        }
+      }
+    ]
+  }
+}

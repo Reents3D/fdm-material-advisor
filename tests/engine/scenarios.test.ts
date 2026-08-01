@@ -43,10 +43,12 @@ describe("Szenario: Aussenbauteil, 5 Jahre, UV", () => {
     expect(ids(r.rejected)).toContain("pla");
   });
 
-  it("über fünf Jahre bleibt nur die ASA-Familie übrig", () => {
+  it("über fünf Jahre überleben nur ausdrücklich witterungsfeste Werkstoffe", () => {
     const surviving = ids(select(MATERIALS, req).ranked);
     expect(surviving.length).toBeGreaterThan(0);
-    for (const id of surviving) expect(id, `${id} ist kein 5-Jahres-Aussenmaterial`).toMatch(/^asa/);
+    // ASA-Familie plus TPU-ESD (UV-beständig laut Extrudr-Datenblatt).
+    for (const id of surviving) expect(id, `${id} ist kein 5-Jahres-Aussenmaterial`).toMatch(/^(asa|tpu-esd)/);
+    for (const id of ["pla", "abs", "pc", "petg"]) expect(surviving).not.toContain(id);
   });
 
   it("PETG fällt bei fünf Jahren durch, ist bei einer Saison aber zulässig", () => {
@@ -169,8 +171,13 @@ describe("Szenario: Lebensmittelkontakt", () => {
 });
 
 describe("Szenario: flexibles Bauteil", () => {
-  it("nur der Elastomer bleibt übrig", () => {
-    expect(ids(select(MATERIALS, { flexible: true }).ranked)).toEqual(["tpu-95a"]);
+  it("nur Elastomere bleiben übrig", () => {
+    const surviving = ids(select(MATERIALS, { flexible: true }).ranked);
+    expect(surviving.length).toBeGreaterThan(0);
+    for (const id of surviving) {
+      expect(byId(id)!.identity.polymerClass, id).toBe("elastomer");
+    }
+    expect(surviving).toContain("tpu-95a");
   });
 
   it("umgekehrt fliegt der Elastomer bei starrem Bedarf raus", () => {
@@ -187,13 +194,16 @@ describe("Szenario: keine gehärtete Düse", () => {
 });
 
 describe("Szenario: Brandschutz und ESD", () => {
-  it("UL94 V-0 ist mit dieser Datenbasis nicht erfüllbar", () => {
-    expect(select(MATERIALS, { flameClass: "V-0" }).ranked).toHaveLength(0);
+  it("UL94 V-0 erfüllt nur ein ausdrücklich flammgeschützter Werkstoff", () => {
+    const surviving = ids(select(MATERIALS, { flameClass: "V-0" }).ranked);
+    expect(surviving).toEqual(["pc-fr"]);
+    // Standardwerkstoffe tragen keine Einstufung - auch nicht die "selbstverlöschenden".
+    for (const id of ["pc", "petg-cf", "abs", "asa"]) expect(surviving).not.toContain(id);
   });
 
-  it("ESD ebenfalls nicht - Kohlenstofffaser zählt ausdrücklich nicht", () => {
+  it("ESD erfüllt nur ein deklariertes ESD-Compound - Kohlenstofffaser zählt nicht", () => {
     const r = select(MATERIALS, { esd: true });
-    expect(r.ranked).toHaveLength(0);
+    expect(ids(r.ranked)).toEqual(["tpu-esd"]);
     const cf = r.rejected.find((x) => x.material.id === "petg-cf")!;
     expect(cf.failed.some((f) => f.constraintId === "esd")).toBe(true);
   });
