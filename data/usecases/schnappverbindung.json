@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "schnappverbindung",
+  "group": "mechanik",
+  "title": {
+    "de": "Schnappverbindung oder Clip",
+    "en": "Snap fit or clip"
+  },
+  "context": {
+    "de": "Bauteile, die sich beim Fügen verformen und danach halten müssen. Ein steifer, fester Werkstoff ist hier oft die falsche Wahl — er bricht beim ersten Einrasten.",
+    "en": "Parts that deform on assembly and must hold afterwards. A stiff, strong material is often the wrong choice here — it breaks on first engagement."
+  },
+  "requirements": {
+    "serviceTemperatureC": 60,
+    "weights": {
+      "toughness": 5,
+      "printability": 3,
+      "price": 2
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Innenanwendung mit Reserve.",
+      "en": "Indoor application with headroom."
+    }
+  },
+  "caveat": {
+    "de": "Die Orientierung entscheidet: Ein Clip, dessen Biegung quer zu den Schichten liegt, bricht deutlich früher. Achten Sie auf den Anisotropiefaktor.",
+    "en": "Orientation decides: a clip bending across the layers breaks far sooner. Watch the anisotropy factor."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

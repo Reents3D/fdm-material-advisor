@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "ohne-kammer",
+  "group": "fertigung",
+  "title": {
+    "de": "Serienteil ohne geschlossenen Bauraum",
+    "en": "Production part without an enclosure"
+  },
+  "context": {
+    "de": "Die häufigste reale Einschränkung: Die vorhandene Anlage hat keine beheizte Kammer. Empfehlungen, die eine voraussetzen, sind dann wertlos.",
+    "en": "The most common real-world constraint: the available machine has no heated chamber. Recommendations that assume one are then worthless."
+  },
+  "requirements": {
+    "chamberAvailable": false,
+    "hardenedNozzleAvailable": false,
+    "serviceTemperatureC": 80,
+    "weights": {
+      "printability": 5,
+      "lowWarping": 5,
+      "price": 4,
+      "availability": 4,
+      "temperature": 3
+    }
+  },
+  "rationale": {
+    "chamberAvailable": {
+      "de": "Schließt alle Werkstoffe aus, die eine beheizte Kammer zwingend brauchen.",
+      "en": "Excludes every material that mandatorily requires a heated chamber."
+    },
+    "hardenedNozzleAvailable": {
+      "de": "Ohne gehärtete Düse fallen die faserverstärkten Typen weg — sonst zerstören sie die Düse binnen Stunden.",
+      "en": "Without a hardened nozzle the fibre-filled grades drop out — otherwise they destroy the nozzle within hours."
+    },
+    "serviceTemperatureC": {
+      "de": "80 °C ist die Hürde, an der es ohne Kammer eng wird. Genau das soll das Profil zeigen.",
+      "en": "80 °C is the hurdle where it gets tight without a chamber. That is exactly what this profile should reveal."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

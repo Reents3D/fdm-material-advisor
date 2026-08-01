@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sterilisierbar",
+  "group": "thermik",
+  "title": {
+    "de": "Autoklavierbares Teil",
+    "en": "Autoclavable part"
+  },
+  "context": {
+    "de": "Halterungen und Hilfsmittel, die im Dampfautoklaven bei 121 °C sterilisiert werden. Die Kombination aus Temperatur, Druck und Feuchte schließt fast alles aus.",
+    "en": "Fixtures and aids sterilised in a steam autoclave at 121 °C. The combination of temperature, pressure and moisture rules out almost everything."
+  },
+  "requirements": {
+    "serviceTemperatureC": 125,
+    "chemicals": [
+      "chem_water"
+    ],
+    "weights": {
+      "temperature": 5,
+      "chemical": 5,
+      "stiffness": 4,
+      "price": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "121 °C Autoklav plus Sicherheitsabstand.",
+      "en": "121 °C autoclave plus a safety margin."
+    },
+    "chemicals": {
+      "de": "Heißdampf ist die eigentliche Belastung — Hydrolysebeständigkeit entscheidet.",
+      "en": "Steam is the actual load — hydrolysis resistance decides."
+    }
+  },
+  "caveat": {
+    "de": "Medizinprodukte unterliegen eigenen Zulassungspflichten. Dieses Profil trifft keine Aussage zur Biokompatibilität.",
+    "en": "Medical devices are subject to their own approval requirements. This profile makes no statement about biocompatibility."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

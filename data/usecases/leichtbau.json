@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "leichtbau",
+  "group": "mechanik",
+  "title": {
+    "de": "Leichtbauteil, Drohne oder Bewegtmasse",
+    "en": "Lightweight part, drone or moving mass"
+  },
+  "context": {
+    "de": "Jedes Gramm zählt. Gesucht ist nicht die höchste Festigkeit, sondern das beste Verhältnis aus Steifigkeit und Dichte.",
+    "en": "Every gram counts. What is sought is not the highest strength but the best ratio of stiffness to density."
+  },
+  "requirements": {
+    "serviceTemperatureC": 60,
+    "minTensileStrengthMPa": 40,
+    "weights": {
+      "stiffness": 5,
+      "strength": 4,
+      "lightweight": 5,
+      "toughness": 3,
+      "price": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Antriebe und Elektronik erwärmen die Struktur.",
+      "en": "Drives and electronics warm the structure."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Tragende Struktur — unter 40 MPa wird es dünn.",
+      "en": "Load-bearing structure — below 40 MPa it gets thin."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

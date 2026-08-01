@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "esd-vorrichtung",
+  "group": "regulatorik",
+  "title": {
+    "de": "Vorrichtung für die Elektronikfertigung",
+    "en": "Jig for electronics manufacturing"
+  },
+  "context": {
+    "de": "Aufnahmen, Ablagen und Handhabungshilfen, die Baugruppen berühren. Elektrostatische Entladung zerstört Bauteile unbemerkt — der Ausfall zeigt sich oft erst beim Kunden.",
+    "en": "Fixtures, trays and handling aids that touch assemblies. Electrostatic discharge destroys components unnoticed — the failure often shows up only at the customer."
+  },
+  "requirements": {
+    "esd": true,
+    "serviceTemperatureC": 60,
+    "minTensileStrengthMPa": 30,
+    "weights": {
+      "strength": 2,
+      "printability": 3,
+      "price": 3,
+      "availability": 3,
+      "stiffness": 3
+    }
+  },
+  "rationale": {
+    "esd": {
+      "de": "Der eigentliche Zweck. Kohlenstofffaser allein genügt nicht — es braucht eine gemessene Einstufung im ableitfähigen Bereich.",
+      "en": "The actual purpose. Carbon fibre alone is not enough — a measured classification in the dissipative range is required."
+    },
+    "serviceTemperatureC": {
+      "de": "60 °C deckt Handhabung nahe Lötprozessen und aufgeheizte Hallen ab, ohne gleich alles außer Hochtemperaturwerkstoffen auszuschließen.",
+      "en": "60 °C covers handling near soldering and warm halls without immediately excluding everything but high-temperature materials."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Eine Vorrichtung muss Handhabungskräfte aushalten; 30 MPa schließt weiche Elastomere aus, die für Aufnahmen ungeeignet sind.",
+      "en": "A fixture must withstand handling forces; 30 MPa rules out soft elastomers unsuitable for fixtures."
+    }
+  },
+  "caveat": {
+    "de": "Deckt den Werkstoff ab, nicht die Erdung. Ein ableitfähiges Bauteil wirkt nur, wenn es auch angebunden ist.",
+    "en": "Covers the material, not the earthing. A dissipative part only works if it is actually bonded."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

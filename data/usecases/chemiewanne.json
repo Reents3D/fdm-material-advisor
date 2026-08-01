@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "chemiewanne",
+  "group": "umgebung",
+  "title": {
+    "de": "Behälter mit Laugenkontakt",
+    "en": "Container in contact with alkali"
+  },
+  "context": {
+    "de": "Wannen, Einsätze und Abdeckungen in Reinigungs- und Galvanikanlagen. Polyester und Polycarbonat scheiden hier aus, obwohl sie sonst naheliegen.",
+    "en": "Tanks, inserts and covers in cleaning and plating lines. Polyesters and polycarbonate are out here, though they would otherwise be obvious."
+  },
+  "requirements": {
+    "chemicals": [
+      "chem_dilute_alkali"
+    ],
+    "serviceTemperatureC": 60,
+    "weights": {
+      "chemical": 5,
+      "stiffness": 3,
+      "price": 3,
+      "printability": 3
+    }
+  },
+  "rationale": {
+    "chemicals": {
+      "de": "Verdünnte Lauge greift Polyester an — PETG und PC fallen dadurch aus dem Feld.",
+      "en": "Dilute alkali attacks polyesters — PETG and PC drop out of the field."
+    },
+    "serviceTemperatureC": {
+      "de": "Reinigungsbäder werden beheizt.",
+      "en": "Cleaning baths are heated."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

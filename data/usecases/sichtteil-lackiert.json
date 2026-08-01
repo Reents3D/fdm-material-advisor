@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "sichtteil-lackiert",
+  "group": "optik",
+  "title": {
+    "de": "Lackiertes Sichtteil",
+    "en": "Painted visible part"
+  },
+  "context": {
+    "de": "Modelle, Attrappen, Verkleidungen mit Anspruch an die Oberfläche. Entscheidend ist, ob der Werkstoff Lack annimmt und ob er sich spachteln lässt.",
+    "en": "Models, mock-ups and cladding with surface requirements. What matters is whether the material accepts paint and can be filled."
+  },
+  "requirements": {
+    "serviceTemperatureC": 50,
+    "weights": {
+      "surface": 5,
+      "paintability": 5,
+      "printability": 4,
+      "price": 3,
+      "strength": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Innenraum. Bewusst niedrig gehalten, damit die gut zu veredelnden Werkstoffe nicht ausgefiltert werden.",
+      "en": "Indoors. Deliberately low so the materials that finish well are not filtered out."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

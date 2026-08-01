@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "dichtung-balg",
+  "group": "mechanik",
+  "title": {
+    "de": "Dichtung, Balg oder Dämpfer",
+    "en": "Seal, bellows or damper"
+  },
+  "context": {
+    "de": "Bauteile, die nachgeben und zurückfedern müssen. Hier zählt Shore-Härte mehr als jede Festigkeitsangabe.",
+    "en": "Parts that must yield and spring back. Shore hardness matters more here than any strength figure."
+  },
+  "requirements": {
+    "flexible": true,
+    "serviceTemperatureC": 70,
+    "weights": {
+      "toughness": 5,
+      "chemical": 3,
+      "printability": 2
+    }
+  },
+  "rationale": {
+    "flexible": {
+      "de": "Schränkt auf Elastomere ein — alles andere wäre für diese Aufgabe zu steif.",
+      "en": "Restricts to elastomers — anything else is too rigid for this task."
+    },
+    "serviceTemperatureC": {
+      "de": "70 °C deckt die meisten Maschinen- und Fahrzeuganwendungen ab.",
+      "en": "70 °C covers most machinery and vehicle applications."
+    }
+  },
+  "caveat": {
+    "de": "Die Dichtwirkung eines gedruckten Teils hängt an der Schichthaftung. Für druckbeaufschlagte Dichtungen ist eine eigene Prüfung zwingend.",
+    "en": "The sealing effect of a printed part depends on layer adhesion. For pressurised seals a dedicated test is mandatory."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

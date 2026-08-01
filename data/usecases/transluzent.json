@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "transluzent",
+  "group": "optik",
+  "title": {
+    "de": "Lichtdurchlässiges Bauteil",
+    "en": "Light-transmitting part"
+  },
+  "context": {
+    "de": "Leuchtenabdeckungen, Lichtleiter, Lithophanien. Wichtig zu wissen: Echte Klarsicht liefert FDM nicht — die Schichtstruktur streut immer.",
+    "en": "Luminaire covers, light guides, lithophanes. Important to know: FDM does not deliver true clarity — the layer structure always scatters."
+  },
+  "requirements": {
+    "serviceTemperatureC": 60,
+    "weights": {
+      "surface": 4,
+      "printability": 4,
+      "outdoor": 3,
+      "price": 2
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Leuchtmittel erwärmen die Abdeckung; 60 °C ist bei LED eine vernünftige Annahme.",
+      "en": "Lamps warm the cover; 60 °C is a sensible assumption with LEDs."
+    }
+  },
+  "caveat": {
+    "de": "Transluzent heißt lichtdurchlässig, nicht klar. Wer Klarsicht braucht, ist bei SLA oder Fräsen aus Acrylglas richtig.",
+    "en": "Translucent means light-transmitting, not clear. Anyone needing clarity is better served by SLA or machined acrylic."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

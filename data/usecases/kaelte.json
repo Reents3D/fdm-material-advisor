@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "kaelte",
+  "group": "umgebung",
+  "title": {
+    "de": "Bauteil im Kalten",
+    "en": "Part in the cold"
+  },
+  "context": {
+    "de": "Außentechnik im Winter, Kühlhaus, Transport. Viele Werkstoffe verlieren unter null ihre Zähigkeit und brechen spröde, wo sie bei Raumtemperatur nachgeben.",
+    "en": "Outdoor equipment in winter, cold stores, transport. Many materials lose their toughness below zero and fracture brittly where they would yield at room temperature."
+  },
+  "requirements": {
+    "outdoorYears": 2,
+    "serviceTemperatureC": 40,
+    "weights": {
+      "toughness": 5,
+      "outdoor": 4,
+      "price": 2
+    }
+  },
+  "rationale": {
+    "outdoorYears": {
+      "de": "Zwei Jahre Außeneinsatz als Mindestanforderung an die Witterungsbeständigkeit.",
+      "en": "Two years outdoors as a minimum requirement on weather resistance."
+    },
+    "serviceTemperatureC": {
+      "de": "Die obere Grenze bleibt niedrig — die Anforderung liegt am unteren Ende.",
+      "en": "The upper limit stays low — the requirement is at the lower end."
+    }
+  },
+  "caveat": {
+    "de": "Die Datenbank führt Kennwerte überwiegend bei 23 °C. Wo ein Datenblatt Werte bei −30 °C nennt, steht das am Produkt — achten Sie darauf.",
+    "en": "The database holds values mostly at 23 °C. Where a datasheet gives figures at −30 °C it is noted on the product — look for it."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

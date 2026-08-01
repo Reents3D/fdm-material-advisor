@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "hochtemperatur-vorrichtung",
+  "group": "thermik",
+  "title": {
+    "de": "Vorrichtung über 200 °C",
+    "en": "Fixture above 200 °C"
+  },
+  "context": {
+    "de": "Lötrahmen, Ofenhilfsmittel, Prüfaufnahmen. In diesem Bereich bleiben nur wenige Werkstoffe — und die stellen hohe Ansprüche an die Anlage.",
+    "en": "Soldering frames, oven aids, test fixtures. Only a few materials remain in this range — and they demand a lot of the machine."
+  },
+  "requirements": {
+    "serviceTemperatureC": 200,
+    "chamberAvailable": true,
+    "hardenedNozzleAvailable": true,
+    "weights": {
+      "temperature": 5,
+      "stiffness": 4,
+      "price": 1,
+      "printability": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "200 °C Dauerbetrieb ist die Grenze, an der praktisch nur noch Hochtemperatur-Compounds bleiben.",
+      "en": "200 °C continuous is the boundary where practically only high-temperature compounds remain."
+    },
+    "chamberAvailable": {
+      "de": "Ohne beheizte Kammer ist in diesem Bereich nichts verarbeitbar — die Angabe verhindert unerreichbare Empfehlungen.",
+      "en": "Without a heated chamber nothing in this range is processable — the setting prevents unattainable recommendations."
+    },
+    "hardenedNozzleAvailable": {
+      "de": "Die Werkstoffe dieser Klasse sind durchweg faserverstärkt und abrasiv.",
+      "en": "Materials in this class are consistently fibre-reinforced and abrasive."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

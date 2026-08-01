@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bahn-schaltschrank",
+  "group": "regulatorik",
+  "title": {
+    "de": "Bahn- und Schaltschrankteil",
+    "en": "Rail and switchgear part"
+  },
+  "context": {
+    "de": "Anwendungen mit gefordertem Brandschutzzeugnis. Herstellerformulierungen wie „selbstverlöschend“ sind hier wertlos — verlangt wird eine Einstufung.",
+    "en": "Applications requiring a fire certificate. Manufacturer wording such as “self-extinguishing” is worthless here — a classification is demanded."
+  },
+  "requirements": {
+    "flameClass": "V-0",
+    "serviceTemperatureC": 80,
+    "weights": {
+      "temperature": 3,
+      "strength": 3,
+      "availability": 2,
+      "price": 1
+    }
+  },
+  "rationale": {
+    "flameClass": {
+      "de": "V-0 ist die Einstufung, die in Bahn- und Schaltschrankspezifikationen üblicherweise gefordert wird.",
+      "en": "V-0 is the classification usually demanded in rail and switchgear specifications."
+    },
+    "serviceTemperatureC": {
+      "de": "Schaltschränke erreichen im Betrieb regelmäßig 80 °C.",
+      "en": "Switchgear cabinets regularly reach 80 °C in operation."
+    }
+  },
+  "caveat": {
+    "de": "Dieses Profil liefert derzeit KEIN Ergebnis, und das ist der Befund: Der einzige V-0-Werkstoff der Datenbank (PC-FR) ist konservativ mit 75 °C Dauergebrauchstemperatur geführt und scheitert damit knapp an den 80 °C. Die Ergebnisseite nennt ihn als Beinahe-Treffer samt Abstand. Zusätzlich gilt: Die Werkstoffeinstufung ersetzt keine Bauteilprüfung — UL94 wird an genormten Stäbchen definierter Dicke geprüft, nicht an Ihrem Bauteil.",
+    "en": "This profile currently returns NO result, and that is the finding: the only V-0 material in the database (PC-FR) is conservatively rated at 75 °C continuous and therefore just misses the 80 °C mark. The results page names it as a near miss with the margin. In addition: the material classification does not replace part testing — UL94 is tested on standard bars of defined thickness, not on your part."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

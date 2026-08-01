@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "lebensmittelnah",
+  "group": "regulatorik",
+  "title": {
+    "de": "Lebensmittelnahe Anwendung",
+    "en": "Food-adjacent application"
+  },
+  "context": {
+    "de": "Ausgussformen, Schablonen, Behälter. Der entscheidende Punkt wird fast immer übersehen: Auch ein lebensmittelkonformes Material ergibt kein lebensmittelkonformes Bauteil.",
+    "en": "Moulds, templates, containers. The decisive point is almost always missed: even a food-compliant material does not make a food-compliant part."
+  },
+  "requirements": {
+    "foodContact": true,
+    "serviceTemperatureC": 70,
+    "weights": {
+      "printability": 3,
+      "surface": 4,
+      "price": 3
+    }
+  },
+  "rationale": {
+    "foodContact": {
+      "de": "Filtert auf Werkstoffe mit deklarierter Konformität — eine sehr kurze Liste.",
+      "en": "Filters for materials with declared compliance — a very short list."
+    },
+    "serviceTemperatureC": {
+      "de": "70 °C deckt Handspülen ab. Für die Spülmaschine ist deutlich mehr nötig.",
+      "en": "70 °C covers hand washing. A dishwasher needs considerably more."
+    }
+  },
+  "caveat": {
+    "de": "Dieses Profil liefert derzeit KEIN Ergebnis — kein einziger Werkstoff der Datenbank trägt eine deklarierte Lebensmittelkonformität. Das ist keine Lücke der Erfassung, sondern die Lage: Filamenthersteller lassen das fast nie prüfen. Und selbst mit konformem Material gilt: Die Schichtstruktur eines FDM-Bauteils bildet Kapillaren, in denen sich Keime halten. Für wiederverwendbare Teile mit direktem Lebensmittelkontakt ist FDM ohne Versiegelung das falsche Verfahren.",
+    "en": "This profile currently returns NO result — not a single material in the database carries a declared food-contact compliance. That is not a gap in our collection but the state of the market: filament makers almost never have it tested. And even with a compliant material: the layer structure of an FDM part forms capillaries where bacteria persist. For reusable parts in direct food contact, unsealed FDM is the wrong process."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

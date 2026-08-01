@@ -15,6 +15,7 @@ const logoUrl = `${import.meta.env.BASE_URL}brand/reents-logo-horizontal-color.s
 type T = (k: string, p?: Record<string, string | number>) => string;
 
 const NAV = [
+  { path: "usecases", key: "ui.usecases", match: "usecases" },
   { path: "wizard/1", key: "ui.start.wizard", match: "wizard" },
   { path: "matrix", key: "ui.allMaterials", match: "matrix" },
   { path: "brands", key: "ui.brands", match: "brands" },

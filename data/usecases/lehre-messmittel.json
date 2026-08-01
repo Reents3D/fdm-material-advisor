@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "lehre-messmittel",
+  "group": "mechanik",
+  "title": {
+    "de": "Lehre oder Messmittel",
+    "en": "Gauge or measuring aid"
+  },
+  "context": {
+    "de": "Bauteile, deren Maß über die Zeit stimmen muss. Kriechen und Feuchteaufnahme sind hier gefährlicher als ein niedriger Festigkeitswert.",
+    "en": "Parts whose dimensions must hold over time. Creep and moisture uptake are more dangerous here than a low strength figure."
+  },
+  "requirements": {
+    "serviceTemperatureC": 50,
+    "minTensileStrengthMPa": 45,
+    "weights": {
+      "stiffness": 5,
+      "chemical": 4,
+      "price": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Werkstattklima mit Reserve.",
+      "en": "Workshop climate with headroom."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Ein Messmittel wird angefasst und abgelegt; es muss den Alltag überstehen.",
+      "en": "A gauge is handled and put down; it must survive daily use."
+    }
+  },
+  "caveat": {
+    "de": "Ein gedrucktes Messmittel ersetzt keine kalibrierte Lehre. Für rückführbare Messungen ist FDM ungeeignet.",
+    "en": "A printed gauge does not replace a calibrated one. For traceable measurement FDM is unsuitable."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

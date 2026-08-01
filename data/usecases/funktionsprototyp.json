@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "funktionsprototyp",
+  "group": "fertigung",
+  "title": {
+    "de": "Funktionsprototyp, schnell und günstig",
+    "en": "Functional prototype, fast and cheap"
+  },
+  "context": {
+    "de": "Passt es, greift es, sieht es richtig aus. Der Prototyp muss keine Lasten tragen, sondern morgen fertig sein.",
+    "en": "Does it fit, does it grip, does it look right. The prototype need not carry loads, it needs to be ready tomorrow."
+  },
+  "requirements": {
+    "serviceTemperatureC": 40,
+    "weights": {
+      "printability": 5,
+      "price": 5,
+      "availability": 5,
+      "surface": 3,
+      "strength": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Raumtemperatur mit etwas Reserve. Bewusst niedrig, damit die einfach zu druckenden Werkstoffe im Feld bleiben.",
+      "en": "Room temperature with a little headroom. Deliberately low so the easy-printing materials stay in the field."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

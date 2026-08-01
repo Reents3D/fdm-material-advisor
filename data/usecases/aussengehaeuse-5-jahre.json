@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "aussengehaeuse-5-jahre",
+  "group": "umgebung",
+  "title": {
+    "de": "Außengehäuse, fünf Jahre Bewitterung",
+    "en": "Outdoor enclosure, five years of weathering"
+  },
+  "context": {
+    "de": "Gehäuse für Sensorik, Beschilderung oder Technik im Freien. Der häufigste Fehler ist PLA: es hält den ersten Sommer und versprödet dann.",
+    "en": "Housings for sensors, signage or equipment outdoors. The most common mistake is PLA: it survives the first summer and then embrittles."
+  },
+  "requirements": {
+    "outdoorYears": 5,
+    "serviceTemperatureC": 70,
+    "weights": {
+      "outdoor": 5,
+      "strength": 2,
+      "price": 2,
+      "printability": 2
+    }
+  },
+  "rationale": {
+    "outdoorYears": {
+      "de": "Fünf Jahre ist die Schwelle, ab der die Engine nur noch belegt witterungsfeste Werkstoffe zulässt.",
+      "en": "Five years is the threshold above which the engine admits only demonstrably weather-resistant materials."
+    },
+    "serviceTemperatureC": {
+      "de": "Ein dunkles Gehäuse in der Sonne erreicht deutlich mehr als die Lufttemperatur. 70 °C ist eine realistische Untergrenze.",
+      "en": "A dark enclosure in the sun reaches well above air temperature. 70 °C is a realistic lower bound."
+    }
+  },
+  "caveat": {
+    "de": "Farbe entscheidet mit: Weiß und Hellgrau altern deutlich langsamer als Schwarz.",
+    "en": "Colour matters: white and light grey age markedly slower than black."
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

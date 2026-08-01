@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "kuehlschmierstoff",
+  "group": "umgebung",
+  "title": {
+    "de": "Vorrichtung mit Kühlschmierstoff-Kontakt",
+    "en": "Fixture in contact with coolant"
+  },
+  "context": {
+    "de": "Werkstückaufnahmen an der Werkzeugmaschine. PETG ist hier der beliebteste und zugleich riskanteste Griff — Kühlschmierstoff greift es an.",
+    "en": "Workpiece fixtures on machine tools. PETG is the most popular and simultaneously riskiest choice here — coolant attacks it."
+  },
+  "requirements": {
+    "chemicals": [
+      "chem_coolant_mwf"
+    ],
+    "serviceTemperatureC": 60,
+    "minTensileStrengthMPa": 40,
+    "weights": {
+      "chemical": 5,
+      "strength": 3,
+      "stiffness": 4,
+      "price": 2
+    }
+  },
+  "rationale": {
+    "chemicals": {
+      "de": "Der entscheidende Filter. Ohne ihn landet man fast zwangsläufig bei PETG.",
+      "en": "The decisive filter. Without it one almost inevitably ends up with PETG."
+    },
+    "serviceTemperatureC": {
+      "de": "Kühlschmierstoff wird warm, die Halle ebenfalls.",
+      "en": "Coolant gets warm, and so does the hall."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Spannkräfte wirken dauerhaft.",
+      "en": "Clamping forces act permanently."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

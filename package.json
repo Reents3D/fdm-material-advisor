@@ -32,7 +32,8 @@
     "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue",
     "import:3djake": "node scripts/import/3djake.mjs",
     "import:m4p": "node scripts/import/material4print.mjs",
-    "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs"
+    "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs",
+    "import:usecases": "node scripts/import/usecases.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

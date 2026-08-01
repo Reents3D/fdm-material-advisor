@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "gleitlager",
+  "group": "mechanik",
+  "title": {
+    "de": "Gleitlager oder Verschleißteil",
+    "en": "Plain bearing or wear part"
+  },
+  "context": {
+    "de": "Buchsen, Führungen, Zahnräder. Nicht die Festigkeit entscheidet, sondern Verschleißwiderstand und Kriechverhalten unter Dauerlast.",
+    "en": "Bushings, guides, gears. Not strength decides but wear resistance and creep under sustained load."
+  },
+  "requirements": {
+    "serviceTemperatureC": 80,
+    "minTensileStrengthMPa": 45,
+    "weights": {
+      "toughness": 5,
+      "stiffness": 5,
+      "strength": 3,
+      "price": 2
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "Reibung erzeugt Wärme; die Umgebungstemperatur ist nicht die Bauteiltemperatur.",
+      "en": "Friction generates heat; ambient temperature is not part temperature."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Ein Lager trägt und muss Flächenpressung aushalten.",
+      "en": "A bearing carries load and must withstand surface pressure."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}

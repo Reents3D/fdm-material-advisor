@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schema/usecase.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "motorraum",
+  "group": "thermik",
+  "title": {
+    "de": "Halterung im Motorraum",
+    "en": "Bracket in an engine bay"
+  },
+  "context": {
+    "de": "Dauerwarme Umgebung mit Öl-, Kraftstoff- und Vibrationsbelastung. Hier scheitern die meisten Standardwerkstoffe an der Temperatur, nicht an der Festigkeit.",
+    "en": "A permanently warm environment with oil, fuel and vibration. Most standard materials fail here on temperature, not on strength."
+  },
+  "requirements": {
+    "serviceTemperatureC": 120,
+    "minTensileStrengthMPa": 50,
+    "chemicals": [
+      "chem_mineral_oil"
+    ],
+    "weights": {
+      "temperature": 5,
+      "strength": 4,
+      "stiffness": 4,
+      "chemical": 4,
+      "price": 1
+    }
+  },
+  "rationale": {
+    "serviceTemperatureC": {
+      "de": "120 °C Dauerbetrieb ist im Motorraum die realistische Untergrenze, kurzzeitig deutlich mehr.",
+      "en": "120 °C continuous is the realistic lower bound in an engine bay, with far more short-term."
+    },
+    "minTensileStrengthMPa": {
+      "de": "Eine tragende Halterung unter Vibration braucht Reserve.",
+      "en": "A load-bearing bracket under vibration needs headroom."
+    },
+    "chemicals": {
+      "de": "Öl ist im Motorraum unvermeidbar und schließt einen Teil der Werkstoffe aus.",
+      "en": "Oil is unavoidable in an engine bay and rules out part of the field."
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+  }
+}
