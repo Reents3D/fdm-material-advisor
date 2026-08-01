@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reents3d.github.io/fdm-material-advisor/schema/product.schema.json",
+  "title": "Manufacturer Product",
+  "description": "Ein konkretes Handelsprodukt einer Marke mit eigenem Datenblatt, verknuepft mit einem Werkstofftyp aus data/materials.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "materialId", "brand", "manufacturer", "productName", "specimenType", "datasheet", "properties", "governance"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "materialId": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "brand": { "type": "string" },
+    "manufacturer": { "type": "string" },
+    "productName": { "type": "string" },
+    "origin": { "type": "string" },
+    "specimenType": {
+      "description": "printed = an GEDRUCKTEN Pruefkoerpern gemessen (fuer FDM aussagekraeftig). moulded = Rohstoffkennwerte, spritzgegossen (fuer ein gedrucktes Bauteil nicht erreichbar). undeclared = Datenblatt sagt es nicht. Werte unterschiedlicher specimenType duerfen NICHT direkt verglichen werden.",
+      "enum": ["printed", "moulded", "undeclared"]
+    },
+    "specimenNote": { "$ref": "#/$defs/i18n" },
+    "features": { "$ref": "#/$defs/i18n" },
+    "datasheet": {
+      "type": "object",
+      "required": ["title", "url", "retrievedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "version": { "type": "string" },
+        "retrievedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
+    "productUrl": { "type": "string" },
+    "properties": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["value", "unit", "source", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "value": { "type": ["number", "null"] },
+          "min": { "type": "number" },
+          "max": { "type": "number" },
+          "tolerance": { "type": "number" },
+          "unit": { "type": "string" },
+          "testStandard": { "type": "string" },
+          "orientation": { "enum": ["XY", "XZ", "Z", "isotropic", "n/a"] },
+          "conditions": { "type": "string" },
+          "source": { "type": "string" },
+          "confidence": { "enum": ["high", "medium", "low", "estimated"] },
+          "note": { "$ref": "#/$defs/i18n" }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "required": ["lastReviewed", "reviewedBy", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "lastReviewed": { "type": "string" },
+        "reviewedBy": { "type": "string" },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "object" } }
+      }
+    }
+  },
+  "$defs": {
+    "i18n": {
+      "type": "object",
+      "required": ["de", "en"],
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

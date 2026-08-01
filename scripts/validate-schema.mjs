@@ -12,6 +12,7 @@ addFormats(ajv);
 
 const TARGETS = [
   { dir: "data/materials", schema: "schema/material.schema.json" },
+  { dir: "data/products", schema: "schema/product.schema.json" },
   { dir: "data/usecases", schema: "schema/usecase.schema.json" },
 ];
 

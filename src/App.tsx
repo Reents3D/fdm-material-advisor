@@ -20,6 +20,7 @@ import { Detail } from "./views/Detail";
 import { Compare } from "./views/Compare";
 import { Explorer } from "./views/Explorer";
 import { Matrix } from "./views/Matrix";
+import { Brands } from "./views/Brands";
 
 export type Route =
   | { view: "home" }
@@ -28,7 +29,8 @@ export type Route =
   | { view: "detail"; id: string }
   | { view: "compare" }
   | { view: "explorer" }
-  | { view: "matrix" };
+  | { view: "matrix" }
+  | { view: "brands" };
 
 /* ---------------------------------------------------- URL <-> state mapping */
 
@@ -51,6 +53,7 @@ function parseHash(): { route: Route; params: URLSearchParams } {
   if (view === "compare") return { route: { view: "compare" }, params };
   if (view === "explorer") return { route: { view: "explorer" }, params };
   if (view === "matrix") return { route: { view: "matrix" }, params };
+  if (view === "brands") return { route: { view: "brands" }, params };
   return { route: { view: "home" }, params };
 }
 
@@ -167,6 +170,7 @@ export function App() {
         {route.view === "compare" && <Compare state={state} t={t} update={update} navigate={navigate} />}
         {route.view === "explorer" && <Explorer t={t} lang={state.lang} params={params} navigate={navigate} />}
         {route.view === "matrix" && <Matrix t={t} lang={state.lang} navigate={navigate} />}
+        {route.view === "brands" && <Brands t={t} lang={state.lang} navigate={navigate} />}
       </main>
 
       <Footer t={t} lang={state.lang} />

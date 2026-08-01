@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "extrudr-pla-nx2",
+  "materialId": "pla",
+  "brand": "Extrudr",
+  "manufacturer": "FD3D GmbH (Extrudr)",
+  "productName": "Extrudr PLA NX2 Matt",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Datenblatt nennt Prüfnormen und Druckeinstellungen, sagt aber nicht, ob die Kennwerte an gedruckten oder spritzgegossenen Prüfkörpern ermittelt wurden. Die Kombination aus 47 MPa und 19 % nomineller Bruchdehnung deutet auf Rohstoffwerte hin.",
+    "en": "The datasheet names test standards and print settings but does not state whether values were measured on printed or injection-moulded specimens. The combination of 47 MPa and 19 % nominal elongation suggests raw-material values."
+  },
+  "features": {
+    "de": "Matte Oberfläche, CO2-neutral zertifiziert, verbesserte UV-Beständigkeit, entspricht FDA-, RoHS- und Spielzeugsicherheits-Bestimmungen. Kein geschlossener Bauraum und keine gehärtete Düse nötig.",
+    "en": "Matte surface, certified CO2-neutral, improved UV resistance, complies with FDA, RoHS and toy safety regulations. No enclosure and no hardened nozzle required."
+  },
+  "datasheet": {
+    "title": "Extrudr PLA NX2 Matt — Technisches Datenblatt (DE)",
+    "url": "https://filamentworld.de/fact-sheets/Extrudr_PLA-NX2_Datenblatt_DE.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 47,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2600,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 19,
+      "unit": "%",
+      "testStandard": "ISO 527-2 (nominell)",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2650,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 7,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA (gekerbt)",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 60,
+      "unit": "°C",
+      "testStandard": "ISO 306 (Methode A)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "min": 20,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FD3D GmbH (Extrudr)",
+        "productName": "Extrudr PLA NX2 Matt",
+        "title": "Extrudr PLA NX2 Matt — Technisches Datenblatt (DE)",
+        "url": "https://filamentworld.de/fact-sheets/Extrudr_PLA-NX2_Datenblatt_DE.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

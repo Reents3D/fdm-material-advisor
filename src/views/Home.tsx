@@ -31,6 +31,7 @@ export function Home({ t, lang, navigate }: {
   const entries: { path: string; key: string; primary?: boolean }[] = [
     { path: "wizard/1", key: "wizard", primary: true },
     { path: "matrix", key: "database" },
+    { path: "brands", key: "brands" },
     { path: "compare", key: "compare" },
     { path: "explorer", key: "explorer" },
   ];

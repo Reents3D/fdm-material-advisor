@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "azurefilm-petg",
+  "materialId": "petg",
+  "brand": "AzureFilm",
+  "manufacturer": "AzureFilm d.o.o.",
+  "productName": "AzureFilm PETG",
+  "origin": "Slowenien",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Rohstoffkennwerte, keine gedruckten Prüfkörper. Deutlichster Hinweis: 29 % Bruchdehnung — an einem gedruckten PETG-Bauteil physikalisch nicht erreichbar (gedruckt sind es rund 5-10 %). Die Zahlen beschreiben das Granulat, nicht Ihr Bauteil.",
+    "en": "Raw-material values, not printed specimens. Clearest indicator: 29 % elongation at break — physically unattainable on a printed PETG part (printed values are around 5-10 %). The figures describe the pellets, not your part."
+  },
+  "datasheet": {
+    "title": "AzureFilm PETG — Technical Data Sheet",
+    "url": "https://www.3d-colour.com/wp-content/uploads/2023/04/AzureFilm_PETG_TDS.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://azurefilm.com/technical-data-sheets/",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D-792",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 51,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2 (Streckspannung)",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2980,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 29,
+      "unit": "%",
+      "testStandard": "ISO 527-2",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 68,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2040,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 85,
+      "unit": "°C",
+      "min": 80,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "AzureFilm d.o.o.",
+        "productName": "AzureFilm PETG",
+        "title": "AzureFilm PETG — Technical Data Sheet",
+        "url": "https://www.3d-colour.com/wp-content/uploads/2023/04/AzureFilm_PETG_TDS.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

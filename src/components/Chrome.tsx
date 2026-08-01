@@ -17,6 +17,7 @@ type T = (k: string, p?: Record<string, string | number>) => string;
 const NAV = [
   { path: "wizard/1", key: "ui.start.wizard", match: "wizard" },
   { path: "matrix", key: "ui.allMaterials", match: "matrix" },
+  { path: "brands", key: "ui.brands", match: "brands" },
   { path: "compare", key: "ui.start.compare", match: "compare" },
   { path: "explorer", key: "ui.start.explorer", match: "explorer" },
 ];

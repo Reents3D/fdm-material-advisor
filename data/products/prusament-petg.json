@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "prusament-petg",
+  "materialId": "petg",
+  "brand": "Prusament",
+  "manufacturer": "Prusa Polymers",
+  "productName": "Prusament PETG",
+  "origin": "Tschechien",
+  "specimenType": "printed",
+  "datasheet": {
+    "title": "Prusament PETG — Technical Data Sheet",
+    "url": "https://prusament.com/wp-content/uploads/2022/10/PETG_Prusament_TDS_2021_10_EN.pdf",
+    "version": "2021/10",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://prusament.com/materials/prusament-petg/",
+  "properties": {
+    "density": {
+      "value": 1.27,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 47,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, horizontal",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXz": {
+      "value": 50,
+      "unit": "MPa",
+      "tolerance": 1,
+      "testStandard": "ISO 527-1",
+      "orientation": "XZ",
+      "conditions": "gedruckter Prüfkörper, vertikal xz",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 1500,
+      "unit": "MPa",
+      "tolerance": 100,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtYieldXy": {
+      "value": 5.1,
+      "unit": "%",
+      "tolerance": 0.1,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 66,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
+      "value": 6,
+      "unit": "kJ/m²",
+      "tolerance": 1,
+      "testStandard": "ISO 179-1 (gekerbt)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "interlayerAdhesion": {
+      "value": 18,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "Prusa Polymers (herstellereigene Methode)",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtA": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 250,
+      "unit": "°C",
+      "min": 240,
+      "max": 260,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "min": 70,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Prusa Polymers",
+        "productName": "Prusament PETG",
+        "title": "Prusament PETG — Technical Data Sheet",
+        "documentVersion": "2021/10",
+        "url": "https://prusament.com/wp-content/uploads/2022/10/PETG_Prusament_TDS_2021_10_EN.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high"
+      }
+    ]
+  }
+}

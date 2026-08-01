@@ -1,0 +1,151 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "prusament-asa",
+  "materialId": "asa",
+  "brand": "Prusament",
+  "manufacturer": "Prusa Polymers",
+  "productName": "Prusament ASA",
+  "origin": "Tschechien",
+  "specimenType": "printed",
+  "datasheet": {
+    "title": "Prusament ASA — Technical Data Sheet",
+    "url": "https://prusament.com/wp-content/uploads/2022/10/ASA_Prusament_TDS_2022_16_EN.pdf",
+    "version": "2022/16",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://prusament.com/materials/prusament-asa/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 42,
+      "unit": "MPa",
+      "tolerance": 1,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "conditions": "gedruckter Prüfkörper, horizontal",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileStrengthXz": {
+      "value": 45,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 527-1",
+      "orientation": "XZ",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "tensileModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "tolerance": 100,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "elongationAtYieldXy": {
+      "value": 3.4,
+      "unit": "%",
+      "tolerance": 0.2,
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "flexuralStrengthXy": {
+      "value": 64,
+      "unit": "MPa",
+      "tolerance": 1,
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyUnnotchedXy": {
+      "value": 25,
+      "unit": "kJ/m²",
+      "tolerance": 3,
+      "testStandard": "ISO 179-1 (ungekerbt)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
+      "value": 12,
+      "unit": "kJ/m²",
+      "tolerance": 1,
+      "testStandard": "ISO 179-1 (gekerbt)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "interlayerAdhesion": {
+      "value": 11,
+      "unit": "MPa",
+      "tolerance": 1,
+      "testStandard": "Prusa Polymers (herstellereigene Methode)",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "high",
+      "note": {
+        "de": "Der niedrigste Schichthaftungswert der drei Prusament-Typen — ASA verbindet sich schlechter zwischen den Schichten als PLA und PETG. Deckt sich mit dem Einbruch der Schlagzähigkeit in Z bei anderen ASA-Datensätzen.",
+        "en": "The lowest interlayer adhesion of the three Prusament grades — ASA bonds between layers less well than PLA and PETG. Consistent with the collapse of Z impact strength seen in other ASA records."
+      }
+    },
+    "hdtA": {
+      "value": 86,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "hdtB": {
+      "value": 93,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 250,
+      "max": 270,
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "min": 105,
+      "max": 115,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Prusa Polymers",
+        "productName": "Prusament ASA",
+        "title": "Prusament ASA — Technical Data Sheet",
+        "documentVersion": "2022/16",
+        "url": "https://prusament.com/wp-content/uploads/2022/10/ASA_Prusament_TDS_2022_16_EN.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high"
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "azurefilm-pla",
+  "materialId": "pla",
+  "brand": "AzureFilm",
+  "manufacturer": "AzureFilm d.o.o.",
+  "productName": "AzureFilm PLA",
+  "origin": "Slowenien",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Datenblatt weist Rohstoffkennwerte aus, keine gedruckten Prüfkörper: 59 MPa Zugfestigkeit bei 4,2 % Bruchdehnung ist typisches Spritzguss-PLA. Ein gedrucktes Bauteil erreicht das nicht. Nicht mit Bambu- oder Prusament-Werten in einer Spalte vergleichen.",
+    "en": "The datasheet reports raw-material values, not printed specimens: 59 MPa at 4.2 % elongation is typical injection-moulded PLA. A printed part does not reach this. Do not compare in one column with Bambu or Prusament values."
+  },
+  "datasheet": {
+    "title": "AzureFilm PLA — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/PLA_TDS.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://azurefilm.com/technical-data-sheets/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 59,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 50 mm/min",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert (nicht gedruckt)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3300,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 1 mm/min",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 4.2,
+      "unit": "%",
+      "testStandard": "ISO 527, 50 mm/min",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 73.6,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2800,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "isotropic",
+      "conditions": "Rohstoffkennwert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "high"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "AzureFilm d.o.o.",
+        "productName": "AzureFilm PLA",
+        "title": "AzureFilm PLA — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/PLA_TDS.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}
