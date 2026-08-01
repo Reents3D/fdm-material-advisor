@@ -27,6 +27,7 @@ export { evaluateConstraints, serviceCeiling, constraintReserve } from "./constr
 export { findTradeOffs, compare, dominated, applicableDowngrades } from "./tradeoffs";
 export { processHints } from "./processSwitch";
 export { SCALE_POLARITY } from "./scales";
+export { dataCompleteness } from "./completeness";
 
 export function select(materials: Material[], req: Requirements): SelectionResult {
   const table = buildNormalisation(materials);
@@ -82,42 +83,6 @@ export function select(materials: Material[], req: Requirements): SelectionResul
  */
 export function whyNot(material: Material, req: Requirements): ConstraintVerdict[] {
   return evaluateConstraints(material, req);
-}
-
-/** Percentage of the core field set that is populated. Mirrors DATA_MODEL.md §7. */
-const CORE_FIELDS: [string, number][] = [
-  ["mechanics.tensileStrengthXy", 3], ["mechanics.tensileModulusXy", 3], ["thermal.hdtB", 3],
-  ["processing.nozzleTemperature", 3], ["processing.bedTemperature", 3],
-  ["processing.chamberRequirement", 3], ["processing.printability", 3],
-  ["commercial.priceIndex", 3], ["identity.abstract", 3], ["identity.positioning", 3],
-  ["mechanics.tensileStrengthZ", 2], ["mechanics.anisotropyFactorTensile", 2],
-  ["mechanics.elongationAtBreakXy", 2], ["mechanics.density", 2],
-  ["thermal.glassTransition", 2], ["thermal.hdtA", 2],
-  ["processing.hygroscopy", 2], ["processing.warpingTendency", 2], ["processing.abrasiveness", 2],
-  ["durability.uvResistance", 2], ["durability.chemicalResistance", 2],
-  ["compliance.foodContact.status", 2], ["compliance.flameRetardancy.ul94", 2],
-  ["commercial.availability", 2], ["commercial.xxl.maxSensibleEdgeMm", 2],
-  ["finishing.paintAdhesion", 2], ["finishing.surfaceQuality", 2],
-];
-
-const dig = (obj: unknown, path: string): unknown =>
-  path.split(".").reduce<unknown>((acc, k) => (acc && typeof acc === "object" ? (acc as Record<string, unknown>)[k] : undefined), obj);
-
-export function dataCompleteness(m: Material): number {
-  let have = 0;
-  let total = 0;
-  for (const [path, weight] of CORE_FIELDS) {
-    total += weight;
-    const v = dig(m, path);
-    if (v === undefined || v === null) continue;
-    if (Array.isArray(v)) { if (v.length) have += weight; continue; }
-    if (typeof v === "object" && "value" in (v as object)) {
-      if ((v as { value: unknown }).value !== null) have += weight;
-      continue;
-    }
-    have += weight;
-  }
-  return Math.round((have / total) * 100);
 }
 
 /** Share of provenanced facts that are measured rather than inferred. */

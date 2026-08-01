@@ -1,59 +1,26 @@
 /**
  * Side-by-side comparison of up to five materials, grouped by field group,
  * with a "differences only" switch and a sticky first column on mobile.
+ *
+ * Die Feldliste kommt aus src/lib/fields.ts — dieselbe, aus der der CSV-Export schöpft.
+ * Zwei Listen wären zwei Wahrheiten, und die exportierte Tabelle hätte irgendwann andere
+ * Zeilen als die angezeigte.
  */
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { MATERIALS, byId } from "../data/materials";
 import type { Quantity, Rating, Material } from "../engine/types";
 import { Button, Card, RatingBar, Section, Toggle, Value, cx, text } from "../components/ui";
+import { toCsv } from "../lib/csv";
+import { downloadText, exportFilename } from "../lib/download";
+import { compareRows } from "../lib/exports";
+import { COMPARE_FIELDS, GROUP_TITLES, fieldLabel, nodeAt, numberAt, type FieldGroup } from "../lib/fields";
 import type { AppState } from "../App";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
 
-const GROUPS: { title: [string, string]; path: keyof Material; fields: string[] }[] = [
-  {
-    title: ["Mechanik", "Mechanics"], path: "mechanics",
-    fields: ["density", "tensileStrengthXy", "tensileStrengthZ", "anisotropyFactorTensile",
-      "tensileModulusXy", "elongationAtBreakXy", "flexuralStrengthXy", "charpyUnnotchedXy", "toughness"],
-  },
-  {
-    title: ["Thermik", "Thermal"], path: "thermal",
-    fields: ["hdtA", "hdtB", "glassTransition", "recommendedMaxServiceTemperature"],
-  },
-  {
-    title: ["Verarbeitung", "Processing"], path: "processing",
-    fields: ["nozzleTemperature", "bedTemperature", "dryingTemperature", "printability",
-      "warpingTendency", "hygroscopy", "abrasiveness", "layerAdhesion"],
-  },
-  {
-    title: ["Beständigkeit", "Durability"], path: "durability",
-    fields: ["uvResistance", "weatherResistance", "waterAbsorption", "stressCrackingSensitivity"],
-  },
-  {
-    title: ["Veredelung", "Finishing"], path: "finishing",
-    fields: ["surfaceQuality", "paintAdhesion", "sandability", "bondability"],
-  },
-];
-
-const LABEL: Record<string, string> = {
-  density: "Dichte", tensileStrengthXy: "Zugfestigkeit X-Y", tensileStrengthZ: "Zugfestigkeit Z",
-  anisotropyFactorTensile: "Anisotropiefaktor", tensileModulusXy: "E-Modul X-Y",
-  elongationAtBreakXy: "Bruchdehnung X-Y", flexuralStrengthXy: "Biegefestigkeit X-Y",
-  charpyUnnotchedXy: "Schlagzähigkeit X-Y", toughness: "Zähigkeit",
-  hdtA: "HDT-A (1,8 MPa)", hdtB: "HDT-B (0,45 MPa)", glassTransition: "Tg",
-  recommendedMaxServiceTemperature: "Dauereinsatz (Empfehlung)",
-  nozzleTemperature: "Düse", bedTemperature: "Bett", dryingTemperature: "Trocknung",
-  printability: "Druckbarkeit", warpingTendency: "Verzugsneigung", hygroscopy: "Hygroskopie",
-  abrasiveness: "Abrasivität", layerAdhesion: "Schichthaftung",
-  uvResistance: "UV", weatherResistance: "Witterung", waterAbsorption: "Wasseraufnahme",
-  stressCrackingSensitivity: "Spannungsrisse", surfaceQuality: "Oberfläche",
-  paintAdhesion: "Lackhaftung", sandability: "Schleifbarkeit", bondability: "Verklebbarkeit",
-};
-
-const isQ = (v: unknown): v is Quantity => !!v && typeof v === "object" && "unit" in (v as object);
-const isR = (v: unknown): v is Rating => !!v && typeof v === "object" && "scale" in (v as object);
-const raw = (v: unknown): number | null => (isQ(v) || isR(v) ? (v.value as number | null) : null);
+/** Gruppen in der Reihenfolge, in der sie im Feldkatalog stehen. */
+const GROUP_ORDER: FieldGroup[] = [...new Set(COMPARE_FIELDS.map((d) => d.group))];
 
 export function Compare({ state, t, update, navigate }: {
   state: AppState; t: T; update: (n: Partial<AppState>) => void;
@@ -69,6 +36,13 @@ export function Compare({ state, t, update, navigate }: {
       : [...state.compare, id].slice(0, 5);
     update({ compare: next });
   };
+
+  // Der Export nimmt immer die vollstaendige Kennwertliste, auch wenn "nur Unterschiede"
+  // aktiv ist: eine Tabelle, der ohne Vermerk Zeilen fehlen, ist im Zweifel irrefuehrend.
+  const exportCsv = () => downloadText(
+    exportFilename("vergleich"),
+    toCsv(compareRows(selected, lang), "excel-de"),
+  );
 
   return (
     <div>
@@ -91,9 +65,10 @@ export function Compare({ state, t, update, navigate }: {
           })}
         </div>
         {selected.length > 0 && (
-          <div className="flex items-center gap-4 mt-3 pt-3 border-t border-hairline dark:border-[#1E2B3D]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 pt-3 border-t border-hairline dark:border-[#1E2B3D]">
             <Toggle checked={diffOnly} onChange={setDiffOnly} label={t("ui.onlyDifferences")} />
             <Button variant="ghost" onClick={() => update({ compare: [] })}>{t("ui.reset")}</Button>
+            <Button variant="ghost" onClick={exportCsv}>{t("ui.export.compare")}</Button>
             <Button variant="ghost" onClick={() => print()}>{t("ui.print")}</Button>
           </div>
         )}
@@ -123,41 +98,44 @@ export function Compare({ state, t, update, navigate }: {
                 </tr>
               </thead>
               <tbody>
-                {GROUPS.map((g) => {
-                  const rows = g.fields.filter((f) => {
-                    const vals = selected.map((m) => raw((m[g.path] as Record<string, unknown> | undefined)?.[f]));
+                {GROUP_ORDER.map((group) => {
+                  const rows = COMPARE_FIELDS.filter((d) => {
+                    if (d.group !== group) return false;
+                    const vals = selected.map((m) => numberAt(m, d));
                     if (vals.every((v) => v === null)) return false;
                     if (!diffOnly) return true;
                     return new Set(vals.map((v) => String(v))).size > 1;
                   });
                   if (!rows.length) return null;
                   return (
-                    <>
-                      <tr key={g.path as string}>
+                    // Fragment mit key: ohne ihn warnt React bei jeder Gruppe, weil der
+                    // Schluessel am inneren <tr> die Liste nicht identifiziert.
+                    <Fragment key={group}>
+                      <tr>
                         <td colSpan={selected.length + 1}
                           className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#0E1725] px-3">
-                          {lang === "de" ? g.title[0] : g.title[1]}
+                          {lang === "de" ? GROUP_TITLES[group].de : GROUP_TITLES[group].en}
                         </td>
                       </tr>
-                      {rows.map((f) => (
-                        <tr key={`${g.path as string}.${f}`} className="border-b border-hairline/70 dark:border-[#172233]">
+                      {rows.map((d) => (
+                        <tr key={`${d.group}.${d.field}`} className="border-b border-hairline/70 dark:border-[#172233]">
                           <th scope="row"
                             className="text-left font-normal muted py-1.5 px-3 sticky left-0 bg-white dark:bg-[#0E1725] z-10">
-                            {LABEL[f] ?? f}
+                            {fieldLabel(d, lang)}
                           </th>
                           {selected.map((m) => {
-                            const v = (m[g.path] as Record<string, unknown> | undefined)?.[f];
+                            const v = nodeAt(m, d);
                             return (
                               <td key={m.id} className="py-1.5 px-3">
-                                {isQ(v) ? <Value q={v} lang={lang} showRange={false} />
-                                  : isR(v) ? <RatingBar r={v} lang={lang} />
-                                  : <span className="muted">–</span>}
+                                {!v ? <span className="muted">–</span>
+                                  : d.kind === "rating" ? <RatingBar r={v as Rating} lang={lang} />
+                                  : <Value q={v as Quantity} lang={lang} showRange={false} />}
                               </td>
                             );
                           })}
                         </tr>
                       ))}
-                    </>
+                    </Fragment>
                   );
                 })}
               </tbody>
@@ -175,7 +153,9 @@ export function Compare({ state, t, update, navigate }: {
             </div>
           </Section>
 
-          <Button variant="outline" onClick={() => navigate("matrix")}>{t("ui.allMaterials")} →</Button>
+          <div className="no-print">
+            <Button variant="outline" onClick={() => navigate("matrix")}>{t("ui.allMaterials")} →</Button>
+          </div>
         </>
       )}
     </div>

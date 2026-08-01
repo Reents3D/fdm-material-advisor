@@ -53,11 +53,18 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
   if (req.serviceTemperatureC != null) {
     const { value, basis } = serviceCeiling(m);
     const hdtB = num(m.thermal?.hdtB);
-    const p = { required: req.serviceTemperatureC, actual: value ?? 0, hdtB: hdtB ?? 0 };
+    // Fehlende Werte gehen NICHT als 0 in die Meldung (ADR-006). Vorher stand in der
+    // Begruendung "(HDT-B 0 °C)", wo schlicht keine HDT-B hinterlegt war - eine Zahl,
+    // die es nicht gibt, und noch dazu eine, die den Werkstoff schlechter aussehen
+    // laesst als er ist. Der Zusatz erscheint jetzt nur, wenn es den Wert wirklich gibt.
+    const p: Record<string, string | number> = { required: req.serviceTemperatureC };
+    if (value !== null) p.actual = value;
+    if (hdtB !== null) p.hdtB = hdtB;
     if (value === null) unknown("serviceTemperature", "constraint.temperature.unknown", p, "thermal.hdtB");
     else if (value >= req.serviceTemperatureC)
       pass("serviceTemperature", basis === "recommended" ? "constraint.temperature.pass" : "constraint.temperature.passHdt", p, "thermal.hdtB");
-    else fail("serviceTemperature", "constraint.temperature.fail", p, "thermal.hdtB");
+    else fail("serviceTemperature",
+      hdtB === null ? "constraint.temperature.failNoHdt" : "constraint.temperature.fail", p, "thermal.hdtB");
   }
 
   /* --- chamber ----------------------------------------------------------- */

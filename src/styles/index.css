@@ -142,15 +142,203 @@
   }
 }
 
+/* ============================================================================
+   Bericht — die Ansicht, die als PDF in der Projektakte landet.
+
+   Eigene Klassen statt Tailwind-Utilities, weil dieselben Regeln zweimal gelten
+   muessen: am Bildschirm als Vorschau und im Druck als Dokument. Ein Dokument
+   verhaelt sich anders als eine Oberflaeche - es kennt Seitenumbrueche, es hat
+   einen Briefkopf, und es darf keine Interaktion voraussetzen.
+   ========================================================================== */
+@layer components {
+  .report { max-width: 44rem; margin-inline: auto; font-size: 14px; line-height: 1.55; }
+
+  .report-head { border-top: 4px solid var(--color-petrol-700); padding-top: 1.1rem; }
+  .report-eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--color-petrol-700);
+  }
+  .report-title { font-size: 1.85rem; line-height: 1.15; margin-top: 0.35rem; }
+  .report-sub { color: var(--color-inksoft); font-size: 13px; margin-top: 0.3rem; }
+  .report-lead {
+    margin-top: 1.1rem; font-size: 15px; line-height: 1.6;
+    border-left: 3px solid var(--color-petrol-300); padding-left: 0.9rem;
+  }
+
+  .report-section { margin-top: 2rem; break-inside: auto; }
+  .report-h2 {
+    font-size: 1rem; color: var(--color-petrol-700);
+    border-bottom: 1px solid var(--color-hairline); padding-bottom: 0.35rem; margin-bottom: 0.8rem;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .report-h3 { font-size: 0.95rem; margin-bottom: 0.25rem; break-after: avoid; page-break-after: avoid; }
+  .report-h3 .rank {
+    display: inline-block; min-width: 1.35rem; text-align: center;
+    background: var(--color-petrol-700); color: #fff; border-radius: 4px;
+    font-size: 0.75rem; padding: 0.05rem 0.3rem; margin-right: 0.4rem; vertical-align: 0.1rem;
+  }
+  .report-count {
+    font-family: var(--font-sans); font-weight: 400; font-size: 0.8rem; color: var(--color-inksoft);
+  }
+
+  .report-dl { display: grid; gap: 0; }
+  .report-dl-row {
+    display: grid; grid-template-columns: minmax(11rem, 40%) 1fr; gap: 0.75rem;
+    padding: 0.3rem 0; border-bottom: 1px solid var(--color-hairline);
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .report-dl-row dt { color: var(--color-inksoft); }
+  .report-dl-row dd { font-weight: 600; }
+
+  .report-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .report-table th, .report-table td {
+    text-align: left; padding: 0.34rem 0.5rem; border-bottom: 1px solid var(--color-hairline);
+    vertical-align: top;
+  }
+  .report-table thead th {
+    font-family: var(--font-display); font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-petrol-700);
+    border-bottom: 1.5px solid var(--color-petrol-700);
+  }
+  .report-table .unit { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--color-inksoft); }
+  .report-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .report-table .strong { font-weight: 600; }
+  .report-table tbody tr { break-inside: avoid; page-break-inside: avoid; }
+  .report-table tbody tr.lead { background: var(--color-petrol-50); }
+  /* Kopfzeile auf jeder Seite wiederholen - sonst ist Seite 2 einer Tabelle unlesbar. */
+  .report-table thead { display: table-header-group; }
+
+  .report-list { list-style: none; display: grid; gap: 0.55rem; }
+  .report-list > li {
+    padding-left: 0.9rem; position: relative; break-inside: avoid; page-break-inside: avoid;
+  }
+  .report-list > li::before {
+    content: ""; position: absolute; left: 0; top: 0.55em;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--color-petrol-400);
+  }
+  .report-list > li.warn { color: #8a3a12; }
+  .report-list > li.warn::before { background: var(--color-ok); }
+
+  /* Bewusst umbrechbar: ein Begruendungsblock mit acht Punkten passt selten in den
+     Rest einer Seite. Als unteilbarer Block liesse er die halbe Seite leer. Der
+     Titel bleibt ueber break-after am Text, orphans/widows verhindern Einzelzeilen. */
+  .report-reason { margin-bottom: 1.1rem; orphans: 3; widows: 3; }
+  .report-positioning { color: var(--color-inksoft); margin-bottom: 0.45rem; }
+  .report-reason-group { margin-top: 0.4rem; }
+  .report-reason-title {
+    font-family: var(--font-display); font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-inksoft);
+  }
+  .report-reason ul { list-style: none; }
+  .report-reason li { padding-left: 1.1rem; text-indent: -1.1rem; margin-top: 0.12rem; }
+  .report-reason .mark { display: inline-block; width: 1.1rem; text-indent: 0; font-weight: 700; }
+  .report-reason .mark.good { color: var(--color-good); }
+  .report-reason .mark.bad { color: var(--color-bad); }
+  .report-reason .mark.warn { color: var(--color-ok); }
+
+  .report-delta { font-size: 13px; margin-top: 0.15rem; }
+  .report-delta .tag {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 0.05rem 0.3rem; border-radius: 3px; margin-right: 0.3rem;
+  }
+  .report-delta .tag.good { background: color-mix(in srgb, var(--color-good) 12%, transparent); color: var(--color-good); }
+  .report-delta .tag.bad { background: color-mix(in srgb, var(--color-bad) 12%, transparent); color: var(--color-bad); }
+
+  .report-sources { font-size: 12.5px; display: grid; gap: 0.4rem; padding-left: 1.2rem; }
+  .report-sources li { break-inside: avoid; page-break-inside: avoid; }
+  .report-sources .url { color: var(--color-inksoft); word-break: break-all; }
+
+  .report-note { font-size: 12px; color: var(--color-inksoft); margin-top: 0.5rem; line-height: 1.5; }
+
+  .report-foot {
+    margin-top: 2.5rem; border-top: 3px solid var(--color-petrol-700); padding-top: 0.9rem;
+    font-size: 11.5px; line-height: 1.5; break-inside: avoid; page-break-inside: avoid;
+  }
+  .report-foot-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(3, 1fr); }
+  .report-foot .strong { font-family: var(--font-display); font-weight: 700; margin-bottom: 0.2rem; }
+  .report-disclaimer { margin-top: 0.9rem; color: var(--color-inksoft); font-size: 10.5px; line-height: 1.45; }
+
+  /* Briefkopf und Fussleiste fuer ALLE anderen Ansichten - nur im Druck sichtbar.
+     Damit traegt auch ein ausgedruckter Vergleich oder ein Datenblatt die Marke
+     und die Kontaktdaten, ohne dass jede Ansicht das selbst bauen muss. */
+  .print-only { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    .report-h2, .report-eyebrow { color: var(--color-petrol-300); }
+    .report-dl-row, .report-table th, .report-table td, .report-h2 { border-color: #1E2B3D; }
+    .report-table thead th { color: var(--color-petrol-300); border-bottom-color: var(--color-petrol-300); }
+    .report-table tbody tr.lead { background: rgba(136, 187, 215, 0.08); }
+    .report-head, .report-foot { border-color: var(--color-petrol-300); }
+    .report-h3 .rank { background: var(--color-petrol-300); color: var(--color-ink); }
+    .report-list > li.warn { color: #d9a441; }
+  }
+}
+
 /* Entscheider drucken das fuer die Projektakte. */
 @media print {
-  @page { margin: 14mm; }
+  @page { margin: 15mm 14mm 16mm; }
   body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
   .no-print { display: none !important; }
   .print-break { break-inside: avoid; page-break-inside: avoid; }
   .hero-gradient { color: #0C4251 !important; -webkit-text-fill-color: #0C4251 !important; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
   .surface { border: 1px solid #bbb !important; background: #fff !important; }
+
+  /* Papier scrollt nicht. Ein Container mit overflow-x druckt nur den sichtbaren
+     Ausschnitt - im Vergleich fehlten so zwei von fuenf gewaehlten Werkstoffen, ohne
+     dass es im Ausdruck irgendwo stand. Eine Tabelle, der stillschweigend Spalten
+     fehlen, ist schlimmer als keine Tabelle. */
+  .overflow-x-auto, .overflow-x-auto > * { overflow: visible !important; }
+  .min-w-max { min-width: 0 !important; }
+  table { width: 100% !important; table-layout: auto; }
+  table th, table td { word-break: break-word; }
+
+  /* Sticky gibt es auf Papier nicht: die Kopfzeile legte sich ueber die erste Datenzeile. */
+  .sticky { position: static !important; }
+
+  /* Der Briefkopf erscheint erst hier - am Bildschirm waere er doppelt zur Kopfzeile. */
+  .print-only { display: block !important; }
+  .print-letterhead {
+    display: flex !important; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; border-top: 3px solid #0C4251; padding-top: 8pt; margin-bottom: 14pt;
+  }
+  .print-letterhead img { height: 30pt; width: auto; filter: none !important; }
+  .print-letterhead .claim { font-size: 8pt; color: #4B5563; text-align: right; line-height: 1.4; }
+  .print-footer {
+    border-top: 1px solid #bbb; margin-top: 16pt; padding-top: 6pt;
+    font-size: 8pt; color: #4B5563; line-height: 1.45;
+  }
+
+  /* Der Bericht wird im Druck immer hell gesetzt, auch wenn das Geraet dunkel laeuft.
+     Ein PDF hat kein Systemthema - es hat Papier. */
+  .report {
+    max-width: none; font-size: 10pt;
+    color: #0B1220 !important;
+  }
+  .report a { color: #0C4251 !important; text-decoration: none; }
+  /* Die Adresszusaetze hinter Links machen den Bericht unlesbar - die Quellen
+     stehen ohnehin ausgeschrieben im Quellenverzeichnis. */
+  .report a[href^="http"]::after { content: ""; }
+  .report-head, .report-foot { border-color: #0C4251 !important; }
+  .report-eyebrow, .report-h2 { color: #0C4251 !important; }
+  .report-title { font-size: 20pt; }
+  .report-lead { border-left-color: #88BBD7 !important; font-size: 11pt; }
+  .report-section { margin-top: 14pt; }
+  .report-table { font-size: 9pt; }
+  .report-table thead th { color: #0C4251 !important; border-bottom-color: #0C4251 !important; }
+  .report-table tbody tr.lead {
+    background: #eef4f6 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .report-h3 .rank {
+    background: #0C4251 !important; color: #fff !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .report-dl-row, .report-table th, .report-table td, .report-h2 { border-color: #d4d9de !important; }
+  .report-list > li.warn { color: #8a3a12 !important; }
+  .report-list > li::before { background: #4d8298 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .report-foot { break-before: auto; }
 }
 
 /* Aufklappbare Hinweise: eigenes Chevron statt Browser-Dreieck.

@@ -38,6 +38,14 @@ const de: Dict = {
   "ui.shared": "Link kopiert",
   "ui.print": "Drucken / PDF",
   "ui.csv": "CSV",
+  "ui.report": "PDF-Bericht",
+  "ui.export.result": "Ergebnis als CSV",
+  "ui.export.compare": "Vergleich als CSV",
+  "ui.export.overview": "Übersicht als CSV",
+  "ui.export.values": "Alle Kennwerte als CSV",
+  "ui.export.title": "Daten mitnehmen",
+  "ui.export.hint":
+    "CSV im Excel-Format: Semikolon als Trennzeichen, Dezimalkomma, UTF-8. Eine leere Zelle bedeutet „keine Angabe“ — nicht null. Die Datei entsteht im Browser; es verlässt nichts das Gerät.",
   "ui.whyNot": "Warum nicht …?",
   "ui.whyNotFor": "Warum nicht {name}?",
   "ui.showAll": "Alle {n} anzeigen",
@@ -195,6 +203,8 @@ const de: Dict = {
   "constraint.temperature.passHdt": "Hält {required} °C (HDT {actual} °C).",
   "constraint.temperature.fail":
     "Zu warm: gefordert {required} °C, konservative Dauereinsatzgrenze nur {actual} °C (HDT-B {hdtB} °C).",
+  "constraint.temperature.failNoHdt":
+    "Zu warm: gefordert {required} °C, konservative Dauereinsatzgrenze nur {actual} °C.",
   "constraint.temperature.unknown": "Keine Temperaturdaten hinterlegt.",
   "constraint.chamber.pass": "Braucht keine beheizte Kammer.",
   "constraint.chamber.warn": "Kammer empfohlen — ohne sie drohen Verzug und Delamination.",
@@ -284,6 +294,14 @@ const en: Dict = {
   "ui.shared": "Link copied",
   "ui.print": "Print / PDF",
   "ui.csv": "CSV",
+  "ui.report": "PDF report",
+  "ui.export.result": "Result as CSV",
+  "ui.export.compare": "Comparison as CSV",
+  "ui.export.overview": "Overview as CSV",
+  "ui.export.values": "All values as CSV",
+  "ui.export.title": "Take the data with you",
+  "ui.export.hint":
+    "CSV in Excel dialect: semicolon delimiter, decimal comma, UTF-8. An empty cell means \u201cno data\u201d \u2014 not zero. The file is built in your browser; nothing leaves the device.",
   "ui.whyNot": "Why not …?",
   "ui.whyNotFor": "Why not {name}?",
   "ui.showAll": "Show all {n}",
@@ -436,6 +454,8 @@ const en: Dict = {
   "constraint.temperature.passHdt": "Handles {required} °C (HDT {actual} °C).",
   "constraint.temperature.fail":
     "Too warm: {required} °C required, conservative continuous limit only {actual} °C (HDT-B {hdtB} °C).",
+  "constraint.temperature.failNoHdt":
+    "Too warm: {required} °C required, conservative continuous limit only {actual} °C.",
   "constraint.temperature.unknown": "No temperature data on record.",
   "constraint.chamber.pass": "Needs no heated chamber.",
   "constraint.chamber.warn": "Chamber recommended — without one expect warping and delamination.",

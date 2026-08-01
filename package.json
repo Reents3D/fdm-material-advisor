@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/build-seo.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/build-seo.mjs && node scripts/export-csv.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

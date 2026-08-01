@@ -8,6 +8,9 @@ import { whyNot, type SelectionResult } from "../engine";
 import { CRITERIA } from "../engine/criteria";
 import { SITE, trackedUrl } from "../config/site";
 import { Button, Card, Chip, ScoreMeter, Section, cx, fmt, text } from "../components/ui";
+import { tableToCsv } from "../lib/csv";
+import { downloadText, exportFilename } from "../lib/download";
+import { resultColumns, toRankedRows } from "../lib/exports";
 import type { AppState } from "../App";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -24,18 +27,28 @@ export function Results({ result, state, t, navigate, update }: {
 
   const top = result.ranked.slice(0, showAll ? undefined : 5);
 
+  // Bewusst die vollstaendige Rangliste, nicht die angezeigten fuenf: wer exportiert,
+  // will die Tabelle selbst filtern - und merkt sonst nicht, dass etwas fehlt.
+  const exportCsv = () => downloadText(
+    exportFilename("ergebnis"),
+    tableToCsv(toRankedRows(result.ranked), resultColumns(lang, t), "excel-de"),
+  );
+
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
         <h1 className="text-xl font-semibold" aria-live="polite">
           {result.ranked.length ? t("ui.results.count", { n: result.ranked.length }) : t("ui.results.none")}
         </h1>
-        <div className="flex gap-2 no-print">
+        <div className="flex flex-wrap gap-2 no-print">
           <Button variant="outline" onClick={() => navigate("wizard/1")}>← {t("ui.back")}</Button>
           <Button variant="outline" onClick={() => { void navigator.clipboard?.writeText(location.href); setCopied(true); setTimeout(() => setCopied(false), 2000); }}>
             {copied ? t("ui.shared") : t("ui.share")}
           </Button>
-          <Button variant="outline" onClick={() => print()}>{t("ui.print")}</Button>
+          <Button variant="outline" onClick={exportCsv} disabled={!result.ranked.length}>
+            {t("ui.export.result")}
+          </Button>
+          <Button variant="primary" onClick={() => navigate("report")}>{t("ui.report")}</Button>
         </div>
       </div>
 

@@ -16,7 +16,7 @@
 | **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
 | **4 — Datenausbau** | ◑ begonnen: Herstellerprodukte mit TDS-Download (6 Produkte, 3 Marken). Offen: Sunlu, mehr Extrudr/AzureFilm, Use Cases, Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
-| **5 — Ausbau** | ⬤ teilweise: Ashby und Print stehen. Offen: PWA, CSV-Export, JSON-LD, Radar |
+| **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export und PDF-Bericht stehen. Offen: PWA, Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates stehen. Offen: Screenshots, Lighthouse, Domain |
 
 **Verifiziert, nicht behauptet** (`npm run ci`):
@@ -100,7 +100,8 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 - [ ] **15 Tier-1-Materialien** in `petg-cf`-Qualität:
       PLA, PLA+/Tough, PETG, PETG-CF ✅, ABS, ASA, PC, PA6-CF, PA12, PET-CF, TPU 95A,
       PP, PLA-CF, ASA-CF, PVA (Support)
-- [ ] `export-csv.ts` — Datenbank als CSV/XLSX
+- [x] `scripts/export-csv.mjs` — Datenbank als CSV (Übersicht, Einzelkennwerte, Produkte);
+      dieselben Spaltendefinitionen wie der Download in der Anwendung, ADR-013
 - [x] Referenzielle Integritätsprüfungen in CI (chemicalId, sourceId, Skalen-Polarität)
 
 **Aufwand:** ~20–30 h (Daten dominieren) · **DoD:** 15 Datensätze grün, `dataCompleteness` ≥ 85 %

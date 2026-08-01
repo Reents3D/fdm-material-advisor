@@ -68,6 +68,10 @@ sind gekennzeichnete Schätzungen.** Diese Zahl wird angezeigt, nicht versteckt.
 - **Sensitivität** — „Gewichten Sie den Preis höher, führt PETG"
 - **Kennwerte-Diagramm** — zwei beliebige Eigenschaften gegeneinander (Ashby-Stil)
 - **Vergleich** von bis zu fünf Materialien, druckbar als PDF für die Projektakte
+- **PDF-Bericht** im Reents-Briefkopf: Anforderungsprofil, Empfehlung, Begründung,
+  Ausschlussgründe, Datenlage und Quellenverzeichnis in einem Dokument
+- **CSV-Export** für Excel — Ergebnis, Vergleich und der gesamte Datenbestand,
+  Einzelkennwerte samt Quelle, Prüfnorm und Konfidenz
 - **Teilbare Links** — der komplette Zustand steckt in der URL
 
 Kein Backend, keine Cookies, kein Tracking, keine externen Ressourcen. Läuft offline.

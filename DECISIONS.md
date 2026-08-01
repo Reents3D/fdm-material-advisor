@@ -486,6 +486,56 @@ Plausibilitätsregeln in der CI und die verlinkte PDF-Quelle an jedem Produkt.
 
 ---
 
+## ADR-013 — Export: CSV im Excel-Dialekt, PDF über den Druckweg
+
+**Status:** entschieden · **Datum:** 2026-08-01
+
+Ergebnisse müssen das Werkzeug verlassen können — als Tabelle zum Weiterrechnen und als
+Dokument für die Projektakte. Drei Entscheidungen dazu.
+
+**1 · CSV im Excel-Dialekt, nicht RFC 4180.**
+Die Dateien gehen an Semikolon, Dezimalkomma, UTF-8 mit BOM. Das ist nicht der Standard,
+aber es ist das, was ein deutscher Konstrukteur beim Doppelklick erwartet: Ohne BOM zeigt
+Excel unter Windows aus „Prüfkörper" ein „PrÃ¼fkÃ¶rper", ohne Semikolon steht alles in
+einer Spalte, mit Dezimalpunkt rechnet Excel mit Text statt mit Zahlen. Wer die Daten
+maschinell verarbeitet, nimmt ohnehin besser das JSON — es liegt offen im Repository und
+ist in den strukturierten Daten als Distribution verlinkt. Der Serialisierer beherrscht
+beide Dialekte; ausgeliefert wird der, der zum jeweiligen Empfänger passt.
+
+Zellen, die mit `=`, `+`, `-` oder `@` beginnen, werden entschärft. Das ist der klassische
+CSV-Injection-Pfad, und diese Dateien werden verteilt. Echte negative Zahlen bleiben
+unangetastet — die Regel greift nur, wo hinter dem Zeichen keine Zahl steht.
+
+**2 · Die eigentliche Datenbank ist die lange Form.**
+`materialien-kennwerte.csv` führt **eine Zeile je Einzelkennwert** mit Quelle, Prüfnorm,
+Prüfbedingung, Orientierung und Konfidenz. Das ist die einzige Form, in der ADR-001
+überlebt: In einer breiten Tabelle mit einer Spalte je Kennwert hätte die Herkunft keinen
+Platz und fiele weg — und übrig bliebe eine Zahlensammlung ohne Belegkette, also genau das,
+wogegen dieses Werkzeug antritt. Die breite Übersicht gibt es zusätzlich, zum Überfliegen.
+
+**3 · PDF über die Druckfunktion des Browsers, nicht über eine PDF-Bibliothek.**
+Eine Bibliothek kostet mehrere hundert Kilobyte plus eingebettete Schriften und liefert ein
+schlechteres Layout, als CSS für bedruckte Seiten kann. Der Druckweg liefert auswählbaren
+Text, die echten Hausschriften, funktionierende Links, und er ändert nichts an der Zusage,
+dass keine Anfrage den Browser verlässt.
+
+Der Preis steht offen im Werkzeug: Man geht durch den Druckdialog, und die Kopf- und
+Fusszeilen des Browsers muss man dort abschalten, sonst steht die Browser-Adresse über dem
+Briefkopf. Seitenzahlen kann CSS in Browsern nicht setzen (`@page`-Randboxen unterstützt
+keine Browser-Engine); auch das ist Sache des Dialogs.
+
+**Folge:** Der Bericht ist eine eigene Ansicht (`#/report`), kein Druck-Stylesheet über die
+Ergebnisliste. Ein Dokument braucht Anforderungsprofil, Begründung, Datenlage und Quellen
+in einem Zug — die Arbeitsansicht ist auf Aufklappen und Umgewichten gebaut. Beide lesen
+denselben Zustand aus der URL, der Bericht bleibt also ein teilbarer Link.
+
+**Folge:** Browser-Download und CI-Veröffentlichung teilen sich die Spaltendefinitionen in
+`src/lib/exports.ts` (Node lädt die TypeScript-Datei per Type Stripping direkt). Zwei
+Implementierungen wären zwei Wahrheiten. Geprüft: Die drei heruntergeladenen Dateien sind
+byteweise identisch mit den im Build erzeugten.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

@@ -97,10 +97,46 @@ export function Header({ lang, onLang, t, view }: {
   );
 }
 
+/**
+ * Briefkopf und Fussleiste fuer den Ausdruck.
+ *
+ * Am Bildschirm unsichtbar, im Druck auf jeder Ansicht: ein ausgedruckter Vergleich
+ * oder ein Datenblatt sollte nicht als anonymes Blatt Papier auf einem Schreibtisch
+ * liegen. Der Bericht bringt seinen eigenen Kopf mit und blendet diesen hier aus.
+ */
+export function PrintLetterhead({ lang }: { lang: Lang }) {
+  return (
+    <div className="print-only print-letterhead" aria-hidden="true">
+      <img src={logoUrl} alt={SITE.legalEntity} width={200} height={36} />
+      <div className="claim">
+        {SITE.toolName[lang]}<br />
+        {SITE.urls.live}
+      </div>
+    </div>
+  );
+}
+
+export function PrintFooter({ lang }: { lang: Lang }) {
+  const de = lang === "de";
+  return (
+    <div className="print-only print-footer" aria-hidden="true">
+      {SITE.legalEntity} · {SITE.contact.street} · {SITE.contact.zip} {SITE.contact.city} ·{" "}
+      {SITE.contact.phone} · {SITE.contact.email}
+      <br />
+      {de
+        ? "Richtwerte aus Herstellerangaben und Erfahrung. Sie ersetzen keine Bauteilqualifizierung. Daten CC BY 4.0."
+        : "Reference values from manufacturer data and experience. They do not replace part qualification. Data CC BY 4.0."}
+    </div>
+  );
+}
+
 export function Footer({ t, lang }: { t: T; lang: Lang }) {
   const F = SITE.facts;
   return (
-    <footer className="mt-16 bg-petrol-700 text-petrol-100">
+    // no-print: im Ausdruck uebernimmt PrintFooter. Der Seitenfuss der Anwendung
+    // brachte auf Papier vier Leistungslinks samt ausgeschriebener UTM-Adressen mit -
+    // eine halbe Seite Rauschen unter jedem Dokument.
+    <footer className="mt-16 bg-petrol-700 text-petrol-100 no-print">
       <div className="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3 text-sm">
         <div>
           <img src={`${import.meta.env.BASE_URL}brand/reents-logo-horizontal-color.svg`}

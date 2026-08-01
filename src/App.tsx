@@ -12,7 +12,7 @@ import { MATERIALS } from "./data/materials";
 import { select, type Requirements } from "./engine";
 import { DEFAULT_WEIGHTS } from "./engine/criteria";
 import { Button } from "./components/ui";
-import { Header, Footer } from "./components/Chrome";
+import { Header, Footer, PrintLetterhead, PrintFooter } from "./components/Chrome";
 import { Home } from "./views/Home";
 import { Wizard } from "./views/Wizard";
 import { Results } from "./views/Results";
@@ -24,11 +24,13 @@ import { Brands } from "./views/Brands";
 import { UseCases } from "./views/UseCases";
 import { Glossary } from "./views/Glossary";
 import { Compliance } from "./views/Compliance";
+import { Report } from "./views/Report";
 
 export type Route =
   | { view: "home" }
   | { view: "wizard"; step: number }
   | { view: "results" }
+  | { view: "report" }
   | { view: "detail"; id: string }
   | { view: "compare" }
   | { view: "explorer" }
@@ -55,6 +57,7 @@ function parseHash(): { route: Route; params: URLSearchParams } {
   const view = segs[0] ?? "home";
   if (view === "wizard") return { route: { view: "wizard", step: Number(segs[1] ?? 1) }, params };
   if (view === "results") return { route: { view: "results" }, params };
+  if (view === "report" || view === "bericht") return { route: { view: "report" }, params };
   if (view === "material" && segs[1]) return { route: { view: "detail", id: segs[1] }, params };
   if (view === "compare") return { route: { view: "compare" }, params };
   if (view === "explorer") return { route: { view: "explorer" }, params };
@@ -165,6 +168,8 @@ export function App() {
     <div className="min-h-screen flex flex-col">
       <Header lang={state.lang} onLang={(lang) => update({ lang })} t={t} view={route.view === "detail" ? "material" : route.view} />
 
+      {route.view !== "report" && <PrintLetterhead lang={state.lang} />}
+
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 py-8" id="main">
         {route.view === "home" && <Home t={t} lang={state.lang} navigate={navigate} />}
         {route.view === "wizard" && (
@@ -173,6 +178,7 @@ export function App() {
         {route.view === "results" && (
           <Results result={result} state={state} t={t} navigate={navigate} update={update} />
         )}
+        {route.view === "report" && <Report result={result} state={state} t={t} navigate={navigate} />}
         {route.view === "detail" && (
           <Detail id={route.id} t={t} lang={state.lang} navigate={navigate} state={state} update={update} />
         )}
@@ -185,6 +191,7 @@ export function App() {
         {route.view === "compliance" && <Compliance t={t} lang={state.lang} navigate={navigate} />}
       </main>
 
+      {route.view !== "report" && <PrintFooter lang={state.lang} />}
       <Footer t={t} lang={state.lang} />
     </div>
   );

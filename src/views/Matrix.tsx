@@ -7,9 +7,13 @@
 
 import { useState } from "react";
 import { MATERIALS } from "../data/materials";
+import { PRODUCTS } from "../data/products";
 import { dataCompleteness } from "../engine";
 import type { Material, Quantity, Rating, Choice } from "../engine/types";
 import { Button, Card, Chip, ConfidenceMark, cx, fmt, text } from "../components/ui";
+import { tableToCsv, toCsv } from "../lib/csv";
+import { downloadText, exportFilename } from "../lib/download";
+import { overviewColumns, productRows, valueRows } from "../lib/exports";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -136,8 +140,54 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
           : "Tensile in MPa, HDT-B in °C per ISO 75 at 0.45 MPa, density in g/cm³. Aniso = share of tensile strength remaining perpendicular to the layers."}
       </p>
 
+      {/* Mitnehmen statt abschreiben. Der Export bildet immer den aktuellen Bestand ab,
+          nicht die gerade gefilterte Ansicht — eine Datenbank, der ohne Vermerk Zeilen
+          fehlen, führt beim Empfänger in die Irre. */}
+      <Card className="mt-8 no-print">
+        <h2 className="font-display font-bold text-[15px] mb-1.5">{t("ui.export.title")}</h2>
+        <p className="text-sm muted leading-relaxed mb-3 max-w-3xl">{t("ui.export.hint")}</p>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline"
+            onClick={() => downloadText(exportFilename("uebersicht"),
+              tableToCsv(MATERIALS, overviewColumns(lang), "excel-de"))}>
+            {t("ui.export.overview")}
+            <span className="muted font-normal"> · {MATERIALS.length} {lang === "de" ? "Zeilen" : "rows"}</span>
+          </Button>
+          <Button variant="outline"
+            onClick={() => downloadText(exportFilename("kennwerte"),
+              toCsv(valueRows(MATERIALS, lang), "excel-de"))}>
+            {t("ui.export.values")}
+          </Button>
+          <Button variant="outline"
+            onClick={() => downloadText(exportFilename("hersteller-produkte"),
+              toCsv(productRows(PRODUCTS, MATERIALS, lang), "excel-de"))}>
+            {lang === "de" ? "Herstellerprodukte als CSV" : "Manufacturer products as CSV"}
+            <span className="muted font-normal"> · {PRODUCTS.length}</span>
+          </Button>
+        </div>
+
+        {/* Feste Adressen, damit der Datensatz verlinkbar und automatisiert abrufbar ist.
+            Dieselben Dateien wie oben — sie entstehen im Build aus derselben Quelle. */}
+        <p className="text-xs muted mt-3 leading-relaxed">
+          {lang === "de"
+            ? "Feste Adressen zum Verlinken oder automatischen Abrufen: "
+            : "Permanent addresses for linking or automated retrieval: "}
+          {([
+            ["daten/materialien-uebersicht.csv", lang === "de" ? "Übersicht" : "Overview"],
+            ["daten/materialien-kennwerte.csv", lang === "de" ? "Kennwerte" : "Values"],
+            ["daten/hersteller-produkte.csv", lang === "de" ? "Produkte" : "Products"],
+            ["daten/LIESMICH.txt", lang === "de" ? "Lesehinweise" : "Read me"],
+          ] as const).map(([path, label], i) => (
+            <span key={path}>
+              {i > 0 && " · "}
+              <a href={`${import.meta.env.BASE_URL}${path}`} className="hl hover:underline">{label}</a>
+            </span>
+          ))}
+        </p>
+      </Card>
+
       {/* Nachnutzung: CC BY verlangt Namensnennung — hier kopierfertig. */}
-      <Card className="mt-8 bg-petrol-50/60 dark:bg-white/[0.03]">
+      <Card className="mt-4 bg-petrol-50/60 dark:bg-white/[0.03]">
         <h2 className="font-display font-bold text-[15px] mb-1.5">{t("ui.attribution")}</h2>
         <p className="text-sm muted leading-relaxed mb-3 max-w-3xl">{t("ui.attributionText")}</p>
         <pre className="text-xs bg-white dark:bg-[#0B121F] border border-hairline dark:border-[#1E2B3D] rounded-lg p-3 overflow-x-auto whitespace-pre-wrap">
