@@ -1,7 +1,7 @@
 # Sicherheit
 
 Dieses Projekt ist eine rein statische Webanwendung ohne Backend, ohne Datenbank,
-ohne Nutzerkonten und ohne Verarbeitung personenbezogener Daten. Die Angriffsflaeche
+ohne Nutzerkonten und ohne Verarbeitung personenbezogener Daten. Die Angriffsfläche
 ist entsprechend klein.
 
 ## Melden
@@ -13,7 +13,7 @@ Wir melden uns innerhalb von 5 Werktagen.
 
 ## Im Scope
 
-- Cross-Site-Scripting ueber Materialdaten oder URL-Parameter
+- Cross-Site-Scripting über Materialdaten oder URL-Parameter
 - Supply-Chain-Probleme in den Build-Abhaengigkeiten
 - Fehler in der GitHub-Actions-Konfiguration
 

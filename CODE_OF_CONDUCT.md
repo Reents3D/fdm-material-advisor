@@ -6,19 +6,19 @@ Sachlich bleiben, Quellen nennen, Menschen respektieren.
 
 ## Im Detail
 
-Dieses Projekt lebt von fachlichem Streit ueber Zahlen - das ist ausdruecklich
-erwuenscht. Streit ueber Zahlen ist etwas anderes als Streit ueber Menschen.
+Dieses Projekt lebt von fachlichem Streit über Zahlen - das ist ausdrücklich
+erwuenscht. Streit über Zahlen ist etwas anderes als Streit über Menschen.
 
-**Erwuenscht:** Widerspruch mit Beleg. Wer einen Wert fuer falsch haelt, nennt
-eine bessere Quelle. Wer eine Einschaetzung fuer falsch haelt, begruendet das
+**Erwünscht:** Widerspruch mit Beleg. Wer einen Wert für falsch haelt, nennt
+eine bessere Quelle. Wer eine Einschaetzung für falsch haelt, begruendet das
 fachlich.
 
-**Nicht erwuenscht:** Persoenliche Angriffe, Herabwuerdigung, Belaestigung,
+**Nicht erwuenscht:** Persoenliche Angriffe, Herabwürdigung, Belästigung,
 Diskriminierung. Ebenso: Behauptungen ohne Beleg, die als Tatsachen auftreten.
 
 ## Durchsetzung
 
-Verstoesse bitte an **info@reents3d.de**. Die Projektbetreuer koennen Kommentare,
+Verstöße bitte an **info@reents3d.de**. Die Projektbetreuer können Kommentare,
 Commits, Issues und Pull Requests entfernen und Personen von der Mitarbeit
 ausschliessen.
 

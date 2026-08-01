@@ -18,7 +18,7 @@
       "Polyamid 6 CF"
     ],
     "trademarkNotice": {
-      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschließlich der Quellenangabe.",
       "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
     },
     "abstract": {
@@ -283,7 +283,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für grosse Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
+        "de": "Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für große Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
         "en": "The datasheet states 45-60 °C chamber temperature. Small parts may work without; on large parts a missing heated chamber leads to delamination. Classified as mandatory for XXL use."
       }
     },

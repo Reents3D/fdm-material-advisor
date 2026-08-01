@@ -11,18 +11,18 @@
     ],
     "aliases": [
       "Acrylnitril-Styrol-Acrylat",
-      "ABS-Ersatz für Aussen"
+      "ABS-Ersatz für Außen"
     ],
     "trademarkNotice": {
-      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschließlich der Quellenangabe.",
       "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
     },
     "abstract": {
-      "de": "ASA ist der Aussenwerkstoff im FDM: UV- und witterungsbeständig, temperaturfest bis rund 92 °C und beständig gegen verdünnte Säuren und Laugen. Grenzen: Es braucht eine beheizte Kammer, warpt ähnlich wie ABS und ist teurer - für Innenbauteile ohne Sonne gibt es günstigere Optionen.",
+      "de": "ASA ist der Außenwerkstoff im FDM: UV- und witterungsbeständig, temperaturfest bis rund 92 °C und beständig gegen verdünnte Säuren und Laugen. Grenzen: Es braucht eine beheizte Kammer, warpt ähnlich wie ABS und ist teurer - für Innenbauteile ohne Sonne gibt es günstigere Optionen.",
       "en": "ASA is the outdoor material in FDM: UV and weather resistant, temperature stable to around 92 °C and resistant to dilute acids and alkalis. Limits: it needs a heated chamber, warps like ABS and costs more - for indoor parts without sun there are cheaper options."
     },
     "positioning": {
-      "de": "Erste Wahl für alles, was dauerhaft draussen steht.",
+      "de": "Erste Wahl für alles, was dauerhaft draußen steht.",
       "en": "First choice for anything that stays outdoors permanently."
     }
   },
@@ -554,7 +554,7 @@
       "confidence": "estimated"
     },
     "primerRecommendation": {
-      "de": "Wie ABS: anschleifen, entfetten, lackieren. Für Aussenbauteile UV-stabilen 2K-Lack verwenden - er schützt zusätzlich die Schichtfugen.",
+      "de": "Wie ABS: anschleifen, entfetten, lackieren. Für Außenbauteile UV-stabilen 2K-Lack verwenden - er schützt zusätzlich die Schichtfugen.",
       "en": "Like ABS: sand, degrease, paint. For outdoor parts use a UV-stable 2K paint - it additionally protects the layer seams."
     },
     "recommendedAdhesives": [

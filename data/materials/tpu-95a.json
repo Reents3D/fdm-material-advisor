@@ -16,7 +16,7 @@
       "Shore 95A"
     ],
     "trademarkNotice": {
-      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschließlich der Quellenangabe.",
       "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
     },
     "abstract": {
@@ -188,7 +188,7 @@
       "source": "src_bambu_tds",
       "confidence": "medium",
       "note": {
-        "de": "Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Grossformatanlagen.",
+        "de": "Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Großformatanlagen.",
         "en": "No heated chamber required - a decisive advantage on open large-format machines."
       }
     },

@@ -16,15 +16,15 @@
       "LW-ASA"
     ],
     "trademarkNotice": {
-      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschließlich der Quellenangabe.",
       "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
     },
     "abstract": {
-      "de": "ASA Aero schäumt beim Druck auf und erreicht mit 0,99 g/cm³ die geringste Dichte im Feld - bei voller ASA-Witterungsbeständigkeit. Ideal für sehr grosse, leichte Aussenbauteile, bei denen Gewicht und Transport das Problem sind. Grenzen: deutlich niedrigere Festigkeit, besonders in Z, und HDT nur rund 78 °C.",
+      "de": "ASA Aero schäumt beim Druck auf und erreicht mit 0,99 g/cm³ die geringste Dichte im Feld - bei voller ASA-Witterungsbeständigkeit. Ideal für sehr große, leichte Außenbauteile, bei denen Gewicht und Transport das Problem sind. Grenzen: deutlich niedrigere Festigkeit, besonders in Z, und HDT nur rund 78 °C.",
       "en": "ASA Aero foams during printing and reaches the lowest density in this field at 0.99 g/cm³ - with full ASA weather resistance. Ideal for very large, light outdoor parts where weight and transport are the problem. Limits: markedly lower strength, especially in Z, and HDT only around 78 °C."
     },
     "positioning": {
-      "de": "Leichtbau für XXL-Aussenteile: maximale Grösse pro Kilo Material.",
+      "de": "Leichtbau für XXL-Außenteile: maximale Grösse pro Kilo Material.",
       "en": "Lightweight construction for XXL outdoor parts: maximum size per kilo of material."
     }
   },
@@ -580,7 +580,7 @@
         "min": 1000,
         "max": 3000,
         "note": {
-          "de": "Die geringe Dichte ist bei Grossbauteilen ein doppelter Hebel: weniger Materialkosten und ein Bauteil, das sich noch von Hand bewegen lässt. Die geringe Z-Festigkeit (21 MPa) verlangt aber saubere Orientierung und grosszügige Wandstärken.",
+          "de": "Die geringe Dichte ist bei Großbauteilen ein doppelter Hebel: weniger Materialkosten und ein Bauteil, das sich noch von Hand bewegen lässt. Die geringe Z-Festigkeit (21 MPa) verlangt aber saubere Orientierung und grosszügige Wandstärken.",
           "en": "Low density is a double lever on large parts: less material cost and a part that can still be moved by hand. The low Z strength (21 MPa) demands careful orientation and generous wall thickness."
         }
       },

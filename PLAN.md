@@ -1,36 +1,52 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-01 · **Phase:** Vorbereitung abgeschlossen, Phase 0 noch nicht begonnen
-**Nächster Schritt:** Abstimmung mit Riko (Abschnitt 5), danach Phase 0
+**Stand:** 2026-08-01 · **Phasen 0–3 abgeschlossen, live** · Phase 4 (Datenausbau) offen
+**Live:** https://reents3d.github.io/fdm-material-advisor/
+**Nächster Schritt:** Rückfragen in Abschnitt 5 klären, dann Datenausbau
 
 ---
 
-## 0. Was bereits fertig ist
+## 0. Was fertig ist
 
-| Artefakt | Status |
+| Phase | Status |
 |---|---|
-| `DATA_MODEL.md` | ✅ vollständige Feldreferenz A–J, Einheiten, Normen, 11 Plausibilitätsregeln |
-| `DECISIONS.md` | ✅ ADR-001 bis ADR-004, 6 weitere vorgemerkt |
-| `SOURCES.md` | ✅ Zitierregeln, Quellenhierarchie, 3 ausgewertete Quellen, Erschließungsplan |
-| `schema/material.schema.json` | ✅ Draft 2020-12, ~150 Felder, strikt (`additionalProperties: false`) |
-| `data/materials/petg-cf.json` | ✅ Referenzdatensatz, ~700 Zeilen |
-| `scripts/prototype/*.mjs` | ✅ Schema- und Plausibilitätsprüfung, **beide laufen grün** |
-| `package.json` | ✅ minimal — nur Datenvalidierung, Toolchain folgt in Phase 0 |
+| **0 — Gerüst und Deployment** | ✅ Vite + React 18 + TS strict + Tailwind 4, CI und Pages-Deploy automatisch aus `main` |
+| **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
+| **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
+| **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
+| **4 — Datenausbau** | ○ offen — der eigentliche Rest der Arbeit |
+| **5 — Ausbau** | ⬤ teilweise: Ashby und Print stehen. Offen: PWA, CSV-Export, JSON-LD, Radar |
+| **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates stehen. Offen: Screenshots, Lighthouse, Domain |
 
-**Verifiziert, nicht behauptet:**
+**Verifiziert, nicht behauptet** (`npm run ci`):
 
-```bash
-npm install && npm run validate
-```
+| Prüfung | Ergebnis |
+|---|---|
+| JSON Schema, 11 Dateien | PASS |
+| Plausibilität und Provenienz, 15 Regeln | 0 Fehler, 3 dokumentierte Datenblatt-Anomalien |
+| Typecheck (strict) | PASS |
+| Tests | 62 grün |
+| Bundle | 112 kB gzip JS + 6 kB CSS (Budget 350 kB) |
+| Live-Deployment | HTTP 200, keine Konsolenfehler |
 
-- Schema-Validierung (ajv, Draft 2020-12): **PASS**
-- Plausibilität: **11/11 Regeln grün**, 0 Befunde
-- Konfidenzverteilung `petg-cf`: **12 high · 35 medium · 11 low · 42 estimated**
+**Konfidenz über die gesamte Datenbank: 861 belegte Aussagen —
+15 high · 367 medium · 44 low · 435 estimated.**
 
-Diese Verteilung ist das ehrliche Ergebnis nach Auswertung von drei Herstellerquellen.
-Rund 42 % der Aussagen sind fachliche Ableitung. Das ist kein Mangel des Datensatzes,
-sondern der Zustand der öffentlichen Datenlage — und genau der Grund, warum die
-Konfidenzkennzeichnung im Datenmodell ganz vorn steht.
+51 % sind gekennzeichnete Schätzungen. Das ist kein Mangel der Erfassung, sondern der
+Zustand der öffentlichen Datenlage — und genau der Grund, warum die Konfidenzkennzeichnung
+im Datenmodell ganz vorn steht. Die Zahl wird in der Oberfläche angezeigt, nicht versteckt.
+
+### Was der Live-Test gefunden hat
+
+Zwei Fehler wurden erst im Browser sichtbar und sind behoben:
+
+1. **TPU 95A stand bei einer 90-°C-Anforderung auf Platz 1** — es hat keinerlei
+   Temperaturdaten und passierte den Filter nur durch Unwissen. Jetzt ranken unbelegte
+   Treffer immer hinter belegten und tragen ein Badge „nicht belegt" (→ ADR-006).
+2. **„Knapp erfüllt — nur −100 % Reserve"** — die Reserve wurde auf fehlenden Daten
+   gerechnet. `constraintReserve` liefert jetzt `null`, wenn der Wert fehlt.
+
+Beide sind durch Regressionstests abgedeckt.
 
 ---
 
@@ -213,18 +229,17 @@ damit weiter und markiere die Stelle im Code.
 
 ### Blockierend für Phase 0
 
-**1 · GitHub-Repo**
-Unter welchem Account/Org soll das Repo liegen, und wie soll es heißen?
-Davon hängen die Pages-URL und der Vite-`base`-Pfad ab.
-→ *Arbeitsannahme:* neue Org `reents3d`, Repo `fdm-materialberater`,
-Live unter `https://reents3d.github.io/fdm-materialberater/`.
-*(Ich kann das Repo nicht selbst anlegen — dafür brauche ich von dir entweder das
-angelegte Repo oder eine ausdrückliche Freigabe, `gh repo create` auszuführen.)*
+**1 · GitHub-Repo** — ✅ **erledigt.**
+Liegt unter dem Firmenkonto `Reents3D` als `fdm-material-advisor`, öffentlich,
+live unter https://reents3d.github.io/fdm-material-advisor/.
+Englischer Repo-Name, weil GitHub-Suche, Awesome-Listen und KI-Assistenten englisch
+indexieren; die Oberfläche bleibt deutschsprachig.
 
-**4 · Logo**
-Ich brauche das Reents3D-Logo als SVG (horizontal, Farb- **und** Schwarz-Variante) für
-`/public/brand/`. Hotlinking auf die Website scheidet aus (DSGVO, Offline-Fähigkeit).
-→ *Arbeitsannahme:* Platzhalter-Wortmarke in Reents-Blau, bis die Dateien da sind.
+**4 · Logo** — noch offen.
+Aktuell läuft eine Platzhalter-Wortmarke mit Inline-SVG-Signet in Reents-Blau. Für den
+öffentlichen Auftritt brauche ich das echte Logo als SVG (horizontal, Farb- **und**
+Schwarz-Variante) für `/public/brand/`. Hotlinking auf die Website scheidet aus
+(DSGVO, Offline-Fähigkeit).
 
 **6 · Design-System — mögliche Kollision**
 Der Prompt gibt `#204B63` / `#95C6E5` / `#1D1D1B` und Inter bzw. Source Sans 3 vor.

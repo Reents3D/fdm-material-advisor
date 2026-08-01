@@ -213,7 +213,7 @@ const META = {
     name: "PLA", family: "PLA", polymerClass: "semi-crystalline", variant: ["basic", "high-speed"],
     aliases: ["PLA Basic", "Polylactid", "Polylactic Acid", "PLA+"],
     abstract: t(
-      "PLA ist das einfachste und günstigste FDM-Material und die erste Wahl für große, sichtbare Bauteile ohne thermische Belastung - Messeexponate, Urmodelle, Architektur, Ausstellungsbau. Grenzen: Ab rund 50 °C verliert es Form und Festigkeit, es kriecht unter Dauerlast und ist im Aussenbereich nicht dauerhaft.",
+      "PLA ist das einfachste und günstigste FDM-Material und die erste Wahl für große, sichtbare Bauteile ohne thermische Belastung - Messeexponate, Urmodelle, Architektur, Ausstellungsbau. Grenzen: Ab rund 50 °C verliert es Form und Festigkeit, es kriecht unter Dauerlast und ist im Außenbereich nicht dauerhaft.",
       "PLA is the easiest and cheapest FDM material and the first choice for large visible parts without thermal load - trade fair exhibits, master patterns, architecture, exhibition builds. Limits: above roughly 50 °C it loses shape and strength, it creeps under sustained load and is not durable outdoors."),
     positioning: t(
       "Das XXL-Arbeitspferd: gutmütig, günstig, maßhaltig - solange es nicht warm wird.",
@@ -267,7 +267,7 @@ const META = {
     name: "ABS", family: "ABS", polymerClass: "amorphous", variant: ["basic"],
     aliases: ["Acrylnitril-Butadien-Styrol"],
     abstract: t(
-      "ABS ist das klassische technische Material für warme Umgebungen bis rund 85 °C und lässt sich als einziger gängiger Werkstoff mit Aceton chemisch glätten. Grenzen: Es braucht praktisch eine beheizte Kammer, neigt stark zum Warping und ist im Aussenbereich nicht UV-stabil - dafür gibt es ASA.",
+      "ABS ist das klassische technische Material für warme Umgebungen bis rund 85 °C und lässt sich als einziger gängiger Werkstoff mit Aceton chemisch glätten. Grenzen: Es braucht praktisch eine beheizte Kammer, neigt stark zum Warping und ist im Außenbereich nicht UV-stabil - dafür gibt es ASA.",
       "ABS is the classic engineering material for warm environments up to around 85 °C and the only common material that can be chemically smoothed with acetone. Limits: it effectively needs a heated chamber, warps strongly and is not UV stable outdoors - that is what ASA is for."),
     positioning: t(
       "Der Temperatur- und Veredelungswerkstoff für Innenanwendungen - wenn die Anlage eine Kammer hat.",
@@ -294,12 +294,12 @@ const META = {
   },
   "asa": {
     name: "ASA", family: "ASA", polymerClass: "amorphous", variant: ["basic"],
-    aliases: ["Acrylnitril-Styrol-Acrylat", "ABS-Ersatz für Aussen"],
+    aliases: ["Acrylnitril-Styrol-Acrylat", "ABS-Ersatz für Außen"],
     abstract: t(
-      "ASA ist der Aussenwerkstoff im FDM: UV- und witterungsbeständig, temperaturfest bis rund 92 °C und beständig gegen verdünnte Säuren und Laugen. Grenzen: Es braucht eine beheizte Kammer, warpt ähnlich wie ABS und ist teurer - für Innenbauteile ohne Sonne gibt es günstigere Optionen.",
+      "ASA ist der Außenwerkstoff im FDM: UV- und witterungsbeständig, temperaturfest bis rund 92 °C und beständig gegen verdünnte Säuren und Laugen. Grenzen: Es braucht eine beheizte Kammer, warpt ähnlich wie ABS und ist teurer - für Innenbauteile ohne Sonne gibt es günstigere Optionen.",
       "ASA is the outdoor material in FDM: UV and weather resistant, temperature stable to around 92 °C and resistant to dilute acids and alkalis. Limits: it needs a heated chamber, warps like ABS and costs more - for indoor parts without sun there are cheaper options."),
     positioning: t(
-      "Erste Wahl für alles, was dauerhaft draussen steht.",
+      "Erste Wahl für alles, was dauerhaft draußen steht.",
       "First choice for anything that stays outdoors permanently."),
     ratings: {
       printability: 2, warpingTendency: 4, hygroscopy: 3, abrasiveness: 1, stringingTendency: 2,
@@ -312,7 +312,7 @@ const META = {
     outdoorYears: { value: 10, min: 5, max: 15 },
     finishing: {
       smoothing: { suitable: true, medium: "Aceton (eingeschränkt, langsamer als bei ABS)" },
-      primer: t("Wie ABS: anschleifen, entfetten, lackieren. Für Aussenbauteile UV-stabilen 2K-Lack verwenden - er schützt zusätzlich die Schichtfugen.",
+      primer: t("Wie ABS: anschleifen, entfetten, lackieren. Für Außenbauteile UV-stabilen 2K-Lack verwenden - er schützt zusätzlich die Schichtfugen.",
                 "Like ABS: sand, degrease, paint. For outdoor parts use a UV-stable 2K paint - it additionally protects the layer seams."),
       adhesives: ["2K-Epoxid", "Aceton (Lösemittelschweissen)", "Cyanacrylat", "MS-Polymer"],
       gloss: "semi-gloss", colours: "wide",
@@ -325,10 +325,10 @@ const META = {
     filler: "carbon-fibre-chopped",
     aliases: ["ASA Carbon Fiber", "ASA-CF10"],
     abstract: t(
-      "ASA-CF verbindet die Witterungsbeständigkeit von ASA mit knapp der doppelten Steifigkeit und deutlich geringerem Verzug - der interessanteste Kandidat für grosse, formstabile Aussenbauteile. Grenzen: Die Zugfestigkeit steigt nicht, das Material wird spröder, und die Düse muss gehärtet sein.",
+      "ASA-CF verbindet die Witterungsbeständigkeit von ASA mit knapp der doppelten Steifigkeit und deutlich geringerem Verzug - der interessanteste Kandidat für große, formstabile Außenbauteile. Grenzen: Die Zugfestigkeit steigt nicht, das Material wird spröder, und die Düse muss gehärtet sein.",
       "ASA-CF combines the weather resistance of ASA with almost double the stiffness and markedly less warping - the most interesting candidate for large, dimensionally stable outdoor parts. Limits: tensile strength does not increase, the material becomes more brittle, and a hardened nozzle is mandatory."),
     positioning: t(
-      "Formstabiles Aussen-ASA für grosse Bauteile - Steifigkeit statt Festigkeit.",
+      "Formstabiles Außen-ASA für große Bauteile - Steifigkeit statt Festigkeit.",
       "Dimensionally stable outdoor ASA for large parts - stiffness rather than strength."),
     ratings: {
       printability: 3, warpingTendency: 2, hygroscopy: 3, abrasiveness: 5, stringingTendency: 2,
@@ -349,10 +349,10 @@ const META = {
     name: "ASA Aero", family: "ASA", polymerClass: "amorphous", variant: ["foaming", "low-weight"],
     aliases: ["ASA Aero", "Foaming ASA", "LW-ASA"],
     abstract: t(
-      "ASA Aero schäumt beim Druck auf und erreicht mit 0,99 g/cm³ die geringste Dichte im Feld - bei voller ASA-Witterungsbeständigkeit. Ideal für sehr grosse, leichte Aussenbauteile, bei denen Gewicht und Transport das Problem sind. Grenzen: deutlich niedrigere Festigkeit, besonders in Z, und HDT nur rund 78 °C.",
+      "ASA Aero schäumt beim Druck auf und erreicht mit 0,99 g/cm³ die geringste Dichte im Feld - bei voller ASA-Witterungsbeständigkeit. Ideal für sehr große, leichte Außenbauteile, bei denen Gewicht und Transport das Problem sind. Grenzen: deutlich niedrigere Festigkeit, besonders in Z, und HDT nur rund 78 °C.",
       "ASA Aero foams during printing and reaches the lowest density in this field at 0.99 g/cm³ - with full ASA weather resistance. Ideal for very large, light outdoor parts where weight and transport are the problem. Limits: markedly lower strength, especially in Z, and HDT only around 78 °C."),
     positioning: t(
-      "Leichtbau für XXL-Aussenteile: maximale Grösse pro Kilo Material.",
+      "Leichtbau für XXL-Außenteile: maximale Grösse pro Kilo Material.",
       "Lightweight construction for XXL outdoor parts: maximum size per kilo of material."),
     ratings: {
       printability: 3, warpingTendency: 3, hygroscopy: 3, abrasiveness: 1, stringingTendency: 2,
@@ -368,7 +368,7 @@ const META = {
     sustainability: { bio: 0, compostable: false, recycl: "not-practical-fibre-filled" },
     emissions: { level: "high" },
     notes: {
-      xxl: t("Die geringe Dichte ist bei Grossbauteilen ein doppelter Hebel: weniger Materialkosten und ein Bauteil, das sich noch von Hand bewegen lässt. Die geringe Z-Festigkeit (21 MPa) verlangt aber saubere Orientierung und grosszügige Wandstärken.",
+      xxl: t("Die geringe Dichte ist bei Großbauteilen ein doppelter Hebel: weniger Materialkosten und ein Bauteil, das sich noch von Hand bewegen lässt. Die geringe Z-Festigkeit (21 MPa) verlangt aber saubere Orientierung und grosszügige Wandstärken.",
              "Low density is a double lever on large parts: less material cost and a part that can still be moved by hand. The low Z strength (21 MPa) demands careful orientation and generous wall thickness."),
     },
   },
@@ -379,7 +379,7 @@ const META = {
       "PC ist der Temperaturwerkstoff unter den gängigen FDM-Materialien: rund 115 °C formbeständig, hohe Festigkeit und mit 0,90 die beste Schichthaftung im ganzen Feld. Grenzen: Es braucht eine beheizte Kammer, muss zwingend getrocknet werden, ist kerbempfindlich und wird von Laugen und vielen Lösemitteln angegriffen.",
       "PC is the temperature material among common FDM materials: dimensionally stable to around 115 °C, high strength and, at 0.90, the best layer adhesion in the entire field. Limits: it needs a heated chamber, must be dried, is notch sensitive and is attacked by alkalis and many solvents."),
     positioning: t(
-      "Wenn es heiss wird und tragen muss - und eine Kammer verfügbar ist.",
+      "Wenn es heiß wird und tragen muss - und eine Kammer verfügbar ist.",
       "When it gets hot and has to carry load - and a chamber is available."),
     ratings: {
       printability: 2, warpingTendency: 4, hygroscopy: 5, abrasiveness: 1, stringingTendency: 3,
@@ -429,7 +429,7 @@ const META = {
     filler: "carbon-fibre-chopped",
     aliases: ["PET Carbon Fiber", "PET-CF17", "Fiberon PET-CF"],
     abstract: t(
-      "PET-CF ist der Temperaturspezialist: 182 °C HDT bei 1,8 MPa - mehr als das Doppelte von PC - bei hoher Steifigkeit und geringer Feuchteaufnahme. Für heisse, formstabile Technikteile. Grenzen: Mit 4,5 % Bruchdehnung sehr spröde, Z-Festigkeit nur 47 %, Kammer und gehärtete Düse zwingend.",
+      "PET-CF ist der Temperaturspezialist: 182 °C HDT bei 1,8 MPa - mehr als das Doppelte von PC - bei hoher Steifigkeit und geringer Feuchteaufnahme. Für heiße, formstabile Technikteile. Grenzen: Mit 4,5 % Bruchdehnung sehr spröde, Z-Festigkeit nur 47 %, Kammer und gehärtete Düse zwingend.",
       "PET-CF is the temperature specialist: 182 °C HDT at 1.8 MPa - more than double PC - with high stiffness and low moisture uptake. For hot, dimensionally stable technical parts. Limits: very brittle at 4.5 % elongation, Z strength only 47 %, chamber and hardened nozzle mandatory."),
     positioning: t(
       "Höchste Wärmeformbeständigkeit im Feld - erkauft mit Sprödigkeit.",
@@ -589,7 +589,7 @@ function buildMaterial(id, d, m) {
       temperature: q(d.anneal.temp, "°C", { min: d.anneal.min, max: d.anneal.max, source: SRC }),
       duration: q(d.anneal.hours, "h", { min: d.anneal.hMin, max: d.anneal.hMax, source: SRC }),
       note: id === "pla"
-        ? t("Bambu empfiehlt 50-60 °C für 6-12 h und warnt ausdrücklich, dass sich Bauteile beim Tempern verziehen können. Bei grossen, dünnwandigen Teilen ist der Verzug meist teurer als der Festigkeitsgewinn.",
+        ? t("Bambu empfiehlt 50-60 °C für 6-12 h und warnt ausdrücklich, dass sich Bauteile beim Tempern verziehen können. Bei großen, dünnwandigen Teilen ist der Verzug meist teurer als der Festigkeitsgewinn.",
             "Bambu recommends 50-60 °C for 6-12 h and explicitly warns that parts may distort during annealing. On large thin-walled parts the distortion usually costs more than the strength gain.")
         : t("Prüfkörper wurden vor der Prüfung getempert und getrocknet; die Datenblattwerte gelten daher für den getemperten Zustand.",
             "Specimens were annealed and dried before testing; the datasheet values therefore apply to the annealed condition."),
@@ -606,12 +606,12 @@ function buildMaterial(id, d, m) {
       source: m.chamber === "not-required" ? SRC : "estimate_reasoning",
       confidence: m.chamber === "not-required" ? "medium" : "estimated",
       note: m.chamber === "mandatory"
-        ? t("Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für grosse Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
+        ? t("Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für große Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
             "The datasheet states 45-60 °C chamber temperature. Small parts may work without; on large parts a missing heated chamber leads to delamination. Classified as mandatory for XXL use.")
         : m.chamber === "recommended"
         ? t("Ohne temperierte Kammer sind Verzug und Delamination bei grösseren Bauteilen wahrscheinlich.",
             "Without a heated chamber, warping and delamination are likely on larger parts.")
-        : t("Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Grossformatanlagen.",
+        : t("Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Großformatanlagen.",
             "No heated chamber required - a decisive advantage on open large-format machines."),
     }),
     dryingTemperature: q(d.dry[0], "°C", { source: SRC }),
@@ -796,7 +796,7 @@ function buildMaterial(id, d, m) {
       ...(m.filler ? { filler: { type: m.filler } } : {}),
       aliases: m.aliases,
       trademarkNotice: t(
-        "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+        "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschließlich der Quellenangabe.",
         "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."),
       abstract: m.abstract, positioning: m.positioning,
       ...(m.confusion ? { notToBeConfusedWith: m.confusion.map((c) => ({ materialId: c.id, reason: c.why })) } : {}),

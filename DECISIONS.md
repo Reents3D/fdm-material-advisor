@@ -318,15 +318,126 @@ Er wird erst umgesetzt, wenn der Portfolio-Status gepflegt ist, und niemals als 
 
 ---
 
-## Vorgemerkte ADRs
+<a id="adr-005"></a>
+## ADR-005 — Perzentil-Normalisierung statt Min/Max
 
-Werden geschrieben, sobald die Entscheidung ansteht:
+**Status:** akzeptiert · **Datum:** 2026-08-01 · Implementiert in `src/engine/scoring.ts`
+
+### Kontext
+
+Kriterien mit völlig verschiedenen Einheiten (MPa, °C, g/cm³, 1–5-Skalen) müssen auf eine
+gemeinsame 0–1-Skala, bevor sie gewichtet summiert werden können. Der naheliegende Weg ist
+Min/Max-Skalierung: `(v − min) / (max − min)`.
+
+Der bricht, sobald die Datenbank wächst. Heute reicht die HDT-Spanne von 57 °C (PLA) bis
+205 °C (PET-CF). Nimmt man morgen PEEK mit rund 300 °C auf, rutscht PC von 0,29 auf 0,19,
+ohne dass sich an PC irgendetwas geändert hätte. Ein einzelner Exot verschiebt jede
+Bewertung, und geteilte Links liefern plötzlich andere Ergebnisse als am Tag der Beratung.
+
+### Entscheidung
+
+**Perzentilrang statt Min/Max.** Der Score eines Werts ist der Anteil der Datenbasis, den
+er übertrifft; gleiche Werte teilen sich den Mittelpunkt.
+
+- Die Ränge werden über die **gesamte** Datenbank berechnet, nicht über die gefilterte
+  Trefferliste. Sonst springen Scores, sobald der Nutzer eine unabhängige Anforderung
+  umschaltet.
+- Polarität (`higherIsBetter`) wird nach der Normalisierung angewandt.
+
+### Konsequenzen
+
+**Positiv** — Stabil beim Datenbankwachstum. Robust gegen Ausreißer. Beantwortet die
+Frage, die der Nutzer tatsächlich hat: „Wie steht das im Vergleich zu dem, was es gibt?"
+
+**Negativ** — Perzentile verbergen die Größe des Abstands: liegen zwei Materialien bei
+50 und 52 MPa, trennt sie ein voller Rangplatz. Deshalb zeigt die Oberfläche **immer den
+Rohwert neben dem Score**, und die Kompromissanalyse rechnet in absoluten Deltas, nicht
+in Rängen.
+
+**Negativ** — Bei sehr kleiner Datenbasis ist der Rang grobkörnig. Bei 11 Materialien
+sind das rund 9 Prozentpunkte pro Platz. Das relativiert sich mit jedem Datensatz.
+
+### Verworfene Alternativen
+
+**A) Min/Max** — siehe Kontext.
+**B) Z-Score** — setzt Normalverteilung voraus, die bei 11 Materialien niemand belegen kann.
+**C) Feste Referenzskalen** (z. B. „100 MPa = 1,0") — willkürlich und müsste je Kriterium
+gepflegt werden.
+
+---
+
+<a id="adr-006"></a>
+## ADR-006 — Fehlende Daten fallen aus der Gewichtung, statt null zu zählen
+
+**Status:** akzeptiert · **Datum:** 2026-08-01 · Implementiert in `src/engine/scoring.ts`, `src/engine/index.ts`
+
+### Kontext
+
+Wenn ein Material für ein gewichtetes Kriterium keinen Wert hat, muss die Engine sich
+entscheiden. Beide naheliegenden Antworten sind falsch:
+
+- **0 einsetzen** bestraft ehrliche Datenerfassung. Ein Datensatz, der eine Lücke offen
+  zugibt, verliert gegen einen, der geraten hat.
+- **Mittelwert einsetzen** erfindet eine Aussage und versteckt die Lücke.
+
+### Entscheidung
+
+Fehlende Kriterien werden **aus der Gewichtung entfernt und der Rest renormiert**. Der
+Score ist der gewichtete Mittelwert über das, was belegt ist. Zusätzlich:
+
+- Die Lücke wird als `dataGaps` ausgewiesen und in der Oberfläche benannt.
+- Bei **Hard Constraints** gilt eine bewusste Asymmetrie: technische Eigenschaften sind
+  *permissiv* (fehlender Wert heißt „wir wissen es nicht", das Material bleibt drin),
+  regulatorische Eigenschaften sind *strikt* (fehlende Deklaration ist ein Durchfall —
+  man darf ein Material nicht in Lebensmittelkontakt bringen, nur weil niemand
+  aufgeschrieben hat, dass man es nicht darf).
+- **Wer eine Anforderung nur mangels Daten passiert, rankt nie über einem Kandidaten, der
+  sie belegt erfüllt.** Solche Treffer erscheinen am Ende, als „nicht belegt" markiert.
+
+Der letzte Punkt entstand aus einem Befund im Live-Test: TPU 95A hat keinerlei
+Temperaturdaten und stand dadurch bei einer 90-°C-Anforderung auf Platz 1. Unwissenheit
+als Empfehlung auszugeben ist genau der Fehler, den dieses Werkzeug nicht machen darf.
+
+### Konsequenzen
+
+Sparsame Datensätze werden weder bestraft noch belohnt. Der Preis: der Score eines
+lückenhaften Datensatzes beruht auf weniger Kriterien und ist damit weniger aussagekräftig
+— deshalb wird die Zahl der Lücken immer mit angezeigt.
+
+---
+
+<a id="adr-007"></a>
+## ADR-007 — Anisotropie ist ein eigenes Kriterium, kein Abschlag
+
+**Status:** akzeptiert · **Datum:** 2026-08-01
+
+### Kontext
+
+FDM-Bauteile sind senkrecht zur Schicht schwächer. Man könnte das im Scoring verstecken,
+indem man jede Festigkeit mit ihrem Anisotropiefaktor multipliziert — dann bekäme man
+„ehrliche" Festigkeitswerte für den ungünstigsten Fall.
+
+### Entscheidung
+
+**Nicht verrechnen, sondern getrennt ausweisen.** `layerAdhesion` ist ein eigenes,
+gewichtbares Kriterium; die Festigkeitskriterien bleiben X-Y-Werte.
+
+Begründung: Die Anisotropie ist keine Materialeigenschaft, die man wegrechnen kann,
+sondern eine **Konstruktionsaufgabe**. Wer richtig orientiert, bekommt den X-Y-Wert. Wer
+falsch orientiert, bekommt den Z-Wert. Ein pauschaler Abschlag würde beide Fälle mitteln
+und dem Konstrukteur genau die Information nehmen, die er zum Handeln braucht.
+
+Stattdessen erzeugt die Engine eine **Warnung**, sobald der Faktor unter 0,6 fällt, und
+eine schärfere für den Schlagzähigkeits-Faktor unter 0,5 — dort bricht er regelmäßig
+deutlich stärker ein als bei der Zugfestigkeit (PETG-CF: 0,64 gegen 0,26).
+
+---
+
+## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |
 |---|---|---|
-| ADR-005 | Normalisierungsfunktion des Scorings (Perzentile statt Min/Max) | Phase 2 |
-| ADR-006 | Default-Gewichtungen je Persona | Phase 2 |
-| ADR-007 | Behandlung der Anisotropie im Scoring (eigenes Kriterium oder Abschlag?) | Phase 2 |
-| ADR-008 | URL-State-Format und Abwärtskompatibilität geteilter Links | Phase 3 |
-| ADR-009 | Schwellenwerte der Verfahrensweiche (wann ist FDM das falsche Verfahren?) | Phase 2 |
+| ADR-008 | URL-State-Format und Abwärtskompatibilität geteilter Links | bei erster Schema-Änderung am State |
+| ADR-009 | Schwellenwerte der Verfahrensweiche (aktuell in `processSwitch.ts` als Konstanten dokumentiert) | wenn sie strittig werden |
 | ADR-010 | Versionierung der Datenbank und Umgang mit Breaking Changes im Schema | Phase 4 |
+| ADR-011 | Default-Gewichtungen je Persona (Messebau, Konstruktion, Einkauf) | mit dem Use-Case-Katalog |
