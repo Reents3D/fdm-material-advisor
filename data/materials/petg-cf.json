@@ -741,6 +741,22 @@
         "confidence": "medium"
       },
       {
+        "chemicalId": "chem_salt_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_steam",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
         "chemicalId": "chem_mineral_oil",
         "rating": "resistant",
         "source": "src_bambu_petgcf_tds_v2",
@@ -755,6 +771,85 @@
       {
         "chemicalId": "chem_hydraulic_oil",
         "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_coolant_mwf",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Praxisrelevante Warnung: wassermischbare Kühlschmierstoffe sind alkalisch eingestellt (pH 9 und darüber) und greifen den Polyester über die Zeit an. PETG-CF ist damit trotz seiner Beliebtheit als Vorrichtungswerkstoff für KSS-Dauerkontakt die falsche Wahl - hier PA oder PP prüfen.",
+          "en": "Practically relevant warning: water-miscible metalworking fluids are alkaline (pH 9 and above) and attack the polyester over time. Despite its popularity as a jig material, PETG-CF is therefore the wrong choice for permanent MWF contact - consider PA or PP instead."
+        }
+      },
+      {
+        "chemicalId": "chem_brake_fluid",
+        "rating": "unknown",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_petrol_diesel",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aliphaten unkritisch, der Aromatenanteil im Ottokraftstoff greift an.",
+          "en": "Aliphatics uncritical; the aromatic fraction in petrol attacks the material."
+        }
+      },
+      {
+        "chemicalId": "chem_ipa",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Kurzer Kontakt zum Reinigen ist unkritisch, unter Vorspannung drohen Spannungsrisse.",
+          "en": "Brief contact for cleaning is uncritical; under pre-load stress cracking is a risk."
+        }
+      },
+      {
+        "chemicalId": "chem_ethanol",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_acetone",
+        "rating": "not-resistant",
+        "source": [
+          "src_bambu_petgcf_tds_v2",
+          "estimate_reasoning"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "chemicalId": "chem_mek",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_surface_disinfectant",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Alkoholbasierte Flächendesinfektion wie IPA behandeln.",
+          "en": "Treat alcohol-based surface disinfectants like IPA."
+        }
+      },
+      {
+        "chemicalId": "chem_bleach",
+        "rating": "unknown",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_hydrogen_peroxide",
+        "rating": "unknown",
         "source": "estimate_reasoning",
         "confidence": "estimated"
       },
@@ -780,91 +875,6 @@
           "de": "Polyester werden von Laugen verseift. Das ist die wichtigste chemische Schwäche von PETG.",
           "en": "Polyesters are saponified by alkalis. This is PETG's most important chemical weakness."
         }
-      },
-      {
-        "chemicalId": "chem_coolant_mwf",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Praxisrelevante Warnung: wassermischbare Kühlschmierstoffe sind alkalisch eingestellt (pH 9 und darüber) und greifen den Polyester über die Zeit an. PETG-CF ist damit trotz seiner Beliebtheit als Vorrichtungswerkstoff für KSS-Dauerkontakt die falsche Wahl - hier PA oder PP prüfen.",
-          "en": "Practically relevant warning: water-miscible metalworking fluids are alkaline (pH 9 and above) and attack the polyester over time. Despite its popularity as a jig material, PETG-CF is therefore the wrong choice for permanent MWF contact - consider PA or PP instead."
-        }
-      },
-      {
-        "chemicalId": "chem_acetone",
-        "rating": "not-resistant",
-        "source": [
-          "src_bambu_petgcf_tds_v2",
-          "estimate_reasoning"
-        ],
-        "confidence": "medium"
-      },
-      {
-        "chemicalId": "chem_mek",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      {
-        "chemicalId": "chem_ipa",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Kurzer Kontakt zum Reinigen ist unkritisch, unter Vorspannung drohen Spannungsrisse.",
-          "en": "Brief contact for cleaning is uncritical; under pre-load stress cracking is a risk."
-        }
-      },
-      {
-        "chemicalId": "chem_ethanol",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      {
-        "chemicalId": "chem_petrol_diesel",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aliphaten unkritisch, der Aromatenanteil im Ottokraftstoff greift an.",
-          "en": "Aliphatics uncritical; the aromatic fraction in petrol attacks the material."
-        }
-      },
-      {
-        "chemicalId": "chem_surface_disinfectant",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Alkoholbasierte Flächendesinfektion wie IPA behandeln.",
-          "en": "Treat alcohol-based surface disinfectants like IPA."
-        }
-      },
-      {
-        "chemicalId": "chem_bleach",
-        "rating": "unknown",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      {
-        "chemicalId": "chem_hydrogen_peroxide",
-        "rating": "unknown",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      {
-        "chemicalId": "chem_brake_fluid",
-        "rating": "unknown",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
-      },
-      {
-        "chemicalId": "chem_salt_water",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
       }
     ]
   },

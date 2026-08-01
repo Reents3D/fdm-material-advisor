@@ -239,10 +239,21 @@ describe("Szenario: Chemikalienkontakt", () => {
   });
 
   it("unbekannte Beständigkeit schliesst nicht aus, wird aber als Risiko gemeldet", () => {
-    const r = select(MATERIALS, { chemicals: ["chem_brake_fluid"], weights: W });
+    /* Bewusst an ein Medium gehaengt, das in KEINEM Datensatz vorkommt, statt an eine
+       Luecke im Bestand. Der frueher benutzte Bremsfluessigkeits-Fall ist weggefallen,
+       nachdem die Bestaendigkeit fuer alle Werkstoffe abgeleitet wurde — der Test haette
+       also die Datenlage geprueft statt das Verhalten der Engine. */
+    const r = select(MATERIALS, { chemicals: ["chem_not_in_any_dataset"], weights: W });
     const any = r.ranked[0];
     expect(any).toBeDefined();
     expect(any.explanations.some((e) => e.key === "risk.constraintUnknown")).toBe(true);
+  });
+
+  it("Bremsflüssigkeit trennt jetzt sauber: Polyamide halten, Polyester nicht", () => {
+    const surviving = ids(select(MATERIALS, { chemicals: ["chem_brake_fluid"] }).ranked);
+    // Glykolether greift Ester an, laesst Polyamide aber unbehelligt.
+    for (const id of ["pa6-cf", "pa12", "paht"]) expect(surviving).toContain(id);
+    for (const id of ["petg", "pla", "pc"]) expect(surviving).not.toContain(id);
   });
 });
 
