@@ -16,8 +16,8 @@
 | **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
 | **4 — Datenausbau** | ◑ begonnen: Herstellerprodukte mit TDS-Download (6 Produkte, 3 Marken). Offen: Sunlu, mehr Extrudr/AzureFilm, Use Cases, Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
-| **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export und PDF-Bericht stehen. Offen: PWA, Radar |
-| **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates stehen. Offen: Screenshots, Lighthouse, Domain |
+| **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
+| **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
 
 **Verifiziert, nicht behauptet** (`npm run ci`):
 

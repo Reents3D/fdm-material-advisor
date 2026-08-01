@@ -99,7 +99,11 @@ export function ScoreMeter({ score, label }: { score: number | null; label?: str
 /* ------------------------------------------------------------------ layout */
 
 export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx("surface p-5 print-break", className)}>{children}</div>;
+  // Bewusst OHNE print-break: eine Karte kann eine ganze Seite hoch sein. Als
+  // unteilbarer Block schob sie sich komplett auf die naechste Seite und liess die
+  // vorige halb leer. Zusammengehalten werden im Druck die kleinen Einheiten -
+  // Tabellenzeilen, Begruendungsblaetter -, nicht die Behaelter.
+  return <div className={cx("surface p-5", className)}>{children}</div>;
 }
 
 /**
@@ -185,7 +189,7 @@ export function Toggle({
 
 export function Section({ title, children, right }: { title: string; children: ReactNode; right?: ReactNode }) {
   return (
-    <section className="mb-6 print-break">
+    <section className="mb-6">
       <div className="flex items-baseline justify-between gap-4 mb-2">
         <h2 className="eyebrow">{title}</h2>
         {right}

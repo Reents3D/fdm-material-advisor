@@ -1,0 +1,31 @@
+{
+  "name": "FDM-Materialberater — Reents3D",
+  "short_name": "Materialberater",
+  "description": "Welches FDM-Material passt — und warum. Jeder Kennwert mit Quelle, Prüfnorm und Konfidenz.",
+  "lang": "de",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F9FAFB",
+  "theme_color": "#0C4251",
+  "categories": ["productivity", "utilities", "education"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Geführte Beratung",
+      "short_name": "Beratung",
+      "url": "./#/wizard/1"
+    },
+    {
+      "name": "Alle Materialien",
+      "short_name": "Materialien",
+      "url": "./#/matrix"
+    }
+  ]
+}

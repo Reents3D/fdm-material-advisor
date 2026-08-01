@@ -72,6 +72,8 @@ sind gekennzeichnete Schätzungen.** Diese Zahl wird angezeigt, nicht versteckt.
   Ausschlussgründe, Datenlage und Quellenverzeichnis in einem Dokument
 - **CSV-Export** für Excel — Ergebnis, Vergleich und der gesamte Datenbestand,
   Einzelkennwerte samt Quelle, Prüfnorm und Konfidenz
+- **Läuft ohne Netz.** Einmal geladen, arbeitet das Werkzeug offline weiter —
+  Messehalle, Werkstatt, Zug. Installierbar als App auf dem Startbildschirm
 - **Teilbare Links** — der komplette Zustand steckt in der URL
 
 Kein Backend, keine Cookies, kein Tracking, keine externen Ressourcen. Läuft offline.

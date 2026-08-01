@@ -536,6 +536,41 @@ byteweise identisch mit den im Build erzeugten.
 
 ---
 
+## ADR-014 — Offlinebetrieb mit handgeschriebenem Service Worker
+
+**Status:** entschieden · **Datum:** 2026-08-01
+
+Das Werkzeug wird auf Messen und in Werkstätten benutzt. Genau dort ist das Netz
+unzuverlässig. Die Anwendung braucht keinen Server — alle Daten stecken im Bundle — aber
+ohne Service Worker fällt sie trotzdem aus, sobald das WLAN wegbricht.
+
+**Handgeschrieben statt Workbox.** Zu cachen sind eine HTML-Datei, ein Bundle, ein
+Stylesheet, zwei Schriften und ein paar Symbole. Dafür eine Bibliothek samt Buildkette
+einzuziehen, wäre mehr Abhängigkeit als Nutzen. `scripts/build-sw.mjs` liest die Liste aus
+dem, was tatsächlich in `dist/` liegt — nicht aus einer gepflegten Aufzählung, die beim
+nächsten Umbau veraltet. Der Cache-Name ist ein Hash über Dateinamen **und** Inhalte: nur
+über die Namen zu hashen würde `index.html` konservieren, die ihren Namen behält und sich
+trotzdem bei jedem Build ändert.
+
+**Kein `skipWaiting`.** Ein Service Worker, der sich sofort aktiviert, tauscht Dateien
+unter einer laufenden Seite aus. Diese Fassung übernimmt erst beim nächsten Laden. Der
+Preis ist eine Aktualisierung, die einen Seitenaufruf später ankommt — der richtige Preis
+für ein Werkzeug, das jemand gerade im Kundengespräch offen hat.
+
+**Die Falle, die beim Bauen auffiel.** Unter derselben Herkunft liegen 81 statische Seiten
+für Suchmaschinen (ADR aus dem SEO-Schritt). Der erste Entwurf legte jede aufgerufene Seite
+unter dem Schlüssel der Startseite ab — nach einem Besuch auf `/glossar/…` hätte die
+Anwendung beim nächsten Start ohne Netz einen Glossareintrag statt sich selbst gezeigt.
+Jetzt wird nur die Startseite unter ihrem eigenen Schlüssel aktualisiert, und ein
+Seitenaufruf ohne Netz auf einer statischen Adresse leitet zur Anwendung um, statt deren
+Inhalt unter fremder Adresse auszuliefern.
+
+**Folge:** `%BASE_URL%` statt relativer Pfade für Manifest und Symbol in der `index.html`.
+Relative Pfade brechen, sobald dieselbe HTML unter einer tieferen Adresse ausgeliefert wird
+— und genau das passiert im Offlinefall.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

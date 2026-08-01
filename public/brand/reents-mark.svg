@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="64.5 62.3 158.8 158.8">
+  <!-- Bildmarke der Reents Technologies GmbH, unveraendert aus dem Logo herausgeloest.
+       viewBox quadratisch um den gemessenen Bereich der beiden Pfade - nicht geschaetzt,
+       sondern per getBBox() im Browser bestimmt. Farben wie im Original: Logos werden
+       nicht umgefaerbt. -->
+  <path fill="#204b63" d="M155.79,218.02h54.93l-24.65-46.93c9.24-4.38,16.92-10.28,23.03-17.7,7-8.5,11.43-18.64,13.28-30.41,1.85-11.77.62-21.98-3.69-30.63-4.31-8.64-11.3-15.29-20.95-19.95-9.66-4.65-21.61-6.98-35.85-6.98h-73.46l-23.98,152.59h51.44l6.03-38.37h14.01l19.85,38.37Z"/>
+  <path fill="#95c6e5" d="M182.99,102.75c-1.79-3.69-4.63-6.54-8.52-8.55-3.9-2.01-8.61-3.02-14.14-3.02h-47.89l-1.94,12.35h23.4l-.99,6.31h-13.2l-1.94,12.35h13.2l-.99,6.31h-23.4l-1.94,12.35h47.89c5.53,0,10.57-1,15.09-3.02,4.53-2.01,8.26-4.87,11.21-8.59,2.95-3.71,4.83-8.15,5.64-13.31.8-5.11.31-9.51-1.47-13.2Z"/>
+</svg>

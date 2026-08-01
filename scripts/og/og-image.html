@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  Quelle des Vorschaubilds (Open Graph, 1200 × 630).
+
+  WARUM ALS HTML UND NICHT ALS FERTIGES PNG
+  Ein PNG im Repository ist eine Sackgasse: Wer den Untertitel ändern will, braucht ein
+  Bildprogramm und trifft die Hausschrift nie wieder. Diese Vorlage nutzt dieselben
+  Schriftdateien und dieselbe Palette wie die Anwendung; das PNG entsteht daraus.
+
+  NEU ERZEUGEN (Playwright ist bewusst keine Projektabhängigkeit — einmaliger Aufruf):
+    npx --yes playwright@latest screenshot \
+      --viewport-size=1200,630 --wait-for-timeout=1500 \
+      scripts/og/og-image.html public/og-image.png
+
+  BEWUSST OHNE ZAHLEN
+  „31 Werkstoffe" wäre in drei Monaten falsch, und eine geteilte Karte lässt sich nicht
+  zurückrufen. Auf dem Bild steht deshalb nur, was dauerhaft stimmt.
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: "Montserrat";
+    src: url("../../src/styles/fonts/montserrat-var.woff2") format("woff2-variations");
+    font-weight: 100 900;
+  }
+  @font-face {
+    font-family: "Sora";
+    src: url("../../src/styles/fonts/sora-var.woff2") format("woff2-variations");
+    font-weight: 100 800;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    font-family: Sora, sans-serif;
+    color: #F9FAFB;
+    background: #0B1220;
+    position: relative;
+  }
+
+  /* Verlauf der Unternehmenswebsite, hier als Flaeche statt als Schriftfuellung. */
+  .bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(115deg, #0B1220 0%, #0C4251 52%, #164e62 100%);
+  }
+
+  /* Angedeutete Druckschichten - das Thema des Werkzeugs, nicht bloss Dekoration.
+     Nach rechts auslaufend, damit sie den Text nicht stoert. */
+  .layers {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(136, 187, 215, 0.16) 0px,
+      rgba(136, 187, 215, 0.16) 1px,
+      transparent 1px,
+      transparent 9px
+    );
+    -webkit-mask-image: linear-gradient(100deg, transparent 38%, #000 100%);
+    mask-image: linear-gradient(100deg, transparent 38%, #000 100%);
+  }
+
+  .frame {
+    position: relative;
+    height: 100%;
+    padding: 64px 72px 56px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  header { display: flex; align-items: flex-start; justify-content: space-between; }
+
+  .logo { height: 46px; width: auto; filter: brightness(0) invert(1); }
+
+  .eyebrow {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700; font-size: 15px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #88BBD7;
+    text-align: right; line-height: 1.6;
+  }
+
+  h1 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 800; font-size: 74px; line-height: 1.04;
+    letter-spacing: -0.025em;
+    max-width: 15ch;
+  }
+  h1 .accent { color: #88BBD7; }
+
+  .claim {
+    font-size: 27px; line-height: 1.42; color: #d5e4e9;
+    max-width: 26ch; margin-top: 26px;
+    border-left: 4px solid #88BBD7; padding-left: 22px;
+  }
+
+  footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(249, 250, 251, 0.22);
+    padding-top: 22px;
+    font-size: 20px;
+  }
+  .facts { display: flex; gap: 30px; color: #a9c7d1; }
+  .facts span::before { content: "· "; color: #88BBD7; }
+  .url { font-family: Montserrat, sans-serif; font-weight: 700; color: #F9FAFB; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="layers"></div>
+
+  <div class="frame">
+    <header>
+      <img class="logo" src="../../public/brand/reents-logo-horizontal-color.svg" alt="" />
+      <p class="eyebrow">FDM-Materialberater</p>
+    </header>
+
+    <div>
+      <h1>Welches Material passt — <span class="accent">und warum</span></h1>
+      <p class="claim">Jeder Kennwert mit Quelle, Prüfnorm und Konfidenz.</p>
+    </div>
+
+    <footer>
+      <div class="facts">
+        <span>kostenlos</span>
+        <span>quelloffen</span>
+        <span>ohne Anmeldung</span>
+      </div>
+      <div class="url">reents3d.de</div>
+    </footer>
+  </div>
+</body>
+</html>
