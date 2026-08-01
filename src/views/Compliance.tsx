@@ -88,12 +88,19 @@ export function Compliance({ lang, navigate }: { t: T; lang: Lang; navigate: (p:
 
       <Card className="mb-6 border-ok/50 bg-ok/5">
         <h2 className="font-display font-bold text-[15px] mb-2">
-          {de ? "Der Befund: nahezu nichts ist geprüft" : "The finding: almost nothing is certified"}
+          {de ? "Der Befund: fast nichts ist geprüft" : "The finding: almost nothing is certified"}
         </h2>
+        {/* Aus den Daten abgeleitet, nicht hartkodiert: eine feste Behauptung wie
+            "kein Werkstoff trägt eine Einstufung" wird mit dem ersten zertifizierten
+            Datensatz falsch — genau der Fehler, den dieses Werkzeug vermeiden soll. */}
         <p className="text-sm leading-relaxed max-w-3xl mb-2">
-          {de
-            ? "Kein Werkstoff in dieser Datenbank trägt eine UL94-Einstufung. Das liegt nicht an lückenhafter Erfassung, sondern daran, dass Standard-Filamente schlicht nicht geprüft werden — eine UL94-Zertifizierung kostet Geld und lohnt sich nur bei Industriecompounds."
-            : "No material in this database carries a UL94 rating. That is not a gap in our data collection: standard filaments are simply not tested — UL94 certification costs money and only pays off for industrial compounds."}
+          {classified === 0
+            ? (de
+              ? `Kein Werkstoff dieser Datenbank trägt eine UL94-Einstufung. Das liegt nicht an lückenhafter Erfassung, sondern daran, dass Standard-Filamente schlicht nicht geprüft werden — eine Zertifizierung kostet Geld und lohnt sich nur bei Industriecompounds.`
+              : `No material in this database carries a UL94 rating. That is not a gap in our data collection: standard filaments are simply not tested — certification costs money and only pays off for industrial compounds.`)
+            : (de
+              ? `Von ${rows.length} Werkstoffen tragen genau ${classified} eine UL94-Einstufung: ${rows.filter((r) => r.ul94 && r.ul94 !== "not-classified").map((r) => `${r.m.identity.name} (${r.ul94})`).join(", ")}. Alle übrigen sind ungeprüft — nicht wegen lückenhafter Erfassung, sondern weil Standard-Filamente schlicht nicht geprüft werden. Eine Zertifizierung kostet Geld und lohnt sich nur bei Industriecompounds.`
+              : `Of ${rows.length} materials, exactly ${classified} carry a UL94 rating: ${rows.filter((r) => r.ul94 && r.ul94 !== "not-classified").map((r) => `${r.m.identity.name} (${r.ul94})`).join(", ")}. All others are untested — not through gaps in our data collection, but because standard filaments simply are not tested. Certification costs money and only pays off for industrial compounds.`)}
         </p>
         <p className="text-sm leading-relaxed max-w-3xl">
           <strong>
