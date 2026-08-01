@@ -1,0 +1,146 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-easy-petg",
+  "materialId": "petg",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy Easy PET-G",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nDieses Blatt ist eine reine Bild-PDF ohne Textebene; die Werte wurden von der gerenderten Seite abgelesen statt maschinell extrahiert.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nThis sheet is a pure image PDF without a text layer; the values were read off the rendered page rather than extracted mechanically."
+  },
+  "features": {
+    "de": "Der meistverkaufte Werkstoff des Hauses und eines der wenigen PETG-Blätter, das BEIDE HDT-Lasten und zusätzlich die Glasübergangstemperatur nennt. 29 % Bruchdehnung bei 51 MPa Streckspannung ist die Zähigkeit, für die PETG gewählt wird.",
+    "en": "The house's best-selling material and one of few PETG sheets stating BOTH HDT loads plus the glass transition. 29 % elongation at break at 51 MPa yield stress is the toughness PETG is chosen for."
+  },
+  "datasheet": {
+    "title": "Fiberlogy Easy PET-G — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/382d10e153b41349d577adb3c47b11fd/FIBERLOGY_EASYPETG_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 51,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2800,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 29,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 70,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 62,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 78,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 220,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy Easy PET-G",
+        "title": "Fiberlogy Easy PET-G — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/382d10e153b41349d577adb3c47b11fd/FIBERLOGY_EASYPETG_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Reine Bild-PDF, Werte von der gerenderten Seite abgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Pure image PDF, values read off the rendered page."
+        }
+      }
+    ]
+  }
+}

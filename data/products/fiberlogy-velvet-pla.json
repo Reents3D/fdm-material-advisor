@@ -1,0 +1,120 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-velvet-pla",
+  "materialId": "pla",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy Velvet PLA",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers."
+  },
+  "features": {
+    "de": "Die Dichte von 1,27 g/cm³ gegenüber 1,24 beim Easy PLA desselben Hauses zeigt die Füllung, die den samtigen Effekt macht. Bemerkenswert ist der Abstand zwischen Streck- und Bruchspannung: 56 gegen 28 MPa — das Material fliesst deutlich, bevor es reisst.",
+    "en": "The density of 1.27 g/cm³ against 1.24 for this house's Easy PLA shows the filler that creates the velvet effect. Notable is the gap between yield and break stress: 56 against 28 MPa — the material yields markedly before it tears."
+  },
+  "datasheet": {
+    "title": "Fiberlogy Velvet PLA — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/d9a18c051bddd4400aa9f2b27e8ed5eb/FIBERLOGY_VELVET-PLA_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.27,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 56,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung; Bruchspannung 28 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3100,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 3,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 17,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 53,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 63,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "min": 50,
+      "max": 70,
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy Velvet PLA",
+        "title": "Fiberlogy Velvet PLA — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/d9a18c051bddd4400aa9f2b27e8ed5eb/FIBERLOGY_VELVET-PLA_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Blatt mit Textebene, maschinell ausgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Sheet with text layer, read mechanically."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-asa-af",
+  "materialId": "asa",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy ASA+AF",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nBefund zu diesem Datenblatt: Wofür „AF“ steht, sagt das Blatt nicht. Die Dichte von 1,07 g/cm³ liegt im Bereich von normalem ASA — für einen aufschäumenden Typ (wie ASA Aero mit 0,99) ist sie zu hoch, und eine Brandschutzklasse nennt das Blatt auch nicht. Das Produkt ist deshalb dem Grundtyp ASA zugeordnet.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nFinding on this datasheet: What “AF” stands for the sheet does not say. The density of 1.07 g/cm³ sits in the range of normal ASA — too high for a foaming grade (like ASA Aero at 0.99), and the sheet names no flame class either. The product is therefore assigned to the base ASA type."
+  },
+  "datasheet": {
+    "title": "Fiberlogy ASA+AF — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/8155c1da1791d89e2516617d17591044/FIBERLOGY_ASA-AF_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung; Bruchspannung 35 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 2.8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 7.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 25,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 268,
+      "unit": "°C",
+      "min": 255,
+      "max": 280,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy ASA+AF",
+        "title": "Fiberlogy ASA+AF — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/8155c1da1791d89e2516617d17591044/FIBERLOGY_ASA-AF_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Blatt mit Textebene, maschinell ausgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Sheet with text layer, read mechanically."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-abs-gf",
+  "materialId": "abs",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy ABS GF",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers."
+  },
+  "features": {
+    "de": "Glasfaser statt Carbon: Die Steifigkeit steigt gegenüber unverstärktem ABS deutlich (3500 statt rund 2300 MPa), die Bruchdehnung fällt auf 3,5 %. Die Düsentemperatur von bis zu 295 °C ist bemerkenswert hoch für ABS — Glasfaser braucht Wärme, um sich benetzen zu lassen.",
+    "en": "Glass fibre instead of carbon: stiffness rises markedly against unfilled ABS (3500 instead of around 2300 MPa), elongation falls to 3.5 %. The nozzle temperature of up to 295 °C is notably high for ABS — glass fibre needs heat to be wetted."
+  },
+  "datasheet": {
+    "title": "Fiberlogy ABS GF — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/ad67f01787e264250db273bd8a43e839/FIBERLOGY_ABSGF_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.12,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Bruchspannung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3500,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 70,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 10,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 30,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 95,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 282,
+      "unit": "°C",
+      "min": 270,
+      "max": 295,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy ABS GF",
+        "title": "Fiberlogy ABS GF — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/ad67f01787e264250db273bd8a43e839/FIBERLOGY_ABSGF_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Blatt mit Textebene, maschinell ausgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Sheet with text layer, read mechanically."
+        }
+      }
+    ]
+  }
+}

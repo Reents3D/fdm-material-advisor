@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pla-tough",
+  "materialId": "pla-tough",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PLA Tough",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Der E-Modul steht mit 432,8 MPa im Blatt. Für PLA ist das rund ein Achtel des Üblichen (3000 bis 3900 MPa), und der Biege-E-Modul desselben Blattes liegt mit 2493 MPa fünfmal höher — beides zusammen kann nicht stimmen. Der Wert wurde nicht übernommen. Denselben Fehler in derselben Grössenordnung tragen die Blätter von magicPLA und mysteryPLA bei 3DJAKE.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The modulus reads 432.8 MPa on the sheet. For PLA that is about an eighth of the usual figure (3000 to 3900 MPa), and the same sheet's flexural modulus is five times higher at 2493 MPa — the two cannot both be right. The value was not imported. The same error of the same magnitude appears in the magicPLA and mysteryPLA sheets at 3DJAKE."
+  },
+  "datasheet": {
+    "title": "Spectrum PLA Tough — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 53.2,
+      "unit": "MPa",
+      "conditions": "Bruchkraft 43,5 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 15,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2493,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 71.13,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 55,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PLA Tough",
+        "title": "Spectrum PLA Tough — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

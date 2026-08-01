@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pctg-premium",
+  "materialId": "pctg",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PCTG Premium",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Das dritte PCTG-Blatt im Bestand mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
+    "en": "The third PCTG sheet in the dataset with practically identical figures — 44/46 MPa, 220 % elongation at break, 1600 MPa flexural modulus, HDT 76/64 °C appear verbatim at 3DJAKE and Fiberlogy too. Three brands, one pellet grade. Such triple confirmations are rare and make the values more dependable than any single source."
+  },
+  "datasheet": {
+    "title": "Spectrum PCTG Premium — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pctg.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 44,
+      "unit": "MPa",
+      "conditions": "Streckspannung; Bruchspannung 46 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4.4,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 220,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 93,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "conditions": "im Blatt steht versehentlich „93°C KJ/m2“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 64,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,820 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 76,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PCTG Premium",
+        "title": "Spectrum PCTG Premium — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pctg.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

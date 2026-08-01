@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-abs-esd",
+  "materialId": "esd-abs",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy ESD ABS",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers."
+  },
+  "features": {
+    "de": "Eines der wenigen Blätter, das die ESD-Werte differenziert angibt: Oberflächenwiderstand 3,8·10⁷ bis 8,1·10⁷ Ω, Durchgangswiderstand 4,1·10⁷ Ω·cm. Beide liegen im dissipativen Bereich — das Material leitet nicht, es baut Ladung kontrolliert ab.",
+    "en": "One of few sheets giving the ESD figures in detail: surface resistivity 3.8·10⁷ to 8.1·10⁷ Ω, volume resistivity 4.1·10⁷ Ω·cm. Both sit in the dissipative range — the material does not conduct, it dissipates charge in a controlled way."
+  },
+  "datasheet": {
+    "title": "Fiberlogy ESD ABS — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/ea13014b3a227261b6b5018c7c851a39/FIBERLOGY_ABS_ESD_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Bruchspannung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2100,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 258,
+      "unit": "°C",
+      "min": 250,
+      "max": 265,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy ESD ABS",
+        "title": "Fiberlogy ESD ABS — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/ea13014b3a227261b6b5018c7c851a39/FIBERLOGY_ABS_ESD_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Blatt mit Textebene, maschinell ausgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Sheet with text layer, read mechanically."
+        }
+      }
+    ]
+  }
+}

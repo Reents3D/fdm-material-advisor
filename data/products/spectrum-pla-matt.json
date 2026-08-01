@@ -1,0 +1,125 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pla-matt",
+  "materialId": "pla",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PLA Matt",
+  "origin": "Polen",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Dieses Blatt deklariert den Prüfkörper: gedruckt, mit Angabe von Infill, Orientierung und Temperung. Damit sind die Werte mit denen von Ultrafuse, Bambu Lab und Prusa Polymers vergleichbar — und nicht mit den übrigen Blättern desselben Herstellers.",
+    "en": "This sheet declares the specimen: printed, stating infill, orientation and annealing. The values are therefore comparable with those from Ultrafuse, Bambu Lab and Prusa Polymers — and not with the manufacturer's other sheets."
+  },
+  "features": {
+    "de": "Zeigt den Effekt des Temperns so deutlich wie kein zweites Blatt: HDT-B 116 °C nach vier Stunden bei 90 °C — ungetempertes PLA liegt bei rund 55 °C. Zugleich ehrlich bei der Festigkeit: 30 MPa am GEDRUCKTEN Prüfkörper, gegenüber 53 bis 60 MPa, die andere PLA-Blätter am Rohstoff messen.",
+    "en": "Shows the effect of annealing more clearly than any other sheet: HDT-B 116 °C after four hours at 90 °C — unannealed PLA sits at around 55 °C. At the same time honest about strength: 30 MPa on the PRINTED specimen, against the 53 to 60 MPa other PLA sheets measure on the raw material."
+  },
+  "datasheet": {
+    "title": "Spectrum PLA Matt — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_matt.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 14,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "an gedruckten Prüfkörpern 80 × 10 × 4 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 3.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "an gedruckten Prüfkörpern 80 × 10 × 4 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 30,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 5 mm/min",
+      "conditions": "gedruckt; Bruchspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 2.9,
+      "unit": "%",
+      "testStandard": "ISO 527, 5 mm/min",
+      "conditions": "gedruckt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2750,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 N, 50 °C/h",
+      "conditions": "getempert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 66,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,81 MPa",
+      "conditions": "getempert 4 h bei 90 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 116,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "conditions": "getempert 4 h bei 90 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PLA Matt",
+        "title": "Spectrum PLA Matt — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_matt.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen declared: printed, with infill, orientation and annealing."
+        }
+      }
+    ]
+  }
+}

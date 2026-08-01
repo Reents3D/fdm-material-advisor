@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-s-flex-90a",
+  "materialId": "tpu-95a",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum S-Flex 90A",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Shore A 90 liegt zwischen den geführten Typen TPU 85A und TPU 95A; die Zuordnung zu TPU 95A ist eine Einordnung dieser Datenbank, keine Herstellerangabe. Zudem nennt das Blatt die Werte „in Maschinenrichtung“ — das ist eine Angabe aus der Folien- und Extrusionsprüfung und sagt nichts über die Bauorientierung eines gedruckten Teils.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Shore A 90 sits between the carried types TPU 85A and TPU 95A; the assignment to TPU 95A is this database's judgement, not a manufacturer statement. The sheet moreover gives the values “in machine direction” — that is a statement from film and extrusion testing and says nothing about the build orientation of a printed part."
+  },
+  "datasheet": {
+    "title": "Spectrum S-Flex 90A — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_sflex_90a.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 90,
+      "unit": "Shore A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 35,
+      "unit": "MPa",
+      "conditions": "in Maschinenrichtung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 500,
+      "unit": "%",
+      "conditions": "in Maschinenrichtung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tearStrength": {
+      "value": 90,
+      "unit": "kN/m",
+      "conditions": "Weiterreisswiderstand in Maschinenrichtung; im Blatt 90 N/mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 35,
+      "unit": "mm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum S-Flex 90A",
+        "title": "Spectrum S-Flex 90A — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_sflex_90a.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pla-premium",
+  "materialId": "pla",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PLA Premium",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Drei Auffälligkeiten. Erstens: Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre D638 einschlägig. Dieselbe Verwechslung steht in den PLA-Blättern von Fiberlogy und Material4Print; sie reist offenbar mit dem Rohstoffdatenblatt durch die Branche. Zweitens: Die Wärmeformbeständigkeit steht unter ASTM E2092, einer thermomechanischen Analyse statt der HDT-Norm D648. Drittens: Der Biege-E-Modul ist mit „3.8 MPa“ angegeben — gemeint sind offenkundig 3,8 GPa, also 3800 MPa. Der Wert wurde nicht übernommen.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Three irregularities. First: the tensile values sit under ASTM D882, the standard for thin FILMS — for mouldings D638 would apply. The same mix-up appears in the PLA sheets from Fiberlogy and Material4Print; it apparently travels with the raw-material datasheet through the industry. Second: heat deflection sits under ASTM E2092, a thermomechanical analysis instead of the HDT standard D648. Third: the flexural modulus reads “3.8 MPa” — obviously 3.8 GPa, i.e. 3800 MPa, is meant. The value was not imported."
+  },
+  "datasheet": {
+    "title": "Spectrum PLA Premium — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2021/12/en_tds_spectrum_pla_premium.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "conditions": "Streckspannung; Bruchspannung 53 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3500,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 83,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 16,
+      "unit": "J/m",
+      "testStandard": "ASTM D256",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 200,
+      "unit": "°C",
+      "min": 185,
+      "max": 215,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 22,
+      "unit": "°C",
+      "min": 0,
+      "max": 45,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "printSpeed": {
+      "value": 95,
+      "unit": "mm/s",
+      "min": 40,
+      "max": 150,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PLA Premium",
+        "title": "Spectrum PLA Premium — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2021/12/en_tds_spectrum_pla_premium.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

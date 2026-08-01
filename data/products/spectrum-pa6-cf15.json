@@ -1,0 +1,112 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pa6-cf15",
+  "materialId": "pa6-cf",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PA6 Low Warp CF15",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Die Festigkeitswerte liegen im selben Bereich wie beim SUNLU PA6-CF (120 gegen 170 MPa) und damit weit über dem gedruckten PA6-CF von Bambu Lab (102 MPa) — bei einer HDT-A von nur 65 °C. 9000 MPa Steifigkeit neben einer Wärmeformbeständigkeit von 65 °C passen schlecht zusammen; carbonverstärkte Polyamide erreichen üblicherweise 150 bis 200 °C. Die mechanischen Werte stehen deshalb mit niedriger Konfidenz. Bemerkenswert ehrlich ist dagegen die Feuchteangabe: 8 % Wasseraufnahme bis zur Sättigung, 2,5 % im Normklima — diese Zahl verschweigen die meisten Polyamidblätter.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The strength figures sit in the same range as SUNLU's PA6-CF (120 against 170 MPa) and thus far above Bambu Lab's printed PA6-CF (102 MPa) — with an HDT-A of only 65 °C. 9000 MPa stiffness alongside a heat deflection temperature of 65 °C sit poorly together; carbon-reinforced polyamides usually reach 150 to 200 °C. The mechanical values therefore stand at low confidence. Remarkably honest by contrast is the moisture statement: 8 % water uptake to saturation, 2.5 % in standard climate — a figure most polyamide sheets keep quiet about."
+  },
+  "datasheet": {
+    "title": "Spectrum PA6 Low Warp CF15 — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_pa6_low_warp_cf15s.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.18,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 8,
+      "unit": "%",
+      "conditions": "Sättigung in Wasser bei 23 °C; bei 50 % rF nur 2,5 %",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 120,
+      "unit": "MPa",
+      "conditions": "23 °C, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 9000,
+      "unit": "MPa",
+      "conditions": "23 °C, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 4,
+      "unit": "%",
+      "conditions": "23 °C, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 180,
+      "unit": "MPa",
+      "conditions": "23 °C, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 8000,
+      "unit": "MPa",
+      "conditions": "23 °C, 2 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 60,
+      "unit": "kJ/m²",
+      "testStandard": "23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 4,
+      "unit": "kJ/m²",
+      "testStandard": "23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 65,
+      "unit": "°C",
+      "conditions": "1,8 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PA6 Low Warp CF15",
+        "title": "Spectrum PA6 Low Warp CF15 — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_pa6_low_warp_cf15s.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

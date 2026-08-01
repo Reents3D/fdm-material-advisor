@@ -1,0 +1,103 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-smart-abs",
+  "materialId": "abs",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum Smart ABS",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Nennt als eines von wenigen Blättern die Schlagzähigkeit bei −30 °C (16 gegen 33 kg·cm/cm bei Raumtemperatur) — die Hälfte. Für Aussenanwendungen im Winter ist das die relevantere Zahl.",
+    "en": "One of few sheets giving impact strength at −30 °C (16 against 33 kg·cm/cm at room temperature) — half. For outdoor use in winter that is the more relevant figure."
+  },
+  "datasheet": {
+    "title": "Spectrum Smart ABS — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_smart_abs.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.55,
+      "unit": "%",
+      "min": 0.4,
+      "max": 0.7,
+      "conditions": "in Fliessrichtung, 3,2 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 45.1,
+      "unit": "MPa",
+      "conditions": "Streckspannung, 3,2 mm, 50 mm/min; im Blatt 460 kg/cm², umgerechnet",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "conditions": "im Blatt als „>10 %“ angegeben",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 72.6,
+      "unit": "MPa",
+      "conditions": "3,2 mm, 15 mm/min; im Blatt 740 kg/cm², umgerechnet",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2451.7,
+      "unit": "MPa",
+      "conditions": "3,2 mm, 15 mm/min; im Blatt 25 000 kg/cm², umgerechnet",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 85,
+      "unit": "°C",
+      "conditions": "6,4 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 93,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum Smart ABS",
+        "title": "Spectrum Smart ABS — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_smart_abs.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

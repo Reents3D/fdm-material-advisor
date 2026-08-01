@@ -1,0 +1,118 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pla-pro",
+  "materialId": "pla",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PLA Pro",
+  "origin": "Polen",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Dieses Blatt deklariert den Prüfkörper: gedruckt, mit Angabe von Infill, Orientierung und Temperung. Damit sind die Werte mit denen von Ultrafuse, Bambu Lab und Prusa Polymers vergleichbar — und nicht mit den übrigen Blättern desselben Herstellers.",
+    "en": "This sheet declares the specimen: printed, stating infill, orientation and annealing. The values are therefore comparable with those from Ultrafuse, Bambu Lab and Prusa Polymers — and not with the manufacturer's other sheets."
+  },
+  "features": {
+    "de": "Das aussagekräftigste PLA-Blatt im Bestand: Es nennt Infill, Bauorientierung UND Temperung der Prüfkörper („3D printed at 100% infill and annealed at 110°C/20 min, XY axis“) — und unterscheidet zusätzlich zwischen amorphem und teilkristallinem Zustand bei der Schlagzähigkeit (160 gegen 233 J/m). Die HDT von 75 bis 85 °C gilt entsprechend nur getempert; ungetempertes PLA liegt bei 55 °C.",
+    "en": "The most informative PLA sheet in the dataset: it states infill, build orientation AND annealing of the specimens (“3D printed at 100% infill and annealed at 110°C/20 min, XY axis”) — and additionally distinguishes amorphous from semi-crystalline state for impact strength (160 against 233 J/m). The HDT of 75 to 85 °C accordingly applies only after annealing; unannealed PLA sits at 55 °C."
+  },
+  "datasheet": {
+    "title": "Spectrum PLA Pro — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2021/07/en_tds_spectrum_pla_pro.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 172.5,
+      "unit": "°C",
+      "min": 165,
+      "max": 180,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, getempert 110 °C / 20 min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2865,
+      "unit": "MPa",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, getempert 110 °C / 20 min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 73,
+      "unit": "MPa",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, getempert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2414,
+      "unit": "MPa",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, getempert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 160,
+      "unit": "J/m",
+      "orientation": "XY",
+      "conditions": "amorph; teilkristallin 233 J/m, gedruckt und getempert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 80,
+      "unit": "°C",
+      "min": 75,
+      "max": 85,
+      "conditions": "gedruckt, getempert",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PLA Pro",
+        "title": "Spectrum PLA Pro — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2021/07/en_tds_spectrum_pla_pro.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen declared: printed, with infill, orientation and annealing."
+        }
+      }
+    ]
+  }
+}

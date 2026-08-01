@@ -1,0 +1,127 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-pctg",
+  "materialId": "pctg",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy PCTG",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nDieses Blatt ist eine reine Bild-PDF ohne Textebene; die Werte wurden von der gerenderten Seite abgelesen statt maschinell extrahiert.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nThis sheet is a pure image PDF without a text layer; the values were read off the rendered page rather than extracted mechanically."
+  },
+  "features": {
+    "de": "Praktisch deckungsgleich mit dem PCTG-Blatt von 3DJAKE: 43 gegen 44 MPa, 220 % Bruchdehnung bei beiden, 1600 MPa Biegemodul bei beiden, HDT 76/64 °C bei beiden. Zwei Marken, dasselbe Granulat — und ein seltener Fall, in dem sich zwei unabhängige Blätter gegenseitig bestätigen. Die 92 kJ/m² gekerbte Izod-Schlagzähigkeit sind der Grund, warum PCTG dort steht, wo PETG zu spröde bricht.",
+    "en": "Practically identical with the PCTG sheet from 3DJAKE: 43 against 44 MPa, 220 % elongation at break in both, 1600 MPa flexural modulus in both, HDT 76/64 °C in both. Two brands, the same pellets — and a rare case of two independent sheets confirming each other. The 92 kJ/m² notched Izod is why PCTG is used where PETG breaks too brittle."
+  },
+  "datasheet": {
+    "title": "Fiberlogy PCTG — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/b170d0f24c85647183f2d25df7d5efff/FIBERLOGY_PCTG_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 43,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung; Bruchspannung 45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 220,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 92,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 64,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 76,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 250,
+      "max": 270,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy PCTG",
+        "title": "Fiberlogy PCTG — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/b170d0f24c85647183f2d25df7d5efff/FIBERLOGY_PCTG_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Reine Bild-PDF, Werte von der gerenderten Seite abgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Pure image PDF, values read off the rendered page."
+        }
+      }
+    ]
+  }
+}

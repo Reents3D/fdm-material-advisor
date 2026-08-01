@@ -1,0 +1,134 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fiberlogy-easy-pla",
+  "materialId": "pla",
+  "brand": "Fiberlogy",
+  "manufacturer": "Fiberlab S.A. (Fiberlogy)",
+  "productName": "Fiberlogy Easy PLA",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nDieses Blatt ist eine reine Bild-PDF ohne Textebene; die Werte wurden von der gerenderten Seite abgelesen statt maschinell extrahiert.\n\nBefund zu diesem Datenblatt: Zwei Prüfnormen passen nicht zur Eigenschaft. Die Zugwerte stehen unter ASTM D882 — das ist die Norm für dünne FOLIEN, nicht für Formteile; für Zug an Kunststoffprüfkörpern wäre D638 einschlägig. Und die Wärmeformbeständigkeit steht unter ASTM E2092, einer thermomechanischen Analyse; die HDT ist ASTM D648. Dieselbe Folien-Verwechslung steht auch im PLA-Blatt von Material4Print — offenbar reist sie mit dem Rohstoffdatenblatt durch die Branche.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nThis sheet is a pure image PDF without a text layer; the values were read off the rendered page rather than extracted mechanically.\n\nFinding on this datasheet: Two test standards do not fit the property. The tensile values sit under ASTM D882 — the standard for thin FILMS, not for mouldings; for tensile on plastic specimens D638 would apply. And heat deflection sits under ASTM E2092, a thermomechanical analysis; HDT is ASTM D648. The same film mix-up appears in the PLA sheet from Material4Print — apparently it travels with the raw-material datasheet through the industry."
+  },
+  "datasheet": {
+    "title": "Fiberlogy Easy PLA — Technical Data Sheet",
+    "url": "https://fiberlogy.com/en_US/p/file/c612c2bddb7a71aa950b9a3d64fad640/FIBERLOGY_EASYPLA_TDS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fiberlogy.com/en_US/c/Our-Filaments/136",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "conditions": "Streckspannung; Bruchspannung 53 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3500,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 81,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 3800,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 16,
+      "unit": "J/m",
+      "testStandard": "ASTM D256, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltingTemperature": {
+      "value": 152.5,
+      "unit": "°C",
+      "min": 145,
+      "max": 160,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 200,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "min": 50,
+      "max": 70,
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "productName": "Fiberlogy Easy PLA",
+        "title": "Fiberlogy Easy PLA — Technical Data Sheet",
+        "url": "https://fiberlogy.com/en_US/p/file/c612c2bddb7a71aa950b9a3d64fad640/FIBERLOGY_EASYPLA_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Reine Bild-PDF, Werte von der gerenderten Seite abgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Pure image PDF, values read off the rendered page."
+        }
+      }
+    ]
+  }
+}

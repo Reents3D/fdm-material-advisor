@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-asa-275",
+  "materialId": "asa",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum ASA 275",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: 435 J/m gekerbte Izod-Schlagzähigkeit sind für ASA aussergewöhnlich hoch — üblich sind 100 bis 200 J/m, und bei −30 °C nennt dasselbe Blatt nur 60 J/m. Ein Abfall auf ein Siebtel bei 53 Kelvin Temperaturunterschied ist ungewöhnlich steil. Der Wert steht mit niedriger Konfidenz.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: 435 J/m notched Izod is exceptionally high for ASA — 100 to 200 J/m is usual, and at −30 °C the same sheet gives only 60 J/m. A drop to a seventh over 53 kelvin is unusually steep. The value stands at low confidence."
+  },
+  "datasheet": {
+    "title": "Spectrum ASA 275 — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_asa_275.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 42,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 23 °C",
+      "conditions": "Streckspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 35,
+      "unit": "%",
+      "testStandard": "ASTM D638, 23 °C",
+      "conditions": "im Blatt als Mindestwert angegeben",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1800,
+      "unit": "MPa",
+      "testStandard": "ASTM D638, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 64,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ASTM D790, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 435,
+      "unit": "J/m",
+      "testStandard": "ASTM D256, 3,2 mm, 23 °C",
+      "conditions": "bei −30 °C nur 60 J/m",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 86,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 94,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "thicknessMm": 1.5,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung.",
+        "en": "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum ASA 275",
+        "title": "Spectrum ASA 275 — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_asa_275.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pc-abs-fr-v0",
+  "materialId": "abs-pc",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PC/ABS FR V0",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Der Gegenentwurf zu Brandschutz im Produktnamen: Dieses Blatt belegt UL 94 V-0 bei 1,5 UND 3,0 mm und nennt zusätzlich den Glühdrahtindex von 960 °C nach IEC 60695-2-12. Dazu halogenfrei. Die Charpy-Schlagzähigkeit ungekerbt ist bei 23 °C UND bei −30 °C mit „NB“ angegeben — no break, der Prüfkörper bricht gar nicht. Für ein flammgeschütztes Material ist das ungewöhnlich, weil Flammschutzmittel Zähigkeit üblicherweise kosten.",
+    "en": "The counter-example to flame retardancy in the product name: this sheet documents UL 94 V-0 at 1.5 AND 3.0 mm and additionally states the glow wire index of 960 °C to IEC 60695-2-12. Halogen-free too. Unnotched Charpy impact is given as “NB” at 23 °C AND at −30 °C — no break, the specimen does not fracture at all. For a flame-retardant material that is unusual, because flame retardants normally cost toughness."
+  },
+  "datasheet": {
+    "title": "Spectrum PC/ABS FR V0 — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_pc_abs_fr_v0.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.17,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 35,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180/4A, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527-2/50",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 50,
+      "unit": "%",
+      "testStandard": "ISO 527-2/50",
+      "conditions": "im Blatt als „>50 %“ angegeben",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2850,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/50",
+      "conditions": "Streckspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 110,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 104,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/A, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-0",
+      "thicknessMm": 1.5,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Belegt bei 1,5 UND 3,0 mm, zusätzlich Glühdrahtindex 960 °C nach IEC 60695-2-12 und halogenfrei. Das Blatt nennt keine Prüfstelle und keine Zeugnisnummer — für eine Bahn- oder Luftfahrtanwendung wäre das noch anzufordern.",
+        "en": "Documented at 1.5 AND 3.0 mm, plus glow wire index 960 °C to IEC 60695-2-12 and halogen-free. The sheet names no test house and no certificate number — for a rail or aerospace application that would still have to be requested."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PC/ABS FR V0",
+        "title": "Spectrum PC/ABS FR V0 — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_pc_abs_fr_v0.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}
