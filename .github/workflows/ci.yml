@@ -1,0 +1,33 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+permissions: { contents: read }
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+
+      # Data gates run FIRST: a schema or provenance violation should fail before
+      # anyone looks at the code. The database is the product.
+      - name: JSON Schema
+        run: npm run validate:schema
+      - name: Plausibilität und Provenienz
+        run: npm run validate:plausibility
+
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Tests
+        run: npm test
+      - name: Build
+        run: npm run build
+
+      - name: Bundle-Budget (< 350 kB gzip)
+        run: |
+          total=$(find dist/assets -name '*.js' -o -name '*.css' | xargs -I{} sh -c 'gzip -c "{}" | wc -c' | awk '{s+=$1} END {print s}')
+          echo "gzip total: $total bytes"
+          if [ "$total" -gt 358400 ]; then echo "::error::Bundle über Budget: $total > 358400"; exit 1; fi

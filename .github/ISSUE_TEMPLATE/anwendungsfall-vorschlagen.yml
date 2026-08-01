@@ -1,0 +1,14 @@
+name: Anwendungsfall vorschlagen
+description: Ein Anforderungsprofil, das der Berater abbilden sollte
+labels: [usecase]
+body:
+  - type: input
+    id: title
+    attributes: { label: Anwendungsfall, placeholder: "z. B. Vorrichtung mit KSS-Kontakt" }
+    validations: { required: true }
+  - type: textarea
+    id: requirements
+    attributes: { label: Anforderungen, description: "Temperatur, Medien, Größe, Normen, Optik ..." }
+  - type: textarea
+    id: pitfalls
+    attributes: { label: Typische Fallstricke }

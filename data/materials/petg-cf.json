@@ -1,0 +1,923 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "petg-cf",
+
+  "identity": {
+    "name": "PETG-CF",
+    "family": "PETG",
+    "polymerClass": "amorphous",
+    "variant": ["CF", "matte"],
+    "filler": {
+      "type": "carbon-fibre-chopped",
+      "massFractionPct": {
+        "value": 10,
+        "min": 5,
+        "max": 20,
+        "unit": "%",
+        "source": "src_flashforge_petgcf10_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Nur Flashforge deklariert den Fuellgrad ausdruecklich (10 %). Bambu Lab macht keine Angabe. Die Spanne 5-20 % bildet den Markt ab und ist geschaetzt. Der Fuellgrad bestimmt Steifigkeit, Sproedigkeit und Duesenverschleiss massgeblich - Datenblaetter verschiedener Marken sind deshalb nur eingeschraenkt vergleichbar.",
+          "en": "Only Flashforge explicitly declares the filler content (10 %). Bambu Lab does not state it. The 5-20 % range is an estimate covering the market. Filler content drives stiffness, brittleness and nozzle wear, so datasheets from different brands are only partly comparable."
+        }
+      }
+    },
+    "aliases": ["PETG Carbon Fiber", "PETG-CF10", "PETG-CF15", "PETG Carbon", "CarbonFil (PETG-Basis)"],
+    "trademarkNotice": {
+      "de": "Genannte Handels- und Markennamen (u. a. Bambu Lab, Prusament, Flashforge) sind Marken der jeweiligen Inhaber. Die Nennung dient ausschliesslich der Quellenangabe.",
+      "en": "Trade and brand names mentioned (including Bambu Lab, Prusament, Flashforge) are trademarks of their respective owners. They are named solely for source attribution."
+    },
+    "abstract": {
+      "de": "PETG-CF ist mit Kurz-Kohlenstofffasern verstaerktes PETG. Es eignet sich fuer steife, masshaltige Funktionsteile, Vorrichtungen und matt-schwarze Sichtteile, die ohne beheizte Kammer druckbar sein sollen. Grenzen: Die Waermeformbestaendigkeit bleibt mit rund 70 °C auf PETG-Niveau, das Material wird durch die Fasern sproeder, und die Duese muss gehaertet sein.",
+      "en": "PETG-CF is PETG reinforced with chopped carbon fibre. It suits stiff, dimensionally stable functional parts, jigs and matte-black visible parts that need to print without a heated chamber. Limits: heat resistance stays at PETG level around 70 °C, the fibres make it more brittle, and a hardened nozzle is mandatory."
+    },
+    "positioning": {
+      "de": "Der steifere, masshaltigere und optisch hochwertigere PETG-Ersatz fuer Funktionsteile - ohne den Temperaturgewinn, den viele faelschlich erwarten.",
+      "en": "The stiffer, more dimensionally stable and better-looking PETG replacement for functional parts - without the temperature gain many mistakenly expect."
+    },
+    "notToBeConfusedWith": [
+      {
+        "materialId": "pet-cf",
+        "reason": {
+          "de": "PET-CF (z. B. Polymaker Fiberon PET-CF17) unterscheidet sich nur durch einen Buchstaben, ist aber ein anderer Werkstoff: teilkristallines PET statt amorphem PETG. PET-CF erreicht getempert HDT deutlich ueber 100 °C und ein Vielfaches der Steifigkeit. Datenblattwerte der beiden Materialien duerfen niemals vermischt werden.",
+          "en": "PET-CF (e.g. Polymaker Fiberon PET-CF17) differs by one letter but is a different material: semi-crystalline PET instead of amorphous PETG. Annealed PET-CF reaches HDT well above 100 °C and several times the stiffness. Datasheet values for the two must never be mixed."
+        }
+      }
+    ]
+  },
+
+  "mechanics": {
+    "density": {
+      "value": 1.27, "min": 1.25, "max": 1.28, "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "high"
+    },
+    "tensileStrengthXy": {
+      "value": 48, "min": 40, "max": 63, "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "100 % Infill; Spanne umfasst ungetemperte und getemperte Pruefkoerper sowie unterschiedliche Faseranteile",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium",
+      "note": {
+        "de": "Redaktionell aggregiert. Die beiden Primaerquellen liegen weit auseinander: Flashforge (10 % CF, ausdruecklich NICHT getempert) meldet 40-43 MPa, Bambu Lab (Faseranteil nicht deklariert, Pruefkoerper vorbehandelt) meldet 59 +/- 4 MPa. Fuer ein normal gedrucktes Bauteil ist das untere Drittel der Spanne die realistische Erwartung.",
+        "en": "Editorially aggregated. The two primary sources differ widely: Flashforge (10 % CF, explicitly NOT annealed) reports 40-43 MPa, Bambu Lab (fibre content undeclared, specimens pre-treated) reports 59 +/- 4 MPa. For a normally printed part the lower third of the range is the realistic expectation."
+      }
+    },
+    "tensileStrengthZ": {
+      "value": 38, "tolerance": 3, "unit": "MPa",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "conditions": "100 % Infill, Pruefkoerper 8 h bei 65 °C vorbehandelt",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium",
+      "note": {
+        "de": "Nur Bambu Lab veroeffentlicht ueberhaupt Z-Werte. Ohne Z-Wert ist keine ehrliche Aussage zur Schichthaftung moeglich - die meisten Hersteller schweigen dazu.",
+        "en": "Only Bambu Lab publishes Z values at all. Without a Z value no honest statement about layer adhesion is possible - most manufacturers stay silent on this."
+      }
+    },
+    "tensileModulusXy": {
+      "value": 2400, "min": 2100, "max": 2690, "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "high",
+      "note": {
+        "de": "Beide Quellen stimmen gut ueberein (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Die Steifigkeit ist der eigentliche Gewinn der Faserverstaerkung - nicht die Festigkeit.",
+        "en": "Both sources agree well (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Stiffness is the actual gain from fibre reinforcement - not strength."
+      }
+    },
+    "tensileModulusZ": {
+      "value": 1340, "tolerance": 150, "unit": "MPa",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 9, "min": 7.5, "max": 11, "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 4.7, "tolerance": 0.4, "unit": "%",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 82, "min": 75, "max": 87, "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "high"
+    },
+    "flexuralStrengthZ": {
+      "value": 62, "tolerance": 3, "unit": "MPa",
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2890, "tolerance": 130, "unit": "MPa",
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 1680, "tolerance": 90, "unit": "MPa",
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 41.2, "tolerance": 2.6, "unit": "kJ/m²",
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 15.7, "tolerance": 1.6, "unit": "kJ/m²",
+      "testStandard": "ISO 179 / GB/T 1043 (gekerbt)",
+      "orientation": "XY",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "low",
+      "note": {
+        "de": "Widerspruch offen: Flashforge meldet fuer PETG-CF10 nur 3-3,5 kJ/m² gekerbt nach ISO 180 (Izod). Der Faktor 5 zwischen beiden Angaben laesst sich mit Faseranteil und Vorbehandlung allein kaum erklaeren. Bis zur Klaerung nicht fuer Auslegung verwenden - siehe oq_impact_conflict.",
+          "en": "Unresolved conflict: Flashforge reports only 3-3.5 kJ/m² notched per ISO 180 (Izod) for PETG-CF10. A factor of 5 between the two figures is hard to explain by fibre content and pre-treatment alone. Do not use for design until clarified - see oq_impact_conflict."
+      }
+    },
+    "charpyUnnotchedZ": {
+      "value": 10.7, "tolerance": 1.6, "unit": "kJ/m²",
+      "testStandard": "ISO 179 / GB/T 1043 (Kerbzustand im Datenblatt nicht angegeben)",
+      "orientation": "Z",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt nennt fuer Z nur einen einzigen Impact-Wert, ohne den Kerbzustand zu benennen. Hier als ungekerbt eingeordnet, weil der X-Y-Wert in derselben Zeile zuerst ungekerbt genannt wird. Unsicher.",
+        "en": "The datasheet gives only a single impact value for Z without stating the notch condition. Classified as unnotched here because the X-Y row lists the unnotched value first. Uncertain."
+      }
+    },
+    "izodNotchedXy": {
+      "value": 3.25, "min": 3, "max": 3.5, "unit": "kJ/m²",
+      "testStandard": "ISO 180 (gekerbt)",
+      "orientation": "XY",
+      "conditions": "10 % CF, Pruefkoerper ausdruecklich nicht getempert",
+      "source": "src_flashforge_petgcf10_tds",
+      "confidence": "medium"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.64, "min": 0.56, "max": 0.75, "unit": "-",
+      "orientation": "Z",
+      "derivedFrom": ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
+      "conditions": "Beide Ausgangswerte aus derselben Quelle und demselben Pruefdurchgang (Bambu Lab): 38 MPa / 59 MPa",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium",
+      "note": {
+        "de": "0,64 ist fuer FDM ein guter Wert - PETG-Familien haften zwischen den Schichten deutlich besser als PLA. Trotzdem gilt: senkrecht zur Schicht bleiben rund 36 % der Festigkeit auf der Strecke. Ausdruecklich NICHT aus dem aggregierten XY-Wert (48 MPa) berechnet, weil dieser Quellen mit unterschiedlicher Vorbehandlung mischt.",
+        "en": "0.64 is a good value for FDM - PETG families bond between layers markedly better than PLA. Still, roughly 36 % of the strength is lost perpendicular to the layers. Deliberately NOT computed from the aggregated XY value (48 MPa), which mixes sources with different pre-treatment."
+      }
+    },
+    "anisotropyFactorImpact": {
+      "value": 0.26, "min": 0.21, "max": 0.32, "unit": "-",
+      "orientation": "Z",
+      "derivedFrom": ["mechanics.charpyUnnotchedZ", "mechanics.charpyUnnotchedXy"],
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "low",
+      "note": {
+        "de": "Der wichtigste Warnwert des Datensatzes: Die Schlagzaehigkeit bricht in Z auf rund ein Viertel ein (10,7 statt 41,2 kJ/m²), waehrend die Zugfestigkeit nur um gut ein Drittel faellt. Schlagbelastete Bauteile muessen orientiert werden - Steifigkeit taeuscht hier Robustheit vor.",
+        "en": "The most important warning value in this record: impact strength collapses to about a quarter in Z (10.7 vs 41.2 kJ/m²), while tensile strength drops by only about a third. Impact-loaded parts must be oriented - stiffness here masquerades as robustness."
+      }
+    },
+    "toughness": {
+      "value": 2, "scale": "toughness",
+      "source": ["src_prusament_petgcf_product", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium",
+      "note": {
+        "de": "Prusa Polymers weist ausdruecklich auf geringere Zaehigkeit gegenueber unverstaerktem PETG hin. Die Fasern kaufen Steifigkeit mit Sprodigkeit.",
+        "en": "Prusa Polymers explicitly notes lower toughness compared to unfilled PETG. The fibres buy stiffness at the cost of brittleness."
+      }
+    },
+    "notchSensitivity": {
+      "value": 4, "scale": "notchSensitivity",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Fachliche Ableitung: kurzfaserverstaerkte amorphe Thermoplaste sind regelmaessig kerbempfindlich. Konstruktive Folge: Radien statt scharfer Innenecken.",
+        "en": "Engineering inference: short-fibre reinforced amorphous thermoplastics are consistently notch sensitive. Design consequence: use radii instead of sharp internal corners."
+      }
+    },
+    "creepTendency": {
+      "value": 3, "scale": "creepTendency",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Fasern reduzieren das Kriechen gegenueber PETG, die Glasuebergangstemperatur von 68 °C bleibt aber die harte Grenze fuer dauerbelastete Teile.",
+        "en": "Fibres reduce creep versus plain PETG, but the 68 °C glass transition remains the hard limit for permanently loaded parts."
+      }
+    },
+    "wearResistance": {
+      "value": 3, "scale": "wearResistance",
+      "source": "estimate_reasoning", "confidence": "estimated"
+    }
+  },
+
+  "thermal": {
+    "hdtA": {
+      "value": 68, "unit": "°C",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 72, "min": 70, "max": 74, "unit": "°C",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "high",
+      "note": {
+        "de": "Zwei unabhaengige Hersteller, gleiche Norm, 70 bzw. 74 °C. Das ist der belastbarste Temperaturwert dieses Datensatzes - und er zeigt: Kohlenstofffaser bringt bei PETG praktisch KEINEN Temperaturgewinn. Wer Waermeformbestaendigkeit braucht, ist hier falsch.",
+        "en": "Two independent manufacturers, same standard, 70 and 74 °C. This is the most reliable temperature value in this record - and it shows that carbon fibre delivers essentially NO temperature gain in PETG. Anyone needing heat resistance is in the wrong place."
+      }
+    },
+    "vicatB50": {
+      "value": 85, "unit": "°C",
+      "testStandard": "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "low",
+      "note": {
+        "de": "Ohne Angabe von Methode (A/B) und Pruefkraft ist der Wert nur eingeschraenkt vergleichbar. Nicht fuer Materialvergleiche heranziehen, solange die Methode unklar ist.",
+        "en": "Without stating method (A/B) and load, the value is only partly comparable. Do not use for material comparison while the method is unclear."
+      }
+    },
+    "glassTransition": {
+      "value": 68, "unit": "°C",
+      "testStandard": "DSC, 10 °C/min",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "medium",
+      "note": {
+        "de": "Plausibilitaetscheck bestanden: HDT-A (68 °C) liegt bei amorphen Werkstoffen erwartungsgemaess auf Hoehe von Tg.",
+        "en": "Plausibility check passed: for amorphous materials HDT-A (68 °C) is expected to sit at the level of Tg."
+      }
+    },
+    "meltingTemperature": {
+      "value": 225, "unit": "°C",
+      "testStandard": "DSC, 10 °C/min",
+      "source": "src_bambu_petgcf_tds_v2",
+      "confidence": "low",
+      "note": {
+        "de": "Physikalisch fragwuerdig: PETG ist amorph und hat keinen echten Schmelzpunkt - dasselbe Datenblatt gibt die Kristallisationstemperatur konsequenterweise mit 'N/A' an. Der Wert wird dokumentiert, aber nicht fuer Bewertungen verwendet. Siehe oq_tm_amorphous.",
+        "en": "Physically questionable: PETG is amorphous and has no true melting point - the same datasheet consistently gives crystallisation temperature as 'N/A'. The value is documented but not used for scoring. See oq_tm_amorphous."
+      }
+    },
+    "continuousServiceTemperature": {
+      "value": 80, "unit": "°C",
+      "testStandard": "IEC 60216",
+      "source": "src_flashforge_petgcf10_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Herstellerangabe, die wir nicht stuetzen: 80 °C liegt oberhalb von Tg (68 °C) und oberhalb der HDT-B (70-74 °C). Fuer belastete Bauteile ist dieser Wert nicht haltbar. Siehe recommendedMaxServiceTemperature.",
+        "en": "Manufacturer claim we do not endorse: 80 °C is above Tg (68 °C) and above HDT-B (70-74 °C). For loaded parts this value is not tenable. See recommendedMaxServiceTemperature."
+      }
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 55, "min": 50, "max": 60, "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Eigene konservative Empfehlung, abgeleitet als Tg minus rund 10-15 K Sicherheitsabstand. Unter mechanischer Last oder bei massgenauen Teilen eher 45-50 °C ansetzen. Bewusst getrennt von der Herstellerangabe gefuehrt.",
+        "en": "Our own conservative recommendation, derived as Tg minus roughly 10-15 K of margin. Under mechanical load or for dimensionally critical parts, assume 45-50 °C instead. Deliberately kept separate from the manufacturer claim."
+      }
+    },
+    "annealing": {
+      "possible": {
+        "value": true,
+        "source": "src_bambu_petgcf_tds_v2",
+        "confidence": "low"
+      },
+      "temperature": {
+        "value": 65, "unit": "°C",
+        "source": "src_bambu_petgcf_tds_v2",
+        "confidence": "low"
+      },
+      "duration": {
+        "value": 8, "unit": "h",
+        "source": "src_bambu_petgcf_tds_v2",
+        "confidence": "low"
+      },
+      "note": {
+        "de": "Vorsicht bei der Interpretation: Bambu Lab beschreibt seine Pruefkoerper als 'annealed and dried at 65 °C for 8 hours'. 65 °C liegt UNTER der Glasuebergangstemperatur von 68 °C - eine klassische Temperung mit Nachkristallisation ist bei einem amorphen Werkstoff dort gar nicht moeglich. Der Effekt duerfte ueberwiegend Trocknung sein. Fuer PETG-CF ist Tempern deshalb kein Hebel fuer mehr Waermeformbestaendigkeit - anders als bei PET-CF, wo es nachweislich wirkt.",
+        "en": "Interpret with care: Bambu Lab describes its specimens as 'annealed and dried at 65 °C for 8 hours'. 65 °C is BELOW the 68 °C glass transition - classic annealing with post-crystallisation is not possible there for an amorphous material. The effect is likely mostly drying. Annealing is therefore not a lever for heat resistance in PETG-CF - unlike PET-CF, where it demonstrably works."
+      }
+    }
+  },
+
+  "processing": {
+    "nozzleTemperature": {
+      "value": 250, "min": 230, "max": 270, "unit": "°C",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds", "src_prusament_petgcf_product"],
+      "confidence": "high",
+      "note": {
+        "de": "Bambu 240-270 °C, Flashforge 230-250 °C (Empfehlung 240 °C), Prusament 265 +/- 10 °C. Die Spanne ist maschinen- und markenabhaengig.",
+        "en": "Bambu 240-270 °C, Flashforge 230-250 °C (240 °C recommended), Prusament 265 +/- 10 °C. The range depends on machine and brand."
+      }
+    },
+    "bedTemperature": {
+      "value": 70, "min": 50, "max": 90, "unit": "°C",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds", "src_prusament_petgcf_product"],
+      "confidence": "high"
+    },
+    "chamberRequirement": {
+      "value": "not-required",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "high",
+      "note": {
+        "de": "Entscheidender Vorteil gegenueber ABS, ASA und PC: Bambu nennt 25-45 °C Kammertemperatur, Flashforge 'Raumtemperatur bis 65 °C' - beides ohne Zwang. Damit ist PETG-CF auf offenen Grossformatanlagen fahrbar.",
+        "en": "Decisive advantage over ABS, ASA and PC: Bambu states 25-45 °C chamber temperature, Flashforge 'room temperature to 65 °C' - neither mandatory. This makes PETG-CF viable on open large-format machines."
+      }
+    },
+    "dryingTemperature": {
+      "value": 65, "unit": "°C",
+      "source": "src_bambu_petgcf_tds_v2", "confidence": "medium"
+    },
+    "dryingTime": {
+      "value": 8, "unit": "h",
+      "source": "src_bambu_petgcf_tds_v2", "confidence": "medium"
+    },
+    "maxResidualHumidity": {
+      "value": 20, "unit": "%RH",
+      "conditions": "Lagerung und Druck, versiegelt mit Trockenmittel",
+      "source": "src_bambu_petgcf_tds_v2", "confidence": "medium"
+    },
+    "hygroscopy": {
+      "value": 4, "scale": "hygroscopy",
+      "source": ["src_bambu_petgcf_tds_v2", "estimate_reasoning"],
+      "confidence": "medium",
+      "note": {
+        "de": "Feuchtes PETG-CF zeigt Blasen, Rauheit und deutlich schlechtere Schichthaftung. Die Faser-Matrix-Grenzflaeche verstaerkt die Feuchteaufnahme gegenueber unverstaerktem PETG.",
+        "en": "Damp PETG-CF shows bubbles, roughness and markedly worse layer adhesion. The fibre-matrix interface increases moisture uptake compared with unfilled PETG."
+      }
+    },
+    "warpingTendency": {
+      "value": 2, "scale": "warpingTendency",
+      "source": ["src_bambu_petgcf_tds_v2", "estimate_reasoning"],
+      "confidence": "medium",
+      "note": {
+        "de": "Die Fasern senken die Schwindung deutlich; Bambu wirbt ausdruecklich mit reduziertem Warping gegenueber normalem PETG. Zusammen mit dem Verzicht auf eine Kammer ist das der Hauptgrund, warum PETG-CF fuer grosse Bauteile interessant ist.",
+        "en": "The fibres markedly reduce shrinkage; Bambu explicitly advertises reduced warping versus plain PETG. Together with not needing a chamber, this is the main reason PETG-CF is interesting for large parts."
+      }
+    },
+    "shrinkage": {
+      "value": 0.3, "min": 0.1, "max": 0.6, "unit": "%",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Keine der ausgewerteten Quellen nennt einen Schwindungswert. Ableitung aus dem PETG-Grundverhalten mit faserbedingter Reduktion. Fuer massgenaue Grossteile durch eigenen Versuch absichern.",
+        "en": "None of the evaluated sources states a shrinkage figure. Derived from base PETG behaviour with fibre-related reduction. Verify by your own trial for dimensionally critical large parts."
+      }
+    },
+    "layerAdhesion": {
+      "value": 4, "scale": "layerAdhesion",
+      "source": "src_bambu_petgcf_tds_v2", "confidence": "medium",
+      "note": {
+        "de": "Bewertung gestuetzt auf den gemessenen Anisotropiefaktor von 0,64 - fuer FDM ueberdurchschnittlich.",
+        "en": "Rating backed by the measured anisotropy factor of 0.64 - above average for FDM."
+      }
+    },
+    "bedAdhesionAids": ["PVP-Klebestift", "Textured PEI", "Engineering Plate", "gehaertetes Glas", "BuildTak"],
+    "abrasiveness": {
+      "value": 5, "scale": "abrasiveness",
+      "source": ["src_flashforge_petgcf10_tds", "src_prusament_petgcf_product"],
+      "confidence": "high",
+      "note": {
+        "de": "Flashforge schreibt Duese und Foerderrad aus hochfestem Stahl vor, Prusa fordert ausdruecklich eine gehaertete Duese. Messingduesen sind bei kohlenstofffaserhaltigen Filamenten binnen weniger Druckstunden aufgeweitet.",
+        "en": "Flashforge specifies a high-strength steel nozzle and drive gear, Prusa explicitly requires a hardened nozzle. Brass nozzles widen within a few printing hours with carbon-fibre filled filaments."
+      }
+    },
+    "hardenedNozzleRequired": {
+      "value": true,
+      "source": ["src_flashforge_petgcf10_tds", "src_prusament_petgcf_product"],
+      "confidence": "high"
+    },
+    "minNozzleDiameter": {
+      "value": 0.4, "unit": "mm",
+      "source": "src_flashforge_petgcf10_tds", "confidence": "medium",
+      "note": {
+        "de": "0,4 mm ist die Untergrenze, 0,6 mm laeuft prozesssicherer - Kurzfasern neigen an kleinen Duesen zu Verstopfern. Fuer XXL ohnehin groessere Duesen.",
+        "en": "0.4 mm is the lower limit, 0.6 mm runs more reliably - chopped fibres tend to clog small nozzles. Larger nozzles are used for XXL anyway."
+      }
+    },
+    "printSpeed": {
+      "value": 100, "min": 40, "max": 200, "unit": "mm/s",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium",
+      "note": {
+        "de": "Die Spanne spiegelt die Maschinenklasse: Bambu erlaubt bis 200 mm/s, Flashforge empfiehlt 50 mm/s. Nicht als Materialeigenschaft missverstehen.",
+        "en": "The range reflects machine class: Bambu allows up to 200 mm/s, Flashforge recommends 50 mm/s. Do not mistake this for a material property."
+      }
+    },
+    "coolingFanPct": {
+      "value": 100, "min": 50, "max": 100, "unit": "%",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium"
+    },
+    "stringingTendency": {
+      "value": 2, "scale": "stringingTendency",
+      "source": "src_prusament_petgcf_product", "confidence": "medium",
+      "note": {
+        "de": "Deutlich geringer als bei unverstaerktem PETG - einer der angenehmsten Nebeneffekte der Faserfuellung.",
+        "en": "Markedly lower than unfilled PETG - one of the most welcome side effects of the fibre filling."
+      }
+    },
+    "maxOverhangAngle": {
+      "value": 70, "unit": "°",
+      "source": "src_bambu_petgcf_tds_v2", "confidence": "medium"
+    },
+    "supportStrategy": {
+      "value": "same-material-breakaway",
+      "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+      "confidence": "medium"
+    },
+    "printability": {
+      "value": 4, "scale": "printability",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Aggregierte Bewertung: keine Kammer noetig, wenig Warping, wenig Stringing - dem stehen Trocknungspflicht und die zwingend gehaertete Duese gegenueber. Fuer einen technischen Werkstoff sehr gutmuetig.",
+        "en": "Aggregated rating: no chamber needed, little warping, little stringing - offset by mandatory drying and the compulsory hardened nozzle. Very well-behaved for a technical material."
+      }
+    },
+    "commonDefects": [
+      {
+        "symptom": { "de": "Rauhe, matt-blasige Oberflaeche und knackende Geraeusche am Hotend", "en": "Rough, blistered surface and popping noises at the hotend" },
+        "cause": { "de": "Feuchtes Filament", "en": "Damp filament" },
+        "remedy": { "de": "8 h bei 65 °C trocknen, waehrend des Drucks aus der Trockenbox foerdern, Lagerung unter 20 % rF", "en": "Dry 8 h at 65 °C, feed from a dry box while printing, store below 20 % RH" },
+        "source": "src_bambu_petgcf_tds_v2"
+      },
+      {
+        "symptom": { "de": "Duese foerdert zunehmend zu wenig Material, Extrusionsbreite waechst ueber die Standzeit", "en": "Nozzle progressively under-extrudes, extrusion width grows over service life" },
+        "cause": { "de": "Aufgeweitete Messingduese durch Faserabrasion", "en": "Brass nozzle widened by fibre abrasion" },
+        "remedy": { "de": "Gehaertete Stahl- oder Rubinduese verwenden und Standzeit protokollieren", "en": "Use a hardened steel or ruby nozzle and log its service life" },
+        "source": "src_prusament_petgcf_product"
+      },
+      {
+        "symptom": { "de": "Bauteil versagt sproede entlang einer Schichtebene, obwohl es steif wirkt", "en": "Part fails brittly along a layer plane although it feels stiff" },
+        "cause": { "de": "Schlagbelastung in Z-Richtung - die Schlagzaehigkeit betraegt dort nur rund ein Viertel des XY-Werts", "en": "Impact load in Z - impact strength there is only about a quarter of the XY value" },
+        "remedy": { "de": "Bauteil so orientieren, dass die Hauptlast in der XY-Ebene liegt; Innenecken ausrunden", "en": "Orient the part so the main load lies in the XY plane; add radii to internal corners" },
+        "source": "src_bambu_petgcf_tds_v2"
+      }
+    ]
+  },
+
+  "durability": {
+    "uvResistance": {
+      "value": 3, "scale": "uvResistance",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Zweischneidig: PETG selbst ist nur maessig UV-bestaendig, der hohe Russ-/Kohlenstoffanteil wirkt aber als wirksamer UV-Absorber. Belastbare Bewitterungsdaten fuer PETG-CF liegen uns nicht vor. Fuer dauerhafte Aussenanwendungen bleibt ASA die erste Wahl.",
+        "en": "Two-sided: PETG itself is only moderately UV resistant, but the high carbon content acts as an effective UV absorber. We have no reliable weathering data for PETG-CF. For permanent outdoor use ASA remains first choice."
+      }
+    },
+    "outdoorServiceLife": {
+      "value": 2, "min": 1, "max": 3, "unit": "a",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Grobe Hausnummer fuer mitteleuropaeische Bewitterung ohne Lackierung. Mit deckender, UV-stabiler Lackierung deutlich mehr. Nicht belegt - siehe oq_uv_data.",
+        "en": "Rough figure for Central European weathering without paint. Considerably more with an opaque, UV-stable coating. Unsubstantiated - see oq_uv_data."
+      }
+    },
+    "hydrolysisResistance": {
+      "value": 2, "scale": "hydrolysisResistance",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "PETG ist ein Polyester und damit grundsaetzlich hydrolyseempfindlich, vor allem bei Waerme und Dauerfeuchte. Fuer Dauerkontakt mit heissem Wasser oder Dampf ungeeignet.",
+        "en": "PETG is a polyester and therefore inherently sensitive to hydrolysis, especially with heat and permanent moisture. Unsuitable for continuous contact with hot water or steam."
+      }
+    },
+    "stressCrackingSensitivity": {
+      "value": 4, "scale": "stressCrackingSensitivity",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "PETG neigt unter mechanischer Vorspannung in Kontakt mit Alkoholen und Loesemitteln zu Spannungsrissen. Praxisfolge: Bauteile nicht mit IPA reinigen, solange sie unter Vorspannung stehen (z. B. verschraubt).",
+        "en": "Under mechanical pre-load and in contact with alcohols or solvents, PETG is prone to stress cracking. Practical consequence: do not clean parts with IPA while they are under pre-load (e.g. bolted)."
+      }
+    },
+    "yellowingTendency": {
+      "value": 1, "scale": "yellowingTendency",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Praktisch irrelevant, weil PETG-CF nahezu ausschliesslich in Schwarz angeboten wird.",
+        "en": "Practically irrelevant because PETG-CF is offered almost exclusively in black."
+      }
+    },
+    "waterAbsorption": {
+      "value": 0.8, "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C, 24 h Immersion (Herstellerangabe als Obergrenze)",
+      "source": "src_flashforge_petgcf10_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Nicht mit Bambus Angabe von 0,30 % verwechseln - die bezieht sich auf Saettigung bei 25 °C und 55 % rF, also eine voellig andere Bedingung. Beide Werte sind richtig und nicht vergleichbar.",
+        "en": "Not to be confused with Bambu's 0.30 % - that refers to saturation at 25 °C and 55 % RH, a completely different condition. Both values are correct and not comparable."
+      }
+    },
+    "chemicalResistance": [
+      { "chemicalId": "chem_water", "rating": "resistant", "conditions": "Raumtemperatur", "source": "src_bambu_petgcf_tds_v2", "confidence": "medium" },
+      { "chemicalId": "chem_mineral_oil", "rating": "resistant", "source": "src_bambu_petgcf_tds_v2", "confidence": "medium" },
+      { "chemicalId": "chem_grease", "rating": "resistant", "source": "src_bambu_petgcf_tds_v2", "confidence": "medium" },
+      { "chemicalId": "chem_hydraulic_oil", "rating": "resistant", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_dilute_acid", "rating": "limited", "source": ["src_bambu_petgcf_tds_v2", "estimate_reasoning"], "confidence": "low",
+        "note": { "de": "Bambu stuft pauschal als 'not resistant' ein, ohne Konzentration oder Saeure zu nennen. Fuer verduennte Mineralsaeuren bei Raumtemperatur ist PETG erfahrungsgemaess besser als diese Pauschalaussage. Konflikt ungeklaert - konservativ als 'bedingt' gefuehrt.", "en": "Bambu blanket-rates this 'not resistant' without naming concentration or acid. For dilute mineral acids at room temperature PETG typically performs better than that blanket statement. Conflict unresolved - conservatively rated 'limited'." } },
+      { "chemicalId": "chem_dilute_alkali", "rating": "not-resistant", "source": "src_bambu_petgcf_tds_v2", "confidence": "medium",
+        "note": { "de": "Polyester werden von Laugen verseift. Das ist die wichtigste chemische Schwaeche von PETG.", "en": "Polyesters are saponified by alkalis. This is PETG's most important chemical weakness." } },
+      { "chemicalId": "chem_coolant_mwf", "rating": "not-resistant", "source": "estimate_reasoning", "confidence": "estimated",
+        "note": { "de": "Praxisrelevante Warnung: wassermischbare Kuehlschmierstoffe sind alkalisch eingestellt (pH 9 und darueber) und greifen den Polyester ueber die Zeit an. PETG-CF ist damit trotz seiner Beliebtheit als Vorrichtungswerkstoff fuer KSS-Dauerkontakt die falsche Wahl - hier PA oder PP pruefen.", "en": "Practically relevant warning: water-miscible metalworking fluids are alkaline (pH 9 and above) and attack the polyester over time. Despite its popularity as a jig material, PETG-CF is therefore the wrong choice for permanent MWF contact - consider PA or PP instead." } },
+      { "chemicalId": "chem_acetone", "rating": "not-resistant", "source": ["src_bambu_petgcf_tds_v2", "estimate_reasoning"], "confidence": "medium" },
+      { "chemicalId": "chem_mek", "rating": "not-resistant", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_ipa", "rating": "limited", "source": "estimate_reasoning", "confidence": "estimated",
+        "note": { "de": "Kurzer Kontakt zum Reinigen ist unkritisch, unter Vorspannung drohen Spannungsrisse.", "en": "Brief contact for cleaning is uncritical; under pre-load stress cracking is a risk." } },
+      { "chemicalId": "chem_ethanol", "rating": "limited", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_petrol_diesel", "rating": "limited", "source": "estimate_reasoning", "confidence": "estimated",
+        "note": { "de": "Aliphaten unkritisch, der Aromatenanteil im Ottokraftstoff greift an.", "en": "Aliphatics uncritical; the aromatic fraction in petrol attacks the material." } },
+      { "chemicalId": "chem_surface_disinfectant", "rating": "limited", "source": "estimate_reasoning", "confidence": "estimated",
+        "note": { "de": "Alkoholbasierte Flaechendesinfektion wie IPA behandeln.", "en": "Treat alcohol-based surface disinfectants like IPA." } },
+      { "chemicalId": "chem_bleach", "rating": "unknown", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_hydrogen_peroxide", "rating": "unknown", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_brake_fluid", "rating": "unknown", "source": "estimate_reasoning", "confidence": "estimated" },
+      { "chemicalId": "chem_salt_water", "rating": "resistant", "source": "estimate_reasoning", "confidence": "estimated" }
+    ]
+  },
+
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+        "confidence": "high",
+        "note": {
+          "de": "Kein ausgewertetes Datenblatt erklaert Lebensmittelkonformitaet. Unverstaerktes PETG ist haeufig nach EU 10/2011 konform, der Kohlenstofffaser-Zusatz ist es in der Regel nicht.",
+          "en": "None of the evaluated datasheets declares food contact compliance. Unfilled PETG frequently complies with EU 10/2011; the carbon fibre additive usually does not."
+        }
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen. Materialfreigabe ersetzt keine Bauteilfreigabe.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned. Material approval does not replace part approval."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": ["src_bambu_petgcf_tds_v2", "src_flashforge_petgcf10_tds"],
+        "confidence": "medium",
+        "note": {
+          "de": "Bambu formuliert 'flammable and self-extinguishing in the air'. Das ist KEINE UL94-Einstufung und darf nicht als solche gelesen werden. Fuer Brandschutzanforderungen ist PETG-CF ohne Pruefzeugnis nicht einsetzbar.",
+          "en": "Bambu states 'flammable and self-extinguishing in the air'. That is NOT a UL94 classification and must not be read as one. Without a test certificate PETG-CF cannot be used where fire performance is required."
+        }
+      }
+    },
+    "esd": {
+      "classification": {
+        "value": "insulating",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Haeufiger und teurer Irrtum: 'Kohlenstofffaser' bedeutet NICHT 'leitfaehig'. Bei den ueblichen 5-20 % Kurzfaseranteil bildet sich kein durchgaengiges Leitfaehigkeitsnetzwerk; das Bauteil bleibt praktisch isolierend. Wer ESD braucht, benoetigt ein ausdruecklich als ESD deklariertes Compound mit angegebenem Oberflaechenwiderstand.",
+          "en": "A common and expensive misconception: 'carbon fibre' does not mean 'conductive'. At the usual 5-20 % chopped fibre loading no continuous percolation network forms; the part stays practically insulating. Anyone needing ESD requires a compound explicitly declared as ESD with a stated surface resistivity."
+        }
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "moderate",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "note": {
+        "de": "Beim Drucken selbst ist PETG vergleichsweise emissionsarm und styrolfrei. Das eigentliche Risiko entsteht in der Nachbearbeitung: Beim Schleifen und Fraesen faserhaltiger Bauteile entsteht kohlenstofffaserhaltiger Feinstaub. Absaugung und FFP2/FFP3 sind dort Pflicht, nicht Empfehlung.",
+        "en": "Printing itself is comparatively low-emission and styrene-free for PETG. The real risk arises in post-processing: sanding and milling fibre-filled parts generates carbon-fibre dust. Extraction and FFP2/FFP3 protection are mandatory there, not optional."
+      }
+    },
+    "translucency": {
+      "value": "opaque",
+      "source": ["src_bambu_petgcf_tds_v2", "src_prusament_petgcf_product"],
+      "confidence": "high"
+    }
+  },
+
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0, "unit": "%",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "PETG-CF wird nach unserem Kenntnisstand ausschliesslich erdoelbasiert angeboten. Kein Hersteller der ausgewerteten Quellen deklariert einen biobasierten Anteil.",
+        "en": "To our knowledge PETG-CF is offered exclusively petroleum-based. None of the evaluated manufacturers declares a bio-based content."
+      }
+    },
+    "practicalRecyclability": {
+      "value": "not-practical-fibre-filled",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Faserverstaerkte Compounds lassen sich weder sortenrein trennen noch sinnvoll regranulieren; die Faserlaenge bricht bei jedem Durchgang weiter ein. Realistisch ist thermische Verwertung.",
+        "en": "Fibre-filled compounds can neither be separated by type nor sensibly re-granulated; fibre length degrades with every cycle. Realistically this means energy recovery."
+      }
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning", "confidence": "estimated"
+    }
+  },
+
+  "finishing": {
+    "surfaceQuality": {
+      "value": 4, "scale": "surfaceQuality",
+      "source": ["src_bambu_petgcf_tds_v2", "src_prusament_petgcf_product"],
+      "confidence": "medium",
+      "note": {
+        "de": "Matte, leicht koernige Oberflaeche mit sehr gleichmaessigem Erscheinungsbild. Fuer Sichtteile ohne Lackierung eine der attraktivsten FDM-Optionen ueberhaupt.",
+        "en": "Matte, slightly grainy surface with a very even appearance. One of the most attractive FDM options for unpainted visible parts."
+      }
+    },
+    "layerLineVisibility": {
+      "value": 2, "scale": "layerLineVisibility",
+      "source": "src_prusament_petgcf_product", "confidence": "medium",
+      "note": {
+        "de": "Die matte Faserstruktur streut das Licht und kaschiert Schichtlinien deutlich besser als glaenzendes PETG.",
+        "en": "The matte fibre structure scatters light and hides layer lines far better than glossy PETG."
+      }
+    },
+    "sandability": {
+      "value": 3, "scale": "sandability",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Schleifbar, aber die freigelegten Fasern erzeugen eine pelzige Oberflaeche, die gefuellt werden muss. Nur mit Absaugung und Atemschutz schleifen.",
+        "en": "Sandable, but exposed fibres create a fuzzy surface that needs filling. Sand only with extraction and respiratory protection."
+      }
+    },
+    "fillability": {
+      "value": 4, "scale": "fillability",
+      "source": "estimate_reasoning", "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 2, "scale": "paintAdhesion",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Schwachstelle fuer die Veredelung: PETG hat eine niedrige Oberflaechenenergie, Lacke haften ohne Vorbehandlung schlecht. Ohne Anschleifen und Haftvermittler ist mit Abplatzern zu rechnen. Fuer lackierte Sichtteile ist PLA oder ABS die dankbarere Basis.",
+        "en": "A weak point for finishing: PETG has low surface energy and paints adhere poorly without pre-treatment. Without abrasion and an adhesion promoter, flaking is likely. For painted visible parts PLA or ABS is the more forgiving base."
+      }
+    },
+    "primerRecommendation": {
+      "de": "Mattschleifen (P320-P400), Entfetten mit Silikonentferner, anschliessend 2K-Epoxid- oder Kunststoffhaftprimer. Reine 1K-Acryllacke ohne Primer nicht verwenden.",
+      "en": "Matt sand (P320-P400), degrease with silicone remover, then apply a 2K epoxy or plastic adhesion primer. Do not use plain 1K acrylic paints without primer."
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning", "confidence": "estimated"
+      },
+      "note": {
+        "de": "Anders als ABS mit Aceton gibt es fuer PETG kein praxistaugliches Dampfglaettverfahren. Oberflaechenfinish laeuft ueber Schleifen, Spachteln und Lackieren.",
+        "en": "Unlike ABS with acetone, there is no practical vapour smoothing process for PETG. Surface finishing runs via sanding, filling and painting."
+      }
+    },
+    "bondability": {
+      "value": 4, "scale": "bondability",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Klebt sehr gut - wichtig fuer segmentierte Grossbauteile. Loesemittelschweissen funktioniert dagegen nicht zuverlaessig.",
+        "en": "Bonds very well - important for segmented large parts. Solvent welding, by contrast, does not work reliably."
+      }
+    },
+    "recommendedAdhesives": ["2K-Epoxid", "Cyanacrylat mit Aktivator", "MS-Polymer", "2K-PUR-Konstruktionsklebstoff"],
+    "heatSetInserts": {
+      "value": true,
+      "source": "estimate_reasoning", "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "limited-mostly-black",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Die Kohlenstofffaser faerbt das Compound schwarz. Andere Farben sind praktisch nicht erhaeltlich - wer Farbe braucht, muss lackieren (siehe paintAdhesion).",
+        "en": "The carbon fibre colours the compound black. Other colours are practically unavailable - if you need colour you must paint (see paintAdhesion)."
+      }
+    },
+    "gloss": {
+      "value": "matte",
+      "source": ["src_bambu_petgcf_tds_v2", "src_prusament_petgcf_product"],
+      "confidence": "high"
+    }
+  },
+
+  "commercial": {
+    "pricePerKg": {
+      "value": 38, "min": 25, "max": 60, "unit": "€/kg",
+      "conditions": "1-kg-Spule, Listenpreis Endkunde, Stand noch nicht erhoben",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "ACHTUNG: In dieser Phase noch keine Preiserhebung durchgefuehrt. Die Spanne ist eine Hausnummer und muss vor Veroeffentlichung durch eine echte Markterhebung ersetzt werden. Siehe oq_price_survey.",
+        "en": "NOTE: no price survey has been carried out at this stage. The range is a placeholder and must be replaced by a real market survey before publication. See oq_price_survey."
+      }
+    },
+    "priceIndex": {
+      "value": 3, "scale": "priceIndex",
+      "source": "estimate_reasoning", "confidence": "estimated"
+    },
+    "availability": {
+      "value": 4, "scale": "availability",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Von zahlreichen Marken gefuehrt (u. a. Bambu Lab, Prusa Polymers, Flashforge) und damit gut verfuegbar - allerdings fast nur in 1-kg-Spulen.",
+        "en": "Carried by numerous brands (including Bambu Lab, Prusa Polymers, Flashforge) and therefore readily available - although almost exclusively on 1 kg spools."
+      }
+    },
+    "spoolSizes": ["1 kg"],
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 1200, "min": 600, "max": 2400, "unit": "mm",
+        "source": "estimate_reasoning", "confidence": "estimated",
+        "note": {
+          "de": "Geschaetzt, NICHT durch eigene Fertigung belegt. Dafuer spricht: keine Kammer noetig, geringe Schwindung, gute Schichthaftung. Dagegen: nur 1-kg-Spulen (Spulenwechsel im Dauerlauf), hoher Materialpreis bei grossen Massen und die 68-°C-Grenze bei sonnenbeschienenen Bauteilen. Muss durch Werkstatterfahrung ersetzt werden - siehe oq_reents_xxl.",
+          "en": "Estimated, NOT backed by our own production. In favour: no chamber needed, low shrinkage, good layer adhesion. Against: 1 kg spools only (spool changes during long runs), high material cost at large masses, and the 68 °C limit for sun-exposed parts. Must be replaced by shop-floor experience - see oq_reents_xxl."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning", "confidence": "estimated"
+      },
+      "joiningRecommendation": {
+        "de": "Segmentieren und mit 2K-Epoxid fuegen; Klebefugen mit Nut-Feder oder eingelegten Passstiften formschluessig sichern, da die Klebefuge sonst zur Schwachstelle wird.",
+        "en": "Segment and join with 2K epoxy; secure the bond line with tongue-and-groove or inserted dowel pins, otherwise the joint becomes the weak point."
+      }
+    },
+    "smallSeriesSuitability": {
+      "value": 4, "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning", "confidence": "estimated"
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning", "confidence": "estimated",
+      "note": {
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Bewusst 'unknown' statt geraten - siehe oq_reents_portfolio. Dieses Feld geht per ADR-004 NICHT in das Scoring ein.",
+        "en": "Not yet reconciled with the Reents3D material inventory. Deliberately 'unknown' rather than guessed - see oq_reents_portfolio. Per ADR-004 this field does NOT enter scoring."
+      }
+    }
+  },
+
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstentwurf) - fachliche Freigabe durch Riko Reents ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_bambu_petgcf_tds_v2",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PETG-CF",
+        "title": "Bambu Filament Technical Data Sheet - PETG-CF",
+        "documentVersion": "V2.0",
+        "url": "https://www.additive-x.com/shop/media/mageplaza/product_attachments/attachment_file/b/a/bambu_petg-cf-technical_data_sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Einzige ausgewertete Quelle mit vollstaendigen X-Y- UND Z-Kennwerten. Abgerufen ueber einen Haendler-Spiegel; die offizielle Bambu-URL ist noch zu ergaenzen (oq_source_urls). Wichtig: Pruefkoerper wurden 8 h bei 65 °C vorbehandelt - die Werte liegen dadurch ueber dem, was ein normal gedrucktes Bauteil liefert.",
+          "en": "The only evaluated source with complete X-Y AND Z values. Retrieved via a distributor mirror; the official Bambu URL still needs adding (oq_source_urls). Important: specimens were pre-treated 8 h at 65 °C, so the values sit above what a normally printed part delivers."
+        }
+      },
+      {
+        "id": "src_flashforge_petgcf10_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Flashforge",
+        "productName": "PETGCF10 Filament",
+        "title": "PETGCF10 Filament Technical Data Sheet (EN)",
+        "documentVersion": "2022-01-17",
+        "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/PETG_CF_TDS_EN.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Deklariert den Faseranteil ausdruecklich mit 10 % und weist ausdruecklich darauf hin, dass die Pruefkoerper NICHT getempert wurden. Dadurch besonders wertvoll als ehrlicher Gegenpol zu Bambu.",
+          "en": "Explicitly declares 10 % fibre content and explicitly states that specimens were NOT annealed. This makes it especially valuable as an honest counterpoint to Bambu."
+        }
+      },
+      {
+        "id": "src_prusament_petgcf_product",
+        "type": "manufacturer-website",
+        "publisher": "Prusa Polymers",
+        "productName": "Prusament PETG Carbon Fiber",
+        "title": "Prusament PETG Carbon Fiber - Produkt- und Materialseite",
+        "url": "https://prusament.com/materials/prusament-petg-carbon-fiber/",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Produktseite ohne vollstaendige Kennwerttabelle. Liefert belastbare Aussagen zu Duesentemperatur (265 +/- 10 °C), Betttemperatur (90 +/- 10 °C), gehaerteter Duese, geringerer Zaehigkeit und geringerem Stringing.",
+          "en": "Product page without a full property table. Provides reliable statements on nozzle temperature (265 +/- 10 °C), bed temperature (90 +/- 10 °C), hardened nozzle, lower toughness and reduced stringing."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primaerquelle",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Sammel-ID fuer alle Werte, die aus Werkstoffkunde und Verfahrenswissen abgeleitet und NICHT belegt sind. In der UI zwingend als Schaetzung zu kennzeichnen.",
+          "en": "Collective ID for all values derived from materials science and process knowledge and NOT substantiated. Must be flagged as an estimate in the UI."
+        }
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_impact_conflict",
+        "question": {
+          "de": "Warum meldet Bambu 15,7 kJ/m² gekerbt (ISO 179), Flashforge aber nur 3-3,5 kJ/m² gekerbt (ISO 180)? Faktor 5 ist mit Faseranteil und Vorbehandlung allein nicht erklaerbar. Dritte Quelle noetig.",
+          "en": "Why does Bambu report 15.7 kJ/m² notched (ISO 179) while Flashforge reports only 3-3.5 kJ/m² notched (ISO 180)? A factor of 5 cannot be explained by fibre content and pre-treatment alone. A third source is needed."
+        },
+        "blocking": true,
+        "affectsFields": ["mechanics.charpyNotchedXy", "mechanics.izodNotchedXy", "mechanics.toughness"]
+      },
+      {
+        "id": "oq_tm_amorphous",
+        "question": {
+          "de": "Bambu gibt fuer das amorphe PETG-CF eine Schmelztemperatur von 225 °C an, die Kristallisationstemperatur aber mit 'N/A'. Handelt es sich um einen kristallisierbaren PET-Anteil im Compound oder um eine Datenblatt-Konvention?",
+          "en": "Bambu states a melting temperature of 225 °C for amorphous PETG-CF but gives crystallisation temperature as 'N/A'. Is there a crystallisable PET fraction in the compound, or is this a datasheet convention?"
+        },
+        "blocking": false,
+        "affectsFields": ["thermal.meltingTemperature"]
+      },
+      {
+        "id": "oq_annealing_below_tg",
+        "question": {
+          "de": "Bambu temperte die Pruefkoerper bei 65 °C, also unterhalb Tg (68 °C). Ist der Festigkeitsvorsprung gegenueber Flashforge auf Trocknung, hoeheren Faseranteil oder die Pruefkoerpergeometrie zurueckzufuehren?",
+          "en": "Bambu annealed specimens at 65 °C, i.e. below Tg (68 °C). Is the strength advantage over Flashforge due to drying, higher fibre content or specimen geometry?"
+        },
+        "blocking": false,
+        "affectsFields": ["mechanics.tensileStrengthXy", "thermal.annealing"]
+      },
+      {
+        "id": "oq_uv_data",
+        "question": {
+          "de": "Existieren Bewitterungsdaten (QUV, Xenon) fuer PETG-CF? Die UV-Bewertung beruht derzeit vollstaendig auf einer Ableitung.",
+          "en": "Do weathering data (QUV, xenon) exist for PETG-CF? The UV rating currently rests entirely on inference."
+        },
+        "blocking": false,
+        "affectsFields": ["durability.uvResistance", "durability.outdoorServiceLife"]
+      },
+      {
+        "id": "oq_price_survey",
+        "question": {
+          "de": "Preiserhebung ueber mindestens fuenf Anbieter durchfuehren und pricePerKg ersetzen.",
+          "en": "Carry out a price survey across at least five suppliers and replace pricePerKg."
+        },
+        "blocking": true,
+        "affectsFields": ["commercial.pricePerKg", "commercial.priceIndex"]
+      },
+      {
+        "id": "oq_reents_xxl",
+        "question": {
+          "de": "RUECKFRAGE AN RIKO: Wurde PETG-CF bei Reents3D schon in Grossformat gefahren? Bis zu welcher Kantenlaenge prozesssicher, und wie wurde die 1-kg-Spulenproblematik im Dauerlauf geloest?",
+          "en": "QUESTION FOR RIKO: Has PETG-CF already been run at large format at Reents3D? Up to what edge length reliably, and how was the 1 kg spool issue handled in long runs?"
+        },
+        "blocking": true,
+        "affectsFields": ["commercial.xxl.maxSensibleEdgeMm"],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_reents_portfolio",
+        "question": {
+          "de": "RUECKFRAGE AN RIKO: Portfolio-Status von PETG-CF bei Reents3D - standard, auf Anfrage, Partnerfertigung oder nicht im Portfolio?",
+          "en": "QUESTION FOR RIKO: portfolio status of PETG-CF at Reents3D - standard, on request, partner production or not in portfolio?"
+        },
+        "blocking": true,
+        "affectsFields": ["commercial.reentsPortfolioStatus"],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_source_urls",
+        "question": {
+          "de": "Offizielle Bambu-Lab-URL fuer das PETG-CF-Datenblatt ergaenzen und auf die aktuelle Dokumentversion pruefen (vorliegend V2.0, es existiert mindestens eine V3.0).",
+          "en": "Add the official Bambu Lab URL for the PETG-CF datasheet and check for the current document version (V2.0 on hand, at least a V3.0 exists)."
+        },
+        "blocking": false,
+        "affectsFields": ["governance.sources"]
+      },
+      {
+        "id": "oq_esd_measurement",
+        "question": {
+          "de": "Oberflaechenwiderstand von PETG-CF messen, um die Einstufung 'insulating' zu belegen. Der Irrtum 'Kohlenstofffaser = leitfaehig' ist verbreitet genug, um eine echte Messung zu rechtfertigen.",
+          "en": "Measure the surface resistivity of PETG-CF to substantiate the 'insulating' classification. The 'carbon fibre = conductive' misconception is widespread enough to justify a real measurement."
+        },
+        "blocking": false,
+        "affectsFields": ["compliance.esd.classification", "compliance.esd.surfaceResistivity"]
+      }
+    ]
+  }
+}

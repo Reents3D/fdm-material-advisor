@@ -1,0 +1,12 @@
+name: Datenkorrektur
+description: Ein Wert in der Datenbank ist falsch oder veraltet
+labels: [data, correction]
+body:
+  - type: input
+    id: material
+    attributes: { label: Material und Feld, placeholder: "petg-cf / thermal.hdtB" }
+    validations: { required: true }
+  - type: textarea
+    id: correction
+    attributes: { label: Korrekter Wert und Quelle }
+    validations: { required: true }

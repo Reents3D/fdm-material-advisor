@@ -1,0 +1,770 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "pc",
+  "identity": {
+    "name": "PC",
+    "family": "PC",
+    "polymerClass": "amorphous",
+    "variant": [
+      "basic"
+    ],
+    "aliases": [
+      "Polycarbonat",
+      "Polycarbonate",
+      "Makrolon-Typ"
+    ],
+    "trademarkNotice": {
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
+    },
+    "abstract": {
+      "de": "PC ist der Temperaturwerkstoff unter den gängigen FDM-Materialien: rund 115 °C formbeständig, hohe Festigkeit und mit 0,90 die beste Schichthaftung im ganzen Feld. Grenzen: Es braucht eine beheizte Kammer, muss zwingend getrocknet werden, ist kerbempfindlich und wird von Laugen und vielen Lösemitteln angegriffen.",
+      "en": "PC is the temperature material among common FDM materials: dimensionally stable to around 115 °C, high strength and, at 0.90, the best layer adhesion in the entire field. Limits: it needs a heated chamber, must be dried, is notch sensitive and is attacked by alkalis and many solvents."
+    },
+    "positioning": {
+      "de": "Wenn es heiss wird und tragen muss - und eine Kammer verfügbar ist.",
+      "en": "When it gets hot and has to carry load - and a chamber is available."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 56,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2110,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 40,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileModulusZ": {
+      "value": 1450,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 60,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.8,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 0.3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "note": {
+        "de": "Die Bruchdehnung von nur 3,8 % überrascht bei einem Werkstoff, der als zäh gilt. Gedrucktes PC verhält sich deutlich spröder als spritzgegossenes - ein Beispiel dafür, dass Werkstoff-Ruf und FDM-Realität auseinandergehen.",
+        "en": "The elongation at break of only 3.8 % is surprising for a material considered tough. Printed PC behaves markedly more brittle than injection-moulded PC - an example of a material's reputation diverging from FDM reality."
+      }
+    },
+    "elongationAtBreakZ": {
+      "value": 2.1,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 0.4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "flexuralStrengthXy": {
+      "value": 108,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralStrengthZ": {
+      "value": 55,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z"
+    },
+    "flexuralModulusXy": {
+      "value": 2310,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 70,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusZ": {
+      "value": 1620,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 80,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z"
+    },
+    "charpyUnnotchedXy": {
+      "value": 34.8,
+      "unit": "kJ/m²",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 2.1,
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY"
+    },
+    "charpyNotchedXy": {
+      "value": 7.5,
+      "unit": "kJ/m²",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 1.3,
+      "testStandard": "ISO 179 / GB/T 1043 (gekerbt)",
+      "orientation": "XY"
+    },
+    "charpyUnnotchedZ": {
+      "value": 9,
+      "unit": "kJ/m²",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 0.4,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.9,
+      "unit": "-",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 0.84,
+      "max": 0.97,
+      "orientation": "Z",
+      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 90 % der Zugfestigkeit erhalten (56 von 62 MPa).",
+        "en": "Perpendicular to the layers 90 % of the tensile strength remains (56 of 62 MPa)."
+      }
+    },
+    "anisotropyFactorImpact": {
+      "value": 0.26,
+      "unit": "-",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "orientation": "Z",
+      "derivedFrom": [
+        "mechanics.charpyUnnotchedZ",
+        "mechanics.charpyUnnotchedXy"
+      ],
+      "note": {
+        "de": "Die Schlagzähigkeit bricht in Z stärker ein als die Zugfestigkeit - schlagbelastete Bauteile müssen orientiert werden.",
+        "en": "Impact strength collapses more in Z than tensile strength - impact-loaded parts must be oriented."
+      }
+    },
+    "toughness": {
+      "value": 3,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "creepTendency": {
+      "value": 2,
+      "scale": "creepTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 5,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 117,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "low",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "note": {
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+      }
+    },
+    "hdtB": {
+      "value": 112,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "low",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "note": {
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+      }
+    },
+    "vicatB50": {
+      "value": 119,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "low",
+      "testStandard": "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)"
+    },
+    "glassTransition": {
+      "value": 145,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "DSC, 10 °C/min"
+    },
+    "meltingTemperature": {
+      "value": 228,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "low",
+      "testStandard": "DSC, 10 °C/min",
+      "note": {
+        "de": "Physikalisch fragwürdig: Der Werkstoff ist amorph und hat keinen echten Schmelzpunkt. Dokumentiert, aber nicht für Bewertungen verwendet.",
+        "en": "Physically questionable: the material is amorphous and has no true melting point. Documented but not used for scoring."
+      }
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 135,
+      "unit": "°C",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "min": 125,
+      "max": 140,
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
+        "en": "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."
+      }
+    },
+    "annealing": {
+      "possible": {
+        "value": true,
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      "temperature": {
+        "value": 80,
+        "unit": "°C",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      "duration": {
+        "value": 12,
+        "unit": "h",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      "note": {
+        "de": "Prüfkörper wurden vor der Prüfung getempert und getrocknet; die Datenblattwerte gelten daher für den getemperten Zustand.",
+        "en": "Specimens were annealed and dried before testing; the datasheet values therefore apply to the annealed condition."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 260,
+      "max": 280
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 90,
+      "max": 110
+    },
+    "chamberTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 45,
+      "max": 60
+    },
+    "chamberRequirement": {
+      "value": "mandatory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für grosse Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
+        "en": "The datasheet states 45-60 °C chamber temperature. Small parts may work without; on large parts a missing heated chamber leads to delamination. Classified as mandatory for XXL use."
+      }
+    },
+    "dryingTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "dryingTime": {
+      "value": 8,
+      "unit": "h",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "maxResidualHumidity": {
+      "value": 20,
+      "unit": "%RH",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "conditions": "Lagerung und Druck, versiegelt mit Trockenmittel"
+    },
+    "printSpeed": {
+      "value": 300,
+      "unit": "mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "max": 300,
+      "note": {
+        "de": "Maschinenabhängige Obergrenze aus dem Datenblatt, keine Materialeigenschaft.",
+        "en": "Machine-dependent upper limit from the datasheet, not a material property."
+      }
+    },
+    "maxOverhangAngle": {
+      "value": 70,
+      "unit": "°",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "printability": {
+      "value": 2,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 4,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 5,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "stringingTendency": {
+      "value": 3,
+      "scale": "stringingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerAdhesion": {
+      "value": 5,
+      "scale": "layerAdhesion",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Bewertung abgeleitet aus dem gemessenen Anisotropiefaktor.",
+        "en": "Rating derived from the measured anisotropy factor."
+      }
+    }
+  },
+  "durability": {
+    "waterAbsorption": {
+      "value": 0.25,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "conditions": "Sättigung bei 25 °C und 55 % rF"
+    },
+    "uvResistance": {
+      "value": 2,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 2,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hydrolysisResistance": {
+      "value": 2,
+      "scale": "hydrolysisResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "yellowingTendency": {
+      "value": 4,
+      "scale": "yellowingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "stressCrackingSensitivity": {
+      "value": 5,
+      "scale": "stressCrackingSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_dilute_acid",
+        "rating": "not-resistant",
+        "source": "src_bambu_tds",
+        "confidence": "low",
+        "conditions": "Datenblatt nennt weder Säure noch Konzentration"
+      },
+      {
+        "chemicalId": "chem_dilute_alkali",
+        "rating": "not-resistant",
+        "source": "src_bambu_tds",
+        "confidence": "low",
+        "conditions": "Datenblatt nennt weder Lauge noch Konzentration"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      {
+        "chemicalId": "chem_grease",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "conditions": "Raumtemperatur"
+      },
+      {
+        "chemicalId": "chem_acetone",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_ipa",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_coolant_mwf",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Wassermischbare Kühlschmierstoffe sind alkalisch (pH 9+) und verseifen Polyester und Polycarbonat über die Zeit.",
+          "en": "Water-miscible metalworking fluids are alkaline (pH 9+) and saponify polyesters and polycarbonate over time."
+        }
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "note": {
+          "de": "Das Datenblatt erklärt keine Lebensmittelkonformität.",
+          "en": "The datasheet declares no food contact compliance."
+        }
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "note": {
+          "de": "Das Datenblatt formuliert 'flammable and self-extinguishing in the air'. Das ist KEINE UL94-Einstufung.",
+          "en": "The datasheet states 'flammable and self-extinguishing in the air'. That is NOT a UL94 classification."
+        }
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "low",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "translucent",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    }
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "practicalRecyclability": {
+      "value": "possible-in-theory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerLineVisibility": {
+      "value": 3,
+      "scale": "layerLineVisibility",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "sandability": {
+      "value": 3,
+      "scale": "sandability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "fillability": {
+      "value": 3,
+      "scale": "fillability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 3,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 4,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "recommendedAdhesives": [
+      "2K-Epoxid",
+      "Cyanacrylat",
+      "PUR-Konstruktionsklebstoff"
+    ],
+    "gloss": {
+      "value": "semi-gloss",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "limited",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "heatSetInserts": {
+      "value": true,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 4,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 4,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 3,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 400,
+        "unit": "mm",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "min": 200,
+        "max": 600,
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung - nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
+          "en": "Estimated from chamber requirement, warping tendency and layer adhesion - not backed by our own production. To be replaced by Reents3D shop-floor experience."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
+        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_bambu_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PC",
+        "title": "Bambu Filament Technical Data Sheet - PC",
+        "documentVersion": "V2.0",
+        "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/a52afdccddfd448583d119587122c8c5.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_reents_portfolio",
+        "question": {
+          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von PC bei Reents3D?",
+          "en": "QUESTION FOR RIKO: portfolio status of PC at Reents3D?"
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.reentsPortfolioStatus"
+        ],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_reents_xxl",
+        "question": {
+          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde PC bei Reents3D prozesssicher gefahren?",
+          "en": "QUESTION FOR RIKO: up to what edge length has PC been run reliably at Reents3D?"
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.xxl.maxSensibleEdgeMm"
+        ],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_price_survey",
+        "question": {
+          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
+          "en": "Carry out a price survey across at least five suppliers."
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.priceIndex"
+        ]
+      },
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
+          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      },
+      {
+        "id": "oq_hdt_inverted",
+        "question": {
+          "de": "Bambu meldet HDT bei 1,8 MPa höher als bei 0,45 MPa. Beim Hersteller klären oder durch eine zweite Quelle ersetzen.",
+          "en": "Bambu reports HDT at 1.8 MPa higher than at 0.45 MPa. Clarify with the manufacturer or replace with a second source."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "thermal.hdtA",
+          "thermal.hdtB"
+        ]
+      }
+    ]
+  }
+}

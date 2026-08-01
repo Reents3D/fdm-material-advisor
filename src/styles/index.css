@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Reents3D brand tokens. Changing the palette is one edit here + src/config/site.ts. */
+@theme {
+  --color-ink: #1D1D1B;
+  --color-brand-50:  #eef5f9;
+  --color-brand-100: #d6e8f2;
+  --color-brand-200: #b5d7e9;
+  --color-brand-300: #95C6E5;
+  --color-brand-400: #5e9dc4;
+  --color-brand-500: #3b7ba3;
+  --color-brand-600: #2a5f80;
+  --color-brand-700: #204B63;
+  --color-brand-800: #17384a;
+  --color-brand-900: #102838;
+
+  /* Rating palette kept deliberately OUT of the brand blues: an amber/blue mix is
+     unreadable as a judgement scale. */
+  --color-good: #1a7f4b;
+  --color-ok:   #b06f00;
+  --color-bad:  #b3261e;
+
+  --font-sans: "Inter var", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  :root { color-scheme: light dark; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-white text-ink antialiased;
+    font-family: var(--font-sans);
+  }
+  @media (prefers-color-scheme: dark) {
+    body { @apply bg-[#141414] text-neutral-100; }
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-400);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .surface { @apply bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg; }
+  .muted   { @apply text-neutral-600 dark:text-neutral-400; }
+  .hl      { @apply text-brand-700 dark:text-brand-300; }
+
+  /* Estimated values must be visually distinct — non-negotiable per ADR-003. */
+  .estimated {
+    @apply border border-dashed border-amber-500/70 rounded px-1 -mx-1;
+  }
+}
+
+/* Decision documents get printed for project files. Make that not look broken. */
+@media print {
+  @page { margin: 14mm; }
+  body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
+  .no-print { display: none !important; }
+  .print-break { break-inside: avoid; page-break-inside: avoid; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+  .surface { border: 1px solid #bbb !important; background: #fff !important; }
+}

@@ -1,0 +1,30 @@
+# Lizenz der Materialdatenbank
+
+Die Inhalte der Verzeichnisse `data/` und `schema/` stehen unter
+
+    Creative Commons Namensnennung 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/deed.de
+
+Copyright (c) 2026 Reents Technologies GmbH
+
+## Was das bedeutet
+
+Sie duerfen die Datenbank teilen, bearbeiten und auch kommerziell nutzen -
+solange Sie die Herkunft nennen.
+
+Angemessene Namensnennung, zum Beispiel:
+
+    Materialdaten: FDM-Materialberater (Reents Technologies GmbH),
+    CC BY 4.0, https://github.com/Reents3D/fdm-material-advisor
+
+## Wichtige Abgrenzung
+
+Die Lizenz bezieht sich auf die KURATIERTE ZUSAMMENSTELLUNG - Auswahl, Struktur,
+Einordnung, Konfidenzbewertung und die selbst formulierten Beschreibungstexte.
+
+Die einzelnen Messwerte sind nicht schutzfaehige Fakten und stammen aus den in
+jedem Datensatz genannten Quellen. Datenblatt-Texte, Grafiken und Tabellenlayouts
+Dritter wurden NICHT uebernommen. Marken- und Handelsnamen gehoeren ihren
+jeweiligen Inhabern - siehe DISCLAIMER.md.
+
+Begruendung der Lizenztrennung: DECISIONS.md, ADR-002.

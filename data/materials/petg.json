@@ -1,0 +1,701 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "petg",
+  "identity": {
+    "name": "PETG",
+    "family": "PETG",
+    "polymerClass": "amorphous",
+    "variant": [
+      "basic"
+    ],
+    "aliases": [
+      "PET-G",
+      "Glykol-modifiziertes PET",
+      "Copolyester"
+    ],
+    "trademarkNotice": {
+      "de": "Genannte Handels- und Markennamen sind Marken der jeweiligen Inhaber und dienen ausschliesslich der Quellenangabe.",
+      "en": "Trade and brand names mentioned are trademarks of their respective owners and serve source attribution only."
+    },
+    "abstract": {
+      "de": "PETG ist der pragmatische Allrounder zwischen PLA und ABS: fester und zäher als PLA, deutlich einfacher zu drucken als ABS und ohne beheizte Kammer verarbeitbar. Grenzen: Die Wärmeformbestandigkeit endet bei rund 70 °C, Laugen greifen es an, und die Lackhaftung ist schwach.",
+      "en": "PETG is the pragmatic all-rounder between PLA and ABS: stronger and tougher than PLA, considerably easier to print than ABS and processable without a heated chamber. Limits: heat resistance ends around 70 °C, alkalis attack it, and paint adhesion is weak."
+    },
+    "positioning": {
+      "de": "Der vernünftige Standard für Funktionsteile, wenn weder Temperatur noch Lackierung im Lastenheft stehen.",
+      "en": "The sensible default for functional parts when neither temperature nor painting is in the specification."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 51,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 35,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2780,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 65,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileModulusZ": {
+      "value": 2550,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 100,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "elongationAtBreakXy": {
+      "value": 9.5,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "elongationAtBreakZ": {
+      "value": 5.2,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 1.4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "flexuralStrengthXy": {
+      "value": 75,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 3,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralStrengthZ": {
+      "value": 56,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z"
+    },
+    "flexuralModulusXy": {
+      "value": 1950,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 50,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusZ": {
+      "value": 1740,
+      "unit": "MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 40,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z"
+    },
+    "charpyUnnotchedXy": {
+      "value": 34.2,
+      "unit": "kJ/m²",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 4.1,
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY"
+    },
+    "charpyUnnotchedZ": {
+      "value": 10.5,
+      "unit": "kJ/m²",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "tolerance": 1.8,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.69,
+      "unit": "-",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 0.56,
+      "max": 0.82,
+      "orientation": "Z",
+      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 69 % der Zugfestigkeit erhalten (35 von 51 MPa).",
+        "en": "Perpendicular to the layers 69 % of the tensile strength remains (35 of 51 MPa)."
+      }
+    },
+    "anisotropyFactorImpact": {
+      "value": 0.31,
+      "unit": "-",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "orientation": "Z",
+      "derivedFrom": [
+        "mechanics.charpyUnnotchedZ",
+        "mechanics.charpyUnnotchedXy"
+      ],
+      "note": {
+        "de": "Die Schlagzähigkeit bricht in Z stärker ein als die Zugfestigkeit - schlagbelastete Bauteile müssen orientiert werden.",
+        "en": "Impact strength collapses more in Z than tensile strength - impact-loaded parts must be oriented."
+      }
+    },
+    "toughness": {
+      "value": 4,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "creepTendency": {
+      "value": 3,
+      "scale": "creepTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 2,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 68,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 1.8 MPa"
+    },
+    "hdtB": {
+      "value": 71,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 0.45 MPa"
+    },
+    "glassTransition": {
+      "value": 69,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "testStandard": "DSC, 10 °C/min"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "min": 45,
+      "max": 60,
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "note": {
+        "de": "Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
+        "en": "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 245,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 230,
+      "max": 260
+    },
+    "bedTemperature": {
+      "value": 70,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 65,
+      "max": 75
+    },
+    "chamberTemperature": {
+      "value": 43,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "min": 35,
+      "max": 50
+    },
+    "chamberRequirement": {
+      "value": "not-required",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Grossformatanlagen.",
+        "en": "No heated chamber required - a decisive advantage on open large-format machines."
+      }
+    },
+    "dryingTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "dryingTime": {
+      "value": 8,
+      "unit": "h",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "maxResidualHumidity": {
+      "value": 20,
+      "unit": "%RH",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "conditions": "Lagerung und Druck, versiegelt mit Trockenmittel"
+    },
+    "printSpeed": {
+      "value": 200,
+      "unit": "mm/s",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "max": 200,
+      "note": {
+        "de": "Maschinenabhängige Obergrenze aus dem Datenblatt, keine Materialeigenschaft.",
+        "en": "Machine-dependent upper limit from the datasheet, not a material property."
+      }
+    },
+    "maxOverhangAngle": {
+      "value": 70,
+      "unit": "°",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "printability": {
+      "value": 4,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 2,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 4,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "stringingTendency": {
+      "value": 4,
+      "scale": "stringingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerAdhesion": {
+      "value": 4,
+      "scale": "layerAdhesion",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Bewertung abgeleitet aus dem gemessenen Anisotropiefaktor.",
+        "en": "Rating derived from the measured anisotropy factor."
+      }
+    }
+  },
+  "durability": {
+    "waterAbsorption": {
+      "value": 0.45,
+      "unit": "%",
+      "source": "src_bambu_tds",
+      "confidence": "medium",
+      "conditions": "Sättigung bei 25 °C und 55 % rF"
+    },
+    "uvResistance": {
+      "value": 3,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 3,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hydrolysisResistance": {
+      "value": 2,
+      "scale": "hydrolysisResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "stressCrackingSensitivity": {
+      "value": 4,
+      "scale": "stressCrackingSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "gasBarrier": {
+      "value": 4,
+      "scale": "gasBarrier",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_dilute_acid",
+        "rating": "not-resistant",
+        "source": "src_bambu_tds",
+        "confidence": "low",
+        "conditions": "Datenblatt nennt weder Säure noch Konzentration"
+      },
+      {
+        "chemicalId": "chem_dilute_alkali",
+        "rating": "not-resistant",
+        "source": "src_bambu_tds",
+        "confidence": "low",
+        "conditions": "Datenblatt nennt weder Lauge noch Konzentration"
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      {
+        "chemicalId": "chem_grease",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium"
+      },
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "conditions": "Raumtemperatur"
+      },
+      {
+        "chemicalId": "chem_acetone",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_ipa",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      {
+        "chemicalId": "chem_coolant_mwf",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Wassermischbare Kühlschmierstoffe sind alkalisch (pH 9+) und verseifen Polyester und Polycarbonat über die Zeit.",
+          "en": "Water-miscible metalworking fluids are alkaline (pH 9+) and saponify polyesters and polycarbonate over time."
+        }
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "note": {
+          "de": "Das Datenblatt erklärt keine Lebensmittelkonformität.",
+          "en": "The datasheet declares no food contact compliance."
+        }
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "src_bambu_tds",
+        "confidence": "medium",
+        "note": {
+          "de": "Das Datenblatt nennt den Werkstoff schlicht 'flammable'. Keine Brandschutzeinstufung vorhanden.",
+          "en": "The datasheet simply calls the material 'flammable'. No fire classification available."
+        }
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "low",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "extractionRecommended": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "translucency": {
+      "value": "opaque",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    }
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "practicalRecyclability": {
+      "value": "possible-in-theory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerLineVisibility": {
+      "value": 4,
+      "scale": "layerLineVisibility",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "sandability": {
+      "value": 2,
+      "scale": "sandability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "fillability": {
+      "value": 3,
+      "scale": "fillability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 2,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 4,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "primerRecommendation": {
+      "de": "Mattschleifen (P320-P400), entfetten, dann 2K-Epoxid- oder Kunststoffhaftprimer. Ohne Haftvermittler platzt der Lack.",
+      "en": "Matt sand (P320-P400), degrease, then 2K epoxy or plastic adhesion primer. Without an adhesion promoter the paint flakes."
+    },
+    "recommendedAdhesives": [
+      "2K-Epoxid",
+      "Cyanacrylat mit Aktivator",
+      "MS-Polymer",
+      "2K-PUR"
+    ],
+    "gloss": {
+      "value": "glossy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "very-wide",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalSmoothing": {
+      "suitable": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "heatSetInserts": {
+      "value": true,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 2,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 5,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 4,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 1500,
+        "unit": "mm",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "min": 750,
+        "max": 2250,
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung - nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
+          "en": "Estimated from chamber requirement, warping tendency and layer adhesion - not backed by our own production. To be replaced by Reents3D shop-floor experience."
+        }
+      },
+      "segmentationRecommended": {
+        "value": false,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
+        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "reviewCycleMonths": 12,
+    "dataCompleteness": null,
+    "sources": [
+      {
+        "id": "src_bambu_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PETG Basic",
+        "title": "Bambu Filament Technical Data Sheet - PETG",
+        "documentVersion": "V3.0",
+        "url": "https://store.bblcdn.com/s1/default/cb94589bf7994fdcbfa833badefae9cd/Bambu_PETG_Basic_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq_reents_portfolio",
+        "question": {
+          "de": "RÜCKFRAGE AN RIKO: Portfolio-Status von PETG bei Reents3D?",
+          "en": "QUESTION FOR RIKO: portfolio status of PETG at Reents3D?"
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.reentsPortfolioStatus"
+        ],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_reents_xxl",
+        "question": {
+          "de": "RÜCKFRAGE AN RIKO: Bis zu welcher Kantenlänge wurde PETG bei Reents3D prozesssicher gefahren?",
+          "en": "QUESTION FOR RIKO: up to what edge length has PETG been run reliably at Reents3D?"
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.xxl.maxSensibleEdgeMm"
+        ],
+        "assignee": "Riko Reents"
+      },
+      {
+        "id": "oq_price_survey",
+        "question": {
+          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
+          "en": "Carry out a price survey across at least five suppliers."
+        },
+        "blocking": true,
+        "affectsFields": [
+          "commercial.priceIndex"
+        ]
+      },
+      {
+        "id": "oq_second_source",
+        "question": {
+          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
+          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal"
+        ]
+      }
+    ]
+  }
+}

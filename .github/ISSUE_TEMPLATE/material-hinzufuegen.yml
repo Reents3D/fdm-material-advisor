@@ -1,0 +1,33 @@
+name: Material hinzufügen
+description: Einen neuen Werkstoff in die Datenbank aufnehmen
+labels: [data, material]
+body:
+  - type: input
+    id: name
+    attributes: { label: Material, placeholder: "z. B. PA12-CF" }
+    validations: { required: true }
+  - type: textarea
+    id: sources
+    attributes:
+      label: Quellen
+      description: >
+        Links auf Herstellerdatenblätter mit Abrufdatum. Ohne Quelle können wir den
+        Datensatz nicht aufnehmen - siehe DECISIONS.md ADR-003.
+      placeholder: "https://... (abgerufen 2026-08-01)"
+    validations: { required: true }
+  - type: textarea
+    id: values
+    attributes:
+      label: Kennwerte
+      description: >
+        Bitte mit Prüfnorm und - falls vorhanden - getrennt nach X-Y und Z.
+        Vermerken Sie, ob die Prüfkörper getempert wurden.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Bestätigung
+      options:
+        - label: Die Werte stammen aus einer belegbaren Quelle, nicht aus dem Gedächtnis.
+          required: true
+        - label: Ich habe keine Datenblatt-Texte oder Grafiken kopiert, nur Messwerte.
+          required: true
