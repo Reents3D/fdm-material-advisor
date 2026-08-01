@@ -52,7 +52,7 @@ export function Explorer({ t, lang, params, navigate }: {
     [xa, ya],
   );
 
-  const W = 720, H = 440, P = { l: 62, r: 20, t: 16, b: 48 };
+  const W = 760, H = 440, P = { l: 74, r: 24, t: 18, b: 50 };
   const scale = (vals: number[], a: Axis) => {
     let lo = Math.min(...vals), hi = Math.max(...vals);
     if (a.log) { lo = Math.max(lo, 0.01); hi = Math.max(hi, lo * 1.1); }
@@ -103,19 +103,23 @@ export function Explorer({ t, lang, params, navigate }: {
           <text x={(W + P.l) / 2} y={H - 6} textAnchor="middle" className="fill-neutral-600 dark:fill-neutral-400 text-[12px]">
             {xa.label[lang === "de" ? 0 : 1]} {xa.unit && `[${xa.unit}]`}
           </text>
-          <text x={-((H - P.b + P.t) / 2)} y={14} transform="rotate(-90)" textAnchor="middle"
+          <text x={-(P.t + (H - P.b - P.t) / 2)} y={15} transform="rotate(-90)" textAnchor="middle"
             className="fill-neutral-600 dark:fill-neutral-400 text-[12px]">
             {ya.label[lang === "de" ? 0 : 1]} {ya.unit && `[${ya.unit}]`}
           </text>
 
           {points.map(({ m, x, y }) => {
             const active = hover === m.id;
+            // Roughly 6.2 px per character at 11 px; flip the label inward near the edge
+            // so long names like "PET-CF" are not clipped by the viewBox.
+            const flip = px(x) + 12 + m.identity.name.length * 6.2 > W - 2;
             return (
               <g key={m.id} onMouseEnter={() => setHover(m.id)} onMouseLeave={() => setHover(null)}
                 onClick={() => navigate(`material/${m.id}`)} style={{ cursor: "pointer" }}>
                 <circle cx={px(x)} cy={py(y)} r={active ? 9 : 6} fill={colourOf(m.identity.family)}
                   fillOpacity={active ? 1 : 0.75} stroke="#fff" strokeWidth="1.5" />
-                <text x={px(x) + 11} y={py(y) + 4} className={cx("text-[11px]", active ? "fill-neutral-900 dark:fill-neutral-100 font-semibold" : "fill-neutral-600 dark:fill-neutral-400")}>
+                <text x={px(x) + (flip ? -11 : 11)} y={py(y) + 4} textAnchor={flip ? "end" : "start"}
+                  className={cx("text-[11px]", active ? "fill-neutral-900 dark:fill-neutral-100 font-semibold" : "fill-neutral-600 dark:fill-neutral-400")}>
                   {m.identity.name}
                 </text>
               </g>
