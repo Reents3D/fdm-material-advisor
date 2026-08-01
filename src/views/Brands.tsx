@@ -11,7 +11,7 @@
 import { useState } from "react";
 import { PRODUCTS, productsByMaterial, type Product } from "../data/products";
 import { byId } from "../data/materials";
-import { Card, Chip, cx, fmt, text } from "../components/ui";
+import { Chip, Disclosure, cx, fmt, text } from "../components/ui";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -76,16 +76,21 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
           : "The same material designation does not mean the same thing across brands. What matters is what was measured."}
       </p>
 
-      <Card className="mb-6 border-ok/50 bg-ok/5">
-        <h2 className="font-display font-bold text-[15px] mb-2">
-          {lang === "de" ? "Warum hier nicht einfach sortiert wird" : "Why this is not simply sorted"}
-        </h2>
-        <p className="text-sm leading-relaxed max-w-3xl">
+      {/* Kern in einem Satz sichtbar, die Herleitung dahinter aufklappbar. */}
+      <Disclosure className="mb-6" tone="info"
+        summary={
+          <span>
+            {lang === "de"
+              ? "Warum hier nicht einfach sortiert wird — gedruckt erreicht bei der Bruchdehnung nur ein Achtel des Rohstoffwerts"
+              : "Why this is not simply sorted — printed reaches only an eighth of the raw-material elongation"}
+          </span>
+        }>
+        <p className="leading-relaxed max-w-3xl">
           {lang === "de"
-            ? "Dieselbe Zeile bedeutet bei zwei Herstellern nicht dasselbe. Bambu Lab und Prusa Polymers messen an gedruckten Prüfkörpern, Extrudr sagt gar nicht, woran gemessen wurde. In einer gemeinsamen Rangliste wären diese Zahlen irreführend — deshalb stehen sie hier getrennt."
-            : "The same row does not mean the same thing for two manufacturers. Bambu Lab and Prusa Polymers measure on printed specimens; Extrudr does not state what was measured at all. In a shared ranking these figures would mislead — hence the separation."}
+            ? "Dieselbe Zeile bedeutet bei zwei Herstellern nicht dasselbe. Bambu Lab und Prusa Polymers messen an gedruckten Prüfkörpern, Extrudr und 3DJAKE sagen gar nicht, woran gemessen wurde. In einer gemeinsamen Rangliste wären diese Zahlen irreführend — deshalb stehen sie hier getrennt."
+            : "The same row does not mean the same thing for two manufacturers. Bambu Lab and Prusa Polymers measure on printed specimens; Extrudr and 3DJAKE do not state what was measured at all. In a shared ranking these figures would mislead — hence the separation."}
         </p>
-        <p className="text-sm leading-relaxed max-w-3xl mt-3">
+        <p className="leading-relaxed max-w-3xl mt-3">
           {lang === "de"
             ? "Die Angabe allein reicht allerdings nicht. AzureFilm deklariert gedruckte Prüfkörper und nennt als einziger Hersteller die vollständigen Druckparameter — und genau dadurch wird sichtbar, dass PLA, PLA Silk und ASA mit nur 20 % Infill geprüft wurden. Ein Kennwert aus einem halb gefüllten Prüfkörper beschreibt eine Geometrie, keinen Werkstoff. Deshalb steht die Prüfbedingung hier an jedem einzelnen Wert und nicht nur in einer Fussnote."
             : "The declaration alone is not enough. AzureFilm declares printed specimens and is the only manufacturer to state the full print parameters — which is precisely what reveals that PLA, PLA Silk and ASA were tested at only 20 % infill. A value from a half-filled specimen describes a geometry, not a material. That is why the test condition appears here on every single value, not just in a footnote."}
@@ -94,7 +99,7 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
         {/* Der beste Beleg fuer die These dieses Werkzeugs stammt von einem Rohstoffhersteller
             selbst: ein Datenblatt, das beide Spalten nebeneinander stellt. */}
         <div className="mt-4 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
-          <p className="text-sm leading-relaxed max-w-3xl">
+          <p className="leading-relaxed max-w-3xl">
             {lang === "de"
               ? "Wie gross der Unterschied ist, beziffert ein Rohstoffhersteller selbst. Shenzhen Zhinengpai stellt in einem PLA-Datenblatt beide Spalten nebeneinander — dasselbe Material, einmal gedruckt (210 °C, 0,4 mm Düse, 2 Perimeter, 100 % Infill), einmal spritzgegossen:"
               : "How large the difference is has been quantified by a raw-material producer itself. Shenzhen Zhinengpai places both columns side by side in one PLA datasheet — the same material, once printed (210 °C, 0.4 mm nozzle, 2 perimeters, 100 % infill), once injection moulded:"}
@@ -136,7 +141,7 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
             </a>
           </p>
         </div>
-      </Card>
+      </Disclosure>
 
       <div className="flex flex-wrap gap-1.5 mb-5 no-print">
         {materialIds.map((id) => (
@@ -167,6 +172,19 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
 
 function Group({ title, products, lang }: { title: string; products: Product[]; lang: Lang }) {
   const rows = ROWS.filter(([key]) => products.some((p) => p.properties[key]));
+
+  /* Die Prüfbedingung gehört einmal in den Spaltenkopf, nicht unter jeden Wert — sonst
+     steht dieselbe Zeile achtmal untereinander und erschlägt die Zahlen. Unter einem Wert
+     erscheint sie nur noch, wenn sie von der Spaltenvorgabe ABWEICHT. */
+  const dominant = new Map<string, string>();
+  for (const p of products) {
+    const counts = new Map<string, number>();
+    for (const v of Object.values(p.properties)) {
+      if (v?.conditions) counts.set(v.conditions, (counts.get(v.conditions) ?? 0) + 1);
+    }
+    const top = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+    if (top && top[1] > 1) dominant.set(p.id, top[0]);
+  }
   return (
     <section className="mb-8 print-break">
       <p className="eyebrow mb-2">{title}</p>
@@ -183,6 +201,11 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
                   <span className="inline-block mt-1.5">
                     <Chip tone={SPECIMEN[p.specimenType].tone}>{SPECIMEN[p.specimenType][lang]}</Chip>
                   </span>
+                  {dominant.get(p.id) && (
+                    <span className="block text-[11px] font-normal text-warn mt-1 max-w-[13rem] leading-snug">
+                      {dominant.get(p.id)}
+                    </span>
+                  )}
                 </th>
               ))}
             </tr>
@@ -208,9 +231,8 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
                             <span className="muted text-xs"> ({fmt(v.min)}–{fmt(v.max)})</span>
                           )}
                           {v.testStandard && <span className="block text-[11px] muted mt-0.5">{v.testStandard}</span>}
-                          {/* Die Prüfbedingung entscheidet über die Vergleichbarkeit — sie gehört an den
-                              Wert und nicht in eine Fussnote. AzureFilms 20-%-Infill wäre sonst unsichtbar. */}
-                          {v.conditions && (
+                          {/* Nur abweichende Bedingungen — die Spaltenvorgabe steht im Kopf. */}
+                          {v.conditions && v.conditions !== dominant.get(p.id) && (
                             <span className="block text-[11px] mt-0.5 text-warn dark:text-warn">{v.conditions}</span>
                           )}
                         </>
@@ -252,17 +274,32 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
         </table>
       </div>
 
-      {products.filter((p) => p.specimenNote).map((p) => (
-        <p key={p.id} className="text-xs muted mt-3 leading-relaxed max-w-4xl">
-          <strong className="text-ink dark:text-[#E8EDF2]">{p.brand} {p.productName}:</strong>{" "}
-          {text(p.specimenNote, lang)}
-        </p>
-      ))}
-      {products.filter((p) => p.features).map((p) => (
-        <p key={`f-${p.id}`} className="text-xs muted mt-2 leading-relaxed max-w-4xl">
-          <strong className="text-ink dark:text-[#E8EDF2]">{p.brand}:</strong> {text(p.features, lang)}
-        </p>
-      ))}
+      {/* Hinweise je Produkt. Zugeklappt, damit die Tabelle die Seite bestimmt — aber die
+          Existenz eines Befunds steht in der Zusammenfassung und ist farblich markiert. */}
+      <div className="mt-4 space-y-2 max-w-4xl">
+        {products.map((p) => {
+          const note = p.specimenNote ? text(p.specimenNote, lang) : "";
+          const feat = p.features ? text(p.features, lang) : "";
+          if (!note && !feat) return null;
+          const isFinding = /Befund zu diesem Datenblatt|Finding on this datasheet/.test(note);
+          return (
+            <Disclosure key={p.id} tone={isFinding ? "warn" : "neutral"}
+              summary={
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <span className="font-semibold">{p.productName}</span>
+                  {isFinding
+                    ? <Chip tone="bad">{lang === "de" ? "Datenblatt-Befund" : "datasheet finding"}</Chip>
+                    : <span className="muted font-normal text-xs">
+                        {lang === "de" ? "Hinweise zum Datenblatt" : "notes on the datasheet"}
+                      </span>}
+                </span>
+              }>
+              {note && <p className="leading-relaxed whitespace-pre-line">{note}</p>}
+              {feat && <p className="leading-relaxed mt-2.5 muted">{feat}</p>}
+            </Disclosure>
+          );
+        })}
+      </div>
     </section>
   );
 }

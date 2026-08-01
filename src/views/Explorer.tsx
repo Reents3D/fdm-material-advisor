@@ -17,7 +17,7 @@
 import { useMemo } from "react";
 import { MATERIALS } from "../data/materials";
 import type { Material } from "../engine/types";
-import { Card, Chip, cx, fmt } from "../components/ui";
+import { Card, Chip, Disclosure, cx, fmt } from "../components/ui";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -350,14 +350,14 @@ export function Explorer({ t, lang, params, navigate }: {
 
       {/* Wer fehlt — namentlich, nicht als Zahl. */}
       {missing.length > 0 && (
-        <Card className="mt-3">
-          <h2 className="font-display font-bold text-[14px] mb-1.5">
-            {de ? `Nicht dargestellt: ${missing.length} Werkstoffe` : `Not shown: ${missing.length} materials`}
-          </h2>
+        <Disclosure className="mt-3"
+          summary={de
+            ? `Nicht dargestellt: ${missing.length} Werkstoffe ohne belegten Wert auf einer Achse`
+            : `Not shown: ${missing.length} materials without a sourced value on one axis`}>
           <p className="text-xs muted mb-2.5 max-w-3xl leading-relaxed">
             {de
-              ? "Diesen Werkstoffen fehlt auf mindestens einer Achse ein belegter Wert. Sie werden nicht mit null angenommen und nicht weggelassen, ohne es zu sagen — eine Lücke in der Datenlage ist keine Eigenschaft des Werkstoffs."
-              : "These materials lack a sourced value on at least one axis. They are neither assumed to be zero nor quietly dropped — a gap in the data is not a property of the material."}
+              ? "Diese Werkstoffe werden nicht mit null angenommen und nicht weggelassen, ohne es zu sagen — eine Lücke in der Datenlage ist keine Eigenschaft des Werkstoffs."
+              : "These materials are neither assumed to be zero nor quietly dropped — a gap in the data is not a property of the material."}
           </p>
           <div className="flex flex-wrap gap-1.5">
             {missing.map(({ m, axes }) => (
@@ -368,7 +368,7 @@ export function Explorer({ t, lang, params, navigate }: {
               </button>
             ))}
           </div>
-        </Card>
+        </Disclosure>
       )}
 
       {/* Angeheftete Werkstoffe */}

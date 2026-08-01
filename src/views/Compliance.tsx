@@ -11,7 +11,7 @@
 
 import { MATERIALS } from "../data/materials";
 import type { Choice, Flag, I18nText, Material, Quantity } from "../engine/types";
-import { Card, Chip, cx, text } from "../components/ui";
+import { Card, Chip, Disclosure, cx, text } from "../components/ui";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -102,14 +102,16 @@ export function Compliance({ lang, navigate }: { t: T; lang: Lang; navigate: (p:
               ? `Von ${rows.length} Werkstoffen tragen genau ${classified} eine UL94-Einstufung: ${rows.filter((r) => r.ul94 && r.ul94 !== "not-classified").map((r) => `${r.m.identity.name} (${r.ul94})`).join(", ")}. Alle übrigen sind ungeprüft — nicht wegen lückenhafter Erfassung, sondern weil Standard-Filamente schlicht nicht geprüft werden. Eine Zertifizierung kostet Geld und lohnt sich nur bei Industriecompounds.`
               : `Of ${rows.length} materials, exactly ${classified} carry a UL94 rating: ${rows.filter((r) => r.ul94 && r.ul94 !== "not-classified").map((r) => `${r.m.identity.name} (${r.ul94})`).join(", ")}. All others are untested — not through gaps in our data collection, but because standard filaments simply are not tested. Certification costs money and only pays off for industrial compounds.`)}
         </p>
-        <p className="text-sm leading-relaxed max-w-3xl">
-          <strong>
-            {de ? "Achtung bei Herstellerformulierungen. " : "Beware of manufacturer wording. "}
-          </strong>
-          {de
-            ? "Aussagen wie „flammable and self-extinguishing in the air“ (so bei Bambu PC und PETG-CF) klingen nach Brandschutz, sind aber KEINE Einstufung nach UL94. Wer V-0 braucht, braucht ein Prüfzeugnis eines ausdrücklich flammgeschützten Compounds — etwa PC-FR, ABS-FR, PEI oder Bahnqualitäten nach EN 45545."
-            : "Statements like “flammable and self-extinguishing in the air” (as with Bambu PC and PETG-CF) sound like fire performance but are NOT a UL94 classification. If you need V-0 you need a test certificate for an explicitly flame-retardant compound — for example PC-FR, ABS-FR, PEI or rail grades to EN 45545."}
-        </p>
+        <Disclosure tone="warn" className="mt-3 bg-canvas/40 dark:bg-transparent"
+          summary={de
+            ? "Achtung bei Herstellerformulierungen — was nach Brandschutz klingt, ist meist keiner"
+            : "Beware of manufacturer wording — what sounds like fire performance usually is not"}>
+          <p className="leading-relaxed max-w-3xl">
+            {de
+              ? "Aussagen wie „flammable and self-extinguishing in the air“ (so bei Bambu PC und PETG-CF) klingen nach Brandschutz, sind aber KEINE Einstufung nach UL94. Wer V-0 braucht, braucht ein Prüfzeugnis eines ausdrücklich flammgeschützten Compounds — etwa PC-FR, ABS-FR, PEI oder Bahnqualitäten nach EN 45545."
+              : "Statements like “flammable and self-extinguishing in the air” (as with Bambu PC and PETG-CF) sound like fire performance but are NOT a UL94 classification. If you need V-0 you need a test certificate for an explicitly flame-retardant compound — for example PC-FR, ABS-FR, PEI or rail grades to EN 45545."}
+          </p>
+        </Disclosure>
       </Card>
 
       <div className="overflow-x-auto overscroll-x-contain surface p-0 mb-6">

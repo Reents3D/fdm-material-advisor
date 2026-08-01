@@ -102,6 +102,43 @@ export function Card({ children, className }: { children: ReactNode; className?:
   return <div className={cx("surface p-5 print-break", className)}>{children}</div>;
 }
 
+/**
+ * Aufklappbarer Hinweis.
+ *
+ * Auf nativem <details> statt eigenem State: funktioniert ohne JavaScript, ist per
+ * Tastatur bedienbar, wird von Screenreadern als aufklappbar angesagt und findet sich
+ * in der Seitensuche des Browsers auch im zugeklappten Zustand.
+ *
+ * Regel fuer den Einsatz: Der BEFUND gehoert in die Zusammenfassung und bleibt sichtbar,
+ * nur die BEGRUENDUNG klappt weg. Eine Warnung, die man erst aufklappen muss, um sie
+ * ueberhaupt zu bemerken, ist keine Warnung.
+ */
+export function Disclosure({
+  summary, children, tone = "neutral", defaultOpen = false, className,
+}: {
+  summary: ReactNode; children: ReactNode;
+  tone?: "neutral" | "warn" | "info"; defaultOpen?: boolean; className?: string;
+}) {
+  const tones = {
+    neutral: "border-hairline dark:border-[#1E2B3D] hover:border-petrol-400",
+    warn: "border-warn/40 bg-warn/5 hover:border-warn/70",
+    info: "border-ok/40 bg-ok/5 hover:border-ok/70",
+  }[tone];
+  return (
+    <details className={cx("group rounded-xl border transition-colors", tones, className)} open={defaultOpen}>
+      <summary className="cursor-pointer list-none px-3.5 py-2.5 flex items-start gap-2.5 text-sm font-medium select-none">
+        <svg viewBox="0 0 24 24" aria-hidden="true"
+          className="w-4 h-4 mt-0.5 shrink-0 transition-transform group-open:rotate-90 muted"
+          fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <span className="min-w-0">{summary}</span>
+      </summary>
+      <div className="px-3.5 pb-3.5 pt-0.5 pl-[2.6rem] text-sm leading-relaxed">{children}</div>
+    </details>
+  );
+}
+
 export function Button({
   children, onClick, variant = "primary", disabled, type = "button", className, ariaLabel,
 }: {
