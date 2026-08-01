@@ -242,7 +242,7 @@ Marken Dritter gehören ihren Inhabern und werden nur zur Quellenangabe genannt.
 **Reents Technologies GmbH** — Marke **Reents3D**
 Lehmweg 95-97, 25488 Holm bei Hamburg · [reents3d.de](https://reents3d.de)
 
-Über 50 Anlagen · Bauteile bis 2,4 m am Stück · FDM, SLA, SLS · Veredelung inhouse ·
+Über 50 Maschinen & Anlagen · Bauteile bis 2,4 m am Stück · FDM, SLA, SLS · Veredelung inhouse ·
 NDA-fähig, Daten auf lokalem Server
 
 [Impressum](https://reents3d.de/impressum/) · [Datenschutz](https://reents3d.de/datenschutz/)

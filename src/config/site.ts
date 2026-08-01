@@ -58,8 +58,9 @@ export const SITE = {
 
   /** Verifiable facts only. No superlatives — credibility is the marketing. */
   facts: {
-    machines: "über 50 Anlagen",
+    machines: "über 50 Maschinen & Anlagen",
     maxPart: "Bauraum bis 1.800 × 2.400 × 1.800 mm",
+    /* Nur auf der Startseite. Im Footer bewusst nicht - dort geht es um Grossformat. */
     processes: "FDM, SLA, SLS",
     finishing: "Veredelung inhouse",
     location: "Holm bei Hamburg",
@@ -71,6 +72,8 @@ export const SITE = {
 
 /** Append UTM parameters so the tool's commercial effect is actually measurable. */
 export function trackedUrl(url: string): string {
-  const sep = url.includes("?") ? "&" : "?";
-  return `${url}${sep}${SITE.utm}`;
+  // Ohne Pfad haengt die Query sonst direkt an der Domain: "reents3d.de?utm=..."
+  const withPath = /^https?:\/\/[^/?#]+$/.test(url) ? `${url}/` : url;
+  const sep = withPath.includes("?") ? "&" : "?";
+  return `${withPath}${sep}${SITE.utm}`;
 }

@@ -119,24 +119,9 @@ export function Footer({ t, lang }: { t: T; lang: Lang }) {
             {lang === "de" ? "Fertigung" : "Production"}
           </h2>
           <ul className="space-y-1.5 opacity-90">
-            {[F.machines, F.maxPart, F.processes, F.finishing, F.location, F.confidentiality].map((f) => (
+            {[F.machines, F.maxPart, F.finishing, F.location, F.confidentiality].map((f) => (
               <li key={f} className="flex gap-2">
                 <span aria-hidden="true" className="text-petrol-300">·</span>{f}
-              </li>
-            ))}
-          </ul>
-          <ul className="mt-4 space-y-1.5">
-            {([
-              [SITE.urls.xxl, lang === "de" ? "XXL-3D-Druck" : "XXL 3D printing"],
-              [SITE.urls.cad, lang === "de" ? "CAD-Konstruktion" : "CAD engineering"],
-              [SITE.urls.fdm, lang === "de" ? "FDM-Druckservice" : "FDM printing service"],
-              [SITE.urls.primary, "reents3d.de"],
-            ] as const).map(([href, label]) => (
-              <li key={label}>
-                <a href={trackedUrl(href)} target="_blank" rel="noopener"
-                  className="font-semibold text-petrol-300 hover:text-white">
-                  {label} →
-                </a>
               </li>
             ))}
           </ul>
@@ -166,6 +151,24 @@ export function Footer({ t, lang }: { t: T; lang: Lang }) {
               : "Code MIT · Data CC BY 4.0. No tracking, no cookies, no external resources. Third-party trademarks belong to their owners."}
           </p>
         </div>
+      </div>
+
+      {/* Leistungen in einer Reihe, direkt vor den Credits. */}
+      <div className="border-t border-white/10">
+        <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-wrap gap-x-7 gap-y-2 text-sm"
+          aria-label={lang === "de" ? "Leistungen" : "Services"}>
+          {([
+            [SITE.urls.xxl, lang === "de" ? "XXL-3D-Druck" : "XXL 3D printing"],
+            [SITE.urls.cad, lang === "de" ? "CAD-Konstruktion" : "CAD engineering"],
+            [SITE.urls.fdm, lang === "de" ? "FDM-Druckservice" : "FDM printing service"],
+            [SITE.urls.primary, "reents3d.de"],
+          ] as const).map(([href, label]) => (
+            <a key={label} href={trackedUrl(href)} target="_blank" rel="noopener"
+              className="font-semibold text-petrol-300 hover:text-white transition-colors">
+              {label} →
+            </a>
+          ))}
+        </nav>
       </div>
 
       <div className="border-t border-white/10">
