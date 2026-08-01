@@ -5,6 +5,10 @@ täglich fahren. Werkstatterfahrung ist in dieser Datenbank die knappste Ressour
 
 ## Setup
 
+Node 24 (oder mindestens 23.6) — der CSV-Export lädt die TypeScript-Bausteine
+ohne Buildschritt, damit veröffentlichte und heruntergeladene Tabelle aus
+derselben Quelle stammen.
+
 ```bash
 git clone https://github.com/Reents3D/fdm-material-advisor.git
 cd fdm-material-advisor && npm install

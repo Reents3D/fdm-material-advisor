@@ -23,8 +23,27 @@
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { tableToCsv, toCsv } from "../src/lib/csv.ts";
-import { overviewColumns, valueRows, productRows } from "../src/lib/exports.ts";
+
+/**
+ * Node laedt die TypeScript-Dateien hier ohne Buildschritt (Type Stripping, ab 23.6 ohne
+ * Flag). Auf aelteren Versionen bricht der Import mit ERR_UNKNOWN_FILE_EXTENSION ab -
+ * einer Meldung, aus der niemand die Ursache liest. Deshalb erst pruefen, dann dynamisch
+ * importieren: statische Importe werden vor dem Modulrumpf aufgeloest, ein Hinweis
+ * danach kaeme zu spaet.
+ */
+const [MAJOR, MINOR] = process.versions.node.split(".").map(Number);
+if (MAJOR < 23 || (MAJOR === 23 && MINOR < 6)) {
+  console.error(
+    `Node ${process.versions.node} ist zu alt fuer dieses Skript.\n` +
+    "Es laedt src/lib/csv.ts und src/lib/exports.ts direkt, damit die veroeffentlichte\n" +
+    "und die im Browser heruntergeladene Tabelle aus derselben Quelle stammen. Dafuer\n" +
+    "braucht es Node 23.6 oder neuer (empfohlen: 24 LTS).",
+  );
+  process.exit(1);
+}
+
+const { tableToCsv, toCsv } = await import("../src/lib/csv.ts");
+const { overviewColumns, valueRows, productRows } = await import("../src/lib/exports.ts");
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "dist", "daten");

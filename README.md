@@ -155,6 +155,10 @@ Feldreferenz: **[DATA_MODEL.md](DATA_MODEL.md)** · Quellenpolitik: **[SOURCES.m
 Korrekturen sind ausdrücklich willkommen — besonders von Leuten, die die Werkstoffe
 täglich fahren.
 
+Node 24 (oder mindestens 23.6) — der CSV-Export lädt die TypeScript-Bausteine
+ohne Buildschritt, damit veröffentlichte und heruntergeladene Tabelle aus
+derselben Quelle stammen.
+
 ```bash
 git clone https://github.com/Reents3D/fdm-material-advisor.git
 cd fdm-material-advisor && npm install
