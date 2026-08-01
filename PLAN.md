@@ -1,6 +1,6 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-01 · **Phasen 0–3 abgeschlossen, live** · Phase 4 (Datenausbau) offen
+**Stand:** 2026-08-01 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
 **Nächster Schritt:** Rückfragen in Abschnitt 5 klären, dann Datenausbau
 
@@ -14,7 +14,8 @@
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
 | **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ○ offen — der eigentliche Rest der Arbeit |
+| **4 — Datenausbau** | ◑ begonnen: Herstellerprodukte mit TDS-Download (6 Produkte, 3 Marken). Offen: Sunlu, mehr Extrudr/AzureFilm, Use Cases, Preise |
+| **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby und Print stehen. Offen: PWA, CSV-Export, JSON-LD, Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates stehen. Offen: Screenshots, Lighthouse, Domain |
 
@@ -142,6 +143,20 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 
 ### Phase 4 — Datenausbau
 
+**Herstellerebene** (`data/products/`, neu)
+
+- [x] Schema + Import-Generator + Ansicht „Hersteller vergleichen"
+- [x] Pflichtfeld `specimenType` — trennt gedruckte Prüfkörper von Rohstoffkennwerten
+- [x] Datenblatt-Download je Produkt mit Version und Abrufdatum
+- [x] Prusament PLA / PETG / ASA (gedruckt), AzureFilm PLA / PETG (Rohstoff), Extrudr PLA NX2
+- [ ] **Sunlu** — Datenblätter noch nicht erschlossen
+- [ ] Extrudr: PETG, GreenTEC, ASA-Serie
+- [ ] AzureFilm: ASA (URL lieferte 403), PCTG, ABS
+- [ ] Prusament: PC Blend, PVB, PA11-CF, PLA Blend
+- [ ] Bambu-Datensätze als Produkte spiegeln, damit alle Marken gleich behandelt werden
+
+**Werkstoffebene**
+
 - [ ] Tier 1 vervollständigen (~30 Materialien)
 - [ ] Tier 2 (~25 technisch/industriell)
 - [ ] Tier 3 als Kategorien mit Hinweis (Metall-/Keramik-gefüllt, Endlosfaser)
@@ -252,21 +267,18 @@ aber alle Design-Token so kapseln, dass ein Wechsel eine Datei kostet.
 
 ### Blockierend für die Datenqualität
 
-**2 · Portfolio-Status**
-Welche Materialien fährt Reents3D tatsächlich — `standard`, `auf Anfrage`,
-`Partnerfertigung`, `nicht im Portfolio`? Ideal wäre eine Liste aus dem Materiallager.
-Konkret für PETG-CF offen (`oq_reents_portfolio`).
-→ *Arbeitsannahme:* alle Felder bleiben `unknown`; das Badge wird erst angezeigt, wenn
-gepflegt. Beeinflusst das Ranking ohnehin nicht (ADR-004).
+**2 · Portfolio-Status** — zurückgestellt (Entscheidung Riko).
+Wird derzeit **nicht angezeigt**. Geplant ist stattdessen eine eigene Seite
+„Fertigung bei Reents3D": welches Material auf welchem Bauraum gefertigt werden kann.
+Getrennt von der Materialbewertung, damit die Unabhängigkeit sichtbar bleibt.
 
-**3 · XXL-Realität**
-Das ist der Punkt, an dem eure Werkstatt Daten hat, die es öffentlich nirgends gibt —
-und damit der wertvollste Beitrag zum ganzen Tool:
+**3 · XXL-Realität** — teilweise beantwortet.
+Bauräume sind jetzt hinterlegt: **1.800 × 2.400 × 1.800 mm** und **1.200 × 1.200 × 2.200 mm**.
+Offen bleibt die materialabhängige Grenze — der Bauraum ist die Maschine, nicht der Werkstoff:
 - Welche Materialien wurden bis zu welcher Kantenlänge prozesssicher gefahren?
-- PLA bis 2,4 m ist gesetzt. Was ist mit PETG, PETG-CF, ASA, PC?
 - Wie löst ihr im Dauerlauf die Spulenlogistik (PETG-CF gibt es fast nur auf 1-kg-Spulen)?
 - Bei welchen Materialien segmentiert ihr ab welcher Größe, und womit fügt ihr?
-→ *Arbeitsannahme:* `maxSensibleEdgeMm` bleibt `estimated` mit weiter Spanne.
+→ *Arbeitsannahme:* `maxSensibleEdgeMm` bleibt `estimated`, gedeckelt auf 2.400 mm.
 
 **7 · Veredelung**
 Ähnlich wertvoll und ebenfalls nirgends dokumentiert: Erfahrungswerte zu Lackhaftung,
