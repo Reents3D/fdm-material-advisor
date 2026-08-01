@@ -38,25 +38,15 @@ export function Header({ lang, onLang, t, view }: {
               className="h-9 w-auto dark:brightness-0 dark:invert" width={200} height={36} />
           </a>
 
-          <nav className="ml-auto hidden 2xl:flex items-center gap-1 text-sm" aria-label="Hauptnavigation">
-            {NAV.map((n) => (
-              <a key={n.path} href={`#/${n.path}`}
-                className={cx(
-                  "px-3 py-2 rounded-lg transition-colors font-medium",
-                  view === n.match
-                    ? "text-petrol-700 dark:text-petrol-300 bg-petrol-50 dark:bg-white/5"
-                    : "hover:bg-petrol-50 dark:hover:bg-white/5",
-                )}>
-                {t(n.key)}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3 ml-auto 2xl:ml-0">
-            <div className="flex items-center rounded-lg overflow-hidden border border-hairline dark:border-[#1E2B3D]">
+          <div className="flex items-center gap-3 ml-auto">
+            {/* shrink-0: Diese Box wurde vom Flex-Container von 67 auf 49 px
+                zusammengedrueckt, sobald es in der Kopfzeile eng wurde - und weil sie
+                overflow-hidden traegt, blieb vom "EN" nur das "E" stehen. Eine Sprachwahl
+                aus zwei Kuerzeln ist zu klein, um sie schrumpfen zu lassen. */}
+            <div className="flex shrink-0 items-center rounded-lg overflow-hidden border border-hairline dark:border-[#1E2B3D]">
               {LANGS.map((l) => (
                 <button key={l} onClick={() => onLang(l)} aria-pressed={lang === l}
-                  className={cx("px-2 py-1 text-xs font-semibold uppercase transition-colors",
+                  className={cx("shrink-0 px-2 py-1 text-xs font-semibold uppercase transition-colors",
                     lang === l
                       ? "bg-petrol-700 text-white dark:bg-petrol-300 dark:text-ink"
                       : "hover:bg-petrol-50 dark:hover:bg-white/5")}>
@@ -75,11 +65,14 @@ export function Header({ lang, onLang, t, view }: {
           </div>
         </div>
 
-        {/* Zweite Zeile fuer die Navigation. Ab acht Eintraegen passt sie neben Logo,
-            Sprachwahl und CTA erst ab 1536 px in eine Zeile - darunter lief die Kopfzeile
-            horizontal ueber. Die zweite Zeile scrollt und bleibt vollstaendig erreichbar. */}
-        <nav className="2xl:hidden border-t border-hairline dark:border-[#1E2B3D] overflow-x-auto"
-          aria-label="Hauptnavigation mobil">
+        {/* Die Navigation steht IMMER in einer eigenen Zeile.
+            Gemessen: die acht Eintraege brauchen ohne Umbruch 1128 px, die Kopfzeile ist
+            auf 1152 px begrenzt (max-w-6xl wie der uebrige Inhalt). Neben Logo, Sprachwahl
+            und CTA passt das in keiner Fensterbreite - der frueher ab 1536 px eingeblendete
+            einzeilige Zweig brach deshalb JEDEN Eintrag auf zwei Zeilen um. Eine eigene
+            Zeile, die scrollt, ist ehrlicher und bei jeder Breite dieselbe. */}
+        <nav className="border-t border-hairline dark:border-[#1E2B3D] overflow-x-auto"
+          aria-label="Hauptnavigation">
           <div className="flex gap-1 px-4 py-2 text-sm min-w-max">
             {NAV.map((n) => (
               <a key={n.path} href={`#/${n.path}`}
