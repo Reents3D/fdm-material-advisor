@@ -11,15 +11,15 @@ import { Card, Chip, ConfidenceMark, RatingBar, Section, Value, cx, text } from 
 import type { Lang } from "../i18n";
 import type { AppState } from "../App";
 
+import { chemicalById } from "../data/chemicals";
+
 type T = (k: string, p?: Record<string, string | number>) => string;
 
-const CHEM_LABEL: Record<string, string> = {
-  chem_water: "Wasser", chem_salt_water: "Salzwasser", chem_mineral_oil: "Mineralöl",
-  chem_grease: "Fett", chem_hydraulic_oil: "Hydrauliköl", chem_coolant_mwf: "Kühlschmierstoff",
-  chem_dilute_acid: "verd. Säure", chem_dilute_alkali: "verd. Lauge", chem_acetone: "Aceton",
-  chem_mek: "MEK", chem_ipa: "IPA", chem_ethanol: "Ethanol", chem_petrol_diesel: "Benzin/Diesel",
-  chem_bleach: "Bleichmittel", chem_hydrogen_peroxide: "H₂O₂", chem_brake_fluid: "Bremsflüssigkeit",
-  chem_surface_disinfectant: "Flächendesinfektion",
+/* Bezeichnung, Beispiele und Wirkung kommen aus dem Medienregister — vorher stand die
+   Liste hier ein zweites Mal und war nur deutsch. */
+const chemLabel = (id: string, lang: Lang) => {
+  const c = chemicalById(id);
+  return c ? text(c.name, lang) : id;
 };
 
 const isQ = (v: unknown): v is Quantity => !!v && typeof v === "object" && "unit" in (v as object);
@@ -232,7 +232,9 @@ function ChemicalMatrix({ m, lang, t }: { m: Material; lang: Lang; t: T }) {
         {list.map((c) => (
           <div key={c.chemicalId} className={cx("rounded px-2.5 py-1.5 text-sm flex items-center justify-between gap-2", tone[c.rating])}
             title={c.conditions ?? ""}>
-            <span>{CHEM_LABEL[c.chemicalId] ?? c.chemicalId}</span>
+            <span title={chemicalById(c.chemicalId) ? `${text(chemicalById(c.chemicalId)!.examples, lang)} — ${text(chemicalById(c.chemicalId)!.effect, lang)}` : undefined}>
+              {chemLabel(c.chemicalId, lang)}
+            </span>
             <span className="text-xs whitespace-nowrap">
               {label[c.rating]} <ConfidenceMark c={c.confidence} lang={lang} />
             </span>
@@ -241,7 +243,7 @@ function ChemicalMatrix({ m, lang, t }: { m: Material; lang: Lang; t: T }) {
       </div>
       {list.filter((c) => c.note).map((c) => (
         <p key={c.chemicalId} className="text-xs muted mt-2 leading-relaxed">
-          <strong>{CHEM_LABEL[c.chemicalId] ?? c.chemicalId}:</strong> {text(c.note, lang)}
+          <strong>{chemLabel(c.chemicalId, lang)}:</strong> {text(c.note, lang)}
         </p>
       ))}
     </Section>

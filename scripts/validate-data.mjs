@@ -62,6 +62,11 @@ if (!existsSync(DIR)) {
   process.exit(0);
 }
 
+/* Medienregister: einzige Quelle der gueltigen Chemikalien-IDs. */
+const CHEM_IDS = new Set(
+  JSON.parse(readFileSync(path.join(ROOT, "data/chemicals.json"), "utf8")).chemicals.map((c) => c.id),
+);
+
 const ids = new Set();
 
 for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
@@ -96,6 +101,15 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
   ]) {
     const zv = m.mechanics?.[z]?.value, xv = m.mechanics?.[xy]?.value;
     if (zv != null && xv != null && zv > xv) report("error", id, "R2-anisotropy", `${z} ${zv} > ${xy} ${xv}`);
+  }
+
+  /* R2b jede referenzierte Chemikalie muss im Medienregister stehen.
+     Sonst zeigt die Oberflaeche die nackte ID an und der Assistent kann das Medium
+     gar nicht erst anbieten - ein Tippfehler bliebe unsichtbar. */
+  for (const e of m.durability?.chemicalResistance ?? []) {
+    if (!CHEM_IDS.has(e.chemicalId)) {
+      report("error", id, "R2b-chemical-id", `unbekannte Chemikalie "${e.chemicalId}" - fehlt in data/chemicals.json`);
+    }
   }
 
   /* R3 amorphous: HDT-A must not exceed Tg by more than 15 K.

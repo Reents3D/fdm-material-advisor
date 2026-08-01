@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reents3d.github.io/fdm-material-advisor/schema/chemical.schema.json",
+  "title": "Medienregister",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "chemicals"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "chemicals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "category",
+          "examples",
+          "effect",
+          "aggressiveness"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^chem_[a-z0-9_]+$"
+          },
+          "name": {
+            "$ref": "#/$defs/i18n"
+          },
+          "category": {
+            "enum": [
+              "wasser",
+              "oel",
+              "loesemittel",
+              "kraftstoff",
+              "reiniger",
+              "saeure-lauge"
+            ]
+          },
+          "examples": {
+            "$ref": "#/$defs/i18n"
+          },
+          "effect": {
+            "$ref": "#/$defs/i18n"
+          },
+          "aggressiveness": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "concentration": {
+            "$ref": "#/$defs/i18n"
+          },
+          "note": {
+            "$ref": "#/$defs/i18n"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "i18n": {
+      "type": "object",
+      "required": [
+        "de",
+        "en"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "de": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

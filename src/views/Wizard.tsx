@@ -6,17 +6,12 @@
 import { MATERIALS } from "../data/materials";
 import { select } from "../engine";
 import { CRITERIA } from "../engine/criteria";
-import { Button, Card, Toggle, cx } from "../components/ui";
+import { Button, Card, Toggle, cx, text } from "../components/ui";
 import { SITE } from "../config/site";
+import { CHEMICALS, CHEMICAL_CATEGORIES, chemicalById, chemicalCoverage, isThinData, MATERIAL_COUNT } from "../data/chemicals";
 import type { AppState } from "../App";
 
 const TOTAL = 7;
-
-const CHEMICALS = [
-  ["chem_water", "Wasser"], ["chem_mineral_oil", "Mineralöl"], ["chem_grease", "Fett"],
-  ["chem_coolant_mwf", "Kühlschmierstoff"], ["chem_ipa", "IPA / Alkohol"],
-  ["chem_acetone", "Aceton"], ["chem_dilute_acid", "verd. Säure"], ["chem_dilute_alkali", "verd. Lauge"],
-] as const;
 
 type Props = {
   step: number;
@@ -120,25 +115,66 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
             <Toggle checked={!!req.esd} onChange={(v) => set({ esd: v || undefined })} label={t("wiz.6.esd")} />
 
             <div className="mt-4">
-              <div className="text-sm font-medium mb-2">{t("wiz.6.chemicals")}</div>
-              <div className="flex flex-wrap gap-1.5">
-                {CHEMICALS.map(([id, label]) => {
-                  const on = state.chemicals.includes(id);
-                  return (
-                    <button key={id}
-                      onClick={() => {
-                        const next = on ? state.chemicals.filter((c) => c !== id) : [...state.chemicals, id];
-                        update({ chemicals: next, req: { ...req, chemicals: next.length ? next : undefined } });
-                      }}
-                      aria-pressed={on}
-                      className={cx("px-2 py-1 rounded text-xs border transition-colors",
-                        on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
-                           : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
-                      {label}
-                    </button>
-                  );
-                })}
-              </div>
+              <div className="text-sm font-medium mb-1">{t("wiz.6.chemicals")}</div>
+              <p className="text-xs muted mb-2.5 max-w-2xl leading-relaxed">
+                {state.lang === "de"
+                  ? "Nach Kategorie gruppiert. Die Zahl hinter jedem Medium sagt, für wie viele der Werkstoffe überhaupt ein belegter Beständigkeitswert vorliegt — bei dünner Datenlage filtert die Auswahl eher nach Erfassungsstand als nach Beständigkeit."
+                  : "Grouped by category. The number behind each medium says for how many materials a sourced resistance value exists at all — where data is thin, the filter selects by coverage rather than by resistance."}
+              </p>
+              {CHEMICAL_CATEGORIES.map((cat) => {
+                const items = CHEMICALS.filter((c) => c.category === cat.id);
+                if (!items.length) return null;
+                return (
+                  <div key={cat.id} className="mb-2.5">
+                    <div className="text-[11px] uppercase tracking-wider muted mb-1">
+                      {state.lang === "de" ? cat.de : cat.en}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {items.map((c) => {
+                        const on = state.chemicals.includes(c.id);
+                        const thin = isThinData(c.id);
+                        const n = chemicalCoverage(c.id);
+                        return (
+                          <button key={c.id}
+                            onClick={() => {
+                              const next = on ? state.chemicals.filter((x) => x !== c.id) : [...state.chemicals, c.id];
+                              update({ chemicals: next, req: { ...req, chemicals: next.length ? next : undefined } });
+                            }}
+                            aria-pressed={on}
+                            title={`${text(c.examples, state.lang)} — ${text(c.effect, state.lang)}`}
+                            className={cx("px-2 py-1 rounded text-xs border transition-colors inline-flex items-center gap-1.5",
+                              on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
+                                 : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
+                            {text(c.name, state.lang)}
+                            <span className={cx("tabular-nums", on ? "opacity-70" : thin ? "text-warn" : "muted")}>
+                              {n}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+              {/* Erklaerung zu den ausgewaehlten Medien - erst dann, wenn eines gewaehlt ist. */}
+              {state.chemicals.length > 0 && (
+                <div className="mt-3 space-y-2">
+                  {state.chemicals.map(chemicalById).filter(Boolean).map((c) => (
+                    <p key={c!.id} className="text-xs leading-relaxed">
+                      <strong>{text(c!.name, state.lang)}</strong>
+                      <span className="muted"> — {text(c!.examples, state.lang)}. </span>
+                      {text(c!.effect, state.lang)}
+                      {isThinData(c!.id) && (
+                        <span className="text-warn">
+                          {" "}{state.lang === "de"
+                            ? `Nur ${chemicalCoverage(c!.id)} von ${MATERIAL_COUNT} Werkstoffen haben hierzu einen belegten Wert.`
+                            : `Only ${chemicalCoverage(c!.id)} of ${MATERIAL_COUNT} materials carry a sourced value here.`}
+                        </span>
+                      )}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">

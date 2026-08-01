@@ -33,7 +33,8 @@
     "import:3djake": "node scripts/import/3djake.mjs",
     "import:m4p": "node scripts/import/material4print.mjs",
     "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs",
-    "import:usecases": "node scripts/import/usecases.mjs"
+    "import:usecases": "node scripts/import/usecases.mjs",
+    "import:chemicals": "node scripts/import/chemicals.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

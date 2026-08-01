@@ -1,0 +1,328 @@
+{
+  "$schema": "../schema/chemical.schema.json",
+  "schemaVersion": "1.0.0",
+  "chemicals": [
+    {
+      "id": "chem_water",
+      "name": {
+        "de": "Wasser",
+        "en": "Water"
+      },
+      "category": "wasser",
+      "examples": {
+        "de": "Leitungswasser, Kondensat, Regen, Spritzwasser",
+        "en": "Tap water, condensate, rain, splash water"
+      },
+      "effect": {
+        "de": "Für sich harmlos, aber Polyamide nehmen Wasser auf und verlieren dabei Steifigkeit; Polyester können bei Dauerwärme hydrolysieren.",
+        "en": "Harmless in itself, but polyamides absorb water and lose stiffness; polyesters can hydrolyse under sustained heat."
+      },
+      "aggressiveness": 1
+    },
+    {
+      "id": "chem_salt_water",
+      "name": {
+        "de": "Salzwasser",
+        "en": "Salt water"
+      },
+      "category": "wasser",
+      "examples": {
+        "de": "Meerwasser, Streusalzlösung, Sole",
+        "en": "Sea water, road-salt solution, brine"
+      },
+      "effect": {
+        "de": "Greift die Kunststoffe kaum an, dafür jedes eingelegte Metallteil — Gewindeeinsätze und Schrauben sind hier das Risiko, nicht der Werkstoff.",
+        "en": "Barely attacks the plastics but attacks every embedded metal part — threaded inserts and screws are the risk here, not the polymer."
+      },
+      "aggressiveness": 2
+    },
+    {
+      "id": "chem_steam",
+      "name": {
+        "de": "Heißdampf",
+        "en": "Steam"
+      },
+      "category": "wasser",
+      "examples": {
+        "de": "Autoklav 121 °C, Dampfreiniger, Sterilisation",
+        "en": "Autoclave at 121 °C, steam cleaner, sterilisation"
+      },
+      "effect": {
+        "de": "Die Kombination aus Temperatur, Druck und Feuchte ist deutlich schärfer als heißes Wasser und schliesst fast alle Standardwerkstoffe aus.",
+        "en": "The combination of temperature, pressure and moisture is far harsher than hot water and rules out almost every standard material."
+      },
+      "aggressiveness": 4,
+      "note": {
+        "de": "Wo ein Werkstoff hierzu keinen belegten Wert hat, ist das kein Freibrief — bitte selbst prüfen.",
+        "en": "Where a material has no sourced value here, that is not a licence — please test it yourself."
+      }
+    },
+    {
+      "id": "chem_mineral_oil",
+      "name": {
+        "de": "Mineralöl",
+        "en": "Mineral oil"
+      },
+      "category": "oel",
+      "examples": {
+        "de": "Motoröl, Getriebeöl, Ballistol, Maschinenöl",
+        "en": "Engine oil, gear oil, machine oil"
+      },
+      "effect": {
+        "de": "Die meisten technischen Kunststoffe halten Mineralöl gut aus; kritisch wird es erst mit Temperatur.",
+        "en": "Most engineering plastics tolerate mineral oil well; it only becomes critical with temperature."
+      },
+      "aggressiveness": 2
+    },
+    {
+      "id": "chem_grease",
+      "name": {
+        "de": "Fett",
+        "en": "Grease"
+      },
+      "category": "oel",
+      "examples": {
+        "de": "Lagerfett, Lithiumseifenfett, Montagepaste",
+        "en": "Bearing grease, lithium soap grease, assembly paste"
+      },
+      "effect": {
+        "de": "Das mildeste Medium dieser Liste. Relevant vor allem, weil Fett kriecht und dorthin gelangt, wo es nicht geplant war.",
+        "en": "The mildest medium on this list. Mainly relevant because grease creeps and reaches places nobody planned for."
+      },
+      "aggressiveness": 1
+    },
+    {
+      "id": "chem_hydraulic_oil",
+      "name": {
+        "de": "Hydrauliköl",
+        "en": "Hydraulic fluid"
+      },
+      "category": "oel",
+      "examples": {
+        "de": "HLP 46, Hydraulikanlagen, Pressen",
+        "en": "HLP 46, hydraulic systems, presses"
+      },
+      "effect": {
+        "de": "Schärfer als Motoröl, weil es unter Druck in Grenzflächen gedrückt wird — bei gedruckten Teilen also zwischen die Schichten.",
+        "en": "Harsher than engine oil because pressure drives it into interfaces — with printed parts, between the layers."
+      },
+      "aggressiveness": 3
+    },
+    {
+      "id": "chem_coolant_mwf",
+      "name": {
+        "de": "Kühlschmierstoff",
+        "en": "Metalworking coolant"
+      },
+      "category": "oel",
+      "examples": {
+        "de": "Emulsion an der Fräse, Bohröl, wassermischbare KSS",
+        "en": "Emulsion at the mill, drilling oil, water-miscible coolant"
+      },
+      "effect": {
+        "de": "Das am meisten unterschätzte Medium in der Werkstatt: eine alkalische Emulsion mit Tensiden, die Polyester angreift. PETG ist hier der beliebteste Fehlgriff.",
+        "en": "The most underestimated medium in the workshop: an alkaline emulsion with surfactants that attacks polyesters. PETG is the most popular mistake here."
+      },
+      "aggressiveness": 4,
+      "note": {
+        "de": "Der pH-Wert einer gebrauchten Emulsion steigt mit der Standzeit — ein Teil, das im frischen Bad hält, kann im alten versagen.",
+        "en": "The pH of a used emulsion rises with service life — a part that survives a fresh bath may fail in an old one."
+      }
+    },
+    {
+      "id": "chem_brake_fluid",
+      "name": {
+        "de": "Bremsflüssigkeit",
+        "en": "Brake fluid"
+      },
+      "category": "oel",
+      "examples": {
+        "de": "DOT 4, DOT 5.1",
+        "en": "DOT 4, DOT 5.1"
+      },
+      "effect": {
+        "de": "Glykolether — eines der aggressivsten Medien im Fahrzeugbereich und für die meisten Kunststoffe ein Ausschlusskriterium.",
+        "en": "A glycol ether — one of the most aggressive media in vehicles and a knock-out criterion for most plastics."
+      },
+      "aggressiveness": 5
+    },
+    {
+      "id": "chem_petrol_diesel",
+      "name": {
+        "de": "Benzin und Diesel",
+        "en": "Petrol and diesel"
+      },
+      "category": "kraftstoff",
+      "examples": {
+        "de": "Tankstellenkraftstoff, E10, Heizöl",
+        "en": "Pump fuel, E10, heating oil"
+      },
+      "effect": {
+        "de": "Löst und quillt viele Kunststoffe. Der Ethanolanteil in E10 verschärft das gegenüber reinem Benzin zusätzlich.",
+        "en": "Dissolves and swells many plastics. The ethanol content in E10 makes it harsher still than pure petrol."
+      },
+      "aggressiveness": 4
+    },
+    {
+      "id": "chem_ipa",
+      "name": {
+        "de": "Isopropanol",
+        "en": "Isopropanol"
+      },
+      "category": "loesemittel",
+      "examples": {
+        "de": "Reinigungsalkohol, Druckbettreiniger, Desinfektion",
+        "en": "Cleaning alcohol, print-bed cleaner, disinfection"
+      },
+      "effect": {
+        "de": "Das übliche Reinigungsmittel in der Druckerei. Meist unkritisch, kann aber bei gespannten Bauteilen Spannungsrisse auslösen.",
+        "en": "The usual cleaning agent in a print shop. Mostly uncritical, but can trigger stress cracking in strained parts."
+      },
+      "aggressiveness": 2
+    },
+    {
+      "id": "chem_ethanol",
+      "name": {
+        "de": "Ethanol",
+        "en": "Ethanol"
+      },
+      "category": "loesemittel",
+      "examples": {
+        "de": "Spiritus, Händedesinfektion, Alkohol in Getränken",
+        "en": "Methylated spirit, hand sanitiser, alcohol in drinks"
+      },
+      "effect": {
+        "de": "Ähnlich mild wie Isopropanol, aber bei Dauerkontakt und in Kombination mit Spannung riskant.",
+        "en": "As mild as isopropanol, but risky on prolonged contact combined with stress."
+      },
+      "aggressiveness": 2
+    },
+    {
+      "id": "chem_acetone",
+      "name": {
+        "de": "Aceton",
+        "en": "Acetone"
+      },
+      "category": "loesemittel",
+      "examples": {
+        "de": "Nagellackentferner, Bremsenreiniger, ABS-Glättung",
+        "en": "Nail polish remover, brake cleaner, ABS smoothing"
+      },
+      "effect": {
+        "de": "Löst ABS und ASA vollständig auf — was bei der Dampfglättung erwünscht ist und im Einsatz das Ende des Bauteils bedeutet.",
+        "en": "Completely dissolves ABS and ASA — desirable in vapour smoothing and the end of the part in service."
+      },
+      "aggressiveness": 5
+    },
+    {
+      "id": "chem_mek",
+      "name": {
+        "de": "MEK (Butanon)",
+        "en": "MEK (butanone)"
+      },
+      "category": "loesemittel",
+      "examples": {
+        "de": "Industriereiniger, Klebstoffe, Verdünner",
+        "en": "Industrial cleaner, adhesives, thinner"
+      },
+      "effect": {
+        "de": "Noch schärfer als Aceton und für nahezu alle amorphen Thermoplaste ein Ausschlusskriterium.",
+        "en": "Harsher still than acetone and a knock-out criterion for nearly all amorphous thermoplastics."
+      },
+      "aggressiveness": 5
+    },
+    {
+      "id": "chem_surface_disinfectant",
+      "name": {
+        "de": "Flächendesinfektion",
+        "en": "Surface disinfectant"
+      },
+      "category": "reiniger",
+      "examples": {
+        "de": "Alkoholische und quaternäre Desinfektionstücher, Praxis- und Laborreiniger",
+        "en": "Alcohol and quaternary disinfectant wipes, clinic and lab cleaners"
+      },
+      "effect": {
+        "de": "Der wiederholte Kontakt ist das Problem, nicht der einzelne. Bauteile mit Spannungen reissen nach Wochen, nicht nach Minuten.",
+        "en": "Repeated contact is the problem, not a single wipe. Stressed parts crack after weeks, not minutes."
+      },
+      "aggressiveness": 3
+    },
+    {
+      "id": "chem_bleach",
+      "name": {
+        "de": "Bleichmittel",
+        "en": "Bleach"
+      },
+      "category": "reiniger",
+      "examples": {
+        "de": "Natriumhypochlorit, Chlorreiniger, Poolwasser",
+        "en": "Sodium hypochlorite, chlorine cleaner, pool water"
+      },
+      "effect": {
+        "de": "Oxidierend. Greift vor allem Polyamide an und macht sie über die Zeit spröde.",
+        "en": "Oxidising. Attacks polyamides above all and embrittles them over time."
+      },
+      "aggressiveness": 3
+    },
+    {
+      "id": "chem_hydrogen_peroxide",
+      "name": {
+        "de": "Wasserstoffperoxid",
+        "en": "Hydrogen peroxide"
+      },
+      "category": "reiniger",
+      "examples": {
+        "de": "H₂O₂ 3–35 %, Sterilisation, Bleiche",
+        "en": "H₂O₂ 3–35 %, sterilisation, bleaching"
+      },
+      "effect": {
+        "de": "Oxidierend, mit stark konzentrationsabhängiger Wirkung — 3 % im Haushalt und 35 % in der Anlage sind zwei verschiedene Medien.",
+        "en": "Oxidising, with a strongly concentration-dependent effect — 3 % in the household and 35 % in a plant are two different media."
+      },
+      "aggressiveness": 3
+    },
+    {
+      "id": "chem_dilute_acid",
+      "name": {
+        "de": "Verdünnte Säure",
+        "en": "Dilute acid"
+      },
+      "category": "saeure-lauge",
+      "examples": {
+        "de": "Essigsäure, Zitronensäure, Entkalker, Batteriesäure verdünnt",
+        "en": "Acetic acid, citric acid, descaler, dilute battery acid"
+      },
+      "effect": {
+        "de": "Polyamide sind hier die empfindlichsten; Polyolefine und Fluorpolymere stecken es am besten weg.",
+        "en": "Polyamides are the most sensitive here; polyolefins and fluoropolymers cope best."
+      },
+      "aggressiveness": 3,
+      "concentration": {
+        "de": "Bezugsgrösse sind etwa 10 %. Konzentrierte Säuren sind ein anderes Medium.",
+        "en": "The reference is roughly 10 %. Concentrated acids are a different medium."
+      }
+    },
+    {
+      "id": "chem_dilute_alkali",
+      "name": {
+        "de": "Verdünnte Lauge",
+        "en": "Dilute alkali"
+      },
+      "category": "saeure-lauge",
+      "examples": {
+        "de": "Natronlauge, Rohrreiniger, alkalische Industriereiniger, Geschirrspülmittel",
+        "en": "Caustic soda, drain cleaner, alkaline industrial cleaners, dishwasher detergent"
+      },
+      "effect": {
+        "de": "Verseift Polyester. PETG, PET-CF und PC fallen dadurch aus dem Feld — obwohl gerade PETG der naheliegende Griff wäre.",
+        "en": "Saponifies polyesters. PETG, PET-CF and PC drop out of the field — even though PETG would be the obvious choice."
+      },
+      "aggressiveness": 4,
+      "concentration": {
+        "de": "Bezugsgrösse sind etwa 10 %.",
+        "en": "The reference is roughly 10 %."
+      }
+    }
+  ]
+}
