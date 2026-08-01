@@ -1,0 +1,90 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "azurefilm-pla-silk",
+  "materialId": "pla",
+  "brand": "AzureFilm",
+  "manufacturer": "AzureFilm d.o.o.",
+  "productName": "AzureFilm PLA Silk",
+  "origin": "Slowenien",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "AzureFilm weist die Kennwerte ausdrücklich als „Property of 3D printed specimens“ aus und nennt die Druckparameter der Prüfkörper vollständig. Entscheidend ist dabei der Infill: PLA, PLA Silk und ASA wurden mit 20 % gedruckt, PETG mit 100 %. Nur die 100-%-Werte sind mit anderen Herstellern vergleichbar.\n\nBefund zu diesem Datenblatt: Dieses Datenblatt ist bis auf die Düsentemperatur eine Kopie des PLA-Blatts: alle neun Kennwerte stimmen zeilengleich überein. Dabei ist ein Einheitenfehler entstanden — der Zug-E-Modul steht als „3,3 MPa“ statt wie im PLA-Blatt als 3,3 GPa. 3,3 MPa wären weicher als ein Radiergummi. Der E-Modul wurde deshalb nicht übernommen.\n\nDie Prüfkörper wurden laut Datenblatt mit 20 % Infill und 2 Perimetern gedruckt. Bei dieser Füllung trägt nur etwa die Hälfte des Querschnitts, die angegebenen Kennwerte sind damit rechnerisch nicht erreichbar: 59 MPa Zugfestigkeit aus einem halb gefüllten Prüfkörper würden über 110 MPa im Vollmaterial voraussetzen, was PLA nicht erreicht. Entweder wurde die Spannung auf die tatsächlich tragende Fläche statt auf den Nennquerschnitt bezogen, oder der Parameterblock beschreibt nicht den Prüfkörper. Die Werte sind deshalb nicht mit Werkstoffkennwerten anderer Hersteller vergleichbar.",
+    "en": "AzureFilm explicitly declares its values as “property of 3D printed specimens” and states the specimen print parameters in full. The decisive detail is the infill: PLA, PLA Silk and ASA were printed at 20 %, PETG at 100 %. Only the 100 % values are comparable with other manufacturers.\n\nFinding on this datasheet: Apart from the nozzle temperature this datasheet is a copy of the PLA sheet: all nine values match row for row. In the process a unit error crept in — the tensile modulus is stated as “3.3 MPa” instead of 3.3 GPa as on the PLA sheet. 3.3 MPa would be softer than an eraser. The modulus was therefore not imported.\n\nThe specimens were printed at 20 % infill with 2 perimeters per the datasheet. At that fill only about half the cross-section carries load, which makes the stated values arithmetically unreachable: 59 MPa tensile strength from a half-filled specimen would require over 110 MPa in solid material, which PLA does not reach. Either the stress was referred to the actually load-bearing area rather than the nominal cross-section, or the parameter block does not describe the specimen. The values are therefore not comparable with material data from other manufacturers."
+  },
+  "datasheet": {
+    "title": "AzureFilm PLA Silk — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/SILK_TDS%5B0%5D.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://azurefilm.com/de/technische-daten/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 59,
+      "unit": "MPa",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 4.2,
+      "unit": "%",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 73.6,
+      "unit": "MPa",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2800,
+      "unit": "MPa",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 10.4,
+      "unit": "kJ/m²",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "AzureFilm d.o.o.",
+        "productName": "AzureFilm PLA Silk",
+        "title": "AzureFilm PLA Silk — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/SILK_TDS%5B0%5D.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit deklarierten Prüfkörper-Druckparametern. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, sind die Kennwerte keine Werkstoffkennwerte — das Ceiling steht dort auf 'low'.",
+          "en": "Manufacturer datasheet with declared specimen print parameters. Where the specimen was printed at 20 % infill the values are not material data — the ceiling is set to 'low' in those cases."
+        }
+      }
+    ]
+  }
+}

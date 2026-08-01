@@ -1,98 +1,73 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-petg",
-  "materialId": "petg",
+  "id": "extrudr-biofusion",
+  "materialId": "pla",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr PETG",
+  "productName": "Extrudr BioFusion",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
-  },
-  "features": {
-    "de": "UL94 V-2 bei 3,2 mm — eine der wenigen Brandschutz-Einstufungen unter Standard-Filamenten. Keine gehärtete Düse nötig.",
-    "en": "UL94 V-2 at 3.2 mm — one of the few fire classifications among standard filaments. No hardened nozzle required."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Bruchspannung und Bruchdehnung tragen im Datenblatt vertauschte Einheiten: „Bruchspannung 5 %“ und „Bruchdehnung 41 MPa“. Eine Spannung wird nicht in Prozent gemessen und eine Dehnung nicht in MPa. Welche der beiden Zahlen zu welcher Größe gehört, geht aus dem Blatt nicht hervor — beide Werte wurden deshalb nicht übernommen.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: Stress and strain at break carry swapped units in the datasheet: “stress at break 5 %” and “elongation at break 41 MPa”. A stress is not measured in percent and a strain not in MPa. Which figure belongs to which quantity is not derivable from the sheet — both values were therefore not imported."
   },
   "datasheet": {
-    "title": "Extrudr PETG — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/petg-TDS-de.pdf",
+    "title": "Extrudr BioFusion — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/biofusion-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 61,
+      "value": 55,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ASTM D882",
       "source": "src_tds",
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 3100,
+      "value": 3200,
       "unit": "MPa",
-      "testStandard": "ISO 527",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "elongationAtBreakXy": {
-      "value": 28,
-      "unit": "%",
-      "testStandard": "ISO 527-2 (nominell)",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "flexuralStrengthXy": {
-      "value": 68,
-      "unit": "MPa",
-      "testStandard": "ISO 178",
+      "testStandard": "ASTM D882",
       "source": "src_tds",
       "confidence": "medium"
     },
     "flexuralModulusXy": {
-      "value": 2100,
+      "value": 2200,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
-      "value": 4.7,
-      "unit": "kJ/m²",
-      "testStandard": "ISO 180",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
     "vicatA": {
-      "value": 78,
+      "value": 75,
       "unit": "°C",
-      "testStandard": "ISO 306",
+      "testStandard": "ASTM D1525",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
     "density": {
-      "value": 1.29,
+      "value": 1.25,
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 220,
+      "value": 215,
       "unit": "°C",
-      "min": 210,
+      "min": 200,
       "max": 230,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 75,
+      "value": 40,
       "unit": "°C",
-      "min": 60,
-      "max": 90,
+      "min": 20,
+      "max": 60,
       "source": "src_tds",
       "confidence": "medium"
     }
@@ -105,9 +80,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr PETG",
-        "title": "Extrudr PETG — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/petg-TDS-de.pdf",
+        "productName": "Extrudr BioFusion",
+        "title": "Extrudr BioFusion — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/biofusion-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

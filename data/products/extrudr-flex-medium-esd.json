@@ -21,7 +21,7 @@
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-medium-esd-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
       "value": 40,
@@ -48,6 +48,20 @@
       "value": 95,
       "unit": "Shore A",
       "testStandard": "DIN 53.505",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tearStrength": {
+      "value": 110,
+      "unit": "kN/m",
+      "testStandard": "DIN 53.515",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 28,
+      "unit": "mm³",
+      "testStandard": "DIN 53.516",
       "source": "src_tds",
       "confidence": "medium"
     },

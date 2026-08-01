@@ -21,12 +21,19 @@
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-fr-v0-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
       "value": 53,
       "unit": "MPa",
       "testStandard": "ISO 527-1,-2 (Bruchspannung)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2650,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1,-2",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -41,6 +48,22 @@
       "value": 40,
       "unit": "kJ/m²",
       "testStandard": "ISO 180/A, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 98,
+      "unit": "°C",
+      "testStandard": "ISO 75-1,-2, 1.8 MPa",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 106,
+      "unit": "°C",
+      "testStandard": "ISO 75-1,-2, 0.45 MPa",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },

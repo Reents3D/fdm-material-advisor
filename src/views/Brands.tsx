@@ -24,13 +24,24 @@ const ROWS: [string, string, string][] = [
   ["elongationAtYieldXy", "Dehnung an der Streckgrenze", "Elongation at yield"],
   ["flexuralStrengthXy", "Biegefestigkeit", "Flexural strength"],
   ["flexuralModulusXy", "Biegemodul", "Flexural modulus"],
-  ["charpyUnnotchedXy", "Schlagzähigkeit ungekerbt", "Impact unnotched"],
-  ["charpyNotchedXy", "Schlagzähigkeit gekerbt", "Impact notched"],
+  ["charpyUnnotchedXy", "Charpy ungekerbt", "Charpy unnotched"],
+  ["charpyNotchedXy", "Charpy gekerbt", "Charpy notched"],
+  ["izodUnnotchedXy", "Izod ungekerbt", "Izod unnotched"],
+  ["izodNotchedXy", "Izod gekerbt", "Izod notched"],
   ["interlayerAdhesion", "Schichthaftung", "Interlayer adhesion"],
   ["hdtA", "HDT-A (1,8 MPa)", "HDT-A (1.8 MPa)"],
   ["hdtB", "HDT-B (0,45 MPa)", "HDT-B (0.45 MPa)"],
   ["vicatA", "Vicat A", "Vicat A"],
+  ["vicatB50", "Vicat B50", "Vicat B50"],
+  ["glassTransition", "Glasübergang", "Glass transition"],
   ["density", "Dichte", "Density"],
+  ["hardnessShoreA", "Härte Shore A", "Hardness Shore A"],
+  ["hardnessShoreD", "Härte Shore D", "Hardness Shore D"],
+  ["tearStrength", "Weiterreißfestigkeit", "Tear strength"],
+  ["abrasionLoss", "Abriebverlust", "Abrasion loss"],
+  ["reboundResilience", "Rückprallelastizität", "Rebound resilience"],
+  ["compressionSet", "Druckverformungsrest", "Compression set"],
+  ["waterAbsorption", "Wasseraufnahme", "Water absorption"],
   ["nozzleTemperature", "Düsentemperatur", "Nozzle temperature"],
   ["bedTemperature", "Betttemperatur", "Bed temperature"],
 ];
@@ -71,8 +82,13 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
         </h2>
         <p className="text-sm leading-relaxed max-w-3xl">
           {lang === "de"
-            ? "Bambu Lab und Prusa Polymers messen an GEDRUCKTEN Prüfkörpern. AzureFilm gibt Rohstoffkennwerte an — erkennbar etwa an 29 % Bruchdehnung für PETG, was ein gedrucktes Bauteil nie erreicht. Beide Zahlen sind für sich korrekt, in einer Rangliste nebeneinander sind sie irreführend. Deshalb stehen sie hier getrennt."
-            : "Bambu Lab and Prusa Polymers measure on PRINTED specimens. AzureFilm reports raw-material values — visible for instance in 29 % elongation for PETG, which a printed part never reaches. Both figures are correct in themselves; side by side in one ranking they mislead. Hence the separation."}
+            ? "Dieselbe Zeile bedeutet bei zwei Herstellern nicht dasselbe. Bambu Lab und Prusa Polymers messen an gedruckten Prüfkörpern, Extrudr sagt gar nicht, woran gemessen wurde. In einer gemeinsamen Rangliste wären diese Zahlen irreführend — deshalb stehen sie hier getrennt."
+            : "The same row does not mean the same thing for two manufacturers. Bambu Lab and Prusa Polymers measure on printed specimens; Extrudr does not state what was measured at all. In a shared ranking these figures would mislead — hence the separation."}
+        </p>
+        <p className="text-sm leading-relaxed max-w-3xl mt-3">
+          {lang === "de"
+            ? "Die Angabe allein reicht allerdings nicht. AzureFilm deklariert gedruckte Prüfkörper und nennt als einziger Hersteller die vollständigen Druckparameter — und genau dadurch wird sichtbar, dass PLA, PLA Silk und ASA mit nur 20 % Infill geprüft wurden. Ein Kennwert aus einem halb gefüllten Prüfkörper beschreibt eine Geometrie, keinen Werkstoff. Deshalb steht die Prüfbedingung hier an jedem einzelnen Wert und nicht nur in einer Fussnote."
+            : "The declaration alone is not enough. AzureFilm declares printed specimens and is the only manufacturer to state the full print parameters — which is precisely what reveals that PLA, PLA Silk and ASA were tested at only 20 % infill. A value from a half-filled specimen describes a geometry, not a material. That is why the test condition appears here on every single value, not just in a footnote."}
         </p>
       </Card>
 
@@ -137,10 +153,20 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
                     <td key={p.id} className="py-2 px-3 align-top">
                       {v ? (
                         <>
-                          <span className="tabular-nums font-medium">{fmt(v.value)}</span>
+                          <span className={cx("tabular-nums font-medium", v.confidence === "low" && "estimated")}>
+                            {fmt(v.value)}
+                          </span>
                           <span className="muted text-xs ml-0.5">{v.unit}</span>
                           {v.tolerance ? <span className="muted text-xs"> ±{fmt(v.tolerance)}</span> : null}
+                          {v.min != null && v.max != null && v.min !== v.max && (
+                            <span className="muted text-xs"> ({fmt(v.min)}–{fmt(v.max)})</span>
+                          )}
                           {v.testStandard && <span className="block text-[11px] muted mt-0.5">{v.testStandard}</span>}
+                          {/* Die Prüfbedingung entscheidet über die Vergleichbarkeit — sie gehört an den
+                              Wert und nicht in eine Fussnote. AzureFilms 20-%-Infill wäre sonst unsichtbar. */}
+                          {v.conditions && (
+                            <span className="block text-[11px] mt-0.5 text-warn dark:text-warn">{v.conditions}</span>
+                          )}
                         </>
                       ) : <span className="muted">–</span>}
                     </td>

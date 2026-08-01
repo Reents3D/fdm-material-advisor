@@ -16,8 +16,8 @@
       "DuraPro PC-FR"
     ],
     "trademarkNotice": {
-      "de": "DuraPro, GreenTEC und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
-      "en": "DuraPro, GreenTEC and Flex are product designations of FD3D GmbH (Extrudr)."
+      "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
+      "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
     },
     "abstract": {
       "de": "PC-FR ist flammgeschütztes Polycarbonat und der einzige Werkstoff dieser Datenbank mit echtem Brandschutzzeugnis: UL94 V-0 bei 1,5 mm und EN 45545-2 HL3 für den Schienenfahrzeugbau. Für Elektronikgehäuse, Bahn- und Schaltschrankanwendungen. Grenzen: teuer, braucht eine beheizte Kammer und muss trocken verarbeitet werden.",
@@ -45,7 +45,7 @@
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 2300,
+      "value": 2650,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "n/a",
@@ -83,18 +83,15 @@
   },
   "thermal": {
     "hdtA": {
-      "value": 108,
+      "value": 98,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
-      "note": {
-        "de": "Datenblatt nennt nur Vicat bzw. HDT/B; HDT-A fachlich abgeleitet.",
-        "en": "Datasheet gives only Vicat or HDT/B; HDT-A inferred."
-      }
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
     },
     "hdtB": {
-      "value": 118,
+      "value": 106,
       "unit": "°C",
       "testStandard": "ISO 75, 0.45 MPa",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -110,14 +107,14 @@
       "confidence": "medium"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 95,
+      "value": 75,
       "unit": "°C",
       "conditions": "unbelastet, Luft, dauerhaft",
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
-        "en": "Our own conservative recommendation with margin to the softening limit."
+        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
+        "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
     }
   },

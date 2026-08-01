@@ -17,7 +17,7 @@
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
       "value": 43,
@@ -26,10 +26,40 @@
       "source": "src_tds",
       "confidence": "medium"
     },
+    "tensileModulusXy": {
+      "value": 1440,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
     "elongationAtBreakXy": {
       "value": 50,
       "unit": "%",
       "testStandard": "ISO 527-2 (nominell, > 50)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 11,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/A, ungeglüht",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 135,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/B, ungeglüht",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },

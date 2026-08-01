@@ -1,83 +1,96 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "azurefilm-pla",
-  "materialId": "pla",
+  "id": "azurefilm-asa",
+  "materialId": "asa",
   "brand": "AzureFilm",
   "manufacturer": "AzureFilm d.o.o.",
-  "productName": "AzureFilm PLA",
+  "productName": "AzureFilm ASA",
   "origin": "Slowenien",
   "specimenType": "printed",
   "specimenNote": {
     "de": "AzureFilm weist die Kennwerte ausdrücklich als „Property of 3D printed specimens“ aus und nennt die Druckparameter der Prüfkörper vollständig. Entscheidend ist dabei der Infill: PLA, PLA Silk und ASA wurden mit 20 % gedruckt, PETG mit 100 %. Nur die 100-%-Werte sind mit anderen Herstellern vergleichbar.\n\nBefund zu diesem Datenblatt: Die Prüfkörper wurden laut Datenblatt mit 20 % Infill und 2 Perimetern gedruckt. Bei dieser Füllung trägt nur etwa die Hälfte des Querschnitts, die angegebenen Kennwerte sind damit rechnerisch nicht erreichbar: 59 MPa Zugfestigkeit aus einem halb gefüllten Prüfkörper würden über 110 MPa im Vollmaterial voraussetzen, was PLA nicht erreicht. Entweder wurde die Spannung auf die tatsächlich tragende Fläche statt auf den Nennquerschnitt bezogen, oder der Parameterblock beschreibt nicht den Prüfkörper. Die Werte sind deshalb nicht mit Werkstoffkennwerten anderer Hersteller vergleichbar.",
     "en": "AzureFilm explicitly declares its values as “property of 3D printed specimens” and states the specimen print parameters in full. The decisive detail is the infill: PLA, PLA Silk and ASA were printed at 20 %, PETG at 100 %. Only the 100 % values are comparable with other manufacturers.\n\nFinding on this datasheet: The specimens were printed at 20 % infill with 2 perimeters per the datasheet. At that fill only about half the cross-section carries load, which makes the stated values arithmetically unreachable: 59 MPa tensile strength from a half-filled specimen would require over 110 MPa in solid material, which PLA does not reach. Either the stress was referred to the actually load-bearing area rather than the nominal cross-section, or the parameter block does not describe the specimen. The values are therefore not comparable with material data from other manufacturers."
   },
-  "features": {
-    "de": "AzureFilm legt als einziger Hersteller dieser Datenbank die vollständigen Druckparameter der Prüfkörper offen — Drucker, Slicer, Düse, Schichthöhe, Infill und Geschwindigkeit. Genau dadurch wird hier überhaupt sichtbar, dass die Werte nicht als Werkstoffkennwerte gelesen werden dürfen.",
-    "en": "AzureFilm is the only manufacturer in this database to disclose the full print parameters of its specimens — printer, slicer, nozzle, layer height, infill and speed. It is precisely that disclosure which makes it visible here that the values must not be read as material data."
-  },
   "datasheet": {
-    "title": "AzureFilm PLA — Technical Data Sheet",
-    "url": "https://3d.nice-cdn.com/upload/file/PLA_TDS.pdf",
+    "title": "AzureFilm ASA — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/ASA_TDS.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://azurefilm.com/de/technische-daten/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 59,
+      "value": 47.1,
       "unit": "MPa",
+      "testStandard": "ASTM D638, 50 mm/min, 3,2 mm",
       "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
       "source": "src_tds",
-      "confidence": "low"
+      "confidence": "low",
+      "note": {
+        "de": "Das Datenblatt rechnet in kg/cm². Umgerechnet mit 1 kgf/cm² = 0,0980665 MPa.",
+        "en": "The datasheet uses kg/cm². Converted with 1 kgf/cm² = 0.0980665 MPa."
+      }
     },
     "tensileModulusXy": {
-      "value": 3300,
+      "value": 2079,
       "unit": "MPa",
+      "testStandard": "ASTM D638, 1 mm/min, 3,2 mm",
       "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "low"
     },
-    "elongationAtBreakXy": {
-      "value": 4.2,
+    "elongationAtYieldXy": {
+      "value": 6,
       "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min (> 6)",
+      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 25,
+      "unit": "%",
+      "testStandard": "ASTM D638, 50 mm/min",
       "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "medium"
     },
     "flexuralStrengthXy": {
-      "value": 73.6,
+      "value": 75.5,
       "unit": "MPa",
+      "testStandard": "ASTM D790, 15 mm/min, 3,2 mm",
       "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "low"
     },
     "flexuralModulusXy": {
-      "value": 2800,
+      "value": 2206.5,
       "unit": "MPa",
+      "testStandard": "ASTM D790, 15 mm/min, 3,2 mm",
       "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "low"
     },
-    "charpyUnnotchedXy": {
-      "value": 10.4,
-      "unit": "kJ/m²",
-      "conditions": "gedruckter Prüfkörper, 20 % Infill, 2 Perimeter, 0,4 mm Düse, 23 °C",
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 215,
+      "value": 250,
       "unit": "°C",
-      "min": 200,
-      "max": 230,
+      "min": 240,
+      "max": 260,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 105,
       "unit": "°C",
-      "min": 50,
-      "max": 60,
+      "min": 90,
+      "max": 120,
       "source": "src_tds",
       "confidence": "medium"
     }
@@ -90,9 +103,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "AzureFilm d.o.o.",
-        "productName": "AzureFilm PLA",
-        "title": "AzureFilm PLA — Technical Data Sheet",
-        "url": "https://3d.nice-cdn.com/upload/file/PLA_TDS.pdf",
+        "productName": "AzureFilm ASA",
+        "title": "AzureFilm ASA — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/ASA_TDS.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "low",
         "note": {

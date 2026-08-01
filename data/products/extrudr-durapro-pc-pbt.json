@@ -1,11 +1,11 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-greentec-pro",
-  "materialId": "greentec",
+  "id": "extrudr-durapro-pc-pbt",
+  "materialId": "pc-pbt",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr GreenTEC Pro",
+  "productName": "Extrudr DuraPro PC-PBT",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
@@ -13,87 +13,107 @@
     "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
   },
   "features": {
-    "de": "Bemerkenswert: 115 °C HDT/B ohne geschlossenen Bauraum und ohne gehärtete Düse. Damit erreicht ein Biopolymer eine Temperaturbeständigkeit, für die sonst PC mit beheizter Kammer nötig wäre — allerdings nur ab 4 mm Wanddicke geprüft.",
-    "en": "Notable: 115 °C HDT/B without an enclosure and without a hardened nozzle. A biopolymer reaching temperature resistance that otherwise requires PC with a heated chamber — but only verified from 4 mm wall thickness."
+    "de": "PC/PBT-Blend: die Zähigkeit von Polycarbonat mit der Chemikalien- und Kraftstoffbeständigkeit von PBT. 60 kJ/m² Kerbschlagzähigkeit bei über 50 % Bruchdehnung, CTI 600 V für elektrische Anwendungen.",
+    "en": "PC/PBT blend: the toughness of polycarbonate with the chemical and fuel resistance of PBT. 60 kJ/m² notched impact at over 50 % elongation, CTI 600 V for electrical applications."
   },
   "datasheet": {
-    "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+    "title": "Extrudr DuraPro PC-PBT — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-pbt-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 58,
+      "value": 60,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-1,-2 (Streckspannung)",
       "source": "src_tds",
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 4300,
+      "value": 2200,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-1,-2",
       "source": "src_tds",
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 2.8,
+      "value": 50,
       "unit": "%",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-1,-2 (nominell, > 50)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 80,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2150,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
       "source": "src_tds",
       "confidence": "medium"
     },
     "charpyNotchedXy": {
-      "value": 4,
+      "value": 60,
       "unit": "kJ/m²",
       "testStandard": "ISO 179/1eA",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyUnnotchedXy": {
-      "value": 71,
+    "izodNotchedXy": {
+      "value": 50,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
+      "testStandard": "ISO 180/A",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "vicatA": {
-      "value": 160,
+    "hdtA": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "ISO 75-1,-2, 1.8 MPa",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 110,
+      "unit": "°C",
+      "testStandard": "ISO 75-1,-2, 0.45 MPa",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 126,
       "unit": "°C",
       "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "hdtB": {
-      "value": 115,
-      "unit": "°C",
-      "testStandard": "ISO 75",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
     "density": {
-      "value": 1.35,
+      "value": 1.2,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
+      "testStandard": "ISO 1183-1",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 220,
+      "value": 275,
       "unit": "°C",
-      "min": 210,
-      "max": 230,
+      "min": 260,
+      "max": 290,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 110,
       "unit": "°C",
-      "min": 20,
-      "max": 90,
       "source": "src_tds",
       "confidence": "medium"
     }
@@ -106,9 +126,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr GreenTEC Pro",
-        "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+        "productName": "Extrudr DuraPro PC-PBT",
+        "title": "Extrudr DuraPro PC-PBT — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-pbt-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

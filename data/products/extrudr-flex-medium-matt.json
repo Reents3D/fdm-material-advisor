@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "extrudr-flex-medium-matt",
+  "materialId": "tpu-98a",
+  "brand": "Extrudr",
+  "manufacturer": "FD3D GmbH (Extrudr)",
+  "productName": "Extrudr Flex Medium Matt",
+  "origin": "Österreich",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Das Datenblatt nennt 6,9 % Bruchdehnung und gleichzeitig eine Spannung bei 300 % Dehnung. Beides kann nicht zutreffen — ein Werkstoff, der bei 6,9 % bricht, erreicht keine 300 %. Zusätzlich steht die Zugfestigkeit mit 470 N/mm², was für ein Elastomer um eine Größenordnung zu hoch ist. Beide Werte wurden nicht übernommen; die übrigen Kennwerte des Blattes sind in sich stimmig.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: The datasheet states 6.9 % elongation at break and at the same time a stress at 300 % strain. Both cannot hold — a material that breaks at 6.9 % never reaches 300 %. In addition tensile strength is given as 470 N/mm², an order of magnitude too high for an elastomer. Neither value was imported; the remaining values on the sheet are internally consistent."
+  },
+  "datasheet": {
+    "title": "Extrudr Flex Medium Matt — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-medium-matt-TDS-de.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
+  "properties": {
+    "density": {
+      "value": 1.19,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 50,
+      "unit": "Shore D",
+      "testStandard": "DIN ISO 7619-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tearStrength": {
+      "value": 110,
+      "unit": "kN/m",
+      "testStandard": "ISO 34-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 30,
+      "unit": "mm³",
+      "testStandard": "ISO 4649, A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "reboundResilience": {
+      "value": 33,
+      "unit": "%",
+      "testStandard": "ISO 4662",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "compressionSet": {
+      "value": 24,
+      "unit": "%",
+      "testStandard": "DIN ISO 815-1, 72 h bei 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 220,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 50,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FD3D GmbH (Extrudr)",
+        "productName": "Extrudr Flex Medium Matt",
+        "title": "Extrudr Flex Medium Matt — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-medium-matt-TDS-de.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+        }
+      }
+    ]
+  }
+}

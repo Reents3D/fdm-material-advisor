@@ -450,6 +450,42 @@ deutlich stärker ein als bei der Zugfestigkeit (PETG-CF: 0,64 gegen 0,26).
 
 ---
 
+## ADR-012 — KI in der Entstehung, keine KI im Werkzeug
+
+**Status:** entschieden · **Datum:** 2026-08-01
+
+Der Datenbestand wird mit KI-Unterstützung erschlossen: Herstellerdatenblätter werden
+maschinell ins Schema überführt und systematisch gegengelesen. Die **veröffentlichte
+Anwendung enthält dagegen kein Modell** — kein API-Aufruf, keine Generierung zur Laufzeit.
+
+Begründung, in dieser Reihenfolge:
+
+**Determinismus.** Ein Beratungswerkzeug, das auf dieselbe Eingabe zwei verschiedene
+Empfehlungen geben kann, ist als Entscheidungsgrundlage wertlos. Die Rangfolge muss aus den
+Daten im Repository ableitbar sein — prüfbar, reproduzierbar, diskutierbar.
+
+**Nachprüfbarkeit statt Plausibilität.** Ein Modell zur Laufzeit würde flüssige Sätze über
+Werkstoffe erzeugen, die richtig klingen und niemand gegenprüfen kann. Deshalb sind auch
+die Begründungen strukturierte Objekte aus der Datenbank und kein generierter Text.
+
+**Datenschutz und Offline-Betrieb.** Kein Modellaufruf bedeutet: keine Anfrage verlässt den
+Browser. Das Werkzeug läuft ohne Netz und ohne Datenabfluss — was für eine Anwendung, in die
+Konstrukteure ihre Anforderungen eingeben, kein Nebeneffekt, sondern ein Merkmal ist.
+
+**Regulatorik.** Die Transparenzpflichten nach Artikel 50 der EU-KI-Verordnung greifen bei
+Systemen, die für Nutzer Inhalte erzeugen. Ein Werkzeug ohne Laufzeit-Generierung fällt
+nicht darunter. Die Offenlegung in [AI_USAGE.md](AI_USAGE.md) erfolgt deshalb freiwillig.
+
+Die Gegenposition — ein Modell zur Laufzeit könnte freier auf Rückfragen eingehen — wurde
+verworfen: Der Gewinn an Gesprächigkeit steht gegen den Verlust an Belegbarkeit, und
+Belegbarkeit ist der einzige Grund, warum dieses Werkzeug existiert.
+
+**Folge:** Erfundene Werte müssen in der Entstehung abgefangen werden, nicht im Betrieb.
+Dafür sorgen Quellenzwang im Schema, Konfidenz-Ceilings je Quelle, sechzehn
+Plausibilitätsregeln in der CI und die verlinkte PDF-Quelle an jedem Produkt.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

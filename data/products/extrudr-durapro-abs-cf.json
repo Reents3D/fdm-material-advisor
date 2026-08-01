@@ -1,99 +1,94 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-greentec-pro",
-  "materialId": "greentec",
+  "id": "extrudr-durapro-abs-cf",
+  "materialId": "abs",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr GreenTEC Pro",
+  "productName": "Extrudr DuraPro ABS CF",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
-  },
-  "features": {
-    "de": "Bemerkenswert: 115 °C HDT/B ohne geschlossenen Bauraum und ohne gehärtete Düse. Damit erreicht ein Biopolymer eine Temperaturbeständigkeit, für die sonst PC mit beheizter Kammer nötig wäre — allerdings nur ab 4 mm Wanddicke geprüft.",
-    "en": "Notable: 115 °C HDT/B without an enclosure and without a hardened nozzle. A biopolymer reaching temperature resistance that otherwise requires PC with a heated chamber — but only verified from 4 mm wall thickness."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Alle Kennwerte stimmen Zeile für Zeile mit dem unverstärkten DuraPro ABS überein — auch die Dichte von 1,06 g/cm³ und die Kerbschlagzähigkeit. Carbonfaser erhöht die Steifigkeit, senkt die Bruchdehnung und verändert die Dichte; dass sich keine dieser Größen unterscheidet, spricht dafür, dass die CF-Variante nicht eigenständig geprüft wurde. Einziger Unterschied im Datenblatt: die Empfehlung einer gehärteten Düse.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: Every value matches unfilled DuraPro ABS row for row — including the density of 1.06 g/cm³ and the notched impact strength. Carbon fibre raises stiffness, lowers elongation and changes density; that none of these differs suggests the CF grade was not separately tested. The only difference in the datasheet: the recommendation of a hardened nozzle."
   },
   "datasheet": {
-    "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+    "title": "Extrudr DuraPro ABS CF — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-abs-cf-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 58,
+      "value": 49,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ASTM D638",
       "source": "src_tds",
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 4300,
+      "value": 2350,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ASTM D638",
       "source": "src_tds",
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 2.8,
+      "value": 10,
       "unit": "%",
-      "testStandard": "ISO 527",
+      "testStandard": "ASTM D638 (nominell)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 78,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2550,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
       "source": "src_tds",
       "confidence": "medium"
     },
     "charpyNotchedXy": {
-      "value": 4,
+      "value": 220,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eA",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "charpyUnnotchedXy": {
-      "value": 71,
-      "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "vicatA": {
-      "value": 160,
-      "unit": "°C",
-      "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "testStandard": "ASTM D256, 23 °C",
       "source": "src_tds",
       "confidence": "medium"
     },
     "hdtB": {
-      "value": 115,
+      "value": 85,
       "unit": "°C",
-      "testStandard": "ISO 75",
+      "testStandard": "ASTM D648",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
     "density": {
-      "value": 1.35,
+      "value": 1.06,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
+      "testStandard": "ASTM D792",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 220,
+      "value": 235,
       "unit": "°C",
-      "min": 210,
-      "max": 230,
+      "min": 220,
+      "max": 250,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 105,
       "unit": "°C",
-      "min": 20,
-      "max": 90,
+      "min": 100,
+      "max": 110,
       "source": "src_tds",
       "confidence": "medium"
     }
@@ -106,9 +101,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr GreenTEC Pro",
-        "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+        "productName": "Extrudr DuraPro ABS CF",
+        "title": "Extrudr DuraPro ABS CF — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-abs-cf-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

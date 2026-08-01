@@ -5,24 +5,61 @@
   "materialId": "pa6-cf",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr DuraPro PA6-CF",
+  "productName": "Extrudr DuraPro PA6 CF",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Das Datenblatt nennt einen Zug-E-Modul von 1100 MPa. Das liegt unter dem unverstärkten DuraPro PA12 (1440 MPa) und unter der GF-Variante desselben Werkstoffs (2400 MPa) — bei einem carbonfaserverstärkten PA6 wäre der drei- bis fünffache Wert zu erwarten. Zusammen mit der angegebenen Wassersättigung von 9 %, die für unverstärktes PA6 typisch ist, deutet das auf Kennwerte des ungefüllten und konditionierten Grundpolymers hin. Der E-Modul wurde deshalb nicht übernommen.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: The datasheet states a tensile modulus of 1100 MPa. That is below unfilled DuraPro PA12 (1440 MPa) and below the GF grade of the same material (2400 MPa) — for a carbon-fibre reinforced PA6 three to five times the value would be expected. Together with the stated 9 % water saturation, typical of unfilled PA6, this points to values for the unfilled and conditioned base polymer. The modulus was therefore not imported."
   },
   "datasheet": {
-    "title": "Extrudr DuraPro PA6-CF — Technisches Datenblatt (DE)",
+    "title": "Extrudr DuraPro PA6 CF — Technisches Datenblatt (DE)",
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa6-cf-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 527 (Streckspannung)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
     "elongationAtBreakXy": {
       "value": 4,
       "unit": "%",
       "testStandard": "ISO 527-2 (nominell)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 16,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eA, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 105,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/A, ungeglüht",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 170,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/B, ungeglüht",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -58,8 +95,8 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr DuraPro PA6-CF",
-        "title": "Extrudr DuraPro PA6-CF — Technisches Datenblatt (DE)",
+        "productName": "Extrudr DuraPro PA6 CF",
+        "title": "Extrudr DuraPro PA6 CF — Technisches Datenblatt (DE)",
         "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa6-cf-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",

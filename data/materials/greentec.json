@@ -16,8 +16,8 @@
       "Hochtemperatur-Biopolymer"
     ],
     "trademarkNotice": {
-      "de": "DuraPro, GreenTEC und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
-      "en": "DuraPro, GreenTEC and Flex are product designations of FD3D GmbH (Extrudr)."
+      "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
+      "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
     },
     "abstract": {
       "de": "GreenTEC ist ein Biopolymer-Compound, das ohne beheizte Kammer und ohne gehärtete Düse bis 115 °C HDT/B kommt — eine Temperaturbeständigkeit, für die sonst PC mit Kammer nötig wäre. Für Gehäuse und Funktionsteile mit moderater Wärmebelastung. Grenzen: spröde (2,8 % Bruchdehnung bei der Pro-Variante), und die Temperaturwerte sind erst ab 4 mm Wanddicke geprüft.",
@@ -105,8 +105,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
-        "en": "Our own conservative recommendation with margin to the softening limit."
+        "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
+        "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
     }
   },

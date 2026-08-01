@@ -13,15 +13,15 @@
     "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
   },
   "features": {
-    "de": "Deutlich fester als das ASA im Feld: 62 MPa gegen 37 MPa bei Bambu ASA und 42 MPa bei Prusament ASA. Achtung, andere Prüfnorm (ASTM D638 statt ISO 527) — die Werte sind nicht 1:1 vergleichbar, der Abstand ist aber zu gross, um allein daher zu kommen.",
-    "en": "Markedly stronger than the ASA in this field: 62 MPa against 37 MPa for Bambu ASA and 42 MPa for Prusament ASA. Note the different standard (ASTM D638 rather than ISO 527) — values are not directly comparable, but the gap is too large to come from that alone."
+    "de": "Deutlich fester als das ASA im Feld: 62 MPa gegen 37 MPa bei Bambu ASA und 42 MPa bei Prusament ASA. Achtung, andere Prüfnorm (ASTM D638 statt ISO 527) — die Werte sind nicht 1:1 vergleichbar, der Abstand ist aber zu gross, um allein daher zu kommen. Das Datenblatt enthält zudem einen Bewitterungstest über 2000 Stunden.",
+    "en": "Markedly stronger than the ASA in this field: 62 MPa against 37 MPa for Bambu ASA and 42 MPa for Prusament ASA. Note the different standard (ASTM D638 rather than ISO 527) — values are not directly comparable, but the gap is too large to come from that alone. The datasheet also contains a 2000-hour weathering test."
   },
   "datasheet": {
     "title": "Extrudr DuraPro ASA — Technisches Datenblatt (DE)",
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-asa-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
       "value": 62.2,

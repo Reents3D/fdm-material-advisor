@@ -17,7 +17,7 @@
     "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-abs-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://www.extrudr.com/de/shop-eu/page/datasheets/",
+  "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
       "value": 49,
@@ -65,6 +65,14 @@
       "value": 85,
       "unit": "°C",
       "testStandard": "ASTM D648",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 92,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"

@@ -1,5 +1,6 @@
 /**
- * Import: Herstellerprodukte (Prusament, AzureFilm, Extrudr, …).
+ * Import: Herstellerprodukte (Prusament, Extrudr, …).
+ * AzureFilm liegt in einem eigenen Skript: scripts/import/azurefilm.mjs
  *
  * WARUM EINE EIGENE EBENE NEBEN data/materials/?
  * `data/materials/` beschreibt den WERKSTOFFTYP (PETG, ASA, …) — darauf arbeitet die
@@ -12,10 +13,14 @@
  *
  *   printed  Prüfkörper wurden GEDRUCKT (Bambu Lab, Prusa Polymers).
  *            Das ist der Wert, den ein FDM-Bauteil tatsächlich hat.
- *   moulded  Werte stammen aus dem Rohstoffdatenblatt, also spritzgegossen
- *            (AzureFilm: PETG mit 29 % Bruchdehnung — an einem gedruckten Teil
- *            physikalisch unmöglich).
- *   undeclared  Datenblatt sagt es nicht.
+ *   moulded  Werte stammen aus dem Rohstoffdatenblatt, also spritzgegossen.
+ *            Nominelle Bruchdehnungen weit über dem gedruckt Erreichbaren sind das
+ *            deutlichste Anzeichen.
+ *   undeclared  Datenblatt sagt es nicht (Extrudr).
+ *
+ * Die Angabe allein reicht allerdings nicht. AzureFilm deklariert "printed" UND nennt
+ * die Druckparameter — darunter 20 % Infill. Ein Kennwert aus einem 20-%-Prüfkörper ist
+ * kein Werkstoffkennwert. Deshalb führt jeder Wert zusätzlich seine `conditions` mit.
  *
  * Ein Vergleich über diese Grenze hinweg ist unzulässig. Deshalb trägt jeder Wert die
  * Angabe mit, und die Oberfläche gruppiert danach statt stumpf zu sortieren.
@@ -136,59 +141,6 @@ const PRODUCTS = [
       hdtB: q(93, "°C", { std: "ISO 75, 0.45 MPa" }),
       nozzleTemperature: q(260, "°C", { min: 250, max: 270 }),
       bedTemperature: q(110, "°C", { min: 105, max: 115 }),
-    },
-  },
-
-  /* ---------------------------------------------------------- AzureFilm */
-  {
-    id: "azurefilm-pla",
-    materialId: "pla",
-    brand: "AzureFilm",
-    manufacturer: "AzureFilm d.o.o.",
-    productName: "AzureFilm PLA",
-    origin: "Slowenien",
-    specimenType: "moulded",
-    specimenNote: t(
-      "Das Datenblatt weist Rohstoffkennwerte aus, keine gedruckten Prüfkörper: 59 MPa Zugfestigkeit bei 4,2 % Bruchdehnung ist typisches Spritzguss-PLA. Ein gedrucktes Bauteil erreicht das nicht. Nicht mit Bambu- oder Prusament-Werten in einer Spalte vergleichen.",
-      "The datasheet reports raw-material values, not printed specimens: 59 MPa at 4.2 % elongation is typical injection-moulded PLA. A printed part does not reach this. Do not compare in one column with Bambu or Prusament values."),
-    datasheet: {
-      title: "AzureFilm PLA — Technical Data Sheet",
-      url: "https://3d.nice-cdn.com/upload/file/PLA_TDS.pdf",
-    },
-    productUrl: "https://azurefilm.com/technical-data-sheets/",
-    props: {
-      tensileStrengthXy: q(59, "MPa", { std: "ISO 527, 50 mm/min", orientation: "isotropic", conditions: "Rohstoffkennwert (nicht gedruckt)", confidence: "medium" }),
-      tensileModulusXy: q(3300, "MPa", { std: "ISO 527, 1 mm/min", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      elongationAtBreakXy: q(4.2, "%", { std: "ISO 527, 50 mm/min", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      flexuralStrengthXy: q(73.6, "MPa", { std: "ISO 178", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      flexuralModulusXy: q(2800, "MPa", { std: "ISO 178", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      bedTemperature: q(55, "°C", { min: 50, max: 60 }),
-    },
-  },
-  {
-    id: "azurefilm-petg",
-    materialId: "petg",
-    brand: "AzureFilm",
-    manufacturer: "AzureFilm d.o.o.",
-    productName: "AzureFilm PETG",
-    origin: "Slowenien",
-    specimenType: "moulded",
-    specimenNote: t(
-      "Rohstoffkennwerte, keine gedruckten Prüfkörper. Deutlichster Hinweis: 29 % Bruchdehnung — an einem gedruckten PETG-Bauteil physikalisch nicht erreichbar (gedruckt sind es rund 5-10 %). Die Zahlen beschreiben das Granulat, nicht Ihr Bauteil.",
-      "Raw-material values, not printed specimens. Clearest indicator: 29 % elongation at break — physically unattainable on a printed PETG part (printed values are around 5-10 %). The figures describe the pellets, not your part."),
-    datasheet: {
-      title: "AzureFilm PETG — Technical Data Sheet",
-      url: "https://www.3d-colour.com/wp-content/uploads/2023/04/AzureFilm_PETG_TDS.pdf",
-    },
-    productUrl: "https://azurefilm.com/technical-data-sheets/",
-    props: {
-      density: q(1.29, "g/cm³", { std: "ASTM D-792" }),
-      tensileStrengthXy: q(51, "MPa", { std: "ISO 527-2 (Streckspannung)", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      tensileModulusXy: q(2980, "MPa", { std: "ISO 527-2", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      elongationAtBreakXy: q(29, "%", { std: "ISO 527-2", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      flexuralStrengthXy: q(68, "MPa", { std: "ISO 178", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      flexuralModulusXy: q(2040, "MPa", { std: "ISO 178", orientation: "isotropic", conditions: "Rohstoffkennwert", confidence: "medium" }),
-      bedTemperature: q(85, "°C", { min: 80, max: 90 }),
     },
   },
 

@@ -1,11 +1,11 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-greentec-pro",
-  "materialId": "greentec",
+  "id": "extrudr-flex-hard",
+  "materialId": "tpu-58d",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr GreenTEC Pro",
+  "productName": "Extrudr Flex Hard",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
@@ -13,86 +13,84 @@
     "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
   },
   "features": {
-    "de": "Bemerkenswert: 115 °C HDT/B ohne geschlossenen Bauraum und ohne gehärtete Düse. Damit erreicht ein Biopolymer eine Temperaturbeständigkeit, für die sonst PC mit beheizter Kammer nötig wäre — allerdings nur ab 4 mm Wanddicke geprüft.",
-    "en": "Notable: 115 °C HDT/B without an enclosure and without a hardened nozzle. A biopolymer reaching temperature resistance that otherwise requires PC with a heated chamber — but only verified from 4 mm wall thickness."
+    "de": "Vicat 140 °C bei einem Elastomer — das ist der höchste Wert der Flex-Familie und liegt über dem, was PLA, PETG oder ABS erreichen. Shore D 58 macht daraus einen halbharten Konstruktionswerkstoff statt eines Gummis.",
+    "en": "Vicat 140 °C for an elastomer — the highest value in the Flex family and above what PLA, PETG or ABS reach. Shore D 58 makes it a semi-rigid structural material rather than a rubber."
   },
   "datasheet": {
-    "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+    "title": "Extrudr Flex Hard — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-hard-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
-    "tensileStrengthXy": {
-      "value": 58,
-      "unit": "MPa",
-      "testStandard": "ISO 527",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
     "tensileModulusXy": {
-      "value": 4300,
+      "value": 40,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-2/5A/500",
       "source": "src_tds",
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 2.8,
+      "value": 490,
       "unit": "%",
-      "testStandard": "ISO 527",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "charpyNotchedXy": {
-      "value": 4,
-      "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eA",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "charpyUnnotchedXy": {
-      "value": 71,
-      "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
+      "testStandard": "ISO 527-2/5A/500 (max. Dehnung)",
       "source": "src_tds",
       "confidence": "medium"
     },
     "vicatA": {
-      "value": 160,
+      "value": 140,
       "unit": "°C",
       "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "hdtB": {
-      "value": 115,
-      "unit": "°C",
-      "testStandard": "ISO 75",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ISO 2781",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "density": {
-      "value": 1.35,
-      "unit": "g/cm³",
-      "testStandard": "ISO 1183",
+    "hardnessShoreD": {
+      "value": 58,
+      "unit": "Shore D",
+      "testStandard": "ISO 868",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tearStrength": {
+      "value": 175,
+      "unit": "kN/m",
+      "testStandard": "ISO 34-1B",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 26,
+      "unit": "mm³",
+      "testStandard": "ISO 4649-A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": -24,
+      "unit": "°C",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 220,
+      "value": 245,
       "unit": "°C",
-      "min": 210,
-      "max": 230,
+      "min": 230,
+      "max": 260,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 70,
       "unit": "°C",
-      "min": 20,
+      "min": 50,
       "max": 90,
       "source": "src_tds",
       "confidence": "medium"
@@ -106,9 +104,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr GreenTEC Pro",
-        "title": "Extrudr GreenTEC Pro — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-pro-TDS-de.pdf",
+        "productName": "Extrudr Flex Hard",
+        "title": "Extrudr Flex Hard — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-hard-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

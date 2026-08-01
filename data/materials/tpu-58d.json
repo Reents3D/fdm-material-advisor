@@ -1,61 +1,61 @@
 {
   "$schema": "../../schema/material.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "pa12",
+  "id": "tpu-58d",
   "identity": {
-    "name": "PA12",
-    "family": "PA",
-    "polymerClass": "semi-crystalline",
+    "name": "TPU 58D",
+    "family": "TPU",
+    "polymerClass": "elastomer",
     "variant": [
-      "basic"
+      "semi-rigid"
     ],
     "aliases": [
-      "Polyamid 12",
-      "Nylon 12",
-      "PA 12"
+      "Flex Hard",
+      "TPU Shore D 58",
+      "halbhartes TPU",
+      "TPE-U hart"
     ],
     "trademarkNotice": {
       "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
       "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
     },
     "abstract": {
-      "de": "PA12 ist das zähste und feuchteunempfindlichste der gängigen Polyamide: über 50 % Bruchdehnung, Vicat 142 °C und deutlich geringere Wasseraufnahme als PA6. Für Funktionsteile, Schnappverbindungen und Gleitelemente. Grenzen: geringere Festigkeit und Steifigkeit als faserverstärkte Typen, braucht Kammer und Trocknung.",
-      "en": "PA12 is the toughest and least moisture-sensitive of the common polyamides: over 50 % elongation at break, Vicat 142 °C and markedly lower water uptake than PA6. For functional parts, snap fits and sliding elements. Limits: lower strength and stiffness than fibre-filled grades, needs a chamber and drying."
+      "de": "TPU 58D ist kein Gummi mehr, sondern ein halbharter Konstruktionswerkstoff: Shore D 58 bei 490 % Bruchdehnung und Vicat 140 °C — der höchste Vicat-Wert unter den Elastomeren und höher als bei PLA, PETG oder ABS. Für Zahnräder, Rollen, Stossfänger und alles, was nachgeben soll, ohne die Form zu verlieren. Grenzen: langsam zu drucken, hygroskopisch.",
+      "en": "TPU 58D is no longer a rubber but a semi-rigid structural material: Shore D 58 at 490 % elongation and Vicat 140 °C — the highest Vicat among the elastomers and above PLA, PETG or ABS. For gears, rollers, bumpers and anything that should give without losing its shape. Limits: slow to print, hygroscopic."
     },
     "positioning": {
-      "de": "Zäh statt steif — und deutlich gutmütiger bei Feuchte als PA6.",
-      "en": "Tough rather than stiff — and far more forgiving about moisture than PA6."
+      "de": "Zäh wie Gummi, formstabil wie ein Konstruktionskunststoff.",
+      "en": "Tough as rubber, dimensionally stable as an engineering plastic."
     }
   },
   "mechanics": {
     "density": {
-      "value": 1.01,
+      "value": 1.2,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "tensileStrengthXy": {
-      "value": 43,
+      "value": 40,
       "unit": "MPa",
       "testStandard": "ISO 527 bzw. ASTM D638",
       "orientation": "n/a",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
-    "tensileModulusXy": {
-      "value": 1440,
-      "unit": "MPa",
-      "testStandard": "ISO 527",
+    "elongationAtBreakXy": {
+      "value": 490,
+      "unit": "%",
+      "testStandard": "ISO 527 (nominell)",
       "orientation": "n/a",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
-    "elongationAtBreakXy": {
-      "value": 50,
-      "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
+    "hardnessShoreD": {
+      "value": 58,
+      "unit": "Shore D",
+      "testStandard": "ISO 868",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -65,44 +65,22 @@
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
-    "creepTendency": {
-      "value": 3,
-      "scale": "creepTendency",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
-    "notchSensitivity": {
-      "value": 1,
-      "scale": "notchSensitivity",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
     "wearResistance": {
       "value": 5,
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "fatigueResistance": {
+      "value": 5,
+      "scale": "fatigueResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
     }
   },
   "thermal": {
-    "hdtA": {
-      "value": 55,
-      "unit": "°C",
-      "testStandard": "ISO 75, 1.8 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "hdtB": {
-      "value": 135,
-      "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
     "vicatB50": {
-      "value": 142,
+      "value": 140,
       "unit": "°C",
       "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -110,7 +88,7 @@
       "confidence": "medium"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 30,
+      "value": 115,
       "unit": "°C",
       "conditions": "unbelastet, Luft, dauerhaft",
       "source": "estimate_reasoning",
@@ -123,34 +101,34 @@
   },
   "processing": {
     "nozzleTemperature": {
-      "value": 275,
+      "value": 245,
       "unit": "°C",
-      "min": 260,
-      "max": 290,
+      "min": 230,
+      "max": 260,
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 110,
+      "value": 70,
       "unit": "°C",
-      "min": 105,
-      "max": 115,
+      "min": 50,
+      "max": 90,
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "chamberRequirement": {
-      "value": "mandatory",
+      "value": "not-required",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "dryingTemperature": {
-      "value": 80,
+      "value": 65,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "dryingTime": {
-      "value": 8,
+      "value": 6,
       "unit": "h",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -162,7 +140,7 @@
       "confidence": "estimated"
     },
     "warpingTendency": {
-      "value": 3,
+      "value": 1,
       "scale": "warpingTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -178,11 +156,17 @@
       "scale": "abrasiveness",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "stringingTendency": {
+      "value": 4,
+      "scale": "stringingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
     }
   },
   "durability": {
     "uvResistance": {
-      "value": 2,
+      "value": 3,
       "scale": "uvResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -194,7 +178,7 @@
       "confidence": "estimated"
     },
     "hydrolysisResistance": {
-      "value": 4,
+      "value": 3,
       "scale": "hydrolysisResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -228,19 +212,19 @@
     },
     "flameRetardancy": {
       "ul94": {
-        "value": "HB",
-        "source": "src_extrudr_tds",
-        "confidence": "high"
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
       }
     },
     "printEmissions": {
       "concernLevel": {
-        "value": "moderate",
+        "value": "low",
         "source": "estimate_reasoning",
         "confidence": "estimated"
       },
       "extractionRecommended": {
-        "value": true,
+        "value": false,
         "source": "estimate_reasoning",
         "confidence": "estimated"
       }
@@ -259,13 +243,13 @@
       "confidence": "estimated"
     },
     "paintAdhesion": {
-      "value": 1,
+      "value": 2,
       "scale": "paintAdhesion",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "bondability": {
-      "value": 2,
+      "value": 3,
       "scale": "bondability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -299,10 +283,10 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 400,
+        "value": 900,
         "unit": "mm",
         "min": 200,
-        "max": 800,
+        "max": 1800,
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
@@ -332,9 +316,9 @@
         "id": "src_extrudr_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "PA12",
-        "title": "PA12 — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-TDS-de.pdf",
+        "productName": "TPU 58D",
+        "title": "TPU 58D — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/flex-hard-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

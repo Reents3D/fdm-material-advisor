@@ -1,42 +1,43 @@
 {
   "$schema": "../../schema/material.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "pa12",
+  "id": "pc-pbt",
   "identity": {
-    "name": "PA12",
-    "family": "PA",
-    "polymerClass": "semi-crystalline",
+    "name": "PC-PBT",
+    "family": "PC",
+    "polymerClass": "amorphous",
     "variant": [
-      "basic"
+      "blend"
     ],
     "aliases": [
-      "Polyamid 12",
-      "Nylon 12",
-      "PA 12"
+      "PC/PBT",
+      "Polycarbonat-Polybutylenterephthalat-Blend",
+      "DuraPro PC-PBT",
+      "Xenoy"
     ],
     "trademarkNotice": {
       "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
       "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
     },
     "abstract": {
-      "de": "PA12 ist das zähste und feuchteunempfindlichste der gängigen Polyamide: über 50 % Bruchdehnung, Vicat 142 °C und deutlich geringere Wasseraufnahme als PA6. Für Funktionsteile, Schnappverbindungen und Gleitelemente. Grenzen: geringere Festigkeit und Steifigkeit als faserverstärkte Typen, braucht Kammer und Trocknung.",
-      "en": "PA12 is the toughest and least moisture-sensitive of the common polyamides: over 50 % elongation at break, Vicat 142 °C and markedly lower water uptake than PA6. For functional parts, snap fits and sliding elements. Limits: lower strength and stiffness than fibre-filled grades, needs a chamber and drying."
+      "de": "PC-PBT ist ein Blend aus Polycarbonat und PBT: die Zähigkeit des PC mit der Chemikalien- und Kraftstoffbeständigkeit des Polyesters. 60 kJ/m² Kerbschlagzähigkeit bei über 50 % Bruchdehnung und CTI 600 V. Für Gehäuse im Maschinen- und Fahrzeugumfeld, wo Öle und Kraftstoffe im Spiel sind. Grenzen: braucht Kammer und Trocknung, kein Brandschutzzeugnis über UL94 HB hinaus.",
+      "en": "PC-PBT is a blend of polycarbonate and PBT: the toughness of PC with the chemical and fuel resistance of the polyester. 60 kJ/m² notched impact at over 50 % elongation and CTI 600 V. For housings in machinery and vehicle environments where oils and fuels are involved. Limits: needs a chamber and drying, no fire certification beyond UL94 HB."
     },
     "positioning": {
-      "de": "Zäh statt steif — und deutlich gutmütiger bei Feuchte als PA6.",
-      "en": "Tough rather than stiff — and far more forgiving about moisture than PA6."
+      "de": "Polycarbonat für die Fälle, in denen reines PC an Öl und Kraftstoff scheitert.",
+      "en": "Polycarbonate for the cases where pure PC fails against oil and fuel."
     }
   },
   "mechanics": {
     "density": {
-      "value": 1.01,
+      "value": 1.2,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "tensileStrengthXy": {
-      "value": 43,
+      "value": 60,
       "unit": "MPa",
       "testStandard": "ISO 527 bzw. ASTM D638",
       "orientation": "n/a",
@@ -44,7 +45,7 @@
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 1440,
+      "value": 2200,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "n/a",
@@ -59,34 +60,30 @@
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
+    "izodNotchedXy": {
+      "value": 50,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180/A",
+      "orientation": "n/a",
+      "source": "src_extrudr_tds",
+      "confidence": "medium"
+    },
     "toughness": {
       "value": 5,
       "scale": "toughness",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
-    "creepTendency": {
-      "value": 3,
-      "scale": "creepTendency",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
     "notchSensitivity": {
-      "value": 1,
+      "value": 2,
       "scale": "notchSensitivity",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
-    "wearResistance": {
-      "value": 5,
-      "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     }
   },
   "thermal": {
     "hdtA": {
-      "value": 55,
+      "value": 85,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -94,7 +91,7 @@
       "confidence": "medium"
     },
     "hdtB": {
-      "value": 135,
+      "value": 110,
       "unit": "°C",
       "testStandard": "ISO 75, 0.45 MPa",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -102,7 +99,7 @@
       "confidence": "medium"
     },
     "vicatB50": {
-      "value": 142,
+      "value": 126,
       "unit": "°C",
       "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -110,7 +107,7 @@
       "confidence": "medium"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 30,
+      "value": 60,
       "unit": "°C",
       "conditions": "unbelastet, Luft, dauerhaft",
       "source": "estimate_reasoning",
@@ -144,7 +141,7 @@
       "confidence": "medium"
     },
     "dryingTemperature": {
-      "value": 80,
+      "value": 90,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -162,13 +159,13 @@
       "confidence": "estimated"
     },
     "warpingTendency": {
-      "value": 3,
+      "value": 4,
       "scale": "warpingTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "hygroscopy": {
-      "value": 4,
+      "value": 5,
       "scale": "hygroscopy",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -193,12 +190,6 @@
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
-    "hydrolysisResistance": {
-      "value": 4,
-      "scale": "hydrolysisResistance",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
-    },
     "chemicalResistance": [
       {
         "chemicalId": "chem_water",
@@ -208,9 +199,9 @@
       },
       {
         "chemicalId": "chem_mineral_oil",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "rating": "resistant",
+        "source": "src_extrudr_tds",
+        "confidence": "medium"
       }
     ]
   },
@@ -259,13 +250,13 @@
       "confidence": "estimated"
     },
     "paintAdhesion": {
-      "value": 1,
+      "value": 3,
       "scale": "paintAdhesion",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "bondability": {
-      "value": 2,
+      "value": 4,
       "scale": "bondability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -280,19 +271,19 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "availability": {
-      "value": 3,
+      "value": 2,
       "scale": "availability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "smallSeriesSuitability": {
-      "value": 3,
+      "value": 2,
       "scale": "smallSeriesSuitability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -332,9 +323,9 @@
         "id": "src_extrudr_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "PA12",
-        "title": "PA12 — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-TDS-de.pdf",
+        "productName": "PC-PBT",
+        "title": "PC-PBT — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pc-pbt-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

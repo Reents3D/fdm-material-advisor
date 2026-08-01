@@ -10,6 +10,7 @@ Prüfnorm und seine Konfidenz mitführt.
 [![Deploy](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/deploy.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/deploy.yml)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Daten: CC BY 4.0](https://img.shields.io/badge/Daten-CC%20BY%204.0-green.svg)](LICENSE-DATA)
+[![KI-Einsatz: offengelegt](https://img.shields.io/badge/KI--Einsatz-offengelegt-0C4251.svg)](AI_USAGE.md)
 
 *[English summary below](#english)*
 
@@ -183,6 +184,25 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
+## Wie diese Daten entstehen — Einsatz von KI
+
+Dieses Projekt wird mit Unterstützung von KI erstellt und gepflegt. Sie erschließt
+Herstellerdatenblätter, überführt sie ins Schema und liest über tausend Einzelwerte
+systematisch gegen — Widersprüche zwischen Datenblättern findet ein Mensch bei dieser Menge
+kaum noch. Auch der Code stammt daher.
+
+**Die veröffentlichte Anwendung enthält keine KI.** Kein Modell, kein API-Aufruf, keine
+Generierung zur Laufzeit. Dieselbe Eingabe ergibt immer dieselbe Empfehlung, nachvollziehbar
+aus den Daten in diesem Repository. Auch die Begründungen sind strukturierte Objekte, keine
+generierten Sätze.
+
+Die Zahlen stammen aus den Datenblättern, nicht aus dem Modell. Jeder Wert führt seine
+Quelle mit, jedes Produkt verlinkt sein PDF mit Abrufdatum — jede Zahl ist am Original
+nachprüfbar. Wo kein Datenblatt existiert, steht sichtbar `estimated`. Widersprüchliche
+Herstellerangaben werden als Befund dokumentiert und nicht stillschweigend geglättet.
+
+Ausführlich, mit den Schutzmechanismen gegen erfundene Werte: **[AI_USAGE.md](AI_USAGE.md)**
+
 ## Haftungsausschluss
 
 Alle Werte sind Richtwerte. Sie ersetzen **keine Bauteilqualifizierung**. FDM-Bauteile
@@ -248,8 +268,16 @@ carries its source, its test standard and a confidence rating.
   states this.
 - **Estimated values are marked.** 51 % of statements in the database are flagged
   estimates rather than measurements. That number is displayed, not hidden.
-- **No vendor bias.** The operator sells 3D printing services. Whether a material is in
-  their stock never enters the ranking — enforced by a test, documented as ADR-004.
+- **Independent of manufacturers.** The operator is a 3D printing service provider, not a
+  material producer, and can buy and process any material. Whether a material is in stock
+  never enters the ranking — enforced by a test, documented as ADR-004.
+
+**Use of AI:** this project is built and maintained with AI assistance — extracting
+manufacturer datasheets into the schema, cross-reading over a thousand sourced values for
+contradictions, and writing the code. **The published application contains no AI:** no
+model, no API call, nothing generated at runtime. The numbers come from the datasheets,
+not from the model; every product links its source PDF with a retrieval date, and values
+without a datasheet are visibly marked `estimated`. Details: [AI_USAGE.md](AI_USAGE.md).
 
 **Engine:** hard constraints → percentile normalisation → weighted scoring → typed
 explanations → trade-off analysis with absolute deltas. Missing data never counts as

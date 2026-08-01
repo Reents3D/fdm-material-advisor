@@ -7,31 +7,27 @@
   "manufacturer": "AzureFilm d.o.o.",
   "productName": "AzureFilm PETG",
   "origin": "Slowenien",
-  "specimenType": "moulded",
+  "specimenType": "printed",
   "specimenNote": {
-    "de": "Rohstoffkennwerte, keine gedruckten Prüfkörper. Deutlichster Hinweis: 29 % Bruchdehnung — an einem gedruckten PETG-Bauteil physikalisch nicht erreichbar (gedruckt sind es rund 5-10 %). Die Zahlen beschreiben das Granulat, nicht Ihr Bauteil.",
-    "en": "Raw-material values, not printed specimens. Clearest indicator: 29 % elongation at break — physically unattainable on a printed PETG part (printed values are around 5-10 %). The figures describe the pellets, not your part."
+    "de": "AzureFilm weist die Kennwerte ausdrücklich als „Property of 3D printed specimens“ aus und nennt die Druckparameter der Prüfkörper vollständig. Entscheidend ist dabei der Infill: PLA, PLA Silk und ASA wurden mit 20 % gedruckt, PETG mit 100 %. Nur die 100-%-Werte sind mit anderen Herstellern vergleichbar.",
+    "en": "AzureFilm explicitly declares its values as “property of 3D printed specimens” and states the specimen print parameters in full. The decisive detail is the infill: PLA, PLA Silk and ASA were printed at 20 %, PETG at 100 %. Only the 100 % values are comparable with other manufacturers."
+  },
+  "features": {
+    "de": "Das einzige AzureFilm-Datenblatt mit 100 % Infill im Prüfkörper — und damit das einzige, dessen Werte sich sinnvoll mit anderen Herstellern vergleichen lassen. 29 % Bruchdehnung bei 51 MPa Streckspannung ist für gedrucktes PETG ein plausibler, guter Wert.",
+    "en": "The only AzureFilm datasheet with 100 % infill in the specimen — and therefore the only one whose values compare meaningfully with other manufacturers. 29 % elongation at break at 51 MPa yield stress is a plausible, good result for printed PETG."
   },
   "datasheet": {
     "title": "AzureFilm PETG — Technical Data Sheet",
     "url": "https://www.3d-colour.com/wp-content/uploads/2023/04/AzureFilm_PETG_TDS.pdf",
     "retrievedAt": "2026-08-01"
   },
-  "productUrl": "https://azurefilm.com/technical-data-sheets/",
+  "productUrl": "https://azurefilm.com/de/technische-daten/",
   "properties": {
-    "density": {
-      "value": 1.29,
-      "unit": "g/cm³",
-      "testStandard": "ASTM D-792",
-      "source": "src_tds",
-      "confidence": "high"
-    },
     "tensileStrengthXy": {
       "value": 51,
       "unit": "MPa",
       "testStandard": "ISO 527-2 (Streckspannung)",
-      "orientation": "isotropic",
-      "conditions": "Rohstoffkennwert",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -39,8 +35,15 @@
       "value": 2980,
       "unit": "MPa",
       "testStandard": "ISO 527-2",
-      "orientation": "isotropic",
-      "conditions": "Rohstoffkennwert",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527-2",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -48,8 +51,7 @@
       "value": 29,
       "unit": "%",
       "testStandard": "ISO 527-2",
-      "orientation": "isotropic",
-      "conditions": "Rohstoffkennwert",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -57,8 +59,7 @@
       "value": 68,
       "unit": "MPa",
       "testStandard": "ISO 178",
-      "orientation": "isotropic",
-      "conditions": "Rohstoffkennwert",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -66,8 +67,22 @@
       "value": 2040,
       "unit": "MPa",
       "testStandard": "ISO 178",
-      "orientation": "isotropic",
-      "conditions": "Rohstoffkennwert",
+      "conditions": "gedruckter Prüfkörper, 100 % Infill, 0,4 mm Düse",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D-792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 220,
+      "max": 240,
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -77,7 +92,7 @@
       "min": 80,
       "max": 90,
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     }
   },
   "governance": {
@@ -92,7 +107,11 @@
         "title": "AzureFilm PETG — Technical Data Sheet",
         "url": "https://www.3d-colour.com/wp-content/uploads/2023/04/AzureFilm_PETG_TDS.pdf",
         "retrievedAt": "2026-08-01",
-        "confidenceCeiling": "medium"
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit deklarierten Prüfkörper-Druckparametern. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, sind die Kennwerte keine Werkstoffkennwerte — das Ceiling steht dort auf 'low'.",
+          "en": "Manufacturer datasheet with declared specimen print parameters. Where the specimen was printed at 20 % infill the values are not material data — the ceiling is set to 'low' in those cases."
+        }
       }
     ]
   }

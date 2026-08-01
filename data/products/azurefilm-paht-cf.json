@@ -1,0 +1,112 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "azurefilm-paht-cf",
+  "materialId": "pa6-cf",
+  "brand": "AzureFilm",
+  "manufacturer": "AzureFilm d.o.o.",
+  "productName": "AzureFilm PAHT Carbon Fiber",
+  "origin": "Slowenien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "AzureFilm weist die Kennwerte ausdrücklich als „Property of 3D printed specimens“ aus und nennt die Druckparameter der Prüfkörper vollständig. Entscheidend ist dabei der Infill: PLA, PLA Silk und ASA wurden mit 20 % gedruckt, PETG mit 100 %. Nur die 100-%-Werte sind mit anderen Herstellern vergleichbar.\n\nBefund zu diesem Datenblatt: Anders als die übrigen AzureFilm-Blätter enthält dieses keinen Prüfkörper-Parameterblock und keine Kennzeichnung als gedruckter Prüfkörper. Die Werte — 130 MPa Zugfestigkeit bei 11,5 GPa E-Modul — liegen deutlich über dem, was carbonfaserverstärktes Polyamid im FDM-Druck erreicht (typisch 70 bis 100 MPa und 5 bis 7 GPa) und sprechen für spritzgegossene oder Compound-Kennwerte. Zusätzlich ist die Elektrik widersprüchlich beschriftet: derselbe Größenbereich erscheint einmal als „Isolationswiderstand ≤ 10² Ω“ und einmal als „Oberflächenwiderstand < 10² Ω“. Ein Isolationswiderstand von unter 100 Ω wäre kein Isolationswiderstand. Die elektrischen Angaben wurden deshalb nicht übernommen.",
+    "en": "AzureFilm explicitly declares its values as “property of 3D printed specimens” and states the specimen print parameters in full. The decisive detail is the infill: PLA, PLA Silk and ASA were printed at 20 %, PETG at 100 %. Only the 100 % values are comparable with other manufacturers.\n\nFinding on this datasheet: Unlike the other AzureFilm sheets this one contains no specimen parameter block and no declaration of printed specimens. The values — 130 MPa tensile strength at 11.5 GPa modulus — are well above what carbon-reinforced polyamide achieves in FDM printing (typically 70 to 100 MPa and 5 to 7 GPa) and point to moulded or compound data. The electrical section is also contradictorily labelled: the same magnitude appears once as “insulation resistance ≤ 10² Ω” and once as “surface resistance < 10² Ω”. An insulation resistance below 100 Ω would not be an insulation resistance. The electrical figures were therefore not imported."
+  },
+  "features": {
+    "de": "Dauergebrauchstemperatur 120 °C über 20.000 h nach IEC 60216 und kurzzeitig bis 160 °C — eine Lebensdauerangabe, die sonst kein Datenblatt dieser Datenbank macht.",
+    "en": "Continuous service temperature of 120 °C over 20,000 h to IEC 60216 and up to 160 °C short-term — a service-life figure no other datasheet in this database provides."
+  },
+  "datasheet": {
+    "title": "AzureFilm PAHT Carbon Fiber — Technical Data Sheet",
+    "url": "https://3d.nice-cdn.com/upload/file/PAHT_Carbon_Fiber_TDS.pdf",
+    "retrievedAt": "2026-08-01"
+  },
+  "productUrl": "https://azurefilm.com/de/technische-daten/",
+  "properties": {
+    "tensileStrengthXy": {
+      "value": 130,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 23 °C / 50 % rF",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 11500,
+      "unit": "MPa",
+      "testStandard": "ISO 527, 23 °C / 50 % rF",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 2,
+      "unit": "%",
+      "testStandard": "ISO 527 (bei Höchstkraft)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 35,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62, 23 °C / 24 h (< 0,3)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 280,
+      "unit": "°C",
+      "min": 270,
+      "max": 290,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 105,
+      "unit": "°C",
+      "min": 90,
+      "max": 120,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "AzureFilm d.o.o.",
+        "productName": "AzureFilm PAHT Carbon Fiber",
+        "title": "AzureFilm PAHT Carbon Fiber — Technical Data Sheet",
+        "url": "https://3d.nice-cdn.com/upload/file/PAHT_Carbon_Fiber_TDS.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit deklarierten Prüfkörper-Druckparametern. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, sind die Kennwerte keine Werkstoffkennwerte — das Ceiling steht dort auf 'low'.",
+          "en": "Manufacturer datasheet with declared specimen print parameters. Where the specimen was printed at 20 % infill the values are not material data — the ceiling is set to 'low' in those cases."
+        }
+      }
+    ]
+  }
+}

@@ -4,381 +4,1145 @@
   "title": "FDM Material Record",
   "description": "Ein Datensatz beschreibt genau EINE Materialvariante (z. B. PETG-CF), nicht ein Handelsprodukt eines Herstellers. Jede Sachaussage ist ein Wertobjekt mit Quelle und Konfidenz. Fehlende Felder sind erlaubt und erwuenscht - erfundene Werte nicht.",
   "type": "object",
-  "required": ["schemaVersion", "id", "identity", "governance"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "identity",
+    "governance"
+  ],
   "additionalProperties": false,
-
   "properties": {
-    "$schema": { "type": "string" },
-    "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
-    "id": { "$ref": "#/$defs/slug" },
-
-    "identity": { "$ref": "#/$defs/identity" },
-    "mechanics": { "$ref": "#/$defs/mechanics" },
-    "thermal": { "$ref": "#/$defs/thermal" },
-    "processing": { "$ref": "#/$defs/processing" },
-    "durability": { "$ref": "#/$defs/durability" },
-    "compliance": { "$ref": "#/$defs/compliance" },
-    "sustainability": { "$ref": "#/$defs/sustainability" },
-    "finishing": { "$ref": "#/$defs/finishing" },
-    "commercial": { "$ref": "#/$defs/commercial" },
-    "governance": { "$ref": "#/$defs/governance" }
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "id": {
+      "$ref": "#/$defs/slug"
+    },
+    "identity": {
+      "$ref": "#/$defs/identity"
+    },
+    "mechanics": {
+      "$ref": "#/$defs/mechanics"
+    },
+    "thermal": {
+      "$ref": "#/$defs/thermal"
+    },
+    "processing": {
+      "$ref": "#/$defs/processing"
+    },
+    "durability": {
+      "$ref": "#/$defs/durability"
+    },
+    "compliance": {
+      "$ref": "#/$defs/compliance"
+    },
+    "sustainability": {
+      "$ref": "#/$defs/sustainability"
+    },
+    "finishing": {
+      "$ref": "#/$defs/finishing"
+    },
+    "commercial": {
+      "$ref": "#/$defs/commercial"
+    },
+    "governance": {
+      "$ref": "#/$defs/governance"
+    }
   },
-
   "$defs": {
-
-    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
     "i18nText": {
       "type": "object",
-      "required": ["de", "en"],
-      "propertyNames": { "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
-      "additionalProperties": { "type": "string", "minLength": 1 }
+      "required": [
+        "de",
+        "en"
+      ],
+      "propertyNames": {
+        "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
     },
-
     "confidence": {
       "description": "high = mehrere unabhaengige Primaerquellen oder eine belastbare Normpruefung. medium = eine Primaerquelle oder gut uebereinstimmende Sekundaerquellen. low = Quelle vorhanden, aber zweifelhaft, widerspruechlich oder unspezifisch. estimated = keine Quelle, fachliche Ableitung - MUSS in der UI sichtbar gekennzeichnet werden.",
-      "enum": ["high", "medium", "low", "estimated"]
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "estimated"
+      ]
     },
-
     "sourceRef": {
       "description": "Eine oder mehrere Quellen-IDs. Aufloesbar gegen governance.sources[] der Datei oder gegen data/sources.json. Sonderwerte: estimate_reasoning (fachliche Schaetzung), field_experience_reents (eigene Fertigungserfahrung), vendor_claim_unverified (Herstelleraussage ohne Pruefbeleg).",
       "oneOf": [
-        { "$ref": "#/$defs/sourceId" },
-        { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceId" } }
+        {
+          "$ref": "#/$defs/sourceId"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/sourceId"
+          }
+        }
       ]
     },
-
     "sourceId": {
       "type": "string",
       "pattern": "^(src_[a-z0-9_]+|estimate_reasoning|field_experience_reents|vendor_claim_unverified)$"
     },
-
     "orientation": {
       "description": "Belastungsrichtung relativ zur Bauteilorientierung im Druck. Ohne Orientierung ist ein FDM-Festigkeitswert wertlos.",
-      "enum": ["XY", "XZ", "Z", "isotropic", "n/a"]
-    },
-
-    "unit": {
       "enum": [
-        "MPa", "%", "°C", "kJ/m²", "g/cm³", "g/10min", "€/kg", "mm", "mm/s",
-        "h", "%RH", "Ω", "Ω/sq", "Ω·cm", "1e-6/K", "W/(m·K)", "-", "°", "a",
-        "kg CO2e/kg", "Shore D"
+        "XY",
+        "XZ",
+        "Z",
+        "isotropic",
+        "n/a"
       ]
     },
-
+    "unit": {
+      "enum": [
+        "MPa",
+        "%",
+        "°C",
+        "kJ/m²",
+        "g/cm³",
+        "g/10min",
+        "€/kg",
+        "mm",
+        "mm/s",
+        "h",
+        "%RH",
+        "Ω",
+        "Ω/sq",
+        "Ω·cm",
+        "1e-6/K",
+        "W/(m·K)",
+        "-",
+        "°",
+        "a",
+        "kg CO2e/kg",
+        "Shore D"
+      ]
+    },
     "quantity": {
       "description": "Wertobjekt fuer jede messbare Groesse. value = typischer Wert (ggf. redaktionell aggregiert). min/max = realistische Spanne UEBER HERSTELLER HINWEG. tolerance = Streuung EINER Quelle (+/-).",
       "type": "object",
-      "required": ["value", "unit", "source", "confidence"],
+      "required": [
+        "value",
+        "unit",
+        "source",
+        "confidence"
+      ],
       "additionalProperties": false,
       "properties": {
-        "value": { "type": ["number", "null"] },
-        "min": { "type": "number" },
-        "max": { "type": "number" },
-        "tolerance": { "type": "number", "minimum": 0 },
-        "unit": { "$ref": "#/$defs/unit" },
-        "testStandard": { "type": "string", "minLength": 2 },
-        "orientation": { "$ref": "#/$defs/orientation" },
-        "conditions": { "type": "string", "minLength": 2 },
-        "source": { "$ref": "#/$defs/sourceRef" },
-        "confidence": { "$ref": "#/$defs/confidence" },
-        "derivedFrom": { "type": "array", "items": { "type": "string" } },
-        "note": { "$ref": "#/$defs/i18nText" }
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "tolerance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "$ref": "#/$defs/unit"
+        },
+        "testStandard": {
+          "type": "string",
+          "minLength": 2
+        },
+        "orientation": {
+          "$ref": "#/$defs/orientation"
+        },
+        "conditions": {
+          "type": "string",
+          "minLength": 2
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "derivedFrom": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "$ref": "#/$defs/i18nText"
+        }
       }
     },
-
-    "qMPa":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "MPa" } } }] },
-    "qPct":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "%" } } }] },
-    "qDegC":  { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "°C" } } }] },
-    "qImpact":{ "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "kJ/m²" } } }] },
-    "qDens":  { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "g/cm³" } } }] },
-    "qMm":    { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "mm" } } }] },
-    "qMmS":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "mm/s" } } }] },
-    "qHours": { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "h" } } }] },
-    "qRH":    { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "%RH" } } }] },
-    "qEurKg": { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "€/kg" } } }] },
-    "qFactor":{ "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "-" } } }] },
-    "qYears": { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "a" } } }] },
-    "qDeg":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "°" } } }] },
-    "qOhmSq": { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "Ω/sq" } } }] },
-    "qCLTE":  { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "1e-6/K" } } }] },
-    "qWmK":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "W/(m·K)" } } }] },
-    "qMFR":   { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "g/10min" } } }] },
-    "qCO2e":  { "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "kg CO2e/kg" } } }] },
-
+    "qMPa": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "MPa"
+            }
+          }
+        }
+      ]
+    },
+    "qPct": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "%"
+            }
+          }
+        }
+      ]
+    },
+    "qDegC": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "°C"
+            }
+          }
+        }
+      ]
+    },
+    "qImpact": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "kJ/m²"
+            }
+          }
+        }
+      ]
+    },
+    "qDens": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "g/cm³"
+            }
+          }
+        }
+      ]
+    },
+    "qMm": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "mm"
+            }
+          }
+        }
+      ]
+    },
+    "qMmS": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "mm/s"
+            }
+          }
+        }
+      ]
+    },
+    "qHours": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "h"
+            }
+          }
+        }
+      ]
+    },
+    "qRH": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "%RH"
+            }
+          }
+        }
+      ]
+    },
+    "qEurKg": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "€/kg"
+            }
+          }
+        }
+      ]
+    },
+    "qFactor": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "-"
+            }
+          }
+        }
+      ]
+    },
+    "qYears": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "a"
+            }
+          }
+        }
+      ]
+    },
+    "qDeg": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "°"
+            }
+          }
+        }
+      ]
+    },
+    "qOhmSq": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "Ω/sq"
+            }
+          }
+        }
+      ]
+    },
+    "qCLTE": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "1e-6/K"
+            }
+          }
+        }
+      ]
+    },
+    "qWmK": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "W/(m·K)"
+            }
+          }
+        }
+      ]
+    },
+    "qMFR": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "g/10min"
+            }
+          }
+        }
+      ]
+    },
+    "qCO2e": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "kg CO2e/kg"
+            }
+          }
+        }
+      ]
+    },
     "qMechMPa": {
       "description": "Mechanische Kennwerte MUESSEN eine Orientierung tragen.",
-      "allOf": [{ "$ref": "#/$defs/qMPa" }, { "required": ["orientation"] }]
+      "allOf": [
+        {
+          "$ref": "#/$defs/qMPa"
+        },
+        {
+          "required": [
+            "orientation"
+          ]
+        }
+      ]
     },
     "qMechPct": {
-      "allOf": [{ "$ref": "#/$defs/qPct" }, { "required": ["orientation"] }]
+      "allOf": [
+        {
+          "$ref": "#/$defs/qPct"
+        },
+        {
+          "required": [
+            "orientation"
+          ]
+        }
+      ]
     },
     "qMechImpact": {
-      "allOf": [{ "$ref": "#/$defs/qImpact" }, { "required": ["orientation"] }]
+      "allOf": [
+        {
+          "$ref": "#/$defs/qImpact"
+        },
+        {
+          "required": [
+            "orientation"
+          ]
+        }
+      ]
     },
-
     "ratingScale": {
       "description": "Benannte 1-5-Skala. Die Polaritaet (ist 5 gut oder schlecht?) ist NICHT im Datensatz gespeichert, sondern zentral in DATA_MODEL.md und src/engine/scales.ts definiert. validate-data.ts prueft, dass jede hier verwendete Skala dort eine Polaritaet hat.",
       "enum": [
-        "printability", "warpingTendency", "hygroscopy", "layerAdhesion",
-        "abrasiveness", "stringingTendency", "creepTendency", "notchSensitivity",
-        "toughness", "fatigueResistance", "uvResistance", "weatherResistance",
-        "hydrolysisResistance", "yellowingTendency", "stressCrackingSensitivity",
-        "gasBarrier", "surfaceQuality", "sandability", "fillability",
-        "paintAdhesion", "wrappingSuitability", "bondability",
-        "layerLineVisibility", "priceIndex", "availability", "batchConsistency",
-        "dimensionalAccuracy", "wearResistance", "smallSeriesSuitability",
-        "distortionRisk", "ralAccuracy"
+        "printability",
+        "warpingTendency",
+        "hygroscopy",
+        "layerAdhesion",
+        "abrasiveness",
+        "stringingTendency",
+        "creepTendency",
+        "notchSensitivity",
+        "toughness",
+        "fatigueResistance",
+        "uvResistance",
+        "weatherResistance",
+        "hydrolysisResistance",
+        "yellowingTendency",
+        "stressCrackingSensitivity",
+        "gasBarrier",
+        "surfaceQuality",
+        "sandability",
+        "fillability",
+        "paintAdhesion",
+        "wrappingSuitability",
+        "bondability",
+        "layerLineVisibility",
+        "priceIndex",
+        "availability",
+        "batchConsistency",
+        "dimensionalAccuracy",
+        "wearResistance",
+        "smallSeriesSuitability",
+        "distortionRisk",
+        "ralAccuracy"
       ]
     },
-
     "rating": {
       "type": "object",
-      "required": ["value", "scale", "source", "confidence"],
+      "required": [
+        "value",
+        "scale",
+        "source",
+        "confidence"
+      ],
       "additionalProperties": false,
       "properties": {
-        "value": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
-        "scale": { "$ref": "#/$defs/ratingScale" },
-        "source": { "$ref": "#/$defs/sourceRef" },
-        "confidence": { "$ref": "#/$defs/confidence" },
-        "note": { "$ref": "#/$defs/i18nText" }
+        "value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "scale": {
+          "$ref": "#/$defs/ratingScale"
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "note": {
+          "$ref": "#/$defs/i18nText"
+        }
       }
     },
-
     "flag": {
       "description": "Tri-state Boolean. value: null bedeutet AUSDRUECKLICH unbekannt - nicht false.",
       "type": "object",
-      "required": ["value", "source", "confidence"],
+      "required": [
+        "value",
+        "source",
+        "confidence"
+      ],
       "additionalProperties": false,
       "properties": {
-        "value": { "type": ["boolean", "null"] },
-        "source": { "$ref": "#/$defs/sourceRef" },
-        "confidence": { "$ref": "#/$defs/confidence" },
-        "note": { "$ref": "#/$defs/i18nText" }
+        "value": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "note": {
+          "$ref": "#/$defs/i18nText"
+        }
       }
     },
-
     "choice": {
       "type": "object",
-      "required": ["value", "source", "confidence"],
+      "required": [
+        "value",
+        "source",
+        "confidence"
+      ],
       "additionalProperties": false,
       "properties": {
-        "value": { "type": ["string", "null"] },
-        "source": { "$ref": "#/$defs/sourceRef" },
-        "confidence": { "$ref": "#/$defs/confidence" },
-        "note": { "$ref": "#/$defs/i18nText" }
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "note": {
+          "$ref": "#/$defs/i18nText"
+        }
       }
     },
-
     "identity": {
       "type": "object",
-      "required": ["name", "family", "polymerClass", "variant", "abstract", "positioning"],
+      "required": [
+        "name",
+        "family",
+        "polymerClass",
+        "variant",
+        "abstract",
+        "positioning"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 2 },
-        "family": {
-          "enum": ["PLA", "PETG", "PET", "ABS", "ASA", "PC", "PA", "PP", "PE", "TPU", "TPC",
-                   "HIPS", "PVA", "BVOH", "POM", "PMMA", "PVDF", "PPS", "PSU", "PPSU",
-                   "PEI", "PEEK", "PEKK", "PPA", "PHA", "BLEND", "SUPPORT", "METAL-FILLED",
-                   "CERAMIC-FILLED", "OTHER"]
+        "name": {
+          "type": "string",
+          "minLength": 2
         },
-        "polymerClass": { "enum": ["amorphous", "semi-crystalline", "elastomer", "mixed", "unknown"] },
+        "family": {
+          "enum": [
+            "PLA",
+            "PETG",
+            "PET",
+            "ABS",
+            "ASA",
+            "PC",
+            "PA",
+            "PP",
+            "PE",
+            "TPU",
+            "TPC",
+            "HIPS",
+            "PVA",
+            "BVOH",
+            "POM",
+            "PMMA",
+            "PVDF",
+            "PPS",
+            "PSU",
+            "PPSU",
+            "PEI",
+            "PEEK",
+            "PEKK",
+            "PPA",
+            "PHA",
+            "BLEND",
+            "SUPPORT",
+            "METAL-FILLED",
+            "CERAMIC-FILLED",
+            "OTHER"
+          ]
+        },
+        "polymerClass": {
+          "enum": [
+            "amorphous",
+            "semi-crystalline",
+            "elastomer",
+            "mixed",
+            "unknown"
+          ]
+        },
         "variant": {
-          "type": "array", "minItems": 1, "uniqueItems": true,
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
           "items": {
-            "enum": ["basic", "tough", "high-speed", "high-temp", "CF", "GF", "AF", "FR",
-                     "ESD", "conductive", "low-weight", "foaming", "recycled", "bio-blend",
-                     "matte", "silk", "translucent", "antibacterial", "support", "metal-filled",
-                     "wood-filled", "glow", "flexible"]
+            "enum": [
+              "basic",
+              "tough",
+              "high-speed",
+              "high-temp",
+              "CF",
+              "GF",
+              "AF",
+              "FR",
+              "ESD",
+              "conductive",
+              "low-weight",
+              "foaming",
+              "recycled",
+              "blend",
+              "semi-rigid",
+              "bio-blend",
+              "matte",
+              "silk",
+              "translucent",
+              "antibacterial",
+              "support",
+              "metal-filled",
+              "wood-filled",
+              "glow",
+              "flexible"
+            ]
           }
         },
         "filler": {
           "type": "object",
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "additionalProperties": false,
           "properties": {
-            "type": { "enum": ["carbon-fibre-chopped", "carbon-fibre-continuous", "glass-fibre",
-                               "aramid", "mineral", "wood", "metal", "ceramic", "none", "other"] },
-            "massFractionPct": { "$ref": "#/$defs/qPct" }
+            "type": {
+              "enum": [
+                "carbon-fibre-chopped",
+                "carbon-fibre-continuous",
+                "glass-fibre",
+                "aramid",
+                "mineral",
+                "wood",
+                "metal",
+                "ceramic",
+                "none",
+                "other"
+              ]
+            },
+            "massFractionPct": {
+              "$ref": "#/$defs/qPct"
+            }
           }
         },
-        "aliases": { "type": "array", "items": { "type": "string" } },
-        "trademarkNotice": { "$ref": "#/$defs/i18nText" },
-        "abstract": { "$ref": "#/$defs/i18nText" },
-        "positioning": { "$ref": "#/$defs/i18nText" },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trademarkNotice": {
+          "$ref": "#/$defs/i18nText"
+        },
+        "abstract": {
+          "$ref": "#/$defs/i18nText"
+        },
+        "positioning": {
+          "$ref": "#/$defs/i18nText"
+        },
         "notToBeConfusedWith": {
           "description": "Materialien, die im Markt regelmaessig verwechselt werden. Verhindert Fehlentscheidungen und Datenvermischung.",
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["materialId", "reason"],
+            "required": [
+              "materialId",
+              "reason"
+            ],
             "additionalProperties": false,
             "properties": {
-              "materialId": { "$ref": "#/$defs/slug" },
-              "reason": { "$ref": "#/$defs/i18nText" }
+              "materialId": {
+                "$ref": "#/$defs/slug"
+              },
+              "reason": {
+                "$ref": "#/$defs/i18nText"
+              }
             }
           }
         }
       }
     },
-
     "mechanics": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "density": { "$ref": "#/$defs/qDens" },
-        "tensileStrengthXy": { "$ref": "#/$defs/qMechMPa" },
-        "tensileStrengthZ": { "$ref": "#/$defs/qMechMPa" },
-        "tensileModulusXy": { "$ref": "#/$defs/qMechMPa" },
-        "tensileModulusZ": { "$ref": "#/$defs/qMechMPa" },
-        "elongationAtBreakXy": { "$ref": "#/$defs/qMechPct" },
-        "elongationAtBreakZ": { "$ref": "#/$defs/qMechPct" },
-        "flexuralStrengthXy": { "$ref": "#/$defs/qMechMPa" },
-        "flexuralStrengthZ": { "$ref": "#/$defs/qMechMPa" },
-        "flexuralModulusXy": { "$ref": "#/$defs/qMechMPa" },
-        "flexuralModulusZ": { "$ref": "#/$defs/qMechMPa" },
-        "charpyNotchedXy": { "$ref": "#/$defs/qMechImpact" },
-        "charpyUnnotchedXy": { "$ref": "#/$defs/qMechImpact" },
-        "charpyUnnotchedZ": { "$ref": "#/$defs/qMechImpact" },
-        "izodNotchedXy": { "$ref": "#/$defs/qMechImpact" },
-        "compressiveStrength": { "$ref": "#/$defs/qMPa" },
+        "density": {
+          "$ref": "#/$defs/qDens"
+        },
+        "tensileStrengthXy": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "tensileStrengthZ": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "tensileModulusXy": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "tensileModulusZ": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "elongationAtBreakXy": {
+          "$ref": "#/$defs/qMechPct"
+        },
+        "elongationAtBreakZ": {
+          "$ref": "#/$defs/qMechPct"
+        },
+        "flexuralStrengthXy": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "flexuralStrengthZ": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "flexuralModulusXy": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "flexuralModulusZ": {
+          "$ref": "#/$defs/qMechMPa"
+        },
+        "charpyNotchedXy": {
+          "$ref": "#/$defs/qMechImpact"
+        },
+        "charpyUnnotchedXy": {
+          "$ref": "#/$defs/qMechImpact"
+        },
+        "charpyUnnotchedZ": {
+          "$ref": "#/$defs/qMechImpact"
+        },
+        "izodNotchedXy": {
+          "$ref": "#/$defs/qMechImpact"
+        },
+        "compressiveStrength": {
+          "$ref": "#/$defs/qMPa"
+        },
         "hardnessShoreD": {
-          "allOf": [{ "$ref": "#/$defs/quantity" }, { "properties": { "unit": { "const": "Shore D" } } }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/quantity"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "Shore D"
+                }
+              }
+            }
+          ]
         },
         "anisotropyFactorTensile": {
           "description": "Z-Zugfestigkeit geteilt durch XY-Zugfestigkeit. MUSS aus Werten DERSELBEN Quelle abgeleitet werden, sonst ist die Zahl Unsinn.",
-          "allOf": [{ "$ref": "#/$defs/qFactor" }, { "required": ["derivedFrom"] }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/qFactor"
+            },
+            {
+              "required": [
+                "derivedFrom"
+              ]
+            }
+          ]
         },
         "anisotropyFactorImpact": {
-          "allOf": [{ "$ref": "#/$defs/qFactor" }, { "required": ["derivedFrom"] }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/qFactor"
+            },
+            {
+              "required": [
+                "derivedFrom"
+              ]
+            }
+          ]
         },
-        "toughness": { "$ref": "#/$defs/rating" },
-        "creepTendency": { "$ref": "#/$defs/rating" },
-        "fatigueResistance": { "$ref": "#/$defs/rating" },
-        "notchSensitivity": { "$ref": "#/$defs/rating" },
-        "wearResistance": { "$ref": "#/$defs/rating" }
+        "toughness": {
+          "$ref": "#/$defs/rating"
+        },
+        "creepTendency": {
+          "$ref": "#/$defs/rating"
+        },
+        "fatigueResistance": {
+          "$ref": "#/$defs/rating"
+        },
+        "notchSensitivity": {
+          "$ref": "#/$defs/rating"
+        },
+        "wearResistance": {
+          "$ref": "#/$defs/rating"
+        }
       }
     },
-
     "thermal": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "hdtA": { "$ref": "#/$defs/qDegC" },
-        "hdtB": { "$ref": "#/$defs/qDegC" },
-        "vicatB50": { "$ref": "#/$defs/qDegC" },
-        "glassTransition": { "$ref": "#/$defs/qDegC" },
-        "meltingTemperature": { "$ref": "#/$defs/qDegC" },
-        "continuousServiceTemperature": { "$ref": "#/$defs/qDegC" },
+        "hdtA": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "hdtB": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "vicatB50": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "glassTransition": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "meltingTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "continuousServiceTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
         "recommendedMaxServiceTemperature": {
           "description": "Eigene, konservative Einsatzempfehlung (unbelastet, Luft). Bewusst getrennt von Herstellerangaben.",
           "$ref": "#/$defs/qDegC"
         },
-        "shortTermTemperature": { "$ref": "#/$defs/qDegC" },
-        "minServiceTemperature": { "$ref": "#/$defs/qDegC" },
-        "clte": { "$ref": "#/$defs/qCLTE" },
-        "thermalConductivity": { "$ref": "#/$defs/qWmK" },
+        "shortTermTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "minServiceTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "clte": {
+          "$ref": "#/$defs/qCLTE"
+        },
+        "thermalConductivity": {
+          "$ref": "#/$defs/qWmK"
+        },
         "annealing": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "possible": { "$ref": "#/$defs/flag" },
+            "possible": {
+              "$ref": "#/$defs/flag"
+            },
             "requiredForDatasheetValues": {
               "description": "true = die Kennwerte dieses Datensatzes wurden an getemperten Pruefkoerpern ermittelt und sind ohne Temperofen NICHT erreichbar.",
               "$ref": "#/$defs/flag"
             },
-            "temperature": { "$ref": "#/$defs/qDegC" },
-            "duration": { "$ref": "#/$defs/qHours" },
-            "hdtGain": { "$ref": "#/$defs/qDegC" },
-            "distortionRisk": { "$ref": "#/$defs/rating" },
-            "note": { "$ref": "#/$defs/i18nText" }
+            "temperature": {
+              "$ref": "#/$defs/qDegC"
+            },
+            "duration": {
+              "$ref": "#/$defs/qHours"
+            },
+            "hdtGain": {
+              "$ref": "#/$defs/qDegC"
+            },
+            "distortionRisk": {
+              "$ref": "#/$defs/rating"
+            },
+            "note": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         }
       }
     },
-
     "processing": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "nozzleTemperature": { "$ref": "#/$defs/qDegC" },
-        "bedTemperature": { "$ref": "#/$defs/qDegC" },
+        "nozzleTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "bedTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
         "chamberRequirement": {
-          "allOf": [{ "$ref": "#/$defs/choice" },
-                    { "properties": { "value": { "enum": ["not-required", "recommended", "mandatory", null] } } }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/choice"
+            },
+            {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "not-required",
+                    "recommended",
+                    "mandatory",
+                    null
+                  ]
+                }
+              }
+            }
+          ]
         },
-        "chamberTemperature": { "$ref": "#/$defs/qDegC" },
-        "dryingTemperature": { "$ref": "#/$defs/qDegC" },
-        "dryingTime": { "$ref": "#/$defs/qHours" },
-        "maxResidualHumidity": { "$ref": "#/$defs/qRH" },
-        "hygroscopy": { "$ref": "#/$defs/rating" },
-        "warpingTendency": { "$ref": "#/$defs/rating" },
-        "shrinkage": { "$ref": "#/$defs/qPct" },
-        "layerAdhesion": { "$ref": "#/$defs/rating" },
-        "bedAdhesionAids": { "type": "array", "items": { "type": "string" } },
-        "abrasiveness": { "$ref": "#/$defs/rating" },
-        "hardenedNozzleRequired": { "$ref": "#/$defs/flag" },
-        "minNozzleDiameter": { "$ref": "#/$defs/qMm" },
-        "printSpeed": { "$ref": "#/$defs/qMmS" },
-        "coolingFanPct": { "$ref": "#/$defs/qPct" },
-        "stringingTendency": { "$ref": "#/$defs/rating" },
-        "maxOverhangAngle": { "$ref": "#/$defs/qDeg" },
-        "meltFlowRate": { "$ref": "#/$defs/qMFR" },
+        "chamberTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "dryingTemperature": {
+          "$ref": "#/$defs/qDegC"
+        },
+        "dryingTime": {
+          "$ref": "#/$defs/qHours"
+        },
+        "maxResidualHumidity": {
+          "$ref": "#/$defs/qRH"
+        },
+        "hygroscopy": {
+          "$ref": "#/$defs/rating"
+        },
+        "warpingTendency": {
+          "$ref": "#/$defs/rating"
+        },
+        "shrinkage": {
+          "$ref": "#/$defs/qPct"
+        },
+        "layerAdhesion": {
+          "$ref": "#/$defs/rating"
+        },
+        "bedAdhesionAids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "abrasiveness": {
+          "$ref": "#/$defs/rating"
+        },
+        "hardenedNozzleRequired": {
+          "$ref": "#/$defs/flag"
+        },
+        "minNozzleDiameter": {
+          "$ref": "#/$defs/qMm"
+        },
+        "printSpeed": {
+          "$ref": "#/$defs/qMmS"
+        },
+        "coolingFanPct": {
+          "$ref": "#/$defs/qPct"
+        },
+        "stringingTendency": {
+          "$ref": "#/$defs/rating"
+        },
+        "maxOverhangAngle": {
+          "$ref": "#/$defs/qDeg"
+        },
+        "meltFlowRate": {
+          "$ref": "#/$defs/qMFR"
+        },
         "supportStrategy": {
-          "allOf": [{ "$ref": "#/$defs/choice" },
-                    { "properties": { "value": { "enum": ["same-material-breakaway", "soluble-pva", "soluble-bvoh",
-                                                          "soluble-aquasys", "hips", "none-needed", "other", null] } } }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/choice"
+            },
+            {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "same-material-breakaway",
+                    "soluble-pva",
+                    "soluble-bvoh",
+                    "soluble-aquasys",
+                    "hips",
+                    "none-needed",
+                    "other",
+                    null
+                  ]
+                }
+              }
+            }
+          ]
         },
-        "printability": { "$ref": "#/$defs/rating" },
+        "printability": {
+          "$ref": "#/$defs/rating"
+        },
         "commonDefects": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["symptom", "remedy"],
+            "required": [
+              "symptom",
+              "remedy"
+            ],
             "additionalProperties": false,
             "properties": {
-              "symptom": { "$ref": "#/$defs/i18nText" },
-              "cause": { "$ref": "#/$defs/i18nText" },
-              "remedy": { "$ref": "#/$defs/i18nText" },
-              "source": { "$ref": "#/$defs/sourceRef" }
+              "symptom": {
+                "$ref": "#/$defs/i18nText"
+              },
+              "cause": {
+                "$ref": "#/$defs/i18nText"
+              },
+              "remedy": {
+                "$ref": "#/$defs/i18nText"
+              },
+              "source": {
+                "$ref": "#/$defs/sourceRef"
+              }
             }
           }
         }
       }
     },
-
     "durability": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "uvResistance": { "$ref": "#/$defs/rating" },
-        "outdoorServiceLife": { "$ref": "#/$defs/qYears" },
-        "weatherResistance": { "$ref": "#/$defs/rating" },
-        "hydrolysisResistance": { "$ref": "#/$defs/rating" },
-        "saltWaterResistance": { "$ref": "#/$defs/rating" },
-        "yellowingTendency": { "$ref": "#/$defs/rating" },
-        "stressCrackingSensitivity": { "$ref": "#/$defs/rating" },
-        "gasBarrier": { "$ref": "#/$defs/rating" },
-        "waterAbsorption": { "$ref": "#/$defs/qPct" },
+        "uvResistance": {
+          "$ref": "#/$defs/rating"
+        },
+        "outdoorServiceLife": {
+          "$ref": "#/$defs/qYears"
+        },
+        "weatherResistance": {
+          "$ref": "#/$defs/rating"
+        },
+        "hydrolysisResistance": {
+          "$ref": "#/$defs/rating"
+        },
+        "saltWaterResistance": {
+          "$ref": "#/$defs/rating"
+        },
+        "yellowingTendency": {
+          "$ref": "#/$defs/rating"
+        },
+        "stressCrackingSensitivity": {
+          "$ref": "#/$defs/rating"
+        },
+        "gasBarrier": {
+          "$ref": "#/$defs/rating"
+        },
+        "waterAbsorption": {
+          "$ref": "#/$defs/qPct"
+        },
         "chemicalResistance": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["chemicalId", "rating", "source", "confidence"],
+            "required": [
+              "chemicalId",
+              "rating",
+              "source",
+              "confidence"
+            ],
             "additionalProperties": false,
             "properties": {
-              "chemicalId": { "type": "string", "pattern": "^chem_[a-z0-9_]+$" },
-              "rating": { "enum": ["resistant", "limited", "not-resistant", "unknown"] },
-              "conditions": { "type": "string" },
-              "source": { "$ref": "#/$defs/sourceRef" },
-              "confidence": { "$ref": "#/$defs/confidence" },
-              "note": { "$ref": "#/$defs/i18nText" }
+              "chemicalId": {
+                "type": "string",
+                "pattern": "^chem_[a-z0-9_]+$"
+              },
+              "rating": {
+                "enum": [
+                  "resistant",
+                  "limited",
+                  "not-resistant",
+                  "unknown"
+                ]
+              },
+              "conditions": {
+                "type": "string"
+              },
+              "source": {
+                "$ref": "#/$defs/sourceRef"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "note": {
+                "$ref": "#/$defs/i18nText"
+              }
             }
           }
         }
       }
     },
-
     "compliance": {
       "type": "object",
       "additionalProperties": false,
@@ -388,20 +1152,44 @@
           "additionalProperties": false,
           "properties": {
             "status": {
-              "allOf": [{ "$ref": "#/$defs/choice" },
-                        { "properties": { "value": { "enum": ["declared-eu-10-2011", "declared-fda", "declared-both",
-                                                              "not-declared", "explicitly-not-suitable", null] } } }]
+              "allOf": [
+                {
+                  "$ref": "#/$defs/choice"
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "enum": [
+                        "declared-eu-10-2011",
+                        "declared-fda",
+                        "declared-both",
+                        "not-declared",
+                        "explicitly-not-suitable",
+                        null
+                      ]
+                    }
+                  }
+                }
+              ]
             },
-            "partLevelWarning": { "$ref": "#/$defs/i18nText" }
+            "partLevelWarning": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         },
         "medical": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "uspClassVi": { "$ref": "#/$defs/flag" },
-            "iso10993": { "$ref": "#/$defs/flag" },
-            "note": { "$ref": "#/$defs/i18nText" }
+            "uspClassVi": {
+              "$ref": "#/$defs/flag"
+            },
+            "iso10993": {
+              "$ref": "#/$defs/flag"
+            },
+            "note": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         },
         "flameRetardancy": {
@@ -409,42 +1197,114 @@
           "additionalProperties": false,
           "properties": {
             "ul94": {
-              "allOf": [{ "$ref": "#/$defs/choice" },
-                        { "properties": { "value": { "enum": ["V-0", "V-1", "V-2", "5VA", "5VB", "HB",
-                                                              "not-classified", null] } } }]
+              "allOf": [
+                {
+                  "$ref": "#/$defs/choice"
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "enum": [
+                        "V-0",
+                        "V-1",
+                        "V-2",
+                        "5VA",
+                        "5VB",
+                        "HB",
+                        "not-classified",
+                        null
+                      ]
+                    }
+                  }
+                }
+              ]
             },
-            "ul94ThicknessMm": { "$ref": "#/$defs/qMm" },
+            "ul94ThicknessMm": {
+              "$ref": "#/$defs/qMm"
+            },
             "en45545": {
-              "allOf": [{ "$ref": "#/$defs/choice" },
-                        { "properties": { "value": { "enum": ["HL1", "HL2", "HL3", "not-classified", null] } } }]
+              "allOf": [
+                {
+                  "$ref": "#/$defs/choice"
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "enum": [
+                        "HL1",
+                        "HL2",
+                        "HL3",
+                        "not-classified",
+                        null
+                      ]
+                    }
+                  }
+                }
+              ]
             },
-            "far25853": { "$ref": "#/$defs/flag" },
-            "din4102": { "$ref": "#/$defs/choice" },
-            "glowWireTemperature": { "$ref": "#/$defs/qDegC" }
+            "far25853": {
+              "$ref": "#/$defs/flag"
+            },
+            "din4102": {
+              "$ref": "#/$defs/choice"
+            },
+            "glowWireTemperature": {
+              "$ref": "#/$defs/qDegC"
+            }
           }
         },
         "esd": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "surfaceResistivity": { "$ref": "#/$defs/qOhmSq" },
+            "surfaceResistivity": {
+              "$ref": "#/$defs/qOhmSq"
+            },
             "classification": {
-              "allOf": [{ "$ref": "#/$defs/choice" },
-                        { "properties": { "value": { "enum": ["insulating", "antistatic", "dissipative",
-                                                              "conductive", "unknown", null] } } }]
+              "allOf": [
+                {
+                  "$ref": "#/$defs/choice"
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "enum": [
+                        "insulating",
+                        "antistatic",
+                        "dissipative",
+                        "conductive",
+                        "unknown",
+                        null
+                      ]
+                    }
+                  }
+                }
+              ]
             }
           }
         },
-        "drinkingWater": { "$ref": "#/$defs/flag" },
-        "rohs": { "$ref": "#/$defs/flag" },
-        "reachSvhc": { "$ref": "#/$defs/flag" },
+        "drinkingWater": {
+          "$ref": "#/$defs/flag"
+        },
+        "rohs": {
+          "$ref": "#/$defs/flag"
+        },
+        "reachSvhc": {
+          "$ref": "#/$defs/flag"
+        },
         "sterilisation": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "autoclave": { "$ref": "#/$defs/flag" },
-            "gamma": { "$ref": "#/$defs/flag" },
-            "ethyleneOxide": { "$ref": "#/$defs/flag" }
+            "autoclave": {
+              "$ref": "#/$defs/flag"
+            },
+            "gamma": {
+              "$ref": "#/$defs/flag"
+            },
+            "ethyleneOxide": {
+              "$ref": "#/$defs/flag"
+            }
           }
         },
         "printEmissions": {
@@ -452,132 +1312,309 @@
           "additionalProperties": false,
           "properties": {
             "concernLevel": {
-              "allOf": [{ "$ref": "#/$defs/choice" },
-                        { "properties": { "value": { "enum": ["low", "moderate", "high", "unknown", null] } } }]
+              "allOf": [
+                {
+                  "$ref": "#/$defs/choice"
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "enum": [
+                        "low",
+                        "moderate",
+                        "high",
+                        "unknown",
+                        null
+                      ]
+                    }
+                  }
+                }
+              ]
             },
-            "extractionRecommended": { "$ref": "#/$defs/flag" },
-            "note": { "$ref": "#/$defs/i18nText" }
+            "extractionRecommended": {
+              "$ref": "#/$defs/flag"
+            },
+            "note": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         },
         "translucency": {
-          "allOf": [{ "$ref": "#/$defs/choice" },
-                    { "properties": { "value": { "enum": ["opaque", "translucent", "transparent", null] } } }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/choice"
+            },
+            {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "opaque",
+                    "translucent",
+                    "transparent",
+                    null
+                  ]
+                }
+              }
+            }
+          ]
         },
-        "magnetic": { "$ref": "#/$defs/flag" }
+        "magnetic": {
+          "$ref": "#/$defs/flag"
+        }
       }
     },
-
     "sustainability": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "bioBasedContent": { "$ref": "#/$defs/qPct" },
-        "recycledContent": { "$ref": "#/$defs/qPct" },
-        "recyclingCode": { "$ref": "#/$defs/choice" },
-        "industriallyCompostable": { "$ref": "#/$defs/flag" },
-        "co2eIndicator": { "$ref": "#/$defs/qCO2e" },
-        "practicalRecyclability": { "$ref": "#/$defs/choice" },
-        "note": { "$ref": "#/$defs/i18nText" }
+        "bioBasedContent": {
+          "$ref": "#/$defs/qPct"
+        },
+        "recycledContent": {
+          "$ref": "#/$defs/qPct"
+        },
+        "recyclingCode": {
+          "$ref": "#/$defs/choice"
+        },
+        "industriallyCompostable": {
+          "$ref": "#/$defs/flag"
+        },
+        "co2eIndicator": {
+          "$ref": "#/$defs/qCO2e"
+        },
+        "practicalRecyclability": {
+          "$ref": "#/$defs/choice"
+        },
+        "note": {
+          "$ref": "#/$defs/i18nText"
+        }
       }
     },
-
     "finishing": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "surfaceQuality": { "$ref": "#/$defs/rating" },
-        "layerLineVisibility": { "$ref": "#/$defs/rating" },
-        "sandability": { "$ref": "#/$defs/rating" },
-        "fillability": { "$ref": "#/$defs/rating" },
-        "paintAdhesion": { "$ref": "#/$defs/rating" },
-        "primerRecommendation": { "$ref": "#/$defs/i18nText" },
-        "wrappingSuitability": { "$ref": "#/$defs/rating" },
+        "surfaceQuality": {
+          "$ref": "#/$defs/rating"
+        },
+        "layerLineVisibility": {
+          "$ref": "#/$defs/rating"
+        },
+        "sandability": {
+          "$ref": "#/$defs/rating"
+        },
+        "fillability": {
+          "$ref": "#/$defs/rating"
+        },
+        "paintAdhesion": {
+          "$ref": "#/$defs/rating"
+        },
+        "primerRecommendation": {
+          "$ref": "#/$defs/i18nText"
+        },
+        "wrappingSuitability": {
+          "$ref": "#/$defs/rating"
+        },
         "chemicalSmoothing": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "suitable": { "$ref": "#/$defs/flag" },
-            "medium": { "type": "string" },
-            "note": { "$ref": "#/$defs/i18nText" }
+            "suitable": {
+              "$ref": "#/$defs/flag"
+            },
+            "medium": {
+              "type": "string"
+            },
+            "note": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         },
-        "electroplating": { "$ref": "#/$defs/flag" },
-        "bondability": { "$ref": "#/$defs/rating" },
-        "recommendedAdhesives": { "type": "array", "items": { "type": "string" } },
-        "weldability": { "$ref": "#/$defs/flag" },
-        "heatSetInserts": { "$ref": "#/$defs/flag" },
-        "colourAvailability": { "$ref": "#/$defs/choice" },
-        "ralAccuracy": { "$ref": "#/$defs/rating" },
-        "gloss": { "$ref": "#/$defs/choice" }
+        "electroplating": {
+          "$ref": "#/$defs/flag"
+        },
+        "bondability": {
+          "$ref": "#/$defs/rating"
+        },
+        "recommendedAdhesives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weldability": {
+          "$ref": "#/$defs/flag"
+        },
+        "heatSetInserts": {
+          "$ref": "#/$defs/flag"
+        },
+        "colourAvailability": {
+          "$ref": "#/$defs/choice"
+        },
+        "ralAccuracy": {
+          "$ref": "#/$defs/rating"
+        },
+        "gloss": {
+          "$ref": "#/$defs/choice"
+        }
       }
     },
-
     "commercial": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "pricePerKg": { "$ref": "#/$defs/qEurKg" },
-        "priceIndex": { "$ref": "#/$defs/rating" },
-        "availability": { "$ref": "#/$defs/rating" },
-        "typicalLeadTime": { "$ref": "#/$defs/i18nText" },
-        "spoolSizes": { "type": "array", "items": { "type": "string" } },
+        "pricePerKg": {
+          "$ref": "#/$defs/qEurKg"
+        },
+        "priceIndex": {
+          "$ref": "#/$defs/rating"
+        },
+        "availability": {
+          "$ref": "#/$defs/rating"
+        },
+        "typicalLeadTime": {
+          "$ref": "#/$defs/i18nText"
+        },
+        "spoolSizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "xxl": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "maxSensibleEdgeMm": { "$ref": "#/$defs/qMm" },
-            "segmentationRecommended": { "$ref": "#/$defs/flag" },
-            "joiningRecommendation": { "$ref": "#/$defs/i18nText" },
-            "note": { "$ref": "#/$defs/i18nText" }
+            "maxSensibleEdgeMm": {
+              "$ref": "#/$defs/qMm"
+            },
+            "segmentationRecommended": {
+              "$ref": "#/$defs/flag"
+            },
+            "joiningRecommendation": {
+              "$ref": "#/$defs/i18nText"
+            },
+            "note": {
+              "$ref": "#/$defs/i18nText"
+            }
           }
         },
-        "smallSeriesSuitability": { "$ref": "#/$defs/rating" },
-        "batchConsistency": { "$ref": "#/$defs/rating" },
+        "smallSeriesSuitability": {
+          "$ref": "#/$defs/rating"
+        },
+        "batchConsistency": {
+          "$ref": "#/$defs/rating"
+        },
         "reentsPortfolioStatus": {
           "description": "NEUTRALES Info-Badge. Darf NIEMALS in das Scoring eingehen - siehe DECISIONS.md ADR-004.",
-          "allOf": [{ "$ref": "#/$defs/choice" },
-                    { "properties": { "value": { "enum": ["standard", "on-request", "partner-production",
-                                                          "not-in-portfolio", "unknown", null] } } }]
+          "allOf": [
+            {
+              "$ref": "#/$defs/choice"
+            },
+            {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "standard",
+                    "on-request",
+                    "partner-production",
+                    "not-in-portfolio",
+                    "unknown",
+                    null
+                  ]
+                }
+              }
+            }
+          ]
         }
       }
     },
-
     "governance": {
       "type": "object",
-      "required": ["lastReviewed", "reviewedBy", "sources"],
+      "required": [
+        "lastReviewed",
+        "reviewedBy",
+        "sources"
+      ],
       "additionalProperties": false,
       "properties": {
-        "lastReviewed": { "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-        "reviewedBy": { "type": "string", "minLength": 2 },
-        "reviewCycleMonths": { "type": "integer", "minimum": 1 },
+        "lastReviewed": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "reviewedBy": {
+          "type": "string",
+          "minLength": 2
+        },
+        "reviewCycleMonths": {
+          "type": "integer",
+          "minimum": 1
+        },
         "dataCompleteness": {
           "description": "Wird von scripts/build-index.ts berechnet. In Datendateien immer null.",
-          "type": ["number", "null"], "minimum": 0, "maximum": 100
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "sources": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "type", "publisher", "title", "confidenceCeiling"],
+            "required": [
+              "id",
+              "type",
+              "publisher",
+              "title",
+              "confidenceCeiling"
+            ],
             "additionalProperties": false,
             "properties": {
-              "id": { "$ref": "#/$defs/sourceId" },
-              "type": {
-                "enum": ["manufacturer-tds", "manufacturer-sds", "manufacturer-website",
-                         "standard", "peer-reviewed", "textbook", "field-experience",
-                         "community", "estimate"]
+              "id": {
+                "$ref": "#/$defs/sourceId"
               },
-              "publisher": { "type": "string" },
-              "title": { "type": "string" },
-              "documentVersion": { "type": "string" },
-              "url": { "type": "string" },
-              "retrievedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-              "productName": { "type": "string" },
+              "type": {
+                "enum": [
+                  "manufacturer-tds",
+                  "manufacturer-sds",
+                  "manufacturer-website",
+                  "standard",
+                  "peer-reviewed",
+                  "textbook",
+                  "field-experience",
+                  "community",
+                  "estimate"
+                ]
+              },
+              "publisher": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "documentVersion": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "retrievedAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "productName": {
+                "type": "string"
+              },
               "confidenceCeiling": {
                 "description": "Hoechste Konfidenz, die ein Wert aus DIESER Quelle tragen darf.",
                 "$ref": "#/$defs/confidence"
               },
-              "note": { "$ref": "#/$defs/i18nText" }
+              "note": {
+                "$ref": "#/$defs/i18nText"
+              }
             }
           }
         },
@@ -585,17 +1622,33 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "question", "blocking"],
+            "required": [
+              "id",
+              "question",
+              "blocking"
+            ],
             "additionalProperties": false,
             "properties": {
-              "id": { "type": "string", "pattern": "^oq_[a-z0-9_]+$" },
-              "question": { "$ref": "#/$defs/i18nText" },
+              "id": {
+                "type": "string",
+                "pattern": "^oq_[a-z0-9_]+$"
+              },
+              "question": {
+                "$ref": "#/$defs/i18nText"
+              },
               "blocking": {
                 "description": "true = der Datensatz darf ohne Klaerung nicht als 'geprueft' gelten.",
                 "type": "boolean"
               },
-              "affectsFields": { "type": "array", "items": { "type": "string" } },
-              "assignee": { "type": "string" }
+              "affectsFields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "assignee": {
+                "type": "string"
+              }
             }
           }
         }

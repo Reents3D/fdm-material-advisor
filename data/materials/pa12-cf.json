@@ -1,42 +1,42 @@
 {
   "$schema": "../../schema/material.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "pa12",
+  "id": "pa12-cf",
   "identity": {
-    "name": "PA12",
+    "name": "PA12-CF",
     "family": "PA",
     "polymerClass": "semi-crystalline",
     "variant": [
-      "basic"
+      "CF"
     ],
     "aliases": [
-      "Polyamid 12",
-      "Nylon 12",
-      "PA 12"
+      "Polyamid 12 carbonfaserverstärkt",
+      "Nylon 12 CF",
+      "PA12 CF"
     ],
     "trademarkNotice": {
       "de": "DuraPro, GreenTEC, XPETG und Flex sind Produktbezeichnungen der FD3D GmbH (Extrudr).",
       "en": "DuraPro, GreenTEC, XPETG and Flex are product designations of FD3D GmbH (Extrudr)."
     },
     "abstract": {
-      "de": "PA12 ist das zähste und feuchteunempfindlichste der gängigen Polyamide: über 50 % Bruchdehnung, Vicat 142 °C und deutlich geringere Wasseraufnahme als PA6. Für Funktionsteile, Schnappverbindungen und Gleitelemente. Grenzen: geringere Festigkeit und Steifigkeit als faserverstärkte Typen, braucht Kammer und Trocknung.",
-      "en": "PA12 is the toughest and least moisture-sensitive of the common polyamides: over 50 % elongation at break, Vicat 142 °C and markedly lower water uptake than PA6. For functional parts, snap fits and sliding elements. Limits: lower strength and stiffness than fibre-filled grades, needs a chamber and drying."
+      "de": "PA12-CF verbindet, was sich sonst ausschließt: 2820 MPa Steifigkeit und trotzdem über 35 % Bruchdehnung, im ungekerbten Schlagversuch kein Bruch bis −30 °C. Für dauerbelastete Funktionsteile, die auch im Kalten nicht spröde werden dürfen. Grenzen: abrasiv (gehärtete Düse ab 0,6 mm), Kammer und Trocknung nötig.",
+      "en": "PA12-CF combines what is normally mutually exclusive: 2820 MPa stiffness and still over 35 % elongation, with no break in the unnotched impact test down to −30 °C. For continuously loaded functional parts that must not turn brittle in the cold. Limits: abrasive (hardened nozzle from 0.6 mm), chamber and drying required."
     },
     "positioning": {
-      "de": "Zäh statt steif — und deutlich gutmütiger bei Feuchte als PA6.",
-      "en": "Tough rather than stiff — and far more forgiving about moisture than PA6."
+      "de": "Faserverstärkt, ohne die Zähigkeit zu verlieren.",
+      "en": "Fibre reinforced without losing toughness."
     }
   },
   "mechanics": {
     "density": {
-      "value": 1.01,
+      "value": 1.03,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "tensileStrengthXy": {
-      "value": 43,
+      "value": 60.4,
       "unit": "MPa",
       "testStandard": "ISO 527 bzw. ASTM D638",
       "orientation": "n/a",
@@ -44,7 +44,7 @@
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 1440,
+      "value": 2820,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "n/a",
@@ -52,7 +52,7 @@
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 50,
+      "value": 35,
       "unit": "%",
       "testStandard": "ISO 527 (nominell)",
       "orientation": "n/a",
@@ -66,13 +66,13 @@
       "confidence": "estimated"
     },
     "creepTendency": {
-      "value": 3,
+      "value": 2,
       "scale": "creepTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "notchSensitivity": {
-      "value": 1,
+      "value": 2,
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -86,7 +86,7 @@
   },
   "thermal": {
     "hdtA": {
-      "value": 55,
+      "value": 58,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -94,7 +94,7 @@
       "confidence": "medium"
     },
     "hdtB": {
-      "value": 135,
+      "value": 139,
       "unit": "°C",
       "testStandard": "ISO 75, 0.45 MPa",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -102,7 +102,7 @@
       "confidence": "medium"
     },
     "vicatB50": {
-      "value": 142,
+      "value": 145,
       "unit": "°C",
       "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
@@ -110,7 +110,7 @@
       "confidence": "medium"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 30,
+      "value": 35,
       "unit": "°C",
       "conditions": "unbelastet, Luft, dauerhaft",
       "source": "estimate_reasoning",
@@ -174,7 +174,7 @@
       "confidence": "estimated"
     },
     "abrasiveness": {
-      "value": 1,
+      "value": 4,
       "scale": "abrasiveness",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -280,19 +280,19 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "availability": {
-      "value": 3,
+      "value": 2,
       "scale": "availability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
     "smallSeriesSuitability": {
-      "value": 3,
+      "value": 2,
       "scale": "smallSeriesSuitability",
       "source": "estimate_reasoning",
       "confidence": "estimated"
@@ -332,9 +332,9 @@
         "id": "src_extrudr_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "PA12",
-        "title": "PA12 — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-TDS-de.pdf",
+        "productName": "PA12-CF",
+        "title": "PA12-CF — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/durapro-pa12-cf-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

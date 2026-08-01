@@ -1,86 +1,88 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-greentec",
-  "materialId": "greentec",
+  "id": "extrudr-pla-hs",
+  "materialId": "pla",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr GreenTEC",
+  "productName": "Extrudr PLA High Speed",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Die Methodenspalte dieses Datenblatts ist um eine Zeile verschoben: Vicat steht auf ISO 3146-C (der Norm für die Schmelztemperatur), die Schmelztemperatur auf ISO 1133 (der Norm für den MFR) und der MFR auf ISO 75 (der Norm für HDT). Die Zahlenwerte selbst sind plausibel, die zugeordneten Prüfnormen sind es nicht — sie wurden deshalb für die betroffenen Zeilen nicht übernommen. Das Schwesterblatt GreenTEC Pro ordnet dieselben Größen korrekt zu.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: The method column of this datasheet is shifted by one row: Vicat is listed against ISO 3146-C (the melt temperature standard), melt temperature against ISO 1133 (the MFR standard) and MFR against ISO 75 (the HDT standard). The values themselves are plausible, the assigned test standards are not — they were therefore not imported for the affected rows. The sister sheet GreenTEC Pro assigns the same quantities correctly."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
+  },
+  "features": {
+    "de": "Freigegeben bis 1000 mm/s Druckgeschwindigkeit — der schnellste Werkstoff dieser Datenbank. Getempert steigt die Wärmeformbeständigkeit von 60 auf 105 °C.",
+    "en": "Released for up to 1000 mm/s print speed — the fastest material in this database. Annealed, heat resistance rises from 60 to 105 °C."
   },
   "datasheet": {
-    "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+    "title": "Extrudr PLA High Speed — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/pla-hs-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 46,
+      "value": 50,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-1",
       "source": "src_tds",
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 3200,
+      "value": 3500,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "testStandard": "ISO 527-1",
       "source": "src_tds",
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 14,
+      "value": 5,
       "unit": "%",
-      "testStandard": "ISO 527-2 (nominell)",
+      "testStandard": "ISO 527-1 (≤ 5)",
       "source": "src_tds",
       "confidence": "medium"
     },
     "charpyNotchedXy": {
-      "value": 19,
+      "value": 5,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eA",
+      "testStandard": "ISO 179-1eA, 23 °C (≤ 5)",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyUnnotchedXy": {
-      "value": 218,
-      "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
-      "source": "src_tds",
-      "confidence": "medium"
-    },
-    "vicatA": {
-      "value": 115,
+    "hdtB": {
+      "value": 60,
       "unit": "°C",
+      "testStandard": "ISO 75-1, amorph",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
-      "confidence": "low"
+      "confidence": "medium",
+      "note": {
+        "de": "Nach Kristallisation (Tempern) nennt das Datenblatt 105 °C statt 60 °C — bei PLA ist das der größte Temperatursprung, den Tempern in dieser Datenbank bewirkt.",
+        "en": "After crystallisation (annealing) the datasheet states 105 °C instead of 60 °C — for PLA this is the largest temperature gain from annealing in this database."
+      }
     },
     "density": {
-      "value": 1.3,
+      "value": 1.24,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 215,
+      "value": 225,
       "unit": "°C",
-      "min": 200,
-      "max": 230,
+      "min": 210,
+      "max": 240,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 40,
       "unit": "°C",
       "min": 20,
-      "max": 90,
+      "max": 60,
       "source": "src_tds",
       "confidence": "medium"
     }
@@ -93,9 +95,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr GreenTEC",
-        "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+        "productName": "Extrudr PLA High Speed",
+        "title": "Extrudr PLA High Speed — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/pla-hs-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {

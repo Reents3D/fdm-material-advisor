@@ -1,85 +1,110 @@
 {
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
-  "id": "extrudr-greentec",
-  "materialId": "greentec",
+  "id": "extrudr-xpetg-matt",
+  "materialId": "petg",
   "brand": "Extrudr",
   "manufacturer": "FD3D GmbH (Extrudr)",
-  "productName": "Extrudr GreenTEC",
+  "productName": "Extrudr XPETG Matt",
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Die Methodenspalte dieses Datenblatts ist um eine Zeile verschoben: Vicat steht auf ISO 3146-C (der Norm für die Schmelztemperatur), die Schmelztemperatur auf ISO 1133 (der Norm für den MFR) und der MFR auf ISO 75 (der Norm für HDT). Die Zahlenwerte selbst sind plausibel, die zugeordneten Prüfnormen sind es nicht — sie wurden deshalb für die betroffenen Zeilen nicht übernommen. Das Schwesterblatt GreenTEC Pro ordnet dieselben Größen korrekt zu.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: The method column of this datasheet is shifted by one row: Vicat is listed against ISO 3146-C (the melt temperature standard), melt temperature against ISO 1133 (the MFR standard) and MFR against ISO 75 (the HDT standard). The values themselves are plausible, the assigned test standards are not — they were therefore not imported for the affected rows. The sister sheet GreenTEC Pro assigns the same quantities correctly."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
+  },
+  "features": {
+    "de": "Eines der wenigen Datenblätter mit Streuungsangaben statt nackter Zahlen — ±46 MPa auf den E-Modul, ±1,1 % auf die Bruchdehnung. Das sagt mehr über die Belastbarkeit der Werte aus als jede Nachkommastelle.",
+    "en": "One of the few datasheets with scatter figures instead of bare numbers — ±46 MPa on the modulus, ±1.1 % on elongation. That says more about how much the values can bear than any decimal place."
   },
   "datasheet": {
-    "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
-    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+    "title": "Extrudr XPETG Matt — Technisches Datenblatt (DE)",
+    "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/xpetg-matt-TDS-de.pdf",
     "retrievedAt": "2026-08-01"
   },
   "productUrl": "https://extrudr.com/de/de/page/downloads-for-resellers/",
   "properties": {
     "tensileStrengthXy": {
-      "value": 46,
+      "value": 53,
       "unit": "MPa",
-      "testStandard": "ISO 527",
+      "tolerance": 0.2,
+      "testStandard": "ISO 527 (Streckspannung)",
       "source": "src_tds",
       "confidence": "medium"
     },
     "tensileModulusXy": {
-      "value": 3200,
+      "value": 3100,
       "unit": "MPa",
+      "tolerance": 46,
       "testStandard": "ISO 527",
       "source": "src_tds",
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 14,
+      "value": 7.6,
       "unit": "%",
-      "testStandard": "ISO 527-2 (nominell)",
+      "tolerance": 1.1,
+      "testStandard": "ISO 527-2",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
-      "value": 19,
+    "izodNotchedXy": {
+      "value": 1.7,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eA",
+      "tolerance": 0.4,
+      "testStandard": "ISO 180",
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyUnnotchedXy": {
-      "value": 218,
+    "izodUnnotchedXy": {
+      "value": 78,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
+      "tolerance": 6,
+      "testStandard": "ISO 180",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 67,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
     "vicatA": {
-      "value": 115,
+      "value": 85,
       "unit": "°C",
+      "testStandard": "ISO 306",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
-      "confidence": "low"
+      "confidence": "medium"
     },
     "density": {
-      "value": 1.3,
+      "value": 1.41,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
+      "testStandard": "ISO 1183-1/A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 76,
+      "unit": "Shore D",
+      "testStandard": "ISO 868/D",
       "source": "src_tds",
       "confidence": "medium"
     },
     "nozzleTemperature": {
-      "value": 215,
+      "value": 225,
       "unit": "°C",
-      "min": 200,
-      "max": 230,
+      "min": 210,
+      "max": 240,
       "source": "src_tds",
       "confidence": "medium"
     },
     "bedTemperature": {
-      "value": 55,
+      "value": 75,
       "unit": "°C",
-      "min": 20,
+      "min": 60,
       "max": 90,
       "source": "src_tds",
       "confidence": "medium"
@@ -93,9 +118,9 @@
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "FD3D GmbH (Extrudr)",
-        "productName": "Extrudr GreenTEC",
-        "title": "Extrudr GreenTEC — Technisches Datenblatt (DE)",
-        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/greentec-TDS-de.pdf",
+        "productName": "Extrudr XPETG Matt",
+        "title": "Extrudr XPETG Matt — Technisches Datenblatt (DE)",
+        "url": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de/xpetg-matt-TDS-de.pdf",
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
