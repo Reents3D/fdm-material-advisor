@@ -1,0 +1,107 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-tpu-95a",
+  "materialId": "tpu-95a",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu TPU 95A",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
+    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+  },
+  "datasheet": {
+    "title": "Bambu Filament Technical Data Sheet - TPU 95A",
+    "url": "https://sourcegraphics.com/wp-content/uploads/2023/06/Bambu_TPU_95A_Technical_Data_Sheet.pdf",
+    "version": "V2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 29.6,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 23.2,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 0.5,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 9.2,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 0.4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "note": {
+        "de": "Der E-Modul von 9,2 MPa liegt drei Größenordnungen unter allen anderen Werkstoffen im Feld. TPU gehört in keinen Steifigkeitsvergleich - es löst eine völlig andere Aufgabe.",
+        "en": "The 9.2 MPa modulus is three orders of magnitude below every other material here. TPU does not belong in a stiffness comparison - it solves an entirely different problem."
+      }
+    },
+    "elongationAtBreakXy": {
+      "value": 700,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "conditions": "Datenblattangabe > 700 %; hier als Untergrenze erfasst"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 220,
+      "max": 240
+    },
+    "bedTemperature": {
+      "value": 33,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 30,
+      "max": 35
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu TPU 95A",
+        "title": "Bambu Filament Technical Data Sheet - TPU 95A",
+        "documentVersion": "V2.0",
+        "url": "https://sourcegraphics.com/wp-content/uploads/2023/06/Bambu_TPU_95A_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      }
+    ]
+  }
+}

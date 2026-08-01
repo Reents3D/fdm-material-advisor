@@ -1,0 +1,172 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pc",
+  "materialId": "pc",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PC",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
+    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+  },
+  "datasheet": {
+    "title": "Bambu Filament Technical Data Sheet - PC",
+    "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/a52afdccddfd448583d119587122c8c5.pdf",
+    "version": "V2.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 56,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2110,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 40,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.8,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 0.3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "note": {
+        "de": "Die Bruchdehnung von nur 3,8 % überrascht bei einem Werkstoff, der als zäh gilt. Gedrucktes PC verhält sich deutlich spröder als spritzgegossenes - ein Beispiel dafür, dass Werkstoff-Ruf und FDM-Realität auseinandergehen.",
+        "en": "The elongation at break of only 3.8 % is surprising for a material considered tough. Printed PC behaves markedly more brittle than injection-moulded PC - an example of a material's reputation diverging from FDM reality."
+      }
+    },
+    "flexuralStrengthXy": {
+      "value": 108,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusXy": {
+      "value": 2310,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 70,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "charpyUnnotchedXy": {
+      "value": 34.8,
+      "unit": "kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 2.1,
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY"
+    },
+    "charpyNotchedXy": {
+      "value": 7.5,
+      "unit": "kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 1.3,
+      "testStandard": "ISO 179 / GB/T 1043 (gekerbt)",
+      "orientation": "XY"
+    },
+    "hdtA": {
+      "value": 117,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "low",
+      "testStandard": "ISO 75, 1.8 MPa",
+      "note": {
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+      }
+    },
+    "hdtB": {
+      "value": 112,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "low",
+      "testStandard": "ISO 75, 0.45 MPa",
+      "note": {
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+      }
+    },
+    "glassTransition": {
+      "value": 145,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "DSC, 10 °C/min"
+    },
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 260,
+      "max": 280
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 90,
+      "max": 110
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PC",
+        "title": "Bambu Filament Technical Data Sheet - PC",
+        "documentVersion": "V2.0",
+        "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/a52afdccddfd448583d119587122c8c5.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      }
+    ]
+  }
+}

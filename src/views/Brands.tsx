@@ -43,7 +43,11 @@ const SPECIMEN: Record<Product["specimenType"], { de: string; en: string; tone: 
 
 export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: string) => void }) {
   const grouped = productsByMaterial();
-  const materialIds = [...grouped.keys()].sort();
+  // Nach Markenzahl sortieren: eine Ansicht, die mit einem einzigen Anbieter startet,
+  // wirkt leer und verfehlt den Zweck des Vergleichs.
+  const materialIds = [...grouped.keys()].sort(
+    (a, b) => (grouped.get(b)?.length ?? 0) - (grouped.get(a)?.length ?? 0) || a.localeCompare(b),
+  );
   const [sel, setSel] = useState(materialIds[0] ?? "");
   const list = grouped.get(sel) ?? [];
 

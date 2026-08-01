@@ -18,6 +18,7 @@ const NAV = [
   { path: "wizard/1", key: "ui.start.wizard", match: "wizard" },
   { path: "matrix", key: "ui.allMaterials", match: "matrix" },
   { path: "brands", key: "ui.brands", match: "brands" },
+  { path: "compliance", key: "ui.compliance", match: "compliance" },
   { path: "compare", key: "ui.start.compare", match: "compare" },
   { path: "explorer", key: "ui.start.explorer", match: "explorer" },
 ];
@@ -27,25 +28,8 @@ export function Header({ lang, onLang, t, view }: {
 }) {
   return (
     <header className="no-print">
-      {/* Kontaktleiste — im CD dunkles Petrol über die volle Breite */}
-      <div className="bg-petrol-700 text-petrol-100 text-[13px]">
-        <div className="max-w-6xl mx-auto px-4 h-9 flex items-center gap-5">
-          <a href={`tel:${SITE.contact.phone.replace(/[^+\d]/g, "")}`}
-            className="hover:text-white transition-colors whitespace-nowrap">
-            {SITE.contact.phone}
-          </a>
-          <a href={`mailto:${SITE.contact.email}`}
-            className="hover:text-white transition-colors hidden sm:inline">
-            {SITE.contact.email}
-          </a>
-          <span className="ml-auto hidden md:inline opacity-80">
-            {lang === "de" ? "Kostenlos · quelloffen · ohne Anmeldung" : "Free · open source · no sign-up"}
-          </span>
-        </div>
-      </div>
-
       {/* Kopfzeile */}
-      <div className="bg-white border-b border-hairline sticky top-0 z-30 dark:bg-[#0B121F] dark:border-[#1E2B3D]">
+      <div className="bg-white border-b border-hairline sticky top-0 z-30 dark:bg-[#0B121F] dark:border-[#1E2B3D]" data-app-header>
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center gap-6">
           <a href="#/" className="shrink-0" aria-label={`${SITE.brand} — Start`}>
             <img src={logoUrl} alt={SITE.legalEntity}
@@ -141,10 +125,21 @@ export function Footer({ t, lang }: { t: T; lang: Lang }) {
               </li>
             ))}
           </ul>
-          <a href={trackedUrl(SITE.urls.primary)} target="_blank" rel="noopener"
-            className="inline-block mt-4 font-semibold text-petrol-300 hover:text-white">
-            reents3d.de →
-          </a>
+          <ul className="mt-4 space-y-1.5">
+            {([
+              [SITE.urls.xxl, lang === "de" ? "XXL-3D-Druck" : "XXL 3D printing"],
+              [SITE.urls.cad, lang === "de" ? "CAD-Konstruktion" : "CAD engineering"],
+              [SITE.urls.fdm, lang === "de" ? "FDM-Druckservice" : "FDM printing service"],
+              [SITE.urls.primary, "reents3d.de"],
+            ] as const).map(([href, label]) => (
+              <li key={label}>
+                <a href={trackedUrl(href)} target="_blank" rel="noopener"
+                  className="font-semibold text-petrol-300 hover:text-white">
+                  {label} →
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>

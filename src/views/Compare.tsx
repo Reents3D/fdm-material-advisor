@@ -107,11 +107,11 @@ export function Compare({ state, t, update, navigate }: {
 
       {selected.length > 0 && (
         <>
-          <div className="overflow-x-auto -mx-4 px-4">
+          <div className="overflow-x-auto overscroll-x-contain surface p-0">
             <table className="w-full text-sm border-separate border-spacing-0 min-w-max">
-              <thead className="sticky top-14 bg-white dark:bg-[#070E18] z-10">
+              <thead className="sticky top-16 bg-white dark:bg-[#0E1725] z-10">
                 <tr>
-                  <th className="text-left font-medium py-2 pr-3 sticky left-0 bg-white dark:bg-[#070E18] w-48 min-w-48">
+                  <th className="text-left font-medium py-2 px-3 sticky left-0 bg-white dark:bg-[#0E1725] w-48 min-w-48 z-20">
                     {t("ui.material")}
                   </th>
                   {selected.map((m) => (
@@ -135,14 +135,14 @@ export function Compare({ state, t, update, navigate }: {
                     <>
                       <tr key={g.path as string}>
                         <td colSpan={selected.length + 1}
-                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#070E18]">
+                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#0E1725] px-3">
                           {lang === "de" ? g.title[0] : g.title[1]}
                         </td>
                       </tr>
                       {rows.map((f) => (
                         <tr key={`${g.path as string}.${f}`} className="border-b border-hairline/70 dark:border-[#172233]">
                           <th scope="row"
-                            className="text-left font-normal muted py-1.5 pr-3 sticky left-0 bg-white dark:bg-[#070E18]">
+                            className="text-left font-normal muted py-1.5 px-3 sticky left-0 bg-white dark:bg-[#0E1725] z-10">
                             {LABEL[f] ?? f}
                           </th>
                           {selected.map((m) => {

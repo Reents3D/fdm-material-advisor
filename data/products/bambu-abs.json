@@ -1,0 +1,144 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-abs",
+  "materialId": "abs",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu ABS",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
+    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+  },
+  "datasheet": {
+    "title": "Bambu Filament Technical Data Sheet - ABS",
+    "url": "https://store.bblcdn.com/s7/default/23b4cf2b83d5470bb96d19970b5f3ae8/Bambu_ABS_Technical_Data_Sheet_V3.pdf",
+    "version": "V3.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 33,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 28,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 190,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "elongationAtBreakXy": {
+      "value": 10.5,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "flexuralStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusXy": {
+      "value": 1880,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 110,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "charpyUnnotchedXy": {
+      "value": 21.5,
+      "unit": "kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 2.2,
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY"
+    },
+    "hdtA": {
+      "value": 84,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 1.8 MPa"
+    },
+    "hdtB": {
+      "value": 87,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 0.45 MPa"
+    },
+    "nozzleTemperature": {
+      "value": 255,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 240,
+      "max": 270
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 80,
+      "max": 100
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu ABS",
+        "title": "Bambu Filament Technical Data Sheet - ABS",
+        "documentVersion": "V3.0",
+        "url": "https://store.bblcdn.com/s7/default/23b4cf2b83d5470bb96d19970b5f3ae8/Bambu_ABS_Technical_Data_Sheet_V3.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      }
+    ]
+  }
+}

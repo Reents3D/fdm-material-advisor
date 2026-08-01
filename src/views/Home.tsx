@@ -32,6 +32,7 @@ export function Home({ t, lang, navigate }: {
     { path: "wizard/1", key: "wizard", primary: true },
     { path: "matrix", key: "database" },
     { path: "brands", key: "brands" },
+    { path: "compliance", key: "compliance" },
     { path: "compare", key: "compare" },
     { path: "explorer", key: "explorer" },
   ];

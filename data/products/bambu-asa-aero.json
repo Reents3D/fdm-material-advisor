@@ -1,0 +1,135 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-asa-aero",
+  "materialId": "asa-aero",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu ASA Aero",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
+    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+  },
+  "datasheet": {
+    "title": "Bambu Filament Technical Data Sheet - ASA Aero",
+    "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/bambu_asa_aero_technical_data_sheet.pdf",
+    "version": "V1.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "properties": {
+    "density": {
+      "value": 0.99,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 32,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "tensileStrengthZ": {
+      "value": 21,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2010,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 260,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "elongationAtBreakXy": {
+      "value": 5.1,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 1.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "flexuralStrengthXy": {
+      "value": 58,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 6,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusXy": {
+      "value": 1510,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 120,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "hdtA": {
+      "value": 78,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 1.8 MPa"
+    },
+    "hdtB": {
+      "value": 85,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 0.45 MPa"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 240,
+      "max": 280
+    },
+    "bedTemperature": {
+      "value": 85,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 80,
+      "max": 90
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu ASA Aero",
+        "title": "Bambu Filament Technical Data Sheet - ASA Aero",
+        "documentVersion": "V1.0",
+        "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/bambu_asa_aero_technical_data_sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      }
+    ]
+  }
+}

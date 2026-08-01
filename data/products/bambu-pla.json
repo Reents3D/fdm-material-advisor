@@ -1,0 +1,155 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pla",
+  "materialId": "pla",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PLA Basic",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
+    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+  },
+  "datasheet": {
+    "title": "Bambu Filament Technical Data Sheet - PLA",
+    "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/bambu_pla_basic_technical_data_sheet.pdf",
+    "version": "V3.0",
+    "retrievedAt": "2026-08-01"
+  },
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 1183"
+    },
+    "tensileStrengthXy": {
+      "value": 35,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "note": {
+        "de": "35 MPa wirken niedrig gegenüber den 50-60 MPa aus Rohstoff-Datenblättern. Der Unterschied ist die Prüfmethode: Bambu prüft GEDRUCKTE Körper, Rohstoffhersteller spritzgegossene. Für FDM ist der gedruckte Wert der ehrliche.",
+        "en": "35 MPa looks low against the 50-60 MPa in resin datasheets. The difference is the test method: Bambu tests PRINTED specimens, resin producers injection-moulded ones. For FDM the printed value is the honest one."
+      }
+    },
+    "tensileStrengthZ": {
+      "value": 31,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z"
+    },
+    "tensileModulusXy": {
+      "value": 2580,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 220,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "elongationAtBreakXy": {
+      "value": 12.2,
+      "unit": "%",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 1.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY"
+    },
+    "flexuralStrengthXy": {
+      "value": 76,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 5,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "flexuralModulusXy": {
+      "value": 2750,
+      "unit": "MPa",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 160,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY"
+    },
+    "charpyUnnotchedXy": {
+      "value": 7.9,
+      "unit": "kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium",
+      "tolerance": 1.2,
+      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
+      "orientation": "XY"
+    },
+    "hdtA": {
+      "value": 54,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 1.8 MPa"
+    },
+    "hdtB": {
+      "value": 57,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "ISO 75, 0.45 MPa"
+    },
+    "glassTransition": {
+      "value": 60,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "testStandard": "DSC, 10 °C/min"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 190,
+      "max": 230
+    },
+    "bedTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium",
+      "min": 35,
+      "max": 45
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-01",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt) - fachliche Freigabe durch Riko Reents ausstehend",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PLA Basic",
+        "title": "Bambu Filament Technical Data Sheet - PLA",
+        "documentVersion": "V3.0",
+        "url": "https://wiki.bambulab.com/filament-acc/abs-asa-pc/bambu_pla_basic_technical_data_sheet.pdf",
+        "retrievedAt": "2026-08-01",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+        }
+      }
+    ]
+  }
+}

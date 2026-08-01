@@ -19,6 +19,7 @@ export const SITE = {
     services: "https://reents3d.de/leistungen/",
     fdm: "https://reents3d.de/leistungen/3d-druck-service/fdm-3d-druck-service/",
     xxl: "https://reents3d.de/leistungen/xxl-3d-druck/",
+    cad: "https://reents3d.de/leistungen/cad-konstruktion/",
     imprint: "https://reents3d.de/impressum/",
     privacy: "https://reents3d.de/datenschutz/",
     repo: "https://github.com/Reents3D/fdm-material-advisor",
