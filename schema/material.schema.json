@@ -1252,6 +1252,68 @@
             },
             "glowWireTemperature": {
               "$ref": "#/$defs/qDegC"
+            },
+            "ul94ViaProduct": {
+              "description": "Es gibt mindestens EIN belegtes Produkt dieser Werkstofffamilie mit dieser UL94-Klasse. Das ist KEINE Eigenschaft des Werkstofftyps: PETG als solches ist nicht V-0, nur die flammgeschuetzte Type ist es. Das Feld macht die Type ueber den Brandschutzfilter auffindbar und nennt dazu, welche es ist.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "value",
+                "products",
+                "source",
+                "confidence"
+              ],
+              "properties": {
+                "value": {
+                  "enum": [
+                    "V-0",
+                    "V-1",
+                    "V-2",
+                    "5VA",
+                    "5VB"
+                  ]
+                },
+                "products": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "brand": {
+                        "type": "string"
+                      },
+                      "thicknessMm": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "source": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low",
+                    "estimated"
+                  ]
+                },
+                "note": {
+                  "$ref": "#/$defs/i18nText"
+                }
+              }
             }
           }
         },

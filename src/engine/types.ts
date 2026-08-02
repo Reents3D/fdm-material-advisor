@@ -204,6 +204,12 @@ export interface Recommendation {
   /** Criteria the user weighted but this material has no data for. */
   dataGaps: string[];
   /**
+   * Share of the user's weighted decision that is backed by data at all, 0..1.
+   * The score is multiplied by this: what we cannot show, we do not credit.
+   * A gap therefore costs rank in proportion to how much the user cared about it.
+   */
+  coverage: number;
+  /**
    * Hard constraints this material passed ONLY because the datum is missing.
    * A material that survives on ignorance is never ranked above one that survives
    * on evidence — see the sort in select().

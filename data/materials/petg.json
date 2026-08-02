@@ -593,6 +593,22 @@
           "de": "Das Datenblatt nennt den Werkstoff schlicht 'flammable'. Keine Brandschutzeinstufung vorhanden.",
           "en": "The datasheet simply calls the material 'flammable'. No fire classification available."
         }
+      },
+      "ul94ViaProduct": {
+        "value": "V-0",
+        "products": [
+          {
+            "id": "addnorth-petg-v0",
+            "name": "add:north PETG Flame Retardant V0",
+            "brand": "add:north"
+          }
+        ],
+        "source": "src_flame_addnorth_petg_v0",
+        "confidence": "low",
+        "note": {
+          "de": "PETG als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: add:north PETG Flame Retardant V0. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "PETG as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: add:north PETG Flame Retardant V0. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+        }
       }
     },
     "printEmissions": {
@@ -782,6 +798,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_flame_addnorth_petg_v0",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north PETG Flame Retardant V0",
+        "title": "add:north PETG Flame Retardant V0 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_PETGv0_oY3Rem.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
       }
     ],
     "openQuestions": [

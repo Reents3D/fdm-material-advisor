@@ -35,6 +35,7 @@ export function buildExplanations(
   verdicts: ConstraintVerdict[],
   estimatedShare: number,
   dataGaps: string[],
+  coverage = 1,
 ): Explanation[] {
   const out: Explanation[] = [];
   const weighted = criteria.filter((c) => c.weight > 0 && c.score !== null);
@@ -91,6 +92,12 @@ export function buildExplanations(
     }
     if (v.key === "constraint.size.effort") {
       out.push({ type: "risk", key: "risk.sizeEffort", params: { ...v.params }, evidence: v.evidence });
+    }
+    /* Wer die Brandschutzklasse nur ueber eine bestimmte Type erfuellt, MUSS das auf der
+       Karte lesen. "PETG erfuellt V-0" ohne den Zusatz "aber nur diese eine Type" ist
+       die gefaehrlichste Verkuerzung, die dieses Werkzeug produzieren koennte. */
+    if (v.key === "constraint.flame.passViaProduct") {
+      out.push({ type: "risk", key: "risk.flameViaProduct", params: { ...v.params }, evidence: v.evidence });
     }
     if (v.key === "constraint.chemical.limited") {
       out.push({ type: "risk", key: "risk.chemicalLimited", params: { ...v.params }, evidence: v.evidence });
@@ -149,6 +156,12 @@ export function buildExplanations(
   }
 
   /* honest confidence rollup */
+  /* Die Abwertung durch Datenluecken muss dastehen, sonst wirkt ein niedriger Score
+     wie ein Werkstoffurteil, obwohl er ein Erfassungsurteil ist. */
+  if (coverage < 0.999) {
+    out.push({ type: "risk", key: "risk.coverage",
+      params: { pct: Math.round(coverage * 100), lost: Math.round((1 - coverage) * 100) } });
+  }
   if (estimatedShare >= 0.4) {
     out.push({ type: "risk", key: "risk.estimatedShare", params: { pct: Math.round(estimatedShare * 100) } });
   }

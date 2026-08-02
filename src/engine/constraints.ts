@@ -180,18 +180,41 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
      document counts. Same asymmetry as ADR-006 — a wrong clearance costs a part in
      the field, an over-cautious one costs a place in the ranking. */
   if (req.flameClass) {
-    const node = (m.compliance as { flameRetardancy?: { ul94?: Choice } } | undefined)?.flameRetardancy?.ul94;
+    const fr = (m.compliance as {
+      flameRetardancy?: {
+        ul94?: Choice;
+        ul94ViaProduct?: { value?: string; products?: { name?: string; brand?: string }[] };
+      };
+    } | undefined)?.flameRetardancy;
+    const node = fr?.ul94;
     const ul = str(node);
     const estimated = (node as { confidence?: string } | undefined)?.confidence === "estimated";
     const have = ul ? UL94_ORDER.indexOf(ul) : -1;
     const want = UL94_ORDER.indexOf(req.flameClass);
-    const p = { required: req.flameClass, actual: ul ?? "nicht klassifiziert" };
+    const p: Record<string, string | number> = { required: req.flameClass, actual: ul ?? "nicht klassifiziert" };
+
+    /* Der Werkstofftyp selbst traegt die Klasse belegt - der Normalfall. */
     if (have >= 0 && have >= want && !estimated) {
       pass("flameClass", "constraint.flame.pass", p, "compliance.flameRetardancy.ul94");
     } else {
-      fail("flameClass",
-        have >= 0 && have >= want ? "constraint.flame.failEstimated" : "constraint.flame.fail",
-        p, "compliance.flameRetardancy.ul94");
+      /* Kein Typwert, aber ein belegtes PRODUKT dieser Familie schafft die Klasse.
+         Das gibt die Familie NICHT frei: PETG ist nicht V-0, nur die flammgeschuetzte
+         Type ist es - und die ist ein anderer Werkstoff als die Standardtype. Der
+         Werkstoff bleibt deshalb in der Liste, die Begruendung nennt aber Marke und
+         Produktnamen, damit niemand "irgendein PETG" bestellt. */
+      const via = fr?.ul94ViaProduct;
+      const viaRank = via?.value ? UL94_ORDER.indexOf(via.value) : -1;
+      if (viaRank >= 0 && viaRank >= want && via?.products?.length) {
+        p.actual = via.value as string;
+        p.product = via.products
+          .map((x) => [x.brand, x.name?.replace(new RegExp(`^${x.brand}\\s*`), "")].filter(Boolean).join(" "))
+          .join(", ");
+        pass("flameClass", "constraint.flame.passViaProduct", p, "compliance.flameRetardancy.ul94ViaProduct");
+      } else {
+        fail("flameClass",
+          have >= 0 && have >= want ? "constraint.flame.failEstimated" : "constraint.flame.fail",
+          p, "compliance.flameRetardancy.ul94");
+      }
     }
   }
 

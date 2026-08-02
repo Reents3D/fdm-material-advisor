@@ -785,6 +785,96 @@ mit Kammer, und große Messemodelle werden ohnehin segmentiert — deshalb steht
 
 ---
 
+## ADR-020 — Wissenslücken dürfen den Score nicht heben
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Ein systematischer Durchlauf aller 20 Anwendungsfälle nach ADR-018 zeigte
+einen zweiten Fall derselben Familie — diesmal nicht im Filter, sondern im Scoring.
+
+Bei der Chemiewanne (Chemie 5, Steifigkeit 3) gewann **OBC mit 68 gegen PP mit 61**:
+
+```
+obc   [stiffness=FEHLT  chemical=74  printability=72  price=53]
+pp    [stiffness=6      chemical=93  printability=39  price=83]
+```
+
+PP hat 1400 MPa E-Modul und bekommt dafür 6 von 100 Punkten. OBC hat gar keinen E-Modul
+hinterlegt — obwohl es mit 244 MPa Biegemodul noch **weicher** ist. Der gewichtete
+Mittelwert lief nur über Kriterien MIT Daten; die fehlende Zahl war ein Freifahrtschein.
+
+Betroffen waren 28 von 38 Werkstoffen. Häufigste Lücke: Schichthaftung bei 25 von 38.
+
+**Entscheidung.** Der Score wird mit der **Abdeckung** multipliziert — dem Anteil der vom
+Nutzer gewichteten Entscheidung, zu dem überhaupt Daten vorliegen.
+
+```
+coverage = Gewicht der Kriterien mit Daten / Gewicht aller gewichteten Kriterien
+score    = gewichteter Mittelwert × coverage
+```
+
+Fehlende Werte werden dabei ausdrücklich **nicht als 0 eingesetzt** (ADR-006). Ein
+Werkstoff ohne Daten fällt nicht auf null — er verliert genau den Anteil, den er nicht
+belegen kann. Und der Verlust wächst mit der Wichtigkeit: Wer bei einem mit 5 gewichteten
+Kriterium schweigt, verliert mehr als bei einem mit 1.
+
+Das ist ADR-006 (`unbelegte Treffer ranken hinter belegten`) auf das Scoring angewandt.
+Bisher galt es nur für Constraints.
+
+**Was das korrigiert hat.** Neben der Chemiewanne änderten sich zwei weitere Sieger:
+**Gleitlager** ging von PPS-CF auf **PA12-CF** — Polyamid ist der klassische
+Lagerwerkstoff, PPS-CF hatte über Lücken gewonnen. Nach der Änderung haben alle 20
+Anwendungsfälle einen Sieger mit **100 % Abdeckung**.
+
+**Sichtbarkeit.** Die Abwertung steht auf der Ergebniskarte. Ohne den Hinweis wirkte ein
+niedriger Score wie ein Werkstoffurteil, obwohl er ein Erfassungsurteil ist.
+
+---
+
+## ADR-021 — Eine Brandschutzklasse am Produkt gibt die Familie nicht frei
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Der Anwendungsfall „Bahn-Schaltschrank" fordert UL94 V-0 und lieferte genau
+**einen** Treffer: PC-FR mit Score 48 — wieder ein Sieg durch Übrigbleiben.
+
+Dabei lagen im Bestand belegte V-0-**Produkte**: add:north PETG Flame Retardant V0
+(halogenfrei, ohne roten Phosphor) und Spectrum PC/ABS FR V0 (V-0 bei 1,5 UND 3,0 mm,
+Glühdrahtindex 960 °C). Nur trugen ihre Werkstofftypen keine Klasse, und der Filter
+arbeitet auf der Typebene. Zwei belegte Optionen waren unauffindbar.
+
+**Warum nicht einfach V-0 an den Typ schreiben.** Weil es gefährlich falsch wäre. PETG ist
+**nicht** V-0. Nur die flammgeschützte Type ist es — und die ist ein anderer Werkstoff als
+das PETG von der Rolle nebenan: Im add:north-Blatt kostet der Flammschutz vier Fünftel der
+Zähigkeit (Bruchdehnung 5 % statt 24 %). Wer „PETG ist V-0" liest und irgendein PETG
+bestellt, baut ein Bauteil, das die Anforderung nicht erfüllt.
+
+**Entscheidung.** Ein eigenes Feld `ul94ViaProduct` sagt: „In dieser Familie gibt es eine
+Type mit dieser Klasse — und zwar diese hier." Der Constraint lässt den Werkstoff durch,
+die Begründung nennt aber Marke und Produktnamen:
+
+> V-0 nur über eine bestimmte Type: add:north PETG Flame Retardant V0. Die
+> Werkstofffamilie als solche ist nicht klassifiziert — wer irgendeine Type davon
+> bestellt, verfehlt die Anforderung.
+
+Als Quelle steht das Produktdatenblatt in der Quellenliste des Werkstoffs, nicht eine
+unbelegte Sonderkennung — die Plausibilitätsregel R8 hat das erzwungen, und zu Recht.
+
+Nicht übernommen werden **HB** (unterste Stufe, bedeutet nur „brennt langsam") und Klassen
+mit `confidence: estimated` (ADR-016).
+
+**Ergebnis:** Bahn-Schaltschrank liefert jetzt drei Optionen statt einer, angeführt von
+ABS-PC mit 60 statt PC-FR mit 48.
+
+**Der wiederkehrende Fallstrick.** Dies war das dritte Mal an einem Tag, dass die Engine
+einen Vorbehalt berechnete, den die Ergebniskarte nicht zeigte. Bei „nur diese eine Type
+erfüllt V-0" wäre das die gefährlichste Verkürzung, die dieses Werkzeug produzieren kann.
+Ein eigener Regressionstest prüft jetzt, dass der Verweis auf der Karte landet — nicht nur
+im Verdict.
+
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

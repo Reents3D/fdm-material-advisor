@@ -51,7 +51,7 @@ export function select(materials: Material[], req: Requirements): SelectionResul
       material: m,
       ...scored,
       unverifiedConstraints: v.filter((x) => x.dataMissing).map((x) => x.constraintId),
-      explanations: buildExplanations(m, scored.criteria, v, scored.estimatedShare, scored.dataGaps),
+      explanations: buildExplanations(m, scored.criteria, v, scored.estimatedShare, scored.dataGaps, scored.coverage),
     });
   }
 

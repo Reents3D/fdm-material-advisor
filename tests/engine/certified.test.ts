@@ -32,7 +32,12 @@ describe("Zertifizierte Anforderungen sind erfuellbar", () => {
   });
 
   it("PC-FR braucht eine Kammer und faellt ohne sie raus", () => {
-    expect(ids(select(MATERIALS, { flameClass: "V-0", chamberAvailable: false }).ranked)).toHaveLength(0);
+    // Seit 2026-08-02 ueberleben auch PETG und ABS-PC eine V-0-Anforderung - ueber eine
+    // belegte flammgeschuetzte Type ihrer Familie. PETG braucht keine Kammer und bleibt
+    // deshalb zu Recht drin; geprueft wird hier nur, dass PC-FR selbst rausfaellt.
+    const surviving = ids(select(MATERIALS, { flameClass: "V-0", chamberAvailable: false }).ranked);
+    expect(surviving).not.toContain("pc-fr");
+    expect(surviving).not.toContain("abs-pc");
   });
 
   it("GreenTEC erreicht ueber 100 °C ohne Kammer - sonst kann das keiner", () => {

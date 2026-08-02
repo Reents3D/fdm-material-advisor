@@ -292,6 +292,8 @@ const de: Dict = {
   "constraint.food.fail": "Keine Lebensmittelkonformität deklariert ({status}).",
   "constraint.flame.pass": "Brandschutzklasse {actual} erfüllt {required}.",
   "constraint.flame.fail": "Brandschutz nicht erfüllt: {actual}, gefordert {required}.",
+  "constraint.flame.passViaProduct":
+    "{required} nur mit einer bestimmten Type: Der Werkstofftyp als solcher ist nicht klassifiziert, aber {product} trägt belegtes {actual}. Genau diese Type bestellen — und das Prüfzeugnis anfordern.",
   "constraint.flame.failEstimated":
     "Brandschutz nur geschätzt: {actual} ist aus der Polymerklasse abgeleitet, nicht aus einem Prüfzeugnis. Für eine Brandschutzanforderung zählt nur eine belegte Klassifizierung.",
   "constraint.esd.pass": "ESD-tauglich ({actual}).",
@@ -324,6 +326,10 @@ const de: Dict = {
   "risk.anisotropy": "Anisotropie: senkrecht zur Schicht bleiben nur {pct} % der Festigkeit — {lost} % gehen verloren.",
   "risk.impactAnisotropy": "Schlagzähigkeit bricht in Z auf {pct} % ein. Bauteil orientieren.",
   "risk.foodPartLevel": "Materialfreigabe ist keine Bauteilfreigabe — FDM-Schichten bilden Keimnischen.",
+  "risk.coverage":
+    "Nur {pct} % Ihrer Gewichtung sind hier durch Daten gedeckt — {lost} % fehlen. Die Eignungszahl ist entsprechend abgewertet: Was nicht belegt ist, wird nicht gutgeschrieben.",
+  "risk.flameViaProduct":
+    "{required} nur über eine bestimmte Type: {product}. Die Werkstofffamilie als solche ist nicht klassifiziert — wer irgendeine Type davon bestellt, verfehlt die Anforderung.",
   "risk.estimatedShare": "{pct} % dieser Bewertung beruhen auf Schätzungen, nicht auf Messwerten.",
   "hint.hardenedNozzle": "Gehärtete Düse erforderlich — Messing ist nach wenigen Stunden aufgeweitet.",
   "hint.drying": "Vor dem Druck {hours} h bei {temp} °C trocknen und trocken fördern.",
@@ -620,6 +626,8 @@ const en: Dict = {
   "constraint.food.fail": "No food contact compliance declared ({status}).",
   "constraint.flame.pass": "Fire class {actual} meets {required}.",
   "constraint.flame.fail": "Fire class not met: {actual}, {required} required.",
+  "constraint.flame.passViaProduct":
+    "{required} only with a specific grade: the material type as such is not classified, but {product} carries documented {actual}. Order precisely that grade — and request the test certificate.",
   "constraint.flame.failEstimated":
     "Fire class only estimated: {actual} is derived from the polymer class, not from a test certificate. For a fire safety requirement only a documented classification counts.",
   "constraint.esd.pass": "ESD capable ({actual}).",
@@ -651,6 +659,10 @@ const en: Dict = {
   "risk.anisotropy": "Anisotropy: only {pct} % of the strength remains perpendicular to the layers — {lost} % is lost.",
   "risk.impactAnisotropy": "Impact strength drops to {pct} % in Z. Orient the part.",
   "risk.foodPartLevel": "Material approval is not part approval — FDM layers form bacterial niches.",
+  "risk.coverage":
+    "Only {pct} % of your weighting is backed by data here — {lost} % is missing. The suitability figure is reduced accordingly: what is not documented is not credited.",
+  "risk.flameViaProduct":
+    "{required} only via a specific grade: {product}. The material family as such is not classified — ordering just any grade of it misses the requirement.",
   "risk.estimatedShare": "{pct} % of this assessment rests on estimates, not measurements.",
   "hint.hardenedNozzle": "Hardened nozzle required — brass widens within hours.",
   "hint.drying": "Dry {hours} h at {temp} °C before printing and feed dry.",

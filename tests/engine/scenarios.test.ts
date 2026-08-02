@@ -154,6 +154,54 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
   });
 });
 
+describe("Wissenslücken dürfen nicht belohnen", () => {
+  /* Der Befund: Bei der Chemiewanne (Chemie 5, Steifigkeit 3) gewann OBC mit 68 gegen
+     PP mit 61. PP hat 1400 MPa E-Modul und bekam dafuer 6 von 100 Punkten. OBC hatte gar
+     keinen E-Modul hinterlegt - obwohl es mit 244 MPa Biegemodul noch WEICHER ist. Der
+     gewichtete Mittelwert lief nur ueber Kriterien MIT Daten, die fehlende Zahl war
+     damit ein Freifahrtschein. */
+  const req = { chemicals: ["chem_dilute_alkali"], serviceTemperatureC: 60,
+    weights: { chemical: 5, stiffness: 3, price: 3, printability: 3 } };
+
+  it("ein Werkstoff ohne Daten zum gewichteten Kriterium schlägt keinen mit schlechten Daten", () => {
+    const r = select(MATERIALS, req);
+    const obc = r.ranked.find((x) => x.material.id === "obc")!;
+    const pp = r.ranked.find((x) => x.material.id === "pp")!;
+
+    // Die Ausgangslage, die den Fehler ueberhaupt erst moeglich machte:
+    expect(obc.dataGaps).toContain("stiffness");
+    expect(pp.dataGaps).not.toContain("stiffness");
+
+    expect(pp.score, "PP muss vor OBC liegen").toBeGreaterThan(obc.score);
+  });
+
+  it("die Abdeckung ist der Anteil der Gewichtung, zu dem Daten vorliegen", () => {
+    const r = select(MATERIALS, req);
+    const pp = r.ranked.find((x) => x.material.id === "pp")!;
+    expect(pp.coverage).toBe(1);
+
+    const obc = r.ranked.find((x) => x.material.id === "obc")!;
+    // Steifigkeit wiegt 3 von 14 -> 11/14
+    expect(obc.coverage).toBeCloseTo(11 / 14, 3);
+  });
+
+  it("eine Lücke senkt den Score, macht ihn aber nicht zu null (ADR-006)", () => {
+    const r = select(MATERIALS, req);
+    const obc = r.ranked.find((x) => x.material.id === "obc")!;
+    expect(obc.score).toBeGreaterThan(0);
+    expect(obc.score).toBeLessThan(1);
+    // Und der Nutzer erfaehrt es.
+    expect(obc.explanations.some((e) => e.key === "risk.coverage")).toBe(true);
+  });
+
+  it("ohne Lücke bleibt der Score unverändert", () => {
+    const r = select(MATERIALS, req);
+    for (const rec of r.ranked) {
+      if (rec.dataGaps.length === 0) expect(rec.coverage, rec.material.id).toBe(1);
+    }
+  });
+});
+
 describe("Szenario: keine beheizte Kammer verfügbar", () => {
   const req = { chamberAvailable: false, weights: W };
 
@@ -262,10 +310,56 @@ describe("Szenario: keine gehärtete Düse", () => {
 
 describe("Szenario: Brandschutz und ESD", () => {
   it("UL94 V-0 erfüllt nur ein ausdrücklich flammgeschützter Werkstoff", () => {
-    const surviving = ids(select(MATERIALS, { flameClass: "V-0" }).ranked);
-    expect(surviving).toEqual(["pc-fr"]);
+    /* Die Regel gilt unveraendert - nur die Belegform ist seit 2026-08-02 breiter:
+       Neben pc-fr, das die Klasse selbst traegt, ueberleben petg und abs-pc ueber eine
+       belegte flammgeschuetzte TYPE ihrer Familie (add:north PETG V0, Spectrum PC/ABS
+       FR V0). Beides sind ausdruecklich flammgeschuetzte Werkstoffe; die Familie ist
+       damit NICHT freigegeben, und die Begruendung muss das Produkt nennen. */
+    const r = select(MATERIALS, { flameClass: "V-0" });
+    const surviving = ids(r.ranked);
+
+    for (const m of r.ranked) {
+      const v = evaluateConstraints(m.material, { flameClass: "V-0" })
+        .find((c) => c.constraintId === "flameClass")!;
+      expect(["constraint.flame.pass", "constraint.flame.passViaProduct"], m.material.id).toContain(v.key);
+      // Wer nur ueber ein Produkt durchkommt, MUSS es benennen.
+      if (v.key === "constraint.flame.passViaProduct") {
+        expect(String(v.params.product), m.material.id).toMatch(/\S/);
+      }
+    }
+
+    expect(surviving).toContain("pc-fr");
     // Standardwerkstoffe tragen keine Einstufung - auch nicht die "selbstverlöschenden".
     for (const id of ["pc", "petg-cf", "abs", "asa"]) expect(surviving).not.toContain(id);
+  });
+
+  it("der Produktverweis steht auf der Ergebniskarte, nicht nur im Verdict", () => {
+    /* Zweimal an einem Tag ist genau das schiefgegangen: Die Engine berechnet einen
+       Vorbehalt, die Karte zeigt ihn nicht. Bei "nur diese eine Type erfuellt V-0" waere
+       das die gefaehrlichste Verkuerzung, die dieses Werkzeug produzieren kann. */
+    const r = select(MATERIALS, { flameClass: "V-0" });
+    const viaProduct = r.ranked.filter((x) =>
+      evaluateConstraints(x.material, { flameClass: "V-0" })
+        .some((c) => c.key === "constraint.flame.passViaProduct"));
+    expect(viaProduct.length, "es muss mindestens einen solchen Fall geben").toBeGreaterThan(0);
+
+    for (const rec of viaProduct) {
+      const e = rec.explanations.find((x) => x.key === "risk.flameViaProduct");
+      expect(e, `${rec.material.id} nennt die Type nicht auf der Karte`).toBeDefined();
+      expect(String(e!.params.product)).toMatch(/\S/);
+    }
+  });
+
+  it("der Produktverweis gibt die Familie nicht frei", () => {
+    // PETG als Typ ist nicht V-0 - nur die flammgeschuetzte Type. Wuerde hier eine
+    // Klasse am Typ stehen, waere das eine gefaehrliche Falschaussage.
+    const petg = byId("petg")!;
+    const fr = (petg.compliance as {
+      flameRetardancy?: { ul94?: { value?: string }; ul94ViaProduct?: { value?: string; products?: unknown[] } };
+    }).flameRetardancy!;
+    expect(fr.ul94?.value ?? "not-classified").not.toBe("V-0");
+    expect(fr.ul94ViaProduct?.value).toBe("V-0");
+    expect(fr.ul94ViaProduct?.products?.length).toBeGreaterThan(0);
   });
 
   it("eine nur GESCHÄTZTE Brandschutzklasse erfüllt die Anforderung nicht", () => {
