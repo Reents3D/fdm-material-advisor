@@ -95,7 +95,7 @@ const FIBERLOGY_CATEGORIES = [
   ["Nylon-PA12/196", "pa12"], ["Nylon-PA12-CF/153", "pa12-cf"],
   ["HIPS/193", "hips"], ["PP/168", "pp"],
   /* Seit 2026-08-02 als eigene Werkstofftypen gefuehrt (siehe import/fiberlogy-types.mjs). */
-  ["PEI-9085/159", "pei-9085"], ["ABS-GF/190", "abs-gf"],
+  ["ABS-GF/190", "abs-gf"],
   ["PLA-CF/143", "pla-cf"], ["PCTG-GF/164", "pctg-gf"],
 ];
 

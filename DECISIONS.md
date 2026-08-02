@@ -1310,45 +1310,50 @@ zurück, obwohl es mehr Angebote hat als vorher.
 
 ---
 
-## ADR-033 — Vier Werkstofftypen, aufgelesen statt gesucht
+## ADR-033 — Drei Werkstofftypen, aufgelesen statt gesucht — und einer bewusst verworfen
 
 **Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Nebenprodukt der Preiserhebung
 
 Beim Anbinden von Fiberlogy fiel auf, dass der Katalog Kategorien führt, die diese
 Datenbank nicht kannte. Vier davon tragen ein vollständiges technisches Datenblatt mit
-Prüfnorm und Zahlenwert und sind damit aufnahmefähig — **ein Werkstofftyp entsteht hier
-nicht, weil der Name bekannt ist, sondern weil ein Blatt ihn trägt.**
+Prüfnorm und Zahlenwert. Drei sind aufgenommen:
 
 | Typ | Was er beiträgt |
 |---|---|
-| **PEI 9085** | HDT-A 152 °C, Vicat 173 °C, Brandprüfung nach FAR 25.853 — der erste Werkstoff mit Luftfahrt-Brandnachweis |
 | **ABS-GF** | 3.500 MPa gegen 2.200 beim ungefüllten ABS, bei praktisch gleicher Verarbeitung |
 | **PLA-CF** | 8.500 MPa E-Modul — nach PAHT-CF der zweitsteifste im Bestand |
 | **PCTG-GF** | glasgefüllt und trotzdem 8 % Bruchdehnung — ungewöhnlich für einen gefüllten Werkstoff |
 
-**Drei Datenblattbefunde, dokumentiert statt geglättet:**
+**Ein Datenblatt reicht nicht — der Werkstoff muss auch vorkommen.**
+PEI 9085 lag fertig ausgewertet vor und wäre der thermisch fähigste Eintrag im ganzen
+Bestand gewesen: HDT-A 152 °C, Vicat 173 °C, Brandprüfung nach FAR 25.853. Aufgenommen
+wurde er trotzdem nicht. Der Einwand kam aus der Werkstatt und lautete schlicht: kein
+gängiges Material. Er ist richtig, und die Begründung steht im Blatt selbst — 350 bis
+380 °C Düse und 160 °C Bett kann praktisch keine Maschine, die bei einem Leser dieses
+Werkzeugs steht.
 
-1. **PEI 9085: Bruchdehnung 70 % bei 6,7 % Streckdehnung.** Für einen *gedruckten*
-   PEI-Prüfkörper nicht plausibel — dort liegt sie im einstelligen Bereich. Der Wert
-   stammt allem Anschein nach vom spritzgegossenen Rohstoff. Er steht mit `low` und einer
-   Fußnote im Datensatz und geht **nicht** in die Zähigkeitsbewertung ein.
-2. **PLA-CF: Charpy ungekerbt 100 kJ/m² gegen gekerbt 3,1.** Faktor 32. Ungefülltes PLA
+Damit ist die Aufnahmeregel geschärft. Bisher hieß sie „ein Werkstofftyp entsteht, weil
+ein Blatt ihn trägt". Sie heißt jetzt: **ein Blatt ist die notwendige, nicht die
+hinreichende Bedingung.** Ein Berater, der Werkstoffe empfiehlt, die niemand verarbeiten
+kann, hilft nicht — er beeindruckt nur, und das ist in einem Auswahlwerkzeug die
+schlechtere Eigenschaft. Das Datenblatt bleibt unter `data/_sources/fiberlogy-tds/`
+liegen, falls sich die Maschinenlage ändert.
+
+**Zwei Datenblattbefunde, dokumentiert statt geglättet:**
+
+1. **PLA-CF: Charpy ungekerbt 100 kJ/m² gegen gekerbt 3,1.** Faktor 32. Ungefülltes PLA
    liegt ungekerbt bei 15 bis 25; ein carbongefülltes ist spröder, nicht viermal zäher.
    Der gekerbte Wert passt, der ungekerbte nicht.
-3. **PLA-CF: HDT und Vicat gelten laut Fußnote nur nach Temperung.** Steht als
+2. **PLA-CF: HDT und Vicat gelten laut Fußnote nur nach Temperung.** Steht als
    `annealing.requiredForDatasheetValues: true` im Datensatz — wer keinen Umluftofen hat,
    bekommt nicht 137 °C, sondern das thermische Verhalten von normalem PLA.
-
-**Die FAA-Prüfung ist keine UL94-Klasse.** FAR 25.853 und UL94 prüfen unterschiedliche
-Geometrien und Beflammungszeiten. PEI 9085 steht deshalb als `not-classified` mit einer
-Notiz — es als V-0 zu führen wäre genau die Verkürzung, die ADR-021 verbietet.
 
 **Kein Blatt nennt eine Bauorientierung.** Die Zugwerte stehen deshalb ohne
 Richtungsangabe, nicht als X-Y — das wäre eine Annahme, die die Quelle nicht deckt.
 
 **Was ein Szenariotest dabei gelernt hat.** „Reicht auch etwas Einfacheres?" prüfte auf
 *Sieger pps-cf, pragmatisch petg, Preisverhältnis unter 0,3*. Alle drei Zahlen stammten
-aus der Zeit geschätzter Preise. Mit der Erhebung und vier neuen Typen wanderte der Sieger
+aus der Zeit geschätzter Preise. Mit der Erhebung und drei neuen Typen wanderte der Sieger
 zu PAHT-CF, der Ausweg zu PLA-Tough — der Test ging rot, **obwohl die Engine besser
 geworden war**. Ein Test, der bei besseren Daten bricht, prüft die Daten und nicht das
 Verhalten. Er prüft jetzt die Regel: Es gibt einen Ausweg, er ist deutlich günstiger, er

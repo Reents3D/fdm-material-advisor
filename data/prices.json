@@ -1656,19 +1656,6 @@
         "collectedBy": "survey-prices"
       }
     ],
-    "pei-9085": [
-      {
-        "retailer": "fiberlogy",
-        "brand": "Fiberlogy",
-        "product": "PEI 9085",
-        "spoolKg": 0.5,
-        "priceEur": 156.33,
-        "pricePerKg": 312.66,
-        "listingUrl": "https://fiberlogy.com/en_US/c/PEI-9085/159",
-        "retrievedAt": "2026-08-02",
-        "collectedBy": "survey-prices"
-      }
-    ],
     "abs-gf": [
       {
         "retailer": "fiberlogy",

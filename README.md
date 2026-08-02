@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**42 Werkstofftypen · 168 Produkte von 12 Marken · 2.820 belegte Einzelaussagen ·
+**41 Werkstofftypen · 168 Produkte von 12 Marken · 2.820 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
@@ -34,7 +34,7 @@ FDM-Bauteil ist der gedruckte Wert der ehrliche.
 
 Ein FDM-Bauteil ist senkrecht zur Schicht schwächer als in der Ebene. Wie viel schwächer,
 steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-Wert
-überhaupt angibt — bei 13 von 42 Werkstofftypen:
+überhaupt angibt — bei 13 von 41 Werkstofftypen:
 
 | Material | Zug X-Y | Zug Z | **bleibt in Z** |
 |---|---:|---:|---:|
@@ -52,7 +52,7 @@ bis fast drei Viertel** ihrer Festigkeit. Bei der Schlagzähigkeit ist der Einbr
 drastischer. Wer PPS-CF wegen der 87 MPa wählt und das Bauteil falsch orientiert, bekommt
 24 — weniger als ein ABS.
 
-Dass nur 13 von 42 Typen hier stehen, ist selbst ein Befund: **29 Hersteller nennen den
+Dass nur 13 von 41 Typen hier stehen, ist selbst ein Befund: **28 Hersteller nennen den
 Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 
 ### 3. Sie füllen jede Zelle, auch ohne Quelle
@@ -268,13 +268,13 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Grenzen — ehrlich
 
-- **42 Werkstofftypen**, nicht 60. Der Ausbau läuft; siehe [PLAN.md](PLAN.md).
+- **41 Werkstofftypen**, nicht 60. Der Ausbau läuft; siehe [PLAN.md](PLAN.md).
 - **Zwei Drittel der Aussagen sind Schätzungen** (69 %). Belegt sind 31 %, davon nur 2 %
   aus Prüfberichten. Das ist keine Panne, sondern der Zustand der Branche: Was Hersteller
   nicht veröffentlichen, kann hier nur abgeleitet werden — sichtbar gekennzeichnet.
-- **Nur 13 von 42 Typen haben einen Z-Kennwert.** Die Anisotropie ist der Kern dieses
+- **Nur 13 von 41 Typen haben einen Z-Kennwert.** Die Anisotropie ist der Kern dieses
   Werkzeugs, und bei zwei Dritteln des Bestands fehlt die Zahl dazu schlicht.
-- **Die Preise sind erhoben — für 34 von 42 Typen.** 154 Händlerangebote aus dem
+- **Die Preise sind erhoben — für 33 von 41 Typen.** 154 Händlerangebote aus dem
   europäischen Fachhandel, jedes mit Marke, Produkt, Spulengewicht, Preis, Fundstelle und
   Abrufdatum in [`data/prices.json`](data/prices.json). `npm run survey:prices` holt sie
   neu: Das Skript liest die JSON-LD-Daten, die die Shops für Maschinen veröffentlichen,
@@ -290,7 +290,7 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
   ASA-CF +44 %, PC +39 %). Geschätzt wurde nach Werkstoffklasse statt nach dem, was
   Filament dieser Klasse im Handel wirklich kostet — derselbe Fehler wie zuvor bei
   PPS-CF (275 statt 179 €/kg), nur flächendeckend.
-- **Werkstatterfahrung deckt 18 von 42 Typen** und nur zwei Felder: Lackhaftung und
+- **Werkstatterfahrung deckt 18 von 41 Typen** und nur zwei Felder: Lackhaftung und
   Klebbarkeit. Sie steht ausdrücklich als eigene Quelle (`field_experience_reents`) und
   wird von keinem Importlauf überschrieben. XXL-Grenzen bleiben abgeleitet.
 - **Datenblattfehler werden dokumentiert, nicht korrigiert.** Drei stehen aktuell so im
@@ -300,12 +300,11 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Die Anwendungsfälle sind fachlich noch nicht freigegeben.** 18 der 20 tragen
   `reviewedBy: "Claude Code — fachliche Freigabe ausstehend"`. Zwei sind nach einem
   Werkstattbefund korrigiert und gegengezeichnet.
-- **Vier Typen sind erst seit dem 2026-08-02 dabei** und stehen auf je EINEM Blatt:
-  PEI 9085, ABS-GF, PLA-CF und PCTG-GF. Eine einzelne Quelle zeigt keine Streuung — ihre
-  Datenblattwerte tragen deshalb `low`, nicht `medium`. Zwei bringen einen Befund mit:
-  PEI 9085 nennt 70 % Bruchdehnung bei 6,7 % Streckdehnung (ein Rohstoffwert, kein
-  gedruckter), PLA-CF nennt ungekerbt 100 kJ/m² gegen gekerbt 3,1 — Faktor 32. Beide
-  dokumentiert, beide gehen nicht in die Zähigkeitsbewertung ein.
+- **Drei Typen sind erst seit dem 2026-08-02 dabei** und stehen auf je EINEM Blatt:
+  ABS-GF, PLA-CF und PCTG-GF. Eine einzelne Quelle zeigt keine Streuung — ihre
+  Datenblattwerte tragen deshalb `low`, nicht `medium`. PLA-CF bringt einen Befund mit:
+  ungekerbt 100 kJ/m² gegen gekerbt 3,1 — Faktor 32. Dokumentiert, und er geht nicht in
+  die Zähigkeitsbewertung ein.
 
 - **Kältezähigkeit fehlt als eigenes Kriterium.** Das Kriterium `toughness` liest die
   Bruchdehnung — im Anwendungsfall „Kälte" gewinnt TPU deshalb, weil es sich dehnt, nicht
@@ -389,7 +388,7 @@ The interface switches to English in the header.
 An open-source FDM material advisor with an open database in which every property value
 carries its source, its test standard and a confidence rating.
 
-**42 material types · 168 products from 12 brands · 2,820 sourced statements ·
+**41 material types · 168 products from 12 brands · 2,820 sourced statements ·
 20 use cases · 21 media · 29 glossary entries**
 
 **What makes it different:**
@@ -398,7 +397,7 @@ carries its source, its test standard and a confidence rating.
   resin datasheets — because the underlying source tests printed specimens.
 - **Anisotropy is reported.** How much strength remains perpendicular to the layers:
   between 28 % (PPS-CF) and 90 % (PC). Almost no comparable tool states this — and that
-  only 13 of 42 types carry a Z value at all is itself the finding.
+  only 13 of 41 types carry a Z value at all is itself the finding.
 - **Estimated values are marked.** 69 % of statements in the database are flagged
   estimates rather than measurements; 2 % come from test reports. That number is
   displayed, not hidden — and it costs: the suitability score is multiplied by data

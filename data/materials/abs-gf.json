@@ -202,219 +202,7 @@
       "scale": "weatherResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
-    },
-    "chemicalResistance": [
-      {
-        "chemicalId": "chem_water",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_salt_water",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_steam",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_mineral_oil",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_grease",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_hydraulic_oil",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_coolant_mwf",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_brake_fluid",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_petrol_diesel",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_ipa",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_ethanol",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_acetone",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_mek",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_surface_disinfectant",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_bleach",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_hydrogen_peroxide",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_dilute_acid",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_dilute_alkali",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_strong_acid",
-        "rating": "limited",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_strong_alkali",
-        "rating": "resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      },
-      {
-        "chemicalId": "chem_ester",
-        "rating": "not-resistant",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
-          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
-        }
-      }
-    ]
+    }
   },
   "compliance": {
     "foodContact": {
@@ -537,27 +325,21 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 700,
+        "value": 900,
         "unit": "mm",
+        "min": 600,
+        "max": 1400,
         "source": "estimate_reasoning",
         "confidence": "estimated",
-        "derivedFrom": [
-          "processing.warpingTendency",
-          "processing.chamberRequirement"
-        ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
+          "de": "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung — nicht durch eigene Fertigung belegt. Keine Fertigungsgrenze, sondern die Kantenlänge, ab der es aufwendig wird.",
+          "en": "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. Not a manufacturing limit but the edge length from which it becomes demanding."
         }
       },
       "segmentationRecommended": {
         "value": true,
         "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
+        "confidence": "estimated"
       }
     },
     "reentsPortfolioStatus": {

@@ -1,19 +1,23 @@
 /**
- * Vier Werkstofftypen aus Fiberlogy-Datenblaettern.
+ * Drei Werkstofftypen aus Fiberlogy-Datenblaettern.
  *
  * WIE SIE GEFUNDEN WURDEN
  * Nicht gesucht, sondern beim Preissammeln aufgelesen: Der Fiberlogy-Katalog fuehrt
- * Kategorien, die diese Datenbank nicht kannte. Vier davon tragen ein vollstaendiges
- * technisches Datenblatt mit Pruefnorm und Zahlenwert - und sind damit aufnahmefaehig.
- * Ein Werkstofftyp entsteht hier nicht, weil der Name bekannt ist, sondern weil ein Blatt
- * ihn traegt.
+ * Kategorien, die diese Datenbank nicht kannte. Ein Werkstofftyp entsteht hier nicht,
+ * weil der Name bekannt ist, sondern weil ein Blatt ihn traegt - und weil er in der
+ * Praxis vorkommt.
+ *
+ * PEI 9085 IST BEWUSST NICHT DABEI
+ * Es lag fertig ausgewertet vor: HDT-A 152 °C, Vicat 173 °C, Brandpruefung nach
+ * FAR 25.853 - der thermisch faehigste Werkstoff, den dieses Blatt hergegeben haette.
+ * Aufgenommen wurde er trotzdem nicht. Die Entscheidung kam aus der Werkstatt und lautet:
+ * kein gaengiges Material. Sie ist richtig, und der Grund steht im Datenblatt selbst -
+ * 350 bis 380 °C Duese und 160 °C Bett kann praktisch keine Maschine, die bei einem
+ * Leser dieses Werkzeugs steht. Ein Berater, der Werkstoffe empfiehlt, die niemand
+ * verarbeiten kann, hilft nicht, er beeindruckt nur. Das Datenblatt bleibt unter
+ * data/_sources/fiberlogy-tds/ liegen, falls sich das einmal aendert.
  *
  * WAS DAMIT BEANTWORTBAR WIRD
- *   PEI 9085  Der erste Hochtemperaturwerkstoff im Bestand oberhalb von PPS-CF:
- *             HDT-A 152 °C, HDT-B 169 °C, Vicat 173 °C - und mit einer
- *             Luftfahrt-Brandpruefung nach FAR 25.853 im Blatt. Damit ist die Frage
- *             "was haelt dauerhaft ueber 130 °C und ist brandgeprueft" erstmals
- *             beantwortbar.
  *   ABS GF    Glasgefuelltes ABS: 3.500 MPa E-Modul gegen 2.200 beim ungefuellten ABS,
  *             bei nahezu gleicher Verarbeitung.
  *   PLA CF    8.500 MPa E-Modul - der steifste Werkstoff im ganzen Bestand, und zwar
@@ -21,24 +25,18 @@
  *   PCTG+GF10 Glasgefuelltes PCTG, das die Zaehigkeit des Grundpolymers weitgehend
  *             behaelt (Izod ungekerbt 60 kJ/m²).
  *
- * DREI DATENBLATTBEFUNDE, DIE NICHT GEGLAETTET WERDEN
+ * ZWEI DATENBLATTBEFUNDE, DIE NICHT GEGLAETTET WERDEN
  *
- * 1. PEI 9085: Bruchdehnung 70 % bei einer Streckdehnung von 6,7 %. Fuer einen
- *    GEDRUCKTEN Pruefkoerper aus PEI ist das nicht plausibel - dort liegt die
- *    Bruchdehnung typisch im einstelligen Bereich. Der Wert stammt allem Anschein nach
- *    vom spritzgegossenen Rohstoff. Er steht mit `low` und einer Fussnote im Datensatz,
- *    und er geht NICHT in die Zaehigkeitsbewertung ein.
- *
- * 2. PLA CF: Charpy ungekerbt 100 kJ/m² gegen gekerbt 3,1 kJ/m² - Faktor 32. Ungefuelltes
+ * 1. PLA CF: Charpy ungekerbt 100 kJ/m² gegen gekerbt 3,1 kJ/m² - Faktor 32. Ungefuelltes
  *    PLA liegt ungekerbt bei etwa 15 bis 25. Ein carbongefuelltes PLA ist sproeder, nicht
  *    viermal zaeher. Der gekerbte Wert passt zum erwarteten Verhalten, der ungekerbte
  *    nicht. Beide dokumentiert, der ungekerbte mit ausdruecklichem Zweifel.
  *
- * 3. PLA CF: HDT und Vicat gelten laut Fussnote NUR NACH TEMPERUNG. Das steht als
+ * 2. PLA CF: HDT und Vicat gelten laut Fussnote NUR NACH TEMPERUNG. Das steht als
  *    `annealing.requiredForDatasheetValues: true` im Datensatz - wer keinen Umluftofen
  *    hat, bekommt diese 137 °C nicht, sondern die rund 55 °C des ungetemperten PLA.
  *
- * WAS DIESE VIER NICHT HABEN
+ * WAS DIESE DREI NICHT HABEN
  * Keinen Z-Kennwert. Fiberlogy weist wie fast alle Hersteller nur eine Richtung aus, und
  * das Blatt sagt nicht einmal, welche. Die Zugfestigkeit steht deshalb als `undeclared`
  * ohne Orientierung - nicht als X-Y, denn das waere eine Annahme, die niemand belegt hat.
@@ -100,70 +98,6 @@ const NO_ORIENTATION = t(
 /* ------------------------------------------------------------------- Typen */
 
 const TYPES = [
-  {
-    id: "pei-9085", name: "PEI 9085", family: "PEI", polymerClass: "amorphous",
-    variant: ["high-temp", "blend"],
-    aliases: ["Polyetherimid", "ULTEM 9085", "PEI/PC-Blend"],
-    file: "FIBERLOGY_PEI9085_TDS.pdf", title: "Fiberlogy PEI 9085 — Technical Data Sheet",
-    abstract: t(
-      "PEI 9085 ist der thermisch belastbarste Werkstoff in diesem Bestand: HDT-A 152 °C, HDT-B 169 °C, Vicat 173 °C — und das Datenblatt weist eine Brandprüfung nach FAR 25.853 aus, der Luftfahrtnorm für Kabineninnenteile. Der Preis dafür steht in der Verarbeitung: 350 bis 380 °C Düse und 160 °C Bett verlangen eine Hochtemperaturmaschine mit beheizter Kammer, wie sie in einer normalen Werkstatt nicht steht. Wer diese Temperaturen nicht fahren kann, kommt an das Material nicht heran — unabhängig davon, wie gut es passen würde.",
-      "PEI 9085 is the thermally most capable material in this dataset: HDT-A 152 °C, HDT-B 169 °C, Vicat 173 °C — and the datasheet states a flammability test to FAR 25.853, the aviation standard for cabin interior parts. The price is in the processing: 350 to 380 °C nozzle and 160 °C bed demand a high-temperature machine with a heated chamber, not something a normal workshop has. Without those temperatures the material is out of reach, however well it would otherwise fit."),
-    positioning: t(
-      "Der Hochtemperaturwerkstoff mit Luftfahrt-Brandprüfung — wenn die Maschine ihn kann.",
-      "The high-temperature material with an aviation flammability test — if the machine can run it."),
-    mechanics: {
-      density: q(1.34, "g/cm³", { std: "ISO 1183" }),
-      tensileStrengthXy: q(88, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze", orientation: "n/a", note: NO_ORIENTATION }),
-      tensileModulusXy: q(3050, "MPa", { std: "ISO 527", orientation: "n/a" }),
-      elongationAtBreakXy: q(70, "%", {
-        std: "ISO 527", orientation: "n/a", confidence: "low",
-        note: t("BEFUND, nicht geglättet: 70 % Bruchdehnung bei 6,7 % Streckdehnung ist für einen GEDRUCKTEN PEI-Prüfkörper nicht plausibel — dort liegt die Bruchdehnung typisch im einstelligen Bereich. Der Wert stammt allem Anschein nach vom spritzgegossenen Rohstoff. Er ist dokumentiert, geht aber nicht in die Zähigkeitsbewertung ein.",
-                "FINDING, not smoothed over: 70 % elongation at break against 6.7 % at yield is not plausible for a PRINTED PEI specimen — there it is typically in the single digits. The value appears to come from the injection-moulded resin. It is documented but does not feed the toughness rating."),
-      }),
-      flexuralStrengthXy: q(129, "MPa", { std: "ISO 178", orientation: "n/a" }),
-      charpyNotchedXy: q(10, "kJ/m²", { std: "ISO 179", conditions: "gekerbt, 23 °C", orientation: "n/a" }),
-      toughness: s(3, "toughness", t(
-        "Aus der gekerbten Schlagzähigkeit (10 kJ/m²) abgeleitet, NICHT aus der Bruchdehnung — die ist im Blatt unplausibel hoch.",
-        "Derived from the notched impact strength (10 kJ/m²), NOT from elongation at break — that figure is implausibly high in the sheet.")),
-      notchSensitivity: s(3, "notchSensitivity"),
-    },
-    thermal: {
-      hdtA: q(152, "°C", { std: "ISO 75, 1,8 MPa" }),
-      hdtB: q(169, "°C", { std: "ISO 75, 0,45 MPa" }),
-      vicatB50: q(173, "°C", { std: "ISO 306" }),
-      recommendedMaxServiceTemperature: service(135, t(
-        "HDT-A 152 °C abzüglich Sicherheitsabstand. Deutlich über allem anderen im Bestand — auch über PPS-CF.",
-        "HDT-A 152 °C less a safety margin. Clearly above everything else in the dataset — including PPS-CF.")),
-    },
-    processing: {
-      nozzleTemperature: q(365, "°C", { min: 350, max: 380 }),
-      bedTemperature: q(160, "°C"),
-      chamberRequirement: { value: "mandatory", source: "estimate_reasoning", confidence: "estimated", note: t(
-        "Bei 160 °C Betttemperatur ist eine beheizte Kammer keine Empfehlung mehr, sondern Voraussetzung. Kaum eine Werkstattmaschine erreicht das.",
-        "At a 160 °C bed temperature a heated chamber is no longer a recommendation but a precondition. Hardly any workshop machine reaches it.") },
-      printability: s(1, "printability"),
-      warpingTendency: s(5, "warpingTendency"),
-      hygroscopy: s(4, "hygroscopy"),
-      abrasiveness: s(1, "abrasiveness"),
-    },
-    durability: { uvResistance: s(3, "uvResistance"), weatherResistance: s(3, "weatherResistance") },
-    emissions: "moderate",
-    finishing: {
-      surfaceQuality: s(3, "surfaceQuality"), layerLineVisibility: s(3, "layerLineVisibility"),
-      sandability: s(3, "sandability"), fillability: s(3, "fillability"),
-      paintAdhesion: s(3, "paintAdhesion"), bondability: s(2, "bondability"),
-      gloss: { value: "matte", source: "estimate_reasoning", confidence: "estimated" },
-      colourAvailability: { value: "narrow", source: "estimate_reasoning", confidence: "estimated" },
-    },
-    commercial: { price: 5, availability: 1, smallSeries: 2, xxl: 300, xxlMin: 200, xxlMax: 500 },
-    /* Die FAA-Pruefung ist KEINE UL94-Klasse. Sie hier als solche zu fuehren waere genau
-       die Verkuerzung, die ADR-021 verbietet - sie steht deshalb als Notiz, nicht als
-       Klassifizierung. */
-    ul94Note: t(
-      "Das Blatt weist eine Brandprüfung nach FAR 25.853 aus (Luftfahrt, Kabineninnenteile), Ergebnis „<5“. Das ist KEINE UL94-Klassifizierung und ersetzt sie nicht — die beiden Normen prüfen unterschiedliche Geometrien und Beflammungszeiten. Für eine UL94-Anforderung ist dieser Werkstoff damit nicht belegt.",
-      "The sheet states a flammability test to FAR 25.853 (aviation, cabin interiors), result “<5”. That is NOT a UL94 classification and does not replace one — the two standards test different geometries and flame application times. For a UL94 requirement this material is therefore not substantiated."),
-  },
-
   {
     id: "abs-gf", name: "ABS-GF", family: "ABS", polymerClass: "amorphous",
     variant: ["GF"], filler: "glass-fibre",
@@ -432,9 +366,9 @@ for (const T of TYPES) {
 }
 
 console.log(`${n} neue Werkstofftypen aus Fiberlogy-Blättern: ${TYPES.map((x) => x.id).join(", ")}`);
+console.log("  PEI 9085 lag ausgewertet vor und ist bewusst NICHT dabei — kein gängiges Material.");
 console.log("  Alle aus je EINEM Blatt — Datenblattwerte daher 'low', nicht 'medium'.");
 console.log("  Kein Blatt nennt eine Bauorientierung: Zugwerte stehen ohne Richtung, nicht als X-Y.");
-console.log("  Drei Datenblattbefunde dokumentiert statt geglättet:");
-console.log("    PEI 9085  Bruchdehnung 70 % bei 6,7 % Streckdehnung — Rohstoffwert, nicht gedruckt");
+console.log("  Zwei Datenblattbefunde dokumentiert statt geglättet:");
 console.log("    PLA CF    Charpy ungekerbt 100 gegen gekerbt 3,1 kJ/m² — Faktor 32");
 console.log("    PLA CF    HDT und Vicat gelten NUR nach Temperung (Fußnote des Blatts)");
