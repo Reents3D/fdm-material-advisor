@@ -239,10 +239,27 @@ export interface ProcessHint {
   suggestedProcesses: string[];
 }
 
+/** Siehe engine/tradeoffs.ts — hier strukturell wiederholt, um einen Importzyklus
+    zwischen types.ts und tradeoffs.ts zu vermeiden. */
+export interface PragmaticAlternative {
+  material: Material;
+  relativeScore: number;
+  pragmaticGainPct: number;
+  priceRatio: number | null;
+  losses: TradeOff["losses"];
+}
+
 export interface SelectionResult {
   ranked: Recommendation[];
   rejected: Rejection[];
   tradeOffs: TradeOff[];
+  /**
+   * Der günstigste und einfachste Werkstoff, der die Anforderungen trotzdem erfüllt —
+   * auch wenn er beim Gesamtscore deutlich hinter dem Sieger liegt. Beantwortet die
+   * Frage "reicht nicht auch etwas Einfacheres?", die `tradeOffs` strukturell nicht
+   * beantworten kann (siehe engine/tradeoffs.ts).
+   */
+  pragmatic: PragmaticAlternative | null;
   processHints: ProcessHint[];
   /** "If you weighted X 20 % higher, the winner would change to Y." */
   sensitivity: { criterionId: string; wouldWin: string }[];

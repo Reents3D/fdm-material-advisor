@@ -71,18 +71,30 @@ export function Header({ lang, onLang, t, view }: {
             und CTA passt das in keiner Fensterbreite - der frueher ab 1536 px eingeblendete
             einzeilige Zweig brach deshalb JEDEN Eintrag auf zwei Zeilen um. Eine eigene
             Zeile, die scrollt, ist ehrlicher und bei jeder Breite dieselbe. */}
-        <nav className="border-t border-hairline dark:border-[#1E2B3D] overflow-x-auto"
-          aria-label="Hauptnavigation">
-          <div className="flex gap-1 px-4 py-2 text-sm min-w-max">
-            {NAV.map((n) => (
-              <a key={n.path} href={`#/${n.path}`}
-                className={cx("px-3 py-1.5 rounded-lg whitespace-nowrap font-medium",
-                  view === n.match
-                    ? "text-petrol-700 dark:text-petrol-300 bg-petrol-50 dark:bg-white/5"
-                    : "muted")}>
-                {t(n.key)}
-              </a>
-            ))}
+        {/* Die Begrenzung auf 1152 px liegt AUSSEN, das Scrollen innen. Vorher stand
+            `overflow-x-auto` am <nav> und die Eintraege hatten nur `px-4` - dadurch begann
+            die Navigation als einziger Block im Layout am Fensterrand, waehrend Logo,
+            Inhalt und Fuss in der 1152er Box sitzen. Auf breiten Schirmen sprang sie
+            sichtbar nach links heraus. In dieser Reihenfolge fluchtet sie mit dem
+            uebrigen Raster und scrollt trotzdem, sobald die acht Eintraege nicht passen. */}
+        <nav className="border-t border-hairline dark:border-[#1E2B3D]" aria-label="Hauptnavigation">
+          <div className="max-w-6xl mx-auto overflow-x-auto">
+            {/* gap-0.5 statt gap-1: Die acht Eintraege brauchten mit gap-1 exakt 1160 px
+                und damit 8 px mehr als die 1152er Box - genug fuer einen dauerhaft
+                sichtbaren Scrollbalken unter der Navigation. Die schmaleren Abstaende
+                bringen sie unter die Boxbreite; das Scrollen bleibt fuer schmale
+                Fenster und laengere Beschriftungen erhalten. */}
+            <div className="flex gap-0.5 px-4 py-2 text-sm min-w-max">
+              {NAV.map((n) => (
+                <a key={n.path} href={`#/${n.path}`}
+                  className={cx("px-3 py-1.5 rounded-lg whitespace-nowrap font-medium",
+                    view === n.match
+                      ? "text-petrol-700 dark:text-petrol-300 bg-petrol-50 dark:bg-white/5"
+                      : "muted")}>
+                  {t(n.key)}
+                </a>
+              ))}
+            </div>
           </div>
         </nav>
       </div>

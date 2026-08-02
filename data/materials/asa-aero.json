@@ -646,14 +646,22 @@
     "paintAdhesion": {
       "value": 4,
       "scale": "paintAdhesion",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "field_experience_reents",
+      "confidence": "low",
+      "note": {
+        "de": "Lackierbar, aber nur mit geeignetem Haftvermittler — nicht mit jedem Grundierungssystem. Werkstatterfahrung Reents3D.\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.\n\nGilt nur nach Vorbereitung. Direkt auf den Druck zu lackieren führt zu keinem brauchbaren Ergebnis — geschliffen, entfettet und grundiert werden muss immer, unabhängig vom Werkstoff. Die Bewertung sagt, wie gut das Ergebnis DANACH wird.",
+        "en": "Paintable, but only with a suitable adhesion promoter — not with every primer system. Reents3D shop-floor experience.\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same.\n\nApplies only after preparation. Painting straight onto the print gives no usable result — sanding, degreasing and priming are always required, whatever the material. The rating states how good the result is AFTER that."
+      }
     },
     "bondability": {
       "value": 3,
       "scale": "bondability",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "field_experience_reents",
+      "confidence": "low",
+      "note": {
+        "de": "Braucht nach Werkstatterfahrung einen Haftvermittler. Die frühere 5 beruhte auf der Lösemittelschweissung mit Aceton — die funktioniert hervorragend, aber nur ASA auf ASA, nicht als allgemeine Fügung.\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.",
+        "en": "Needs an adhesion promoter according to shop-floor experience. The earlier 5 rested on acetone solvent welding — excellent, but only ASA to ASA, not as general joining.\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same."
+      }
     },
     "recommendedAdhesives": [
       "2K-Epoxid",
@@ -783,6 +791,18 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       }
     ],
     "openQuestions": [

@@ -470,16 +470,24 @@
       "confidence": "estimated"
     },
     "paintAdhesion": {
-      "value": 4,
+      "value": 5,
       "scale": "paintAdhesion",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "field_experience_reents",
+      "confidence": "low",
+      "note": {
+        "de": "Lässt sich nach Werkstatterfahrung sehr gut lackieren (schleifen, grundieren, lackieren).\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.\n\nGilt nur nach Vorbereitung. Direkt auf den Druck zu lackieren führt zu keinem brauchbaren Ergebnis — geschliffen, entfettet und grundiert werden muss immer, unabhängig vom Werkstoff. Die Bewertung sagt, wie gut das Ergebnis DANACH wird.",
+        "en": "Paints very well according to shop-floor experience (sand, prime, paint).\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same.\n\nApplies only after preparation. Painting straight onto the print gives no usable result — sanding, degreasing and priming are always required, whatever the material. The rating states how good the result is AFTER that."
+      }
     },
     "bondability": {
-      "value": 4,
+      "value": 5,
       "scale": "bondability",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "field_experience_reents",
+      "confidence": "low",
+      "note": {
+        "de": "Lässt sich nach Werkstatterfahrung sehr einfach kleben — Cyanacrylat oder 2K-Epoxid, ohne Haftvermittler.\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.",
+        "en": "Very easy to bond according to shop-floor experience — cyanoacrylate or 2K epoxy, no adhesion promoter needed.\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same."
+      }
     },
     "chemicalSmoothing": {
       "suitable": {
@@ -585,6 +593,18 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       }
     ],
     "openQuestions": [

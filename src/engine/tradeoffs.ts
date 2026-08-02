@@ -7,7 +7,7 @@
  */
 
 import { constraintReserve } from "./constraints";
-import type { ConstraintVerdict, CriterionScore, Recommendation, TradeOff } from "./types";
+import type { ConstraintVerdict, CriterionScore, PragmaticAlternative, Recommendation, TradeOff } from "./types";
 
 /** A candidate has to be at least this good overall to count as a compromise. */
 const MIN_RELATIVE = 0.8;
@@ -79,6 +79,88 @@ export function findTradeOffs(
   }
 
   return out;
+}
+
+/* ------------------------------------------------------------ „reicht auch" */
+
+/** Was einen Werkstoff im Alltag pragmatisch macht - unabhaengig von der Gewichtung. */
+const PRAGMATIC = ["price", "printability", "availability", "lowWarping"];
+/** So viel besser muss der Kandidat auf dieser Achse sein, damit es der Rede wert ist. */
+const MIN_PRAGMATIC_GAIN = 0.15;
+/**
+ * Und so gut muss er insgesamt bleiben. Ohne diese Schwelle schlug die Funktion fuer die
+ * Hochtemperaturvorrichtung TPU 95A vor - ein weiches Elastomer bei 14 % des Siegerscores,
+ * nur weil es billig und leicht zu drucken ist. "Reicht auch" heisst nicht "ist viel
+ * schlechter, aber guenstig".
+ */
+const MIN_PRAGMATIC_RELATIVE = 0.5;
+
+const pragmatism = (r: Recommendation): number | null => {
+  const parts = r.criteria.filter((c) => PRAGMATIC.includes(c.criterionId) && c.score !== null);
+  if (!parts.length) return null;
+  return parts.reduce((s, c) => s + (c.score as number), 0) / parts.length;
+};
+
+/**
+ * Der guenstigste und einfachste Werkstoff, der die Anforderungen trotzdem erfuellt.
+ *
+ * WARUM DAS NICHT DIE KOMPROMISSANSICHT ERLEDIGT
+ * `findTradeOffs` zeigt nur Kandidaten ab 80 % des Siegerscores - "fast so gut wie der
+ * Beste". Aus der Werkstatt kam aber eine andere Frage:
+ *
+ *   "PETG ist ein Allrounder, der kann fast ueberall eingesetzt werden, und ich finde es
+ *    nahezu nirgendwo in den Top-Auswahlen. Fuer die meisten Projekte reicht ein PETG
+ *    jedoch komplett aus."
+ *
+ * Genau das kann die Kompromissansicht nicht sagen. Ein Allrounder liegt bei der
+ * Perzentilbewertung ueberall im Mittelfeld und damit strukturell unter 80 % - er faellt
+ * durch das Raster, obwohl er JEDE harte Anforderung erfuellt.
+ *
+ * Diese Funktion sucht deshalb nach einem anderen Kriterium: nicht "fast so gut", sondern
+ * "erfuellt alles UND ist deutlich guenstiger oder einfacher". Der Preis dafuer wird
+ * genannt, nicht verschwiegen.
+ */
+export function pragmaticAlternative(ranked: Recommendation[]): PragmaticAlternative | null {
+  const leader = ranked[0];
+  if (!leader || ranked.length < 2 || leader.score <= 0) return null;
+
+  const leaderPrag = pragmatism(leader);
+  if (leaderPrag === null) return null;
+
+  const priceOf = (r: Recommendation) =>
+    r.criteria.find((c) => c.criterionId === "price")?.raw ?? null;
+  const leaderPrice = priceOf(leader);
+
+  let best: PragmaticAlternative | null = null;
+  for (const cand of ranked.slice(1)) {
+    if (cand.score / leader.score < MIN_PRAGMATIC_RELATIVE) continue;
+    /* Wer eine Anforderung nur passiert hat, weil der Wert fehlt, ist kein sicherer
+       Ausweg - er ist ein ungeprueftes Risiko (ADR-006). Als "reicht auch" empfohlen
+       waere das die falsche Richtung von Vorsicht. */
+    if (cand.unverifiedConstraints.length) continue;
+
+    const p = pragmatism(cand);
+    if (p === null || p - leaderPrag < MIN_PRAGMATIC_GAIN) continue;
+
+    // Teurer als der Sieger disqualifiziert - dann ist es kein pragmatischer Ausweg.
+    const candPrice = priceOf(cand);
+    const ratio = leaderPrice && candPrice ? candPrice / leaderPrice : null;
+    if (ratio !== null && ratio > 1) continue;
+
+    /* Alle gewichteten Kriterien vergleichen, damit der Preis vollstaendig dasteht.
+       `deltas` liefert Gewinne und Verluste; hier zaehlen nur die Verluste - der Gewinn
+       ist per Konstruktion "guenstiger und einfacher". */
+    const { losses } = deltas(leader.criteria, cand.criteria, 1);
+    const entry: PragmaticAlternative = {
+      material: cand.material,
+      relativeScore: cand.score / leader.score,
+      pragmaticGainPct: Math.round((p - leaderPrag) * 100),
+      priceRatio: ratio,
+      losses,
+    };
+    if (!best || entry.pragmaticGainPct > best.pragmaticGainPct) best = entry;
+  }
+  return best;
 }
 
 /**

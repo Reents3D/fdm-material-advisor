@@ -47,6 +47,13 @@ export interface AppState {
   chemicals: string[];
   compare: string[];
   lang: Lang;
+  /**
+   * true, wenn `req.weights` ein VOLLSTAENDIGES Profil ist und nicht Abweichungen vom
+   * Standard. Anwendungsfaelle setzen das. Muss den Round-Trip ueberleben: Ohne die
+   * Markierung schreibt `paramsFromState` nur die Abweichungen zurueck, und ein Gewicht,
+   * das zufaellig dem Standard entspricht, faellt beim naechsten Lesen auf 0.
+   */
+  weightsExact?: boolean;
 }
 
 function parseHash(): { route: Route; params: URLSearchParams } {
@@ -95,14 +102,23 @@ function stateFromParams(params: URLSearchParams): AppState {
   const chemicals = (params.get("chem") ?? "").split(",").filter(Boolean);
   if (chemicals.length) req.chemicals = chemicals;
 
-  const weights: Record<string, number> = { ...DEFAULT_WEIGHTS };
+  /* `wexact` heisst: Die uebergebenen Gewichte sind vollstaendig, nicht Abweichungen vom
+     Standard. Anwendungsfaelle setzen das - ihr Profil soll genau so gelten, wie es in
+     der Falldatei steht. Ohne die Markierung bleibt es beim bisherigen Verhalten, damit
+     geteilte Links aus dem Assistenten unveraendert funktionieren. */
+  const exact = params.get("wexact") === "1";
+  const weights: Record<string, number> = exact ? {} : { ...DEFAULT_WEIGHTS };
   for (const [k, v] of params.entries()) {
     if (k.startsWith("w.")) weights[k.slice(2)] = Number(v);
   }
   req.weights = weights;
 
   const lang = (params.get("lang") as Lang) ?? "de";
-  return { req, chemicals, compare: (params.get("cmp") ?? "").split(",").filter(Boolean), lang: LANGS.includes(lang) ? lang : "de" };
+  return {
+    req, chemicals, compare: (params.get("cmp") ?? "").split(",").filter(Boolean),
+    lang: LANGS.includes(lang) ? lang : "de",
+    ...(exact ? { weightsExact: true } : {}),
+  };
 }
 
 function paramsFromState(s: AppState, base: URLSearchParams): URLSearchParams {
@@ -122,8 +138,15 @@ function paramsFromState(s: AppState, base: URLSearchParams): URLSearchParams {
   set("flame", req.flameClass);
   if (s.chemicals.length) p.set("chem", s.chemicals.join(","));
   if (s.compare.length) p.set("cmp", s.compare.join(","));
-  for (const [k, v] of Object.entries(req.weights ?? {})) {
-    if (v !== DEFAULT_WEIGHTS[k]) p.set(`w.${k}`, String(v));
+  /* Bei einem vollstaendigen Profil muss JEDES Gewicht mit, auch das, was zufaellig dem
+     Standard entspricht - sonst faellt es beim naechsten Lesen auf 0. */
+  if (s.weightsExact) {
+    p.set("wexact", "1");
+    for (const [k, v] of Object.entries(req.weights ?? {})) p.set(`w.${k}`, String(v));
+  } else {
+    for (const [k, v] of Object.entries(req.weights ?? {})) {
+      if (v !== DEFAULT_WEIGHTS[k]) p.set(`w.${k}`, String(v));
+    }
   }
   if (s.lang !== "de") p.set("lang", s.lang);
   // preserve view-local params (explorer axes)

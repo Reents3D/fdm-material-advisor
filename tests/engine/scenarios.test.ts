@@ -202,6 +202,56 @@ describe("Wissenslücken dürfen nicht belohnen", () => {
   });
 });
 
+describe("Reicht auch etwas Einfacheres?", () => {
+  /* Aus der Werkstatt: "PETG ist ein Allrounder, der kann fast ueberall eingesetzt
+     werden, und ich finde es nahezu nirgendwo in den Top-Auswahlen." Die
+     Kompromissansicht kann das nicht beantworten - sie zeigt nur Kandidaten ab 80 %
+     des Siegerscores, und ein Allrounder liegt bei Perzentilbewertung strukturell
+     darunter. Deshalb ein eigener Slot. */
+  const messmittel = { serviceTemperatureC: 50, minTensileStrengthMPa: 45,
+    weights: { stiffness: 5, chemical: 4, price: 1 } };
+
+  it("nennt den günstigeren Werkstoff, der die Anforderungen trotzdem erfüllt", () => {
+    const r = select(MATERIALS, messmittel);
+    expect(r.ranked[0].material.id).toBe("pps-cf");
+    expect(r.pragmatic).not.toBeNull();
+    expect(r.pragmatic!.material.id).toBe("petg");
+    // PETG kostet einen Bruchteil des Siegers - das ist der ganze Punkt.
+    expect(r.pragmatic!.priceRatio!).toBeLessThan(0.3);
+  });
+
+  it("der Vorschlag muss die harten Anforderungen selbst erfüllen", () => {
+    const r = select(MATERIALS, messmittel);
+    expect(ids(r.ranked)).toContain(r.pragmatic!.material.id);
+    expect(ids(r.rejected)).not.toContain(r.pragmatic!.material.id);
+  });
+
+  it("nennt, was der Verzicht kostet", () => {
+    const r = select(MATERIALS, messmittel);
+    expect(r.pragmatic!.losses.length).toBeGreaterThan(0);
+  });
+
+  it("empfiehlt nichts, was nur über fehlende Daten durchgekommen ist", () => {
+    // Vor der Untergrenze schlug die Funktion fuer die Hochtemperaturvorrichtung
+    // TPU 95A vor - ein weiches Elastomer bei 14 % des Siegerscores.
+    for (const req of [messmittel, { serviceTemperatureC: 120, weights: { temperature: 5, strength: 4 } }]) {
+      const r = select(MATERIALS, req);
+      if (!r.pragmatic) continue;
+      const rec = r.ranked.find((x) => x.material.id === r.pragmatic!.material.id)!;
+      expect(rec.unverifiedConstraints, r.pragmatic.material.id).toHaveLength(0);
+      expect(r.pragmatic.relativeScore).toBeGreaterThanOrEqual(0.5);
+    }
+  });
+
+  it("schlägt nichts vor, wenn der Sieger selbst schon der pragmatische ist", () => {
+    // "Funktionsprototyp, schnell und guenstig" wird von PLA angefuehrt - guenstiger
+    // und einfacher geht nicht mehr.
+    const r = select(MATERIALS, { weights: { price: 5, printability: 5 } });
+    expect(r.ranked[0].material.id).toBe("pla");
+    expect(r.pragmatic).toBeNull();
+  });
+});
+
 describe("Szenario: keine beheizte Kammer verfügbar", () => {
   const req = { chamberAvailable: false, weights: W };
 

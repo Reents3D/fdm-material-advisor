@@ -1069,13 +1069,13 @@
       }
     },
     "bondability": {
-      "value": 4,
+      "value": 2,
       "scale": "bondability",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "source": "field_experience_reents",
+      "confidence": "medium",
       "note": {
-        "de": "Klebt sehr gut - wichtig für segmentierte Großbauteile. Lösemittelschweißen funktioniert dagegen nicht zuverlässig.",
-        "en": "Bonds very well - important for segmented large parts. Solvent welding, by contrast, does not work reliably."
+        "de": "Faserverstärkte Werkstoffe brauchen nach Werkstatterfahrung besondere Klebstoffe oder 2K-Epoxide — die Faser an der Bruchfläche verändert das Benetzungsverhalten gegenüber der ungefüllten Type.",
+        "en": "Fibre-reinforced materials need special adhesives or 2K epoxies according to shop-floor experience — the fibre at the fracture surface changes wetting behaviour compared with the unfilled grade."
       }
     },
     "recommendedAdhesives": [
@@ -1251,6 +1251,18 @@
         "note": {
           "de": "Sammel-ID für alle Werte, die aus Werkstoffkunde und Verfahrenswissen abgeleitet und NICHT belegt sind. In der UI zwingend als Schätzung zu kennzeichnen.",
           "en": "Collective ID for all values derived from materials science and process knowledge and NOT substantiated. Must be flagged as an estimate in the UI."
+        }
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
         }
       }
     ],

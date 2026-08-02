@@ -520,10 +520,14 @@
       "confidence": "estimated"
     },
     "bondability": {
-      "value": 1,
+      "value": 2,
       "scale": "bondability",
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "field_experience_reents",
+      "confidence": "medium",
+      "note": {
+        "de": "Faserverstärkte Werkstoffe brauchen nach Werkstatterfahrung besondere Klebstoffe oder 2K-Epoxide — die Faser an der Bruchfläche verändert das Benetzungsverhalten gegenüber der ungefüllten Type.",
+        "en": "Fibre-reinforced materials need special adhesives or 2K epoxies according to shop-floor experience — the fibre at the fracture surface changes wetting behaviour compared with the unfilled grade."
+      }
     },
     "chemicalSmoothing": {
       "suitable": {
@@ -642,6 +646,18 @@
         "note": {
           "de": "133,99 € für 0,75 kg Spule.",
           "en": "133.99 € for a 0.75 kg spool."
+        }
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
         }
       }
     ],

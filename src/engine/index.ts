@@ -15,7 +15,7 @@ import { evaluateConstraints } from "./constraints";
 import { buildExplanations } from "./explain";
 import { buildNormalisation, scoreMaterial, sensitivity } from "./scoring";
 import { processHints } from "./processSwitch";
-import { findTradeOffs } from "./tradeoffs";
+import { findTradeOffs, pragmaticAlternative } from "./tradeoffs";
 import type {
   ConstraintVerdict, Material, Recommendation, Rejection, Requirements, SelectionResult,
 } from "./types";
@@ -70,6 +70,7 @@ export function select(materials: Material[], req: Requirements): SelectionResul
     ranked,
     rejected,
     tradeOffs: findTradeOffs(ranked, verdicts),
+    pragmatic: pragmaticAlternative(ranked),
     processHints: processHints(req),
     sensitivity: ranked.length ? sensitivity(materials.filter((m) => !verdicts[m.id].some((v) => !v.passed)), req, table, ranked[0].material.id) : [],
     verdicts,

@@ -23,7 +23,16 @@ const num = (v: unknown): number | null =>
 const conf = (v: unknown) =>
   v && typeof v === "object" && "confidence" in (v as object) ? (v as Quantity).confidence : null;
 
-type SortKey = "name" | "strength" | "hdt" | "aniso" | "density" | "completeness";
+type SortKey = "name" | "strength" | "hdt" | "aniso" | "density" | "price" | "value" | "completeness";
+
+/** Zugfestigkeit je Euro Materialpreis - "was bekomme ich fuer mein Geld".
+    Aus der Werkstatt: "So kann man auch Festigkeiten gegenueber des Preises
+    einschaetzen." Beide Werte stehen im Datensatz, die Division ist Arithmetik. */
+const strengthPerEuro = (m: Material): number | null => {
+  const s = num(m.mechanics?.tensileStrengthXy);
+  const p = num((m.commercial as Record<string, unknown>)?.pricePerKg);
+  return s !== null && p ? s / p : null;
+};
 
 const ATTRIBUTION = {
   de: "Materialdaten: FDM-Materialberater der Reents Technologies GmbH (https://reents3d.de), "
@@ -44,6 +53,8 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
       case "hdt": return num(m.thermal?.hdtB) ?? -1;
       case "aniso": return num(m.mechanics?.anisotropyFactorTensile) ?? -1;
       case "density": return num(m.mechanics?.density) ?? -1;
+      case "price": return num((m.commercial as Record<string, unknown>)?.pricePerKg) ?? -1;
+      case "value": return strengthPerEuro(m) ?? -1;
       case "completeness": return dataCompleteness(m);
       default: return m.identity.name;
     }
@@ -93,6 +104,8 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
               {head("aniso", "Aniso", "text-right")}
               {head("hdt", "HDT-B", "text-right")}
               {head("density", "Dichte", "text-right")}
+              {head("price", lang === "de" ? "€/kg" : "€/kg", "text-right")}
+              {head("value", lang === "de" ? "MPa je €/kg" : "MPa per €/kg", "text-right")}
               <th className="text-left font-medium py-2 px-2">Kammer</th>
               {head("completeness", "Daten", "text-right")}
             </tr>
@@ -121,6 +134,10 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
                   </td>
                   <td className="py-2 px-2 text-right tabular-nums">{fmt(num(m.thermal?.hdtB))}</td>
                   <td className="py-2 px-2 text-right tabular-nums muted">{fmt(num(m.mechanics?.density))}</td>
+                  <td className="py-2 px-2 text-right tabular-nums">{fmt(num((m.commercial as Record<string, unknown>)?.pricePerKg))}</td>
+                  <td className="py-2 px-2 text-right tabular-nums muted">
+                    {strengthPerEuro(m) === null ? "–" : (Math.round(strengthPerEuro(m)! * 10) / 10).toLocaleString("de-DE")}
+                  </td>
                   <td className="py-2 px-2">
                     {chamber === "mandatory" ? <Chip tone="bad">nötig</Chip>
                       : chamber === "recommended" ? <Chip tone="ok">empfohlen</Chip>

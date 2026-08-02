@@ -170,6 +170,36 @@ export function Results({ result, state, t, navigate, update }: {
         </Section>
       )}
 
+      {/* „Reicht auch" steht VOR den Kompromissen: Es beantwortet die Frage, die die
+          meisten zuerst haben — muss es wirklich der Beste sein? Die Kompromissansicht
+          zeigt nur Kandidaten ab 80 % des Siegerscores; ein Allrounder liegt strukturell
+          darunter und käme dort nie vor. */}
+      {result.pragmatic && (
+        <Section title={t("ui.pragmatic.title")}>
+          <Card className="border-petrol-300/60 dark:border-petrol-400/30">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <a href={`#/material/${result.pragmatic.material.id}`} className="font-semibold hl hover:underline">
+                {result.pragmatic.material.identity.name}
+              </a>
+              <div className="flex flex-wrap gap-1.5">
+                {result.pragmatic.priceRatio !== null && result.pragmatic.priceRatio < 0.95 && (
+                  <Chip tone="good">
+                    {t("ui.pragmatic.cheaper", { pct: Math.round((1 - result.pragmatic.priceRatio) * 100) })}
+                  </Chip>
+                )}
+                <Chip tone="brand">{t("ui.tradeoff.relative", { pct: Math.round(result.pragmatic.relativeScore * 100) })}</Chip>
+              </div>
+            </div>
+            <p className="text-sm muted leading-relaxed mb-3 max-w-3xl">
+              {t("ui.pragmatic.lead", { name: result.pragmatic.material.identity.name })}
+            </p>
+            {result.pragmatic.losses.length > 0
+              ? <Deltas title={t("ui.pragmatic.costs")} rows={result.pragmatic.losses} tone="bad" t={t} />
+              : <p className="text-sm text-good">{t("ui.pragmatic.noLoss")}</p>}
+          </Card>
+        </Section>
+      )}
+
       {result.tradeOffs.length > 0 && (
         <Section title={t("ui.tradeoffs")}>
           <div className="grid gap-3 sm:grid-cols-2">
