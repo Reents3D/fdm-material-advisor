@@ -1,0 +1,112 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-nylon-cf15",
+  "materialId": "pa12-cf",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Nylon CF15 Carbon",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Zwei Werte sprechen gegen eine Kohlenstofffaserfüllung. Erstens der Zug-E-Modul von 500 MPa gegen 1400 MPa beim ungefüllten Nylon FX256 desselben Herstellers. Zweitens eine Bruchdehnung von 103 % — Kurzfaserfüllungen senken die Bruchdehnung typisch unter 5 %. Ein Werkstoff, der beides zugleich zeigt, verhält sich nicht wie ein fasergefülltes Nylon. Drittens liegt der Schmelzpunkt bei 160 °C, deutlich unter PA12 (etwa 178 °C) — es dürfte sich um ein Copolyamid handeln, was das Blatt aber nicht sagt. Alle drei Werte sind unverändert übernommen.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Two values argue against a carbon-fibre filler. First, the tensile modulus of 500 MPa against 1400 MPa for the same manufacturer's unfilled Nylon FX256. Second, an elongation at break of 103 % — short-fibre fillers typically take elongation below 5 %. A material showing both at once does not behave like a fibre-filled nylon. Third, the melting point sits at 160 °C, clearly below PA12 (around 178 °C) — it is presumably a copolyamide, which the sheet does not say. All three values are imported unchanged."
+  },
+  "datasheet": {
+    "title": "Fillamentum Nylon CF15 Carbon — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-CF15-Carbon_03012019.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "meltFlowRate": {
+      "value": 9.92,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "235 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 54.5,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 103,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 500,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 86.2,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "25 °C, ungekerbt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 75,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 248,
+      "unit": "°C",
+      "min": 235,
+      "max": 260,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 92,
+      "unit": "°C",
+      "min": 80,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Nylon CF15 Carbon",
+        "title": "Fillamentum Nylon CF15 Carbon — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-CF15-Carbon_03012019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

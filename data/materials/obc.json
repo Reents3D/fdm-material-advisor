@@ -1,0 +1,652 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "obc",
+  "identity": {
+    "name": "OBC",
+    "family": "PE",
+    "polymerClass": "semi-crystalline",
+    "variant": [
+      "flexible"
+    ],
+    "aliases": [
+      "Olefin-Blockcopolymer",
+      "Olefinic Block Copolymer",
+      "Polyolefin-Elastomer"
+    ],
+    "abstract": {
+      "de": "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Sein einzigartiger Beitrag zu dieser Datenbank ist aber ein anderer: Es ist der einzige Werkstofftyp, dessen Kennwerte aus einem Blatt stammen, das XY UND Z an gedruckten Prüfkörpern ausweist.",
+      "en": "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its unique contribution to this database is a different one, though: it is the only material type whose values come from a sheet giving XY AND Z on printed specimens."
+    },
+    "positioning": {
+      "de": "Das leichteste Material im Bestand — und das einzige mit belegten Z-Werten im Typdatensatz.",
+      "en": "The lightest material in the dataset — and the only one with documented Z values at type level."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 0.905,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 14,
+      "unit": "MPa",
+      "testStandard": "ASTM D1708",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, 200 °C Düse, 65 °C Bett",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthZ": {
+      "value": 11,
+      "unit": "MPa",
+      "testStandard": "ASTM D1708",
+      "orientation": "Z",
+      "conditions": "gedruckt, 100 % Infill, Streckspannung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 700,
+      "unit": "%",
+      "testStandard": "ASTM D1708",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakZ": {
+      "value": 480,
+      "unit": "%",
+      "testStandard": "ASTM D1708",
+      "orientation": "Z",
+      "conditions": "gedruckt, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 7.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "conditions": "5 % Dehnung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 244,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "conditions": "1 % Dehnung",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 34.3,
+      "unit": "kJ/m²",
+      "testStandard": "ASTM D256",
+      "orientation": "XY",
+      "conditions": "gekerbt, gedruckt",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt denselben Versuch zweimal: 347 J/m und 34,3 kJ/m². Beide passen zueinander (347 ÷ 10,16 mm Restligament = 34,2). In Z passen sie NICHT: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Übernommen ist die kJ/m²-Angabe, weil das Schema diese Einheit führt.",
+        "en": "The sheet gives the same test twice: 347 J/m and 34.3 kJ/m². The two agree (347 ÷ 10.16 mm remaining ligament = 34.2). In Z they do NOT: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. The kJ/m² figure is imported because the schema carries that unit."
+      }
+    },
+    "hardnessShoreD": {
+      "value": 53,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "anisotropyFactorImpact": {
+      "value": 1.01,
+      "unit": "-",
+      "orientation": "Z",
+      "derivedFrom": [
+        "mechanics.izodNotchedXy"
+      ],
+      "conditions": "347 J/m (XY) gegen 352 J/m (Z), beide gekerbt nach ASTM D256 im selben Blatt",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Aus 352 J/m (Z) zu 347 J/m (XY) gerechnet, beide gekerbt nach ASTM D256 im selben Blatt. Der Wert liegt ÜBER 1, die stehend gedruckte Probe ist also schlagzäher als die liegende. Bei sprödharten Werkstoffen liegt dieser Faktor typisch zwischen 0,05 und 0,3 — die Schichtgrenze ist bei einem weichen Polyolefin schlicht nicht der Schwachpunkt.",
+        "en": "Calculated from 352 J/m (Z) against 347 J/m (XY), both notched to ASTM D256 in the same sheet. The value exceeds 1, so the upright-printed specimen is tougher than the flat one. For brittle-hard materials this factor typically sits between 0.05 and 0.3 — with a soft polyolefin the layer boundary simply is not the weak point. Note: computing instead from the same sheet’s kJ/m² figures (43.1 against 34.3) would give 1.26. The sheet is internally inconsistent; the lower value is imported."
+      }
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.79,
+      "unit": "-",
+      "orientation": "Z",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "11 MPa (Z) gegen 14 MPa (XY), gedruckte Prüfkörper aus demselben Blatt",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Aus 11 MPa (Z) zu 14 MPa (XY) gerechnet — beide Werte stehen im selben Blatt an gedruckten Prüfkörpern. 0,79 ist ein sehr hoher Wert; die meisten starren Werkstoffe liegen zwischen 0,3 und 0,6. Bei der Schlagzähigkeit liegt Z sogar ÜBER XY (352 gegen 347 J/m). Das ist für weiche Polyolefine plausibel, weil die Bindung zwischen den Schichten nicht der Schwachpunkt ist, den ein sprödes Polymer dort hat.",
+        "en": "Calculated from 11 MPa (Z) against 14 MPa (XY) — both values are in the same sheet on printed specimens. 0.79 is a very high figure; most rigid materials sit between 0.3 and 0.6. For impact strength Z even exceeds XY (352 against 347 J/m). That is plausible for soft polyolefins because the bond between layers is not the weak point it is in a brittle polymer."
+      }
+    },
+    "toughness": {
+      "value": 5,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 1,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "meltingTemperature": {
+      "value": 130,
+      "unit": "°C",
+      "testStandard": "ISO 11357",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": -13,
+      "unit": "°C",
+      "testStandard": "ISO 11357",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 70,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Das Blatt nennt 100 °C Temperaturbeständigkeit, ohne Norm und ohne Last. Bei einem Schmelzpunkt von 130 °C ist das ohne Abstand zur Kriechgrenze; 70 °C ist die konservative Empfehlung.",
+        "en": "The sheet names 100 °C temperature resistance without standard and without load. At a melting point of 130 °C that leaves no margin to the creep limit; 70 °C is the conservative recommendation."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 200,
+      "unit": "°C",
+      "conditions": "Prüfkörperbedingung des Blattes",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "conditions": "Prüfkörperbedingung des Blattes",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "chamberRequirement": {
+      "value": "not-required",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "printSpeed": {
+      "value": 20,
+      "unit": "mm/s",
+      "conditions": "Prüfkörperbedingung des Blattes",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "printability": {
+      "value": 3,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 3,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 1,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 1,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Das Blatt beantwortet die Frage „UV stability“ ausdrücklich mit „No“. Das ist eine belegte Verneinung und keine Schätzung — sie hat nur keine Norm hinter sich.",
+        "en": "The sheet answers the question “UV stability” explicitly with “No”. That is a documented negative rather than an estimate — it just has no standard behind it."
+      }
+    },
+    "weatherResistance": {
+      "value": 2,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_salt_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_steam",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "not-resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_grease",
+        "rating": "not-resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_hydraulic_oil",
+        "rating": "not-resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_coolant_mwf",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_brake_fluid",
+        "rating": "not-resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_petrol_diesel",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ipa",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ethanol",
+        "rating": "resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_acetone",
+        "rating": "resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_mek",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_surface_disinfectant",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_bleach",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_hydrogen_peroxide",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_dilute_acid",
+        "rating": "resistant",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Vom Blatt belegt: „Good chemical resistance: water, acids, alcohol, acetone“ und „Low chemical resistance: car fluids, oils, grasses“ (im Original so geschrieben, gemeint sind Fette). Die übrigen Medien sind aus der Polymerklasse abgeleitet.",
+          "en": "Documented by the sheet: “Good chemical resistance: water, acids, alcohol, acetone” and “Low chemical resistance: car fluids, oils, grasses” (spelled thus in the original; greases are meant). The remaining media are derived from the polymer class."
+        }
+      },
+      {
+        "chemicalId": "chem_dilute_alkali",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_strong_acid",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_strong_alkali",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ester",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "explicitly-not-suitable",
+        "source": "src_tds",
+        "confidence": "low",
+        "note": {
+          "de": "Das Blatt beantwortet „Food contact“ ausdrücklich mit „No“ — eine seltene klare Verneinung, wo die meisten Blätter schweigen.",
+          "en": "The sheet answers “Food contact” explicitly with “No” — a rare clear negative where most sheets stay silent."
+        }
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "low",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "practicalRecyclability": {
+      "value": "possible-in-theory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerLineVisibility": {
+      "value": 3,
+      "scale": "layerLineVisibility",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "sandability": {
+      "value": 1,
+      "scale": "sandability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "fillability": {
+      "value": 1,
+      "scale": "fillability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 1,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 1,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "gloss": {
+      "value": "matte",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "narrow",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 4,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 1,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 2,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 400,
+        "unit": "mm",
+        "min": 200,
+        "max": 600,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung — nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
+          "en": "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. To be replaced by Reents3D shop-floor experience."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
+        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstanlage aus Herstellerdatenblatt)",
+    "openQuestions": [
+      {
+        "id": "oq_obc_single_source",
+        "question": {
+          "de": "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
+          "en": "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal",
+          "processing"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "title": "OBC 905 — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2022/11/TDS_OBC-905_EN_07102022_FI.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Einziges Datenblatt für diesen Werkstofftyp. Auszug unter data/_sources/fillamentum-tds/.",
+          "en": "Only datasheet for this material type. Extract at data/_sources/fillamentum-tds/."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
+          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      }
+    ]
+  }
+}

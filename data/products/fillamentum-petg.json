@@ -1,0 +1,105 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-petg",
+  "materialId": "petg",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum PETG",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Das jüngste Fillamentum-Blatt (2023) und das einzige mit einer Zeile „Flame classification UL 94“ — sie ist allerdings leer. Eine leere Zeile ist ehrlicher als eine erfundene Klasse, aber sie beantwortet die Frage nicht.",
+    "en": "The most recent Fillamentum sheet (2023) and the only one with a line “Flame classification UL 94” — which is, however, empty. An empty line is more honest than an invented class, but it does not answer the question."
+  },
+  "datasheet": {
+    "title": "Fillamentum PETG — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2023/02/TDS_PETG_EN_30012023.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.27,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung, 50 mm/min; Bruchspannung 26 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 120,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 71,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2150,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 75,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 75,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum PETG",
+        "title": "Fillamentum PETG — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2023/02/TDS_PETG_EN_30012023.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

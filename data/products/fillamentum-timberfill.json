@@ -1,0 +1,115 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-timberfill",
+  "materialId": "pla",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Timberfill",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Die niedrigste Drucktemperatur im gesamten Bestand: 150 bis 170 °C. Holzgefüllte Filamente verbrennen bei den üblichen PLA-Temperaturen, deshalb liegt das Fenster so tief — und deshalb ist es so eng.",
+    "en": "The lowest printing temperature in the entire dataset: 150 to 170 °C. Wood-filled filaments scorch at the usual PLA temperatures, which is why the window sits so low — and why it is so narrow."
+  },
+  "datasheet": {
+    "title": "Fillamentum Timberfill — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Timberfill_03012019.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.26,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 39,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch, 5 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 2,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "5 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3200,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "1 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 22,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 77,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 152.5,
+      "unit": "°C",
+      "min": 145,
+      "max": 160,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "min": 150,
+      "max": 170,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Timberfill",
+        "title": "Fillamentum Timberfill — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Timberfill_03012019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

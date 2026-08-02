@@ -1,0 +1,122 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-flexfill-tpu-92a",
+  "materialId": "tpu-95a",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Flexfill TPU 92A",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Shore A 92 liegt zwischen den geführten Typen TPU 85A und TPU 95A; die Zuordnung zu TPU 95A ist eine Einordnung dieser Datenbank, keine Herstellerangabe.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Shore A 92 sits between the carried types TPU 85A and TPU 95A; the assignment to TPU 95A is this database's judgement, not a manufacturer statement."
+  },
+  "features": {
+    "de": "Ein Elastomerblatt, wie es sein soll: Spannung bei definierter Dehnung (7,5 MPa bei 100 %, 16 MPa bei 300 %) statt nur einer Bruchspannung, dazu Abriebverlust nach ISO 4649. Genau diese Zahlen entscheiden bei einer Dichtung — und genau sie fehlen bei fast jedem anderen TPU-Blatt.",
+    "en": "An elastomer sheet as it should be: stress at defined strain (7.5 MPa at 100 %, 16 MPa at 300 %) instead of only a break stress, plus abrasion loss to ISO 4649. Precisely these figures decide the matter for a seal — and precisely they are missing from almost every other TPU sheet."
+  },
+  "datasheet": {
+    "title": "Fillamentum Flexfill TPU 92A — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-92A_26082019.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 49,
+      "unit": "MPa",
+      "testStandard": "DIN 53504",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 600,
+      "unit": "%",
+      "testStandard": "DIN 53504",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 91,
+      "unit": "Shore A",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 42,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 30,
+      "unit": "mm³",
+      "testStandard": "ISO 4649",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "stressAt100Percent": {
+      "value": 7.5,
+      "unit": "MPa",
+      "testStandard": "DIN 53504",
+      "conditions": "bei 100 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "stressAt300Percent": {
+      "value": 16,
+      "unit": "MPa",
+      "testStandard": "DIN 53504",
+      "conditions": "bei 300 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 220,
+      "max": 240,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Flexfill TPU 92A",
+        "title": "Fillamentum Flexfill TPU 92A — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-92A_26082019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

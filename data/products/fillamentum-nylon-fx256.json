@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-nylon-fx256",
+  "materialId": "pa12",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Nylon FX256",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Der Bezugswert für die beiden fasergefüllten Nylons desselben Herstellers: ungefüllt 1400 MPa Zug-E-Modul. Genau daran misst sich, dass CF15 und AF80 mit rund 500 MPa nicht stimmen können.",
+    "en": "The reference point for the same manufacturer's two fibre-filled nylons: unfilled, 1400 MPa tensile modulus. It is precisely against this that CF15 and AF80 at roughly 500 MPa cannot be right."
+  },
+  "datasheet": {
+    "title": "Fillamentum Nylon FX256 — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.01,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 95,
+      "unit": "g/10min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 45,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 50,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe „> 50 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1400,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 140,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "50 °C/h, 5 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 248,
+      "unit": "°C",
+      "min": 235,
+      "max": 260,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 92,
+      "unit": "°C",
+      "min": 80,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Nylon FX256",
+        "title": "Fillamentum Nylon FX256 — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

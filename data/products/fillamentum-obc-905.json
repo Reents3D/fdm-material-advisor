@@ -1,0 +1,192 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-obc-905",
+  "materialId": "obc",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum OBC 905",
+  "origin": "Tschechien",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Dieses Blatt deklariert den Prüfkörper vollständig: „Mechanical properties on 3D printed samples“, mit Werten für XY UND Z und mit Angabe von Düsentemperatur (200 °C), Betttemperatur (65 °C), Druckgeschwindigkeit (20 mm/s), zwei Perimetern und 100 % Infill. Das ist die vollständigste Prüfkörperdeklaration im gesamten Bestand.\n\nBefund zu diesem Datenblatt: Ein innerer Widerspruch: Die Schlagzähigkeit steht zweimal da, einmal in J/m und einmal in kJ/m². In XY passen die beiden Angaben zusammen (347 J/m ÷ 10,16 mm Restligament = 34,2 ≈ 34,3 kJ/m²). In Z passen sie nicht: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Je nachdem, welche Einheit man liest, ist der Werkstoff stehend gedruckt gleich schlagzäh (Faktor 1,01) oder ein Viertel zäher (Faktor 1,26). Übernommen sind beide kJ/m²-Angaben, der abgeleitete Faktor im Werkstofftyp nutzt die konservativere Rechnung.",
+    "en": "This sheet declares the specimen in full: “Mechanical properties on 3D printed samples”, with values for XY AND Z and stating nozzle temperature (200 °C), bed temperature (65 °C), print speed (20 mm/s), two perimeters and 100 % infill. It is the most complete specimen declaration in the entire dataset.\n\nFinding on this datasheet: An internal contradiction: impact strength appears twice, once in J/m and once in kJ/m². In XY the two agree (347 J/m ÷ 10.16 mm remaining ligament = 34.2 ≈ 34.3 kJ/m²). In Z they do not: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. Depending on which unit one reads, the material printed upright is either equally tough (factor 1.01) or a quarter tougher (factor 1.26). Both kJ/m² figures are imported; the derived factor in the material type uses the more conservative calculation."
+  },
+  "features": {
+    "de": "Das aussagekräftigste Blatt im gesamten Bestand. Es weist alle mechanischen Werte getrennt für XY und Z aus, an ausdrücklich GEDRUCKTEN Prüfkörpern, und nennt dazu Düsentemperatur, Betttemperatur, Druckgeschwindigkeit, Perimeterzahl und Infill. Es beantwortet zudem vier Ja-Nein-Fragen, um die sich fast alle Blätter drücken: UV-Stabilität nein, Lebensmittelkontakt nein, biologisch abbaubar nein, transparent nein.",
+    "en": "The most informative sheet in the entire dataset. It gives every mechanical value separately for XY and Z, on explicitly PRINTED specimens, and states nozzle temperature, bed temperature, print speed, perimeter count and infill. It moreover answers four yes-no questions almost every sheet dodges: UV stability no, food contact no, biodegradable no, transparent no."
+  },
+  "datasheet": {
+    "title": "Fillamentum OBC 905 — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2022/11/TDS_OBC-905_EN_07102022_FI.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 0.905,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 14,
+      "unit": "MPa",
+      "testStandard": "ASTM D1708",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill, 2 Perimeter, 200 °C Düse, 65 °C Bett, 20 mm/s",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 11,
+      "unit": "MPa",
+      "testStandard": "ASTM D1708",
+      "orientation": "Z",
+      "conditions": "gedruckt, 100 % Infill, Streckspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 700,
+      "unit": "%",
+      "testStandard": "ASTM D1708",
+      "orientation": "XY",
+      "conditions": "gedruckt, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 480,
+      "unit": "%",
+      "testStandard": "ASTM D1708",
+      "orientation": "Z",
+      "conditions": "gedruckt, 100 % Infill",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 7.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "conditions": "5 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthZ": {
+      "value": 6.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "Z",
+      "conditions": "5 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 244,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "conditions": "1 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 217,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "Z",
+      "conditions": "1 % Dehnung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 34.3,
+      "unit": "kJ/m²",
+      "testStandard": "ASTM D256",
+      "orientation": "XY",
+      "conditions": "gekerbt, gedruckt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedZ": {
+      "value": 43.1,
+      "unit": "kJ/m²",
+      "testStandard": "ASTM D256",
+      "orientation": "Z",
+      "conditions": "gekerbt, gedruckt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 53,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 130,
+      "unit": "°C",
+      "testStandard": "ISO 11357",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": -13,
+      "unit": "°C",
+      "testStandard": "ISO 11357",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "volumeResistivity": {
+      "value": 10000000000000000,
+      "unit": "Ω·cm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 200,
+      "unit": "°C",
+      "conditions": "Prüfkörperbedingung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "conditions": "Prüfkörperbedingung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "printSpeed": {
+      "value": 20,
+      "unit": "mm/s",
+      "conditions": "Prüfkörperbedingung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum OBC 905",
+        "title": "Fillamentum OBC 905 — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2022/11/TDS_OBC-905_EN_07102022_FI.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper deklariert: gedruckt, mit XY- und Z-Werten und vollständigen Druckparametern.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen declared: printed, with XY and Z values and complete print parameters."
+        }
+      }
+    ]
+  }
+}

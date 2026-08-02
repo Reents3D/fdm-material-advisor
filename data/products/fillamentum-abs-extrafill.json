@@ -1,0 +1,135 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-abs-extrafill",
+  "materialId": "abs",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum ABS Extrafill",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Eines der wenigen Blätter, das die Kälteschlagzähigkeit ausweist: 24 kJ/m² bei 23 °C fallen auf 10 kJ/m² bei −30 °C. Wer ein ABS-Gehäuse für den Aussenbereich auslegt, findet genau hier die Zahl, die er braucht.",
+    "en": "One of the few sheets giving low-temperature impact: 24 kJ/m² at 23 °C fall to 10 kJ/m² at −30 °C. Anyone designing an ABS housing for outdoor use finds exactly the figure they need here."
+  },
+  "datasheet": {
+    "title": "Fillamentum ABS Extrafill — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_ABS-Extrafill_03012019-1.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.04,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "conditions": "23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 39,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung, 50 mm/min; Bruchspannung 32 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 20,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 24,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180-1A",
+      "conditions": "23 °C, gekerbt; bei −30 °C 10 kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 25,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "23 °C, gekerbt; bei −30 °C 11 kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 81,
+      "unit": "°C",
+      "testStandard": "ISO 75-A",
+      "conditions": "1,8 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 96,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "50 °C/h, 5 kg; bei 1 kg 103 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 220,
+      "max": 240,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 92,
+      "unit": "°C",
+      "min": 80,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum ABS Extrafill",
+        "title": "Fillamentum ABS Extrafill — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_ABS-Extrafill_03012019-1.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

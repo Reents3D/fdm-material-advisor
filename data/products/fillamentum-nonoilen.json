@@ -1,0 +1,130 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-nonoilen",
+  "materialId": "pla",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum NonOilen",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Der bemerkenswerteste Wert dieses Imports: HDT-B 119 °C und Vicat 150 °C bei einem PLA-basierten Werkstoff, der bei 175 bis 195 °C gedruckt wird. Gewöhnliches PLA liegt bei 55 °C. Der Werkstoff ist ein Compound aus Polymilchsäure und Polyhydroxybutyrat; das PHB kristallisiert und hebt die Formbeständigkeit weit über PLA. Ein einzelnes Blatt, ein einzelner Hersteller — die Zahl steht hier ausdrücklich als Einzelbeleg, nicht als bestätigter Werkstoffkennwert.",
+    "en": "The most remarkable figure of this import: HDT-B 119 °C and Vicat 150 °C for a PLA-based material printed at 175 to 195 °C. Ordinary PLA sits at 55 °C. The material is a compound of polylactic acid and polyhydroxybutyrate; the PHB crystallises and lifts dimensional stability far beyond PLA. A single sheet, a single manufacturer — the figure stands here explicitly as a single piece of evidence, not as a confirmed material property."
+  },
+  "datasheet": {
+    "title": "Fillamentum NonOilen — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_NonOilen_EN_03082020_FfN.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 12.6,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "190 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 38.6,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung; Bruchspannung 31,2 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 7.7,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 25.6,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "23 °C, ungekerbt; gekerbt 2,4 kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 71,
+      "unit": "Shore D",
+      "testStandard": "ISO 868",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 119,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 150,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "Methode A, 10 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 185,
+      "unit": "°C",
+      "min": 175,
+      "max": 195,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 25,
+      "unit": "°C",
+      "min": 0,
+      "max": 50,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum NonOilen",
+        "title": "Fillamentum NonOilen — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_NonOilen_EN_03082020_FfN.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

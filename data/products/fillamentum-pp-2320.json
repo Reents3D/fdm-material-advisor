@@ -1,0 +1,116 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-pp-2320",
+  "materialId": "pp",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum PP 2320",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "184 kJ/m² ungekerbt ist der höchste Schlagzähigkeitswert der ganzen Datenbank. Das Blatt nennt ausserdem Medienbeständigkeiten mit Temperaturangabe und weist ausdrücklich darauf hin, dass PP ohne Haftvermittler und Brim nicht auf dem Bett hält.",
+    "en": "184 kJ/m² unnotched is the highest impact figure in the whole database. The sheet also states media resistances with temperature and points out explicitly that PP will not stay on the bed without an adhesion promoter and a brim."
+  },
+  "datasheet": {
+    "title": "Fillamentum PP 2320 — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PP-2320.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 0.96,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 A",
+      "conditions": "(23 ± 2) °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 7.4,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "230 °C, 5 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 23,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 20,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1400,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 184,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1/1eU",
+      "conditions": "25 °C, ungekerbt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 225,
+      "max": 245,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 97,
+      "unit": "°C",
+      "min": 90,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "printSpeed": {
+      "value": 30,
+      "unit": "mm/s",
+      "min": 20,
+      "max": 40,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum PP 2320",
+        "title": "Fillamentum PP 2320 — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PP-2320.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

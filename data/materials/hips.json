@@ -1,0 +1,616 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "hips",
+  "identity": {
+    "name": "HIPS",
+    "family": "HIPS",
+    "polymerClass": "amorphous",
+    "variant": [
+      "support",
+      "basic"
+    ],
+    "aliases": [
+      "Polystyrol schlagzäh",
+      "High Impact Polystyrene",
+      "Stützmaterial"
+    ],
+    "abstract": {
+      "de": "HIPS ist im FDM-Druck vor allem eines: das Stützmaterial, das sich in D-Limonen auflöst, während ABS und ASA unberührt bleiben. Als Konstruktionswerkstoff ist es gutmütig zu drucken, mit HDT-A 85 °C sogar wärmer belastbar als PLA, und dielektrisch sehr gut. Seine eigentliche Kennzahl steht im Kleingedruckten: Charpy ungekerbt bei 23 °C „kein Bruch“ — es zerbricht schlicht nicht. Gekerbt fällt derselbe Wert auf 17 kJ/m². Diese Spreizung ist die ehrlichste Kerbempfindlichkeitsangabe im ganzen Bestand.",
+      "en": "In FDM printing HIPS is above all one thing: the support material that dissolves in D-limonene while ABS and ASA remain untouched. As a construction material it is forgiving to print, at HDT-A 85 °C it takes more heat than PLA, and it is dielectrically excellent. Its real figure hides in the fine print: Charpy unnotched at 23 °C reads “no break” — it simply does not fracture. Notched, the same figure drops to 17 kJ/m². That spread is the most honest notch-sensitivity statement in the whole dataset."
+    },
+    "positioning": {
+      "de": "Das lösliche Stützmaterial für ABS und ASA — und ein unterschätzter Gehäusewerkstoff.",
+      "en": "The soluble support material for ABS and ASA — and an underrated housing material."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 26,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 40,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2100,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 17,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eA",
+      "orientation": "n/a",
+      "conditions": "23 °C, gekerbt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 130,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eU",
+      "orientation": "n/a",
+      "conditions": "−30 °C, ungekerbt",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Bei 23 °C weist dasselbe Blatt ungekerbt „kein Bruch“ aus — der Wert lässt sich nicht als Zahl führen. Übernommen ist deshalb der −30-°C-Wert, der die untere Grenze markiert.",
+        "en": "At 23 °C the same sheet reads “no break” unnotched — that cannot be carried as a number. The −30 °C value is imported instead, marking the lower bound."
+      }
+    },
+    "toughness": {
+      "value": 4,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "notchSensitivity": {
+      "value": 4,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Kerbempfindlich, und das Blatt belegt es ausnahmsweise selbst: ungekerbt kein Bruch, gekerbt 17 kJ/m². Scharfe Innenecken sind bei HIPS keine Schönheitsfrage.",
+        "en": "Notch sensitive, and for once the sheet documents it: unnotched no break, notched 17 kJ/m². Sharp internal corners are not a cosmetic question with HIPS."
+      }
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 89,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 88.5,
+      "unit": "°C",
+      "testStandard": "ISO 306, 50 °C/h, 50 N",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "conditions": "unbelastet, Luft, dauerhaft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Abstand zur HDT-B von 89 °C. Gedruckte Teile erreichen die Blattwerte ohnehin nicht.",
+        "en": "Margin to the HDT-B of 89 °C. Printed parts do not reach sheet values anyway."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 240,
+      "unit": "°C",
+      "min": 230,
+      "max": 250,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 97,
+      "unit": "°C",
+      "min": 90,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "chamberRequirement": {
+      "value": "recommended",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "printability": {
+      "value": 4,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 3,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 1,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Wasseraufnahme unter 0,1 % nach ISO 62 — belegt, nicht geschätzt. HIPS ist einer der wenigen Werkstoffe, die ohne Trockner auskommen.",
+        "en": "Water uptake below 0.1 % to ISO 62 — documented, not estimated. HIPS is one of the few materials that manages without a dryer."
+      }
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 1,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 1,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "chemicalResistance": [
+      {
+        "chemicalId": "chem_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_salt_water",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_steam",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_mineral_oil",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_grease",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_hydraulic_oil",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_coolant_mwf",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_brake_fluid",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_petrol_diesel",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ipa",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ethanol",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_acetone",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_mek",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_surface_disinfectant",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_bleach",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_hydrogen_peroxide",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_dilute_acid",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_dilute_alkali",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_strong_acid",
+        "rating": "limited",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_strong_alkali",
+        "rating": "resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      },
+      {
+        "chemicalId": "chem_ester",
+        "rating": "not-resistant",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Aus der Polymerklasse abgeleitet, nicht gemessen. Chemische Beständigkeit ist im Kern eine Eigenschaft des Grundpolymers — eine Faserfüllung ändert daran nichts. Für kritische Anwendungen ersetzt das keinen Auslagerungsversuch im Originalmedium.",
+          "en": "Derived from the polymer class, not measured. Chemical resistance is fundamentally a property of the base polymer — a fibre filler does not change it. For critical applications this does not replace an immersion test in the actual medium."
+        }
+      }
+    ]
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "moderate",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Das Blatt sagt es selbst: Beim Drucken werden kleine Mengen Styrol frei. Absaugung oder geschlossener Bauraum sind bei HIPS keine Vorsichtsmaßnahme, sondern eine Angabe des Herstellers.",
+          "en": "The sheet says so itself: small quantities of styrene are released during printing. Extraction or an enclosed build chamber is not a precaution with HIPS but a manufacturer statement."
+        }
+      }
+    }
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "practicalRecyclability": {
+      "value": "possible-in-theory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerLineVisibility": {
+      "value": 3,
+      "scale": "layerLineVisibility",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "sandability": {
+      "value": 4,
+      "scale": "sandability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "fillability": {
+      "value": 4,
+      "scale": "fillability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 4,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 4,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "gloss": {
+      "value": "matte",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "narrow",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 2,
+      "scale": "priceIndex",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "availability": {
+      "value": 3,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 4,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 800,
+        "unit": "mm",
+        "min": 400,
+        "max": 1200,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung — nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
+          "en": "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. To be replaced by Reents3D shop-floor experience."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
+        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstanlage aus Herstellerdatenblatt)",
+    "openQuestions": [
+      {
+        "id": "oq_hips_single_source",
+        "question": {
+          "de": "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
+          "en": "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal",
+          "processing"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "title": "HIPS Extrafill — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_HIPS-Extrafill_03012019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Einziges Datenblatt für diesen Werkstofftyp. Auszug unter data/_sources/fillamentum-tds/.",
+          "en": "Only datasheet for this material type. Extract at data/_sources/fillamentum-tds/."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
+          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      }
+    ]
+  }
+}

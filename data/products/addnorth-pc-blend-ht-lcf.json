@@ -1,0 +1,95 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "addnorth-pc-blend-ht-lcf",
+  "materialId": "pc",
+  "brand": "add:north",
+  "manufacturer": "add:north 3D filaments AB",
+  "productName": "add:north PC Blend HT LCF",
+  "origin": "Schweden",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`."
+  },
+  "features": {
+    "de": "Der steifste und festeste Werkstoff des gesamten Bestands: 125 MPa Zugfestigkeit bei 9800 MPa Zug-E-Modul, dazu HDT-B 185 °C. Zum Vergleich liegt das nächstbeste kohlenstofffaserverstärkte Material bei rund 100 MPa. „LCF“ steht für Langfaser — die längere Faser überträgt mehr Last als die üblichen Kurzfasern und erklärt den Abstand. Das Blatt lässt Biegefestigkeit und Biege-E-Modul allerdings leer.",
+    "en": "The stiffest and strongest material in the entire dataset: 125 MPa tensile strength at 9800 MPa tensile modulus, plus HDT-B 185 °C. For comparison, the next best carbon-fibre reinforced material sits at roughly 100 MPa. “LCF” stands for long carbon fibre — the longer fibre transfers more load than the usual short fibres and explains the gap. The sheet does, however, leave flexural strength and flexural modulus empty."
+  },
+  "datasheet": {
+    "title": "add:north PC Blend HT LCF — Technical Data Sheet",
+    "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_pcblendhtlcf_utXzD2.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://addnorth.com/",
+  "properties": {
+    "density": {
+      "value": 1.3,
+      "unit": "g/cm³",
+      "testStandard": "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Die Norm im Blatt ist falsch: ISO 527 prüft Zugeigenschaften, nicht die Dichte. Der Zahlenwert selbst ist plausibel und übernommen.",
+        "en": "The standard in the sheet is wrong: ISO 527 tests tensile properties, not density. The figure itself is plausible and has been imported."
+      }
+    },
+    "tensileStrengthXy": {
+      "value": 125,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 9800,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 2.9,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 158,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 185,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north PC Blend HT LCF",
+        "title": "add:north PC Blend HT LCF — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_pcblendhtlcf_utXzD2.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/addnorth-tds/. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/addnorth-tds/. Specimen not declared, density standard wrong on every sheet."
+        }
+      }
+    ]
+  }
+}

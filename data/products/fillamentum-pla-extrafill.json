@@ -1,0 +1,134 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-pla-extrafill",
+  "materialId": "pla",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum PLA Extrafill",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre ASTM D638 einschlägig. Fillamentum ist damit die fünfte Marke im Bestand mit genau diesem Fehler, nach Material4Print, Fiberlogy und Spectrum. Bei fünf unabhängigen Herstellern ist das kein Zufall, sondern ein Fehler, der mit dem Rohstoffdatenblatt des Granulatlieferanten durch die Branche wandert. Zusätzlich steht die Wärmeformbeständigkeit unter ASTM E2092, einer thermomechanischen Analyse, statt unter der HDT-Norm ASTM D648.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The tensile values sit under ASTM D882, the standard for thin FILMS — for mouldings ASTM D638 would apply. Fillamentum is thus the fifth brand in the dataset with exactly this error, after Material4Print, Fiberlogy and Spectrum. Across five independent manufacturers that is no coincidence but an error travelling through the industry with the granulate supplier's raw-material datasheet. The heat deflection figure moreover sits under ASTM E2092, a thermomechanical analysis, instead of the HDT standard ASTM D648."
+  },
+  "datasheet": {
+    "title": "Fillamentum PLA Extrafill — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PLA-Extrafill_03012019.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "210 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "conditions": "Streckspannung; Bruchspannung 53 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3600,
+      "unit": "MPa",
+      "testStandard": "ASTM D882 (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 83,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3800,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 16,
+      "unit": "J/m",
+      "testStandard": "ASTM D256",
+      "conditions": "23 °C, gekerbt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 200,
+      "unit": "°C",
+      "min": 190,
+      "max": 210,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum PLA Extrafill",
+        "title": "Fillamentum PLA Extrafill — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PLA-Extrafill_03012019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-cpe-cf112",
+  "materialId": "petg-cf",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum CPE CF112 Carbon",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Der Zug-E-Modul wurde bei 0,15 mm/min gemessen, die Festigkeit bei 50 mm/min — zwei Prüfgeschwindigkeiten, die um den Faktor 333 auseinanderliegen. Bei viskoelastischen Kunststoffen ist der Modul geschwindigkeitsabhängig; langsam geprüft fällt er niedriger aus. Der Vergleich mit Modulwerten anderer Hersteller ist damit nur eingeschränkt zulässig.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The tensile modulus was measured at 0.15 mm/min, the strength at 50 mm/min — two test speeds a factor of 333 apart. In viscoelastic polymers the modulus is rate dependent; tested slowly it comes out lower. Comparison with other manufacturers' modulus figures is therefore only partly admissible."
+  },
+  "datasheet": {
+    "title": "Fillamentum CPE CF112 Carbon — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_CPE-CF112-Carbon.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.16,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 52.4,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckspannung, 50 mm/min; Bruchspannung 37,7 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "0,15 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 105.9,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "25 °C, ungekerbt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 77,
+      "unit": "Shore D",
+      "testStandard": "ISO 7619",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 260,
+      "unit": "°C",
+      "min": 250,
+      "max": 270,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 77,
+      "unit": "°C",
+      "min": 70,
+      "max": 85,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum CPE CF112 Carbon",
+        "title": "Fillamentum CPE CF112 Carbon — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_CPE-CF112-Carbon.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

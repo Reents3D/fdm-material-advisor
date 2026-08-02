@@ -84,6 +84,33 @@ const FAMILY = {
   /* TPU wird ueberwiegend auf Polyesterbasis geliefert - daher dieselbe Laugen- und
      Hydrolyseschwaeche wie bei den Polyestern, bei sehr guter Oelbestaendigkeit. */
   TPU: [L, L, N, R, R, R, L, N, L, L, L, N, N, L, N, L, L, N, N, N, L],
+
+  /* PEBA = Polyether-Block-Amid. Der Amidblock bringt die Oel- und Kraftstofffestigkeit
+     des Polyamids mit, der Polyetherblock die Hydrolyseempfindlichkeit dazu. Deshalb
+     oelfester als TPU und wasserempfindlicher zugleich. */
+  PEBA: [L, L, N, R, R, R, L, R, R, R, R, L, L, R, N, N, N, L, N, L, L],
+
+  /* Polystyrol: gegen Saeure und Lauge unempfindlich wie ABS, gegen Oele aber deutlich
+     schwaecher - HIPS reisst unter Mineraloel schon ohne Last (Spannungsrisskorrosion).
+     Aromaten und Ketone loesen es vollstaendig; genau darauf beruht das Ausloesen in
+     D-Limonen, das HIPS zum Stuetzmaterial macht. */
+  HIPS: [R, R, N, N, L, N, L, N, N, L, L, N, N, L, L, L, R, R, L, R, N],
+
+  /* Polyolefine sind die Chemikalienwerkstoffe: gegen Saeure, Lauge und Alkohol praktisch
+     unangreifbar und dampfsterilisierbar. Ihre Schwaeche sind unpolare Kohlenwasserstoffe,
+     die sie quellen lassen, und starke Oxidationsmittel. */
+  PP: [R, R, R, L, L, L, R, L, N, R, R, R, L, R, L, L, R, R, R, R, L],
+  PE: [R, R, R, L, L, L, R, L, N, R, R, R, L, R, L, L, R, R, R, R, L],
+
+  /* PVDF ist nach PPS der zweitbestaendigste Werkstoff im Feld - mit einer klar
+     umrissenen Luecke: starke Laugen dehydrofluorieren das Polymer, Ketone und Ester
+     quellen es. Das Fillamentum-Blatt nennt Aceton und MEK ausdruecklich. */
+  PVDF: [R, R, R, R, R, R, R, R, R, R, R, N, N, R, R, R, R, L, R, N, N],
+
+  /* Hart-PVC: gegen Saeuren, Laugen und Oxidationsmittel sehr gut, gegen Ketone, Ester
+     und Aromaten chancenlos - dieselbe Loeslichkeit, die PVC-Kleber ausnutzt. Heissdampf
+     scheidet schon wegen der Vicat-Erweichung bei 71 °C aus. */
+  PVC: [R, R, N, R, R, L, L, N, L, R, R, N, N, L, R, R, R, R, R, R, N],
 };
 
 /* Werkstoffbezogene Abweichungen von der Familienmatrix, jede mit Grund. */

@@ -83,6 +83,7 @@ export const FIELDS: FieldDef[] = [
   q("thermal", "meltingTemperature", "Schmelztemperatur", "Melting temperature", "°C"),
   q("thermal", "recommendedMaxServiceTemperature", "Dauereinsatz (Empfehlung)", "Recommended max service temp.", "°C"),
   q("thermal", "continuousServiceTemperature", "Dauergebrauchstemperatur", "Continuous service temperature", "°C"),
+  q("thermal", "minServiceTemperature", "Tiefsttemperatur", "Minimum service temperature", "°C"),
 
   /* --- Verarbeitung ------------------------------------------------------ */
   q("processing", "nozzleTemperature", "Düsentemperatur", "Nozzle temperature", "°C"),

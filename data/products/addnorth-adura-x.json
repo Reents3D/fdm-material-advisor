@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "addnorth-adura-x",
+  "materialId": "pa12",
+  "brand": "add:north",
+  "manufacturer": "add:north 3D filaments AB",
+  "productName": "add:north Adura X",
+  "origin": "Schweden",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.\n\nBefund zu diesem Datenblatt: Der Biege-E-Modul von 3650 MPa liegt um den Faktor 2,5 ÜBER dem Zug-E-Modul von 1460 MPa. Beide messen dieselbe Steifigkeit und sollten bei einem homogenen Werkstoff nahe beieinander liegen. Beim Adura desselben Herstellers ist das Verhältnis umgekehrt (1425 gegen 1720). Einer der vier Werte dürfte nicht stimmen; welcher, lässt sich aus dem Blatt nicht entscheiden.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`.\n\nFinding on this datasheet: The flexural modulus of 3650 MPa sits a factor of 2.5 ABOVE the tensile modulus of 1460 MPa. Both measure the same stiffness and should be close together in a homogeneous material. In the same manufacturer's Adura the ratio is inverted (1425 against 1720). One of the four figures is presumably wrong; which one cannot be decided from the sheets."
+  },
+  "features": {
+    "de": "HDT-B 145 °C bei einem Glasübergang von 51 °C — das ist der grösste Abstand zwischen beiden Werten im ganzen Bestand und typisch für ein teilkristallines Polyamid: Oberhalb des Glasübergangs trägt die Kristallphase weiter. Wer nur auf den Glasübergang schaut, unterschätzt diesen Werkstoff um fast 100 K.",
+    "en": "HDT-B 145 °C at a glass transition of 51 °C — the largest gap between the two figures in the whole dataset and typical of a semi-crystalline polyamide: above the glass transition the crystalline phase keeps carrying load. Anyone looking only at the glass transition underestimates this material by nearly 100 K."
+  },
+  "datasheet": {
+    "title": "add:north Adura X — Technical Data Sheet",
+    "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AduraX_TDS_mZ8KLl.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://addnorth.com/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Die Norm im Blatt ist falsch: ISO 527 prüft Zugeigenschaften, nicht die Dichte. Der Zahlenwert selbst ist plausibel und übernommen.",
+        "en": "The standard in the sheet is wrong: ISO 527 tests tensile properties, not density. The figure itself is plausible and has been imported."
+      }
+    },
+    "tensileStrengthXy": {
+      "value": 58,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1460,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 25,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 81,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3650,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 51,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 145,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Adura X",
+        "title": "add:north Adura X — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AduraX_TDS_mZ8KLl.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/addnorth-tds/. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/addnorth-tds/. Specimen not declared, density standard wrong on every sheet."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-flexfill-peba-90a",
+  "materialId": "peba",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Flexfill PEBA 90A",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Mit 1,0 g/cm³ das leichteste Elastomer im Bestand. Das Blatt nennt Abriebverlust nach ISO 4649 und hebt die Beständigkeit gegen ASTM-Öle und -Kraftstoffe hervor — genau der Punkt, an dem polyesterbasiertes TPU versagt.",
+    "en": "At 1.0 g/cm³ the lightest elastomer in the dataset. The sheet gives abrasion loss to ISO 4649 and stresses resistance to ASTM oils and fuels — precisely where polyester-based TPU fails."
+  },
+  "datasheet": {
+    "title": "Fillamentum Flexfill PEBA 90A — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/11/TDS_Flexfill-PEBA-90A_EN.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 9,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Spannung bei 50 % Dehnung, keine Bruchspannung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 1000,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe „> 1000 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 65,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "1,27 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 42,
+      "unit": "Shore D",
+      "testStandard": "ASTM D2240",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "abrasionLoss": {
+      "value": 48,
+      "unit": "mm³",
+      "testStandard": "ISO 4649",
+      "conditions": "10 N, 40 m; Blattangabe „< 48 mm³“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 225,
+      "max": 245,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "min": 70,
+      "max": 90,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Flexfill PEBA 90A",
+        "title": "Fillamentum Flexfill PEBA 90A — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/11/TDS_Flexfill-PEBA-90A_EN.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

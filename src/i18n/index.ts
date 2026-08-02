@@ -223,6 +223,8 @@ const de: Dict = {
   "constraint.food.fail": "Keine Lebensmittelkonformität deklariert ({status}).",
   "constraint.flame.pass": "Brandschutzklasse {actual} erfüllt {required}.",
   "constraint.flame.fail": "Brandschutz nicht erfüllt: {actual}, gefordert {required}.",
+  "constraint.flame.failEstimated":
+    "Brandschutz nur geschätzt: {actual} ist aus der Polymerklasse abgeleitet, nicht aus einem Prüfzeugnis. Für eine Brandschutzanforderung zählt nur eine belegte Klassifizierung.",
   "constraint.esd.pass": "ESD-tauglich ({actual}).",
   "constraint.esd.fail": "Nicht ESD-tauglich ({actual}).",
   "constraint.size.pass": "Bauteilgrösse machbar: bis etwa {actual} mm, gefordert {required} mm.",
@@ -474,6 +476,8 @@ const en: Dict = {
   "constraint.food.fail": "No food contact compliance declared ({status}).",
   "constraint.flame.pass": "Fire class {actual} meets {required}.",
   "constraint.flame.fail": "Fire class not met: {actual}, {required} required.",
+  "constraint.flame.failEstimated":
+    "Fire class only estimated: {actual} is derived from the polymer class, not from a test certificate. For a fire safety requirement only a documented classification counts.",
   "constraint.esd.pass": "ESD capable ({actual}).",
   "constraint.esd.fail": "Not ESD capable ({actual}).",
   "constraint.size.pass": "Part size feasible: to about {actual} mm, {required} mm required.",

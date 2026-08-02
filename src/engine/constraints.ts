@@ -118,14 +118,27 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
     else fail("foodContact", "constraint.food.fail", { status: status ?? "unbekannt" }, "compliance.foodContact.status");
   }
 
-  /* --- flame class (strict) ---------------------------------------------- */
+  /* --- flame class (strict) ----------------------------------------------
+     A flame class is a regulatory statement, not a material property one may infer.
+     A rating that carries `estimated` therefore fails even when its value would pass:
+     "rigid PVC is inherently flame retardant" is textbook knowledge, and textbook
+     knowledge does not go into a fire safety case. Only a rating whose source is a
+     document counts. Same asymmetry as ADR-006 — a wrong clearance costs a part in
+     the field, an over-cautious one costs a place in the ranking. */
   if (req.flameClass) {
-    const ul = str((m.compliance as { flameRetardancy?: { ul94?: Choice } } | undefined)?.flameRetardancy?.ul94);
+    const node = (m.compliance as { flameRetardancy?: { ul94?: Choice } } | undefined)?.flameRetardancy?.ul94;
+    const ul = str(node);
+    const estimated = (node as { confidence?: string } | undefined)?.confidence === "estimated";
     const have = ul ? UL94_ORDER.indexOf(ul) : -1;
     const want = UL94_ORDER.indexOf(req.flameClass);
     const p = { required: req.flameClass, actual: ul ?? "nicht klassifiziert" };
-    if (have >= 0 && have >= want) pass("flameClass", "constraint.flame.pass", p, "compliance.flameRetardancy.ul94");
-    else fail("flameClass", "constraint.flame.fail", p, "compliance.flameRetardancy.ul94");
+    if (have >= 0 && have >= want && !estimated) {
+      pass("flameClass", "constraint.flame.pass", p, "compliance.flameRetardancy.ul94");
+    } else {
+      fail("flameClass",
+        have >= 0 && have >= want ? "constraint.flame.failEstimated" : "constraint.flame.fail",
+        p, "compliance.flameRetardancy.ul94");
+    }
   }
 
   /* --- ESD (strict) ------------------------------------------------------- */

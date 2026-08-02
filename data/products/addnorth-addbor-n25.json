@@ -1,0 +1,108 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "addnorth-addbor-n25",
+  "materialId": "pa12",
+  "brand": "add:north",
+  "manufacturer": "add:north 3D filaments AB",
+  "productName": "add:north Addbor N25",
+  "origin": "Schweden",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.\n\nBefund zu diesem Datenblatt: Alle fünf mechanischen Kennwerte stehen als Spanne da — und jede dieser fünf Spannen ist exakt das Minimum und Maximum der Blätter von Adura und Adura X desselben Herstellers (50 gegen 58, 1460 gegen 1720, 25 gegen 46, 52 gegen 81, 1425 gegen 3650). Das Blatt enthält damit keine einzige eigene Messung, sondern die Hülle zweier anderer Produkte. Sämtliche Werte tragen `low`, und der geführte Wert ist jeweils die Mitte der Spanne. Zudem fehlen thermische Kennwerte vollständig — als einziges der fünfzehn add:north-Blätter.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`.\n\nFinding on this datasheet: All five mechanical values appear as ranges — and each of these five ranges is exactly the minimum and maximum of the same manufacturer's Adura and Adura X sheets (50 against 58, 1460 against 1720, 25 against 46, 52 against 81, 1425 against 3650). The sheet thus contains not a single measurement of its own, but the envelope of two other products. All values carry `low`, and the figure held is the midpoint of each range. Thermal values are moreover missing entirely — the only one of the fifteen add:north sheets where that is so."
+  },
+  "features": {
+    "de": "Der einzige Werkstoff im Bestand mit einem Neutronenabsorber als Füllstoff: Polyamid mit 25 Gewichtsprozent Borcarbid. Solche Compounds werden für Abschirmungen in der Kern- und Medizintechnik eingesetzt. Eine Angabe zur Abschirmwirkung macht das Blatt nicht.",
+    "en": "The only material in the dataset with a neutron absorber as its filler: polyamide with 25 weight percent boron carbide. Such compounds are used for shielding in nuclear and medical technology. The sheet makes no statement about shielding performance."
+  },
+  "datasheet": {
+    "title": "add:north Addbor N25 — Technical Data Sheet",
+    "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AddborN25_TDS_8H-Ujd.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://addnorth.com/",
+  "properties": {
+    "density": {
+      "value": 1.3,
+      "unit": "g/cm³",
+      "testStandard": "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Die Norm im Blatt ist falsch: ISO 527 prüft Zugeigenschaften, nicht die Dichte. Der Zahlenwert selbst ist plausibel und übernommen.",
+        "en": "The standard in the sheet is wrong: ISO 527 tests tensile properties, not density. The figure itself is plausible and has been imported."
+      }
+    },
+    "tensileStrengthXy": {
+      "value": 54,
+      "unit": "MPa",
+      "min": 50,
+      "max": 58,
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch; Blattangabe als Spanne",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 1590,
+      "unit": "MPa",
+      "min": 1460,
+      "max": 1720,
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe als Spanne",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 35.5,
+      "unit": "%",
+      "min": 25,
+      "max": 46,
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe als Spanne",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 66.5,
+      "unit": "MPa",
+      "min": 52,
+      "max": 81,
+      "testStandard": "ISO 178",
+      "conditions": "Blattangabe als Spanne",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2537,
+      "unit": "MPa",
+      "min": 1425,
+      "max": 3650,
+      "testStandard": "ISO 178",
+      "conditions": "Blattangabe als Spanne",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Addbor N25",
+        "title": "add:north Addbor N25 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AddborN25_TDS_8H-Ujd.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/addnorth-tds/. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/addnorth-tds/. Specimen not declared, density standard wrong on every sheet."
+        }
+      }
+    ]
+  }
+}

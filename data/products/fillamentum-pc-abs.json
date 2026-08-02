@@ -1,0 +1,151 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-pc-abs",
+  "materialId": "abs-pc",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum PC/ABS",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
+  },
+  "features": {
+    "de": "Der beste Kälteschlagwert im Bestand: 55 kJ/m² gekerbt bei 23 °C fallen bei −30 °C nur auf 41 kJ/m² — ein Rückgang von 25 %, während ABS im selben Sprung 58 % verliert. Für Aussen- und Fahrzeuganwendungen ist das der entscheidende Unterschied. Das Blatt nennt zudem als eines von wenigen den Wärmeausdehnungskoeffizienten.",
+    "en": "The best low-temperature impact figure in the dataset: 55 kJ/m² notched at 23 °C fall to only 41 kJ/m² at −30 °C — a drop of 25 %, where ABS loses 58 % over the same step. For outdoor and vehicle applications that is the decisive difference. The sheet is also one of the few to give the coefficient of thermal expansion."
+  },
+  "datasheet": {
+    "title": "Fillamentum PC/ABS — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical_Data_Sheet_PC-ABS.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "conditions": "25 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 15,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "220 °C, 10 kg; im Blatt als 15 cm³/10 min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 42,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1,2",
+      "conditions": "Streckspannung, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 7,
+      "unit": "%",
+      "testStandard": "ISO 527-1,2",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1,2",
+      "conditions": "1 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 68,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "2 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 55,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180-1A",
+      "conditions": "23 °C, gekerbt; bei −30 °C 41 kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 53,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "23 °C, gekerbt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 113,
+      "unit": "°C",
+      "testStandard": "ISO 306 B50",
+      "conditions": "50 °C/h; bei 120 °C/h 115 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "clte": {
+      "value": 0.000089,
+      "unit": "1/K",
+      "testStandard": "ISO 11359-2",
+      "conditions": "23 bis 55 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 270,
+      "unit": "°C",
+      "min": 260,
+      "max": 280,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 97,
+      "unit": "°C",
+      "min": 90,
+      "max": 105,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum PC/ABS",
+        "title": "Fillamentum PC/ABS — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical_Data_Sheet_PC-ABS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

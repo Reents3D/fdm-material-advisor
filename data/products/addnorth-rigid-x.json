@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "addnorth-rigid-x",
+  "materialId": "petg-cf",
+  "brand": "add:north",
+  "manufacturer": "add:north 3D filaments AB",
+  "productName": "add:north Rigid X",
+  "origin": "Schweden",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`."
+  },
+  "features": {
+    "de": "Ein kohlenstofffaserverstärktes PETG, das den Steifigkeitsgewinn tatsächlich zeigt: 5120 MPa gegen 1651 MPa beim unverstärkten PETG desselben Herstellers, also gut das Dreifache. Die HDT bleibt dabei bei 82 gegen 78 °C praktisch unverändert — der Beleg dafür, dass Kohlenstofffaser bei PETG Steifigkeit bringt und keine Wärmeformbeständigkeit.",
+    "en": "A carbon-fibre reinforced PETG that actually shows the stiffness gain: 5120 MPa against 1651 MPa for the same manufacturer's unreinforced PETG, a good threefold. The HDT meanwhile stays practically unchanged at 82 against 78 °C — the evidence that carbon fibre brings PETG stiffness and no heat deflection."
+  },
+  "datasheet": {
+    "title": "add:north Rigid X — Technical Data Sheet",
+    "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_rigidX_10waLr.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://addnorth.com/",
+  "properties": {
+    "density": {
+      "value": 1.32,
+      "unit": "g/cm³",
+      "testStandard": "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Die Norm im Blatt ist falsch: ISO 527 prüft Zugeigenschaften, nicht die Dichte. Der Zahlenwert selbst ist plausibel und übernommen.",
+        "en": "The standard in the sheet is wrong: ISO 527 tests tensile properties, not density. The figure itself is plausible and has been imported."
+      }
+    },
+    "tensileStrengthXy": {
+      "value": 52,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 5120,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 89,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 4930,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 82,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Rigid X",
+        "title": "add:north Rigid X — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_rigidX_10waLr.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/addnorth-tds/. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/addnorth-tds/. Specimen not declared, density standard wrong on every sheet."
+        }
+      }
+    ]
+  }
+}

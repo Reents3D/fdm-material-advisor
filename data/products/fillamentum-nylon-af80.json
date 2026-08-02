@@ -1,0 +1,111 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-nylon-af80",
+  "materialId": "pa12",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Nylon AF80 Aramid",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Der Zug-E-Modul ist unglaubwürdig niedrig. Fillamentums UNGEFÜLLTES Nylon FX256 liegt bei 1400 MPa; dieses fasergefüllte Nylon soll bei rund 500 MPa liegen — ein Drittel davon. Eine Faserfüllung erhöht die Steifigkeit, sie senkt sie nicht. Denkbar ist eine Verwechslung mit einem anderen Prüfzustand (das CPE-CF112-Blatt desselben Herstellers nennt für den Modul die sehr langsame Prüfgeschwindigkeit 0,15 mm/min) oder eine Zahlendreherei. Der Wert ist unverändert übernommen und hier markiert — nicht stillschweigend korrigiert.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The tensile modulus is implausibly low. Fillamentum's UNFILLED Nylon FX256 sits at 1400 MPa; this fibre-filled nylon is stated at roughly 500 MPa — a third of that. A fibre filler raises stiffness, it does not lower it. A mix-up with a different test condition is conceivable (the same manufacturer's CPE CF112 sheet gives the very slow test speed of 0.15 mm/min for its modulus) or a transposed figure. The value is imported unchanged and flagged here — not silently corrected."
+  },
+  "features": {
+    "de": "Der einzige aramidverstärkte Werkstoff im Bestand — und einer der wenigen mit einer Schlagzähigkeit, die bei −20 °C STEIGT statt zu fallen (58,8 gegen 53,2 kJ/m²). Das Grundpolymer nennt das Blatt ausdrücklich: Polyamid 12.",
+    "en": "The only aramid-reinforced material in the dataset — and one of the few whose impact strength RISES at −20 °C instead of falling (58.8 against 53.2 kJ/m²). The sheet names the base polymer explicitly: polyamide 12."
+  },
+  "datasheet": {
+    "title": "Fillamentum Nylon AF80 Aramid — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-AF80-Aramid.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 0.99,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "conditions": "20 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 9.9,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "235 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50.4,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 5.8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch, 50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 510,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 53.2,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "20 °C, ungekerbt; bei −20 °C 58,8 kJ/m²",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 245,
+      "unit": "°C",
+      "min": 235,
+      "max": 255,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 100,
+      "unit": "°C",
+      "min": 90,
+      "max": 110,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Nylon AF80 Aramid",
+        "title": "Fillamentum Nylon AF80 Aramid — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-AF80-Aramid.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

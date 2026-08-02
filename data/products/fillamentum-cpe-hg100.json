@@ -1,0 +1,123 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-cpe-hg100",
+  "materialId": "petg",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum CPE HG100",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Zwei Auffälligkeiten. Erstens ist die Bruchspannung mit 48 MPa HÖHER als die Streckspannung mit 47 MPa. Bei Copolyestern ist Verfestigung nach dem Streckpunkt möglich, aber der Abstand ist so klein, dass er ebenso gut eine Rundung sein kann. Zweitens steht der Glasübergang unter ASTM D1525 — das ist die Norm für die VICAT-Erweichung, nicht für den Glasübergang (dafür wäre ASTM D3418, DSC, einschlägig). Der Wert von 90 °C ist als Vicat-Erweichung plausibel, als Glasübergang für ein Copolyester ungewöhnlich hoch.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Two irregularities. First, the stress at break at 48 MPa is HIGHER than the yield stress at 47 MPa. Strain hardening past the yield point is possible in copolyesters, but the gap is small enough to be rounding. Second, the glass transition sits under ASTM D1525 — that is the standard for VICAT softening, not for glass transition (ASTM D3418, DSC, would apply). The figure of 90 °C is plausible as a Vicat softening point but unusually high as a glass transition for a copolyester."
+  },
+  "features": {
+    "de": "Kerbschlagzähigkeit „no break“ nach ASTM D256 bei 23 °C gekerbt — dieses Copolyester bricht im Kerbschlagversuch schlicht nicht. Mit HDT-B 80 °C und einem Glasübergang von 90 °C liegt es zudem deutlich über gewöhnlichem PETG (75 bis 80 °C).",
+    "en": "Notched impact “no break” to ASTM D256 at 23 °C — this copolyester simply does not fracture in the notched impact test. With HDT-B 80 °C and a glass transition of 90 °C it also sits clearly above ordinary PETG (75 to 80 °C)."
+  },
+  "datasheet": {
+    "title": "Fillamentum CPE HG100 — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_CPE-HG100_03012019.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 47,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Streckspannung, 50 mm/min; Bruchspannung 48 MPa (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 150,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "conditions": "50 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 71,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "1,27 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1860,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "1,27 mm/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "im Blatt als ASTM D1525 angegeben (siehe Befund)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 265,
+      "unit": "°C",
+      "min": 255,
+      "max": 275,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 77,
+      "unit": "°C",
+      "min": 70,
+      "max": 85,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "conditions": "3 bis 4 Stunden",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum CPE HG100",
+        "title": "Fillamentum CPE HG100 — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_CPE-HG100_03012019.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

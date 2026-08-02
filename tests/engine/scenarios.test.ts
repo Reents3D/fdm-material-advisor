@@ -208,6 +208,30 @@ describe("Szenario: Brandschutz und ESD", () => {
     for (const id of ["pc", "petg-cf", "abs", "asa"]) expect(surviving).not.toContain(id);
   });
 
+  it("eine nur GESCHÄTZTE Brandschutzklasse erfüllt die Anforderung nicht", () => {
+    // Regression zu einem Befund aus dem Fillamentum-Import: Hart-PVC gilt in der
+    // Literatur als von Haus aus schwer entflammbar, und ein aus der Polymerklasse
+    // abgeleitetes "V-0" haette den Filter passiert. Eine Brandschutzklasse ist aber
+    // eine Aussage ueber ein geprueftes Bauteil bestimmter Dicke - sie darf nicht aus
+    // Lehrbuchwissen entstehen. Der Constraint prueft deshalb die Konfidenz mit.
+    const withEstimatedClass = {
+      ...MATERIALS[0],
+      id: "test-geschaetzt-v0",
+      compliance: {
+        ...(MATERIALS[0].compliance ?? {}),
+        flameRetardancy: {
+          ul94: { value: "V-0", source: "estimate_reasoning", confidence: "estimated" },
+        },
+      },
+    } as (typeof MATERIALS)[number];
+
+    const r = select([withEstimatedClass], { flameClass: "V-0" });
+    expect(ids(r.ranked)).toEqual([]);
+
+    const why = r.rejected[0]!.failed.find((f) => f.constraintId === "flameClass")!;
+    expect(why.key).toBe("constraint.flame.failEstimated");
+  });
+
   it("ESD erfüllt nur ein deklariertes ESD-Compound - Kohlenstofffaser allein zählt nicht", () => {
     const r = select(MATERIALS, { esd: true });
     // Jeder Treffer muss eine deklarierte Einstufung tragen - nicht bloss Kohlenstoff enthalten.

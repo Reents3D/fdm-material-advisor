@@ -1,0 +1,101 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "fillamentum-vinyl-303",
+  "materialId": "pvc",
+  "brand": "Fillamentum",
+  "manufacturer": "Fillamentum Manufacturing Czech s.r.o.",
+  "productName": "Fillamentum Vinyl 303 (PVC)",
+  "origin": "Tschechien",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Zugfestigkeit, Bruchdehnung und Härte stehen unter „10-LA 049“ und „10-LA 031“ — werkseigenen Prüfvorschriften, die nicht veröffentlicht sind. Diese drei Werte sind mit keinem anderen Produkt im Bestand vergleichbar und tragen deshalb `low` statt `medium`. Nur die Vicat-Erweichung steht unter einer öffentlichen Norm. Zudem erwähnt das Blatt die Chlorwasserstoffabspaltung bei Überhitzung nicht, obwohl sie das eigentliche Verarbeitungsrisiko von PVC ist.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Tensile strength, elongation at break and hardness sit under “10-LA 049” and “10-LA 031” — in-house test procedures that are not published. These three values are comparable with no other product in the dataset and therefore carry `low` instead of `medium`. Only the Vicat softening point sits under a public standard. The sheet moreover does not mention hydrogen chloride release on overheating, although that is PVC's actual processing risk."
+  },
+  "datasheet": {
+    "title": "Fillamentum Vinyl 303 (PVC) — Technical Data Sheet",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_Vinyl-303_FI.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://fillamentum.com/collections/",
+  "properties": {
+    "density": {
+      "value": 1.35,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 10,
+      "unit": "g/10min",
+      "conditions": "190 °C, 10 kg; Blattangabe „≥ 10“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 46.1,
+      "unit": "MPa",
+      "testStandard": "werkseigene Methode 10-LA 049",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 13.1,
+      "unit": "%",
+      "testStandard": "werkseigene Methode 10-LA 049",
+      "conditions": "bei Bruch",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hardnessShoreD": {
+      "value": 78,
+      "unit": "Shore D",
+      "testStandard": "werkseigene Methode 10-LA 031",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 71,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "50 °C/h, 5 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 222,
+      "unit": "°C",
+      "min": 215,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 80,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fillamentum Manufacturing Czech s.r.o.",
+        "productName": "Fillamentum Vinyl 303 (PVC)",
+        "title": "Fillamentum Vinyl 303 (PVC) — Technical Data Sheet",
+        "url": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_Vinyl-303_FI.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+        }
+      }
+    ]
+  }
+}
