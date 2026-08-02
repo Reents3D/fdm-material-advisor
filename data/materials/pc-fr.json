@@ -535,19 +535,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 56.99,
+      "value": 53.29,
       "min": 35.99,
       "max": 106.53,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 4 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pc_fr_3djake",
+        "src_price_pc_fr_extrudr",
         "src_price_pc_fr_filamentworld"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (Bambu Lab, Spectrum, 3DXTech) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 3 brands (Bambu Lab, Spectrum, 3DXTech) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 4 Marken (Spectrum, Extrudr, Bambu Lab, 3DXTech) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 4 list prices from 4 brands (Spectrum, Extrudr, Bambu Lab, 3DXTech) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -587,8 +588,21 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Bambu Lab PC FR Black, 1 kg, 56,99 € · Spectrum PC/ABS FR V0 Black, 1 kg, 35,99 €",
-          "en": "2 offers: Bambu Lab PC FR Black, 1 kg, 56.99 € · Spectrum PC/ABS FR V0 Black, 1 kg, 35.99 €"
+          "de": "2 Angebote: Spectrum PC/ABS FR V0 Black, 1 kg, 35,99 € · Bambu Lab PC FR Black, 1 kg, 56,99 €",
+          "en": "2 offers: Spectrum PC/ABS FR V0 Black, 1 kg, 35.99 € · Bambu Lab PC FR Black, 1 kg, 56.99 €"
+        }
+      },
+      {
+        "id": "src_price_pc_fr_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PC-FR",
+        "url": "https://extrudr.com/de/de/products/durapro-pc-fr-v0/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg, 49,58 €",
+          "en": "1 offer: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg, 49.58 €"
         }
       },
       {

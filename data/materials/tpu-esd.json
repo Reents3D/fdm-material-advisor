@@ -511,16 +511,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 129.98,
+      "value": 129.44,
+      "min": 128.9,
+      "max": 129.98,
       "unit": "€/kg",
-      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
+        "src_price_tpu_esd_extrudr",
         "src_price_tpu_esd_3djake"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Extrudr TPU medium ESD Schwarz, 0,5 kg für 64,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
-        "en": "Surveyed, not estimated — but on a single offer: Extrudr TPU medium ESD Schwarz, 0.5 kg for 64.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -550,6 +553,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_tpu_esd_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise TPU-ESD",
+        "url": "https://extrudr.com/de/de/products/flex-medium-esd/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg, 64,45 €",
+          "en": "1 offer: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg, 64.45 €"
+        }
       },
       {
         "id": "src_price_tpu_esd_3djake",

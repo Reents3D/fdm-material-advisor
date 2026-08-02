@@ -474,7 +474,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -529,16 +529,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 78.4,
+      "value": 98.69,
+      "min": 78.4,
+      "max": 118.98,
       "unit": "€/kg",
-      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
-        "src_price_pa12_cf_3djake"
+        "src_price_pa12_cf_3djake",
+        "src_price_pa12_cf_extrudr"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg für 195,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
-        "en": "Surveyed, not estimated — but on a single offer: Fiberlogy Nylon PA12+CF, 2.5 kg for 195.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 2 Marken (Fiberlogy, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 2 brands (Fiberlogy, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -580,6 +583,19 @@
         "note": {
           "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
           "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_cf_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PA12-CF",
+        "url": "https://extrudr.com/de/de/products/durapro-pa12-cf/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg, 59,49 €",
+          "en": "1 offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg, 59.49 €"
         }
       },
       {

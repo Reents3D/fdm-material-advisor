@@ -525,18 +525,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 69.32,
+      "value": 69.66,
       "min": 60.99,
-      "max": 69.99,
+      "max": 77.9,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 4 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
-        "src_price_pa12_3djake"
+        "src_price_pa12_3djake",
+        "src_price_pa12_extrudr"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 2 Marken (Fiberlogy, eSUN) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 2 brands (Fiberlogy, eSUN) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 3 Marken (Fiberlogy, eSUN, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 4 list prices from 3 brands (Fiberlogy, eSUN, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -576,8 +577,21 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · eSUN PA12 White, 1 kg, 69,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 €",
-          "en": "3 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · eSUN PA12 White, 1 kg, 69.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 €"
+          "de": "3 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 € · eSUN PA12 White, 1 kg, 69,99 €",
+          "en": "3 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 € · eSUN PA12 White, 1 kg, 69.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PA12",
+        "url": "https://extrudr.com/de/de/products/durapro-pa12/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg, 54,53 €",
+          "en": "1 offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg, 54.53 €"
         }
       }
     ],

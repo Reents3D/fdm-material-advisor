@@ -16,7 +16,7 @@
  *      Information geht verloren.
  *
  * WAS SICH JETZT AENDERT: DIE ZAHLEN SIND ERHOBEN, NICHT GESCHAETZT
- * `data/prices.json` enthaelt 94 Haendlerangebote zu 27 Werkstoffen, jedes mit Marke,
+ * `data/prices.json` enthaelt 120 Haendlerangebote zu 27 Werkstoffen, jedes mit Marke,
  * Produkt, Spulengewicht, Preis, Uebersichtsseite und Abrufdatum. Der gefuehrte Wert ist
  * der MEDIAN der Angebote — nicht der Mittelwert, damit ein einzelner Industriepreis die
  * Einordnung nicht kippt. `min` und `max` sind das guenstigste und teuerste tatsaechlich
@@ -31,8 +31,8 @@
  * bei PPS-CF (275 statt 179 €/kg), nur diesmal flaechendeckend.
  *
  * WIE VIEL EINE ZAHL WERT IST, HAENGT DARAN, WIE VIELE ANGEBOTE SIE TRAGEN
- *   ab 5 Angeboten  -> `medium`, mit Spanne aus den Angeboten
- *   2 bis 4         -> `low`, mit Spanne aus den Angeboten
+ *   ab 5 Angeboten von mindestens 2 Haendlern -> `medium`, Spanne aus den Angeboten
+ *   sonst ab 2 Angeboten                      -> `low`, Spanne aus den Angeboten
  *   genau 1         -> `low`, OHNE Spanne - aus einem Angebot laesst sich keine
  *                      ableiten, und eine erfundene waere schlimmer als keine
  *   gar keins       -> die Schaetzung bleibt stehen, ausdruecklich als solche markiert
@@ -73,6 +73,15 @@ const SURVEYED = SURVEY.surveyedAt;
  */
 const MIN_OFFERS_RANGE = 2;
 const MIN_OFFERS_MEDIUM = 5;
+/**
+ * Fuenf Angebote von EINEM Haendler sind keine Marktspanne.
+ *
+ * Sichtbar geworden, als der Sammler den Extrudr-Katalog einlas: PC stand danach auf acht
+ * Angeboten - alle aus demselben Shop. Das ist die Preisliste eines Anbieters, nicht der
+ * Markt. Wer daraus `medium` machte, wuerde die Zahl der Produktvarianten mit der Breite
+ * der Erhebung verwechseln.
+ */
+const MIN_RETAILERS_MEDIUM = 2;
 
 /* Konservative Marktspannen fuer die Werkstoffe, zu denen die Erhebung (noch) zu duenn
    ist. Sie richten sich nach den MARKEN, die den Werkstoff hier tragen - nicht nach dem
@@ -118,9 +127,11 @@ function priceFor(id) {
     const range = offers.length >= MIN_OFFERS_RANGE
       ? { min: Math.min(...pk), max: Math.max(...pk) }
       : {};
+    const retailers = new Set(offers.map((o) => o.retailer)).size;
+    const broad = offers.length >= MIN_OFFERS_MEDIUM && retailers >= MIN_RETAILERS_MEDIUM;
     return {
-      surveyed: true, offers, value: median(pk), ...range,
-      confidence: offers.length >= MIN_OFFERS_MEDIUM ? "medium" : "low",
+      surveyed: true, offers, retailers, value: median(pk), ...range,
+      confidence: broad ? "medium" : "low",
     };
   }
   const b = BAND[id];
@@ -218,15 +229,15 @@ for (const f of files) {
   const oq = m.governance.openQuestions ?? [];
   const idx = oq.findIndex((x) => /Preiserhebung/i.test(x.question?.de ?? ""));
   if (idx >= 0) {
-    if (p.offers.length >= MIN_OFFERS_MEDIUM) oq.splice(idx, 1);
+    if (p.confidence === "medium") oq.splice(idx, 1);
     else {
       /* Blockierend bleibt die Frage nur dort, wo GAR KEIN Angebot vorliegt und die
          Zahl damit weiter eine reine Schaetzung ist. Ein oder zwei echte Preise machen
          sie nicht vollstaendig, aber sie nehmen ihr die Sprengkraft. */
       oq[idx].blocking = p.offers.length === 0;
       oq[idx].question = t(
-        `Preiserhebung vertiefen: Bisher ${p.offers.length} Händlerangebot${p.offers.length === 1 ? "" : "e"} erhoben (${SURVEYED}), angestrebt sind fünf. Bis dahin ${p.surveyed ? "trägt der Median dieser Angebote mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
-        `Deepen the price survey: ${p.offers.length} retail offer${p.offers.length === 1 ? "" : "s"} recorded so far (${SURVEYED}), five are the target. Until then ${p.surveyed ? "the median of those offers carries at low confidence" : "the estimate stands"}.`);
+        `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
+        `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
     }
     if (!oq.length) delete m.governance.openQuestions;
   }

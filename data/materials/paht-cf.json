@@ -539,8 +539,8 @@
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 2 Marken (Bambu Lab, Elegoo) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 2 list prices from 2 brands (Bambu Lab, Elegoo) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 2 Marken (Elegoo, Bambu Lab) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 2 brands (Elegoo, Bambu Lab) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -580,8 +580,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 € · Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 €",
-          "en": "2 offers: Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 € · Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 €"
+          "de": "2 Angebote: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 € · Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 €",
+          "en": "2 offers: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 € · Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 €"
         }
       },
       {

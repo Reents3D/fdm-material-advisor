@@ -274,9 +274,15 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
   nicht veröffentlichen, kann hier nur abgeleitet werden — sichtbar gekennzeichnet.
 - **Nur 13 von 38 Typen haben einen Z-Kennwert.** Die Anisotropie ist der Kern dieses
   Werkzeugs, und bei zwei Dritteln des Bestands fehlt die Zahl dazu schlicht.
-- **Die Preise sind erhoben — für 27 von 38 Typen.** 94 Händlerangebote aus dem
+- **Die Preise sind erhoben — für 27 von 38 Typen.** 120 Händlerangebote aus dem
   europäischen Fachhandel, jedes mit Marke, Produkt, Spulengewicht, Preis, Fundstelle und
-  Abrufdatum in [`data/prices.json`](data/prices.json). Geführt ist der Median, die Spanne
+  Abrufdatum in [`data/prices.json`](data/prices.json). `npm run survey:prices` holt sie
+  neu: Das Skript liest die JSON-LD-Daten, die die Shops für Maschinen veröffentlichen,
+  bei einem Aufruf pro Sekunde und mit einem User-Agent, der sagt, wer da liest. Nur
+  Shops, deren robots.txt es erlaubt; wer hinter Bot-Schutz liegt, wird übersprungen und
+  protokolliert, nicht umgangen. Nur acht Typen tragen `medium` — dafür braucht es fünf
+  Angebote von **mindestens zwei** Anbietern, denn fünf Preise aus demselben Shop sind
+  eine Preisliste, kein Markt. Geführt ist der Median, die Spanne
   ist das günstigste bis teuerste gefundene Angebot. Elf Typen haben noch gar kein
   Angebot und tragen weiter eine Schätzung — sichtbar als solche markiert.
   **Die Erhebung hat die vorherigen Schätzungen widerlegt, und zwar einseitig:** 14 von 16

@@ -788,7 +788,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -918,8 +918,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 1 Händlerangebot erhoben (2026-08-02), angestrebt sind fünf. Bis dahin trägt der Median dieser Angebote mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 1 retail offer recorded so far (2026-08-02), five are the target. Until then the median of those offers carries at low confidence."
+          "de": "Preiserhebung vertiefen: Bisher 1 Angebot von 1 Anbieter (2026-08-02). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 1 offer from 1 retailer (2026-08-02). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
         },
         "blocking": false,
         "affectsFields": [

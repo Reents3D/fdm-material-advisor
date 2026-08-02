@@ -786,19 +786,20 @@
       }
     },
     "pricePerKg": {
-      "value": 29.49,
+      "value": 33.99,
       "min": 21.99,
       "max": 45.99,
       "unit": "€/kg",
-      "conditions": "Median aus 8 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 9 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_asa_3djake",
+        "src_price_asa_extrudr",
         "src_price_asa_filamentworld"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 8 Listenpreise von 8 Marken (3DJAKE, Polymaker, Extrudr, SUNLU, AzureFilm, Fiberlogy, FormFutura, 3DXTech) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 8 list prices from 8 brands (3DJAKE, Polymaker, Extrudr, SUNLU, AzureFilm, Fiberlogy, FormFutura, 3DXTech) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 9 Listenpreise von 8 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 9 list prices from 8 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -839,8 +840,21 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "7 Angebote: 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
-          "en": "7 offers: 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
+          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+        }
+      },
+      {
+        "id": "src_price_asa_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise ASA",
+        "url": "https://extrudr.com/de/de/products/durapro-asa/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
+          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
         }
       },
       {

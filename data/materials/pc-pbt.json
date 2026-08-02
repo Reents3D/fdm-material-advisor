@@ -517,17 +517,18 @@
     },
     "pricePerKg": {
       "value": 71.99,
-      "min": 71.99,
+      "min": 71.39,
       "max": 71.99,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
+        "src_price_pc_pbt_extrudr",
         "src_price_pc_pbt_3djake"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 1 Marken (Extrudr) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 2 list prices from 1 brands (Extrudr) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -557,6 +558,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pc_pbt_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PC-PBT",
+        "url": "https://extrudr.com/de/de/products/durapro-pc-pbt/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg, 53,54 €",
+          "en": "1 offer: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg, 53.54 €"
+        }
       },
       {
         "id": "src_price_pc_pbt_3djake",

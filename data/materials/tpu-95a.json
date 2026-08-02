@@ -683,10 +683,10 @@
       "source": [
         "src_price_tpu_95a_3djake"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 5 Marken (3DJAKE, Bambu Lab, Elegoo, SUNLU, GEEETECH) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 5 list prices from 5 brands (3DJAKE, Bambu Lab, Elegoo, SUNLU, GEEETECH) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 5 Marken (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 5 list prices from 5 brands (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -727,8 +727,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: 3DJAKE TPU A95 Schwarz, 0,75 kg, 29,99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34,99 € · Elegoo TPU 95A Translucent, 1 kg, 17,99 € · SUNLU TPU Black, 1 kg, 22,99 € · GEEETECH TPU Black, 1 kg, 19,99 €",
-          "en": "5 offers: 3DJAKE TPU A95 Schwarz, 0.75 kg, 29.99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34.99 € · Elegoo TPU 95A Translucent, 1 kg, 17.99 € · SUNLU TPU Black, 1 kg, 22.99 € · GEEETECH TPU Black, 1 kg, 19.99 €"
+          "de": "5 Angebote: Elegoo TPU 95A Translucent, 1 kg, 17,99 € · GEEETECH TPU Black, 1 kg, 19,99 € · SUNLU TPU Black, 1 kg, 22,99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34,99 € · 3DJAKE TPU A95 Schwarz, 0,75 kg, 29,99 €",
+          "en": "5 offers: Elegoo TPU 95A Translucent, 1 kg, 17.99 € · GEEETECH TPU Black, 1 kg, 19.99 € · SUNLU TPU Black, 1 kg, 22.99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34.99 € · 3DJAKE TPU A95 Schwarz, 0.75 kg, 29.99 €"
         }
       }
     ],

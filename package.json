@@ -51,7 +51,8 @@
     "derive:xxl": "node scripts/derive-xxl-effort.mjs",
     "derive:flame": "node scripts/derive-flame-from-products.mjs",
     "derive:price": "node scripts/derive-price.mjs",
-    "apply:field": "node scripts/apply-field-experience.mjs"
+    "apply:field": "node scripts/apply-field-experience.mjs",
+    "survey:prices": "node scripts/survey-prices.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

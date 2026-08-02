@@ -524,8 +524,8 @@
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (Fiberlogy, Polymaker, eSUN) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 3 brands (Fiberlogy, Polymaker, eSUN) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (eSUN, Polymaker, Fiberlogy) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 3 brands (eSUN, Polymaker, Fiberlogy) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -565,8 +565,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fiberlogy PETG ESD Schwarz, 0,5 kg, 58,99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79,99 € · eSUN PETG-ESD Black, 1 kg, 27,99 €",
-          "en": "3 offers: Fiberlogy PETG ESD Schwarz, 0.5 kg, 58.99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79.99 € · eSUN PETG-ESD Black, 1 kg, 27.99 €"
+          "de": "3 Angebote: eSUN PETG-ESD Black, 1 kg, 27,99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79,99 € · Fiberlogy PETG ESD Schwarz, 0,5 kg, 58,99 €",
+          "en": "3 offers: eSUN PETG-ESD Black, 1 kg, 27.99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79.99 € · Fiberlogy PETG ESD Schwarz, 0.5 kg, 58.99 €"
         }
       },
       {

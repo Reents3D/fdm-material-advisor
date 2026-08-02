@@ -457,7 +457,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -512,16 +512,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 53.32,
+      "value": 53.1,
+      "min": 52.87,
+      "max": 53.32,
       "unit": "€/kg",
-      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
+        "src_price_tpu_85a_extrudr",
         "src_price_tpu_85a_3djake"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg für 39,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
-        "en": "Surveyed, not estimated — but on a single offer: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg for 39.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -551,6 +554,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_tpu_85a_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise TPU 85A",
+        "url": "https://extrudr.com/de/de/products/flex-semisoft/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
+          "en": "1 offer: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+        }
       },
       {
         "id": "src_price_tpu_85a_3djake",
