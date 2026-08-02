@@ -689,6 +689,102 @@ die es gibt.
 
 ---
 
+## ADR-018 — Eine Schätzung darf abstufen, nie ausschliessen
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Der Anwendungsfall „Messebau-Großteil" empfahl **ASA Aero** — ein
+schäumendes Leichtbaufilament für RC-Bauteile — für ein zwei Meter großes Messemodell.
+Die Werkstatt hielt dagegen: PETG ist dafür klar besser, bei reinem Innenraum sogar PLA,
+beide erheblich günstiger, und ASA Aero gibt es nicht auf XXL-Spulen.
+
+Die Nachrechnung zeigte, dass ASA Aero nicht gewonnen, sondern **überlebt** hat:
+
+```
+pla        RAUS: Temperatur   50 gefordert, 40 hinterlegt
+petg       RAUS: Größe      1800 gefordert, 1500 hinterlegt
+asa        RAUS: Größe      1800 gefordert,  600 hinterlegt
+petg-cf    RAUS: Größe      1800 gefordert, 1200 hinterlegt
+greentec   RAUS: Größe      1800 gefordert,  900 hinterlegt
+asa-aero   Platz 1 — als einziger Übriggebliebener, Score 51 von 100
+```
+
+Fünf Ausschlüsse, **kein einziger durch eine Messung gedeckt**. Alle 38 Größenwerte trugen
+`estimate_reasoning` und `estimated`; die Dauergebrauchstemperatur ebenso.
+
+**Entscheidung.** Ein Constraint darf nur auf einem **belegten** Wert ausschliessen.
+
+- Reisst die konservative Schätzung, der gemessene Datenblattwert trägt aber noch, bleibt
+  der Werkstoff **in der Liste und trägt eine Warnung** (`constraint.temperature.tight`).
+- Reisst auch der Datenblattwert, gilt weiterhin der Ausschluss.
+- Gibt es überhaupt keinen belegten Wert, entscheidet die Schätzung — die Asymmetrie aus
+  ADR-006 gilt: Eine falsche Freigabe kostet mehr als eine zu vorsichtige Einstufung.
+
+Damit tun beide Zahlen, wofür sie taugen: **die Schätzung warnt, das Datenblatt
+entscheidet.** Das ist dieselbe Regel wie in ADR-016, dort für die Brandschutzklasse —
+sie war nur nie verallgemeinert worden.
+
+**Zwei Folgefehler, die dabei aufgefallen sind.**
+
+1. `constraintReserve` rechnete auf einem BESTANDENEN Constraint eine negative Reserve
+   („−6 %"), weil der konservative Wert unter der Anforderung lag. Derselbe Widerspruch
+   wie seinerzeit die „−100 % Reserve" auf fehlenden Daten. Die Reserve rechnet jetzt
+   gegen den belegten Wert und liefert sonst `null`.
+2. Die Ergebniskarte schnitt Erklärungen nach vier Einträgen ab — **Stärken verdrängten
+   die Warnung**. Ein Werkstoff, der ohne seinen Vorbehalt in der Liste steht, ist
+   irreführender als einer, der ganz fehlt. Risiken werden jetzt nie weggeschnitten.
+
+---
+
+## ADR-019 — Die Bauteilgrösse ist keine Werkstoffeigenschaft
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Die Frage, die es ausgelöst hat.** „Auf welcher Basis wird entschieden, dass ein
+Material nicht größer als x mm gefertigt werden kann?"
+
+**Die Antwort war: auf keiner.** Alle 38 Werte waren Schätzungen — und sie widersprachen
+einander:
+
+| Verzug | Kammer | hinterlegte Werte |
+|---|---|---|
+| 1 | nicht nötig | PLA 2400 · PLA Tough 900 · TPU 95A 300 |
+| 2 | nicht nötig | PETG 1500 · PETG-CF 1200 · PCTG 900 · PEBA 400 |
+| 3 | empfohlen | **ASA Aero 2000** · PMMA 900 · HIPS 800 · PVC 300 |
+
+ASA Aero stand mit *schlechterer* Verzugsneigung höher als PETG. Genau diese Unstimmigkeit
+hat es an die Spitze der Messebau-Empfehlung gespült.
+
+**Entscheidung.** `maxSensibleEdgeMm` bedeutet nicht mehr „größer geht nicht", sondern
+**„ab hier wird es aufwendig"** — Brim, beheizte Kammer, Segmentierung. Der Wert schliesst
+niemanden mehr aus; er stuft ab und warnt.
+
+Hergeleitet wird er aus **Verzugsneigung und Kammerbedarf** (`scripts/derive-xxl-effort.mjs`)
+statt aus 38 unabhängigen Schätzungen. Ausnahmen sind einzeln begründet: Bei Elastomeren
+begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit; bei schäumenden Filamenten
+die Schaumstruktur.
+
+**Warum nicht der Bauraum als harte Grenze.** Der naheliegende Vorschlag war, den Bauraum
+des Herausgebers (1.800 × 2.400 × 1.800 mm) als Obergrenze zu hinterlegen. Der Inhaber hat
+das zurückgewiesen, und zu Recht:
+
+> „Es ist ja ein unabhängiger Materialberater, daher sollten unsere Maschinen nicht der
+> Maßstab sein."
+
+Das ist ADR-004 in seiner allgemeinen Form: Was den Herausgeber betrifft, darf die
+Bewertung für andere nicht bestimmen. Der Maschinenpark eines Dienstleisters ist für die
+Werkstoffwahl eines fremden Konstrukteurs ohne Belang.
+
+**Was die Herleitung nicht abbildet.** Druckzeit, Spulenlogistik und Handhabung. Das steht
+so in der Notiz an jedem Wert.
+
+**Belegt durch Werkstattpraxis.** PETG läuft einteilig über zwei Meter, ABS auf 2,4-m-Betten
+mit Kammer, und große Messemodelle werden ohnehin segmentiert — deshalb steht
+`segmentationRecommended` jetzt bei allen Werkstoffen auf `true`.
+
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

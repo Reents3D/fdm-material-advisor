@@ -15,6 +15,24 @@ import type { AppState } from "../App";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
 
+type Explanation = SelectionResult["ranked"][number]["explanations"][number];
+
+/**
+ * Welche Erklaerungen eine Karte zeigt, wenn nicht alle hineinpassen.
+ *
+ * Risiken zuerst und vollstaendig - sie sind der Grund, warum ein Werkstoff ueberhaupt
+ * einen Vorbehalt traegt, und seit die Engine bei knapper Temperatur und Bauteilgroesse
+ * abstuft statt auszuschliessen, ersetzen sie einen Ausschluss. Erst danach fuellen
+ * Staerken und Schwaechen auf. Vorher standen Risiken am Ende der Liste und fielen bei
+ * `slice(0, 4)` regelmaessig heraus.
+ */
+function visibleExplanations(all: readonly Explanation[], limit: number): Explanation[] {
+  const usable = all.filter((e) => e.type !== "gap");
+  const risks = usable.filter((e) => e.type === "risk");
+  const rest = usable.filter((e) => e.type !== "risk");
+  return [...risks, ...rest.slice(0, Math.max(0, limit - risks.length))];
+}
+
 export function Results({ result, state, t, navigate, update }: {
   result: SelectionResult; state: AppState; t: T;
   navigate: (p: string, n?: Partial<AppState>) => void;
@@ -114,8 +132,13 @@ export function Results({ result, state, t, navigate, update }: {
                   </div>
                 </div>
 
+                {/* Risiken werden NIE weggeschnitten. Seit die Engine knappe Temperatur
+                    und Bauteilgrösse abstuft statt auszuschliessen, ersetzt die Warnung
+                    einen Ausschluss - ein Werkstoff, der ohne seinen Vorbehalt in der
+                    Liste steht, wäre irreführender als einer, der ganz fehlt. Stärken und
+                    Schwächen füllen nur die Plätze, die danach übrig sind. */}
                 <ul className="grid gap-1 text-sm mt-3">
-                  {rec.explanations.filter((e) => e.type !== "gap").slice(0, i === 0 ? 8 : 4).map((e, k) => (
+                  {visibleExplanations(rec.explanations, i === 0 ? 8 : 4).map((e, k) => (
                     <li key={k} className="flex gap-2 items-start">
                       <span aria-hidden="true" className={cx("mt-0.5 text-xs shrink-0",
                         e.type === "strength" ? "text-good" : e.type === "weakness" ? "text-bad" :

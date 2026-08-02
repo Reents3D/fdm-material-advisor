@@ -157,6 +157,25 @@ Feldreferenz: **[DATA_MODEL.md](DATA_MODEL.md)** · Quellenpolitik: **[SOURCES.m
 Korrekturen sind ausdrücklich willkommen — besonders von Leuten, die die Werkstoffe
 täglich fahren.
 
+### Sie sind Materialhersteller und fehlen hier?
+
+Schicken Sie Ihre gesammelten Datenblätter an **[info@reents3d.de](mailto:info@reents3d.de)**
+— wir pflegen sie ein. Kostenlos und ohne Gegenleistung: Es gibt keine bezahlte
+Platzierung und keine Affiliate-Links, die Reihenfolge entsteht allein aus den
+Anforderungen des Nutzers und den Werten auf Ihren Blättern (siehe
+[Herstellerunabhängig](#herstellerunabhängig)).
+
+Am meisten hilft, was die wenigsten veröffentlichen:
+
+- **Kennwerte an gedruckten Prüfkörpern** statt Rohstoffdaten aus dem Spritzguss
+- **Bauorientierung, Infill und Druckparameter** zu jedem Wert
+- **Z-Werte** — nur eine Handvoll Hersteller im Bestand gibt sie überhaupt an, und
+  genau daran hängt die Aussage, um die es in diesem Werkzeug geht
+- **Prüfnorm und Prüfbedingung** an jeder Zeile
+
+Widersprüche und Auffälligkeiten in einem Blatt werden dokumentiert, nicht geglättet —
+das gilt für alle Marken gleichermaßen. Wer das nicht möchte, schickt besser nichts.
+
 Node 24 (oder mindestens 23.6) — der CSV-Export lädt die TypeScript-Bausteine
 ohne Buildschritt, damit veröffentlichte und heruntergeladene Tabelle aus
 derselben Quelle stammen.

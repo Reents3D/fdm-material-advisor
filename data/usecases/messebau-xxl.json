@@ -8,8 +8,8 @@
     "en": "Large-format exhibition part"
   },
   "context": {
-    "de": "Figuren, Buchstaben, Verkleidungen über einen Meter. Der begrenzende Faktor ist fast nie die Festigkeit, sondern Verzug und Bauzeit.",
-    "en": "Figures, letters, cladding over a metre. The limiting factor is almost never strength but warping and build time."
+    "de": "Figuren, Buchstaben, Verkleidungen über einen Meter. Der begrenzende Faktor ist fast nie die Festigkeit, sondern Verzug, Bauzeit und Nachbearbeitung. Große Modelle werden ohnehin segmentiert — deshalb ist die Kantenlänge hier kein Ausschlusskriterium, sondern eine Aufwandsfrage.",
+    "en": "Figures, letters, cladding over a metre. The limiting factor is almost never strength but warping, build time and finishing. Large models are segmented anyway — which is why edge length here is not an exclusion criterion but a question of effort."
   },
   "requirements": {
     "maxEdgeMm": 1800,
@@ -19,21 +19,22 @@
       "printability": 4,
       "price": 4,
       "surface": 4,
+      "xxl": 3,
       "strength": 1
     }
   },
   "rationale": {
     "maxEdgeMm": {
-      "de": "1800 mm entspricht der Kante, die in einem Stück gefertigt werden soll. Werkstoffe mit starkem Verzug scheiden in dieser Größe praktisch aus.",
-      "en": "1800 mm is the edge to be produced in one piece. Materials with strong warping are effectively out at this size."
+      "de": "1800 mm ist die angestrebte Kante. Das schließt keinen Werkstoff aus: Wer unterhalb seiner Aufwandsschwelle liegt, bekommt einen Hinweis auf Kammer, Brim oder Segmentierung — gefertigt wird er trotzdem. In der Praxis laufen PETG und PLA einteilig über zwei Meter.",
+      "en": "1800 mm is the target edge. It excludes no material: anything below its effort threshold gets a note about chamber, brim or segmentation — it is still manufacturable. In practice PETG and PLA run in one piece beyond two metres."
     },
     "serviceTemperatureC": {
-      "de": "Innenraum, aber Scheinwerfer und Sonneneinstrahlung durch Hallenglas mitgedacht.",
-      "en": "Indoors, but allowing for spotlights and sunlight through hall glazing."
+      "de": "Innenraum, aber Scheinwerfer und Sonneneinstrahlung durch Hallenglas mitgedacht. PLA fällt dadurch nicht heraus: Seine konservative Empfehlung liegt bei 40 °C, die gemessene HDT-B bei 57 °C — für ein unbelastetes Modell trägt das, und der Berater sagt es dazu.",
+      "en": "Indoors, but allowing for spotlights and sunlight through hall glazing. PLA is not excluded by this: its conservative recommendation is 40 °C while the measured HDT-B is 57 °C — enough for an unloaded model, and the advisor says so."
     }
   },
   "governance": {
-    "lastReviewed": "2026-08-01",
-    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Riko Reents (Werkstattpraxis) und Claude Code"
   }
 }

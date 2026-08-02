@@ -81,6 +81,17 @@ export function buildExplanations(
     if (v.key === "constraint.chamber.warn") {
       out.push({ type: "risk", key: "risk.chamberRecommended", params: {}, evidence: v.evidence });
     }
+    /* Die beiden Abstufungen, die seit 2026-08-02 einen Ausschluss ERSETZEN, muessen
+       sichtbar sein. Sonst verschwindet ein Werkstoff nicht mehr aus der Liste, aber der
+       Grund, warum er kritisch ist, verschwindet mit ihm - das waere schlimmer als der
+       Ausschluss vorher. `constraintReserve` faengt sie nicht: Bei beiden liegt der
+       konservative Wert UNTER der Anforderung, die Reserve ist deshalb null. */
+    if (v.key === "constraint.temperature.tight") {
+      out.push({ type: "risk", key: "risk.temperatureTight", params: { ...v.params }, evidence: v.evidence });
+    }
+    if (v.key === "constraint.size.effort") {
+      out.push({ type: "risk", key: "risk.sizeEffort", params: { ...v.params }, evidence: v.evidence });
+    }
     if (v.key === "constraint.chemical.limited") {
       out.push({ type: "risk", key: "risk.chemicalLimited", params: { ...v.params }, evidence: v.evidence });
     }

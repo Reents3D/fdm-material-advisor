@@ -470,21 +470,27 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 400,
+        "value": 600,
         "unit": "mm",
-        "min": 200,
-        "max": 800,
         "source": "estimate_reasoning",
         "confidence": "estimated",
+        "derivedFrom": [
+          "processing.warpingTendency",
+          "processing.chamberRequirement"
+        ],
         "note": {
-          "de": "Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
-          "en": "Estimated from chamber requirement and warping tendency, not backed by our own production."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
       },
       "segmentationRecommended": {
         "value": true,
         "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "confidence": "estimated",
+        "note": {
+          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
+          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+        }
       }
     },
     "reentsPortfolioStatus": {

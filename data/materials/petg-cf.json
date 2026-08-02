@@ -1142,21 +1142,27 @@
     ],
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 1200,
-        "min": 600,
-        "max": 2400,
+        "value": 1800,
         "unit": "mm",
         "source": "estimate_reasoning",
         "confidence": "estimated",
+        "derivedFrom": [
+          "processing.warpingTendency",
+          "processing.chamberRequirement"
+        ],
         "note": {
-          "de": "Geschätzt, NICHT durch eigene Fertigung belegt. Dafür spricht: keine Kammer nötig, geringe Schwindung, gute Schichthaftung. Dagegen: nur 1-kg-Spulen (Spulenwechsel im Dauerlauf), hoher Materialpreis bei großen Massen und die 68-°C-Grenze bei sonnenbeschienenen Bauteilen. Muss durch Werkstatterfahrung ersetzt werden - siehe oq_reents_xxl.",
-          "en": "Estimated, NOT backed by our own production. In favour: no chamber needed, low shrinkage, good layer adhesion. Against: 1 kg spools only (spool changes during long runs), high material cost at large masses, and the 68 °C limit for sun-exposed parts. Must be replaced by shop-floor experience - see oq_reents_xxl."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
       },
       "segmentationRecommended": {
         "value": true,
         "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "confidence": "estimated",
+        "note": {
+          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
+          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+        }
       },
       "joiningRecommendation": {
         "de": "Segmentieren und mit 2K-Epoxid fügen; Klebefugen mit Nut-Feder oder eingelegten Passstiften formschlüssig sichern, da die Klebefuge sonst zur Schwachstelle wird.",

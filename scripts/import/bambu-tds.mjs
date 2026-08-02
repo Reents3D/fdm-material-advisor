@@ -576,11 +576,20 @@ function buildMaterial(id, d, m) {
   const base = d.hdtA ?? d.vicat ?? d.tg;
   if (base != null) {
     const rec = Math.round((d.tg != null && m.polymerClass === "amorphous" ? d.tg - 12 : base - 15) / 5) * 5;
+    /* Die Herleitung gehoert an den Wert. Ohne sie liest sich "PETG bis 55 °C" wie eine
+       Werkstoffeigenschaft - und widerspricht scheinbar den Datenblaettern, die fuer PETG
+       durchweg 63 bis 80 °C nennen. Beides stimmt: Der Datenblattwert ist die
+       Formbestaendigkeitsgrenze im Kurzversuch, unsere Zahl eine Dauergebrauchsempfehlung
+       mit Sicherheitsabstand. Wer nur eine der beiden sieht, zieht den falschen Schluss. */
+    const basis = d.tg != null && m.polymerClass === "amorphous"
+      ? { de: `Glasübergang ${d.tg} °C abzüglich 12 K`, en: `glass transition ${d.tg} °C less 12 K` }
+      : { de: `${d.hdtA != null ? `HDT-A ${d.hdtA} °C` : `Vicat ${d.vicat} °C`} abzüglich 15 K`,
+          en: `${d.hdtA != null ? `HDT-A ${d.hdtA} °C` : `Vicat ${d.vicat} °C`} less 15 K` };
     thermal.recommendedMaxServiceTemperature = q(rec, "°C", {
       min: rec - 10, max: rec + 5, source: "estimate_reasoning", confidence: "estimated",
       conditions: "unbelastet, Luft, dauerhaft",
-      note: t("Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
-              "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."),
+      note: t(`Eigene konservative Empfehlung, nicht der Datenblattwert: ${basis.de}. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch${d.hdtB != null ? `, hier HDT-B ${d.hdtB} °C` : ""}) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Für ein unbelastetes Bauteil liegt die Wahrheit dazwischen; unter mechanischer Last deutlich niedriger ansetzen.`,
+              `Our own conservative recommendation, not the datasheet figure: ${basis.en}. The datasheets state higher numbers (short-term heat deflection${d.hdtB != null ? `, here HDT-B ${d.hdtB} °C` : ""}) — those apply for minutes under a defined load, not for continuous service. For an unloaded part the truth lies in between; assume markedly lower under mechanical load.`),
     });
   }
   if (d.wabs != null) { /* handled in durability */ }

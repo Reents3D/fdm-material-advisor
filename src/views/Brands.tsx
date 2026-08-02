@@ -13,6 +13,7 @@ import { PRODUCTS, productsByMaterial, type Product } from "../data/products";
 import { byId } from "../data/materials";
 import { CHEMICALS } from "../data/chemicals";
 import { Chip, Disclosure, cx, fmt, text } from "../components/ui";
+import { SITE } from "../config/site";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -221,6 +222,37 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
           </p>
         </div>
       </Disclosure>
+
+      {/* Der Bestand waechst nur ueber Datenblaetter. Die Einladung steht deshalb dort,
+          wo ein Hersteller merkt, dass er fehlt - nicht im Impressum. */}
+      <div className="surface p-5 mb-6 border-petrol-300/60 dark:border-petrol-400/30">
+        <h2 className="font-display font-bold text-base mb-1.5">
+          {lang === "de" ? "Sie sind Materialhersteller und fehlen hier?" : "Are you a material manufacturer and missing here?"}
+        </h2>
+        <p className="text-sm muted leading-relaxed max-w-3xl">
+          {lang === "de" ? (
+            <>
+              Schicken Sie Ihre gesammelten Datenblätter an{" "}
+              <a href={`mailto:${SITE.contact.email}?subject=${encodeURIComponent("Datenblätter für den FDM-Materialberater")}`}
+                className="hl hover:underline font-medium">{SITE.contact.email}</a>
+              {" "}— wir pflegen sie ein. Kostenlos und ohne Gegenleistung: Es gibt keine bezahlte Platzierung,
+              die Reihenfolge entsteht allein aus den Anforderungen des Nutzers und den Werten Ihrer Blätter.
+              Am meisten hilft uns, was die wenigsten veröffentlichen — Kennwerte an gedruckten Prüfkörpern,
+              mit Angabe von Bauorientierung, Infill und Druckparametern.
+            </>
+          ) : (
+            <>
+              Send your collected datasheets to{" "}
+              <a href={`mailto:${SITE.contact.email}?subject=${encodeURIComponent("Datasheets for the FDM material advisor")}`}
+                className="hl hover:underline font-medium">{SITE.contact.email}</a>
+              {" "}— we will add them. Free of charge and with nothing expected in return: there is no paid
+              placement, the ranking follows only from the user's requirements and the values on your sheets.
+              What helps most is what fewest publish — values measured on printed specimens, stating build
+              orientation, infill and print parameters.
+            </>
+          )}
+        </p>
+      </div>
 
       <div className="flex flex-wrap gap-1.5 mb-5 no-print">
         {materialIds.map((id) => (

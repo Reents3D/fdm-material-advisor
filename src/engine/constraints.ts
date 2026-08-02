@@ -16,6 +16,22 @@
  *   strict — absence of a declaration IS a failure. Used for regulated properties
  *     (food contact, flame class, ESD). You cannot put an undeclared material in
  *     contact with food because nobody wrote down that you cannot.
+ *
+ * EINE SCHAETZUNG DARF ABSTUFEN, NIE AUSSCHLIESSEN.
+ * Dieselbe Regel wie in ADR-016, dort fuer die Brandschutzklasse: Ein Wert mit
+ * `confidence: "estimated"` schliesst keinen Werkstoff aus. Er warnt.
+ *
+ * Der Anlass war ein Fehler, den erst die Werkstatt gesehen hat. Der Anwendungsfall
+ * "Messebau-Grossteil" empfahl ASA Aero - ein schaeumendes Leichtbaufilament - fuer ein
+ * zwei Meter grosses Messemodell. Nicht weil es passte, sondern weil es als EINZIGES
+ * uebrig blieb: PLA fiel an einer geschaetzten Dauergebrauchstemperatur, PETG, ABS, ASA
+ * und PETG-CF an einer geschaetzten Kantenlaenge. Fuenf Ausschluesse, kein einziger
+ * davon durch eine Messung gedeckt.
+ *
+ * Deshalb gilt jetzt: Ein Constraint prueft zuerst den belegten Wert. Nur wenn AUCH der
+ * belegte Wert reisst, faellt der Werkstoff raus. Reisst nur die konservative Schaetzung,
+ * bleibt er drin und traegt eine Warnung. Beide Zahlen tun damit das, wofuer sie taugen:
+ * die Schaetzung warnt, das Datenblatt entscheidet.
  */
 
 import type { ChemicalResistance, ConstraintVerdict, Flag, Choice, Material, Quantity, Rating, Requirements } from "./types";
@@ -29,6 +45,10 @@ const bool = (n: unknown): boolean | null =>
 
 const UL94_ORDER = ["HB", "V-2", "V-1", "V-0", "5VB", "5VA"];
 
+/** true, wenn der Knoten ausdruecklich als Schaetzung gekennzeichnet ist. */
+const isEstimated = (n: unknown): boolean =>
+  !!n && typeof n === "object" && (n as { confidence?: string }).confidence === "estimated";
+
 /** Effective continuous service ceiling: our conservative figure if we have one. */
 export function serviceCeiling(m: Material): { value: number | null; basis: "recommended" | "hdtB" | "hdtA" | null } {
   const rec = num(m.thermal?.recommendedMaxServiceTemperature);
@@ -38,6 +58,31 @@ export function serviceCeiling(m: Material): { value: number | null; basis: "rec
   const a = num(m.thermal?.hdtA);
   if (a !== null) return { value: a, basis: "hdtA" };
   return { value: null, basis: null };
+}
+
+/**
+ * Die BELEGTE Temperaturgrenze - die, auf die ein Ausschluss sich stuetzen darf.
+ *
+ * `recommendedMaxServiceTemperature` ist bei jedem Werkstoff eine eigene konservative
+ * Schaetzung mit Sicherheitsabstand. Sie taugt als Warnung, nicht als Urteil. Wo sie
+ * geschaetzt ist, entscheidet stattdessen der gemessene Datenblattwert (HDT-B, sonst
+ * HDT-A). Gibt es auch den nicht, gibt es keine Grundlage fuer einen Ausschluss.
+ */
+function documentedCeiling(m: Material): number | null {
+  const rec = m.thermal?.recommendedMaxServiceTemperature;
+  if (rec && !isEstimated(rec)) return num(rec);
+  const b = m.thermal?.hdtB;
+  if (b && !isEstimated(b)) return num(b);
+  const a = m.thermal?.hdtA;
+  if (a && !isEstimated(a)) return num(a);
+  // Vicat steht bewusst am Ende der Kette: Die Eindringpruefung belastet die Probe
+  // schwaecher als der HDT-Versuch und faellt deshalb hoeher aus. Als einziger
+  // vorhandener Messwert taugt sie trotzdem - sie hebt einen Werkstoff nur von
+  // "ausgeschlossen" auf "mit Warnung dabei", nie auf "bedenkenlos empfohlen".
+  // PLA Tough ist genau dieser Fall: Vicat 65 °C belegt, HDT nirgends genannt.
+  const v = m.thermal?.vicatB50;
+  if (v && !isEstimated(v)) return num(v);
+  return null;
 }
 
 export function evaluateConstraints(m: Material, req: Requirements): ConstraintVerdict[] {
@@ -60,9 +105,18 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
     const p: Record<string, string | number> = { required: req.serviceTemperatureC };
     if (value !== null) p.actual = value;
     if (hdtB !== null) p.hdtB = hdtB;
+    const documented = documentedCeiling(m);
     if (value === null) unknown("serviceTemperature", "constraint.temperature.unknown", p, "thermal.hdtB");
     else if (value >= req.serviceTemperatureC)
       pass("serviceTemperature", basis === "recommended" ? "constraint.temperature.pass" : "constraint.temperature.passHdt", p, "thermal.hdtB");
+    else if (documented !== null && documented >= req.serviceTemperatureC) {
+      // Nur die konservative Schaetzung reisst, der Datenblattwert traegt noch. Das ist
+      // eine Warnung, kein Ausschluss: PLA bei 50 °C ist genau dieser Fall - 40 °C
+      // geschaetzt, HDT-B 57 °C gemessen. Fuer ein unbelastetes Messemodell traegt es,
+      // fuer eine belastete Konsole nicht.
+      p.documented = documented;
+      pass("serviceTemperature", "constraint.temperature.tight", p, "thermal.hdtB");
+    }
     else fail("serviceTemperature",
       hdtB === null ? "constraint.temperature.failNoHdt" : "constraint.temperature.fail", p, "thermal.hdtB");
   }
@@ -148,14 +202,27 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
     else fail("esd", "constraint.esd.fail", { actual: cls ?? "nicht deklariert" }, "compliance.esd.classification");
   }
 
-  /* --- part size ---------------------------------------------------------- */
+  /* --- part size -----------------------------------------------------------
+     KEIN AUSSCHLUSSKRITERIUM MEHR. Die Kantenlaenge, ab der ein Werkstoff aufwendig
+     wird, ist keine Werkstoffeigenschaft: Begrenzt wird die Groesse vom Bauraum und
+     vom Verfahren, nicht vom Polymer. Mit beheizter Kammer und Segmentierung laesst
+     sich praktisch jeder dieser Werkstoffe auf zwei Meter und darueber fertigen - das
+     ist Werkstattpraxis, nicht Theorie.
+
+     Der hinterlegte Wert sagt jetzt: ab hier wird es aufwendig (Kammer, Brim,
+     Segmentierung). Er stuft ab und warnt, er streicht nicht. Alle 38 Werte sind
+     ausserdem Schaetzungen - damit greift ohnehin die Regel von oben.
+
+     Ausdruecklich NICHT hinterlegt ist der Bauraum irgendeiner konkreten Maschine.
+     Dieses Werkzeug ist herstellerneutral (ADR-004); der Maschinenpark seines
+     Herausgebers ist kein Massstab fuer die Werkstoffwahl anderer. */
   if (req.maxEdgeMm != null) {
     const xxl = (m.commercial as { xxl?: { maxSensibleEdgeMm?: Quantity } } | undefined)?.xxl?.maxSensibleEdgeMm;
     const v = xxl?.value ?? null;
     const p = { required: req.maxEdgeMm, actual: v ?? 0 };
     if (v === null) unknown("partSize", "constraint.size.unknown", p, "commercial.xxl.maxSensibleEdgeMm");
     else if (v >= req.maxEdgeMm) pass("partSize", "constraint.size.pass", p, "commercial.xxl.maxSensibleEdgeMm");
-    else fail("partSize", "constraint.size.fail", p, "commercial.xxl.maxSensibleEdgeMm");
+    else pass("partSize", "constraint.size.effort", p, "commercial.xxl.maxSensibleEdgeMm");
   }
 
   /* --- flexible / rigid ---------------------------------------------------- */
@@ -197,7 +264,18 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
  */
 export function constraintReserve(v: ConstraintVerdict): number | null {
   if (v.dataMissing || !v.passed) return null;
-  const { required, actual } = v.params as { required?: number; actual?: number };
-  if (typeof required !== "number" || typeof actual !== "number" || required <= 0) return null;
-  return (actual - required) / required;
+  const { required, actual, documented } = v.params as
+    { required?: number; actual?: number; documented?: number };
+  if (typeof required !== "number" || required <= 0) return null;
+
+  /* Ein BESTANDENER Constraint, dessen konservativer Wert unter der Anforderung liegt,
+     hat die Pruefung ueber einen anderen Beleg bestanden - ueber den gemessenen
+     Datenblattwert (`documented`) oder, bei der Bauteilgroesse, weil die Schwelle
+     ueberhaupt nicht ausschliesst. Die Reserve gegen den konservativen Wert waere dann
+     negativ, und eine negative Reserve auf einem bestandenen Constraint ist keine
+     Information, sondern ein Widerspruch. Denselben Fehler gab es schon einmal, als die
+     Reserve auf FEHLENDEN Daten gerechnet wurde ("nur -100 % Reserve"). */
+  const base = typeof documented === "number" ? documented : actual;
+  if (typeof base !== "number" || base < required) return null;
+  return (base - required) / required;
 }

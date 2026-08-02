@@ -214,8 +214,8 @@
       "max": 70,
       "conditions": "unbelastet, Luft, dauerhaft",
       "note": {
-        "de": "Eigene konservative Empfehlung mit Sicherheitsabstand zur Formbeständigkeitsgrenze. Unter mechanischer Last deutlich niedriger ansetzen.",
-        "en": "Our own conservative recommendation with margin to the heat deflection limit. Assume markedly lower under mechanical load."
+        "de": "Eigene konservative Empfehlung, nicht der Datenblattwert: HDT-A 78 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 85 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Für ein unbelastetes Bauteil liegt die Wahrheit dazwischen; unter mechanischer Last deutlich niedriger ansetzen.",
+        "en": "Our own conservative recommendation, not the datasheet figure: HDT-A 78 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 85 °C) — those apply for minutes under a defined load, not for continuous service. For an unloaded part the truth lies in between; assume markedly lower under mechanical load."
       }
     }
   },
@@ -703,21 +703,27 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 2000,
+        "value": 1200,
         "unit": "mm",
         "source": "estimate_reasoning",
         "confidence": "estimated",
-        "min": 1000,
-        "max": 3000,
+        "derivedFrom": [
+          "processing.warpingTendency",
+          "processing.chamberRequirement"
+        ],
         "note": {
-          "de": "Die geringe Dichte ist bei Großbauteilen ein doppelter Hebel: weniger Materialkosten und ein Bauteil, das sich noch von Hand bewegen lässt. Die geringe Z-Festigkeit (21 MPa) verlangt aber saubere Orientierung und grosszügige Wandstärken.",
-          "en": "Low density is a double lever on large parts: less material cost and a part that can still be moved by hand. The low Z strength (21 MPa) demands careful orientation and generous wall thickness."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.\n\nAusnahme von der Herleitung: Schaeumende Filamente werden mit stark reduziertem Materialfluss verarbeitet; die Schaumstruktur macht die Schichthaftung empfindlicher gegen lange Bruecken und grosse Flaechen. Der Werkstoff ist fuer LEICHTE Bauteile gedacht, nicht fuer grosse.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.\n\nException to the derivation: Schaeumende Filamente werden mit stark reduziertem Materialfluss verarbeitet; die Schaumstruktur macht die Schichthaftung empfindlicher gegen lange Bruecken und grosse Flaechen. Der Werkstoff ist fuer LEICHTE Bauteile gedacht, nicht fuer grosse."
         }
       },
       "segmentationRecommended": {
-        "value": false,
+        "value": true,
         "source": "estimate_reasoning",
-        "confidence": "estimated"
+        "confidence": "estimated",
+        "note": {
+          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
+          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+        }
       }
     },
     "reentsPortfolioStatus": {
