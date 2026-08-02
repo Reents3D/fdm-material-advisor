@@ -774,16 +774,18 @@
       }
     },
     "pricePerKg": {
-      "value": 26,
-      "min": 20,
-      "max": 32,
+      "value": 19.99,
+      "min": 19.99,
+      "max": 22.99,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_abs_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (Polymaker, 3DJAKE, Bambu Lab) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 3 brands (Polymaker, 3DJAKE, Bambu Lab) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -816,6 +818,19 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_price_abs_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ABS",
+        "url": "https://www.3djake.de/filament/abs-asa",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Polymaker ABS Grey, 1 kg, 19,99 € · 3DJAKE ABS Schwarz, 1 kg, 19,99 € · Bambu Lab ABS White, 1 kg, 22,99 €",
+          "en": "3 offers: Polymaker ABS Grey, 1 kg, 19.99 € · 3DJAKE ABS Schwarz, 1 kg, 19.99 € · Bambu Lab ABS White, 1 kg, 22.99 €"
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -832,10 +847,10 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
+          "de": "Preiserhebung vertiefen: Bisher 3 Händlerangebote erhoben (2026-08-02), angestrebt sind fünf. Bis dahin trägt der Median dieser Angebote mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 3 retail offers recorded so far (2026-08-02), five are the target. Until then the median of those offers carries at low confidence."
         },
-        "blocking": true,
+        "blocking": false,
         "affectsFields": [
           "commercial.priceIndex"
         ]

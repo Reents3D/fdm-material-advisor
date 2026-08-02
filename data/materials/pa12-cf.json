@@ -474,7 +474,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 4,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -529,16 +529,16 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 72.5,
-      "min": 55,
-      "max": 90,
+      "value": 78.4,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "source": [
+        "src_price_pa12_cf_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg für 195,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
+        "en": "Surveyed, not estimated — but on a single offer: Fiberlogy Nylon PA12+CF, 2.5 kg for 195.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
       }
     }
   },
@@ -568,6 +568,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pa12_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PA12-CF",
+        "url": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
+          "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
+        }
       },
       {
         "id": "field_experience_reents",

@@ -824,16 +824,18 @@
       }
     },
     "pricePerKg": {
-      "value": 57.5,
-      "min": 45,
-      "max": 70,
+      "value": 41.49,
+      "min": 29.99,
+      "max": 59.99,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 8 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_pc_3djake"
+      ],
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 8 Listenpreise von 6 Marken (Polymaker, Elegoo, Bambu Lab, Spectrum, FormFutura, eSUN) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 8 list prices from 6 brands (Polymaker, Elegoo, Bambu Lab, Spectrum, FormFutura, eSUN) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -864,20 +866,22 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pc_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PC",
+        "url": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "8 Angebote: Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · Elegoo PC Black, 1 kg, 29,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC-HT White, 1 kg, 34,99 € · eSUN PC Clear, 0,5 kg, 27,99 €",
+          "en": "8 offers: Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · Elegoo PC Black, 1 kg, 29.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC-HT White, 1 kg, 34.99 € · eSUN PC Clear, 0.5 kg, 27.99 €"
+        }
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_price_survey",
-        "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.priceIndex"
-        ]
-      },
       {
         "id": "oq_second_source",
         "question": {

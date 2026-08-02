@@ -844,16 +844,19 @@
       }
     },
     "pricePerKg": {
-      "value": 95,
-      "min": 70,
-      "max": 120,
+      "value": 81.43,
+      "min": 49.99,
+      "max": 95.98,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 6 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_pa6_cf_3djake",
+        "src_price_pa6_cf_filamentworld"
+      ],
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 6 Listenpreise von 6 Marken (Polymaker, SUNLU, Bambu Lab, FormFutura, eSUN, 3DXTech) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 6 list prices from 6 brands (Polymaker, SUNLU, Bambu Lab, FormFutura, eSUN, 3DXTech) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -886,6 +889,32 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_price_pa6_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PA6-CF",
+        "url": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: Polymaker Fiberon PA6-CF20 Black, 0,5 kg, 44,99 € · SUNLU PA6-CF Black, 1 kg, 49,99 € · Bambu Lab PA6-CF Black, 1 kg, 82,99 € · FormFutura STYX PA6-CF15 Black, 0,5 kg, 47,99 € · eSUN PA-CF Black, 1 kg, 53,99 €",
+          "en": "5 offers: Polymaker Fiberon PA6-CF20 Black, 0.5 kg, 44.99 € · SUNLU PA6-CF Black, 1 kg, 49.99 € · Bambu Lab PA6-CF Black, 1 kg, 82.99 € · FormFutura STYX PA6-CF15 Black, 0.5 kg, 47.99 € · eSUN PA-CF Black, 1 kg, 53.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa6_cf_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise PA6-CF",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg, 59,90 €",
+          "en": "1 offer: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg, 59.90 €"
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -899,17 +928,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_price_survey",
-        "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.priceIndex"
-        ]
-      },
       {
         "id": "oq_second_source",
         "question": {

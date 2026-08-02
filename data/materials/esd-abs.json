@@ -459,7 +459,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -514,16 +514,18 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 90,
-      "min": 70,
-      "max": 110,
+      "value": 107.49,
+      "min": 28.99,
+      "max": 119.99,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 4 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_esd_abs_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 4 Marken (Fiberlogy, Prusa, Nobufil, eSUN) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 4 list prices from 4 brands (Fiberlogy, Prusa, Nobufil, eSUN) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -553,6 +555,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_esd_abs_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ESD-ABS",
+        "url": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Fiberlogy ABS ESD Black, 1 kg, 114,99 € · Prusa Buddy3D ABS ESD Black, 0,75 kg, 89,99 € · Nobufil ABSx ESD Black, 0,5 kg, 49,99 € · eSUN ABS-ESD Black, 1 kg, 28,99 €",
+          "en": "4 offers: Fiberlogy ABS ESD Black, 1 kg, 114.99 € · Prusa Buddy3D ABS ESD Black, 0.75 kg, 89.99 € · Nobufil ABSx ESD Black, 0.5 kg, 49.99 € · eSUN ABS-ESD Black, 1 kg, 28.99 €"
+        }
       },
       {
         "id": "field_experience_reents",

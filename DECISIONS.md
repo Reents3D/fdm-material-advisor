@@ -1196,6 +1196,78 @@ nicht bloß da.
 
 ---
 
+## ADR-031 — Preise werden erhoben, nicht eingeschätzt
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** zehn blockierende offene Fragen
+
+Zehn der zwölf blockierenden offenen Fragen in der Datenbank lauteten wortgleich
+„Preiserhebung über mindestens fünf Anbieter durchführen". Von 38 Werkstoffen war genau
+**einer** an einem echten Angebot belegt — PPS-CF, und den nur, weil ein Werkstattbefund
+einen Ausreißer aufgedeckt hatte.
+
+**Erhoben.** 94 Händlerangebote zu 27 Werkstoffen, aus dem europäischen Fachhandel,
+inklusive Mehrwertsteuer, ohne Versand und ohne Rabattaktionen. Jedes Angebot mit Marke,
+Produkt, **Spulengewicht**, Preis, Fundstelle und Abrufdatum in `data/prices.json`.
+
+Die Spulengröße ist dabei die eigentliche Falle: Dieselbe Marke liefert Spezialfilamente
+auf 0,5- und 0,75-kg-Spulen. Ein Preisschild von 49,99 € bedeutet dann 100 €/kg, nicht 50.
+Ohne Normierung wäre die ganze Erhebung wertlos.
+
+**Der Befund ist unangenehm: die Schätzungen lagen einseitig zu hoch.**
+
+| Werkstoff | geschätzt | erhoben | Abweichung |
+|---|---:|---:|---:|
+| TPU 95A | 40 €/kg | 22,99 €/kg | **+74 %** |
+| PC-FR | 95 €/kg | 56,99 €/kg | **+67 %** |
+| ASA-CF | 57,50 €/kg | 39,98 €/kg | **+44 %** |
+| PC/ABS | 57,50 €/kg | 39,99 €/kg | **+44 %** |
+| PC | 57,50 €/kg | 41,49 €/kg | **+39 %** |
+
+**14 von 16 prüfbaren Werten zu hoch**, nur zwei zu niedrig. Das ist keine Streuung,
+das ist eine Schlagseite — und ihre Ursache ist dieselbe wie beim PPS-CF-Ausrutscher:
+geschätzt wurde nach **Werkstoffklasse**, also nach dem Preispunkt, den ein technischer
+Werkstoff „haben sollte", statt nach dem, was Filament dieser Klasse im Handel
+tatsächlich kostet. Der Unterschied ist der zwischen Industrieware und Consumer-Filament,
+und er beträgt bis zu Faktor zwei.
+
+**Entscheidung.** Der geführte Wert ist der **Median** der Angebote, nicht der Mittelwert —
+ein einzelner Industriepreis darf die Einordnung nicht kippen. `min` und `max` sind das
+günstigste und teuerste tatsächlich gefundene Angebot, keine geschätzte Bandbreite.
+
+Wie viel eine Zahl wert ist, hängt daran, wie viele Angebote sie tragen:
+
+| Angebote | Konfidenz | Spanne |
+|---|---|---|
+| ab 5 | `medium` | aus den Angeboten |
+| 2 bis 4 | `low` | aus den Angeboten |
+| genau 1 | `low` | **keine** — aus einem Angebot lässt sich keine ableiten |
+| keins | `estimated` | Schätzung, ausdrücklich als solche markiert |
+
+Die erste Fassung verlangte drei Angebote und ließ sonst die Schätzung stehen. Das war
+herum falsch: PPS-CF hat zwei Angebote, darunter den Listenpreis im Herstellershop, und
+wäre auf die geschätzten 180 €/kg zurückgefallen, obwohl der Median der beiden echten
+Preise bei 157 liegt. **Eine Schätzung, die nachweislich systematisch zu hoch liegt, darf
+nicht über zwei nachprüfbare Preise gestellt werden.**
+
+**Was die Erhebung NICHT ist.** Die Adresse an jedem Angebot ist die Übersichtsseite, auf
+der es gesehen wurde, nicht die Produktseite. Produktseiten wurden nicht einzeln
+aufgerufen; sie zu zitieren würde eine Genauigkeit vortäuschen, die die Erhebung nicht
+hat. Das steht so in `data/prices.json` unter `limitation`.
+
+**Nebenbefund zur Verfügbarkeit.** Zwei Marken aus dieser Datenbank — Fillamentum und
+add:north — führt der größte deutsche Fachhändler gar nicht mehr. Das gehört mittelfristig
+in die Verfügbarkeitsbewertung, nicht nur in die Preisspalte.
+
+**Neue Quellenart.** `retailer-listing` ist im Schema ergänzt worden. Ein Händlerpreis ist
+weder ein Herstellerdatenblatt noch eine Herstellerseite; ihn als eines von beiden zu
+führen wäre eine Provenienzlüge.
+
+**Was offen bleibt.** Elf Werkstoffe ohne ein einziges Angebot: ASA Aero, PLA Tough, HIPS,
+PP, OBC, PA6, PAHT, PMMA, PVC, PVDF, PEBA. Bei ihnen steht weiter eine Schätzung — und
+die Fußnote sagt jetzt ausdrücklich, dass sie im Zweifel eher zu hoch als zu niedrig ist.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

@@ -828,16 +828,18 @@
       }
     },
     "pricePerKg": {
-      "value": 24,
-      "min": 18,
-      "max": 30,
+      "value": 18.99,
+      "min": 12.49,
+      "max": 25.99,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 7 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_pla_3djake"
+      ],
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 7 Listenpreise von 6 Marken (Polymaker, 3DJAKE, Extrudr, Bambu Lab, Elegoo, eSUN) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 7 list prices from 6 brands (Polymaker, 3DJAKE, Extrudr, Bambu Lab, Elegoo, eSUN) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -870,6 +872,19 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_price_pla_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PLA",
+        "url": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14,99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19,99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25,99 € · Bambu Lab PLA Basic Black, 1 kg, 25,99 € · Elegoo PLA Schwarz, 1 kg, 12,99 € · eSUN PLA+ Black, 1 kg, 18,99 € · eSUN PLA-Basic Black, 1 kg, 12,49 €",
+          "en": "7 offers: Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14.99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19.99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25.99 € · Bambu Lab PLA Basic Black, 1 kg, 25.99 € · Elegoo PLA Schwarz, 1 kg, 12.99 € · eSUN PLA+ Black, 1 kg, 18.99 € · eSUN PLA-Basic Black, 1 kg, 12.49 €"
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -883,17 +898,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_price_survey",
-        "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.priceIndex"
-        ]
-      },
       {
         "id": "oq_second_source",
         "question": {

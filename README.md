@@ -274,11 +274,16 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
   nicht veröffentlichen, kann hier nur abgeleitet werden — sichtbar gekennzeichnet.
 - **Nur 13 von 38 Typen haben einen Z-Kennwert.** Die Anisotropie ist der Kern dieses
   Werkzeugs, und bei zwei Dritteln des Bestands fehlt die Zahl dazu schlicht.
-- **Die Preise sind Bänder, keine Markterhebung.** 38 von 38 Typen tragen einen €/kg-Wert,
-  aber nur **einer** ist an einem konkreten Angebot belegt. Der Rest sind eingeordnete
-  Spannen. Ein Ausrutscher hat das gezeigt: PPS-CF stand bei 275 €/kg, weil nach
-  Werkstoffklasse geschätzt wurde statt nach den Produkten, die tatsächlich in der
-  Datenbank stehen — nachgerechnet sind es 179 €/kg.
+- **Die Preise sind erhoben — für 27 von 38 Typen.** 94 Händlerangebote aus dem
+  europäischen Fachhandel, jedes mit Marke, Produkt, Spulengewicht, Preis, Fundstelle und
+  Abrufdatum in [`data/prices.json`](data/prices.json). Geführt ist der Median, die Spanne
+  ist das günstigste bis teuerste gefundene Angebot. Elf Typen haben noch gar kein
+  Angebot und tragen weiter eine Schätzung — sichtbar als solche markiert.
+  **Die Erhebung hat die vorherigen Schätzungen widerlegt, und zwar einseitig:** 14 von 16
+  prüfbaren Werten lagen zu hoch, mehrere drastisch (TPU 95A +74 %, PC-FR +67 %,
+  ASA-CF +44 %, PC +39 %). Geschätzt wurde nach Werkstoffklasse statt nach dem, was
+  Filament dieser Klasse im Handel wirklich kostet — derselbe Fehler wie zuvor bei
+  PPS-CF (275 statt 179 €/kg), nur flächendeckend.
 - **Werkstatterfahrung deckt 18 von 38 Typen** und nur zwei Felder: Lackhaftung und
   Klebbarkeit. Sie steht ausdrücklich als eigene Quelle (`field_experience_reents`) und
   wird von keinem Importlauf überschrieben. XXL-Grenzen bleiben abgeleitet.

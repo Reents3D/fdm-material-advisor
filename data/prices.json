@@ -1,0 +1,1026 @@
+{
+  "$schema": "../schema/prices.schema.json",
+  "schemaVersion": "1.0.0",
+  "surveyedAt": "2026-08-02",
+  "method": {
+    "de": "Listenpreise aus dem europäischen Fachhandel, inklusive Mehrwertsteuer, ohne Versand und ohne Rabattaktionen. Jedes Angebot ist auf €/kg normiert, weil die Spulengröße die eigentliche Falle ist: Dieselbe Marke liefert Spezialfilamente auf 0,5- oder 0,75-kg-Spulen, und ein Preisschild von 49,99 € bedeutet dann 100 €/kg, nicht 50. Der geführte Wert je Werkstoff ist der MEDIAN der Angebote, nicht der Mittelwert - ein einzelner Industriepreis soll die Einordnung nicht kippen. min und max sind das günstigste und teuerste tatsächlich gefundene Angebot.",
+    "en": "List prices from European specialist retail, VAT included, excluding shipping and promotions. Every offer is normalised to €/kg because spool size is the real trap: the same brand ships specialty filaments on 0.5 or 0.75 kg spools, so a 49.99 € price tag means 100 €/kg, not 50. The carried value per material is the MEDIAN of the offers, not the mean - a single industrial price must not tip the classification. min and max are the cheapest and most expensive offer actually found."
+  },
+  "limitation": {
+    "de": "Die Adresse je Angebot ist die Übersichtsseite, auf der es gesehen wurde, nicht die Produktseite. Das ist Absicht: Produktadressen wurden nicht einzeln aufgerufen und würden hier eine Genauigkeit vortäuschen, die die Erhebung nicht hat. Preise ändern sich täglich; das Abrufdatum steht an jedem Eintrag.",
+    "en": "The URL on each offer is the listing page it was seen on, not the product page. That is deliberate: product pages were not opened individually, and citing them would imply a precision this survey does not have. Prices change daily; every entry carries its retrieval date."
+  },
+  "retailers": {
+    "3djake": {
+      "name": "3DJAKE",
+      "country": "AT/DE",
+      "url": "https://www.3djake.de/"
+    },
+    "filamentworld": {
+      "name": "Filamentworld",
+      "country": "DE",
+      "url": "https://www.filamentworld.de/"
+    },
+    "bambu-eu": {
+      "name": "Bambu Lab EU Store",
+      "country": "DE",
+      "url": "https://eu.store.bambulab.com/"
+    }
+  },
+  "offers": {
+    "pla": [
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "PolyTerra PLA Charcoal Black",
+        "spoolKg": 1.0,
+        "priceEur": 14.99,
+        "pricePerKg": 14.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "ecoPLA Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 19.99,
+        "pricePerKg": 19.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "PLA NX2 Matt Weiß",
+        "spoolKg": 1.0,
+        "priceEur": 25.99,
+        "pricePerKg": 25.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PLA Basic Black",
+        "spoolKg": 1.0,
+        "priceEur": 25.99,
+        "pricePerKg": 25.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Elegoo",
+        "product": "PLA Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 12.99,
+        "pricePerKg": 12.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PLA+ Black",
+        "spoolKg": 1.0,
+        "priceEur": 18.99,
+        "pricePerKg": 18.99,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PLA-Basic Black",
+        "spoolKg": 1.0,
+        "priceEur": 12.49,
+        "pricePerKg": 12.49,
+        "listingUrl": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "petg": [
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PETG Black",
+        "spoolKg": 1.0,
+        "priceEur": 15.99,
+        "pricePerKg": 15.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PETG Basic Black",
+        "spoolKg": 1.0,
+        "priceEur": 22.99,
+        "pricePerKg": 22.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "XPETG Matt Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "PETG Black",
+        "spoolKg": 1.0,
+        "priceEur": 19.99,
+        "pricePerKg": 19.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Easy PETG Black",
+        "spoolKg": 0.85,
+        "priceEur": 19.99,
+        "pricePerKg": 23.52,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "easyPETG Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 24.99,
+        "pricePerKg": 24.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "PETG Schwarz",
+        "spoolKg": 1.1,
+        "priceEur": 39.49,
+        "pricePerKg": 35.9,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "abs": [
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "ABS Grey",
+        "spoolKg": 1.0,
+        "priceEur": 19.99,
+        "pricePerKg": 19.99,
+        "listingUrl": "https://www.3djake.de/filament/abs-asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "ABS Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 19.99,
+        "pricePerKg": 19.99,
+        "listingUrl": "https://www.3djake.de/filament/abs-asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "ABS White",
+        "spoolKg": 1.0,
+        "priceEur": 22.99,
+        "pricePerKg": 22.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "asa": [
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "ASA Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 24.99,
+        "pricePerKg": 24.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "ASA Army Green",
+        "spoolKg": 1.0,
+        "priceEur": 24.99,
+        "pricePerKg": 24.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "DuraPro ASA Anthrazit",
+        "spoolKg": 0.75,
+        "priceEur": 25.99,
+        "pricePerKg": 34.65,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "SUNLU",
+        "product": "ASA Grey",
+        "spoolKg": 1.0,
+        "priceEur": 21.99,
+        "pricePerKg": 21.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "AzureFilm",
+        "product": "ASA Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 22.99,
+        "pricePerKg": 22.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "ASA Matte Black",
+        "spoolKg": 1.0,
+        "priceEur": 33.99,
+        "pricePerKg": 33.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "ApolloX White",
+        "spoolKg": 0.75,
+        "priceEur": 34.49,
+        "pricePerKg": 45.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "3DXTech",
+        "product": "3DXMAX ASA Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 39.9,
+        "pricePerKg": 39.9,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "asa-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "ASA CF Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 36.99,
+        "pricePerKg": 36.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon ASA-CF08 Navy Blue",
+        "spoolKg": 0.5,
+        "priceEur": 19.99,
+        "pricePerKg": 39.98,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "The Filament",
+        "product": "ASA CF Grey",
+        "spoolKg": 1.0,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "Extrudr",
+        "product": "DuraPro Carbon-ASA Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 49.9,
+        "pricePerKg": 66.53,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "3DXTech",
+        "product": "CarbonX Carbon-ASA Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 74.9,
+        "pricePerKg": 99.87,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "petg-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "easyPETG CF Schwarz",
+        "spoolKg": 1.0,
+        "priceEur": 32.99,
+        "pricePerKg": 32.99,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "XPETG CF Carbon",
+        "spoolKg": 0.8,
+        "priceEur": 49.99,
+        "pricePerKg": 62.49,
+        "listingUrl": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pet-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon PET-CF17 Black",
+        "spoolKg": 0.5,
+        "priceEur": 24.99,
+        "pricePerKg": 49.98,
+        "listingUrl": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pctg": [
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "PCTG Pure Transparent",
+        "spoolKg": 1.0,
+        "priceEur": 31.99,
+        "pricePerKg": 31.99,
+        "listingUrl": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "PCTG Rot",
+        "spoolKg": 0.75,
+        "priceEur": 25.99,
+        "pricePerKg": 34.65,
+        "listingUrl": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "PCTG transparent",
+        "spoolKg": 2.5,
+        "priceEur": 75.99,
+        "pricePerKg": 30.4,
+        "listingUrl": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "PCTG anthrazit",
+        "spoolKg": 0.8,
+        "priceEur": 29.99,
+        "pricePerKg": 37.49,
+        "listingUrl": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "greentec": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Green-TEC PRO Schwarz",
+        "spoolKg": 0.8,
+        "priceEur": 44.99,
+        "pricePerKg": 56.24,
+        "listingUrl": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Green-TEC PRO Natur",
+        "spoolKg": 10.0,
+        "priceEur": 391.99,
+        "pricePerKg": 39.2,
+        "listingUrl": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pc": [
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Polymax PC Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 44.99,
+        "pricePerKg": 59.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "PolyLite PC Transparent",
+        "spoolKg": 1.0,
+        "priceEur": 34.99,
+        "pricePerKg": 34.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Elegoo",
+        "product": "PC Black",
+        "spoolKg": 1.0,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PC Black",
+        "spoolKg": 1.0,
+        "priceEur": 42.99,
+        "pricePerKg": 42.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PC 275 Traffic White",
+        "spoolKg": 1.0,
+        "priceEur": 39.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "Kratos PC Traffic Black",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PC-HT White",
+        "spoolKg": 1.0,
+        "priceEur": 34.99,
+        "pricePerKg": 34.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PC Clear",
+        "spoolKg": 0.5,
+        "priceEur": 27.99,
+        "pricePerKg": 55.98,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pc-fr": [
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PC FR Black",
+        "spoolKg": 1.0,
+        "priceEur": 56.99,
+        "pricePerKg": 56.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PC/ABS FR V0 Black",
+        "spoolKg": 1.0,
+        "priceEur": 35.99,
+        "pricePerKg": 35.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "3DXTech",
+        "product": "Firewire FR-ABS Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 79.9,
+        "pricePerKg": 106.53,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "abs-pc": [
+      {
+        "retailer": "3djake",
+        "brand": "SUNLU",
+        "product": "PC-ABS Black",
+        "spoolKg": 1.0,
+        "priceEur": 27.99,
+        "pricePerKg": 27.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "PC-ABS Black",
+        "spoolKg": 1.0,
+        "priceEur": 49.99,
+        "pricePerKg": 49.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "PC/ABS Natural",
+        "spoolKg": 0.75,
+        "priceEur": 29.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "AzureFilm",
+        "product": "PC ABS Natural",
+        "spoolKg": 1.0,
+        "priceEur": 39.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PC/ABS FR V0 White",
+        "spoolKg": 1.0,
+        "priceEur": 35.99,
+        "pricePerKg": 35.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pc-pbt": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "DuraPro PC/PBT Black",
+        "spoolKg": 0.75,
+        "priceEur": 53.99,
+        "pricePerKg": 71.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "DuraPro PC/PBT White",
+        "spoolKg": 0.75,
+        "priceEur": 53.99,
+        "pricePerKg": 71.99,
+        "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pa6-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon PA6-CF20 Black",
+        "spoolKg": 0.5,
+        "priceEur": 44.99,
+        "pricePerKg": 89.98,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "SUNLU",
+        "product": "PA6-CF Black",
+        "spoolKg": 1.0,
+        "priceEur": 49.99,
+        "pricePerKg": 49.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PA6-CF Black",
+        "spoolKg": 1.0,
+        "priceEur": 82.99,
+        "pricePerKg": 82.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "STYX PA6-CF15 Black",
+        "spoolKg": 0.5,
+        "priceEur": 47.99,
+        "pricePerKg": 95.98,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PA-CF Black",
+        "spoolKg": 1.0,
+        "priceEur": 53.99,
+        "pricePerKg": 53.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "3DXTech",
+        "product": "CarbonX Carbon-Nylon (PA6+CF) Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 59.9,
+        "pricePerKg": 79.87,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pa6-gf": [
+      {
+        "retailer": "3djake",
+        "brand": "SUNLU",
+        "product": "PA6-GF Black",
+        "spoolKg": 1.0,
+        "priceEur": 39.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon PA6-GF25 Grey",
+        "spoolKg": 0.5,
+        "priceEur": 34.99,
+        "pricePerKg": 69.98,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PA6-GF White",
+        "spoolKg": 1.0,
+        "priceEur": 62.99,
+        "pricePerKg": 62.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "filamentworld",
+        "brand": "3DXTech",
+        "product": "FibreX Glasfaser-Nylon (PA6-GF30) Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 89.9,
+        "pricePerKg": 119.87,
+        "listingUrl": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pa12": [
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12 Natural",
+        "spoolKg": 1.0,
+        "priceEur": 60.99,
+        "pricePerKg": 60.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PA12 White",
+        "spoolKg": 1.0,
+        "priceEur": 69.99,
+        "pricePerKg": 69.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12 Blue",
+        "spoolKg": 0.75,
+        "priceEur": 51.99,
+        "pricePerKg": 69.32,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pa12-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12+CF",
+        "spoolKg": 2.5,
+        "priceEur": 195.99,
+        "pricePerKg": 78.4,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "paht-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "PAHT-CF Black",
+        "spoolKg": 0.5,
+        "priceEur": 53.99,
+        "pricePerKg": 107.98,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Elegoo",
+        "product": "PAHT-CF Carbon Fiber Black",
+        "spoolKg": 1.0,
+        "priceEur": 43.99,
+        "pricePerKg": 43.99,
+        "listingUrl": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pps-cf": [
+      {
+        "retailer": "bambu-eu",
+        "brand": "Bambu Lab",
+        "product": "PPS-CF",
+        "spoolKg": 0.75,
+        "priceEur": 133.99,
+        "pricePerKg": 178.65,
+        "listingUrl": "https://eu.store.bambulab.com/de/products/pps-cf",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon PPS-CF10 Black",
+        "spoolKg": 3.0,
+        "priceEur": 404.99,
+        "pricePerKg": 135.0,
+        "listingUrl": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "tpu-95a": [
+      {
+        "retailer": "3djake",
+        "brand": "3DJAKE",
+        "product": "TPU A95 Schwarz",
+        "spoolKg": 0.75,
+        "priceEur": 29.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "TPU 95A HF Black",
+        "spoolKg": 1.0,
+        "priceEur": 34.99,
+        "pricePerKg": 34.99,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Elegoo",
+        "product": "TPU 95A Translucent",
+        "spoolKg": 1.0,
+        "priceEur": 17.99,
+        "pricePerKg": 17.99,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "SUNLU",
+        "product": "TPU Black",
+        "spoolKg": 1.0,
+        "priceEur": 22.99,
+        "pricePerKg": 22.99,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "GEEETECH",
+        "product": "TPU Black",
+        "spoolKg": 1.0,
+        "priceEur": 19.99,
+        "pricePerKg": 19.99,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "tpu-98a": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "TPU medium Schwarz (A98)",
+        "spoolKg": 0.75,
+        "priceEur": 34.99,
+        "pricePerKg": 46.65,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "tpu-85a": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "TPU semi-soft Schwarz (A85)",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "tpu-58d": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "TPU hard Schwarz (D58)",
+        "spoolKg": 0.75,
+        "priceEur": 34.99,
+        "pricePerKg": 46.65,
+        "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "esd-pla": [
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PLA ESD Traffic Black",
+        "spoolKg": 0.5,
+        "priceEur": 49.99,
+        "pricePerKg": 99.98,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PLA ESD Dark Grey",
+        "spoolKg": 1.0,
+        "priceEur": 89.99,
+        "pricePerKg": 89.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "PLA ESD Light Grey",
+        "spoolKg": 0.5,
+        "priceEur": 44.99,
+        "pricePerKg": 89.98,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "esd-petg": [
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "PETG ESD Schwarz",
+        "spoolKg": 0.5,
+        "priceEur": 58.99,
+        "pricePerKg": 117.98,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Polymaker",
+        "product": "Fiberon PETG-ESD Black",
+        "spoolKg": 1.0,
+        "priceEur": 79.99,
+        "pricePerKg": 79.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "PETG-ESD Black",
+        "spoolKg": 1.0,
+        "priceEur": 27.99,
+        "pricePerKg": 27.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "esd-abs": [
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "ABS ESD Black",
+        "spoolKg": 1.0,
+        "priceEur": 114.99,
+        "pricePerKg": 114.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Prusa",
+        "product": "Buddy3D ABS ESD Black",
+        "spoolKg": 0.75,
+        "priceEur": 89.99,
+        "pricePerKg": 119.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Nobufil",
+        "product": "ABSx ESD Black",
+        "spoolKg": 0.5,
+        "priceEur": 49.99,
+        "pricePerKg": 99.98,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "eSUN",
+        "product": "ABS-ESD Black",
+        "spoolKg": 1.0,
+        "priceEur": 28.99,
+        "pricePerKg": 28.99,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      }
+    ],
+    "tpu-esd": [
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "TPU medium ESD Schwarz",
+        "spoolKg": 0.5,
+        "priceEur": 64.99,
+        "pricePerKg": 129.98,
+        "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02"
+      }
+    ]
+  }
+}

@@ -511,16 +511,18 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 57.5,
-      "min": 45,
-      "max": 70,
+      "value": 39.99,
+      "min": 27.99,
+      "max": 49.99,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 5 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_abs_pc_3djake"
+      ],
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 5 Marken (SUNLU, Polymaker, Fiberlogy, AzureFilm, Spectrum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 5 list prices from 5 brands (SUNLU, Polymaker, Fiberlogy, AzureFilm, Spectrum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -563,6 +565,19 @@
         "note": {
           "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
           "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
+        "id": "src_price_abs_pc_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ABS-PC",
+        "url": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 €",
+          "en": "5 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 €"
         }
       }
     ],

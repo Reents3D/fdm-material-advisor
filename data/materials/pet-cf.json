@@ -788,7 +788,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 5,
+      "value": 3,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -847,16 +847,16 @@
       }
     },
     "pricePerKg": {
-      "value": 105,
-      "min": 80,
-      "max": 130,
+      "value": 49.98,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "source": [
+        "src_price_pet_cf_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Polymaker Fiberon PET-CF17 Black, 0,5 kg für 24,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
+        "en": "Surveyed, not estimated — but on a single offer: Polymaker Fiberon PET-CF17 Black, 0.5 kg for 24.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
       }
     }
   },
@@ -889,6 +889,19 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_price_pet_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PET-CF",
+        "url": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Polymaker Fiberon PET-CF17 Black, 0,5 kg, 24,99 €",
+          "en": "1 offer: Polymaker Fiberon PET-CF17 Black, 0.5 kg, 24.99 €"
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -905,10 +918,10 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
+          "de": "Preiserhebung vertiefen: Bisher 1 Händlerangebot erhoben (2026-08-02), angestrebt sind fünf. Bis dahin trägt der Median dieser Angebote mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 1 retail offer recorded so far (2026-08-02), five are the target. Until then the median of those offers carries at low confidence."
         },
-        "blocking": true,
+        "blocking": false,
         "affectsFields": [
           "commercial.priceIndex"
         ]

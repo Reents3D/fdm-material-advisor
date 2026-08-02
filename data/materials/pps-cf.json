@@ -594,16 +594,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 178.7,
-      "min": 150,
-      "max": 210,
+      "value": 156.82,
+      "min": 135,
+      "max": 178.65,
       "unit": "€/kg",
-      "conditions": "Bambu Lab PPS-CF, 0,75-kg-Spule, Listenpreis 2026-08-02",
-      "source": "src_price_pps_cf",
-      "confidence": "medium",
+      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_pps_cf_bambu_eu",
+        "src_price_pps_cf_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Am Herstellershop geprüft: 133,99 € für 0,75 kg. Die Spanne bildet die übrigen Marken ab, der geführte Wert ist der geprüfte Listenpreis. Kein Angebot — Preise ändern sich.",
-        "en": "Verified at the manufacturer's shop: 133.99 € for 0.75 kg. The range covers the other brands, the carried value is the verified list price. Not an offer — prices change."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 2 Marken (Bambu Lab, Polymaker) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 2 brands (Bambu Lab, Polymaker) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -635,17 +638,29 @@
         "confidenceCeiling": "estimated"
       },
       {
-        "id": "src_price_pps_cf",
-        "type": "manufacturer-website",
-        "publisher": "Bambu Lab",
-        "productName": "PPS-CF",
-        "title": "Bambu Lab PPS-CF — Listenpreis im Herstellershop",
+        "id": "src_price_pps_cf_bambu_eu",
+        "type": "retailer-listing",
+        "publisher": "Bambu Lab EU Store",
+        "title": "Bambu Lab EU Store — Listenpreise PPS-CF",
         "url": "https://eu.store.bambulab.com/de/products/pps-cf",
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "133,99 € für 0,75 kg Spule.",
-          "en": "133.99 € for a 0.75 kg spool."
+          "de": "1 Angebot: Bambu Lab PPS-CF, 0,75 kg, 133,99 €",
+          "en": "1 offer: Bambu Lab PPS-CF, 0.75 kg, 133.99 €"
+        }
+      },
+      {
+        "id": "src_price_pps_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PPS-CF",
+        "url": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Polymaker Fiberon PPS-CF10 Black, 3 kg, 404,99 €",
+          "en": "1 offer: Polymaker Fiberon PPS-CF10 Black, 3 kg, 404.99 €"
         }
       },
       {

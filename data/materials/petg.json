@@ -786,16 +786,18 @@
       }
     },
     "pricePerKg": {
-      "value": 26,
-      "min": 20,
-      "max": 32,
+      "value": 23.52,
+      "min": 15.99,
+      "max": 35.9,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 7 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_petg_3djake"
+      ],
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 7 Listenpreise von 6 Marken (eSUN, Bambu Lab, Extrudr, Polymaker, Fiberlogy, 3DJAKE) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 7 list prices from 6 brands (eSUN, Bambu Lab, Extrudr, Polymaker, Fiberlogy, 3DJAKE) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -842,6 +844,19 @@
         }
       },
       {
+        "id": "src_price_petg_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PETG",
+        "url": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: eSUN PETG Black, 1 kg, 15,99 € · Bambu Lab PETG Basic Black, 1 kg, 22,99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29,99 € · Polymaker PETG Black, 1 kg, 19,99 € · Fiberlogy Easy PETG Black, 0,85 kg, 19,99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24,99 € · Extrudr PETG Schwarz, 1,1 kg, 39,49 €",
+          "en": "7 offers: eSUN PETG Black, 1 kg, 15.99 € · Bambu Lab PETG Basic Black, 1 kg, 22.99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29.99 € · Polymaker PETG Black, 1 kg, 19.99 € · Fiberlogy Easy PETG Black, 0.85 kg, 19.99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24.99 € · Extrudr PETG Schwarz, 1.1 kg, 39.49 €"
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -855,17 +870,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_price_survey",
-        "question": {
-          "de": "Preiserhebung über mindestens fünf Anbieter durchführen.",
-          "en": "Carry out a price survey across at least five suppliers."
-        },
-        "blocking": true,
-        "affectsFields": [
-          "commercial.priceIndex"
-        ]
-      },
       {
         "id": "oq_second_source",
         "question": {

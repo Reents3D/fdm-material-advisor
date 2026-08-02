@@ -459,7 +459,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -514,16 +514,18 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 80,
-      "min": 60,
-      "max": 100,
+      "value": 89.99,
+      "min": 89.98,
+      "max": 99.98,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_esd_pla_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 1 Marken (Spectrum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 1 brands (Spectrum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -553,6 +555,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_esd_pla_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ESD-PLA",
+        "url": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Spectrum PLA ESD Traffic Black, 0,5 kg, 49,99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89,99 € · Spectrum PLA ESD Light Grey, 0,5 kg, 44,99 €",
+          "en": "3 offers: Spectrum PLA ESD Traffic Black, 0.5 kg, 49.99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89.99 € · Spectrum PLA ESD Light Grey, 0.5 kg, 44.99 €"
+        }
       },
       {
         "id": "field_experience_reents",
