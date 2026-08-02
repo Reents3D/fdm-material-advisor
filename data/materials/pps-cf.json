@@ -590,16 +590,16 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 275,
-      "min": 200,
-      "max": 350,
+      "value": 178.7,
+      "min": 150,
+      "max": 210,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Bambu Lab PPS-CF, 0,75-kg-Spule, Listenpreis 2026-08-02",
+      "source": "src_price_pps_cf",
+      "confidence": "medium",
       "note": {
-        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
-        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
+        "de": "Am Herstellershop geprüft: 133,99 € für 0,75 kg. Die Spanne bildet die übrigen Marken ab, der geführte Wert ist der geprüfte Listenpreis. Kein Angebot — Preise ändern sich.",
+        "en": "Verified at the manufacturer's shop: 133.99 € for 0.75 kg. The range covers the other brands, the carried value is the verified list price. Not an offer — prices change."
       }
     }
   },
@@ -629,6 +629,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pps_cf",
+        "type": "manufacturer-website",
+        "publisher": "Bambu Lab",
+        "productName": "PPS-CF",
+        "title": "Bambu Lab PPS-CF — Listenpreis im Herstellershop",
+        "url": "https://eu.store.bambulab.com/de/products/pps-cf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "133,99 € für 0,75 kg Spule.",
+          "en": "133.99 € for a 0.75 kg spool."
+        }
       }
     ],
     "openQuestions": [

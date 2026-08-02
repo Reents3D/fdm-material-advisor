@@ -470,7 +470,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 5,
+      "value": 3,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -525,9 +525,9 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 120,
-      "min": 90,
-      "max": 150,
+      "value": 72.5,
+      "min": 55,
+      "max": 90,
       "unit": "€/kg",
       "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
       "source": "estimate_reasoning",

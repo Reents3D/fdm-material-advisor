@@ -14,7 +14,7 @@
   "requirements": {
     "chamberAvailable": false,
     "hardenedNozzleAvailable": false,
-    "serviceTemperatureC": 80,
+    "serviceTemperatureC": 60,
     "weights": {
       "printability": 5,
       "lowWarping": 5,
@@ -33,12 +33,12 @@
       "en": "Without a hardened nozzle the fibre-filled grades drop out — otherwise they destroy the nozzle within hours."
     },
     "serviceTemperatureC": {
-      "de": "80 °C ist die Hürde, an der es ohne Kammer eng wird. Genau das soll das Profil zeigen.",
-      "en": "80 °C is the hurdle where it gets tight without a chamber. That is exactly what this profile should reveal."
+      "de": "Innenraum mit Reserve. Vorher standen hier 80 °C — ohne Begründung im Kontext und mit der Folge, dass PETG und PLA aus dem Fall flogen, der genau nach ihnen fragt. Wer wirklich 80 °C braucht, hat eine Temperaturanforderung und keine Kammerfrage.",
+      "en": "Indoors with margin. This previously read 80 °C — unjustified by the context and with the effect that PETG and PLA dropped out of the very case that asks for them. Anyone genuinely needing 80 °C has a temperature requirement, not a chamber question."
     }
   },
   "governance": {
-    "lastReviewed": "2026-08-01",
-    "reviewedBy": "Claude Code - fachliche Freigabe ausstehend"
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Riko Reents (Werkstattpraxis) und Claude Code"
   }
 }

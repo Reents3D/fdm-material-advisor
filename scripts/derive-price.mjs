@@ -26,6 +26,18 @@
  * Das Standardgewicht faellt von 3 auf 1. Der Preis entscheidet nicht, welcher Werkstoff
  * technisch passt - er entscheidet, welcher von den passenden man nimmt.
  *
+ * DER FEHLER, DEN DIE ERSTE FASSUNG GEMACHT HAT
+ * Sie schaetzte nach WERKSTOFFKLASSE statt nach den Produkten, die tatsaechlich in
+ * dieser Datenbank stehen. PPS-CF bekam so 275 €/kg - der Preispunkt industrieller
+ * PPS-Typen. Gefuehrt wird hier aber genau ein PPS-CF-Produkt, und das ist ein
+ * Consumer-Filament: Bambu Lab PPS-CF, 133,99 € fuer 0,75 kg = 178,65 €/kg. Die
+ * Schaetzung lag um mehr als die Haelfte daneben, und sie fiel sofort auf, weil eine
+ * €/kg-Angabe pruefbar ist - was ein Index von 1 bis 5 nie gewesen waere.
+ *
+ * Seither gilt: Die Spanne richtet sich nach den MARKEN, die den Werkstoff hier
+ * tragen. Fuehren wir nur Fillamentum, Extrudr und Fiberlogy, ist es ein
+ * Mittelklassepreis - kein Industriepreis.
+ *
  * DIE GRENZE DIESER ZAHLEN
  * Es sind Marktspannen aus dem europaeischen Fachhandel fuer 1-kg-Spulen, keine
  * Einkaufspreise und kein Angebot. Sie schwanken mit Marke, Farbe, Spulengroesse und
@@ -52,19 +64,29 @@ const BAND = {
   /* faserverstaerkt */
   "petg-cf": [40, 65], "asa-cf": [45, 70], "asa-aero": [45, 70],
   "pet-cf": [80, 130], "pa6-cf": [70, 120], "pa6-gf": [65, 110],
-  "pa12-cf": [90, 150], "paht-cf": [90, 150], "pps-cf": [200, 350],
+  "pa12-cf": [55, 90], "paht-cf": [70, 120], "pps-cf": [150, 210],
 
   /* technische Thermoplaste */
   pa6: [45, 75], pa12: [60, 100], paht: [70, 120],
   pc: [45, 70], "pc-pbt": [60, 95], "pc-fr": [70, 120], "abs-pc": [45, 70],
-  pmma: [45, 75], pvc: [45, 80], pvdf: [120, 200], obc: [50, 85],
+  pmma: [45, 75], pvc: [45, 80], pvdf: [90, 140], obc: [50, 85],
 
   /* Elastomere */
   "tpu-95a": [30, 50], "tpu-98a": [30, 50],
-  "tpu-85a": [35, 60], "tpu-58d": [35, 60], peba: [90, 150],
+  "tpu-85a": [35, 60], "tpu-58d": [35, 60], peba: [60, 100],
 
   /* ESD-Compounds - der Leitzusatz ist der Preistreiber, nicht das Grundpolymer */
-  "esd-pla": [60, 100], "esd-petg": [70, 110], "esd-abs": [70, 110], "tpu-esd": [90, 150],
+  "esd-pla": [60, 100], "esd-petg": [70, 110], "esd-abs": [70, 110], "tpu-esd": [70, 110],
+};
+
+/* Am Herstellershop geprueft, mit Spulengewicht. Diese Werte tragen eine echte Quelle
+   und ueberschreiben die Schaetzung. Die Spulengroesse ist dabei die eigentliche Falle:
+   Bambu liefert Spezialfilamente auf 0,5- und 0,75-kg-Spulen, nicht auf 1 kg. */
+const VERIFIED = {
+  "pps-cf": {
+    price: 133.99, spoolKg: 0.75, brand: "Bambu Lab", product: "PPS-CF",
+    url: "https://eu.store.bambulab.com/de/products/pps-cf", retrieved: "2026-08-02",
+  },
 };
 
 const t = (de, en) => ({ de, en });
@@ -97,13 +119,36 @@ for (const f of files) {
   const b = BAND[m.id];
   if (!b) { missing.push(m.id); continue; }
 
-  const mid = Math.round(((b[0] + b[1]) / 2) * 10) / 10;
+  const v = VERIFIED[m.id];
+  const mid = v
+    ? Math.round((v.price / v.spoolKg) * 10) / 10
+    : Math.round(((b[0] + b[1]) / 2) * 10) / 10;
+
   m.commercial ??= {};
-  m.commercial.pricePerKg = {
-    value: mid, min: b[0], max: b[1], unit: "€/kg",
-    conditions: `1-kg-Spule, europäischer Fachhandel, Stand ${SURVEYED}`,
-    source: "estimate_reasoning", confidence: "estimated", note: NOTE,
-  };
+  if (v) {
+    const srcId = `src_price_${m.id.replace(/-/g, "_")}`;
+    m.governance.sources = (m.governance.sources ?? []).filter((x) => !x.id.startsWith("src_price_"));
+    m.governance.sources.push({
+      id: srcId, type: "manufacturer-website", publisher: v.brand, productName: v.product,
+      title: `${v.brand} ${v.product} — Listenpreis im Herstellershop`,
+      url: v.url, retrievedAt: v.retrieved, confidenceCeiling: "medium",
+      note: t(`${v.price.toFixed(2).replace(".", ",")} € für ${String(v.spoolKg).replace(".", ",")} kg Spule.`,
+              `${v.price.toFixed(2)} € for a ${v.spoolKg} kg spool.`),
+    });
+    m.commercial.pricePerKg = {
+      value: mid, min: b[0], max: b[1], unit: "€/kg",
+      conditions: `${v.brand} ${v.product}, ${String(v.spoolKg).replace(".", ",")}-kg-Spule, Listenpreis ${v.retrieved}`,
+      source: srcId, confidence: "medium",
+      note: t(`Am Herstellershop geprüft: ${v.price.toFixed(2).replace(".", ",")} € für ${String(v.spoolKg).replace(".", ",")} kg. Die Spanne bildet die übrigen Marken ab, der geführte Wert ist der geprüfte Listenpreis. Kein Angebot — Preise ändern sich.`,
+              `Verified at the manufacturer's shop: ${v.price.toFixed(2)} € for ${v.spoolKg} kg. The range covers the other brands, the carried value is the verified list price. Not an offer — prices change.`),
+    };
+  } else {
+    m.commercial.pricePerKg = {
+      value: mid, min: b[0], max: b[1], unit: "€/kg",
+      conditions: `1-kg-Spule, europäischer Fachhandel, Stand ${SURVEYED}`,
+      source: "estimate_reasoning", confidence: "estimated", note: NOTE,
+    };
+  }
   m.commercial.priceIndex = {
     value: indexOf(mid), scale: "priceIndex",
     derivedFrom: ["commercial.pricePerKg"],

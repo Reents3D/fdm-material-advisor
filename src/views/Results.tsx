@@ -5,7 +5,6 @@
 import { useState } from "react";
 import { MATERIALS, byId } from "../data/materials";
 import { whyNot, type SelectionResult } from "../engine";
-import { CRITERIA } from "../engine/criteria";
 import { SITE, trackedUrl } from "../config/site";
 import { Button, Card, Chip, ScoreMeter, Section, cx, fmt, text } from "../components/ui";
 import { tableToCsv } from "../lib/csv";
@@ -279,16 +278,35 @@ function Deltas({ title, rows, tone, t }: {
   );
 }
 
+/* Bestandene Verdicts, die trotzdem einen Vorbehalt tragen - sie unterscheiden
+   "knapp durch" von "glatt durch". */
+const WARN_KEYS = new Set([
+  "constraint.temperature.tight",
+  "constraint.size.effort",
+  "constraint.flame.passViaProduct",
+  "constraint.chamber.warn",
+  "constraint.chemical.limited",
+]);
+
 function WhyNot({ id, state, t }: { id: string; state: AppState; t: T }) {
   const m = byId(id);
   if (!m) return null;
   const verdicts = whyNot(m, state.req);
-  const criteriaLabel = CRITERIA.length; // keep import used for label coverage
-  void criteriaLabel;
+
+  /* Die Ueberschrift muss dem Ergebnis folgen. Sie lautete immer "Warum nicht X?" -
+     auch dann, wenn der Werkstoff jede Pruefung bestanden hat und jede Zeile darunter
+     ein Haekchen trug. Genau so ist ein PETG gelesen worden, das mit einem Vorbehalt
+     zur Temperatur DURCHGEKOMMEN war: als waere es ausgeschlossen worden.
+
+     Drei Faelle, drei Ueberschriften: durchgefallen, knapp bestanden, glatt bestanden. */
+  const failed = verdicts.filter((v) => !v.passed);
+  const caveats = verdicts.filter((v) => v.passed && (v.dataMissing || WARN_KEYS.has(v.key)));
+  const headingKey = failed.length ? "ui.whyNotFor"
+    : caveats.length ? "ui.passesWithCaveat" : "ui.passesAll";
 
   return (
     <Card className="mt-3">
-      <h3 className="font-medium mb-2">{t("ui.whyNotFor", { name: m.identity.name })}</h3>
+      <h3 className="font-medium mb-2">{t(headingKey, { name: m.identity.name })}</h3>
       {verdicts.length === 0 && <p className="text-sm muted">{state.lang === "de" ? "Keine Anforderungen gesetzt." : "No requirements set."}</p>}
       <ul className="space-y-1.5 text-sm">
         {verdicts.map((v, i) => (

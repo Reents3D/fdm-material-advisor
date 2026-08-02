@@ -926,6 +926,53 @@ passenden man nimmt.
 
 ---
 
+## ADR-024 — „Warum nicht X?" darf nicht über einem Häkchen stehen
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Aus der Werkstatt, zu PETG:
+
+> „Bei PETG wird häufig noch *Warum nicht PETG? ✓ Knapp: Unsere konservative
+> Dauereinsatzempfehlung liegt bei 55 °C, gefordert sind 60 °C …* aufgeführt und daher
+> ausgeschlossen. Für die meisten Projekte reicht ein PETG jedoch komplett aus."
+
+Der zitierte Eintrag trägt ein **Häkchen** — er ist eine *bestandene* Prüfung. PETG war
+nicht ausgeschlossen. Aber das Panel überschreibt jede Verdict-Liste mit „Warum nicht X?",
+auch wenn darunter ausschließlich Häkchen stehen. Wer es öffnet, liest einen Ausschluss,
+den es nicht gibt.
+
+Das ist die Kehrseite von ADR-018: Seit die Engine bei knapper Temperatur abstuft statt
+auszuschliessen, gibt es einen dritten Zustand — *bestanden mit Vorbehalt* —, den die
+Oberfläche nicht kannte.
+
+**Entscheidung.** Drei Fälle, drei Überschriften:
+
+| Zustand | Überschrift |
+|---|---|
+| mindestens eine Prüfung gerissen | „Warum nicht {Name}?" |
+| bestanden, aber mit Vorbehalt oder fehlenden Daten | „{Name} erfüllt alle Anforderungen — mit Vorbehalt" |
+| glatt bestanden | „{Name} erfüllt alle Anforderungen" |
+
+**Was der Befund noch aufgedeckt hat.** Die Nachfrage nach PETG führte zu einem Durchlauf
+aller 20 Anwendungsfälle. PETG war aus elf davon ausgeschlossen — die meisten zu Recht
+(Lauge, UV, Lebensmittelkontakt, ESD, Flexibilität). Einer nicht:
+
+**„Serienteil ohne geschlossenen Bauraum" forderte 80 °C Dauertemperatur.** Der Fall
+fragt, was sich ohne beheizte Kammer fertigen lässt — und schloss mit dieser Vorgabe
+ausgerechnet PETG und PLA aus, die kanonischen Antworten. Im Kontext des Falls stand
+keine Begründung für die 80 °C. Auf 60 °C korrigiert führt PETG den Fall mit 75 Punkten an.
+
+Wer wirklich 80 °C braucht, hat eine Temperaturanforderung — keine Kammerfrage.
+
+**Was bleibt.** PETG steht in den übrigen Fällen im Mittelfeld, und das ist kein Fehler:
+Bei „Sichtteil lackiert" (Lackierbarkeit 5) ist PETG als Polyester tatsächlich schwach,
+bei „Lehre und Messmittel" (Steifigkeit 5) tatsächlich mittelmäßig. Die Perzentil-
+Bewertung belohnt Spezialisten — ein Allrounder liegt überall in der Mitte. Ob der
+Berater zusätzlich sagen sollte „PETG täte es auch, deutlich günstiger", ist eine offene
+Frage an die Kompromissansicht.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

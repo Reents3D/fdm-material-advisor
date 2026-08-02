@@ -549,9 +549,9 @@
       }
     },
     "pricePerKg": {
-      "value": 160,
-      "min": 120,
-      "max": 200,
+      "value": 115,
+      "min": 90,
+      "max": 140,
       "unit": "€/kg",
       "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
       "source": "estimate_reasoning",
