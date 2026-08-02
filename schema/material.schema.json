@@ -547,6 +547,12 @@
         },
         "note": {
           "$ref": "#/$defs/i18nText"
+        },
+        "derivedFrom": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

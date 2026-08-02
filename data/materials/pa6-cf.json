@@ -781,10 +781,17 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 5,
+      "value": 4,
       "scale": "priceIndex",
+      "derivedFrom": [
+        "commercial.pricePerKg"
+      ],
       "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "confidence": "estimated",
+      "note": {
+        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
+        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+      }
     },
     "availability": {
       "value": 3,
@@ -830,6 +837,19 @@
       "note": {
         "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
         "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+      }
+    },
+    "pricePerKg": {
+      "value": 95,
+      "min": 70,
+      "max": 120,
+      "unit": "€/kg",
+      "conditions": "1-kg-Spule, europäischer Fachhandel, Stand 2026-08",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Marktspanne im europäischen Fachhandel für 1-kg-Spulen, erhoben 2026-08, über die in dieser Datenbank geführten Marken hinweg. Kein Einkaufspreis und kein Angebot. Die Spanne schwankt mit Marke, Farbe, Spulengröße und Wechselkurs — und sie altert. Korrekturen sind willkommen.",
+        "en": "Market range in European specialist retail for 1 kg spools, surveyed 2026-08, across the brands carried in this database. Not a purchase price and not an offer. The range varies with brand, colour, spool size and exchange rate — and it ages. Corrections are welcome."
       }
     }
   },

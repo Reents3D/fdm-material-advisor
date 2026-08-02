@@ -75,7 +75,7 @@ const AXES: Axis[] = [
   { id: "weather", group: G_DUR, label: ["Witterungsbeständigkeit", "Weather resistance"], unit: "1–5", path: "durability.weatherResistance" },
   { id: "water", group: G_DUR, label: ["Wasseraufnahme", "Water absorption"], unit: "%", log: true, lowerIsBetter: true, path: "durability.waterAbsorption" },
 
-  { id: "price", group: G_COM, label: ["Preisindex", "Price index"], unit: "1–5", lowerIsBetter: true, path: "commercial.priceIndex" },
+  { id: "price", group: G_COM, label: ["Materialpreis", "Material price"], unit: "€/kg", lowerIsBetter: true, path: "commercial.pricePerKg" },
   { id: "avail", group: G_COM, label: ["Verfügbarkeit", "Availability"], unit: "1–5", path: "commercial.availability" },
   { id: "xxl", group: G_COM, label: ["Sinnvolle XXL-Kante", "Sensible XXL edge"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
   { id: "bio", group: G_COM, label: ["Biobasierter Anteil", "Bio-based content"], unit: "%", path: "sustainability.bioBasedContent" },

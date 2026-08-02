@@ -135,7 +135,8 @@ export const FIELDS: FieldDef[] = [
 
   /* --- Kommerziell ------------------------------------------------------- */
   q("commercial", "pricePerKg", "Preis je Kilogramm", "Price per kilogram", "€/kg"),
-  r("commercial", "priceIndex", "Preisniveau", "Price level"),
+  q("commercial", "pricePerKg", "Materialpreis", "Material price", "€/kg"),
+  r("commercial", "priceIndex", "Preisniveau (abgeleitet)", "Price level (derived)"),
   r("commercial", "availability", "Verfügbarkeit", "Availability"),
   r("commercial", "smallSeriesSuitability", "Kleinserientauglichkeit", "Small-series suitability"),
 ];

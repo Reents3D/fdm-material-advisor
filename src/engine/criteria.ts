@@ -175,11 +175,20 @@ export const CRITERIA: Criterion[] = [
     extract: (m) => q(m, "mechanics", "density"),
   },
   {
+    /* Wirtschaftlichkeit, nicht "Preis": Die Zahl ist ein Materialpreis in €/kg, kein
+       Bauteilpreis - Bauzeit, Ausschussrate und Nachbearbeitung stecken nicht darin und
+       dominieren in der Praxis regelmaessig ueber das Filament.
+
+       Der Wert stand frueher als abstrakter Index von 1 bis 5 hier und trug mit Gewicht 3
+       das hoechste Standardgewicht ueberhaupt - in einem WERKSTOFFberater. Er steht jetzt
+       auf 1: Der Preis entscheidet nicht, welcher Werkstoff technisch passt, sondern
+       welchen von den passenden man nimmt. */
     id: "price",
     group: "commercial",
-    higherIsBetter: true,
-    evidence: "commercial.priceIndex",
-    extract: (m) => invert(r(m, "commercial", "priceIndex")),
+    higherIsBetter: false,
+    unit: "€/kg",
+    evidence: "commercial.pricePerKg",
+    extract: (m) => q(m, "commercial", "pricePerKg"),
   },
   {
     id: "availability",
@@ -209,5 +218,8 @@ export const criterionById = (id: string) => CRITERIA.find((c) => c.id === id);
 export const DEFAULT_WEIGHTS: Record<string, number> = {
   strength: 3, stiffness: 2, layerAdhesion: 2, toughness: 2, temperature: 3,
   outdoor: 1, chemical: 1, printability: 3, lowWarping: 2, xxl: 1,
-  surface: 2, paintability: 1, lightweight: 1, price: 3, availability: 2, sustainability: 1,
+  /* Wirtschaftlichkeit stand hier bis 2026-08-02 auf 3 und damit gleichauf mit
+     Festigkeit und Temperatur. In einem Werkstoffberater entscheidet der Materialpreis
+     aber nicht, was passt - nur, welches von den passenden man nimmt. */
+  surface: 2, paintability: 1, lightweight: 1, price: 1, availability: 2, sustainability: 1,
 };

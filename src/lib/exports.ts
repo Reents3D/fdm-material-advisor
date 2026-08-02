@@ -85,7 +85,7 @@ const OVERVIEW_KEYS = [
   "processing.warpingTendency", "processing.hygroscopy", "processing.abrasiveness",
   "durability.uvResistance", "durability.weatherResistance", "durability.waterAbsorption",
   "finishing.surfaceQuality", "finishing.paintAdhesion",
-  "commercial.priceIndex", "commercial.availability",
+  "commercial.pricePerKg", "commercial.priceIndex", "commercial.availability",
 ];
 
 export function overviewColumns(lang: string): Column<Material>[] {

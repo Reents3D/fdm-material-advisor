@@ -13,7 +13,7 @@ const CORE_FIELDS: [string, number][] = [
   ["mechanics.tensileStrengthXy", 3], ["mechanics.tensileModulusXy", 3], ["thermal.hdtB", 3],
   ["processing.nozzleTemperature", 3], ["processing.bedTemperature", 3],
   ["processing.chamberRequirement", 3], ["processing.printability", 3],
-  ["commercial.priceIndex", 3], ["identity.abstract", 3], ["identity.positioning", 3],
+  ["commercial.pricePerKg", 3], ["identity.abstract", 3], ["identity.positioning", 3],
   ["mechanics.tensileStrengthZ", 2], ["mechanics.anisotropyFactorTensile", 2],
   ["mechanics.elongationAtBreakXy", 2], ["mechanics.density", 2],
   ["thermal.glassTransition", 2], ["thermal.hdtA", 2],

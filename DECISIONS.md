@@ -875,6 +875,57 @@ im Verdict.
 
 ---
 
+## ADR-022 — Wirtschaftlichkeit in €/kg, und nicht in der ersten Reihe
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Aus der Werkstatt: *„Preis sollte nicht primär mit drin sein, da es ja ums
+Material geht. Also Wirtschaftlichkeit vielleicht einfach auf Basis von einem einfachen
+Scoring basiert auf Preis pro kg vom Material."*
+
+Der Blick in die Daten gab dem recht — doppelt:
+
+1. **Der Preis trug mit Gewicht 3 das höchste Standardgewicht überhaupt**, gleichauf mit
+   Festigkeit, Temperatur und Druckbarkeit. In einem *Werkstoff*berater.
+2. **Die Verteilung war entartet:** 29 der 38 Werkstoffe standen auf `priceIndex` 4 oder 5,
+   genau einer auf 1. Der Index unterschied damit praktisch nur „PLA" von „alles andere"
+   und schob PLA in fast jeder Standardabfrage nach oben.
+
+**Entscheidung.**
+
+- Der Preis wird als **€/kg mit Spanne** geführt (`commercial.pricePerKg`), nicht als
+  abstrakte Fünferskala.
+- Das **Standardgewicht fällt von 3 auf 1**.
+- Die Beschriftung heisst **Wirtschaftlichkeit**, nicht „Preis" — die Zahl ist ein
+  Materialpreis, kein Bauteilpreis.
+- `priceIndex` bleibt für die grobe Anzeige, wird aber aus den €/kg **abgeleitet**
+  (Quintile über das Feld). Damit können die beiden Angaben nicht mehr auseinanderlaufen,
+  und die Verteilung ist konstruktionsbedingt gleichmäßig (9·9·5·8·7 statt 1·3·5·18·11).
+
+**Warum €/kg besser ist als ein Index, obwohl beide geschätzt sind.**
+
+| | Index 1–5 | €/kg |
+|---|---|---|
+| nachprüfbar | nein | ja — jeder kann es gegen einen Shop halten |
+| korrigierbar | nein | ja — eine falsche Spanne ist benennbar |
+| Verhältnis erhalten | nein, Faktor 5 maximal | ja — PLA zu PPS-CF ist Faktor 11 |
+
+Der Einwand „das ist doch auch nur geschätzt" trifft die Konfidenz, nicht den Nutzen. Eine
+prüfbare Schätzung ist etwas anderes als eine unprüfbare.
+
+**Die Grenze steht am Wert.** Es sind Marktspannen aus dem europäischen Fachhandel für
+1-kg-Spulen mit Erhebungsdatum — keine Einkaufspreise, kein Angebot, und sie altern. Sie
+tragen `estimated`. Nicht enthalten sind Bauzeit, Ausschussrate und Nachbearbeitung, die in
+der Praxis regelmäßig über das Filament dominieren.
+
+**Wirkung auf die Rangfolge.** Die Standardabfrage lieferte vorher PLA als Sieger; jetzt
+stehen ASA-CF (65), GreenTEC (62), PLA (62) und PLA-Tough (62) praktisch gleichauf. Der
+Preis entscheidet nicht mehr, welcher Werkstoff technisch passt — nur noch, welchen von den
+passenden man nimmt.
+
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |
@@ -883,3 +934,4 @@ im Verdict.
 | ADR-009 | Schwellenwerte der Verfahrensweiche (aktuell in `processSwitch.ts` als Konstanten dokumentiert) | wenn sie strittig werden |
 | ADR-010 | Versionierung der Datenbank und Umgang mit Breaking Changes im Schema | Phase 4 |
 | ADR-011 | Default-Gewichtungen je Persona (Messebau, Konstruktion, Einkauf) | mit dem Use-Case-Katalog |
+| ADR-023 | Kaeltezaehigkeit als eigenes Kriterium: `toughness` liest die Bruchdehnung, und TPU gewinnt den Anwendungsfall Kaelte deshalb, weil es sich dehnt — nicht weil es Kaelte aushaelt. Massgeblich waere die Kerbschlagzaehigkeit bei −30 °C, die seit dem Fillamentum-Import fuer mehrere Werkstoffe vorliegt. | bei der fachlichen Freigabe der Anwendungsfaelle |
