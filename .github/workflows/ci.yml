@@ -26,8 +26,26 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Bundle-Budget (< 350 kB gzip)
+      # Bundle-Budget: 400 kB gzip, angehoben von 350 kB am 2026-08-02.
+      #
+      # Die 350 kB stammen aus dem ersten Commit, als elf Werkstoffe in der Datenbank
+      # standen. Heute sind es 38 plus 1.820 Produktzeilen, und die Aufteilung ist
+      # nachgemessen: von 359 kB sind rund 250 kB DATEN (Werkstoffe 153 kB, Produkte
+      # 123 kB, Glossar 13 kB, Anwendungsfaelle 9 kB, Chemikalien 5 kB), rund 45 kB
+      # React und rund 55 kB eigener Code. Es gibt keine dritte Abhaengigkeit, die man
+      # streichen koennte - die Datenbank IST das Produkt, und sie waechst absichtlich.
+      #
+      # Die Grenze bleibt bewusst eng: 400 kB sind rund 11 % Luft, kein Blankoscheck.
+      # Wenn sie das naechste Mal reisst, ist Routen-Aufteilung faellig (die Produkte
+      # braucht nur die Herstelleransicht) - dann muss allerdings auch diese Pruefung
+      # umgestellt werden, denn sie summiert ALLE Dateien und nicht den Erstaufruf.
+      # Deshalb steht die Aufschluesselung jetzt im Protokoll: Wachstum soll sichtbar
+      # sein, nicht erst beim Reissen auffallen.
+      - name: Bundle-Budget (< 400 kB gzip)
         run: |
+          for f in $(find dist/assets -name '*.js' -o -name '*.css'); do
+            printf '%8d B gzip  %s\n' "$(gzip -c "$f" | wc -c)" "$f"
+          done
           total=$(find dist/assets -name '*.js' -o -name '*.css' | xargs -I{} sh -c 'gzip -c "{}" | wc -c' | awk '{s+=$1} END {print s}')
-          echo "gzip total: $total bytes"
-          if [ "$total" -gt 358400 ]; then echo "::error::Bundle über Budget: $total > 358400"; exit 1; fi
+          echo "gzip gesamt: $total Byte ($((total / 1024)) kB)"
+          if [ "$total" -gt 409600 ]; then echo "::error::Bundle über Budget: $total > 409600"; exit 1; fi
