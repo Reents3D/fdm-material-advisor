@@ -93,19 +93,36 @@ const MAX_COMPARE = 5;
 const MAX_CHEMICALS = CHEMICALS.length;
 /** Nur bekannte Kriterien duerfen ein Gewicht bekommen - fremde Schluessel gar nicht. */
 const CRITERION_IDS = new Set(CRITERIA.map((c) => c.id));
+/** Die vier Klassen, die die Engine kennt. Alles andere ist keine Brandschutzklasse. */
+export const FLAME_CLASSES = ["V-0", "V-1", "V-2", "HB"] as const;
+/** Medien-Kennungen aus dem Katalog — ein erfundener Name gehoert nicht in eine
+    Begruendungszeile, auch wenn er dort nur Text ist und nichts ausfuehren kann. */
+const CHEMICAL_IDS = new Set(CHEMICALS.map((c) => c.id));
 /** Gewichte sind Regler von 0 bis 5. Alles andere ist kein Gewicht. */
 const clampWeight = (v: number): number =>
   Number.isFinite(v) ? Math.min(5, Math.max(0, v)) : 0;
 
-/** Wiederholungen raus, dann kappen - in dieser Reihenfolge, sonst kappt man Duplikate. */
-const idList = (raw: string | null, max: number): string[] =>
+/** Wiederholungen raus, dann kappen - in dieser Reihenfolge, sonst kappt man Duplikate.
+    Exportiert, weil der Explorer seine eigenen Listen aus der Adresszeile liest und
+    dieselbe Grenze braucht - zwei Fassungen waeren zwei Grenzen. */
+export const idList = (raw: string | null, max: number): string[] =>
   [...new Set((raw ?? "").split(",").filter(Boolean))].slice(0, max);
 
 /** Exportiert, weil das die einzige Stelle ist, an der fremde Eingaben hereinkommen -
     eine Grenze ohne Test ist eine Grenze auf Zuruf. Siehe tests/lib/url-input.test.ts. */
 export function stateFromParams(params: URLSearchParams): AppState {
   const req: Requirements = {};
-  const n = (k: string) => (params.has(k) ? Number(params.get(k)) : undefined);
+  /* NaN und Infinity sind gueltiges JavaScript und kamen ungebremst durch: `Number("abc")`
+     ist NaN, `Number("Infinity")` ist Infinity. Beides landete in Meldungen ("gefordert
+     NaN °C"). Dieselbe Absicherung wie in `clampWeight` - dort war es schon einmal ein
+     Befund, hier fehlte sie noch fuer die sieben Zahlenfelder. Negative Anforderungen
+     gibt es fachlich nicht: keine Temperatur unter dem absoluten Nullpunkt, keine
+     Stueckzahl unter null. */
+  const n = (k: string) => {
+    if (!params.has(k)) return undefined;
+    const v = Number(params.get(k));
+    return Number.isFinite(v) ? Math.max(0, v) : undefined;
+  };
   const b = (k: string) => (params.has(k) ? params.get(k) === "1" : undefined);
 
   req.serviceTemperatureC = n("temp");
@@ -124,13 +141,25 @@ export function stateFromParams(params: URLSearchParams): AppState {
   req.requiresIsotropic = b("isotropic");
   if (params.get("flex") === "1") req.flexible = true;
   else if (params.get("rigid") === "1") req.flexible = false;
-  if (params.get("flame")) req.flameClass = params.get("flame") as Requirements["flameClass"];
+  /* DIE BRANDSCHUTZKLASSE MUSS GEPRUEFT WERDEN, NICHT NUR GECASTET.
+     Vorher stand hier ein blanker Typ-Cast: Jeder beliebige String wurde als Klasse
+     uebernommen. In `evaluateConstraints` liefert `UL94_ORDER.indexOf(...)` fuer einen
+     unbekannten Wert dann -1, und die Freigabebedingung `have >= want` wird damit fuer
+     JEDES Material wahr, das irgendeine Klasse traegt - auch fuer ein nur HB-eingestuftes.
+     Ein Link mit `flame=V0` (ohne Bindestrich, auf den ersten Blick unauffaellig) haette
+     die Brandschutzfilterung vollstaendig ausgehebelt und "erfuellt V0" unter Werkstoffe
+     geschrieben, die es nicht erfuellen. In einem Werkzeug, das ausdruecklich fuer die
+     Brandschutzauswahl beworben wird, ist das der gefaehrlichste denkbare Fehler. */
+  const flame = params.get("flame");
+  if (flame && (FLAME_CLASSES as readonly string[]).includes(flame)) {
+    req.flameClass = flame as Requirements["flameClass"];
+  }
   /* Die Lastannahme gehoert in den Link. Sie entscheidet, welche Zahl die Temperaturgrenze
      setzt - ein geteiltes Ergebnis ohne sie waere ein anderes Ergebnis. */
   const load = params.get("load");
   if (load === "none" || load === "sustained") req.thermalLoad = load;
 
-  const chemicals = idList(params.get("chem"), MAX_CHEMICALS);
+  const chemicals = idList(params.get("chem"), MAX_CHEMICALS).filter((c) => CHEMICAL_IDS.has(c));
   if (chemicals.length) req.chemicals = chemicals;
 
   /* `wexact` heisst: Die uebergebenen Gewichte sind vollstaendig, nicht Abweichungen vom

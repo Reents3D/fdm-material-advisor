@@ -19,6 +19,7 @@ import { MATERIALS } from "../data/materials";
 import type { Material } from "../engine/types";
 import { Card, Chip, Disclosure, cx, fmt } from "../components/ui";
 import type { Lang } from "../i18n";
+import { idList } from "../App";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
 
@@ -112,8 +113,14 @@ export function Explorer({ t, lang, params, navigate }: {
 
   const allFamilies = useMemo(
     () => [...new Set(MATERIALS.map((m) => m.identity.family))].sort(), []);
-  const hidden = new Set((params.get("axf") ?? "").split(",").filter(Boolean));
-  const pinned = new Set((params.get("axp") ?? "").split(",").filter(Boolean));
+  /* GEKAPPT WIE JEDE ANDERE LISTE AUS DER ADRESSZEILE.
+     `cmp` und `chem` werden in App.tsx begrenzt, weil ein geteilter Link mit
+     zehntausend Eintraegen den Tab lahmlegt. Diese beiden Listen lasen ihre Werte
+     aber direkt aus `params` und gingen an der Grenze vorbei - dieselbe Fehlerklasse,
+     nur an der Stelle, die beim ersten Mal uebersehen wurde. Mehr als alle Familien
+     verstecken oder alle Werkstoffe anheften kann niemand wollen. */
+  const hidden = new Set(idList(params.get("axf"), allFamilies.length));
+  const pinned = new Set(idList(params.get("axp"), MATERIALS.length));
 
   const toggleFamily = (f: string) => {
     const next = new Set(hidden);

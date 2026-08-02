@@ -87,3 +87,48 @@ describe("Eingaben aus der URL", () => {
     expect(parse("temp=60&load=irgendwas").req.thermalLoad).toBeUndefined();
   });
 });
+
+describe("Sicherheitsprüfung 2026-08-02", () => {
+  /* Drei Befunde einer Prüfung des gesamten Quelltextes. Alle drei haben denselben
+     Ursprung: Die Adresszeile ist die einzige Eingabe, die von aussen kommt, und ein
+     BÖSARTIGER geteilter Link ist damit der einzige realistische Angriffsweg. */
+
+  it("nimmt nur die vier echten Brandschutzklassen an", () => {
+    /* DER ERNSTESTE DER DREI. Vorher stand ein blanker Typ-Cast da. Ein unbekannter
+       Wert liefert in der Engine `UL94_ORDER.indexOf(...) === -1`, und die Bedingung
+       `have >= want` wird damit für JEDES Material wahr, das irgendeine Klasse trägt —
+       auch für ein nur HB-eingestuftes. Ein Link mit `flame=V0` (ohne Bindestrich, auf
+       den ersten Blick unauffällig) hätte "erfüllt V0" unter Werkstoffe geschrieben,
+       die es nicht erfüllen. In einem Werkzeug für die Brandschutzauswahl ist das der
+       gefährlichste denkbare Fehler. */
+    for (const gut of ["V-0", "V-1", "V-2", "HB"]) {
+      expect(stateFromParams(new URLSearchParams(`flame=${gut}`)).req.flameClass).toBe(gut);
+    }
+    for (const boese of ["V0", "v-0", "A-1", "__proto__", "", "5VA"]) {
+      expect(stateFromParams(new URLSearchParams(`flame=${boese}`)).req.flameClass,
+        boese).toBeUndefined();
+    }
+  });
+
+  it("lässt kein NaN und kein Infinity in die Anforderungen", () => {
+    // `Number("Infinity")` ist gültiges JavaScript und stand vorher in Meldungen.
+    for (const feld of ["temp", "years", "edge", "qty", "minStrength", "wall", "ra"]) {
+      for (const boese of ["Infinity", "-Infinity", "abc", "NaN"]) {
+        const req = stateFromParams(new URLSearchParams(`${feld}=${boese}`)).req as
+          Record<string, number | undefined>;
+        const v = Object.values(req).find((x) => typeof x === "number");
+        expect(v === undefined || Number.isFinite(v), `${feld}=${boese}`).toBe(true);
+      }
+    }
+    // Negative Anforderungen gibt es fachlich nicht.
+    expect(stateFromParams(new URLSearchParams("temp=-40")).req.serviceTemperatureC).toBe(0);
+  });
+
+  it("nimmt nur Medien an, die es im Katalog gibt", () => {
+    const echt = CHEMICALS[0].id;
+    expect(stateFromParams(new URLSearchParams(`chem=${echt}`)).chemicals).toEqual([echt]);
+    // Ein erfundener Name landete vorher unverändert in einer Begründungszeile.
+    expect(stateFromParams(new URLSearchParams("chem=frei-erfunden,__proto__")).chemicals)
+      .toEqual([]);
+  });
+});
