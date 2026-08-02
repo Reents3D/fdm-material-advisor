@@ -162,6 +162,10 @@ const COMPARE_SET = new Set([
   "durability.uvResistance", "durability.weatherResistance", "durability.waterAbsorption",
   "durability.stressCrackingSensitivity",
   "finishing.surfaceQuality", "finishing.paintAdhesion", "finishing.sandability", "finishing.bondability",
+  /* Seit der Preis als €/kg gefuehrt wird, gehoert er in den Vergleich: "was kostet
+     welches von diesen vieren" ist genau eine Vergleichsfrage. Als abstrakter Index
+     von 1 bis 5 waere er hier nur Rauschen gewesen. */
+  "commercial.pricePerKg",
 ]);
 
 export const fieldKey = (d: FieldDef): string => `${d.group}.${d.field}`;

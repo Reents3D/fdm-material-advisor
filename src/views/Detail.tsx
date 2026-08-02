@@ -101,6 +101,18 @@ export function Detail({ id, t, lang, navigate, state, update }: {
       <PropertyGroup title={t("ui.printParams")} node={m.processing as Record<string, unknown>} lang={lang} t={t} />
       <PropertyGroup title={lang === "de" ? "Beständigkeit" : "Durability"} node={m.durability as Record<string, unknown>} lang={lang} t={t} skip={["chemicalResistance"]} />
       <PropertyGroup title={lang === "de" ? "Optik & Veredelung" : "Finishing"} node={m.finishing as Record<string, unknown>} lang={lang} t={t} />
+      {/* Nachhaltigkeit und Wirtschaftlichkeit fehlten hier bisher ganz, obwohl beides
+          gewichtbare Kriterien sind - wer sie im Assistenten hochzieht, konnte auf dem
+          Datenblatt nicht nachsehen, worauf sich das stützt. Die XXL-Schwelle wird aus
+          dem verschachtelten `xxl`-Objekt hochgezogen, sonst fiele sie durch den
+          Messwertfilter. */}
+      <PropertyGroup title={lang === "de" ? "Nachhaltigkeit" : "Sustainability"} node={m.sustainability as Record<string, unknown>} lang={lang} t={t} />
+      <PropertyGroup title={lang === "de" ? "Wirtschaftlichkeit & Verfügbarkeit" : "Economy & availability"}
+        node={{
+          ...(m.commercial as Record<string, unknown>),
+          maxSensibleEdgeMm: (m.commercial as { xxl?: { maxSensibleEdgeMm?: unknown } })?.xxl?.maxSensibleEdgeMm,
+        }}
+        lang={lang} t={t} />
 
       <ChemicalMatrix m={m} lang={lang} t={t} />
 
@@ -251,6 +263,13 @@ function ChemicalMatrix({ m, lang, t }: { m: Material; lang: Lang; t: T }) {
 }
 
 const LABELS: Record<string, [string, string]> = {
+  pricePerKg: ["Materialpreis", "Material price"],
+  priceIndex: ["Preisniveau (abgeleitet)", "Price level (derived)"],
+  availability: ["Verfügbarkeit", "Availability"],
+  smallSeriesSuitability: ["Kleinserientauglichkeit", "Small-series suitability"],
+  maxSensibleEdgeMm: ["Kante ohne Sonderaufwand", "Edge without special effort"],
+  bioBasedContent: ["Biobasierter Anteil", "Bio-based content"],
+
   density: ["Dichte", "Density"],
   tensileStrengthXy: ["Zugfestigkeit X-Y", "Tensile strength X-Y"],
   tensileStrengthZ: ["Zugfestigkeit Z", "Tensile strength Z"],
