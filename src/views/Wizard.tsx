@@ -1,17 +1,73 @@
 /**
- * Guided advice. Every step is skippable and the live hit count updates as you type —
- * so it never feels like filling in a form for an unknown result.
+ * Guided advice.
+ *
+ * WAS SICH GEGENUEBER DER ERSTEN FASSUNG GEAENDERT HAT UND WARUM
+ *
+ * 1. SIEBEN SCHRITTE WAREN SIEBEN UNGLEICHE SCHRITTE. Schritt 1 bestand aus zwei
+ *    Schaltflaechen, Schritt 6 aus drei Haken, einundzwanzig Medien und drei
+ *    Werkstattfragen. Jetzt sind es sechs Schritte mit vergleichbarer Fuellung: Umgebung
+ *    und Temperatur gehoeren zusammen, die Werkstattausstattung gehoert zum Bauteil.
+ *
+ * 2. "UEBERSPRINGEN" TAT NICHTS ANDERES ALS "WEITER". Beide riefen dieselbe Funktion auf.
+ *    Eine Schaltflaeche, die "ueberspringen" heisst und nichts ueberspringt, ist eine
+ *    Falschaussage. Sie setzt jetzt die Angaben DIESES Schritts zurueck und geht weiter -
+ *    und sie erscheint nur, wenn es ueberhaupt etwas zurueckzusetzen gibt.
+ *
+ * 3. NIEMAND KONNTE SEHEN, WAS ER SCHON GESAGT HATTE. Sieben Schritte ohne Rueckblick.
+ *    Jetzt steht ueber dem Formular eine Leiste mit allen gesetzten Anforderungen; jede
+ *    laesst sich einzeln wieder entfernen.
+ *
+ * 4. DIE SACKGASSE WAR EINE SACKGASSE. Wer sich auf null Treffer filterte, erfuhr das
+ *    erst auf der Ergebnisseite und ohne Begruendung. Jetzt sagt der Assistent an Ort und
+ *    Stelle, WELCHE Anforderung alles ausgeschlossen hat, und bietet an, genau sie zu
+ *    loesen. Die Auskunft stammt aus den Ablehnungsgruenden der Engine, nicht aus einer
+ *    Heuristik.
+ *
+ * 5. ZWANZIG ANWENDUNGSFAELLE LAGEN UNGENUTZT DANEBEN. Wer ein Gleitlager auslegt, muss
+ *    nicht sechs Schritte durchklicken - der fertige Fall setzt alles auf einmal.
+ *
+ * 6. SECHZEHN REGLER WAREN DER LETZTE EINDRUCK. Die Gewichtung entscheidet die
+ *    Reihenfolge, aber "Schichthaftung 3" sagt einem Konstrukteur nichts, der zum ersten
+ *    Mal hier ist. Jetzt waehlt man einen benannten Schwerpunkt; die Regler bleiben
+ *    darunter fuer alle, die es genau wissen wollen.
  */
 
+import { useState } from "react";
 import { MATERIALS } from "../data/materials";
 import { select } from "../engine";
-import { CRITERIA } from "../engine/criteria";
+import { CRITERIA, DEFAULT_WEIGHTS } from "../engine/criteria";
+import { USECASES, useCaseParams } from "../data/usecases";
 import { Button, Card, Toggle, cx, text } from "../components/ui";
 import { SITE } from "../config/site";
 import { CHEMICALS, CHEMICAL_CATEGORIES, chemicalById, chemicalCoverage, isThinData, MATERIAL_COUNT } from "../data/chemicals";
+import type { Requirements } from "../engine";
 import type { AppState } from "../App";
 
-const TOTAL = 7;
+type Req = AppState["req"];
+
+/* Jeder Schritt weiss, welche Anforderungsfelder ihm gehoeren. Nur so kann
+   "Ueberspringen" wirklich ueberspringen, statt bloss weiterzublaettern. */
+const STEPS: { key: string; owns: (keyof Req)[]; ownsWeights?: string[] }[] = [
+  { key: "env", owns: ["outdoorYears", "serviceTemperatureC"] },
+  { key: "load", owns: ["minTensileStrengthMPa", "flexible"] },
+  { key: "part", owns: ["maxEdgeMm", "quantity", "chamberAvailable", "hardenedNozzleAvailable", "annealingOvenAvailable"] },
+  { key: "look", owns: [], ownsWeights: ["paintability", "surface"] },
+  { key: "rules", owns: ["foodContact", "flameClass", "esd", "chemicals"] },
+  { key: "weights", owns: [] },
+];
+const TOTAL = STEPS.length;
+
+/* Benannte Schwerpunkte statt sechzehn nackter Regler. Jeder setzt nur die Kriterien,
+   die er wirklich meint - der Rest bleibt auf dem Standard, damit ein Schwerpunkt keine
+   stillen Nebenwirkungen hat. */
+const PRESETS: { id: string; weights: Record<string, number> }[] = [
+  { id: "balanced", weights: {} },
+  { id: "mechanical", weights: { strength: 5, stiffness: 5, layerAdhesion: 4, toughness: 4, price: 1 } },
+  { id: "thermal", weights: { temperature: 5, chemical: 4, strength: 3, price: 1 } },
+  { id: "outdoor", weights: { outdoor: 5, temperature: 3, surface: 3, price: 1 } },
+  { id: "visual", weights: { surface: 5, paintability: 5, layerAdhesion: 1, strength: 1 } },
+  { id: "pragmatic", weights: { price: 5, printability: 5, availability: 4, lowWarping: 4 } },
+];
 
 type Props = {
   step: number;
@@ -21,27 +77,128 @@ type Props = {
   update: (next: Partial<AppState>) => void;
 };
 
-export function Wizard({ step, state, t, navigate, update }: Props) {
+export function Wizard({ step: rawStep, state, t, navigate, update }: Props) {
+  const [showSliders, setShowSliders] = useState(false);
+  // Alte Lesezeichen zeigen auf Schritt 7 - der Assistent hat jetzt sechs. Klemmen statt
+  // eine leere Seite zeigen.
+  const step = Math.min(Math.max(1, rawStep), TOTAL);
   const { req } = state;
-  const live = select(MATERIALS, req).ranked.length;
-  const set = (patch: Partial<AppState["req"]>) => update({ req: patch });
-  const go = (n: number) => navigate(`wizard/${n}`);
+  const result = select(MATERIALS, req);
+  const live = result.ranked.length;
+  const set = (patch: Partial<Req>) => update({ req: patch });
+  const go = (n: number) => navigate(`wizard/${Math.min(Math.max(1, n), TOTAL)}`);
+  const lang = state.lang;
+
+  /* --- was gerade gesetzt ist, und wie man es einzeln wieder loswird ------- */
+  const active = activeRequirements(req, state.chemicals, t, lang);
+  const clearOne = (r: ActiveReq) => update(r.patch(req));
+
+  /* --- Sackgasse: welche Anforderung hat alles ausgeschlossen? -------------
+     Nicht geraten, sondern aus den Ablehnungsgruenden der Engine gezaehlt. */
+  const blocker = live === 0 ? dominantBlocker(result) : null;
+  const blockerReq = blocker ? active.find((a) => a.constraintId === blocker) : undefined;
+
+  /* --- Ueberspringen zeigt sich nur, wenn es etwas zu ueberspringen gibt --- */
+  const cur = STEPS[step - 1];
+  const hasOwnAnswers =
+    cur.owns.some((f) => req[f] !== undefined) ||
+    (cur.ownsWeights?.some((w) => (req.weights?.[w] ?? 0) !== (DEFAULT_WEIGHTS[w] ?? 0)) ?? false);
+
+  const skipStep = () => {
+    const patch: Partial<Req> = {};
+    for (const f of cur.owns) patch[f] = undefined as never;
+    const weights = { ...req.weights };
+    for (const w of cur.ownsWeights ?? []) weights[w] = DEFAULT_WEIGHTS[w] ?? 0;
+    update({ req: { ...patch, weights }, ...(cur.owns.includes("chemicals") ? { chemicals: [] } : {}) });
+    go(step + 1);
+  };
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="flex items-center justify-between mb-1 text-xs muted">
-        <span>{t("ui.step", { n: step, total: TOTAL })}</span>
+      {/* --- Schrittleiste: zeigt den Stand UND laesst springen -------------- */}
+      <nav aria-label={t("wiz.nav.label")} className="flex items-center gap-1 mb-2">
+        {STEPS.map((s, i) => {
+          const n = i + 1;
+          const answered = s.owns.some((f) => req[f] !== undefined);
+          return (
+            <button
+              key={s.key}
+              onClick={() => go(n)}
+              aria-current={n === step ? "step" : undefined}
+              title={t(`wiz.${s.key}.title`)}
+              className={cx(
+                "flex-1 group flex flex-col gap-1 pt-1 text-left",
+                n === step ? "" : "opacity-70 hover:opacity-100",
+              )}
+            >
+              <span className={cx(
+                "h-1 rounded transition-colors",
+                n === step ? "bg-petrol-600 dark:bg-petrol-300"
+                  : answered ? "bg-petrol-400/70 dark:bg-petrol-400/60"
+                  : "bg-neutral-200 dark:bg-white/10",
+              )} />
+              <span className="text-[10px] uppercase tracking-wider muted truncate hidden sm:block">
+                {t(`wiz.${s.key}.short`)}
+              </span>
+            </button>
+          );
+        })}
+      </nav>
+
+      {/* Auf schmalen Schirmen untereinander: nebeneinander brechen beide Texte
+          ineinander und "Schritt 5 von 6" zerfaellt mitten in die Trefferzahl. */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 mb-4 text-xs muted">
+        <span className="shrink-0">{t("ui.step", { n: step, total: TOTAL })}</span>
         <span aria-live="polite" className="tabular-nums">
-          {t("ui.results.count", { n: live })}
+          {live === MATERIALS.length
+            ? t("wiz.count.all", { n: live })
+            : t("wiz.count.some", { n: live, total: MATERIALS.length })}
         </span>
       </div>
-      <div className="h-1 bg-neutral-200 dark:bg-white/5 rounded mb-6 overflow-hidden">
-        <div className="h-full bg-petrol-600 dark:bg-petrol-300 transition-all" style={{ width: `${(step / TOTAL) * 100}%` }} />
-      </div>
+
+      {/* --- Was Sie bisher gesagt haben ------------------------------------ */}
+      {active.length > 0 && (
+        <div className="mb-4 flex flex-wrap items-center gap-1.5">
+          <span className="text-[11px] uppercase tracking-wider muted mr-0.5">{t("wiz.summary")}</span>
+          {active.map((a) => (
+            <button
+              key={a.id}
+              onClick={() => clearOne(a)}
+              title={t("wiz.summary.remove")}
+              className="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs border
+                         border-hairline dark:border-[#1E2B3D] hover:border-bad hover:text-bad transition-colors"
+            >
+              {a.label}
+              <span aria-hidden="true" className="opacity-50">×</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* --- Sackgasse: nicht schweigen, sondern den Grund nennen ------------ */}
+      {live === 0 && (
+        <Card className="mb-4 border-warn/50">
+          <p className="text-sm font-medium mb-1">{t("wiz.dead.title")}</p>
+          <p className="text-xs muted leading-relaxed mb-3">
+            {blockerReq ? t("wiz.dead.blocker", { what: blockerReq.label }) : t("wiz.dead.generic")}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {blockerReq && (
+              <Button variant="outline" onClick={() => clearOne(blockerReq)}>
+                {t("wiz.dead.release", { what: blockerReq.label })}
+              </Button>
+            )}
+            <Button variant="ghost" onClick={() => update({ req: resetAll(), chemicals: [] })}>
+              {t("wiz.dead.reset")}
+            </Button>
+          </div>
+        </Card>
+      )}
 
       <Card>
+        {/* ------------------------------------------------ 1 Umgebung */}
         {step === 1 && (
-          <Step title={t("wiz.1.title")}>
+          <Step title={t("wiz.env.title")} hint={t("wiz.env.hint")}>
             <div className="grid grid-cols-2 gap-2 mb-4">
               <Choice active={req.outdoorYears === undefined} onClick={() => set({ outdoorYears: undefined })}>
                 {t("wiz.1.indoor")}
@@ -54,23 +211,42 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
               <Slider label={t("wiz.1.outdoorYears")} min={1} max={15} step={1} unit="a"
                 value={req.outdoorYears} onChange={(v) => set({ outdoorYears: v })} />
             )}
+
+            <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
+              <Toggle checked={req.serviceTemperatureC !== undefined}
+                onChange={(v) => set({ serviceTemperatureC: v ? 60 : undefined })}
+                label={t("wiz.2.temp")} hint={t("wiz.2.tempHint")} />
+              {req.serviceTemperatureC !== undefined && (
+                <Slider label={t("wiz.2.temp")} min={30} max={220} step={5} unit="°C"
+                  value={req.serviceTemperatureC} onChange={(v) => set({ serviceTemperatureC: v })} />
+              )}
+            </div>
+
+            {/* Der schnellste Weg zum Ergebnis fuehrt oft gar nicht durch das Formular. */}
+            <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
+              <div className="text-sm font-medium mb-1">{t("wiz.usecase.title")}</div>
+              <p className="text-xs muted mb-2.5 leading-relaxed">{t("wiz.usecase.hint")}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {USECASES.slice(0, 6).map((u) => (
+                  <button key={u.id}
+                    onClick={() => { location.hash = `#/results?${useCaseParams(u, lang)}`; }}
+                    className="px-2 py-1 rounded text-xs border border-hairline dark:border-[#1E2B3D]
+                               hover:border-petrol-500 transition-colors">
+                    {text(u.title, lang)}
+                  </button>
+                ))}
+                <button onClick={() => navigate("usecases")}
+                  className="px-2 py-1 rounded text-xs hl hover:underline">
+                  {t("wiz.usecase.all", { n: USECASES.length })} →
+                </button>
+              </div>
+            </div>
           </Step>
         )}
 
+        {/* ------------------------------------------------ 2 Belastung */}
         {step === 2 && (
-          <Step title={t("wiz.2.title")} hint={t("wiz.2.tempHint")}>
-            <Toggle checked={req.serviceTemperatureC !== undefined}
-              onChange={(v) => set({ serviceTemperatureC: v ? 60 : undefined })}
-              label={t("wiz.2.temp")} />
-            {req.serviceTemperatureC !== undefined && (
-              <Slider label={t("wiz.2.temp")} min={30} max={220} step={5} unit="°C"
-                value={req.serviceTemperatureC} onChange={(v) => set({ serviceTemperatureC: v })} />
-            )}
-          </Step>
-        )}
-
-        {step === 3 && (
-          <Step title={t("wiz.3.title")}>
+          <Step title={t("wiz.load.title")} hint={t("wiz.load.hint")}>
             <div className="grid gap-2 mb-4">
               {([["none", undefined], ["light", 25], ["medium", 45], ["high", 70]] as const).map(([k, v]) => (
                 <Choice key={k} active={req.minTensileStrengthMPa === v} onClick={() => set({ minTensileStrengthMPa: v })}>
@@ -84,8 +260,9 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
           </Step>
         )}
 
-        {step === 4 && (
-          <Step title={t("wiz.4.title")}>
+        {/* ------------------------------------------------ 3 Bauteil und Fertigung */}
+        {step === 3 && (
+          <Step title={t("wiz.part.title")}>
             <Toggle checked={req.maxEdgeMm !== undefined} onChange={(v) => set({ maxEdgeMm: v ? 500 : undefined })}
               label={t("wiz.4.edge")} />
             {req.maxEdgeMm !== undefined && (
@@ -98,87 +275,10 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
               <Slider label={t("wiz.4.quantity")} min={1} max={5000} step={10} unit=""
                 value={req.quantity} onChange={(v) => set({ quantity: v })} />
             )}
-          </Step>
-        )}
-
-        {step === 5 && (
-          <Step title={t("wiz.5.title")}>
-            <WeightToggle t={t} state={state} update={update} id="paintability" label={t("wiz.5.painted")} />
-            <WeightToggle t={t} state={state} update={update} id="surface" label={t("wiz.5.visible")} />
-          </Step>
-        )}
-
-        {step === 6 && (
-          <Step title={t("wiz.6.title")}>
-            <Toggle checked={!!req.foodContact} onChange={(v) => set({ foodContact: v || undefined })} label={t("wiz.6.food")} />
-            <Toggle checked={req.flameClass === "V-0"} onChange={(v) => set({ flameClass: v ? "V-0" : undefined })} label={t("wiz.6.flame")} />
-            <Toggle checked={!!req.esd} onChange={(v) => set({ esd: v || undefined })} label={t("wiz.6.esd")} />
-
-            <div className="mt-4">
-              <div className="text-sm font-medium mb-1">{t("wiz.6.chemicals")}</div>
-              <p className="text-xs muted mb-2.5 max-w-2xl leading-relaxed">
-                {state.lang === "de"
-                  ? "Nach Kategorie gruppiert. Die Zahl hinter jedem Medium sagt, für wie viele der Werkstoffe überhaupt ein belegter Beständigkeitswert vorliegt — bei dünner Datenlage filtert die Auswahl eher nach Erfassungsstand als nach Beständigkeit."
-                  : "Grouped by category. The number behind each medium says for how many materials a sourced resistance value exists at all — where data is thin, the filter selects by coverage rather than by resistance."}
-              </p>
-              {CHEMICAL_CATEGORIES.map((cat) => {
-                const items = CHEMICALS.filter((c) => c.category === cat.id);
-                if (!items.length) return null;
-                return (
-                  <div key={cat.id} className="mb-2.5">
-                    <div className="text-[11px] uppercase tracking-wider muted mb-1">
-                      {state.lang === "de" ? cat.de : cat.en}
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {items.map((c) => {
-                        const on = state.chemicals.includes(c.id);
-                        const thin = isThinData(c.id);
-                        const n = chemicalCoverage(c.id);
-                        return (
-                          <button key={c.id}
-                            onClick={() => {
-                              const next = on ? state.chemicals.filter((x) => x !== c.id) : [...state.chemicals, c.id];
-                              update({ chemicals: next, req: { ...req, chemicals: next.length ? next : undefined } });
-                            }}
-                            aria-pressed={on}
-                            title={`${text(c.examples, state.lang)} — ${text(c.effect, state.lang)}`}
-                            className={cx("px-2 py-1 rounded text-xs border transition-colors inline-flex items-center gap-1.5",
-                              on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
-                                 : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
-                            {text(c.name, state.lang)}
-                            <span className={cx("tabular-nums", on ? "opacity-70" : thin ? "text-warn" : "muted")}>
-                              {n}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-              {/* Erklaerung zu den ausgewaehlten Medien - erst dann, wenn eines gewaehlt ist. */}
-              {state.chemicals.length > 0 && (
-                <div className="mt-3 space-y-2">
-                  {state.chemicals.map(chemicalById).filter(Boolean).map((c) => (
-                    <p key={c!.id} className="text-xs leading-relaxed">
-                      <strong>{text(c!.name, state.lang)}</strong>
-                      <span className="muted"> — {text(c!.examples, state.lang)}. </span>
-                      {text(c!.effect, state.lang)}
-                      {isThinData(c!.id) && (
-                        <span className="text-warn">
-                          {" "}{state.lang === "de"
-                            ? `Nur ${chemicalCoverage(c!.id)} von ${MATERIAL_COUNT} Werkstoffen haben hierzu einen belegten Wert.`
-                            : `Only ${chemicalCoverage(c!.id)} of ${MATERIAL_COUNT} materials carry a sourced value here.`}
-                        </span>
-                      )}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
 
             <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
               <div className="text-sm font-medium mb-1">{t("wiz.shop.title")}</div>
+              <p className="text-xs muted mb-1.5 leading-relaxed">{t("wiz.shop.hint")}</p>
               <Toggle checked={req.chamberAvailable !== false}
                 onChange={(v) => set({ chamberAvailable: v ? undefined : false })} label={t("wiz.shop.chamber")} />
               <Toggle checked={req.hardenedNozzleAvailable !== false}
@@ -190,20 +290,116 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
           </Step>
         )}
 
-        {step === 7 && (
-          <Step title={t("wiz.7.title")} hint={t("wiz.7.hint")}>
-            <div className="grid gap-2.5">
-              {CRITERIA.map((c) => (
-                <div key={c.id} className="grid grid-cols-[9rem_1fr_1.5rem] items-center gap-3">
-                  <label htmlFor={`w-${c.id}`} className="text-sm truncate">{t(`criterion.${c.id}.label`)}</label>
-                  <input id={`w-${c.id}`} type="range" min={0} max={5} step={1}
-                    value={req.weights?.[c.id] ?? 0}
-                    onChange={(e) => update({ req: { ...req, weights: { ...req.weights, [c.id]: Number(e.target.value) } } })}
-                    className="accent-petrol-700 dark:accent-petrol-300" />
-                  <span className="text-xs tabular-nums muted text-right">{req.weights?.[c.id] ?? 0}</span>
+        {/* ------------------------------------------------ 4 Optik */}
+        {step === 4 && (
+          <Step title={t("wiz.look.title")} hint={t("wiz.look.hint")}>
+            <WeightToggle state={state} update={update} id="paintability" label={t("wiz.5.painted")} />
+            <WeightToggle state={state} update={update} id="surface" label={t("wiz.5.visible")} />
+          </Step>
+        )}
+
+        {/* ------------------------------------------------ 5 Regulatorik und Medien */}
+        {step === 5 && (
+          <Step title={t("wiz.rules.title")}>
+            <Toggle checked={!!req.foodContact} onChange={(v) => set({ foodContact: v || undefined })} label={t("wiz.6.food")} />
+            <Toggle checked={req.flameClass === "V-0"} onChange={(v) => set({ flameClass: v ? "V-0" : undefined })} label={t("wiz.6.flame")} />
+            <Toggle checked={!!req.esd} onChange={(v) => set({ esd: v || undefined })} label={t("wiz.6.esd")} />
+
+            <div className="mt-5 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
+              <div className="text-sm font-medium mb-1">{t("wiz.6.chemicals")}</div>
+              <p className="text-xs muted mb-2.5 max-w-2xl leading-relaxed">{t("wiz.6.chemicalsHint")}</p>
+              {CHEMICAL_CATEGORIES.map((cat) => {
+                const items = CHEMICALS.filter((c) => c.category === cat.id);
+                if (!items.length) return null;
+                return (
+                  <div key={cat.id} className="mb-2.5">
+                    <div className="text-[11px] uppercase tracking-wider muted mb-1">
+                      {lang === "de" ? cat.de : cat.en}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {items.map((c) => {
+                        const on = state.chemicals.includes(c.id);
+                        const thin = isThinData(c.id);
+                        return (
+                          <button key={c.id}
+                            onClick={() => {
+                              const next = on ? state.chemicals.filter((x) => x !== c.id) : [...state.chemicals, c.id];
+                              update({ chemicals: next, req: { ...req, chemicals: next.length ? next : undefined } });
+                            }}
+                            aria-pressed={on}
+                            title={`${text(c.examples, lang)} — ${text(c.effect, lang)}`}
+                            className={cx("px-2 py-1 rounded text-xs border transition-colors inline-flex items-center gap-1.5",
+                              on ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
+                                 : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-500")}>
+                            {text(c.name, lang)}
+                            {/* Die Abdeckungszahl steht nur da, wo sie etwas aussagt: bei
+                                duenner Datenlage. Sie ueberall zu zeigen hiesse, einundzwanzig
+                                Mal dieselbe Zahl zu wiederholen. */}
+                            {thin && <span className="tabular-nums text-warn">{chemicalCoverage(c.id)}</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+              {state.chemicals.length > 0 && (
+                <div className="mt-3 space-y-2">
+                  {state.chemicals.map(chemicalById).filter(Boolean).map((c) => (
+                    <p key={c!.id} className="text-xs leading-relaxed">
+                      <strong>{text(c!.name, lang)}</strong>
+                      <span className="muted"> — {text(c!.examples, lang)}. </span>
+                      {text(c!.effect, lang)}
+                      {isThinData(c!.id) && (
+                        <span className="text-warn">
+                          {" "}{lang === "de"
+                            ? `Nur ${chemicalCoverage(c!.id)} von ${MATERIAL_COUNT} Werkstoffen haben hierzu einen belegten Wert.`
+                            : `Only ${chemicalCoverage(c!.id)} of ${MATERIAL_COUNT} materials carry a sourced value here.`}
+                        </span>
+                      )}
+                    </p>
+                  ))}
                 </div>
+              )}
+            </div>
+          </Step>
+        )}
+
+        {/* ------------------------------------------------ 6 Schwerpunkt */}
+        {step === 6 && (
+          <Step title={t("wiz.weights.title")} hint={t("wiz.weights.hint")}>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {PRESETS.map((p) => (
+                <Choice key={p.id}
+                  active={matchesPreset(req.weights, p.weights)}
+                  label={t(`wiz.preset.${p.id}`)}
+                  onClick={() => update({ req: { ...req, weights: { ...DEFAULT_WEIGHTS, ...p.weights } } })}>
+                  <span className="block font-medium">{t(`wiz.preset.${p.id}`)}</span>
+                  <span className="block text-xs muted mt-0.5">{t(`wiz.preset.${p.id}.desc`)}</span>
+                </Choice>
               ))}
             </div>
+
+            <button onClick={() => setShowSliders((v) => !v)}
+              className="mt-4 text-xs hl hover:underline"
+              aria-expanded={showSliders}>
+              {showSliders ? t("wiz.weights.hideDetail") : t("wiz.weights.showDetail")}
+            </button>
+
+            {showSliders && (
+              <div className="grid gap-2.5 mt-3 pt-3 border-t border-hairline dark:border-[#1E2B3D]">
+                {CRITERIA.map((c) => (
+                  <div key={c.id} className="grid grid-cols-[9rem_1fr_1.5rem] items-center gap-3">
+                    <label htmlFor={`w-${c.id}`} className="text-sm truncate">{t(`criterion.${c.id}.label`)}</label>
+                    <input id={`w-${c.id}`} type="range" min={0} max={5} step={1}
+                      value={req.weights?.[c.id] ?? 0}
+                      onChange={(e) => update({ req: { ...req, weights: { ...req.weights, [c.id]: Number(e.target.value) } } })}
+                      className="accent-petrol-700 dark:accent-petrol-300" />
+                    <span className="text-xs tabular-nums muted text-right">{req.weights?.[c.id] ?? 0}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </Step>
         )}
 
@@ -212,15 +408,116 @@ export function Wizard({ step, state, t, navigate, update }: Props) {
             ← {t("ui.back")}
           </Button>
           <div className="flex gap-2">
-            {step < TOTAL && <Button variant="ghost" onClick={() => go(step + 1)}>{t("ui.skip")}</Button>}
-            <Button onClick={() => (step < TOTAL ? go(step + 1) : navigate("results"))}>
+            {step < TOTAL && hasOwnAnswers && (
+              <Button variant="ghost" onClick={skipStep}>{t("wiz.reset.step")}</Button>
+            )}
+            <Button onClick={() => (step < TOTAL ? go(step + 1) : navigate("results"))} disabled={step === TOTAL && live === 0}>
               {step < TOTAL ? `${t("ui.next")} →` : `${t("ui.results.count", { n: live })} →`}
             </Button>
           </div>
         </div>
       </Card>
+
+      {step < TOTAL && (
+        <div className="text-center mt-3">
+          <button onClick={() => navigate("results")} disabled={live === 0}
+            className="text-xs hl hover:underline disabled:opacity-40 disabled:no-underline">
+            {t("wiz.jumpToResults", { n: live })} →
+          </button>
+        </div>
+      )}
     </div>
   );
+}
+
+/* ------------------------------------------------------------------ Hilfsteile */
+
+interface ActiveReq {
+  id: string;
+  label: string;
+  /** Constraint-Kennung der Engine, damit die Sackgassenauskunft zuordnen kann. */
+  constraintId?: string;
+  patch: (req: Req) => Partial<AppState>;
+}
+
+/** Alles, was der Nutzer gesetzt hat - als entfernbare Liste. */
+function activeRequirements(
+  req: Req, chemicals: string[],
+  t: (k: string, p?: Record<string, string | number>) => string,
+  lang: string,
+): ActiveReq[] {
+  const out: ActiveReq[] = [];
+  const drop = (f: keyof Req) => (r: Req): Partial<AppState> => ({ req: { ...r, [f]: undefined } });
+
+  if (req.outdoorYears !== undefined) out.push({
+    id: "outdoor", constraintId: "outdoor",
+    label: t("wiz.chip.outdoor", { n: req.outdoorYears }), patch: drop("outdoorYears"),
+  });
+  if (req.serviceTemperatureC !== undefined) out.push({
+    id: "temp", constraintId: "temperature",
+    label: t("wiz.chip.temp", { n: req.serviceTemperatureC }), patch: drop("serviceTemperatureC"),
+  });
+  if (req.minTensileStrengthMPa !== undefined) out.push({
+    id: "strength", constraintId: "strength",
+    label: t("wiz.chip.strength", { n: req.minTensileStrengthMPa }), patch: drop("minTensileStrengthMPa"),
+  });
+  if (req.flexible) out.push({
+    id: "flexible", constraintId: "flexible",
+    label: t("wiz.chip.flexible"), patch: drop("flexible"),
+  });
+  if (req.maxEdgeMm !== undefined) out.push({
+    id: "edge", constraintId: "size",
+    label: t("wiz.chip.edge", { n: req.maxEdgeMm }), patch: drop("maxEdgeMm"),
+  });
+  if (req.quantity !== undefined) out.push({
+    id: "qty", label: t("wiz.chip.qty", { n: req.quantity }), patch: drop("quantity"),
+  });
+  if (req.foodContact) out.push({
+    id: "food", constraintId: "foodContact",
+    label: t("wiz.6.food"), patch: drop("foodContact"),
+  });
+  if (req.flameClass) out.push({
+    id: "flame", constraintId: "flameClass",
+    label: t("wiz.6.flame"), patch: drop("flameClass"),
+  });
+  if (req.esd) out.push({
+    id: "esd", constraintId: "esd", label: t("wiz.6.esd"), patch: drop("esd"),
+  });
+  for (const [f, key, cid] of [
+    ["chamberAvailable", "wiz.chip.noChamber", "chamber"],
+    ["hardenedNozzleAvailable", "wiz.chip.noNozzle", "nozzle"],
+    ["annealingOvenAvailable", "wiz.chip.noOven", "annealing"],
+  ] as const) {
+    if (req[f] === false) out.push({ id: f, constraintId: cid, label: t(key), patch: drop(f) });
+  }
+  if (chemicals.length) out.push({
+    id: "chemicals", constraintId: "chemicals",
+    label: chemicals.map((c) => text(chemicalById(c)?.name, lang as never)).filter(Boolean).join(", "),
+    patch: (r) => ({ req: { ...r, chemicals: undefined }, chemicals: [] }),
+  });
+  return out;
+}
+
+/** Welche Anforderung hat die meisten Werkstoffe ausgeschlossen? Gezaehlt, nicht geraten. */
+function dominantBlocker(result: ReturnType<typeof select>): string | null {
+  const tally = new Map<string, number>();
+  for (const r of result.rejected) {
+    for (const f of r.failed) tally.set(f.constraintId, (tally.get(f.constraintId) ?? 0) + 1);
+  }
+  let best: string | null = null, n = 0;
+  for (const [id, count] of tally) if (count > n) { best = id; n = count; }
+  return best;
+}
+
+/** Alles zuruecksetzen - bis auf die Gewichtung, die keine Treffer ausschliesst. */
+function resetAll(): Requirements {
+  return { weights: { ...DEFAULT_WEIGHTS } };
+}
+
+/** Ein Schwerpunkt gilt als gewaehlt, wenn genau seine Abweichungen gesetzt sind. */
+function matchesPreset(weights: Record<string, number> | undefined, preset: Record<string, number>): boolean {
+  const w = weights ?? {};
+  return CRITERIA.every((c) => (w[c.id] ?? 0) === (preset[c.id] ?? DEFAULT_WEIGHTS[c.id] ?? 0));
 }
 
 function Step({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
@@ -233,9 +530,13 @@ function Step({ title, hint, children }: { title: string; hint?: string; childre
   );
 }
 
-function Choice({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+/** `label` setzt einen expliziten Namen, wo der Inhalt mehrzeilig ist - sonst liest ein
+    Screenreader Titel und Beschreibung als einen Satz vor. */
+function Choice({ active, onClick, children, label }: {
+  active: boolean; onClick: () => void; children: React.ReactNode; label?: string;
+}) {
   return (
-    <button onClick={onClick} aria-pressed={active}
+    <button onClick={onClick} aria-pressed={active} aria-label={label}
       className={cx("px-3 py-2 rounded border text-sm text-left transition-colors",
         active ? "border-petrol-600 bg-petrol-50 dark:bg-petrol-900/40 dark:border-petrol-400 font-medium"
                : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-400")}>
@@ -260,12 +561,16 @@ function Slider({ label, min, max, step, value, unit, onChange }: {
   );
 }
 
+/** Aus-Zustand heisst Standardgewicht, nicht 1 - sonst geht der Standard beim
+    Abwaehlen still verloren (Oberflaeche steht im Standard auf 2, nicht auf 1). */
 function WeightToggle({ state, update, id, label }: {
-  t: unknown; state: AppState; update: (n: Partial<AppState>) => void; id: string; label: string;
+  state: AppState; update: (n: Partial<AppState>) => void; id: string; label: string;
 }) {
   const on = (state.req.weights?.[id] ?? 0) >= 4;
   return (
     <Toggle checked={on} label={label}
-      onChange={(v) => update({ req: { ...state.req, weights: { ...state.req.weights, [id]: v ? 5 : 1 } } })} />
+      onChange={(v) => update({
+        req: { ...state.req, weights: { ...state.req.weights, [id]: v ? 5 : (DEFAULT_WEIGHTS[id] ?? 1) } },
+      })} />
   );
 }

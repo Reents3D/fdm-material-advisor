@@ -603,6 +603,92 @@ sogar um: ABS und Polyamid halten starke Lauge besser aus als die Polyester.
 
 ---
 
+## ADR-016 — Eine geschätzte Klassifizierung erfüllt keine regulatorische Anforderung
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Beim Anlegen des PVC-Werkstofftyps lag es nahe, UL94 V-0 einzutragen: Hart-PVC
+gilt wegen seines Chloranteils als von Haus aus schwer entflammbar, jedes Lehrbuch führt es
+so. Das Fillamentum-Blatt nennt aber keine Klasse, keine Materialdicke und keine Prüfstelle.
+Der Eintrag wäre eine Schlussfolgerung gewesen, keine Übernahme.
+
+Der bestehende Szenariotest „UL94 V-0 erfüllt nur ein ausdrücklich flammgeschützter
+Werkstoff" ging daraufhin rot — und deckte damit eine Lücke auf, die vorher niemand sehen
+konnte: Der Constraint las den Wert, ohne die Konfidenz zu prüfen. Ein `estimated`-Wert
+passierte den Filter genauso wie ein belegter.
+
+**Entscheidung.** Zwei Änderungen, eine an den Daten und eine an der Engine.
+
+1. **PVC trägt keine Brandschutzklasse.** Wo das Blatt schweigt, schweigt die Datenbank.
+2. **Der Constraint prüft die Konfidenz mit.** Eine Einstufung mit `confidence: "estimated"`
+   fällt durch, auch wenn ihr Wert genügen würde — mit einer eigenen Begründung
+   (`constraint.flame.failEstimated`), damit der Unterschied zu „gar keine Klasse" sichtbar
+   bleibt.
+
+**Warum das nicht übervorsichtig ist.** Eine Brandschutzklasse ist keine Werkstoffeigenschaft,
+sondern eine Aussage über ein **geprüftes Bauteil bestimmter Dicke**. Dieselbe Rezeptur
+erreicht bei 1,5 mm V-0 und bei 0,8 mm nur V-2. Aus der Polymerklasse lässt sich das
+grundsätzlich nicht ableiten — nicht ungenau, sondern gar nicht.
+
+Die Asymmetrie ist dieselbe wie in ADR-006: Eine falsche Freigabe kostet ein Bauteil im Feld
+und im schlimmsten Fall mehr; eine zu vorsichtige Einstufung kostet einen Platz in der
+Rangliste.
+
+**Reichweite.** Die Regel gilt vorerst nur für den Brandschutz. Lebensmittelkontakt und ESD
+prüfen bereits auf eine ausdrückliche Deklaration und sind damit strukturell dicht. Sobald
+ein weiteres regulatorisches Merkmal dazukommt, gehört es nach demselben Muster gebaut.
+
+---
+
+## ADR-017 — Der Assistent führt, statt ein Formular abzufragen
+
+**Status:** angenommen · **Datum:** 2026-08-02
+
+**Auslöser.** Ein Durchgang durch die erste Fassung im Browser förderte fünf Befunde zutage,
+die sich im Code allein nicht zeigten:
+
+| Befund | Warum das zählt |
+|---|---|
+| „Überspringen" rief dieselbe Funktion wie „Weiter" | Eine Schaltfläche, die nichts überspringt, ist eine Falschaussage |
+| Schritt 1 hatte zwei Schaltflächen, Schritt 6 dreissig Bedienelemente | Der Fortschrittsbalken log über den verbleibenden Aufwand |
+| Kein Rückblick auf die eigenen Angaben | Nach sieben Schritten weiss niemand mehr, was er gesagt hat |
+| Null Treffer führten kommentarlos auf die Ergebnisseite | Die häufigste Sackgasse blieb unerklärt |
+| Sechzehn Regler mit Begriffen wie „Schichthaftung" als letzter Schritt | Der schwierigste Teil kam, wenn die Aufmerksamkeit am geringsten ist |
+
+Nebenbefund: Die Startseite versprach schon vorher „In sechs Schritten" — es waren sieben.
+
+**Entscheidung.**
+
+- **Sechs gleichmässig gefüllte Schritte** statt sieben ungleicher. Umgebung und Temperatur
+  gehören sachlich zusammen; die Werkstattausstattung gehört zum Bauteil, nicht zur
+  Regulatorik.
+- **Jeder Schritt kennt seine Felder.** Erst dadurch kann „Zurücksetzen" wirklich
+  zurücksetzen — und die Schaltfläche erscheint nur, wenn es etwas zurückzusetzen gibt.
+- **Eine Leiste mit allen gesetzten Anforderungen**, jede einzeln entfernbar.
+- **Die Sackgasse bekommt eine Auskunft.** Bei null Treffern zählt der Assistent die
+  Ablehnungsgründe der Engine aus und benennt die Anforderung, an der die meisten Werkstoffe
+  scheitern — mit einer Schaltfläche, die genau sie löst. Die Auskunft ist **gezählt, nicht
+  geraten**; sie stammt aus denselben `failed`-Objekten, die auch die Ergebnisseite anzeigt.
+- **Benannte Schwerpunkte statt sechzehn Regler.** Die Regler bleiben eine Zeile darunter
+  erreichbar. Ein Schwerpunkt setzt nur die Kriterien, die er meint; der Rest bleibt auf dem
+  Standard, damit keine stillen Nebenwirkungen entstehen.
+- **Die zwanzig Anwendungsfälle stehen im ersten Schritt** und auf der Startseite. Wer weiss,
+  dass er ein Gleitlager auslegt, ist über den fertigen Fall schneller am Ziel als über sechs
+  Schritte.
+
+**Was ausdrücklich unverändert bleibt.** Die URL bleibt die einzige Quelle der Wahrheit
+(ADR-002). Ein Schwerpunkt serialisiert sich als die Abweichungen, die er setzt — nicht als
+sechzehn Parameter. Geteilte Links aus der Zeit der sieben Schritte funktionieren weiter: Die
+Schrittnummer wird in den gültigen Bereich geklemmt, statt eine leere Seite zu zeigen.
+
+**Was das nicht löst.** Der Assistent fragt weiterhin nach Anforderungen, die viele Anfragende
+zu Beginn nicht kennen — „Wie warm wird es wirklich?" ist im Zweifel die schwerste Frage des
+ganzen Ablaufs. Die Anwendungsfälle sind die Antwort darauf, aber nur für die zwanzig Fälle,
+die es gibt.
+
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

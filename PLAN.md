@@ -1,8 +1,8 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-01 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
+**Stand:** 2026-08-02 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** Rückfragen in Abschnitt 5 klären, dann Datenausbau
+**Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sie sind der einzige verbleibende Engpass
 
 ---
 
@@ -13,8 +13,8 @@
 | **0 — Gerüst und Deployment** | ✅ Vite + React 18 + TS strict + Tailwind 4, CI und Pages-Deploy automatisch aus `main` |
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
-| **3 — Oberfläche** | ✅ Wizard, Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ⬤ weit: 133 Herstellerprodukte aus 10 Marken, 32 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), Fillamentum, ColorFabb, HIPS-Typ, Preise |
+| **3 — Oberfläche** | ✅ Wizard (6 Schritte, Schrittleiste, Antwortübersicht, Sackgassen-Auskunft, Schwerpunkte), Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
+| **4 — Datenausbau** | ⬤ weit: 168 Herstellerprodukte aus 12 Marken, 38 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
@@ -23,17 +23,17 @@
 
 | Prüfung | Ergebnis |
 |---|---|
-| JSON Schema, 11 Dateien | PASS |
+| JSON Schema, 193 Dateien | PASS |
 | Plausibilität und Provenienz, 15 Regeln | 0 Fehler, 3 dokumentierte Datenblatt-Anomalien |
 | Typecheck (strict) | PASS |
-| Tests | 62 grün |
+| Tests | 100 grün |
 | Bundle | 112 kB gzip JS + 6 kB CSS (Budget 350 kB) |
 | Live-Deployment | HTTP 200, keine Konsolenfehler |
 
-**Konfidenz über die gesamte Datenbank: 861 belegte Aussagen —
-15 high · 367 medium · 44 low · 435 estimated.**
+**Konfidenz über die gesamte Datenbank: 2.613 belegte Aussagen —
+45 high · 611 medium · 126 low · 1.831 estimated.**
 
-51 % sind gekennzeichnete Schätzungen. Das ist kein Mangel der Erfassung, sondern der
+70 % sind gekennzeichnete Schätzungen. Das ist kein Mangel der Erfassung, sondern der
 Zustand der öffentlichen Datenlage — und genau der Grund, warum die Konfidenzkennzeichnung
 im Datenmodell ganz vorn steht. Die Zahl wird in der Oberfläche angezeigt, nicht versteckt.
 

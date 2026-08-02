@@ -30,6 +30,9 @@ export function Home({ t, lang, navigate }: {
 
   const entries: { path: string; key: string; primary?: boolean }[] = [
     { path: "wizard/1", key: "wizard", primary: true },
+    // Zwanzig fertige Faelle lagen bisher nur in der Navigation. Wer weiss, dass er ein
+    // Gleitlager auslegt, ist damit schneller am Ergebnis als durch sechs Schritte.
+    { path: "usecases", key: "usecases" },
     { path: "matrix", key: "database" },
     { path: "brands", key: "brands" },
     { path: "compliance", key: "compliance" },
