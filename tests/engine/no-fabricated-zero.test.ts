@@ -47,9 +47,17 @@ describe("Keine erfundene Null in Begruendungen", () => {
 
   it("laesst keinen Platzhalter unaufgeloest stehen", () => {
     // Ein fehlender Uebersetzungsschluessel faellt sonst erst im gedruckten PDF auf.
+    // Die Lastannahme laeuft mit: Sie schaltet eigene Meldungen frei, und die waren
+    // sonst in keinem Test.
     const offenders: string[] = [];
+    const profiles = [
+      { serviceTemperatureC: 200, outdoorYears: 5, maxEdgeMm: 2000 },
+      { serviceTemperatureC: 60, thermalLoad: "none" as const },
+      { serviceTemperatureC: 60, thermalLoad: "sustained" as const },
+      { serviceTemperatureC: 200, thermalLoad: "none" as const },
+    ];
     for (const m of MATERIALS) {
-      for (const v of whyNot(m, { serviceTemperatureC: 200, outdoorYears: 5, maxEdgeMm: 2000 })) {
+      for (const v of profiles.flatMap((p) => whyNot(m, p))) {
         for (const lang of LANGS) {
           const line = translate(lang, v.key, v.params);
           if (/\{[a-zA-Z]+\}/.test(line) || line === v.key) offenders.push(`${m.id} [${lang}]: ${line}`);

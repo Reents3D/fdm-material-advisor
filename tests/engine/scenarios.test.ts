@@ -11,6 +11,7 @@ import { MATERIALS, byId } from "../../src/data/materials";
 import { select, whyNot, dataCompleteness, confidenceProfile, serviceCeiling, evaluateConstraints, constraintReserve } from "../../src/engine";
 import { buildNormalisation, percentileRank, scoreMaterial } from "../../src/engine/scoring";
 import { DEFAULT_WEIGHTS } from "../../src/engine/criteria";
+import { translate } from "../../src/i18n";
 import { compare, dominated } from "../../src/engine/tradeoffs";
 
 const W = DEFAULT_WEIGHTS;
@@ -150,6 +151,88 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
         const reserve = constraintReserve(v);
         if (reserve !== null) expect(reserve, `${m.id}/${v.constraintId}`).toBeGreaterThanOrEqual(0);
       }
+    }
+  });
+});
+
+describe("Die Temperaturgrenze folgt der Last, nicht dem Polymer", () => {
+  /* Der Befund aus der Werkstatt, wörtlich: "Ich verstehe immer noch nicht, warum wir bei
+     PETG eine Dauereinsatzgrenze von 55 Grad festlegen. Muss da die Grenze rein, weil wenn
+     es temperaturabhängig wird, würden wir ja die Wandstärke / Infill auch nach oben fahren
+     um länger standzuhalten."
+
+     Der Einwand ist physikalisch richtig. Was einen Thermoplast unterhalb des Glasübergangs
+     begrenzt, ist Kriechen unter DAUERNDER Spannung — und die Spannung senkt man mit
+     Querschnitt. Die 55 °C sind Tg minus 12 K und damit eine Zahl für ein belastetes
+     Bauteil; in den Daten standen sie trotzdem als "unbelastet". Seither fragt der
+     Assistent nach der Last, und die Antwort entscheidet, welche Zahl das Urteil trägt. */
+  const petg = () => byId("petg")!;
+  const tempVerdict = (m: Parameters<typeof evaluateConstraints>[0], req: Parameters<typeof evaluateConstraints>[1]) =>
+    evaluateConstraints(m, req).find((c) => c.constraintId === "serviceTemperature")!;
+
+  it("unbelastet trägt der gemessene Wert — ohne Vorbehalt", () => {
+    const v = tempVerdict(petg(), { serviceTemperatureC: 60, thermalLoad: "none" });
+    expect(v.passed).toBe(true);
+    expect(v.key).toBe("constraint.temperature.passUnloaded");
+    expect(v.params.documented).toBe(71); // HDT-B aus dem Datenblatt
+  });
+
+  it("unter Dauerlast bleibt der Vorbehalt — und nennt den konstruktiven Ausweg", () => {
+    const v = tempVerdict(petg(), { serviceTemperatureC: 60, thermalLoad: "sustained" });
+    expect(v.passed).toBe(true); // eine Schätzung stuft ab, sie schliesst nicht aus (ADR-018)
+    expect(v.key).toBe("constraint.temperature.tightLoaded");
+    for (const lang of ["de", "en"] as const) {
+      expect(translate(lang, v.key, v.params)).toMatch(/Wand|wall/i);
+    }
+  });
+
+  it("ohne Angabe zur Last bleibt es beim vorsichtigen Verhalten von vorher", () => {
+    const v = tempVerdict(petg(), { serviceTemperatureC: 60 });
+    expect(v.key).toBe("constraint.temperature.tight");
+  });
+
+  it("„unbelastet\" hebt keine Grenze auf, die auch gemessen nicht trägt", () => {
+    const v = tempVerdict(petg(), { serviceTemperatureC: 90, thermalLoad: "none" });
+    expect(v.passed).toBe(false);
+  });
+
+  it("eine zusätzliche Angabe darf nie ein Ergebnis verschlechtern", () => {
+    /* PC führt HDT-A und HDT-B vertauscht: belegt sind nur 112 °C, die konservative
+       Empfehlung liegt bei 135 °C. Ohne Schutz hätte ausgerechnet die Angabe
+       "unbelastet" den Werkstoff bei 120 °C ausgeschlossen, den "keine Angabe"
+       durchgelassen hat. Wer mehr sagt, darf nicht schlechter dastehen. */
+    for (const m of MATERIALS) {
+      for (const temp of [40, 55, 60, 70, 90, 120, 150]) {
+        const vague = tempVerdict(m, { serviceTemperatureC: temp });
+        const unloaded = tempVerdict(m, { serviceTemperatureC: temp, thermalLoad: "none" });
+        if (vague.passed) expect(unloaded.passed, `${m.id} @ ${temp} °C`).toBe(true);
+      }
+    }
+  });
+
+  it("die Frage nach der Last ändert wirklich etwas — sonst wäre sie Zierde", () => {
+    /* Wenn keine Antwort je ein Urteil verschöbe, hätten wir dem Assistenten einen
+       Schritt hinzugefügt, der nichts tut. Gezählt wird, bei wie vielen Werkstoffen
+       der Vorbehalt bei 60 °C durch die Angabe "unbelastet" verschwindet. */
+    const lifted = MATERIALS.filter((m) => {
+      const vague = tempVerdict(m, { serviceTemperatureC: 60 });
+      const unloaded = tempVerdict(m, { serviceTemperatureC: 60, thermalLoad: "none" });
+      return vague.key === "constraint.temperature.tight"
+        && unloaded.key === "constraint.temperature.passUnloaded";
+    });
+    expect(lifted.map((m) => m.id)).toContain("petg");
+    expect(lifted.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("kein Werkstoff kommt über eine unbelegte Lastannahme in die Liste", () => {
+    // "unbelastet" darf nur den GEMESSENEN Wert freigeben, nie einen erfundenen.
+    for (const m of MATERIALS) {
+      const v = tempVerdict(m, { serviceTemperatureC: 60, thermalLoad: "none" });
+      if (v.key !== "constraint.temperature.passUnloaded") continue;
+      const documented = v.params.documented as number;
+      const measured = [m.thermal?.hdtB?.value, m.thermal?.hdtA?.value,
+        m.thermal?.vicatB50?.value, m.thermal?.recommendedMaxServiceTemperature?.value];
+      expect(measured, m.id).toContain(documented);
     }
   });
 });

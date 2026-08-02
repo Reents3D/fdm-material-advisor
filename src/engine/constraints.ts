@@ -66,7 +66,15 @@ export function serviceCeiling(m: Material): { value: number | null; basis: "rec
  * `recommendedMaxServiceTemperature` ist bei jedem Werkstoff eine eigene konservative
  * Schaetzung mit Sicherheitsabstand. Sie taugt als Warnung, nicht als Urteil. Wo sie
  * geschaetzt ist, entscheidet stattdessen der gemessene Datenblattwert (HDT-B, sonst
- * HDT-A). Gibt es auch den nicht, gibt es keine Grundlage fuer einen Ausschluss.
+ * HDT-A).
+ *
+ * Gibt es GAR KEINEN belegten Wert, entscheidet die Schaetzung doch - und schliesst dann
+ * auch aus. Fuenf Werkstoffe sind das (OBC, PA6, PEBA, PP, PVDF). Der Grundsatz "eine
+ * Schaetzung darf abstufen, nie ausschliessen" richtet sich gegen Schaetzungen, die einer
+ * MESSUNG widersprechen; wo nichts gemessen ist, gibt es nichts, wogegen sie sich
+ * behaupten muesste. PP bei 130 °C mit einem Vorbehalt durchzulassen waere der
+ * schlechtere Rat. Hier stand frueher das Gegenteil im Text, waehrend der Code schon
+ * immer so gerechnet hat.
  */
 function documentedCeiling(m: Material): number | null {
   const rec = m.thermal?.recommendedMaxServiceTemperature;
@@ -94,7 +102,31 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
   const unknown = (constraintId: string, key: string, params: Record<string, string | number> = {}, evidence?: string) =>
     out.push({ constraintId, passed: true, key, params, evidence, dataMissing: true });
 
-  /* --- temperature ------------------------------------------------------- */
+  /* --- temperature -------------------------------------------------------
+     EINE DAUERGEBRAUCHSTEMPERATUR IST KEINE WERKSTOFFKONSTANTE.
+     Aus der Werkstatt kam die Frage, warum bei PETG ueberhaupt eine Grenze von 55 °C
+     steht - "wenn es temperaturabhaengig wird, fahren wir doch Wandstaerke und Fuellgrad
+     nach oben, damit es laenger standhaelt". Das ist physikalisch richtig und war der
+     Fehler im Modell.
+
+     Was einen amorphen Thermoplast unterhalb des Glasuebergangs begrenzt, ist Kriechen:
+     bleibende Verformung unter DAUERNDER Spannung. Kriechgeschwindigkeit haengt an der
+     Spannung im Querschnitt - und die senkt man mit mehr Wand und mehr Fuellung. Die
+     Glasuebergangstemperatur verschiebt sich dadurch nicht, die zulaessige Einsatz-
+     temperatur sehr wohl. Deshalb ist die Grenze eine Aussage ueber das BAUTEIL, nicht
+     ueber das Polymer.
+
+     Genau das hat unsere eigene Zahl verschwiegen. Sie stand als "unbelastet, Luft,
+     dauerhaft" in den Daten, war aber Tg minus 12 K - und die Fussnote daneben sagte,
+     fuer ein unbelastetes Teil liege die Wahrheit zwischen dieser Zahl und dem
+     Datenblattwert. Beides zusammen ging nicht auf.
+
+     Jetzt fragt der Assistent nach der Last, und die Antwort entscheidet, welche Zahl
+     das Urteil traegt:
+       unbelastet  -> der gemessene Wert (HDT-B/HDT-A/Vicat) gilt, ohne Vorbehalt.
+       unter Last  -> die konservative Zahl gilt; reisst sie, bleibt es eine WARNUNG
+                      (ADR-018) mit dem Hinweis auf Wandstaerke und Fuellgrad.
+       nichts gesagt -> wie bisher vorsichtig: Schaetzung warnt, Datenblatt entscheidet. */
   if (req.serviceTemperatureC != null) {
     const { value, basis } = serviceCeiling(m);
     const hdtB = num(m.thermal?.hdtB);
@@ -106,19 +138,62 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
     if (value !== null) p.actual = value;
     if (hdtB !== null) p.hdtB = hdtB;
     const documented = documentedCeiling(m);
-    if (value === null) unknown("serviceTemperature", "constraint.temperature.unknown", p, "thermal.hdtB");
-    else if (value >= req.serviceTemperatureC)
+    /* `documented` wandert nur dort in die Parameter, wo der BELEGTE Wert das Urteil
+       traegt. `constraintReserve` rechnet die Reserve gegen genau diesen Parameter -
+       stuende er auch bei einem Freispruch auf der konservativen Zahl daneben, waere die
+       gemeldete Reserve die des Datenblattwerts und damit groesser als die, auf die das
+       Urteil sich stuetzt. Ein zu grosser Sicherheitsabstand ist hier die gefaehrlichere
+       Falschaussage von beiden. */
+    if (value === null && documented === null) {
+      unknown("serviceTemperature", "constraint.temperature.unknown", p, "thermal.hdtB");
+    } else if (req.thermalLoad === "none") {
+      /* UNBELASTET: Der gemessene Wert gilt, und zwar ohne Vorbehalt. Der HDT-Versuch
+         belastet die Probe bereits mit 0,45 MPa - ein Gehaeuse, ein Modell, eine
+         Abdeckung tragen im Betrieb weniger. Die konservative Schaetzung waere hier
+         die falsche Zahl, und der Vorbehalt, den sie ausloest, war der Grund, warum
+         PETG bei 60 °C durchweg mit einem Warnhinweis in der Liste stand, obwohl
+         71 °C gemessen sind. */
+      if (documented !== null && documented >= req.serviceTemperatureC) {
+        p.documented = documented;
+        pass("serviceTemperature", "constraint.temperature.passUnloaded", p, "thermal.hdtB");
+      } else if (value !== null && value >= req.serviceTemperatureC) {
+        /* Die konservative Zahl unterstellt Dauerlast und ist damit eine UNTERGRENZE.
+           Wo sie ausnahmsweise UEBER dem belegten Wert liegt, darf die Angabe
+           "unbelastet" nicht strenger ausfallen als gar keine Angabe - eine zusaetzliche
+           Auskunft darf ein Ergebnis nie verschlechtern. Der Fall existiert: PC hat eine
+           konservative Empfehlung von 135 °C, aber nur HDT-B 112 °C belegt, weil sein
+           Datenblatt HDT-A und HDT-B vertauscht fuehrt.
+           Die gewoehnliche Freigabemeldung passt dann auch im Wortlaut - sie nennt die
+           konservative Grenze und nicht einen Messwert, den es so nicht gibt. */
+        pass("serviceTemperature", "constraint.temperature.pass", p, "thermal.hdtB");
+      } else {
+        /* Die Meldung MUSS zur Datenlage passen: `constraint.temperature.fail` nennt eine
+           HDT-B, die es nicht bei jedem Werkstoff gibt. Ohne diese Fallunterscheidung
+           stand in der Begruendung woertlich "(HDT-B {hdtB} °C)" - derselbe Fehler, den
+           ADR-006 schon einmal ausgeloest hat, nur diesmal als unaufgeloester
+           Platzhalter statt als erfundene Null. Gefunden vom Test dazu. */
+        fail("serviceTemperature",
+          hdtB === null ? "constraint.temperature.failNoHdt" : "constraint.temperature.fail",
+          p, "thermal.hdtB");
+      }
+    } else if (value !== null && value >= req.serviceTemperatureC) {
       pass("serviceTemperature", basis === "recommended" ? "constraint.temperature.pass" : "constraint.temperature.passHdt", p, "thermal.hdtB");
-    else if (documented !== null && documented >= req.serviceTemperatureC) {
-      // Nur die konservative Schaetzung reisst, der Datenblattwert traegt noch. Das ist
-      // eine Warnung, kein Ausschluss: PLA bei 50 °C ist genau dieser Fall - 40 °C
-      // geschaetzt, HDT-B 57 °C gemessen. Fuer ein unbelastetes Messemodell traegt es,
-      // fuer eine belastete Konsole nicht.
+    } else if (documented !== null && documented >= req.serviceTemperatureC) {
+      /* Nur die konservative Schaetzung reisst, der Datenblattwert traegt noch. Das ist
+         eine Warnung, kein Ausschluss: PLA bei 50 °C ist genau dieser Fall - 40 °C
+         geschaetzt, HDT-B 57 °C gemessen.
+
+         Wer ausdruecklich Dauerlast angegeben hat, bekommt denselben Vorbehalt mit dem
+         konstruktiven Ausweg dazu: mehr Wand, mehr Fuellung, groesserer Querschnitt
+         senken die Spannung und damit das Kriechen. */
       p.documented = documented;
-      pass("serviceTemperature", "constraint.temperature.tight", p, "thermal.hdtB");
+      pass("serviceTemperature",
+        req.thermalLoad === "sustained" ? "constraint.temperature.tightLoaded" : "constraint.temperature.tight",
+        p, "thermal.hdtB");
+    } else {
+      fail("serviceTemperature",
+        hdtB === null ? "constraint.temperature.failNoHdt" : "constraint.temperature.fail", p, "thermal.hdtB");
     }
-    else fail("serviceTemperature",
-      hdtB === null ? "constraint.temperature.failNoHdt" : "constraint.temperature.fail", p, "thermal.hdtB");
   }
 
   /* --- chamber ----------------------------------------------------------- */

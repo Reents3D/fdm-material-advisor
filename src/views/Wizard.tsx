@@ -40,6 +40,9 @@ import { USECASES, useCaseParams } from "../data/usecases";
 import { Button, Card, Toggle, cx, text } from "../components/ui";
 import { SITE } from "../config/site";
 import { CHEMICALS, CHEMICAL_CATEGORIES, chemicalById, chemicalCoverage, isThinData, MATERIAL_COUNT } from "../data/chemicals";
+/* Anforderungsliste und Schwerpunkte liegen seit 2026-08-02 gemeinsam in lib/requirements.ts -
+   die Ergebnisseite zeigt dieselbe Aufstellung, und zwei Fassungen waeren zwei Wahrheiten. */
+import { activeRequirements, matchesPreset, PRESETS, type ActiveReq } from "../lib/requirements";
 import type { Requirements } from "../engine";
 import type { AppState } from "../App";
 
@@ -48,7 +51,7 @@ type Req = AppState["req"];
 /* Jeder Schritt weiss, welche Anforderungsfelder ihm gehoeren. Nur so kann
    "Ueberspringen" wirklich ueberspringen, statt bloss weiterzublaettern. */
 const STEPS: { key: string; owns: (keyof Req)[]; ownsWeights?: string[] }[] = [
-  { key: "env", owns: ["outdoorYears", "serviceTemperatureC"] },
+  { key: "env", owns: ["outdoorYears", "serviceTemperatureC", "thermalLoad"] },
   { key: "load", owns: ["minTensileStrengthMPa", "flexible"] },
   { key: "part", owns: ["maxEdgeMm", "quantity", "chamberAvailable", "hardenedNozzleAvailable", "annealingOvenAvailable"] },
   { key: "look", owns: [], ownsWeights: ["paintability", "surface"] },
@@ -56,18 +59,6 @@ const STEPS: { key: string; owns: (keyof Req)[]; ownsWeights?: string[] }[] = [
   { key: "weights", owns: [] },
 ];
 const TOTAL = STEPS.length;
-
-/* Benannte Schwerpunkte statt sechzehn nackter Regler. Jeder setzt nur die Kriterien,
-   die er wirklich meint - der Rest bleibt auf dem Standard, damit ein Schwerpunkt keine
-   stillen Nebenwirkungen hat. */
-const PRESETS: { id: string; weights: Record<string, number> }[] = [
-  { id: "balanced", weights: {} },
-  { id: "mechanical", weights: { strength: 5, stiffness: 5, layerAdhesion: 4, toughness: 4, price: 1 } },
-  { id: "thermal", weights: { temperature: 5, chemical: 4, strength: 3, price: 1 } },
-  { id: "outdoor", weights: { outdoor: 5, temperature: 3, surface: 3, price: 1 } },
-  { id: "visual", weights: { surface: 5, paintability: 5, layerAdhesion: 1, strength: 1 } },
-  { id: "pragmatic", weights: { price: 5, printability: 5, availability: 4, lowWarping: 4 } },
-];
 
 type Props = {
   step: number;
@@ -217,8 +208,33 @@ export function Wizard({ step: rawStep, state, t, navigate, update }: Props) {
                 onChange={(v) => set({ serviceTemperatureC: v ? 60 : undefined })}
                 label={t("wiz.2.temp")} hint={t("wiz.2.tempHint")} />
               {req.serviceTemperatureC !== undefined && (
-                <Slider label={t("wiz.2.temp")} min={30} max={220} step={5} unit="°C"
-                  value={req.serviceTemperatureC} onChange={(v) => set({ serviceTemperatureC: v })} />
+                <>
+                  <Slider label={t("wiz.2.temp")} min={30} max={220} step={5} unit="°C"
+                    value={req.serviceTemperatureC} onChange={(v) => set({ serviceTemperatureC: v })} />
+
+                  {/* DIE WICHTIGSTE FRAGE ZUR TEMPERATUR - UND SIE FEHLTE.
+                      Wie warm ein Bauteil darf, ist keine Werkstoffkonstante: Was einen
+                      Thermoplast begrenzt, ist Kriechen unter Spannung, und Spannung senkt
+                      man mit Wandstaerke und Fuellgrad. Ohne diese Angabe musste die Engine
+                      immer vom schlimmeren Fall ausgehen - deshalb trug PETG bei 60 °C
+                      selbst fuer ein Gehaeuse einen Warnhinweis, obwohl 71 °C gemessen sind.
+                      Sie steht direkt unter dem Regler, weil sie nur mit ihm zusammen
+                      einen Sinn ergibt. */}
+                  <div className="mt-4">
+                    <div className="text-sm font-medium mb-1">{t("wiz.2.load")}</div>
+                    <p className="text-xs muted mb-2.5 leading-relaxed">{t("wiz.2.loadHint")}</p>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      {(["none", "sustained"] as const).map((k) => (
+                        <Choice key={k} active={req.thermalLoad === k}
+                          label={t(`wiz.2.load.${k}`)}
+                          onClick={() => set({ thermalLoad: req.thermalLoad === k ? undefined : k })}>
+                          <span className="block font-medium">{t(`wiz.2.load.${k}`)}</span>
+                          <span className="block text-xs muted mt-0.5">{t(`wiz.2.load.${k}.desc`)}</span>
+                        </Choice>
+                      ))}
+                    </div>
+                  </div>
+                </>
               )}
             </div>
 
@@ -432,72 +448,6 @@ export function Wizard({ step: rawStep, state, t, navigate, update }: Props) {
 
 /* ------------------------------------------------------------------ Hilfsteile */
 
-interface ActiveReq {
-  id: string;
-  label: string;
-  /** Constraint-Kennung der Engine, damit die Sackgassenauskunft zuordnen kann. */
-  constraintId?: string;
-  patch: (req: Req) => Partial<AppState>;
-}
-
-/** Alles, was der Nutzer gesetzt hat - als entfernbare Liste. */
-function activeRequirements(
-  req: Req, chemicals: string[],
-  t: (k: string, p?: Record<string, string | number>) => string,
-  lang: string,
-): ActiveReq[] {
-  const out: ActiveReq[] = [];
-  const drop = (f: keyof Req) => (r: Req): Partial<AppState> => ({ req: { ...r, [f]: undefined } });
-
-  if (req.outdoorYears !== undefined) out.push({
-    id: "outdoor", constraintId: "outdoor",
-    label: t("wiz.chip.outdoor", { n: req.outdoorYears }), patch: drop("outdoorYears"),
-  });
-  if (req.serviceTemperatureC !== undefined) out.push({
-    id: "temp", constraintId: "temperature",
-    label: t("wiz.chip.temp", { n: req.serviceTemperatureC }), patch: drop("serviceTemperatureC"),
-  });
-  if (req.minTensileStrengthMPa !== undefined) out.push({
-    id: "strength", constraintId: "strength",
-    label: t("wiz.chip.strength", { n: req.minTensileStrengthMPa }), patch: drop("minTensileStrengthMPa"),
-  });
-  if (req.flexible) out.push({
-    id: "flexible", constraintId: "flexible",
-    label: t("wiz.chip.flexible"), patch: drop("flexible"),
-  });
-  if (req.maxEdgeMm !== undefined) out.push({
-    id: "edge", constraintId: "size",
-    label: t("wiz.chip.edge", { n: req.maxEdgeMm }), patch: drop("maxEdgeMm"),
-  });
-  if (req.quantity !== undefined) out.push({
-    id: "qty", label: t("wiz.chip.qty", { n: req.quantity }), patch: drop("quantity"),
-  });
-  if (req.foodContact) out.push({
-    id: "food", constraintId: "foodContact",
-    label: t("wiz.6.food"), patch: drop("foodContact"),
-  });
-  if (req.flameClass) out.push({
-    id: "flame", constraintId: "flameClass",
-    label: t("wiz.6.flame"), patch: drop("flameClass"),
-  });
-  if (req.esd) out.push({
-    id: "esd", constraintId: "esd", label: t("wiz.6.esd"), patch: drop("esd"),
-  });
-  for (const [f, key, cid] of [
-    ["chamberAvailable", "wiz.chip.noChamber", "chamber"],
-    ["hardenedNozzleAvailable", "wiz.chip.noNozzle", "nozzle"],
-    ["annealingOvenAvailable", "wiz.chip.noOven", "annealing"],
-  ] as const) {
-    if (req[f] === false) out.push({ id: f, constraintId: cid, label: t(key), patch: drop(f) });
-  }
-  if (chemicals.length) out.push({
-    id: "chemicals", constraintId: "chemicals",
-    label: chemicals.map((c) => text(chemicalById(c)?.name, lang as never)).filter(Boolean).join(", "),
-    patch: (r) => ({ req: { ...r, chemicals: undefined }, chemicals: [] }),
-  });
-  return out;
-}
-
 /** Welche Anforderung hat die meisten Werkstoffe ausgeschlossen? Gezaehlt, nicht geraten. */
 function dominantBlocker(result: ReturnType<typeof select>): string | null {
   const tally = new Map<string, number>();
@@ -512,12 +462,6 @@ function dominantBlocker(result: ReturnType<typeof select>): string | null {
 /** Alles zuruecksetzen - bis auf die Gewichtung, die keine Treffer ausschliesst. */
 function resetAll(): Requirements {
   return { weights: { ...DEFAULT_WEIGHTS } };
-}
-
-/** Ein Schwerpunkt gilt als gewaehlt, wenn genau seine Abweichungen gesetzt sind. */
-function matchesPreset(weights: Record<string, number> | undefined, preset: Record<string, number>): boolean {
-  const w = weights ?? {};
-  return CRITERIA.every((c) => (w[c.id] ?? 0) === (preset[c.id] ?? DEFAULT_WEIGHTS[c.id] ?? 0));
 }
 
 function Step({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {

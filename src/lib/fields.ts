@@ -134,7 +134,12 @@ export const FIELDS: FieldDef[] = [
   c("sustainability", "practicalRecyclability", "Praktische Recyclingfähigkeit", "Practical recyclability"),
 
   /* --- Kommerziell ------------------------------------------------------- */
-  q("commercial", "pricePerKg", "Preis je Kilogramm", "Price per kilogram", "€/kg"),
+  /* NUR EINMAL. Beim Einbau des Preisrankings kam eine zweite Zeile fuer dasselbe Feld
+     dazu, nur mit anderer Beschriftung. Im Vergleich stand der Preis daraufhin doppelt -
+     und weil der React-Schluessel aus Gruppe und Feld gebildet wird, mit demselben
+     Schluessel. React darf bei doppelten Schluesseln Zeilen weglassen oder verdoppeln;
+     hier tat es beides nicht sichtbar, aber die Warnung stand hundertfach in der Konsole.
+     Ein Test haelt die Schluessel jetzt eindeutig. */
   q("commercial", "pricePerKg", "Materialpreis", "Material price", "€/kg"),
   r("commercial", "priceIndex", "Preisniveau (abgeleitet)", "Price level (derived)"),
   r("commercial", "availability", "Verfügbarkeit", "Availability"),

@@ -98,6 +98,10 @@ function stateFromParams(params: URLSearchParams): AppState {
   if (params.get("flex") === "1") req.flexible = true;
   else if (params.get("rigid") === "1") req.flexible = false;
   if (params.get("flame")) req.flameClass = params.get("flame") as Requirements["flameClass"];
+  /* Die Lastannahme gehoert in den Link. Sie entscheidet, welche Zahl die Temperaturgrenze
+     setzt - ein geteiltes Ergebnis ohne sie waere ein anderes Ergebnis. */
+  const load = params.get("load");
+  if (load === "none" || load === "sustained") req.thermalLoad = load;
 
   const chemicals = (params.get("chem") ?? "").split(",").filter(Boolean);
   if (chemicals.length) req.chemicals = chemicals;
@@ -135,7 +139,7 @@ function paramsFromState(s: AppState, base: URLSearchParams): URLSearchParams {
   }
   if (req.flexible === true) p.set("flex", "1");
   if (req.flexible === false) p.set("rigid", "1");
-  set("flame", req.flameClass);
+  set("flame", req.flameClass); set("load", req.thermalLoad);
   if (s.chemicals.length) p.set("chem", s.chemicals.join(","));
   if (s.compare.length) p.set("cmp", s.compare.join(","));
   /* Bei einem vollstaendigen Profil muss JEDES Gewicht mit, auch das, was zufaellig dem

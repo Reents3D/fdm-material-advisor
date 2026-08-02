@@ -90,6 +90,11 @@ export function buildExplanations(
     if (v.key === "constraint.temperature.tight") {
       out.push({ type: "risk", key: "risk.temperatureTight", params: { ...v.params }, evidence: v.evidence });
     }
+    /* Wer Dauerlast angegeben hat, bekommt denselben Vorbehalt mit dem konstruktiven
+       Ausweg: Kriechen haengt an der Spannung, und die senkt man mit Querschnitt. */
+    if (v.key === "constraint.temperature.tightLoaded") {
+      out.push({ type: "risk", key: "risk.temperatureLoaded", params: { ...v.params }, evidence: v.evidence });
+    }
     if (v.key === "constraint.size.effort") {
       out.push({ type: "risk", key: "risk.sizeEffort", params: { ...v.params }, evidence: v.evidence });
     }
@@ -169,9 +174,14 @@ export function buildExplanations(
     out.push({ type: "gap", criterionId: gap, key: "gap.noData", params: { criterion: gap } });
   }
 
-  /* temperature basis — say which number the gate used */
+  /* temperature basis — say which number the gate used.
+     Nicht mehr, wenn der Nutzer "unbelastet" gesagt hat: Dann hat die Pruefung gerade
+     NICHT mit der konservativen Zahl gerechnet, sondern mit dem Datenblattwert. Der
+     Hinweis "wir rechnen mit 55 °C, nicht mit der HDT von 71 °C" waere dort schlicht
+     falsch - er beschriebe eine Regel, die in diesem Durchlauf ausgesetzt ist. */
+  const unloaded = verdicts.some((v) => v.key === "constraint.temperature.passUnloaded");
   const { basis, value } = serviceCeiling(m);
-  if (basis === "recommended" && value !== null) {
+  if (!unloaded && basis === "recommended" && value !== null) {
     const hdtB = numOf(m.thermal?.hdtB);
     if (hdtB !== null && hdtB > value) {
       out.push({

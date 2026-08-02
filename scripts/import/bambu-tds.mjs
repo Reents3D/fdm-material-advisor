@@ -580,16 +580,24 @@ function buildMaterial(id, d, m) {
        Werkstoffeigenschaft - und widerspricht scheinbar den Datenblaettern, die fuer PETG
        durchweg 63 bis 80 °C nennen. Beides stimmt: Der Datenblattwert ist die
        Formbestaendigkeitsgrenze im Kurzversuch, unsere Zahl eine Dauergebrauchsempfehlung
-       mit Sicherheitsabstand. Wer nur eine der beiden sieht, zieht den falschen Schluss. */
+       mit Sicherheitsabstand. Wer nur eine der beiden sieht, zieht den falschen Schluss.
+
+       DIE BEDINGUNG STAND FALSCH DARAN. Bis 2026-08-02 trug dieser Wert
+       `conditions: "unbelastet, Luft, dauerhaft"` - und die Fussnote daneben sagte, fuer
+       ein unbelastetes Bauteil liege die Wahrheit zwischen dieser Zahl und dem
+       Datenblattwert. Beides zusammen ging nicht auf: Entweder gilt die Zahl unbelastet,
+       oder sie liegt darunter. Sie liegt darunter. Tg minus 12 K ist eine Zahl fuer ein
+       Bauteil UNTER Dauerlast; unbelastet begrenzt kein Kriechen, und dann traegt der
+       gemessene Wert. Die Bedingung sagt das jetzt, und die Engine fragt danach. */
     const basis = d.tg != null && m.polymerClass === "amorphous"
       ? { de: `Glasübergang ${d.tg} °C abzüglich 12 K`, en: `glass transition ${d.tg} °C less 12 K` }
       : { de: `${d.hdtA != null ? `HDT-A ${d.hdtA} °C` : `Vicat ${d.vicat} °C`} abzüglich 15 K`,
           en: `${d.hdtA != null ? `HDT-A ${d.hdtA} °C` : `Vicat ${d.vicat} °C`} less 15 K` };
     thermal.recommendedMaxServiceTemperature = q(rec, "°C", {
       min: rec - 10, max: rec + 5, source: "estimate_reasoning", confidence: "estimated",
-      conditions: "unbelastet, Luft, dauerhaft",
-      note: t(`Eigene konservative Empfehlung, nicht der Datenblattwert: ${basis.de}. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch${d.hdtB != null ? `, hier HDT-B ${d.hdtB} °C` : ""}) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Für ein unbelastetes Bauteil liegt die Wahrheit dazwischen; unter mechanischer Last deutlich niedriger ansetzen.`,
-              `Our own conservative recommendation, not the datasheet figure: ${basis.en}. The datasheets state higher numbers (short-term heat deflection${d.hdtB != null ? `, here HDT-B ${d.hdtB} °C` : ""}) — those apply for minutes under a defined load, not for continuous service. For an unloaded part the truth lies in between; assume markedly lower under mechanical load.`),
+      conditions: "dauerhaft unter mechanischer Last, Luft",
+      note: t(`Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: ${basis.de}. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch${d.hdtB != null ? `, hier HDT-B ${d.hdtB} °C` : ""}) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert${d.hdtB != null ? ` (HDT-B ${d.hdtB} °C)` : ""}. Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.`,
+              `Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: ${basis.en}. The datasheets state higher numbers (short-term heat deflection${d.hdtB != null ? `, here HDT-B ${d.hdtB} °C` : ""}) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries${d.hdtB != null ? ` (HDT-B ${d.hdtB} °C)` : ""}. Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition.`),
     });
   }
   if (d.wabs != null) { /* handled in durability */ }

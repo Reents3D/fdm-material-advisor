@@ -121,6 +121,19 @@ export interface Material {
 export interface Requirements {
   /** Continuous service temperature the part must survive, in °C. */
   serviceTemperatureC?: number;
+  /**
+   * Ist das Bauteil BEI dieser Temperatur dauerhaft mechanisch belastet?
+   *
+   * Diese Angabe entscheidet, welche Zahl die Temperaturgrenze setzt — und sie war
+   * lange die stille Luecke im Modell. Eine Dauergebrauchstemperatur ist keine
+   * Werkstoffkonstante, sondern eine Aussage ueber Kriechen unter Spannung: Wie lange
+   * ein Bauteil warm standhaelt, haengt an der Spannung im Querschnitt, und die senkt
+   * man mit Wandstaerke und Fuellgrad. Ein unbelastetes Gehaeuse traegt deshalb bis
+   * dicht an die gemessene Formbestaendigkeit; eine dauerhaft belastete Konsole nicht.
+   *
+   * `undefined` heisst "nicht gesagt" — dann gilt weiter die vorsichtige Annahme.
+   */
+  thermalLoad?: "none" | "sustained";
   /** Does the shop have a heated chamber? false excludes chamber-mandatory materials. */
   chamberAvailable?: boolean;
   /** Hardened nozzle available? false excludes abrasive filled materials. */

@@ -10,6 +10,7 @@ import { Button, Card, Chip, ScoreMeter, Section, cx, fmt, text } from "../compo
 import { tableToCsv } from "../lib/csv";
 import { downloadText, exportFilename } from "../lib/download";
 import { resultColumns, toRankedRows } from "../lib/exports";
+import { activeRequirements, weightFocus } from "../lib/requirements";
 import type { AppState } from "../App";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -44,6 +45,12 @@ export function Results({ result, state, t, navigate, update }: {
 
   const top = result.ranked.slice(0, showAll ? undefined : 5);
 
+  /* Die Anforderungen gehoeren unter die Trefferzahl, nicht in den Assistenten allein.
+     "17 Materialien erfuellen die Anforderungen" ohne die Anforderungen ist eine Zahl
+     ohne Frage - und ein geteilter Link kam bisher genau so an. */
+  const asked = activeRequirements(state.req, state.chemicals, t, lang);
+  const focus = weightFocus(state.req.weights, t);
+
   // Bewusst die vollstaendige Rangliste, nicht die angezeigten fuenf: wer exportiert,
   // will die Tabelle selbst filtern - und merkt sonst nicht, dass etwas fehlt.
   const exportCsv = () => downloadText(
@@ -68,6 +75,30 @@ export function Results({ result, state, t, navigate, update }: {
           <Button variant="primary" onClick={() => navigate("report")}>{t("ui.report")}</Button>
         </div>
       </div>
+
+      {/* --- Wonach gefragt wurde. Sonst ist die Rangliste eine Antwort ohne Frage. --- */}
+      {(asked.length > 0 || focus) && (
+        <div className="mb-6 -mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs">
+          <span className="uppercase tracking-wider muted">{t("ui.results.asked")}</span>
+          {asked.map((a) => (
+            <span key={a.id}
+              className="inline-flex items-center rounded px-2 py-0.5 border border-hairline dark:border-[#1E2B3D]">
+              {a.label}
+            </span>
+          ))}
+          {/* Die Gewichtung entscheidet die REIHENFOLGE - ohne sie erklaert die Liste
+              nur die Hälfte von sich. */}
+          {focus && (
+            <span className="inline-flex items-center rounded px-2 py-0.5 border border-petrol-300/60 dark:border-petrol-400/40 hl">
+              {t("ui.results.focus", { what: focus })}
+            </span>
+          )}
+          {asked.length === 0 && (
+            <span className="muted">{t("ui.results.noFilter")}</span>
+          )}
+          <a href="#/wizard/1" className="hl hover:underline no-print">{t("ui.results.change")} →</a>
+        </div>
+      )}
 
       {!result.ranked.length && (
         <Card className="mb-6 border-ok/40">
@@ -312,6 +343,7 @@ function Deltas({ title, rows, tone, t }: {
    "knapp durch" von "glatt durch". */
 const WARN_KEYS = new Set([
   "constraint.temperature.tight",
+  "constraint.temperature.tightLoaded",
   "constraint.size.effort",
   "constraint.flame.passViaProduct",
   "constraint.chamber.warn",

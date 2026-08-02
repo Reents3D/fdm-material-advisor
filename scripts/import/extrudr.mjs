@@ -677,7 +677,7 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
   };
   const base = m.hdtA ?? m.hdtB ?? m.vicat;
   if (base) thermal.recommendedMaxServiceTemperature = q(Math.round((base - 25) / 5) * 5, "°C", {
-    conditions: "unbelastet, Luft, dauerhaft", source: "estimate_reasoning", confidence: "estimated",
+    conditions: "dauerhaft unter mechanischer Last, Luft", source: "estimate_reasoning", confidence: "estimated",
     note: t("Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
             "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B.") });
 

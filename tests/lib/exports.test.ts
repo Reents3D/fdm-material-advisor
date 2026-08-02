@@ -161,3 +161,17 @@ describe("Ergebnistabelle", () => {
     expect(headers.some((h) => h.includes("mangels Daten"))).toBe(true);
   });
 });
+
+describe("Feldkatalog", () => {
+  it("führt jedes Feld genau einmal", () => {
+    /* Beim Einbau des Preisrankings stand `commercial.pricePerKg` zweimal im Katalog,
+       nur mit unterschiedlicher Beschriftung. Folge: eine doppelte Zeile im Vergleich
+       und eine doppelte Spalte im CSV - beide mit demselben React-Schlüssel, was React
+       ausdrücklich als unsicher meldet. Ein Katalog mit zwei Einträgen für dasselbe
+       Feld ist immer ein Fehler, nie Absicht. */
+    const seen = new Map<string, number>();
+    for (const d of FIELDS) seen.set(fieldKey(d), (seen.get(fieldKey(d)) ?? 0) + 1);
+    const doppelt = [...seen].filter(([, n]) => n > 1).map(([k, n]) => `${k} (${n}×)`);
+    expect(doppelt).toEqual([]);
+  });
+});

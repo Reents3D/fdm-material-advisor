@@ -63,6 +63,13 @@ function requirementLines(state: AppState, t: T): { label: string; value: string
 
   add(de ? "Dauereinsatztemperatur" : "Service temperature",
     req.serviceTemperatureC !== undefined ? `${req.serviceTemperatureC} °C` : undefined);
+  /* Die Lastannahme entscheidet, welche Zahl die Temperaturgrenze setzt. Ein Bericht,
+     der die Temperatur nennt und die Last verschweigt, dokumentiert die halbe Vorgabe. */
+  add(de ? "Belastung bei dieser Temperatur" : "Load at that temperature",
+    req.thermalLoad === undefined ? undefined
+      : req.thermalLoad === "none"
+        ? (de ? "unbelastet" : "unloaded")
+        : (de ? "dauerhaft belastet" : "permanently loaded"));
   add(de ? "Bewitterung" : "Outdoor exposure",
     req.outdoorYears !== undefined ? (de ? `${req.outdoorYears} Jahre im Freien` : `${req.outdoorYears} years outdoors`) : undefined);
   add(de ? "Grösste Kantenlänge" : "Largest edge",

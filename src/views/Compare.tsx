@@ -82,15 +82,42 @@ export function Compare({ state, t, update, navigate }: {
 
       {selected.length > 0 && (
         <>
-          <div className="overflow-x-auto overscroll-x-contain surface p-0">
+          {/* DER TABELLENKOPF BLIEB NIE STEHEN - ER STAND DAUERHAFT 64 PX ZU TIEF.
+              `sticky top-16` haftet nicht am Fenster, sondern am naechsten Element mit
+              Ueberlauf - und das war dieser Behaelter. Er scrollt nur waagerecht, senkrecht
+              also nie; aus "bleib 64 px unter der Oberkante" wurde damit eine feste
+              Verschiebung um 64 px nach unten. Gemessen: Kopf bei y=2243, erste Datenzeile
+              bei y=2268 - 28 px Ueberdeckung. Die Gruppenueberschrift und die Werte der
+              ersten Zeile (Dichte) verschwanden unter der deckenden Kopfflaeche, und die
+              Beschriftung "Material" lag hinter der Zeilenbeschriftung, weil beide auf
+              z-10 standen und im Zweifel das spaetere Element gewinnt.
+              (Nebenbei: `overflow-x-auto` macht auch die senkrechte Achse zum Scrollbereich -
+              deshalb greift die Haftung ueberhaupt hier und nicht am Fenster.)
+
+              Jetzt scrollt der Behaelter in BEIDEN Richtungen und ist in der Hoehe begrenzt.
+              Damit haftet der Kopf an genau dem Bereich, in dem gescrollt wird, und tut,
+              wofuer er gedacht war: Bei fuenfzig Kennwertzeilen bleibt sichtbar, welche
+              Spalte zu welchem Werkstoff gehoert. Die Haftung sitzt an den ZELLEN, nicht
+              an <thead> - Safari beherrscht sticky auf Zeilengruppen bis heute nicht
+              zuverlaessig.
+
+              Die Hoehe steht als feste Zahl da, nicht als `calc(100dvh - 9rem)`. Das war
+              der erste Versuch und er faellt in sich zusammen, sobald eine Umgebung die
+              Fensterhoehe mit 0 meldet: `dvh` wird dann 0, der Kasten 2 px hoch, die
+              Tabelle unsichtbar. Genau das ist beim Nachmessen passiert. 44 rem zeigen rund
+              zwanzig Zeilen und koennen nicht kollabieren. */}
+          <div className="compare-scroll overflow-auto overscroll-contain surface p-0 max-h-[44rem]">
             <table className="w-full text-sm border-separate border-spacing-0 min-w-max">
-              <thead className="sticky top-16 bg-white dark:bg-[#0E1725] z-10">
+              <thead>
                 <tr>
-                  <th className="text-left font-medium py-2 px-3 sticky left-0 bg-white dark:bg-[#0E1725] w-48 min-w-48 z-20">
+                  {/* Die Ecke muss ueber BEIDEM liegen: ueber den Spaltenkoepfen (z-20)
+                      beim Scrollen nach rechts und ueber den Zeilenbeschriftungen (z-10)
+                      beim Scrollen nach unten. */}
+                  <th className="text-left font-medium py-2 px-3 sticky top-0 left-0 z-30 bg-white dark:bg-[#0E1725] w-48 min-w-48 border-b border-hairline dark:border-[#1E2B3D]">
                     {t("ui.material")}
                   </th>
                   {selected.map((m) => (
-                    <th key={m.id} className="text-left font-semibold py-2 px-3 min-w-36 border-b border-hairline dark:border-[#1E2B3D]">
+                    <th key={m.id} className="text-left font-semibold py-2 px-3 min-w-36 sticky top-0 z-20 bg-white dark:bg-[#0E1725] border-b border-hairline dark:border-[#1E2B3D]">
                       <a href={`#/material/${m.id}`} className="hl hover:underline">{m.identity.name}</a>
                       <span className="block text-xs muted font-normal">{m.identity.family}</span>
                     </th>
@@ -113,7 +140,7 @@ export function Compare({ state, t, update, navigate }: {
                     <Fragment key={group}>
                       <tr>
                         <td colSpan={selected.length + 1}
-                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 bg-white dark:bg-[#0E1725] px-3">
+                          className="pt-4 pb-1 text-xs font-semibold uppercase tracking-wide muted sticky left-0 z-10 bg-white dark:bg-[#0E1725] px-3">
                           {lang === "de" ? GROUP_TITLES[group].de : GROUP_TITLES[group].en}
                         </td>
                       </tr>

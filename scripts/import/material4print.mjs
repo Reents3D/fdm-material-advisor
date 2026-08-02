@@ -410,7 +410,7 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
         note: t("Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe im ganzen Bestand.",
                 "Stated by the manufacturer with a time base — the most robust form of this figure in the entire database.") })
     : q(Math.round(((m.hdtA ?? m.hdtB ?? 60) - 25) / 5) * 5, "°C", {
-        conditions: "unbelastet, Luft, dauerhaft", source: "estimate_reasoning", confidence: "estimated",
+        conditions: "dauerhaft unter mechanischer Last, Luft", source: "estimate_reasoning", confidence: "estimated",
         note: t("Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
                 "Our own conservative recommendation with margin to the softening limit.") });
 

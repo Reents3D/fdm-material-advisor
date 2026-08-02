@@ -33,6 +33,10 @@ const de: Dict = {
   "ui.reset": "Zurücksetzen",
   "ui.step": "Schritt {n} von {total}",
   "ui.results.count": "{n} Materialien erfüllen die Anforderungen",
+  "ui.results.asked": "Gefordert:",
+  "ui.results.focus": "Schwerpunkt: {what}",
+  "ui.results.noFilter": "keine harten Anforderungen — alle Werkstoffe stehen zur Wahl",
+  "ui.results.change": "Ändern",
   "ui.results.none": "Kein Material erfüllt alle Anforderungen.",
   "ui.results.noneHint":
     "Lockern Sie eine Anforderung oder prüfen Sie die Verfahrenshinweise unten — womöglich ist FDM hier nicht das richtige Verfahren.",
@@ -195,6 +199,15 @@ const de: Dict = {
   "wiz.2.temp": "Höchste Dauertemperatur im Betrieb",
   "wiz.2.tempHint":
     "Wir rechnen mit einer konservativen Dauereinsatzgrenze, nicht mit der Wärmeformbeständigkeit. Ein Bauteil, das kurz 80 °C sieht, ist etwas anderes als eines, das dauerhaft 80 °C trägt.",
+  "wiz.2.load": "Trägt das Bauteil bei dieser Temperatur Last?",
+  "wiz.2.loadHint":
+    "Das entscheidet, welche Zahl die Grenze setzt. Was einen Thermoplast in der Wärme begrenzt, ist Kriechen — bleibende Verformung unter dauernder Spannung. Ohne Last kriecht nichts, und der gemessene Datenblattwert gilt. Mit Last zählt die konservative Zahl; Wandstärke und Füllgrad senken dann die Spannung und damit das Kriechen.",
+  "wiz.2.load.none": "Nein, unbelastet",
+  "wiz.2.load.none.desc": "Gehäuse, Abdeckung, Modell, Schild — trägt nur sich selbst.",
+  "wiz.2.load.sustained": "Ja, dauerhaft belastet",
+  "wiz.2.load.sustained.desc": "Konsole, Klemmung, Lagerstelle, verschraubtes Bauteil unter Vorspannung.",
+  "wiz.chip.load.none": "Warm, unbelastet",
+  "wiz.chip.load.sustained": "Warm unter Dauerlast",
   "wiz.3.title": "Wie wird es belastet?",
   "wiz.3.load.none": "Kaum — Optik, Modell, Anschauung",
   "wiz.3.load.light": "Leicht — Gehäuse, Abdeckung, Halter",
@@ -275,8 +288,12 @@ const de: Dict = {
   /* --- constraints -------------------------------------------------------- */
   "constraint.temperature.pass": "Hält {required} °C — konservative Dauereinsatzgrenze {actual} °C.",
   "constraint.temperature.passHdt": "Hält {required} °C (HDT {actual} °C).",
+  "constraint.temperature.passUnloaded":
+    "Hält {required} °C ohne Dauerlast — gemessener Datenblattwert {documented} °C. Unsere konservative Zahl ({actual} °C) gilt für dauerhaft belastete Bauteile und greift hier nicht.",
   "constraint.temperature.tight":
     "Knapp: Unsere konservative Dauereinsatzempfehlung liegt bei {actual} °C, gefordert sind {required} °C. Der gemessene Datenblattwert trägt bis {documented} °C — für ein unbelastetes Bauteil reicht das, für ein dauerhaft belastetes nicht. Prüfen Sie die Last.",
+  "constraint.temperature.tightLoaded":
+    "Unter Dauerlast knapp: konservativ {actual} °C, gefordert {required} °C, gemessen {documented} °C. Warm und belastet heisst Kriechen — die Verformung kommt aus der Spannung im Querschnitt, nicht aus der Temperatur allein. Mehr Wandstärke, mehr Füllung oder ein grösserer Querschnitt senken die Spannung und damit das Kriechen; der Glasübergang verschiebt sich dadurch nicht.",
   "constraint.temperature.fail":
     "Zu warm: gefordert {required} °C, konservative Dauereinsatzgrenze nur {actual} °C (HDT-B {hdtB} °C).",
   "constraint.temperature.failNoHdt":
@@ -327,6 +344,8 @@ const de: Dict = {
   "risk.chamberRecommended": "Ohne beheizte Kammer ist bei grösseren Bauteilen mit Verzug zu rechnen.",
   "risk.temperatureTight":
     "Knapp bei {required} °C: Unsere konservative Dauereinsatzempfehlung liegt bei {actual} °C, der gemessene Datenblattwert bei {documented} °C. Unbelastet trägt das, unter Dauerlast nicht — Last prüfen.",
+  "risk.temperatureLoaded":
+    "Warm UND belastet bei {required} °C: konservativ {actual} °C, gemessen {documented} °C. Das Bauteil kriecht — mehr Wandstärke, mehr Füllung oder ein grösserer Querschnitt senken die Spannung und damit die Verformung. Der Werkstoff wird davon nicht wärmefester.",
   "risk.sizeEffort":
     "Ab etwa {actual} mm aufwendig, gefordert sind {required} mm: Brim, beheizte Kammer oder Segmentierung einplanen. Keine Fertigungsgrenze.",
   "risk.chemicalLimited": "Kontakt mit {chemical} nur zeitweise, nicht dauerhaft.",
@@ -379,6 +398,10 @@ const en: Dict = {
   "ui.reset": "Reset",
   "ui.step": "Step {n} of {total}",
   "ui.results.count": "{n} materials meet the requirements",
+  "ui.results.asked": "Required:",
+  "ui.results.focus": "Priority: {what}",
+  "ui.results.noFilter": "no hard requirements — every material is in the running",
+  "ui.results.change": "Change",
   "ui.results.none": "No material meets all requirements.",
   "ui.results.noneHint":
     "Relax a requirement, or check the process hints below — FDM may not be the right process here.",
@@ -539,6 +562,15 @@ const en: Dict = {
   "wiz.2.temp": "Highest continuous service temperature",
   "wiz.2.tempHint":
     "We use a conservative continuous service limit, not the heat deflection temperature. A part that briefly sees 80 °C is not the same as one that carries load at 80 °C.",
+  "wiz.2.load": "Does the part carry load at that temperature?",
+  "wiz.2.loadHint":
+    "This decides which number sets the limit. What limits a thermoplastic in the heat is creep — permanent deformation under sustained stress. With no load nothing creeps and the measured datasheet value applies. Under load the conservative figure counts; wall thickness and infill then lower the stress and with it the creep.",
+  "wiz.2.load.none": "No, unloaded",
+  "wiz.2.load.none.desc": "Housing, cover, model, sign — carries only itself.",
+  "wiz.2.load.sustained": "Yes, permanently loaded",
+  "wiz.2.load.sustained.desc": "Bracket, clamp, bearing seat, bolted part under preload.",
+  "wiz.chip.load.none": "Warm, unloaded",
+  "wiz.chip.load.sustained": "Warm under sustained load",
   "wiz.3.title": "How is it loaded?",
   "wiz.3.load.none": "Barely — looks, model, display",
   "wiz.3.load.light": "Light — housing, cover, bracket",
@@ -616,8 +648,12 @@ const en: Dict = {
 
   "constraint.temperature.pass": "Handles {required} °C — conservative continuous limit {actual} °C.",
   "constraint.temperature.passHdt": "Handles {required} °C (HDT {actual} °C).",
+  "constraint.temperature.passUnloaded":
+    "Handles {required} °C without sustained load — measured datasheet value {documented} °C. Our conservative figure ({actual} °C) applies to permanently loaded parts and does not bite here.",
   "constraint.temperature.tight":
     "Tight: our conservative continuous-service recommendation is {actual} °C, {required} °C required. The measured datasheet value carries to {documented} °C — enough for an unloaded part, not for a permanently loaded one. Check the load.",
+  "constraint.temperature.tightLoaded":
+    "Tight under sustained load: conservative {actual} °C, {required} °C required, measured {documented} °C. Warm and loaded means creep — the deformation comes from the stress in the section, not from temperature alone. More wall, more infill or a larger section lower the stress and with it the creep; the glass transition does not move.",
   "constraint.temperature.fail":
     "Too warm: {required} °C required, conservative continuous limit only {actual} °C (HDT-B {hdtB} °C).",
   "constraint.temperature.failNoHdt":
@@ -667,6 +703,8 @@ const en: Dict = {
   "risk.chamberRecommended": "Without a heated chamber, expect warping on larger parts.",
   "risk.temperatureTight":
     "Tight at {required} °C: our conservative continuous-service recommendation is {actual} °C, the measured datasheet value {documented} °C. Fine unloaded, not under sustained load — check the load.",
+  "risk.temperatureLoaded":
+    "Warm AND loaded at {required} °C: conservative {actual} °C, measured {documented} °C. The part will creep — more wall, more infill or a larger section lower the stress and with it the deformation. The material does not become more heat resistant from it.",
   "risk.sizeEffort":
     "Demanding from about {actual} mm, {required} mm required: plan for a brim, a heated chamber or segmentation. Not a manufacturing limit.",
   "risk.chemicalLimited": "Contact with {chemical} intermittently only, not permanently.",

@@ -214,7 +214,7 @@ writeFileSync(path.join(ROOT, "data/materials/pps-cf.json"), JSON.stringify({
   thermal: {
     hdtA: mq(235, "°C", { std: "ISO 75, 1.8 MPa" }), hdtB: mq(264, "°C", { std: "ISO 75, 0.45 MPa" }),
     vicatB50: mq(268, "°C", { std: "ISO 306" }), glassTransition: mq(100, "°C", { std: "DSC, 10 °C/min" }),
-    recommendedMaxServiceTemperature: mq(200, "°C", { conditions: "unbelastet, Luft, dauerhaft",
+    recommendedMaxServiceTemperature: mq(200, "°C", { conditions: "dauerhaft unter mechanischer Last, Luft",
       source: "estimate_reasoning", confidence: "estimated",
       note: t("Eigene konservative Empfehlung mit Abstand zu HDT-A.", "Our own conservative recommendation with margin to HDT-A.") }),
   },

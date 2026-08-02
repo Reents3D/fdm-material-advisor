@@ -136,7 +136,7 @@
     "recommendedMaxServiceTemperature": {
       "value": 60,
       "unit": "°C",
-      "conditions": "unbelastet, Luft, dauerhaft",
+      "conditions": "dauerhaft unter mechanischer Last, Luft",
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {

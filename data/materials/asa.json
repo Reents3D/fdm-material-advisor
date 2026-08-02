@@ -234,10 +234,10 @@
       "confidence": "estimated",
       "min": 65,
       "max": 80,
-      "conditions": "unbelastet, Luft, dauerhaft",
+      "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung, nicht der Datenblattwert: HDT-A 92 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 100 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Für ein unbelastetes Bauteil liegt die Wahrheit dazwischen; unter mechanischer Last deutlich niedriger ansetzen.",
-        "en": "Our own conservative recommendation, not the datasheet figure: HDT-A 92 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 100 °C) — those apply for minutes under a defined load, not for continuous service. For an unloaded part the truth lies in between; assume markedly lower under mechanical load."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 92 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 100 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 100 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 92 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 100 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 100 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     }
   },

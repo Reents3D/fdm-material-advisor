@@ -293,7 +293,12 @@
      Ausschnitt - im Vergleich fehlten so zwei von fuenf gewaehlten Werkstoffen, ohne
      dass es im Ausdruck irgendwo stand. Eine Tabelle, der stillschweigend Spalten
      fehlen, ist schlimmer als keine Tabelle. */
-  .overflow-x-auto, .overflow-x-auto > * { overflow: visible !important; }
+  .overflow-x-auto, .overflow-x-auto > *,
+  .overflow-auto, .overflow-auto > * { overflow: visible !important; }
+  /* Der Vergleich scrollt seit 2026-08-02 auch senkrecht in einem hoehenbegrenzten
+     Kasten, damit der Tabellenkopf stehen bleibt. Auf Papier wuerde diese Begrenzung
+     die Tabelle nach etwa zwanzig Zeilen abschneiden - stillschweigend. */
+  .compare-scroll { max-height: none !important; overflow: visible !important; }
   .min-w-max { min-width: 0 !important; }
   table { width: 100% !important; table-layout: auto; }
   table th, table td { word-break: break-word; }

@@ -973,6 +973,125 @@ Frage an die Kompromissansicht.
 
 ---
 
+## ADR-025 — Die Dauereinsatztemperatur ist eine Aussage über das Bauteil, nicht über das Polymer
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Rückfrage aus der Werkstatt
+
+> „Ich verstehe immer noch nicht, warum wir bei PETG eine Dauereinsatzgrenze von 55 Grad
+> festlegen. Muss da die Grenze rein, weil wenn es temperaturabhängig wird, würden wir ja
+> die Wandstärke / Infill auch nach oben fahren um länger standzuhalten."
+
+**Der Einwand ist physikalisch richtig.** Was einen Thermoplast unterhalb des
+Glasübergangs begrenzt, ist Kriechen: bleibende Verformung unter *dauernder* Spannung.
+Die Kriechgeschwindigkeit hängt an der Spannung im Querschnitt — und die senkt man mit
+Wandstärke, Füllgrad und Querschnitt. Der Glasübergang verschiebt sich dadurch nicht, die
+zulässige Einsatztemperatur sehr wohl. Eine Dauergebrauchsgrenze ohne Angabe zur Last ist
+deshalb eine halbe Aussage.
+
+**Der Widerspruch in den eigenen Daten.** Der Wert trug
+`conditions: "unbelastet, Luft, dauerhaft"` und war zugleich Tg − 12 K. Die Fussnote
+daneben sagte, für ein unbelastetes Bauteil liege die Wahrheit *zwischen* dieser Zahl und
+dem Datenblattwert. Beides zusammen geht nicht auf: Entweder gilt die Zahl unbelastet,
+oder sie liegt darunter. Sie liegt darunter. 33 Datensätze trugen diese falsche Bedingung.
+
+**Entscheidung.** Ein neues Anforderungsfeld `thermalLoad`, gefragt direkt unter dem
+Temperaturregler. Die Antwort entscheidet, welche Zahl das Urteil trägt:
+
+| Angabe | massgebliche Zahl | Ergebnis bei PETG / 60 °C |
+|---|---|---|
+| unbelastet | gemessen (HDT-B 71 °C) | hält, **ohne Vorbehalt** |
+| dauerhaft belastet | konservativ (55 °C) | Warnung mit dem konstruktiven Ausweg |
+| nichts gesagt | wie bisher: Schätzung warnt, Datenblatt entscheidet | Warnung |
+
+Die Bedingung in den Daten heisst jetzt `"dauerhaft unter mechanischer Last, Luft"`, und
+die Fussnote nennt den Hebel: mehr Wand und mehr Füllung senken die Spannung und
+verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.
+
+**Zwei Regeln, die dabei entstanden sind.**
+
+*Eine zusätzliche Angabe darf ein Ergebnis nie verschlechtern.* Die konservative Zahl
+unterstellt Last und ist damit eine Untergrenze; wo sie ausnahmsweise über dem belegten
+Wert liegt, hätte „unbelastet" strenger gewirkt als gar keine Angabe. PC ist genau dieser
+Fall — konservativ 135 °C, belegt nur HDT-B 112 °C, weil sein Datenblatt HDT-A und HDT-B
+vertauscht führt. Ein Test prüft die Regel jetzt über alle Werkstoffe und sieben
+Temperaturen.
+
+*Wo gar nichts gemessen ist, entscheidet die Schätzung doch.* Der Grundsatz aus ADR-018
+(„eine Schätzung darf abstufen, nie ausschliessen") richtet sich gegen Schätzungen, die
+einer **Messung** widersprechen. Bei OBC, PA6, PEBA, PP und PVDF gibt es keine Messung —
+PP bei 130 °C mit einem Vorbehalt durchzulassen wäre der schlechtere Rat. Der Code hat
+schon immer so gerechnet; im Kommentar stand das Gegenteil. Der Kommentar war falsch.
+
+**Was der Test sofort gefunden hat.** Der neue Ausschlusszweig griff zur Meldung mit
+`{hdtB}`, ohne zu prüfen, ob es diesen Wert gibt — 28 Begründungen in beiden Sprachen mit
+unaufgelöstem Platzhalter. Derselbe Fehler wie seinerzeit „(HDT-B 0 °C)", nur als
+Platzhalter statt als erfundene Null. Gefunden vom Test, den dieser Fehler damals
+hervorgebracht hat.
+
+---
+
+## ADR-026 — Die Ergebnisseite nennt die Frage, nicht nur die Antwort
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Werkstattbefund
+
+> „Bei der Übersicht wo dann steht ‚X Materialien erfüllen die Anforderungen', da sollte
+> aufgeführt sein, was die Anforderungen sind, damit man das dort nachvollziehbar bleibt."
+
+**Befund.** Die Aufstellung der gesetzten Anforderungen gab es — aber nur im Assistenten.
+Die Ergebnisseite nannte eine Zahl und keine Frage. Wer den Link geteilt bekam oder eine
+Stunde später zurückkam, sah eine Rangliste ohne ihre Voraussetzungen. Nachvollziehbarkeit
+ist der einzige Grund, warum dieses Werkzeug existiert.
+
+**Entscheidung.** `activeRequirements()` und die benannten Schwerpunkte liegen jetzt
+gemeinsam in `lib/requirements.ts`; Assistent und Ergebnisseite schöpfen daraus. Zwei
+Fassungen wären zwei Wahrheiten, und beim nächsten neuen Anforderungsfeld wäre eine davon
+stillschweigend unvollständig geworden.
+
+Die Leiste nennt **beide Hälften der Entscheidung**: die harten Anforderungen sagen, *wer*
+in der Liste steht, der Schwerpunkt der Gewichtung sagt, in welcher *Reihenfolge*. Ohne
+den zweiten Teil erklärt die Liste nur die Hälfte von sich. Der Bericht führt die
+Lastannahme jetzt ebenfalls mit — ein Dokument, das die Temperatur nennt und die Last
+verschweigt, hält die halbe Vorgabe fest.
+
+---
+
+## ADR-027 — Ein haftender Tabellenkopf braucht einen Bereich, in dem gescrollt wird
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Anzeigefehler im Vergleich
+
+**Befund.** Im Vergleich lag die Beschriftung „Material" hinter der ersten Datenzeile, und
+die Werte der Zeile „Dichte" waren gar nicht sichtbar.
+
+**Ursache.** `sticky top-16` haftet nicht am Fenster, sondern am nächsten Vorfahren mit
+Überlauf — und das war der Behälter mit `overflow-x-auto`. Der scrollt nur waagerecht,
+senkrecht also nie; aus „bleib 64 px unter der Oberkante" wurde damit eine **feste
+Verschiebung um 64 px nach unten**. Gemessen: Kopf bei y = 2243, erste Datenzeile bei
+y = 2268 — 28 px Überdeckung. Die Werte der Zeile lagen unter der deckenden Kopffläche,
+weil nicht positionierte Zellen immer unter positionierten liegen; die Beschriftung
+„Material" verlor gegen die Zeilenbeschriftung, weil beide auf `z-10` standen und bei
+Gleichstand das spätere Element gewinnt. (Nebenbei: `overflow-x: auto` macht auch die
+senkrechte Achse zum Scrollbereich — deshalb griff die Haftung überhaupt dort.)
+
+Der Kopf hat also **nie** gehaftet. Der Fehler war von Anfang an im Code.
+
+**Entscheidung.** Der Behälter scrollt in beiden Richtungen und ist in der Höhe begrenzt.
+Damit haftet der Kopf an genau dem Bereich, in dem gescrollt wird, und tut endlich, wofür
+er gedacht war: Bei fünfzig Kennwertzeilen bleibt sichtbar, welche Spalte zu welchem
+Werkstoff gehört.
+
+Zwei Nebenbedingungen, beide aus dem Nachmessen:
+
+- **Die Haftung sitzt an den Zellen, nicht an `<thead>`.** Safari beherrscht `sticky` auf
+  Zeilengruppen bis heute nicht zuverlässig.
+- **Die Höhe steht als feste Zahl da, nicht als `calc(100dvh - 9rem)`.** Der erste Versuch
+  fällt in sich zusammen, sobald eine Umgebung die Fensterhöhe mit 0 meldet: `dvh` wird 0,
+  der Kasten 2 px hoch, die Tabelle unsichtbar. Genau das ist beim Nachmessen passiert.
+
+Auf Papier wird die Begrenzung aufgehoben — sonst schnitte sie die Tabelle nach etwa
+zwanzig Zeilen ab, stillschweigend.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

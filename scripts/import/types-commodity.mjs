@@ -58,7 +58,7 @@ const s = (value, scale, note) => ({
 
 /** Eigene konservative Dauergebrauchsempfehlung mit Abstand zur Erweichungsgrenze. */
 const service = (value, note) => ({
-  value, unit: "°C", conditions: "unbelastet, Luft, dauerhaft",
+  value, unit: "°C", conditions: "dauerhaft unter mechanischer Last, Luft",
   source: "estimate_reasoning", confidence: "estimated", note,
 });
 
