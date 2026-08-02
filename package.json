@@ -53,7 +53,8 @@
     "derive:price": "node scripts/derive-price.mjs",
     "apply:field": "node scripts/apply-field-experience.mjs",
     "survey:prices": "node scripts/survey-prices.mjs",
-    "import:fiberlogy-types": "node scripts/import/fiberlogy-types.mjs"
+    "import:fiberlogy-types": "node scripts/import/fiberlogy-types.mjs",
+    "build:icons": "node scripts/build-icons.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

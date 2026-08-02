@@ -10,7 +10,21 @@ import { SITE, trackedUrl } from "../config/site";
 import { LANGS, type Lang } from "../i18n";
 import { cx } from "./ui";
 
-const logoUrl = `${import.meta.env.BASE_URL}brand/reents-logo-horizontal-color.svg`;
+/**
+ * Zwei Dateien statt eines CSS-Filters.
+ *
+ * Vorher stand ueberall die farbige Wortmarke, und fuer dunkle Flaechen drehte
+ * `brightness-0 invert` sie ins Weisse. Das funktioniert - aber es RECHNET das Weiss
+ * aus, statt es zu zeigen: Der Filter macht erst alles schwarz und kehrt dann um,
+ * wodurch die Zweifarbigkeit des Zeichens (dunkles Petrol, helles Blau) unterwegs
+ * verlorengeht. Bei der Aussparung im R faellt das auf.
+ *
+ * Die weisse Fassung ist die schwarze Originaldatei mit genau EINEM getauschten
+ * Farbwert; die Geometrie ist Bit fuer Bit dieselbe. Beide liegen zusaetzlich unter
+ * ~/.claude/brand/reents-technologies/, damit andere Projekte sie mitbenutzen koennen.
+ */
+const logoColor = `${import.meta.env.BASE_URL}brand/reents-logo-horizontal-color.svg`;
+const logoWhite = `${import.meta.env.BASE_URL}brand/reents-logo-horizontal-white.svg`;
 
 type T = (k: string, p?: Record<string, string | number>) => string;
 
@@ -33,9 +47,13 @@ export function Header({ lang, onLang, t, view }: {
       {/* Kopfzeile */}
       <div className="bg-white border-b border-hairline sticky top-0 z-30 dark:bg-[#0B121F] dark:border-[#1E2B3D]" data-app-header>
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center gap-6">
+          {/* Nur EIN alt-Text: Die zweite Fassung ist dasselbe Zeichen, kein zweiter
+              Inhalt. Ein Screenreader liest sonst die Wortmarke doppelt vor. */}
           <a href="#/" className="shrink-0" aria-label={`${SITE.brand} — Start`}>
-            <img src={logoUrl} alt={SITE.legalEntity}
-              className="h-9 w-auto dark:brightness-0 dark:invert" width={200} height={36} />
+            <img src={logoColor} alt={SITE.legalEntity}
+              className="h-9 w-auto dark:hidden" width={200} height={36} />
+            <img src={logoWhite} alt="" aria-hidden="true"
+              className="h-9 w-auto hidden dark:block" width={200} height={36} />
           </a>
 
           <div className="flex items-center gap-3 ml-auto">
@@ -112,7 +130,8 @@ export function Header({ lang, onLang, t, view }: {
 export function PrintLetterhead({ lang }: { lang: Lang }) {
   return (
     <div className="print-only print-letterhead" aria-hidden="true">
-      <img src={logoUrl} alt={SITE.legalEntity} width={200} height={36} />
+      {/* Papier ist weiss — hier gilt immer die farbige Fassung. */}
+      <img src={logoColor} alt={SITE.legalEntity} width={200} height={36} />
       <div className="claim">
         {SITE.toolName[lang]}<br />
         {SITE.urls.live}
@@ -144,8 +163,8 @@ export function Footer({ t, lang }: { t: T; lang: Lang }) {
     <footer className="mt-16 bg-petrol-700 text-petrol-100 no-print">
       <div className="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3 text-sm">
         <div>
-          <img src={`${import.meta.env.BASE_URL}brand/reents-logo-horizontal-color.svg`}
-            alt={SITE.legalEntity} className="h-9 w-auto brightness-0 invert mb-4"
+          {/* Der Fuss steht immer auf Petrol — hier gibt es nichts umzuschalten. */}
+          <img src={logoWhite} alt={SITE.legalEntity} className="h-9 w-auto mb-4"
             width={200} height={36} />
           <p className="leading-relaxed opacity-90">
             {SITE.contact.street}<br />
