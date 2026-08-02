@@ -525,19 +525,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 69.66,
-      "min": 60.99,
+      "value": 69.35,
+      "min": 44.77,
       "max": 77.9,
       "unit": "€/kg",
-      "conditions": "Median aus 4 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 6 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
+        "src_price_pa12_fiberlogy",
         "src_price_pa12_3djake",
         "src_price_pa12_extrudr"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 3 Marken (Fiberlogy, eSUN, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 4 list prices from 3 brands (Fiberlogy, eSUN, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 6 Listenpreise von 3 Marken (Fiberlogy, eSUN, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 6 list prices from 3 brands (Fiberlogy, eSUN, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -567,6 +568,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pa12_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PA12",
+        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12/196",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fiberlogy Nylon PA12, 0,75 kg, 33,58 € · Fiberlogy Nylon PA12, 2,5 kg, 173,43 €",
+          "en": "2 offers: Fiberlogy Nylon PA12, 0.75 kg, 33.58 € · Fiberlogy Nylon PA12, 2.5 kg, 173.43 €"
+        }
       },
       {
         "id": "src_price_pa12_3djake",

@@ -295,12 +295,28 @@ describe("Reicht auch etwas Einfacheres?", () => {
     weights: { stiffness: 5, chemical: 4, price: 1 } };
 
   it("nennt den günstigeren Werkstoff, der die Anforderungen trotzdem erfüllt", () => {
+    /* Geprueft wird die REGEL, nicht eine Namensliste.
+       Die erste Fassung klebte an "Sieger pps-cf, pragmatisch petg, Preisverhaeltnis
+       unter 0,3". Alle drei Zahlen stammten aus der Zeit, als die Preise GESCHAETZT
+       waren - PPS-CF stand mit 180 statt der erhobenen 157 €/kg da. Als die Erhebung
+       kam und vier Werkstofftypen dazu, wanderte der Sieger zu PAHT-CF und der
+       pragmatische Ausweg zu PLA-Tough. Der Test ging rot, obwohl die Engine besser
+       geworden war - ein Test, der bei besseren Daten bricht, prueft die Daten und
+       nicht das Verhalten. */
     const r = select(MATERIALS, messmittel);
-    expect(r.ranked[0].material.id).toBe("pps-cf");
-    expect(r.pragmatic).not.toBeNull();
-    expect(r.pragmatic!.material.id).toBe("petg");
-    // PETG kostet einen Bruchteil des Siegers - das ist der ganze Punkt.
-    expect(r.pragmatic!.priceRatio!).toBeLessThan(0.3);
+    const p = r.pragmatic;
+    expect(p).not.toBeNull();
+
+    // 1. Deutlich guenstiger als der Sieger - das ist der ganze Punkt.
+    expect(p!.priceRatio).not.toBeNull();
+    expect(p!.priceRatio!).toBeLessThan(0.7);
+
+    // 2. Und deutlich SCHWAECHER als der Sieger. Waere er das nicht, haette ihn schon
+    //    die Kompromissansicht gefunden und dieser Slot waere ueberfluessig.
+    expect(p!.relativeScore).toBeLessThan(0.8);
+
+    // 3. Er steht nicht selbst an der Spitze.
+    expect(p!.material.id).not.toBe(r.ranked[0].material.id);
   });
 
   it("der Vorschlag muss die harten Anforderungen selbst erfüllen", () => {

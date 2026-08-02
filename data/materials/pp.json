@@ -559,16 +559,18 @@
       }
     },
     "pricePerKg": {
-      "value": 47.5,
-      "min": 35,
-      "max": 60,
+      "value": 50.25,
+      "min": 49.5,
+      "max": 51,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, geschätzt, Stand 2026-08-02",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "source": [
+        "src_price_pp_fiberlogy"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-02 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
-        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-02 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
+        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 1 Marken (Fiberlogy) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 2 list prices from 1 brands (Fiberlogy) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -614,6 +616,19 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_price_pp_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PP",
+        "url": "https://fiberlogy.com/en_US/c/PP/168",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fiberlogy PP, 2,5 kg, 123,74 € · Fiberlogy PP, 0,75 kg, 38,25 €",
+          "en": "2 offers: Fiberlogy PP, 2.5 kg, 123.74 € · Fiberlogy PP, 0.75 kg, 38.25 €"
         }
       }
     ]

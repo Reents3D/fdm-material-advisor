@@ -32,7 +32,7 @@
     "import:extrudr": "node scripts/import/extrudr.mjs",
     "import:azurefilm": "node scripts/import/azurefilm.mjs",
     "import:manufacturers": "node scripts/import/manufacturer-products.mjs",
-    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:pa6 && npm run import:types && npm run import:sunlu && npm run import:ultrafuse && npm run import:fiberlogy && npm run import:spectrum && npm run import:fillamentum && npm run import:addnorth && npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:price && npm run apply:field",
+    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:pa6 && npm run import:types && npm run import:sunlu && npm run import:ultrafuse && npm run import:fiberlogy && npm run import:spectrum && npm run import:fillamentum && npm run import:addnorth && npm run import:fiberlogy-types && npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:price && npm run apply:field",
     "import:3djake": "node scripts/import/3djake.mjs",
     "import:m4p": "node scripts/import/material4print.mjs",
     "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs",
@@ -52,7 +52,8 @@
     "derive:flame": "node scripts/derive-flame-from-products.mjs",
     "derive:price": "node scripts/derive-price.mjs",
     "apply:field": "node scripts/apply-field-experience.mjs",
-    "survey:prices": "node scripts/survey-prices.mjs"
+    "survey:prices": "node scripts/survey-prices.mjs",
+    "import:fiberlogy-types": "node scripts/import/fiberlogy-types.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

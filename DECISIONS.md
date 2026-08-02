@@ -1268,6 +1268,94 @@ die Fußnote sagt jetzt ausdrücklich, dass sie im Zweifel eher zu hoch als zu n
 
 ---
 
+## ADR-032 — Preise aus strukturierten Daten holen, nicht abschreiben
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Rückfrage aus der Werkstatt
+
+> „Können wir die Preise aus den Webshops nicht irgendwie scrapen um die zu erhalten?"
+
+**Ja — und der erste Anlauf war schlicht falsch diagnostiziert.** Die 402/404 der
+Herstellershops kamen nicht von Bot-Schutz, sondern daher, dass `WebFetch` eine schlichte
+HTTP-Anfrage ohne Browser stellt — und bei Extrudr zusätzlich von einer geratenen Adresse.
+Mit korrekter URL und ehrlichem User-Agent antwortet Extrudr mit HTTP 200.
+
+**Erst die Erlaubnis, dann die Technik.** Aufgenommen wird nur, wer das Lesen in seiner
+`robots.txt` gestattet:
+
+| Shop | robots.txt | Konsequenz |
+|---|---|---|
+| Extrudr | `Allow: /`, gesperrt nur `/api/*` | Produktseiten ja, Schnittstelle nein |
+| Fiberlogy | erlaubt, `Crawl-delay: 1` | ja, mit einem Aufruf pro Sekunde |
+| Bambu Lab EU | Cloudflare beantwortet schon die robots.txt nur mit einer Weiterleitung | **nein** |
+
+Wer so deutlich sagt, dass er keine Automaten will, bekommt keine. Der eine Bambu-Preis
+bleibt von Hand im Browser abgelesen.
+
+**Gelesen werden JSON-LD-Blöcke nach schema.org** — dieselben, aus denen Google seine
+Produktkarten baut. Strukturierte Daten, die ausdrücklich für Maschinen veröffentlicht
+werden. Daraus kommen Produktname **mit Spulengewicht** und Preis ohne Raterei heraus.
+Der User-Agent nennt Projekt und Repository-Adresse: Ein Erhebungsskript, das sich als
+Mensch tarnt, wäre in einem Werkzeug, dessen ganzer Zweck Nachvollziehbarkeit ist, ein
+Widerspruch in sich.
+
+**Der eigentliche Gewinn ist die Wiederholbarkeit, nicht die größere Zahl.** Eine
+Preisliste altert, und niemand merkt es, weil nichts nachrechnet. `npm run survey:prices`
+und das Abrufdatum stimmt wieder. 94 → 154 Angebote, 27 → 34 Werkstoffe.
+
+**Verschärfung, die dabei sichtbar wurde.** Nach dem ersten Einlesen stand PC auf acht
+Angeboten — alle aus demselben Shop. Das ist die Preisliste eines Anbieters, nicht der
+Markt. `medium` verlangt seither fünf Angebote von **mindestens zwei** Anbietern. Das
+Ergebnis ist dadurch ehrlicher statt schmeichelhafter: PC fiel von `medium` auf `low`
+zurück, obwohl es mehr Angebote hat als vorher.
+
+---
+
+## ADR-033 — Vier Werkstofftypen, aufgelesen statt gesucht
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Nebenprodukt der Preiserhebung
+
+Beim Anbinden von Fiberlogy fiel auf, dass der Katalog Kategorien führt, die diese
+Datenbank nicht kannte. Vier davon tragen ein vollständiges technisches Datenblatt mit
+Prüfnorm und Zahlenwert und sind damit aufnahmefähig — **ein Werkstofftyp entsteht hier
+nicht, weil der Name bekannt ist, sondern weil ein Blatt ihn trägt.**
+
+| Typ | Was er beiträgt |
+|---|---|
+| **PEI 9085** | HDT-A 152 °C, Vicat 173 °C, Brandprüfung nach FAR 25.853 — der erste Werkstoff mit Luftfahrt-Brandnachweis |
+| **ABS-GF** | 3.500 MPa gegen 2.200 beim ungefüllten ABS, bei praktisch gleicher Verarbeitung |
+| **PLA-CF** | 8.500 MPa E-Modul — nach PAHT-CF der zweitsteifste im Bestand |
+| **PCTG-GF** | glasgefüllt und trotzdem 8 % Bruchdehnung — ungewöhnlich für einen gefüllten Werkstoff |
+
+**Drei Datenblattbefunde, dokumentiert statt geglättet:**
+
+1. **PEI 9085: Bruchdehnung 70 % bei 6,7 % Streckdehnung.** Für einen *gedruckten*
+   PEI-Prüfkörper nicht plausibel — dort liegt sie im einstelligen Bereich. Der Wert
+   stammt allem Anschein nach vom spritzgegossenen Rohstoff. Er steht mit `low` und einer
+   Fußnote im Datensatz und geht **nicht** in die Zähigkeitsbewertung ein.
+2. **PLA-CF: Charpy ungekerbt 100 kJ/m² gegen gekerbt 3,1.** Faktor 32. Ungefülltes PLA
+   liegt ungekerbt bei 15 bis 25; ein carbongefülltes ist spröder, nicht viermal zäher.
+   Der gekerbte Wert passt, der ungekerbte nicht.
+3. **PLA-CF: HDT und Vicat gelten laut Fußnote nur nach Temperung.** Steht als
+   `annealing.requiredForDatasheetValues: true` im Datensatz — wer keinen Umluftofen hat,
+   bekommt nicht 137 °C, sondern das thermische Verhalten von normalem PLA.
+
+**Die FAA-Prüfung ist keine UL94-Klasse.** FAR 25.853 und UL94 prüfen unterschiedliche
+Geometrien und Beflammungszeiten. PEI 9085 steht deshalb als `not-classified` mit einer
+Notiz — es als V-0 zu führen wäre genau die Verkürzung, die ADR-021 verbietet.
+
+**Kein Blatt nennt eine Bauorientierung.** Die Zugwerte stehen deshalb ohne
+Richtungsangabe, nicht als X-Y — das wäre eine Annahme, die die Quelle nicht deckt.
+
+**Was ein Szenariotest dabei gelernt hat.** „Reicht auch etwas Einfacheres?" prüfte auf
+*Sieger pps-cf, pragmatisch petg, Preisverhältnis unter 0,3*. Alle drei Zahlen stammten
+aus der Zeit geschätzter Preise. Mit der Erhebung und vier neuen Typen wanderte der Sieger
+zu PAHT-CF, der Ausweg zu PLA-Tough — der Test ging rot, **obwohl die Engine besser
+geworden war**. Ein Test, der bei besseren Daten bricht, prüft die Daten und nicht das
+Verhalten. Er prüft jetzt die Regel: Es gibt einen Ausweg, er ist deutlich günstiger, er
+liegt deutlich unter dem Sieger, und er ist nicht selbst der Sieger.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

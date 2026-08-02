@@ -101,6 +101,8 @@ const BAND = {
   "tpu-95a": [30, 50], "tpu-98a": [30, 50],
   "tpu-85a": [35, 60], "tpu-58d": [35, 60], peba: [60, 100],
   "esd-pla": [60, 100], "esd-petg": [70, 110], "esd-abs": [70, 110], "tpu-esd": [70, 110],
+  /* Neu seit 2026-08-02 - nur als Rueckfall, die Erhebung liefert echte Preise. */
+  "pei-9085": [250, 400], "abs-gf": [30, 50], "pla-cf": [30, 50], "pctg-gf": [35, 60],
 };
 
 const t = (de, en) => ({ de, en });

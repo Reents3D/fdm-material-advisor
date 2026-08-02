@@ -828,19 +828,20 @@
       }
     },
     "pricePerKg": {
-      "value": 24.78,
+      "value": 21.75,
       "min": 12.49,
-      "max": 25.99,
+      "max": 103.56,
       "unit": "€/kg",
-      "conditions": "Median aus 11 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 17 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pla_3djake",
+        "src_price_pla_fiberlogy",
         "src_price_pla_extrudr"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 11 Listenpreise von 6 Marken (eSUN, Elegoo, Polymaker, 3DJAKE, Extrudr, Bambu Lab) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 11 list prices from 6 brands (eSUN, Elegoo, Polymaker, 3DJAKE, Extrudr, Bambu Lab) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 17 Listenpreise von 7 Marken (eSUN, Elegoo, Polymaker, Fiberlogy, 3DJAKE, Extrudr, Bambu Lab) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 17 list prices from 7 brands (eSUN, Elegoo, Polymaker, Fiberlogy, 3DJAKE, Extrudr, Bambu Lab) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -883,6 +884,19 @@
         "note": {
           "de": "7 Angebote: eSUN PLA-Basic Black, 1 kg, 12,49 € · Elegoo PLA Schwarz, 1 kg, 12,99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14,99 € · eSUN PLA+ Black, 1 kg, 18,99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19,99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25,99 € · Bambu Lab PLA Basic Black, 1 kg, 25,99 €",
           "en": "7 offers: eSUN PLA-Basic Black, 1 kg, 12.49 € · Elegoo PLA Schwarz, 1 kg, 12.99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14.99 € · eSUN PLA+ Black, 1 kg, 18.99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19.99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25.99 € · Bambu Lab PLA Basic Black, 1 kg, 25.99 €"
+        }
+      },
+      {
+        "id": "src_price_pla_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PLA",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "6 Angebote: Fiberlogy Easy PLA Refill, 0,85 kg, 15,47 € · Fiberlogy Matte PLA, 0,85 kg, 16,18 € · Fiberlogy HS PLA Clear, 0,85 kg, 16,46 € · Fiberlogy Easy PLA, 2,5 kg, 54,37 € · Fiberlogy Easy PLA, 0,85 kg, 19,56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0,5 kg, 51,78 €",
+          "en": "6 offers: Fiberlogy Easy PLA Refill, 0.85 kg, 15.47 € · Fiberlogy Matte PLA, 0.85 kg, 16.18 € · Fiberlogy HS PLA Clear, 0.85 kg, 16.46 € · Fiberlogy Easy PLA, 2.5 kg, 54.37 € · Fiberlogy Easy PLA, 0.85 kg, 19.56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0.5 kg, 51.78 €"
         }
       },
       {

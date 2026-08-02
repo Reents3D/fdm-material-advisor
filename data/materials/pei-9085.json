@@ -1,0 +1,429 @@
+{
+  "$schema": "../../schema/material.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "pei-9085",
+  "identity": {
+    "name": "PEI 9085",
+    "family": "PEI",
+    "polymerClass": "amorphous",
+    "variant": [
+      "high-temp",
+      "blend"
+    ],
+    "aliases": [
+      "Polyetherimid",
+      "ULTEM 9085",
+      "PEI/PC-Blend"
+    ],
+    "abstract": {
+      "de": "PEI 9085 ist der thermisch belastbarste Werkstoff in diesem Bestand: HDT-A 152 °C, HDT-B 169 °C, Vicat 173 °C — und das Datenblatt weist eine Brandprüfung nach FAR 25.853 aus, der Luftfahrtnorm für Kabineninnenteile. Der Preis dafür steht in der Verarbeitung: 350 bis 380 °C Düse und 160 °C Bett verlangen eine Hochtemperaturmaschine mit beheizter Kammer, wie sie in einer normalen Werkstatt nicht steht. Wer diese Temperaturen nicht fahren kann, kommt an das Material nicht heran — unabhängig davon, wie gut es passen würde.",
+      "en": "PEI 9085 is the thermally most capable material in this dataset: HDT-A 152 °C, HDT-B 169 °C, Vicat 173 °C — and the datasheet states a flammability test to FAR 25.853, the aviation standard for cabin interior parts. The price is in the processing: 350 to 380 °C nozzle and 160 °C bed demand a high-temperature machine with a heated chamber, not something a normal workshop has. Without those temperatures the material is out of reach, however well it would otherwise fit."
+    },
+    "positioning": {
+      "de": "Der Hochtemperaturwerkstoff mit Luftfahrt-Brandprüfung — wenn die Maschine ihn kann.",
+      "en": "The high-temperature material with an aviation flammability test — if the machine can run it."
+    }
+  },
+  "mechanics": {
+    "density": {
+      "value": 1.34,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 88,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "conditions": "bei Streckgrenze",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt keine Bauorientierung. Der Wert steht deshalb ohne Richtungsangabe — als X-Y zu führen wäre eine Annahme, die die Quelle nicht deckt.",
+        "en": "The sheet states no build orientation. The value therefore carries no direction — labelling it X-Y would be an assumption the source does not support."
+      }
+    },
+    "tensileModulusXy": {
+      "value": 3050,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 70,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "BEFUND, nicht geglättet: 70 % Bruchdehnung bei 6,7 % Streckdehnung ist für einen GEDRUCKTEN PEI-Prüfkörper nicht plausibel — dort liegt die Bruchdehnung typisch im einstelligen Bereich. Der Wert stammt allem Anschein nach vom spritzgegossenen Rohstoff. Er ist dokumentiert, geht aber nicht in die Zähigkeitsbewertung ein.",
+        "en": "FINDING, not smoothed over: 70 % elongation at break against 6.7 % at yield is not plausible for a PRINTED PEI specimen — there it is typically in the single digits. The value appears to come from the injection-moulded resin. It is documented but does not feed the toughness rating."
+      }
+    },
+    "flexuralStrengthXy": {
+      "value": 129,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "n/a",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 10,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "orientation": "n/a",
+      "conditions": "gekerbt, 23 °C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "toughness": {
+      "value": 3,
+      "scale": "toughness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der gekerbten Schlagzähigkeit (10 kJ/m²) abgeleitet, NICHT aus der Bruchdehnung — die ist im Blatt unplausibel hoch.",
+        "en": "Derived from the notched impact strength (10 kJ/m²), NOT from elongation at break — that figure is implausibly high in the sheet."
+      }
+    },
+    "notchSensitivity": {
+      "value": 3,
+      "scale": "notchSensitivity",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "thermal": {
+    "hdtA": {
+      "value": 152,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 169,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 173,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "recommendedMaxServiceTemperature": {
+      "value": 135,
+      "unit": "°C",
+      "conditions": "dauerhaft unter mechanischer Last, Luft",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "HDT-A 152 °C abzüglich Sicherheitsabstand. Deutlich über allem anderen im Bestand — auch über PPS-CF.",
+        "en": "HDT-A 152 °C less a safety margin. Clearly above everything else in the dataset — including PPS-CF."
+      }
+    }
+  },
+  "processing": {
+    "nozzleTemperature": {
+      "value": 365,
+      "unit": "°C",
+      "min": 350,
+      "max": 380,
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "bedTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "chamberRequirement": {
+      "value": "mandatory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Bei 160 °C Betttemperatur ist eine beheizte Kammer keine Empfehlung mehr, sondern Voraussetzung. Kaum eine Werkstattmaschine erreicht das.",
+        "en": "At a 160 °C bed temperature a heated chamber is no longer a recommendation but a precondition. Hardly any workshop machine reaches it."
+      }
+    },
+    "printability": {
+      "value": 1,
+      "scale": "printability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "warpingTendency": {
+      "value": 5,
+      "scale": "warpingTendency",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "hygroscopy": {
+      "value": 4,
+      "scale": "hygroscopy",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "abrasiveness": {
+      "value": 1,
+      "scale": "abrasiveness",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "durability": {
+    "uvResistance": {
+      "value": 3,
+      "scale": "uvResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "weatherResistance": {
+      "value": 3,
+      "scale": "weatherResistance",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "compliance": {
+    "foodContact": {
+      "status": {
+        "value": "not-declared",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      },
+      "partLevelWarning": {
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+      }
+    },
+    "flameRetardancy": {
+      "ul94": {
+        "value": "not-classified",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Das Blatt weist eine Brandprüfung nach FAR 25.853 aus (Luftfahrt, Kabineninnenteile), Ergebnis „<5“. Das ist KEINE UL94-Klassifizierung und ersetzt sie nicht — die beiden Normen prüfen unterschiedliche Geometrien und Beflammungszeiten. Für eine UL94-Anforderung ist dieser Werkstoff damit nicht belegt.",
+          "en": "The sheet states a flammability test to FAR 25.853 (aviation, cabin interiors), result “<5”. That is NOT a UL94 classification and does not replace one — the two standards test different geometries and flame application times. For a UL94 requirement this material is therefore not substantiated."
+        }
+      }
+    },
+    "printEmissions": {
+      "concernLevel": {
+        "value": "moderate",
+        "source": "estimate_reasoning",
+        "confidence": "estimated"
+      }
+    }
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "industriallyCompostable": {
+      "value": false,
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "practicalRecyclability": {
+      "value": "possible-in-theory",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "finishing": {
+    "surfaceQuality": {
+      "value": 3,
+      "scale": "surfaceQuality",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "layerLineVisibility": {
+      "value": 3,
+      "scale": "layerLineVisibility",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "sandability": {
+      "value": 3,
+      "scale": "sandability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "fillability": {
+      "value": 3,
+      "scale": "fillability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "paintAdhesion": {
+      "value": 3,
+      "scale": "paintAdhesion",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "bondability": {
+      "value": 2,
+      "scale": "bondability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "gloss": {
+      "value": "matte",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "colourAvailability": {
+      "value": "narrow",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    }
+  },
+  "commercial": {
+    "priceIndex": {
+      "value": 5,
+      "scale": "priceIndex",
+      "derivedFrom": [
+        "commercial.pricePerKg"
+      ],
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
+        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+      }
+    },
+    "availability": {
+      "value": 1,
+      "scale": "availability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "smallSeriesSuitability": {
+      "value": 2,
+      "scale": "smallSeriesSuitability",
+      "source": "estimate_reasoning",
+      "confidence": "estimated"
+    },
+    "xxl": {
+      "maxSensibleEdgeMm": {
+        "value": 450,
+        "unit": "mm",
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "derivedFrom": [
+          "processing.warpingTendency",
+          "processing.chamberRequirement"
+        ],
+        "note": {
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
+        }
+      },
+      "segmentationRecommended": {
+        "value": true,
+        "source": "estimate_reasoning",
+        "confidence": "estimated",
+        "note": {
+          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
+          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+        }
+      }
+    },
+    "reentsPortfolioStatus": {
+      "value": "unknown",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Fließt unter keinen Umständen in Filterung oder Bewertung ein (ADR-004).",
+        "en": "Never enters filtering or scoring under any circumstances (ADR-004)."
+      }
+    },
+    "pricePerKg": {
+      "value": 312.66,
+      "unit": "€/kg",
+      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
+      "source": [
+        "src_price_pei_9085_fiberlogy"
+      ],
+      "confidence": "low",
+      "note": {
+        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Fiberlogy PEI 9085, 0,5 kg für 156,33 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
+        "en": "Surveyed, not estimated — but on a single offer: Fiberlogy PEI 9085, 0.5 kg for 156.33 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstanlage aus Herstellerdatenblatt)",
+    "openQuestions": [
+      {
+        "id": "oq_pei_9085_single_source",
+        "question": {
+          "de": "Zweite unabhängige Quelle für diesen Werkstofftyp finden. Alle Kennwerte stammen aus einem einzigen Fiberlogy-Blatt; eine einzelne Quelle zeigt keine Streuung.",
+          "en": "Find a second independent source for this material type. All values come from a single Fiberlogy sheet; one source shows no scatter."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics",
+          "thermal",
+          "processing"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Fiberlab S.A. (Fiberlogy)",
+        "title": "Fiberlogy PEI 9085 — Technical Data Sheet",
+        "url": "https://fiberlogy.com/upload/techfiles/FIBERLOGY_PEI9085_TDS.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Einziges Datenblatt für diesen Werkstofftyp. Kopie unter data/_sources/fiberlogy-tds/. Keine Bauorientierung angegeben.",
+          "en": "Only datasheet for this material type. Copy at data/_sources/fiberlogy-tds/. No build orientation stated."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
+          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_price_pei_9085_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PEI 9085",
+        "url": "https://fiberlogy.com/en_US/c/PEI-9085/159",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fiberlogy PEI 9085, 0,5 kg, 156,33 €",
+          "en": "1 offer: Fiberlogy PEI 9085, 0.5 kg, 156.33 €"
+        }
+      }
+    ]
+  }
+}

@@ -786,20 +786,21 @@
       }
     },
     "pricePerKg": {
-      "value": 33.99,
+      "value": 34.35,
       "min": 21.99,
-      "max": 45.99,
+      "max": 46.25,
       "unit": "€/kg",
-      "conditions": "Median aus 9 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 13 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_asa_3djake",
+        "src_price_asa_fiberlogy",
         "src_price_asa_extrudr",
         "src_price_asa_filamentworld"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 9 Listenpreise von 8 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 9 list prices from 8 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 8 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 13 list prices from 8 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -842,6 +843,19 @@
         "note": {
           "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
           "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+        }
+      },
+      {
+        "id": "src_price_asa_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise ASA",
+        "url": "https://fiberlogy.com/en_US/c/ASA/162",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
+          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
         }
       },
       {

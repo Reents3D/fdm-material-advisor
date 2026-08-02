@@ -31,6 +31,12 @@
       "country": "AT",
       "url": "https://extrudr.com/",
       "robots": "Allow: / (nur /api/* gesperrt), geprüft 2026-08-02"
+    },
+    "fiberlogy": {
+      "name": "Fiberlogy",
+      "country": "PL",
+      "url": "https://fiberlogy.com/",
+      "robots": "erlaubt mit Crawl-delay: 1 und Request-rate: 1/1s, geprüft 2026-08-02"
     }
   },
   "offers": {
@@ -66,6 +72,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PLA Refill",
+        "spoolKg": 0.85,
+        "priceEur": 15.47,
+        "pricePerKg": 18.2,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "eSUN",
         "product": "PLA+ Black",
@@ -76,6 +93,28 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Matte PLA",
+        "spoolKg": 0.85,
+        "priceEur": 16.18,
+        "pricePerKg": 19.04,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Matte-PLA/144",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "HS PLA Clear",
+        "spoolKg": 0.85,
+        "priceEur": 16.46,
+        "pricePerKg": 19.36,
+        "listingUrl": "https://fiberlogy.com/en_US/c/HS-PLA-Clear/141",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "3DJAKE",
         "product": "ecoPLA Schwarz",
@@ -84,6 +123,28 @@
         "pricePerKg": 19.99,
         "listingUrl": "https://www.3djake.de/filament/pla",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PLA",
+        "spoolKg": 2.5,
+        "priceEur": 54.37,
+        "pricePerKg": 21.75,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PLA",
+        "spoolKg": 0.85,
+        "priceEur": 19.56,
+        "pricePerKg": 23.01,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "extrudr",
@@ -148,6 +209,17 @@
         "pricePerKg": 25.99,
         "listingUrl": "https://www.3djake.de/filament/pla",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Filament Easy PLA CMYK 1_75mm 4 x 0_5kg",
+        "spoolKg": 0.5,
+        "priceEur": 51.78,
+        "pricePerKg": 103.56,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       }
     ],
     "petg": [
@@ -162,6 +234,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PETG Refill",
+        "spoolKg": 0.85,
+        "priceEur": 15.47,
+        "pricePerKg": 18.2,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "Polymaker",
         "product": "PETG Black",
@@ -172,6 +255,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PETG",
+        "spoolKg": 2.5,
+        "priceEur": 54.37,
+        "pricePerKg": 21.75,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "Bambu Lab",
         "product": "PETG Basic Black",
@@ -180,6 +274,17 @@
         "pricePerKg": 22.99,
         "listingUrl": "https://www.3djake.de/filament/petg",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy PETG",
+        "spoolKg": 0.85,
+        "priceEur": 19.56,
+        "pricePerKg": 23.01,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "3djake",
@@ -200,6 +305,17 @@
         "pricePerKg": 24.99,
         "listingUrl": "https://www.3djake.de/filament/petg",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Matte PETG",
+        "spoolKg": 2.5,
+        "priceEur": 73.31,
+        "pricePerKg": 29.32,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Matte-PETG/146",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "extrudr",
@@ -234,6 +350,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Matte PETG",
+        "spoolKg": 0.85,
+        "priceEur": 27.68,
+        "pricePerKg": 32.56,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Matte-PETG/146",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "extrudr",
         "brand": "Extrudr",
         "product": "PETG black 1.75 mm 1.1 kg",
@@ -257,6 +384,39 @@
     ],
     "abs": [
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ABS",
+        "spoolKg": 0.85,
+        "priceEur": 13.69,
+        "pricePerKg": 16.11,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ABS/188",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ABS Refill",
+        "spoolKg": 0.85,
+        "priceEur": 15.47,
+        "pricePerKg": 18.2,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ABS/188",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Easy ABS",
+        "spoolKg": 0.75,
+        "priceEur": 14.38,
+        "pricePerKg": 19.17,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Easy-ABS/191",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "Polymaker",
         "product": "ABS Grey",
@@ -275,6 +435,17 @@
         "pricePerKg": 19.99,
         "listingUrl": "https://www.3djake.de/filament/abs-asa",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ABS",
+        "spoolKg": 2.5,
+        "priceEur": 54.37,
+        "pricePerKg": 21.75,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ABS/188",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "3djake",
@@ -340,6 +511,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ASA",
+        "spoolKg": 0.75,
+        "priceEur": 21.78,
+        "pricePerKg": 29.04,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ASA/162",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "Fiberlogy",
         "product": "ASA Matte Black",
@@ -371,6 +553,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ASA",
+        "spoolKg": 2.5,
+        "priceEur": 99.63,
+        "pricePerKg": 39.85,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ASA/162",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "filamentworld",
         "brand": "3DXTech",
         "product": "3DXMAX ASA Schwarz",
@@ -381,6 +574,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Matte ASA",
+        "spoolKg": 2.5,
+        "priceEur": 113.16,
+        "pricePerKg": 45.26,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Matte-ASA/163",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "FormFutura",
         "product": "ApolloX White",
@@ -389,6 +593,17 @@
         "pricePerKg": 45.99,
         "listingUrl": "https://www.3djake.de/filament/asa",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Matte ASA",
+        "spoolKg": 0.75,
+        "priceEur": 34.69,
+        "pricePerKg": 46.25,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Matte-ASA/163",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       }
     ],
     "asa-cf": [
@@ -500,6 +715,17 @@
       }
     ],
     "pctg": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PCTG",
+        "spoolKg": 0.75,
+        "priceEur": 18.42,
+        "pricePerKg": 24.56,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PCTG/155",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
       {
         "retailer": "3djake",
         "brand": "Extrudr",
@@ -945,6 +1171,17 @@
     ],
     "pa12": [
       {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12",
+        "spoolKg": 0.75,
+        "priceEur": 33.58,
+        "pricePerKg": 44.77,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Nylon-PA12/196",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "Fiberlogy",
         "product": "Nylon PA12 Natural",
@@ -963,6 +1200,17 @@
         "pricePerKg": 69.32,
         "listingUrl": "https://www.3djake.de/filament/nylon",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12",
+        "spoolKg": 2.5,
+        "priceEur": 173.43,
+        "pricePerKg": 69.37,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Nylon-PA12/196",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "3djake",
@@ -996,6 +1244,39 @@
         "pricePerKg": 78.4,
         "listingUrl": "https://www.3djake.de/filament/nylon",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12CF15",
+        "spoolKg": 2.5,
+        "priceEur": 290.03,
+        "pricePerKg": 116.01,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12CF15",
+        "spoolKg": 0.5,
+        "priceEur": 58.79,
+        "pricePerKg": 117.58,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Nylon PA12CF15",
+        "spoolKg": 1,
+        "priceEur": 117.59,
+        "pricePerKg": 117.59,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "extrudr",
@@ -1312,6 +1593,119 @@
         "pricePerKg": 129.98,
         "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
         "retrievedAt": "2026-08-02"
+      }
+    ],
+    "pla-tough": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Impact PLA",
+        "spoolKg": 0.85,
+        "priceEur": 21.78,
+        "pricePerKg": 25.62,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Impact-PLA/142",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "Impact PLA",
+        "spoolKg": 2.5,
+        "priceEur": 87.45,
+        "pricePerKg": 34.98,
+        "listingUrl": "https://fiberlogy.com/en_US/c/Impact-PLA/142",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "hips": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "HIPS",
+        "spoolKg": 0.85,
+        "priceEur": 27.43,
+        "pricePerKg": 32.27,
+        "listingUrl": "https://fiberlogy.com/en_US/c/HIPS/193",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pp": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PP",
+        "spoolKg": 2.5,
+        "priceEur": 123.74,
+        "pricePerKg": 49.5,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PP/168",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PP",
+        "spoolKg": 0.75,
+        "priceEur": 38.25,
+        "pricePerKg": 51,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PP/168",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pei-9085": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PEI 9085",
+        "spoolKg": 0.5,
+        "priceEur": 156.33,
+        "pricePerKg": 312.66,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PEI-9085/159",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "abs-gf": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "ABSGF",
+        "spoolKg": 0.75,
+        "priceEur": 28.66,
+        "pricePerKg": 38.21,
+        "listingUrl": "https://fiberlogy.com/en_US/c/ABS-GF/190",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pla-cf": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PLACF",
+        "spoolKg": 0.85,
+        "priceEur": 40.71,
+        "pricePerKg": 47.89,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PLA-CF/143",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pctg-gf": [
+      {
+        "retailer": "fiberlogy",
+        "brand": "Fiberlogy",
+        "product": "PCTGGF10",
+        "spoolKg": 0.75,
+        "priceEur": 47.97,
+        "pricePerKg": 63.96,
+        "listingUrl": "https://fiberlogy.com/en_US/c/PCTG-GF/164",
+        "retrievedAt": "2026-08-02",
+        "collectedBy": "survey-prices"
       }
     ]
   }

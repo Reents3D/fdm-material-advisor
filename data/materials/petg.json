@@ -786,19 +786,20 @@
       }
     },
     "pricePerKg": {
-      "value": 27.37,
+      "value": 24.99,
       "min": 15.99,
       "max": 35.9,
       "unit": "€/kg",
-      "conditions": "Median aus 10 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 15 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_petg_3djake",
+        "src_price_petg_fiberlogy",
         "src_price_petg_extrudr"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 10 Listenpreise von 6 Marken (eSUN, Polymaker, Bambu Lab, Fiberlogy, 3DJAKE, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 10 list prices from 6 brands (eSUN, Polymaker, Bambu Lab, Fiberlogy, 3DJAKE, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 15 Listenpreise von 6 Marken (eSUN, Fiberlogy, Polymaker, Bambu Lab, 3DJAKE, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 15 list prices from 6 brands (eSUN, Fiberlogy, Polymaker, Bambu Lab, 3DJAKE, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -855,6 +856,19 @@
         "note": {
           "de": "7 Angebote: eSUN PETG Black, 1 kg, 15,99 € · Polymaker PETG Black, 1 kg, 19,99 € · Bambu Lab PETG Basic Black, 1 kg, 22,99 € · Fiberlogy Easy PETG Black, 0,85 kg, 19,99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24,99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29,99 € · Extrudr PETG Schwarz, 1,1 kg, 39,49 €",
           "en": "7 offers: eSUN PETG Black, 1 kg, 15.99 € · Polymaker PETG Black, 1 kg, 19.99 € · Bambu Lab PETG Basic Black, 1 kg, 22.99 € · Fiberlogy Easy PETG Black, 0.85 kg, 19.99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24.99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29.99 € · Extrudr PETG Schwarz, 1.1 kg, 39.49 €"
+        }
+      },
+      {
+        "id": "src_price_petg_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PETG",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: Fiberlogy Easy PETG Refill, 0,85 kg, 15,47 € · Fiberlogy Easy PETG, 2,5 kg, 54,37 € · Fiberlogy Easy PETG, 0,85 kg, 19,56 € · Fiberlogy Matte PETG, 2,5 kg, 73,31 € · Fiberlogy Matte PETG, 0,85 kg, 27,68 €",
+          "en": "5 offers: Fiberlogy Easy PETG Refill, 0.85 kg, 15.47 € · Fiberlogy Easy PETG, 2.5 kg, 54.37 € · Fiberlogy Easy PETG, 0.85 kg, 19.56 € · Fiberlogy Matte PETG, 2.5 kg, 73.31 € · Fiberlogy Matte PETG, 0.85 kg, 27.68 €"
         }
       },
       {

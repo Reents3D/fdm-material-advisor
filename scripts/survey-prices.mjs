@@ -78,6 +78,27 @@ const MATCH = [
   [/flex-semisoft/, "tpu-85a"],
 ];
 
+/**
+ * Fiberlogy ordnet anders: eine Kategorieseite je Werkstoff, das Spulengewicht steht in
+ * der Produktadresse (`...-1_75mm-0_85kg`) und der Preis daneben im Markup. Kein JSON-LD
+ * mit Angeboten - dafuer genuegt EIN Aufruf je Werkstoff statt einer je Produkt, was der
+ * hoeflichere Weg ist.
+ */
+const FIBERLOGY_CATEGORIES = [
+  ["ABS/188", "abs"], ["Easy-ABS/191", "abs"], ["ABS-ESD/169", "esd-abs"],
+  ["ASA/162", "asa"], ["Matte-ASA/163", "asa"],
+  ["Easy-PET-G/145", "petg"], ["Matte-PETG/146", "petg"],
+  ["PETG-CF/147", "petg-cf"], ["PETG-ESD/170", "esd-petg"],
+  ["Easy-PLA/138", "pla"], ["Matte-PLA/144", "pla"], ["HS-PLA-Clear/141", "pla"],
+  ["Impact-PLA/142", "pla-tough"],
+  ["PCTG/155", "pctg"], ["PCABS/157", "abs-pc"],
+  ["Nylon-PA12/196", "pa12"], ["Nylon-PA12-CF/153", "pa12-cf"],
+  ["HIPS/193", "hips"], ["PP/168", "pp"],
+  /* Seit 2026-08-02 als eigene Werkstofftypen gefuehrt (siehe import/fiberlogy-types.mjs). */
+  ["PEI-9085/159", "pei-9085"], ["ABS-GF/190", "abs-gf"],
+  ["PLA-CF/143", "pla-cf"], ["PCTG-GF/164", "pctg-gf"],
+];
+
 const SHOPS = [
   {
     id: "extrudr",
@@ -85,11 +106,66 @@ const SHOPS = [
     country: "AT",
     url: "https://extrudr.com/",
     robots: "Allow: / (nur /api/* gesperrt), geprüft 2026-08-02",
-    sitemap: "https://extrudr.com/sitemap-0.xml",
-    /** Aus der Sitemap nur die deutschsprachigen Produktseiten. */
-    isProduct: (u) => /^https:\/\/extrudr\.com\/de\/de\/products\/[^/]+\/$/.test(u),
-    slug: (u) => u.replace(/.*\/products\//, "").replace(/\/$/, ""),
-    brand: () => "Extrudr",
+    brand: "Extrudr",
+    async collect(ctx) {
+      const xml = await ctx.get("https://extrudr.com/sitemap-0.xml");
+      const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+        .filter((u) => /^https:\/\/extrudr\.com\/de\/de\/products\/[^/]+\/$/.test(u));
+      const slug = (u) => u.replace(/.*\/products\//, "").replace(/\/$/, "");
+      const relevant = urls.filter((u) => materialOf(slug(u)));
+      ctx.log(`${urls.length} Produktseiten, davon ${relevant.length} zugeordnet`);
+
+      const out = [];
+      for (const url of relevant) {
+        await ctx.wait();
+        let html;
+        try { html = await ctx.get(url); ctx.counted(); } catch (e) { ctx.skip(`${url}: ${e.message}`); continue; }
+        const mid = materialOf(slug(url));
+        for (const p of jsonLdProducts(html)) {
+          const offers = Array.isArray(p.offers) ? p.offers : p.offers ? [p.offers] : [];
+          for (const o of offers) {
+            const price = Number(o.price);
+            const kg = spoolKg(String(p.name ?? ""));
+            if (!Number.isFinite(price) || price <= 0 || !kg) continue;
+            if ((o.priceCurrency ?? "EUR") !== "EUR") continue;
+            out.push({ mid, product: String(p.name).replace(/^.*?-\s*/, ""), spoolKg: kg, priceEur: price, url });
+          }
+        }
+      }
+      return out;
+    },
+  },
+  {
+    id: "fiberlogy",
+    name: "Fiberlogy",
+    country: "PL",
+    url: "https://fiberlogy.com/",
+    robots: "erlaubt mit Crawl-delay: 1 und Request-rate: 1/1s, geprüft 2026-08-02",
+    brand: "Fiberlogy",
+    async collect(ctx) {
+      const out = [];
+      for (const [cat, mid] of FIBERLOGY_CATEGORIES) {
+        await ctx.wait();
+        const url = `https://fiberlogy.com/en_US/c/${cat}`;
+        let html;
+        try { html = await ctx.get(url); ctx.counted(); } catch (e) { ctx.skip(`${url}: ${e.message}`); continue; }
+        /* Produktkachel: Adresse traegt den Namen samt Spulengewicht, der Preis steht im
+           Markup dahinter. Ein grosszuegiges Fenster von 2.500 Zeichen genuegt und ist
+           robuster gegen Umbauten als ein exakter Selektor. */
+        for (const m of html.matchAll(/href="(\/en\/[A-Za-z0-9_.-]{8,90})"/g)) {
+          const kg = spoolKg(m[1].replace(/_/g, "."));
+          if (!kg) continue;
+          const price = /€\s?([0-9]+\.[0-9]{2})/.exec(html.slice(m.index, m.index + 2500));
+          if (!price) continue;
+          out.push({
+            mid, product: m[1].replace("/en/", "").replace(/-Filament.*/, "").replace(/-/g, " "),
+            spoolKg: kg, priceEur: Number(price[1]), url,
+          });
+        }
+      }
+      ctx.log(`${FIBERLOGY_CATEGORIES.length} Kategorieseiten gelesen`);
+      return out;
+    },
   },
 ];
 
@@ -144,47 +220,39 @@ for (const [mid, list] of Object.entries(survey.offers)) {
   survey.offers[mid] = list.filter((o) => o.collectedBy !== "survey-prices");
 }
 
-let fetched = 0, added = 0, skipped = [];
+let fetched = 0, added = 0;
+const skipped = [];
 for (const shop of SHOPS) {
-  process.stdout.write(`${shop.name}: Sitemap … `);
-  let urls;
+  process.stdout.write(`${shop.name}: `);
+  const ctx = {
+    get,
+    wait: () => sleep(DELAY_MS),
+    counted: () => { fetched++; },
+    skip: (m) => skipped.push(m),
+    log: (m) => console.log(m),
+  };
+  let offers;
   try {
-    const xml = await get(shop.sitemap);
-    urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).filter(shop.isProduct);
+    offers = await shop.collect(ctx);
   } catch (e) {
     console.log(`nicht erreichbar (${e.message}) — übersprungen`);
     skipped.push(`${shop.name}: ${e.message}`);
     continue;
   }
-  const relevant = urls.filter((u) => materialOf(shop.slug(u)));
-  console.log(`${urls.length} Produktseiten, davon ${relevant.length} zugeordnet`);
-
   survey.retailers[shop.id] = { name: shop.name, country: shop.country, url: shop.url, robots: shop.robots };
-
-  for (const url of relevant) {
-    await sleep(DELAY_MS);
-    let html;
-    try { html = await get(url); fetched++; } catch (e) { skipped.push(`${url}: ${e.message}`); continue; }
-    const mid = materialOf(shop.slug(url));
-    for (const p of jsonLdProducts(html)) {
-      const offers = Array.isArray(p.offers) ? p.offers : p.offers ? [p.offers] : [];
-      for (const o of offers) {
-        const price = Number(o.price);
-        const kg = spoolKg(String(p.name ?? ""));
-        if (!Number.isFinite(price) || price <= 0 || !kg) continue;
-        if ((o.priceCurrency ?? "EUR") !== "EUR") continue;
-        (survey.offers[mid] ??= []).push({
-          retailer: shop.id, brand: shop.brand(p), product: String(p.name).replace(/^.*?-\s*/, ""),
-          spoolKg: kg, priceEur: price, pricePerKg: Math.round((price / kg) * 100) / 100,
-          listingUrl: url, retrievedAt: today(), collectedBy: "survey-prices",
-        });
-        added++;
-      }
-    }
+  for (const o of offers) {
+    (survey.offers[o.mid] ??= []).push({
+      retailer: shop.id, brand: shop.brand, product: o.product,
+      spoolKg: o.spoolKg, priceEur: o.priceEur,
+      pricePerKg: Math.round((o.priceEur / o.spoolKg) * 100) / 100,
+      listingUrl: o.url, retrievedAt: today(), collectedBy: "survey-prices",
+    });
+    added++;
   }
 }
 
-/* Doppelte Eintraege (gleiche Marke, gleiches Produkt, gleicher Haendler) zusammenfassen. */
+/* Doppelte Eintraege (gleicher Haendler, gleiche Marke, gleiches Produkt, gleiche Spule)
+   zusammenfassen - Kategorieseiten zeigen dasselbe Produkt oft mehrfach. */
 for (const [mid, list] of Object.entries(survey.offers)) {
   const seen = new Map();
   for (const o of list) seen.set(`${o.retailer}|${o.brand}|${o.product}|${o.spoolKg}`, o);
@@ -195,10 +263,11 @@ survey.surveyedAt = today();
 writeFileSync(OUT, `${JSON.stringify(survey, null, 2)}\n`);
 
 const total = Object.values(survey.offers).flat().length;
-console.log(`\n${fetched} Seiten gelesen · ${added} Angebote aus strukturierten Daten übernommen`);
+console.log(`\n${fetched} Seiten gelesen · ${added} Angebote übernommen`);
 console.log(`data/prices.json: ${total} Angebote zu ${Object.keys(survey.offers).length} Werkstoffen (Stand ${survey.surveyedAt})`);
 for (const [mid, list] of Object.entries(survey.offers).sort()) {
   const shops = new Set(list.map((o) => o.retailer)).size;
-  console.log(`  ${mid.padEnd(10)} ${String(list.length).padStart(2)} Angebote von ${shops} Anbieter${shops === 1 ? "" : "n"}`);
+  const flag = list.length >= 5 && shops >= 2 ? "  ← medium" : "";
+  console.log(`  ${mid.padEnd(10)} ${String(list.length).padStart(2)} Angebote von ${shops} Anbieter${shops === 1 ? "" : "n"}${flag}`);
 }
 if (skipped.length) console.log(`\nÜbersprungen (${skipped.length}): ${skipped.slice(0, 5).join(" · ")}`);
