@@ -1669,7 +1669,10 @@
                 "type": "string"
               },
               "url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https?://",
+                "description": "Nur http(s). Ein javascript:- oder data:-Schema wuerde als blosser String die Pruefung passieren und landet in der Oberflaeche als anklickbares href - dieses Projekt nimmt Datenbeitraege per Pull Request an, und wer Werkstoffwerte fachlich gegenliest, sieht ein Schema in einer Quellenangabe nicht."
               },
               "retrievedAt": {
                 "type": "string",

@@ -9,8 +9,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { LANGS, translate, type Lang } from "./i18n";
 import { MATERIALS } from "./data/materials";
+import { CHEMICALS } from "./data/chemicals";
 import { select, type Requirements } from "./engine";
-import { DEFAULT_WEIGHTS } from "./engine/criteria";
+import { CRITERIA, DEFAULT_WEIGHTS } from "./engine/criteria";
 import { Button } from "./components/ui";
 import { Header, Footer, PrintLetterhead, PrintFooter } from "./components/Chrome";
 import { Home } from "./views/Home";
@@ -76,7 +77,33 @@ function parseHash(): { route: Route; params: URLSearchParams } {
   return { route: { view: "home" }, params };
 }
 
-function stateFromParams(params: URLSearchParams): AppState {
+/* Die URL ist die einzige Wahrheit dieses Werkzeugs - und damit die einzige Eingabe, die
+   von aussen kommt. Ein geteilter Link ist beworbenes Merkmal, also ist ein
+   BOESARTIGER geteilter Link der realistische Angriffsweg: Es gibt kein Backend, keine
+   Anmeldung und keinen gespeicherten Zustand, den man stehlen koennte, aber es gibt
+   einen Browser-Tab, den man zum Stehen bringen kann.
+
+   Deshalb wird hier alles begrenzt, was die Oberflaeche vervielfacht. Die Schaltflaechen
+   taten das laengst (die Vergleichsauswahl kappt bei fuenf); nur der Parser tat es nicht.
+   Ein `?cmp=pla,pla,pla,...` mit zehntausend Wiederholungen erzeugte in der
+   Vergleichsansicht zehntausend Spalten mal rund sechzig Kennwertzeilen. */
+const MAX_COMPARE = 5;
+/* Aus den Daten abgeleitet, nicht als Zahl hingeschrieben: Mehr Medien als es gibt kann
+   niemand fordern, und beim naechsten neuen Medium waere eine feste Zahl still falsch. */
+const MAX_CHEMICALS = CHEMICALS.length;
+/** Nur bekannte Kriterien duerfen ein Gewicht bekommen - fremde Schluessel gar nicht. */
+const CRITERION_IDS = new Set(CRITERIA.map((c) => c.id));
+/** Gewichte sind Regler von 0 bis 5. Alles andere ist kein Gewicht. */
+const clampWeight = (v: number): number =>
+  Number.isFinite(v) ? Math.min(5, Math.max(0, v)) : 0;
+
+/** Wiederholungen raus, dann kappen - in dieser Reihenfolge, sonst kappt man Duplikate. */
+const idList = (raw: string | null, max: number): string[] =>
+  [...new Set((raw ?? "").split(",").filter(Boolean))].slice(0, max);
+
+/** Exportiert, weil das die einzige Stelle ist, an der fremde Eingaben hereinkommen -
+    eine Grenze ohne Test ist eine Grenze auf Zuruf. Siehe tests/lib/url-input.test.ts. */
+export function stateFromParams(params: URLSearchParams): AppState {
   const req: Requirements = {};
   const n = (k: string) => (params.has(k) ? Number(params.get(k)) : undefined);
   const b = (k: string) => (params.has(k) ? params.get(k) === "1" : undefined);
@@ -103,7 +130,7 @@ function stateFromParams(params: URLSearchParams): AppState {
   const load = params.get("load");
   if (load === "none" || load === "sustained") req.thermalLoad = load;
 
-  const chemicals = (params.get("chem") ?? "").split(",").filter(Boolean);
+  const chemicals = idList(params.get("chem"), MAX_CHEMICALS);
   if (chemicals.length) req.chemicals = chemicals;
 
   /* `wexact` heisst: Die uebergebenen Gewichte sind vollstaendig, nicht Abweichungen vom
@@ -113,13 +140,19 @@ function stateFromParams(params: URLSearchParams): AppState {
   const exact = params.get("wexact") === "1";
   const weights: Record<string, number> = exact ? {} : { ...DEFAULT_WEIGHTS };
   for (const [k, v] of params.entries()) {
-    if (k.startsWith("w.")) weights[k.slice(2)] = Number(v);
+    if (!k.startsWith("w.")) continue;
+    const id = k.slice(2);
+    /* Unbekannte Schluessel gar nicht erst uebernehmen, und `Infinity` nicht als Gewicht
+       durchlassen: `Number("Infinity")` ist gueltig, und im Scoring wurde daraus
+       Infinity/Infinity = NaN - die Eignungszahl stand danach als "NaN %" auf der Karte,
+       im Bericht und in der CSV. */
+    if (CRITERION_IDS.has(id)) weights[id] = clampWeight(Number(v));
   }
   req.weights = weights;
 
   const lang = (params.get("lang") as Lang) ?? "de";
   return {
-    req, chemicals, compare: (params.get("cmp") ?? "").split(",").filter(Boolean),
+    req, chemicals, compare: idList(params.get("cmp"), MAX_COMPARE),
     lang: LANGS.includes(lang) ? lang : "de",
     ...(exact ? { weightsExact: true } : {}),
   };

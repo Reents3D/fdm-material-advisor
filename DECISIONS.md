@@ -1092,6 +1092,110 @@ zwanzig Zeilen ab, stillschweigend.
 
 ---
 
+## ADR-028 — Die URL ist die Angriffsfläche, also wird dort begrenzt
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Sicherheitsdurchsicht
+
+Eine Durchsicht des gesamten Bestands (Quelltext, Skripte, Schemata, Workflows, Historie,
+`npm audit`) fand **keine kritischen und keine hohen Befunde**. Ausgeschlossen wurden
+unter anderem: XSS (kein `dangerouslySetInnerHTML`, kein `innerHTML`, kein `eval`, kein
+`new Function` im ganzen Quelltext), CSV-Formelinjektion (in `lib/csv.ts` nach
+OWASP-Muster entschärft), Cache-Poisoning über den Service Worker (bricht bei fremdem
+Origin ab), Pfad-Traversal in den Build-Skripten (alle `id`-Felder sind per Schema auf
+`^[a-z0-9-]+$` begrenzt), Secrets in der Historie (keine), und Prototype Pollution über
+`w.__proto__` (der Setter ist bei einem primitiven Wert ein No-op). `npm audit --omit=dev`
+meldet 0 Schwachstellen; die fünf gemeldeten CVEs liegen sämtlich in
+Entwicklungswerkzeugen, die die ausgelieferte Seite nicht enthält.
+
+**Was blieb, war eine Klasse: unbegrenzte Eingaben aus der URL.**
+
+Das Werkzeug wirbt mit teilbaren Links — der komplette Zustand steckt in der Adresse.
+Damit ist ein **bösartiger geteilter Link** der realistische Angriffsweg. Es gibt nichts
+zu stehlen (kein Backend, keine Anmeldung, kein `localStorage`), aber es gibt einen
+Browser-Tab, den man zum Stehen bringen kann.
+
+Die Schaltflächen kappten längst — die Vergleichsauswahl bei fünf. Der Parser tat es
+nicht. `?cmp=pla,pla,pla,…` mit zweitausend Wiederholungen erzeugte zweitausend Spalten
+mal rund sechzig Kennwertzeilen. Nachgemessen nach der Korrektur: **6 Spalten, 1.126
+Knoten.**
+
+**Entscheidung.** Begrenzt wird im Parser, nicht in der Ansicht — dort ist die Grenze,
+und eine Grenze gehört an den Rand, nicht in jede einzelne Oberfläche:
+
+| Parameter | Regel |
+|---|---|
+| `cmp` | erst deduplizieren, dann auf 5 kappen (Reihenfolge zählt, sonst kappt man Duplikate) |
+| `chem` | auf die Zahl der bekannten Medien kappen, aus den Daten abgeleitet |
+| `w.*` | nur bekannte Kriterien; Wert auf 0…5 geklemmt |
+
+Das Klemmen erledigt nebenbei einen alten Anzeigefehler: `Number("Infinity")` ist
+gültiges JavaScript, im Scoring wurde daraus `Infinity/Infinity = NaN`, und auf der
+Ergebniskarte, im Bericht und in der CSV stand danach „NaN %".
+
+`stateFromParams` ist dafür exportiert worden. Zehn Tests in
+`tests/lib/url-input.test.ts` prüfen die Grenze selbst — eine Grenze ohne Test ist eine
+Grenze auf Zuruf.
+
+---
+
+## ADR-029 — Datenbeiträge dürfen keine URL mitbringen, die kein http(s) ist
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Sicherheitsdurchsicht
+
+Die Felder `sources[].url`, `datasheet.url` und `productUrl` waren im Schema nur
+`"type": "string"`. Das Projekt nimmt Datenbeiträge ausdrücklich per Pull Request an
+(CONTRIBUTING.md) — eine Quellenangabe wie `javascript:…` oder eine `data:text/html`-URL
+hätte die Prüfung anstandslos passiert und wäre in der Detail- und Herstelleransicht als
+anklickbarer Link erschienen. Wer Werkstoffwerte fachlich gegenliest, sieht ein Schema in
+einer Quellenangabe nicht.
+
+**Entscheidung.** `"format": "uri"` plus `"pattern": "^https?://"` an allen drei Stellen.
+Gegengeprobt: Eine eingeschleuste `javascript:`-URL lässt `npm run validate:schema`
+scheitern („must match pattern ^https?://"), alle 228 echten Dateien bleiben gültig.
+
+Das ist dieselbe Haltung wie überall in diesem Projekt: Die CI ist die Stelle, an der
+Datenqualität durchgesetzt wird, nicht der gute Wille des Prüfenden.
+
+---
+
+## ADR-030 — Die Inhaltssicherheitsrichtlinie gehört an den Build, nicht in die Quelle
+
+**Datum.** 2026-08-02 · **Status.** angenommen · **Anlass.** Sicherheitsdurchsicht
+
+GitHub Pages lässt keine eigenen Antwortkopfzeilen zu, eine echte CSP ist dort also nicht
+setzbar. Ein Meta-Tag geht — und der erste Versuch stand direkt in `index.html`.
+
+**Ergebnis: eine vollständig leere Seite unter `npm run dev`.** `#root` hatte null Kinder.
+Vite spielt im Entwicklungsbetrieb ein Inline-Modul für React Refresh ein, und
+`script-src 'self'` erlaubt kein Inline-Skript. Der Build liefert dagegen eine einzige
+externe Moduldatei aus.
+
+**Entscheidung.** Ein `transformIndexHtml`-Plugin mit `apply: "build"` in
+`vite.config.ts`. Eine Sicherheitsmaßnahme, die den Entwicklungsserver lahmlegt, wird beim
+ersten Verdruss wieder ausgebaut — sie sitzt jetzt da, wo sie hingehört: am ausgelieferten
+Artefakt.
+
+Nachgemessen an beiden Ständen: Entwicklungsserver ohne CSP, rendert (39 Elemente mit
+Inline-Stil im Kennwerte-Diagramm). Gebauter Stand mit CSP, rendert identisch, keine
+Konsolenmeldung.
+
+Zwei Dinge, die dabei festzuhalten sind:
+
+- **`style-src` braucht `'unsafe-inline'`.** React setzt Stilattribute direkt am Element
+  (Balken der Eignungszahl, Punkte im Kennwerte-Diagramm). Ohne die Freigabe bleiben sie
+  leer. Das ist der Preis dieser Bauweise, nicht Nachlässigkeit.
+- **`frame-ancestors` fehlt bewusst.** Die Richtung wirkt laut Spezifikation nur als echte
+  Kopfzeile und ist im Meta-Tag wirkungslos. Klickjacking-Schutz gibt es deshalb erst nach
+  dem Umzug auf materialberater.reents3d.de mit vorgelagertem CDN. Dann gehört die ganze
+  Richtlinie dorthin, zusammen mit `Strict-Transport-Security` und
+  `X-Content-Type-Options`.
+
+Die Richtlinie schützt heute gegen nichts Konkretes — sie ist Vorsorge gegen den Rückfall
+und gegen eine kompromittierte Abhängigkeit. Genau deshalb steht sie hier begründet und
+nicht bloß da.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |
