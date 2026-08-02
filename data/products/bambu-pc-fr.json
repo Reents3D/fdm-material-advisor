@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht als einziger Hersteller dieser Datenbank für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet.",
-    "en": "Bambu Lab measures on PRINTED specimens and is the only manufacturer in this database to publish both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs."
+    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet. Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf diese Blätter; ausserhalb nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+    "en": "Bambu Lab measures on PRINTED specimens and publishes both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs. Of 13 material types carrying a Z value, 12 rest on these sheets; outside them only Fillamentum (OBC 905) states both directions so far."
   },
   "datasheet": {
     "title": "Bambu PC FR — Technical Data Sheet",

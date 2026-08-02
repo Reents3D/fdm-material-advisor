@@ -95,8 +95,8 @@
       "source": "src_bambu_petgcf_tds_v2",
       "confidence": "medium",
       "note": {
-        "de": "Nur Bambu Lab veröffentlicht überhaupt Z-Werte. Ohne Z-Wert ist keine ehrliche Aussage zur Schichthaftung möglich - die meisten Hersteller schweigen dazu.",
-        "en": "Only Bambu Lab publishes Z values at all. Without a Z value no honest statement about layer adhesion is possible - most manufacturers stay silent on this."
+        "de": "Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf Bambu-Blätter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen. Ohne Z-Wert ist keine ehrliche Aussage zur Schichthaftung möglich - die meisten Hersteller schweigen dazu.",
+        "en": "Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far. Without a Z value no honest statement about layer adhesion is possible - most manufacturers stay silent on this."
       }
     },
     "tensileModulusXy": {

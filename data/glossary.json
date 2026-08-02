@@ -507,8 +507,8 @@
         "en": "How widely the individual measurements vary around the stated mean."
       },
       "detail": {
-        "de": "Ein Datenblatt, das „2450 ± 270 MPa“ schreibt, sagt mehr aus als eines mit „2450 MPa“ — es gibt zu, dass der nächste Prüfstab auch 2180 liefern kann. Bambu Lab ist in dieser Datenbank der einzige Hersteller, der das durchgehend tut.",
-        "en": "A datasheet stating “2450 ± 270 MPa” says more than one stating “2450 MPa” — it admits the next bar may well deliver 2180. Bambu Lab is the only manufacturer here who does this throughout."
+        "de": "Ein Datenblatt, das „2450 ± 270 MPa“ schreibt, sagt mehr aus als eines mit „2450 MPa“ — es gibt zu, dass der nächste Prüfstab auch 2180 liefern kann. Bambu Lab ist in dieser Datenbank der einzige Hersteller, der das durchgehend tut: Von den Werten mit Streuungsangabe stammen 145 aus seinen Blättern und genau einer von einer anderen Marke.",
+        "en": "A datasheet stating “2450 ± 270 MPa” says more than one stating “2450 MPa” — it admits the next bar may well deliver 2180. Bambu Lab is the only manufacturer here doing this consistently: of the values carrying scatter, 145 come from its sheets and exactly one from another brand."
       },
       "pitfall": {
         "de": "Eine Zahl mit drei Nachkommastellen ohne Streuungsangabe ist keine Präzision, sondern deren Behauptung.",

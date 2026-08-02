@@ -411,11 +411,11 @@ const TYPES = [
     file: "2022/11/TDS_OBC-905_EN_07102022_FI.pdf",
     title: "OBC 905 — Technical Data Sheet",
     abstract: t(
-      "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Sein einzigartiger Beitrag zu dieser Datenbank ist aber ein anderer: Es ist der einzige Werkstofftyp, dessen Kennwerte aus einem Blatt stammen, das XY UND Z an gedruckten Prüfkörpern ausweist.",
-      "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its unique contribution to this database is a different one, though: it is the only material type whose values come from a sheet giving XY AND Z on printed specimens."),
+      "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Bemerkenswert ist auch die Quellenlage: Von 13 Werkstofftypen mit Z-Kennwert ist OBC der einzige, dessen Blatt NICHT von Bambu Lab stammt — Fillamentum weist XY und Z an gedruckten Prüfkörpern aus.",
+      "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its sourcing is notable too: of 13 material types carrying a Z value, OBC is the only one whose sheet does NOT come from Bambu Lab — Fillamentum states XY and Z on printed specimens."),
     positioning: t(
-      "Das leichteste Material im Bestand — und das einzige mit belegten Z-Werten im Typdatensatz.",
-      "The lightest material in the dataset — and the only one with documented Z values at type level."),
+      "Das leichteste Material im Bestand — und der einzige Z-Kennwert, der nicht von Bambu Lab stammt.",
+      "The lightest material in the dataset — and the only Z value not sourced from Bambu Lab."),
     mechanics: {
       density: q(0.905, "g/cm³", { std: "ISO 1183" }),
       tensileStrengthXy: q(14, "MPa", { std: "ASTM D1708", orientation: "XY", conditions: "gedruckt, 100 % Infill, 200 °C Düse, 65 °C Bett" }),

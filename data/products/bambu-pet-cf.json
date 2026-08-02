@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
-    "en": "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it."
+    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- UND Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+    "en": "Bambu Lab tests PRINTED specimens and reports X-Y AND Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far."
   },
   "datasheet": {
     "title": "Bambu Filament Technical Data Sheet - PET-CF",

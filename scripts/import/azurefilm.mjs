@@ -71,8 +71,8 @@ const P = [
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
     anomaly: INFILL_FINDING,
-    features: t("AzureFilm legt als einziger Hersteller dieser Datenbank die vollständigen Druckparameter der Prüfkörper offen — Drucker, Slicer, Düse, Schichthöhe, Infill und Geschwindigkeit. Genau dadurch wird hier überhaupt sichtbar, dass die Werte nicht als Werkstoffkennwerte gelesen werden dürfen.",
-                "AzureFilm is the only manufacturer in this database to disclose the full print parameters of its specimens — printer, slicer, nozzle, layer height, infill and speed. It is precisely that disclosure which makes it visible here that the values must not be read as material data.") },
+    features: t("AzureFilm legt die vollständigen Druckparameter der Prüfkörper offen — Drucker, Slicer, Düse, Schichthöhe, Infill und Geschwindigkeit. Das tun ausser AzureFilm nur wenige, Fillamentum etwa. Genau diese Offenlegung macht hier überhaupt sichtbar, dass die Werte nicht als Werkstoffkennwerte gelesen werden dürfen.",
+                "AzureFilm discloses the full print parameters of its specimens — printer, slicer, nozzle, layer height, infill and speed. Few others do, Fillamentum among them. It is precisely that disclosure which makes it visible here that the values must not be read as material data.") },
 
   { id: "azurefilm-pla-silk", material: "pla", name: "AzureFilm PLA Silk",
     url: `${CDN}/SILK_TDS%5B0%5D.pdf`, specimen: "printed",

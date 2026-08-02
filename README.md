@@ -6,6 +6,9 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
+**38 Werkstofftypen · 168 Produkte von 12 Marken · 2.653 belegte Einzelaussagen ·
+20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
+
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
 [![Deploy](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/deploy.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/deploy.yml)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
@@ -30,43 +33,90 @@ FDM-Bauteil ist der gedruckte Wert der ehrliche.
 ### 2. Sie verschweigen die Anisotropie
 
 Ein FDM-Bauteil ist senkrecht zur Schicht schwächer als in der Ebene. Wie viel schwächer,
-steht praktisch nirgends. Hier steht es für jeden Werkstoff:
+steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-Wert
+überhaupt angibt — bei 13 von 38 Werkstofftypen:
 
 | Material | Zug X-Y | Zug Z | **bleibt in Z** |
 |---|---:|---:|---:|
 | PC | 62 MPa | 56 MPa | **90 %** |
 | PLA | 35 MPa | 31 MPa | **89 %** |
 | ABS | 33 MPa | 28 MPa | **85 %** |
+| PETG-CF | 48 MPa | 38 MPa | **79 %** |
 | PETG | 51 MPa | 35 MPa | **69 %** |
-| PETG-CF | 59 MPa | 38 MPa | **64 %** |
-| PET-CF | 74 MPa | 35 MPa | **47 %** |
 | PA6-CF | 102 MPa | 48 MPa | **47 %** |
+| PET-CF | 74 MPa | 35 MPa | **47 %** |
+| PPS-CF | 87 MPa | 24 MPa | **28 %** |
 
-Die faserverstärkten Hochleistungswerkstoffe verlieren senkrecht zur Schicht **mehr als
-die Hälfte** ihrer Festigkeit. Bei der Schlagzähigkeit ist der Einbruch noch drastischer.
-Wer PA6-CF wegen der 102 MPa wählt und das Bauteil falsch orientiert, bekommt 48.
+Die faserverstärkten Hochleistungswerkstoffe verlieren senkrecht zur Schicht **die Hälfte
+bis fast drei Viertel** ihrer Festigkeit. Bei der Schlagzähigkeit ist der Einbruch noch
+drastischer. Wer PPS-CF wegen der 87 MPa wählt und das Bauteil falsch orientiert, bekommt
+24 — weniger als ein ABS.
+
+Dass nur 13 von 38 Typen hier stehen, ist selbst ein Befund: **25 Hersteller nennen den
+Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 
 ### 3. Sie füllen jede Zelle, auch ohne Quelle
 
 Eine vollständig gefüllte Tabelle sieht professionell aus. Sie ist meist geraten.
 
 Hier trägt jeder Wert eine Konfidenzstufe, und geschätzte Werte sind in der Oberfläche
-sichtbar markiert. Über die gesamte Datenbank: **43 % der Aussagen sind belegt, 51 %
-sind gekennzeichnete Schätzungen.** Diese Zahl wird angezeigt, nicht versteckt.
+sichtbar markiert. Über die gesamte Datenbank, 2.653 Einzelaussagen:
+
+| Konfidenz | Anteil | bedeutet |
+|---|---:|---|
+| `high` | 2 % | Prüfbericht oder Normkonformitätserklärung |
+| `medium` | 24 % | Herstellerdatenblatt mit Prüfnorm |
+| `low` | 5 % | Datenblatt ohne Norm, oder eine einzige Quelle |
+| `estimated` | 69 % | begründete Ableitung, kein Messwert |
+
+**Zwei Drittel sind Schätzungen.** Diese Zahl steht im Werkzeug auf jeder Ergebniskarte,
+nicht im Kleingedruckten. Und sie kostet: Der Eignungswert wird mit der Datenabdeckung
+multipliziert — was nicht belegt ist, wird nicht gutgeschrieben.
+
+### 4. Sie geben Grenzen aus, die vom Bauteil abhängen, nicht vom Werkstoff
+
+„PETG bis 55 °C" liest sich wie eine Werkstoffeigenschaft. Es ist keine. Was einen
+Thermoplast in der Wärme begrenzt, ist **Kriechen unter dauernder Spannung** — und die
+Spannung senkt man mit Wandstärke und Füllgrad. Dieselbe Type trägt unbelastet bis an
+ihre gemessene Formbeständigkeit heran und unter Dauerlast deutlich weniger.
+
+Deshalb fragt der Assistent nach der Last, und die Antwort entscheidet, welche Zahl das
+Urteil trägt. PETG bei 60 °C: unbelastet ohne Vorbehalt, unter Dauerlast mit Warnung und
+dem konstruktiven Ausweg dazu.
+
+Dieselbe Verwechslung gab es bei der **Bauteilgröße**. Die Kantenlänge, ab der ein
+Werkstoff aufwendig wird, ist keine Werkstoffeigenschaft — begrenzt wird die Größe vom
+Bauraum und vom Verfahren, nicht vom Polymer. Mit beheizter Kammer und Segmentierung
+läuft praktisch jeder dieser Werkstoffe auf zwei Meter und darüber. Das Feld sagt jetzt
+„ab hier wird es aufwendig" und stuft ab, statt zu streichen. Ausdrücklich **nicht**
+hinterlegt ist der Bauraum irgendeiner konkreten Maschine — auch nicht der des
+Herausgebers.
 
 ---
 
 ## Was es kann
 
-- **Geführte Beratung** — sieben überspringbare Schritte zu einer begründeten Empfehlung
+- **Geführte Beratung** — sechs überspringbare Schritte zu einer begründeten Empfehlung,
+  mit benannten Schwerpunkten statt sechzehn nackter Regler. Wer sich auf null Treffer
+  filtert, erfährt an Ort und Stelle, **welche** Anforderung alles ausgeschlossen hat
+- **20 fertige Anwendungsfälle** — vom Messebau-Großteil bis zur Chemiewanne, jeder mit
+  vollständigem Anforderungsprofil; ein Klick statt sechs Schritte
 - **„Warum nicht X?"** — für jedes Material die vollständige Constraint-Auswertung, auch
-  für ausgeschlossene
+  für ausgeschlossene. Drei Zustände: durchgefallen, knapp bestanden, glatt bestanden
+- **„Reicht auch etwas Einfacheres?"** — der günstigste Werkstoff, der die Anforderungen
+  trotzdem erfüllt, samt Preis des Verzichts. Beantwortet die Frage, die die
+  Kompromissansicht strukturell nicht beantworten kann: Ein Allrounder wie PETG liegt bei
+  Perzentilbewertung überall im Mittelfeld und fällt sonst durch das Raster
 - **Kompromissanalyse** — „PC statt PA6-CF: +86 % Schichthaftung, −64 % Steifigkeit",
   mit absoluten Werten statt Adjektiven
 - **Verfahrensweiche** — wenn FDM prinzipbedingt nicht kann, was gefordert ist, sagt es
   das und nennt SLA, SLS, CNC oder Guss
 - **Sensitivität** — „Gewichten Sie den Preis höher, führt PETG"
 - **Kennwerte-Diagramm** — zwei beliebige Eigenschaften gegeneinander (Ashby-Stil)
+- **Festigkeit gegen Preis** — €/kg und MPa je €/kg als sortierbare Spalten
+- **Brandschutzansicht** — welche Type welche UL94-Klasse trägt. Eine Klasse am Produkt
+  gibt die Familie ausdrücklich **nicht** frei: PETG ist nicht V-0, nur die
+  flammgeschützte Type ist es, und die Begründung nennt Marke und Produktnamen
 - **Vergleich** von bis zu fünf Materialien, druckbar als PDF für die Projektakte
 - **PDF-Bericht** im Reents-Briefkopf: Anforderungsprofil, Empfehlung, Begründung,
   Ausschlussgründe, Datenlage und Quellenverzeichnis in einem Dokument
@@ -82,23 +132,36 @@ Kein Backend, keine Cookies, kein Tracking, keine externen Ressourcen. Läuft of
 
 ## Wie das Scoring funktioniert
 
-1. **Hard Constraints.** Temperatur, Kammerverfügbarkeit, gehärtete Düse, Bauteilgröße,
-   Witterung, Medien, Regulatorik filtern hart. Jede Ausfilterung wird protokolliert und
-   ist abrufbar.
+1. **Hard Constraints.** Temperatur, Kammerverfügbarkeit, gehärtete Düse, Witterung,
+   Medien, Regulatorik filtern hart. Jede Ausfilterung wird protokolliert und ist
+   abrufbar.
 2. **Perzentil-Normalisierung.** Jedes Kriterium wird auf seinen Rang in der Datenbank
-   normiert, nicht auf Min/Max. Sonst würde ein einzelner Exot wie PEEK alle anderen
+   normiert, nicht auf Min/Max. Sonst würde ein einzelner Exot wie PPS-CF alle anderen
    Werte zusammenstauchen.
-3. **Gewichtete Summe** über die vom Nutzer priorisierten Kriterien. Fehlende Daten
-   zählen **nicht als Null**, sondern fallen aus der Gewichtung heraus und werden als
-   Datenlücke ausgewiesen.
-4. **Erklärung.** Die Engine erzeugt keine Freitexte, sondern typisierte
+3. **Gewichtete Summe** über die vom Nutzer priorisierten der 16 Kriterien. Fehlende
+   Daten zählen **nicht als Null**, sondern fallen aus der Gewichtung heraus und werden
+   als Datenlücke ausgewiesen.
+4. **Abdeckung als Faktor.** Der Wert wird mit dem Anteil der Gewichtung multipliziert,
+   zu dem überhaupt Daten vorliegen. Ein Werkstoff ohne Kennwert zu einem hoch
+   gewichteten Kriterium schlägt damit keinen mit einem schlechten Kennwert — vorher tat
+   er das, weil er sich aus dem Mittelwert einfach heraushielt.
+5. **Erklärung.** Die Engine erzeugt keine Freitexte, sondern typisierte
    `{key, params}`-Objekte, die die i18n-Schicht rendert. Nichts kann behauptet werden,
    was nicht im Datensatz steht.
-5. **Kompromisse.** Kandidaten mit ≥ 80 % des Bestwerts, die in mindestens einer
-   gewichteten Dimension besser sind, mit Delta in Rohwerten.
+6. **Kompromisse.** Kandidaten mit ≥ 80 % des Bestwerts, die in mindestens einer
+   gewichteten Dimension besser sind, mit Delta in Rohwerten. Daneben der pragmatische
+   Ausweg nach anderem Kriterium: erfüllt alles und ist deutlich günstiger.
 
-Ein Material, das eine Anforderung **nur mangels Daten** passiert, wird nie über eines
-gerankt, das sie belegt erfüllt. Es erscheint als „nicht belegt" ganz unten.
+Zwei Regeln, die das Ranking gegen sich selbst absichern:
+
+- Ein Material, das eine Anforderung **nur mangels Daten** passiert, wird nie über eines
+  gerankt, das sie belegt erfüllt. Es erscheint als „nicht belegt" ganz unten.
+- **Eine Schätzung darf abstufen, nie ausschließen.** Ein Constraint prüft zuerst den
+  belegten Wert; reißt nur die konservative Schätzung, bleibt der Werkstoff drin und
+  trägt eine Warnung. Anlass war ein Fehler aus der Werkstatt: Der Anwendungsfall
+  „Messebau-Großteil" empfahl ein schäumendes Leichtbaufilament für ein Zwei-Meter-Modell
+  — nicht weil es passte, sondern weil fünf geschätzte Grenzwerte alles andere
+  aussortiert hatten. Keiner davon war durch eine Messung gedeckt.
 
 ---
 
@@ -189,9 +252,15 @@ npm run ci         # alles, wie in der Pipeline
 ```
 
 **Die CI blockt einen Wert mit `confidence: high` oder `medium` ohne echte Quelle.**
-Das ist Absicht. 15 Plausibilitätsregeln prüfen außerdem, dass Z nie über X-Y liegt, die
-HDT unterhalb Tg plus Toleranz bleibt, das Bett unter der Düse und jeder i18n-Text in
-beiden Sprachen vorliegt.
+Das ist Absicht. 16 Plausibilitätsregeln (R0–R15) prüfen außerdem, dass Z nie über X-Y
+liegt, die HDT unterhalb Tg plus Toleranz bleibt, das Bett unter der Düse, jede
+Quellenkennung auflösbar ist, jede Bewertungsskala registriert und jeder i18n-Text in
+beiden Sprachen vorliegt. Dazu 122 Tests, darunter fachliche Szenarien: Wenn die Engine
+einem Anwendungsfall die falsche Antwort gibt, geht der Lauf rot — auch dann, wenn die
+Arithmetik stimmt.
+
+Wenn eine Regel einen **richtigen** Wert bemängelt, wird die Regel verengt, nie der Wert
+geglättet. Das ist die Hausordnung, nicht nur eine Redensart.
 
 Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -199,17 +268,31 @@ Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Grenzen — ehrlich
 
-- **11 Materialien**, nicht 60. Der Ausbau läuft; siehe [PLAN.md](PLAN.md).
-- **Eine Herstellerquelle dominiert.** Die Kennwerte stammen überwiegend von Bambu Lab.
-  Das ist methodisch ein Vorteil (ein Labor, eine Methode, X-Y **und** Z, gedruckte
-  Prüfkörper — dadurch untereinander vergleichbar) und zugleich eine Schwäche: eine
-  zweite unabhängige Quelle je Material fehlt noch.
-- **Preise sind geschätzt.** Eine echte Markterhebung steht aus.
-- **Kein Feld hat Reents3D-Werkstatterfahrung.** XXL-Grenzen, Lackhaftung und
-  Verklebbarkeit sind abgeleitet, nicht gemessen.
-- **Ein Datenblattfehler ist dokumentiert, nicht korrigiert:** Bambu gibt für PC die HDT
-  bei 1,8 MPa höher an als bei 0,45 MPa, was physikalisch nicht geht. Der Wert steht mit
-  niedriger Konfidenz und offener Frage im Datensatz — geglättet wird nichts.
+- **38 Werkstofftypen**, nicht 60. Der Ausbau läuft; siehe [PLAN.md](PLAN.md).
+- **Zwei Drittel der Aussagen sind Schätzungen** (69 %). Belegt sind 31 %, davon nur 2 %
+  aus Prüfberichten. Das ist keine Panne, sondern der Zustand der Branche: Was Hersteller
+  nicht veröffentlichen, kann hier nur abgeleitet werden — sichtbar gekennzeichnet.
+- **Nur 13 von 38 Typen haben einen Z-Kennwert.** Die Anisotropie ist der Kern dieses
+  Werkzeugs, und bei zwei Dritteln des Bestands fehlt die Zahl dazu schlicht.
+- **Die Preise sind Bänder, keine Markterhebung.** 38 von 38 Typen tragen einen €/kg-Wert,
+  aber nur **einer** ist an einem konkreten Angebot belegt. Der Rest sind eingeordnete
+  Spannen. Ein Ausrutscher hat das gezeigt: PPS-CF stand bei 275 €/kg, weil nach
+  Werkstoffklasse geschätzt wurde statt nach den Produkten, die tatsächlich in der
+  Datenbank stehen — nachgerechnet sind es 179 €/kg.
+- **Werkstatterfahrung deckt 18 von 38 Typen** und nur zwei Felder: Lackhaftung und
+  Klebbarkeit. Sie steht ausdrücklich als eigene Quelle (`field_experience_reents`) und
+  wird von keinem Importlauf überschrieben. XXL-Grenzen bleiben abgeleitet.
+- **Datenblattfehler werden dokumentiert, nicht korrigiert.** Drei stehen aktuell so im
+  Bestand: Bambu gibt für PC die HDT bei 1,8 MPa höher an als bei 0,45 MPa, was
+  physikalisch nicht geht; PLA und PA6-CF tragen in Z eine höhere Schlagzähigkeit als in
+  X-Y. Alle drei mit niedriger Konfidenz und offener Frage — geglättet wird nichts.
+- **Die Anwendungsfälle sind fachlich noch nicht freigegeben.** 18 der 20 tragen
+  `reviewedBy: "Claude Code — fachliche Freigabe ausstehend"`. Zwei sind nach einem
+  Werkstattbefund korrigiert und gegengezeichnet.
+- **Kältezähigkeit fehlt als eigenes Kriterium.** Das Kriterium `toughness` liest die
+  Bruchdehnung — im Anwendungsfall „Kälte" gewinnt TPU deshalb, weil es sich dehnt, nicht
+  weil es Kälte aushält. Maßgeblich wäre die Kerbschlagzähigkeit bei −30 °C. Vorgemerkt
+  als ADR-023.
 
 ---
 
@@ -288,15 +371,28 @@ The interface switches to English in the header.
 An open-source FDM material advisor with an open database in which every property value
 carries its source, its test standard and a confidence rating.
 
+**38 material types · 168 products from 12 brands · 2,653 sourced statements ·
+20 use cases · 21 media · 29 glossary entries**
+
 **What makes it different:**
 
 - **Printed specimens, not resin data.** PLA is listed at 35 MPa, not the 60 MPa found in
   resin datasheets — because the underlying source tests printed specimens.
-- **Anisotropy is reported.** For every material: how much strength remains perpendicular
-  to the layers. Between 47 % (PA6-CF, PET-CF) and 90 % (PC). Almost no comparable tool
-  states this.
-- **Estimated values are marked.** 51 % of statements in the database are flagged
-  estimates rather than measurements. That number is displayed, not hidden.
+- **Anisotropy is reported.** How much strength remains perpendicular to the layers:
+  between 28 % (PPS-CF) and 90 % (PC). Almost no comparable tool states this — and that
+  only 13 of 38 types carry a Z value at all is itself the finding.
+- **Estimated values are marked.** 69 % of statements in the database are flagged
+  estimates rather than measurements; 2 % come from test reports. That number is
+  displayed, not hidden — and it costs: the suitability score is multiplied by data
+  coverage, so what is not documented is not credited.
+- **Limits that depend on the part, not the polymer.** A continuous service temperature
+  is a statement about creep under sustained stress — and stress is what wall thickness
+  and infill reduce. The tool therefore asks whether the part is loaded, and the answer
+  decides which figure rules. Part size works the same way: it downgrades with an
+  effort note instead of excluding, because size is limited by the build volume and the
+  process, not by the material.
+- **An estimate may downgrade, never exclude.** A constraint checks the documented value
+  first. Only when that fails too is a material ruled out.
 - **Independent of manufacturers.** The operator is a 3D printing service provider, not a
   material producer, and can buy and process any material. Whether a material is in stock
   never enters the ranking — enforced by a test, documented as ADR-004.
@@ -308,10 +404,18 @@ model, no API call, nothing generated at runtime. The numbers come from the data
 not from the model; every product links its source PDF with a retrieval date, and values
 without a datasheet are visibly marked `estimated`. Details: [AI_USAGE.md](AI_USAGE.md).
 
-**Engine:** hard constraints → percentile normalisation → weighted scoring → typed
-explanations → trade-off analysis with absolute deltas. Missing data never counts as
-zero, and a material that passes a requirement only for lack of data is never ranked
-above one that demonstrably meets it.
+**Engine:** hard constraints → percentile normalisation → weighted scoring → coverage
+multiplier → typed explanations → trade-off analysis with absolute deltas. Missing data
+never counts as zero, and a material that passes a requirement only for lack of data is
+never ranked above one that demonstrably meets it.
+
+**Are you a material manufacturer and missing here?** Send your collected datasheets to
+[info@reents3d.de](mailto:info@reents3d.de) and we will add them. Free and with nothing
+expected in return: there is no paid placement and there are no affiliate links. Most
+useful is what fewest publish — values from **printed** specimens, build orientation and
+print parameters, **Z values**, and the test standard on every line. Contradictions
+within a datasheet are documented rather than smoothed over, for every brand alike.
 
 Code MIT, data CC BY 4.0. Contributions welcome — CI rejects any value marked `high` or
-`medium` confidence without a real source.
+`medium` confidence without a real source, and 16 plausibility rules plus 122 tests run
+on every push.

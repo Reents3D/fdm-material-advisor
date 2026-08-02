@@ -70,9 +70,15 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith(".json"))) {
     productName: PRODUCT_NAMES[m.id] ?? `Bambu ${m.identity.name}`,
     origin: "China",
     specimenType: "printed",
+    /* "als einziger Hersteller" stimmte nicht mehr und widersprach ausserdem der eigenen
+       Datenbank: Fillamentum weist fuer OBC 905 ebenfalls XY UND Z an gedruckten
+       Pruefkoerpern aus. Nachgezaehlt tragen 13 von 38 Werkstofftypen einen Z-Wert,
+       davon 12 aus Bambu-Blaettern und einer von Fillamentum. Bambu ist damit die
+       wichtigste, nicht die einzige Quelle - und genau diese Sorte Superlativ ist es,
+       die dieses Projekt bei Herstellern anmahnt. Also auch bei sich selbst. */
     specimenNote: {
-      de: "Bambu Lab prueft GEDRUCKTE Koerper und weist als einziger Hersteller im Feld sowohl X-Y- als auch Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei allen anderen Marken fehlt diese Angabe.",
-      en: "Bambu Lab tests PRINTED specimens and is the only manufacturer here reporting both X-Y and Z values. That makes anisotropy directly readable - every other brand omits it.",
+      de: "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- UND Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+      en: "Bambu Lab tests PRINTED specimens and reports X-Y AND Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far.",
     },
     datasheet: {
       title: tds.title,
