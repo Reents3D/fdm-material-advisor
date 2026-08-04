@@ -12,9 +12,11 @@
  * QUELLE UND REPRODUZIERBARKEIT
  * Die Datenblätter liegen unter einem festen Shopify-Pfad ohne Hash:
  *   https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_<Name>_Technical_Data_Sheet.pdf
- * Die Textauszüge (pdftotext -layout) liegen in data/_sources/bambu-tds/ im Repository.
- * Damit ist jeder importierte Wert ohne erneuten Download gegen das Original prüfbar —
- * und der Import läuft deterministisch aus dem Repository statt aus dem Netz.
+ * Der Import liest Textauszüge (pdftotext -layout) aus data/_sources/bambu-tds/. Dieses
+ * Verzeichnis ist lokaler Arbeitsplatz und NICHT Teil des Repositorys — die Datenblätter
+ * sind fremde Werke, die wir nicht weiterverbreiten (ADR-034). Wer den Import laufen
+ * lassen will, legt die Auszüge selbst dort ab; die Adressen stehen an jedem Datensatz
+ * unter datasheet.url. Siehe data/_sources/README.md.
  *
  * NICHT ÜBERNOMMEN: PVA und die beiden Support-Werkstoffe. Sie sind Hilfsmaterial und
  * keine Kandidaten für die Frage "welcher Werkstoff für mein Bauteil".
@@ -128,8 +130,23 @@ const SPECIMEN_NOTE = t(
   "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet. Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf diese Blätter; ausserhalb nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
   "Bambu Lab measures on PRINTED specimens and publishes both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs. Of 13 material types carrying a Z value, 12 rest on these sheets; outside them only Fillamentum (OBC 905) states both directions so far.");
 
+let sheets;
+try {
+  sheets = readdirSync(SRC).filter((f) => f.endsWith(".txt")).sort();
+} catch (err) {
+  if (err.code !== "ENOENT") throw err;
+  console.error(
+    `\nQuellverzeichnis fehlt: ${path.relative(ROOT, SRC)}\n\n` +
+    `data/_sources/ ist lokaler Arbeitsplatz und nicht Teil des Repositorys —\n` +
+    `Herstellerdatenblaetter werden nicht weiterverbreitet (ADR-034).\n` +
+    `Zum Befuellen siehe data/_sources/README.md.\n\n` +
+    `Der Build braucht diesen Importer nicht: "npm run ci" laeuft ohne ihn.\n`
+  );
+  process.exit(1);
+}
+
 let n = 0, skipped = [];
-for (const file of readdirSync(SRC).filter((f) => f.endsWith(".txt")).sort()) {
+for (const file of sheets) {
   const key = file.replace(/^Bambu_/, "").replace(/_Technical_Data_Sheet\.txt$/, "");
   const material = MAP[key];
   if (!material) { skipped.push(key); continue; }
@@ -157,8 +174,8 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith(".txt")).sort()) {
         id: "src_tds", type: "manufacturer-tds", publisher: "Bambu Lab",
         productName: name, title: `${name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED, confidenceCeiling: "high",
-        note: t("Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Der Textauszug liegt zur Nachprüfung in data/_sources/bambu-tds/ im Repository.",
-                "Manufacturer datasheet with printed specimens, both orientations and scatter figures. The text extract is kept in data/_sources/bambu-tds/ in the repository for verification."),
+        note: t("Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+                "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."),
       }],
     },
   };

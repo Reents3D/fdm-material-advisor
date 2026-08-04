@@ -10,5 +10,9 @@ Selbst gehostet, damit das Werkzeug ohne externe Requests (DSGVO) und offline l�
 Beides Variable Fonts (eine Datei deckt alle Gewichte ab), Subset latin.
 Bezogen von Google Fonts; die OFL erlaubt Weitergabe und Self-Hosting ausdrücklich.
 
+Der Lizenztext liegt vollständig in [`OFL.txt`](OFL.txt), zusammen mit den
+Copyright-Vermerken beider Familien. Die OFL verlangt beides bei jeder Weitergabe —
+wer diese Schriften aus dem Repository übernimmt, muss `OFL.txt` mitnehmen.
+
 Beide Familien entsprechen dem Corporate Design der Reents Technologies GmbH:
 Montserrat 900 uppercase für Überschriften, Sora für Fließtext.

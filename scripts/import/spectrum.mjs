@@ -285,8 +285,8 @@ for (const p of P) {
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED,
         confidenceCeiling: p.printed ? "high" : (p.anomaly ? "low" : "medium"),
-        note: t(`Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. ${p.printed ? "Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung." : "Prüfkörper nicht deklariert."}`,
-                `Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. ${p.printed ? "Specimen declared: printed, with infill, orientation and annealing." : "Specimen not declared."}`),
+        note: t(`Herstellerdatenblatt mit Textebene. ${p.printed ? "Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung." : "Prüfkörper nicht deklariert."}`,
+                `Manufacturer datasheet with text layer. ${p.printed ? "Specimen declared: printed, with infill, orientation and annealing." : "Specimen not declared."}`),
       }],
     },
   };

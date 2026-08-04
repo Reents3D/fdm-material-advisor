@@ -23,6 +23,17 @@ Alle Beschreibungstexte (`abstract`, `positioning`, `note`, `commonDefects`) wer
 **selbst formuliert**. Wo eine Herstelleraussage zitiert werden muss, um einen Konflikt
 zu belegen, geschieht das als kurzes Zitat in Anführungszeichen mit Quellenangabe.
 
+**Wie stattdessen nachgeprüft wird.** Der Beleg ist die Fundstelle, nicht die Kopie:
+jeder Datensatz führt `datasheet.url` und `datasheet.retrievedAt`, jeder Kennwert seine
+`source`. Wer eine Zahl prüfen will, öffnet das Original beim Hersteller. Das ist die
+belastbarere Prüfung, weil ein Spiegel im Repository mit der Zeit von dem abweicht, was
+der Hersteller heute veröffentlicht — und weil die Datenblätter fremde Werke sind, an
+denen uns keine Verbreitungsrechte zustehen.
+
+Für die Datenpflege werden Auszüge lokal gehalten, unter `data/_sources/`. Dieses
+Verzeichnis ist bewusst nicht Teil des Repositorys — siehe `data/_sources/README.md`
+und ADR-034 in `DECISIONS.md`.
+
 ### 1.3 Pflichtangaben je Quelle
 
 | Feld | Pflicht |

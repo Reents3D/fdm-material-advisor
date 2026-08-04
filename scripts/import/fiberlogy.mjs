@@ -13,7 +13,8 @@
  * ZWEI GENERATIONEN
  * Vier Blaetter (ABS ESD, ABS GF, ASA+AF, Velvet PLA) tragen eine Textebene und lassen
  * sich maschinell auslesen. Sechs sind reine Bild-PDF; ihre Werte wurden von der
- * gerenderten Seite abgelesen. Siehe data/_sources/fiberlogy-tds/LIESMICH.txt.
+ * gerenderten Seite abgelesen — deshalb steht an ihnen kein hoeheres Ceiling als bei
+ * den maschinell gelesenen. Die Dokumente selbst werden nicht mitgeliefert (ADR-034).
  *
  * ZU DEN ADRESSEN
  * Sie enthalten einen Hash. Geprueft: Der Hash bestimmt die Datei, der Dateiname ist

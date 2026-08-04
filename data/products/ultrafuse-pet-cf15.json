@@ -273,8 +273,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Textauszug unter data/_sources/ultrafuse-tds/Ultrafuse_PET_CF15_TDS_EN_v3.3.txt.",
-          "en": "Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Text extract at data/_sources/ultrafuse-tds/Ultrafuse_PET_CF15_TDS_EN_v3.3.txt."
+          "de": "Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Dokumentversion 3.3.",
+          "en": "Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Document version 3.3."
         }
       }
     ]

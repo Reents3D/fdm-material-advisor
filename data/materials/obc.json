@@ -657,8 +657,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Einziges Datenblatt für diesen Werkstofftyp. Auszug unter data/_sources/fillamentum-tds/.",
-          "en": "Only datasheet for this material type. Extract at data/_sources/fillamentum-tds/."
+          "de": "Einziges Datenblatt für diesen Werkstofftyp.",
+          "en": "Only datasheet for this material type."
         }
       },
       {

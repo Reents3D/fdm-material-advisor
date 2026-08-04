@@ -1,10 +1,11 @@
 /**
  * Import: SUNLU (SUNLU Group, Shenzhen) — Eigenmarken.
  *
- * Quelle: zehn Herstellerdatenblätter, vom Betreiber bereitgestellt. Die Textauszüge
- * liegen zur Nachprüfbarkeit unter data/_sources/sunlu-tds/ — dieselbe Praxis wie bei
- * den Bambu-Blättern, und hier besonders wichtig, weil es zu diesen PDFs keine
- * öffentliche Adresse gibt, unter der man sie gegenlesen könnte.
+ * Quelle: zehn Herstellerdatenblätter, vom Betreiber bereitgestellt. Der Import liest
+ * Textauszüge aus data/_sources/sunlu-tds/ — lokaler Arbeitsplatz, nicht Teil des
+ * Repositorys (ADR-034). Zu diesen PDFs gibt es keine öffentliche Adresse; sie werden
+ * nicht weitergegeben und sind auf Anfrage einsehbar. Die daraus gewonnenen Kennwerte
+ * stehen vollständig und mit Quellenangabe in den Produktdatensätzen.
  *
  * ZWEI BLATTFAMILIEN, ZWEI AUSSAGEKRAFTEN
  *
@@ -114,7 +115,20 @@ const UNDOCUMENTED_CLASS = t(
   "The sheet uses the class “Normal” here, which does not appear in its own legend (“Excellent, Good, Fair, Poor”). It was read as the middle level.");
 
 function readSheet(file) {
-  return readFileSync(path.join(ROOT, "data/_sources/sunlu-tds", `${file}.txt`), "utf8");
+  const p = path.join(ROOT, "data/_sources/sunlu-tds", `${file}.txt`);
+  try {
+    return readFileSync(p, "utf8");
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
+    console.error(
+      `\nQuelldatei fehlt: ${path.relative(ROOT, p)}\n\n` +
+      `data/_sources/ ist lokaler Arbeitsplatz und nicht Teil des Repositorys —\n` +
+      `Herstellerdatenblaetter werden nicht weiterverbreitet (ADR-034).\n` +
+      `Zum Befuellen siehe data/_sources/README.md.\n\n` +
+      `Der Build braucht diesen Importer nicht: "npm run ci" laeuft ohne ihn.\n`
+    );
+    process.exit(1);
+  }
 }
 
 function chemicalsFrom(file) {
@@ -411,8 +425,8 @@ for (const p of P) {
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url: SITE, retrievedAt: RETRIEVED,
         confidenceCeiling: iso ? "medium" : "low",
-        note: t(`Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/${p.file}.txt. ${iso ? "Prüfkörper deklariert (gedruckt, mit Orientierung)." : "Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'."}`,
-                `Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/${p.file}.txt for verification. ${iso ? "Specimen declared (printed, with orientation)." : "Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."}`),
+        note: t(`Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. ${iso ? "Prüfkörper deklariert (gedruckt, mit Orientierung)." : "Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'."}`,
+                `Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. ${iso ? "Specimen declared (printed, with orientation)." : "Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."}`),
       }],
     },
   };

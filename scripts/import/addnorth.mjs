@@ -316,8 +316,8 @@ for (const p of P) {
         id: "src_tds", type: "manufacturer-tds", publisher: "add:north 3D filaments AB",
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED, confidenceCeiling: "low",
-        note: t("Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/addnorth-tds/. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
-                "Manufacturer datasheet with text layer. Extract at data/_sources/addnorth-tds/. Specimen not declared, density standard wrong on every sheet."),
+        note: t("Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+                "Manufacturer datasheet with text layer. Specimen not declared, density standard wrong on every sheet."),
       }],
     },
   };

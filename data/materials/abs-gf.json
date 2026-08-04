@@ -393,8 +393,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Einziges Datenblatt für diesen Werkstofftyp. Kopie unter data/_sources/fiberlogy-tds/. Keine Bauorientierung angegeben.",
-          "en": "Only datasheet for this material type. Copy at data/_sources/fiberlogy-tds/. No build orientation stated."
+          "de": "Einziges Datenblatt für diesen Werkstofftyp. Keine Bauorientierung angegeben.",
+          "en": "Only datasheet for this material type. No build orientation stated."
         }
       },
       {

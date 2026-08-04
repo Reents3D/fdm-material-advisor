@@ -47,6 +47,12 @@ ist ausgeschlossen, soweit gesetzlich zulässig.
 Unberührt bleibt die Haftung für Vorsatz und grobe Fahrlässigkeit sowie für Schäden
 aus der Verletzung des Lebens, des Körpers oder der Gesundheit.
 
+Bei einfacher Fahrlässigkeit haften wir nur für die Verletzung wesentlicher Pflichten,
+also solcher, deren Erfüllung die ordnungsgemäße Nutzung überhaupt erst ermöglicht und
+auf deren Einhaltung Sie vertrauen dürfen. In diesem Fall ist die Haftung auf den
+typischerweise vorhersehbaren Schaden begrenzt. Die Haftung nach dem
+Produkthaftungsgesetz bleibt unberührt.
+
 ## 5. Eigene Prüfung zwingend erforderlich
 
 Für die folgenden Anwendungen ist eine eigene Qualifizierung **zwingend** und dieses
@@ -88,7 +94,7 @@ verarbeitet GitHub als Hoster technisch notwendige Server-Logdaten einschließli
 IP-Adresse. Darauf haben wir keinen Einfluss. Einzelheiten:
 [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
 
-Anbieter im Sinne des Telemediengesetzes:
+Anbieter im Sinne des Digitale-Dienste-Gesetzes (DDG):
 
 **Reents Technologies GmbH**, Lehmweg 95-97, 25488 Holm
 [Impressum](https://reents3d.de/impressum/) · [Datenschutzerklärung](https://reents3d.de/datenschutz/)

@@ -17,8 +17,8 @@
  * ZUGANG
  * Die Datenblaetter liegen hinter einem Dokumentenportal, das eine Anmeldung verlangt.
  * Diese beiden waren als direkte PDF-Adresse erreichbar; die uebrigen Ultrafuse-Typen
- * (ABS, ASA, PET, PP, TPU, PC/ABS FR) sind es nicht. Die Textauszuege liegen unter
- * data/_sources/ultrafuse-tds/.
+ * (ABS, ASA, PET, PP, TPU, PC/ABS FR) sind es nicht. Die Werte stehen in diesem Skript;
+ * die Dokumente selbst werden nicht mitgeliefert (ADR-034).
  */
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -172,8 +172,8 @@ for (const p of P) {
         publisher: "Forward AM / BASF 3D Printing Solutions BV",
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url: p.url, retrievedAt: RETRIEVED, confidenceCeiling: "high",
-        note: t(`Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Textauszug unter data/_sources/ultrafuse-tds/${p.file}.txt.`,
-                `Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Text extract at data/_sources/ultrafuse-tds/${p.file}.txt.`),
+        note: t(`Herstellerdatenblatt mit deklarierten gedruckten Prüfkörpern in drei Bauorientierungen und mit den Druckparametern der Prüfkörper. Dokumentversion ${p.file.split("_v").pop()}.`,
+                `Manufacturer datasheet with declared printed specimens in three build orientations and with the print parameters of the specimens. Document version ${p.file.split("_v").pop()}.`),
       }],
     },
   };

@@ -6,6 +6,12 @@ Die Inhalte der Verzeichnisse `data/` und `schema/` stehen unter
     https://creativecommons.org/licenses/by/4.0/deed.de
 
 Copyright (c) 2026 Reents Technologies GmbH
+Datenbankherstellerrecht (§ 87a UrhG) Reents Technologies GmbH
+
+Ausgenommen ist `data/_sources/`. Dort liegen bei der Datenpflege lokal die
+Herstellerdatenblätter - fremde Werke, an denen uns keine Rechte zustehen und die wir
+deshalb weder verbreiten noch lizenzieren koennen. Das Verzeichnis ist nicht Teil des
+Repositorys; siehe `data/_sources/README.md`.
 
 ## Was das bedeutet
 
@@ -52,8 +58,21 @@ Die Lizenz bezieht sich auf die KURATIERTE ZUSAMMENSTELLUNG - Auswahl, Struktur,
 Einordnung, Konfidenzbewertung und die selbst formulierten Beschreibungstexte.
 
 Die einzelnen Messwerte sind nicht schutzfähige Fakten und stammen aus den in
-jedem Datensatz genannten Quellen. Datenblatt-Texte, Grafiken und Tabellenlayouts
-Dritter wurden NICHT übernommen. Marken- und Handelsnamen gehören ihren
-jeweiligen Inhabern - siehe DISCLAIMER.md.
+jedem Datensatz genannten Quellen. Beschreibungs- und Marketingtexte, Grafiken und
+Tabellenlayouts der Hersteller sind NICHT übernommen; die Datenblätter selbst werden
+NICHT mitgeliefert. Marken- und Handelsnamen gehören ihren jeweiligen Inhabern -
+siehe DISCLAIMER.md.
 
-Begründung der Lizenztrennung: DECISIONS.md, ADR-002.
+## Worauf sich die Lizenz stützt
+
+Auf das Datenbankherstellerrecht nach § 87a ff. UrhG, nicht in erster Linie auf das
+Urheberrecht. Dieses Recht entsteht aus der wesentlichen Investition in Beschaffung,
+Prüfung und Darstellung der Daten - unabhängig davon, ob die Zusammenstellung
+Schöpfungshöhe erreicht und unabhängig davon, mit welchen Werkzeugen sie entstanden ist.
+Das ist bei einer Sammlung aus belegten Einzelwerten die tragfähigere Grundlage: Die
+Zahlen sind gemeinfrei, die Datenbank ist es nicht.
+
+Soweit an den selbst formulierten Beschreibungstexten daneben Urheberrecht besteht, gilt
+für sie dieselbe Lizenz.
+
+Begründung der Lizenztrennung: DECISIONS.md, ADR-002 und ADR-034.

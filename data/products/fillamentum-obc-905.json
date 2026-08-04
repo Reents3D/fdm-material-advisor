@@ -183,8 +183,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper deklariert: gedruckt, mit XY- und Z-Werten und vollständigen Druckparametern.",
-          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen declared: printed, with XY and Z values and complete print parameters."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper deklariert: gedruckt, mit XY- und Z-Werten und vollständigen Druckparametern.",
+          "en": "Manufacturer datasheet with text layer. Specimen declared: printed, with XY and Z values and complete print parameters."
         }
       }
     ]

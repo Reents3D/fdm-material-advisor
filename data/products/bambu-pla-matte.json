@@ -131,8 +131,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Der Textauszug liegt zur Nachprüfung in data/_sources/bambu-tds/ im Repository.",
-          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. The text extract is kept in data/_sources/bambu-tds/ in the repository for verification."
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
         }
       }
     ]

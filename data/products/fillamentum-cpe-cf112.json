@@ -95,8 +95,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. Prüfkörper nicht deklariert.",
-          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. Specimen not declared."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared."
         }
       }
     ]

@@ -346,6 +346,13 @@ Vollständig: **[DISCLAIMER.md](DISCLAIMER.md)**
 
 - **Code:** [MIT](LICENSE)
 - **Daten und Schema:** [CC BY 4.0](LICENSE-DATA) — Begründung: [ADR-002](DECISIONS.md#adr-002)
+- **Schriften:** Montserrat und Sora, [SIL Open Font License 1.1](src/styles/fonts/OFL.txt)
+
+Die Datenlizenz deckt die **kuratierte Zusammenstellung**, gestützt auf das
+Datenbankherstellerrecht (§ 87a UrhG). Die Messwerte selbst sind gemeinfreie Fakten und
+tragen ihre Quelle. Herstellerdatenblätter sind fremde Werke; sie werden ausgewertet,
+verlinkt und datiert, aber **nicht mitgeliefert** — siehe
+[ADR-034](DECISIONS.md#adr-034--die-fundstelle-ist-der-beleg-nicht-die-kopie).
 
 **Nachnutzung ist ausdrücklich erwünscht.** CC BY 4.0 verlangt dafür verbindlich
 Namensnennung, Lizenzhinweis und einen Link auf die Quelle — das ist keine Bitte, sondern

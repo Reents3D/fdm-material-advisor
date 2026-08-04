@@ -14,8 +14,9 @@
  * kein gaengiges Material. Sie ist richtig, und der Grund steht im Datenblatt selbst -
  * 350 bis 380 °C Duese und 160 °C Bett kann praktisch keine Maschine, die bei einem
  * Leser dieses Werkzeugs steht. Ein Berater, der Werkstoffe empfiehlt, die niemand
- * verarbeiten kann, hilft nicht, er beeindruckt nur. Das Datenblatt bleibt unter
- * data/_sources/fiberlogy-tds/ liegen, falls sich das einmal aendert.
+ * verarbeiten kann, hilft nicht, er beeindruckt nur. Die Auswertung bleibt lokal
+ * erhalten, falls sich das einmal aendert; das Dokument selbst wird nicht
+ * mitgeliefert (ADR-034).
  *
  * WAS DAMIT BEANTWORTBAR WIRD
  *   ABS GF    Glasgefuelltes ABS: 3.500 MPa E-Modul gegen 2.200 beim ungefuellten ABS,
@@ -348,8 +349,8 @@ for (const T of TYPES) {
         {
           id: "src_tds", type: "manufacturer-tds", publisher: "Fiberlab S.A. (Fiberlogy)",
           title: T.title, url, retrievedAt: RETRIEVED, confidenceCeiling: "low",
-          note: t("Einziges Datenblatt für diesen Werkstofftyp. Kopie unter data/_sources/fiberlogy-tds/. Keine Bauorientierung angegeben.",
-                  "Only datasheet for this material type. Copy at data/_sources/fiberlogy-tds/. No build orientation stated."),
+          note: t("Einziges Datenblatt für diesen Werkstofftyp. Keine Bauorientierung angegeben.",
+                  "Only datasheet for this material type. No build orientation stated."),
         },
         {
           id: "estimate_reasoning", type: "estimate", publisher: "Reents Technologies GmbH",

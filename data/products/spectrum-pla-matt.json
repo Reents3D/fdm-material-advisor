@@ -116,8 +116,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/spectrum-tds/. Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung.",
-          "en": "Manufacturer datasheet with text layer. Extract at data/_sources/spectrum-tds/. Specimen declared: printed, with infill, orientation and annealing."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper deklariert: gedruckt, mit Infill, Orientierung und Temperung.",
+          "en": "Manufacturer datasheet with text layer. Specimen declared: printed, with infill, orientation and annealing."
         }
       }
     ]

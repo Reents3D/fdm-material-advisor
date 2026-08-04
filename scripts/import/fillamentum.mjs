@@ -468,8 +468,8 @@ for (const p of P) {
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED,
         confidenceCeiling: p.printed ? "high" : (p.anomaly ? "low" : "medium"),
-        note: t(`Herstellerdatenblatt mit Textebene. Auszug unter data/_sources/fillamentum-tds/. ${p.printed ? "Prüfkörper deklariert: gedruckt, mit XY- und Z-Werten und vollständigen Druckparametern." : "Prüfkörper nicht deklariert."}`,
-                `Manufacturer datasheet with text layer. Extract at data/_sources/fillamentum-tds/. ${p.printed ? "Specimen declared: printed, with XY and Z values and complete print parameters." : "Specimen not declared."}`),
+        note: t(`Herstellerdatenblatt mit Textebene. ${p.printed ? "Prüfkörper deklariert: gedruckt, mit XY- und Z-Werten und vollständigen Druckparametern." : "Prüfkörper nicht deklariert."}`,
+                `Manufacturer datasheet with text layer. ${p.printed ? "Specimen declared: printed, with XY and Z values and complete print parameters." : "Specimen not declared."}`),
       }],
     },
   };

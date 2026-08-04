@@ -1336,8 +1336,8 @@ Damit ist die Aufnahmeregel geschärft. Bisher hieß sie „ein Werkstofftyp ent
 ein Blatt ihn trägt". Sie heißt jetzt: **ein Blatt ist die notwendige, nicht die
 hinreichende Bedingung.** Ein Berater, der Werkstoffe empfiehlt, die niemand verarbeiten
 kann, hilft nicht — er beeindruckt nur, und das ist in einem Auswahlwerkzeug die
-schlechtere Eigenschaft. Das Datenblatt bleibt unter `data/_sources/fiberlogy-tds/`
-liegen, falls sich die Maschinenlage ändert.
+schlechtere Eigenschaft. Die Auswertung des Blattes bleibt lokal erhalten, falls sich die
+Maschinenlage ändert; das Dokument selbst wird nicht mitgeliefert (ADR-034).
 
 **Zwei Datenblattbefunde, dokumentiert statt geglättet:**
 
@@ -1358,6 +1358,80 @@ zu PAHT-CF, der Ausweg zu PLA-Tough — der Test ging rot, **obwohl die Engine b
 geworden war**. Ein Test, der bei besseren Daten bricht, prüft die Daten und nicht das
 Verhalten. Er prüft jetzt die Regel: Es gibt einen Ausweg, er ist deutlich günstiger, er
 liegt deutlich unter dem Sieger, und er ist nicht selbst der Sieger.
+
+---
+
+## ADR-034 — Die Fundstelle ist der Beleg, nicht die Kopie
+
+**Status:** akzeptiert · **Datum:** 2026-08-04
+
+### Kontext
+
+Unter `data/_sources/` lagen 99 Dateien: die per `pdftotext -layout` gewonnenen
+Volltexte der ausgewerteten Herstellerdatenblätter von Bambu Lab, Fillamentum, add:north,
+Spectrum, SUNLU und Ultrafuse — dazu vier Fiberlogy-Datenblätter als Original-PDF. Der
+Gedanke dahinter war richtig: Wer eine Zahl anzweifelt, soll das Blatt danebenlegen
+können, ohne auf eine Adresse angewiesen zu sein, die morgen ins Leere zeigt.
+
+Die Umsetzung war es nicht, aus drei Gründen.
+
+**Erstens widersprach sie der eigenen Regel.** `SOURCES.md` 1.2 schließt „Vollständige
+Datenblätter als Kopie oder Spiegel im Repository" ausdrücklich aus. Genau das lag dort.
+
+**Zweitens sind es nicht nur Fakten.** Messwerte in Tabellen sind nicht schutzfähig — das
+trägt die ganze Datenbank. Die Volltexte enthielten aber auch die Fließtexte der
+Hersteller, bei Bambu etwa den vollständigen Absatz „Basic Info" samt Werbeaussagen. Das
+ist Sprachwerk. Die vier PDFs waren vollständige Kopien einschließlich Satz und Grafik.
+
+**Drittens, und das wiegt am schwersten:** `LICENSE-DATA` stellt alles unter `data/` unter
+CC BY 4.0. Damit reichten wir Dokumente von BASF, Bambu Lab und Fiberlogy unter einer
+Lizenz an Dritte weiter, die uns nicht zusteht — und luden sie ausdrücklich zum
+Weiterkopieren ein. Aus einem Hostingproblem wird so eine Rechtsanmaßung.
+
+Die Schranke für Text und Data Mining (§ 44b UrhG) deckt das Anfertigen solcher Kopien
+zur Auswertung. Sie deckt nicht das öffentliche Zugänglichmachen nach § 19a.
+
+### Entscheidung
+
+`data/_sources/` wird lokaler Arbeitsplatz statt Repository-Inhalt. Der Inhalt ist
+ignoriert, eingecheckt ist nur eine README, die erklärt, was hineingehört und woher man
+es bekommt. Die Historie wird bereinigt, damit die PDFs nicht in alten Commits
+weiterleben.
+
+Der Beleg ist ab jetzt die Fundstelle: `datasheet.url` und `datasheet.retrievedAt` an
+jedem Datensatz, `source` an jedem Kennwert. Sämtliche Datensatz-Notizen, die auf eine
+Kopie im Repository verwiesen, sind umgeschrieben — ebenso die Importer, die diese
+Notizen erzeugen, sonst kehrt der Satz beim nächsten Lauf zurück.
+
+Für die SUNLU-Blätter, die keine öffentliche Adresse haben, tritt an die Stelle der
+Fundstelle der Hinweis, dass das Dokument nicht weiterverbreitet wird und auf Anfrage
+einsehbar ist.
+
+### Konsequenzen
+
+**Positiv**
+
+- Die Aussagen in `LICENSE-DATA` und `SOURCES.md` stimmen wieder. Für ein Projekt, dessen
+  Wert an Nachprüfbarkeit hängt, ist der dokumentierte Selbstwiderspruch der teurere
+  Schaden gewesen — teurer als das Rechtsrisiko, das realistisch bei einer Aufforderung
+  zur Entfernung gelegen hätte.
+- Die CC-BY-Lizenz deckt nur noch, was uns gehört.
+- Das Repository wird um rund 1,4 MB leichter.
+
+**Negativ**
+
+- `npm run import:bambu-catalogue` und `npm run import:sunlu` laufen in einem frischen
+  Klon nicht mehr durch, weil ihnen die Eingabedateien fehlen. Beide brechen jetzt mit
+  einem Hinweis ab statt mit einem Stacktrace. `npm run ci` ist nicht betroffen — die
+  Importer sind Werkzeuge der Datenpflege, nicht Teil des Builds.
+- Die Nachprüfung braucht einen Netzzugriff und trifft auf ein Dokument, das der
+  Hersteller inzwischen ersetzt haben kann. Dagegen hilft `retrievedAt`, nicht ein
+  Spiegel, der dieselbe Alterung nur unsichtbar macht.
+
+### Was daraus als Regel bleibt
+
+Für jede fremde Quelle gilt künftig: **auswerten, verlinken, datieren — nicht spiegeln.**
+Was wir veröffentlichen, muss uns gehören oder gemeinfrei sein.
 
 ---
 

@@ -591,8 +591,8 @@ for (const T of TYPES) {
         {
           id: "src_tds", type: "manufacturer-tds", publisher: "Fillamentum Manufacturing Czech s.r.o.",
           title: T.title, url, retrievedAt: RETRIEVED, confidenceCeiling: "low",
-          note: t("Einziges Datenblatt für diesen Werkstofftyp. Auszug unter data/_sources/fillamentum-tds/.",
-                  "Only datasheet for this material type. Extract at data/_sources/fillamentum-tds/."),
+          note: t("Einziges Datenblatt für diesen Werkstofftyp.",
+                  "Only datasheet for this material type."),
         },
         {
           id: "estimate_reasoning", type: "estimate", publisher: "Reents Technologies GmbH",

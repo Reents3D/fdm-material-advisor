@@ -5,3 +5,9 @@ node_modules/
 coverage/
 .vite/
 *.tsbuildinfo
+
+# Herstellerdatenblätter sind fremde Werke und werden nicht weiterverbreitet.
+# Das Verzeichnis ist ein lokaler Arbeitsplatz für die Importer - siehe
+# data/_sources/README.md. Begründung: DECISIONS.md, ADR-034.
+data/_sources/*
+!data/_sources/README.md

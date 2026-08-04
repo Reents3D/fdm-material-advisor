@@ -249,8 +249,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/TDS-EASY_PA.txt. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
-          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/TDS-EASY_PA.txt for verification. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
         }
       }
     ]

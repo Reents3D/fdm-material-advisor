@@ -254,8 +254,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Der Textauszug liegt zur Nachprüfung unter data/_sources/sunlu-tds/PA6-CF-TDS.txt. Prüfkörper deklariert (gedruckt, mit Orientierung).",
-          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The text extract sits at data/_sources/sunlu-tds/PA6-CF-TDS.txt for verification. Specimen declared (printed, with orientation)."
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. Prüfkörper deklariert (gedruckt, mit Orientierung).",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. Specimen declared (printed, with orientation)."
         }
       }
     ]
