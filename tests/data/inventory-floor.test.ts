@@ -62,14 +62,14 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    dass ein Test ueber die Masse mehr findet als den Fall, fuer den er gebaut wurde. */
 const FLOOR = {
   materials: 41,
-  products: 232,
+  products: 239,
   brands: 16,
-  datasheets: 210,
-  materialFacts: 2892,
-  productValues: 1880,
+  datasheets: 217,
+  materialFacts: 2894,
+  productValues: 1987,
   chemicalRatings: 861,
   materialsWithPrice: 41,
-  anisotropyFactors: 16,
+  anisotropyFactors: 18,
   openQuestions: 73,
 };
 

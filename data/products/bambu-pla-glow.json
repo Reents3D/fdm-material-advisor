@@ -1,0 +1,200 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pla-glow",
+  "materialId": "pla",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PLA Glow",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit steht in Z mit 19,8 kJ/m² höher als in X-Y mit 8,8 — mehr als das Doppelte quer zur Schicht. Bei FDM ist die Schichtgrenze die schwächste Ebene; ein Prüfkörper bricht dort leichter, nicht schwerer. Alle anderen Größen dieses Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 32 gegen 26, Biegefestigkeit 76 gegen 55), was einen Zahlendreher in genau dieser Zeile nahelegt. Der Z-Wert trägt `low`.",
+    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: The impact strength is stated higher in Z at 19.8 kJ/m² than in X-Y at 8.8 — more than double across the layers. In FDM the layer boundary is the weakest plane; a specimen breaks there more easily, not less. Every other quantity on this sheet behaves as expected (tensile 32 against 26, flexural 76 against 55), which suggests a transposition in precisely this row. The Z value carries `low`."
+  },
+  "datasheet": {
+    "title": "Bambu PLA Glow — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0573/5320/7868/files/Bambu_PLA_Glow_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.26,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 155,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.46,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2030,
+      "unit": "MPa",
+      "tolerance": 210,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 1750,
+      "unit": "MPa",
+      "tolerance": 180,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 32,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 26,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8.6,
+      "unit": "%",
+      "tolerance": 1.2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 6.5,
+      "unit": "%",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2640,
+      "unit": "MPa",
+      "tolerance": 130,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 2230,
+      "unit": "MPa",
+      "tolerance": 110,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 76,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthZ": {
+      "value": 55,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 8.8,
+      "unit": "kJ/m²",
+      "tolerance": 1.7,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 19.8,
+      "unit": "kJ/m²",
+      "tolerance": 1.8,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "conditions": "Blattangabe 19,8 kJ/m² in Z gegen 8,8 kJ/m² in X-Y — quer zur Schicht höher als längs, was bei FDM nicht plausibel ist",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 190,
+      "max": 230,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 40,
+      "unit": "°C",
+      "min": 35,
+      "max": 45,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PLA Glow",
+        "title": "Bambu PLA Glow — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0573/5320/7868/files/Bambu_PLA_Glow_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
+        }
+      }
+    ]
+  }
+}

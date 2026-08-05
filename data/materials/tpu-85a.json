@@ -79,6 +79,22 @@
       "scale": "fatigueResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.88,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu TPU 85A — nicht aus diesem Datensatz",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 88 % der Zugfestigkeit erhalten (10.5 von 12 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu TPU 85A — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
+        "en": "Perpendicular to the layers 88 % of the tensile strength remains (10.5 of 12 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu TPU 85A — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
+      }
     }
   },
   "thermal": {

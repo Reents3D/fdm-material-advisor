@@ -1,0 +1,157 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-tpu-85a",
+  "materialId": "tpu-85a",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu TPU 85A",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Bruchdehnung und Schlagzähigkeit stehen ohne Streuungsangabe im Blatt, die Dehnung zudem nur als untere Schranke („> 700 %“ beziehungsweise „> 350 %“). Übernommen ist die Schranke als Wert; die tatsächliche Dehnung liegt darüber.",
+    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: Elongation at break and impact strength are stated without scatter, the elongation moreover only as a lower bound (“> 700 %” and “> 350 %”). The bound is imported as the value; the actual elongation lies above it."
+  },
+  "features": {
+    "de": "Das weichste Elastomer im Bestand mit einem Zug-E-Modul von 6,8 MPa — zum Vergleich: Bambu TPU 95A liegt bei 26 MPa. Bemerkenswert ist die Schichthaftung: 10,5 von 12,0 MPa bleiben quer zur Schicht erhalten, ein Verhältnis von 0,88. Weiche Werkstoffe verschweißen besser, weil die Schmelze länger fließfähig bleibt und die Grenzfläche nicht als Sprödbruchebene wirkt. Die Schlagzähigkeit von 124,3 kJ/m² ist der höchste Wert der Datenbank.",
+    "en": "The softest elastomer in the dataset with a tensile modulus of 6.8 MPa — for comparison, Bambu TPU 95A sits at 26 MPa. Remarkable is the layer adhesion: 10.5 of 12.0 MPa remain across the layers, a ratio of 0.88. Soft materials weld better because the melt stays flowable longer and the interface does not act as a brittle fracture plane. The impact strength of 124.3 kJ/m² is the highest in the database."
+  },
+  "datasheet": {
+    "title": "Bambu TPU 85A — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_TPU_85A_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.18,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 177,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.67,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 6.8,
+      "unit": "MPa",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 5.2,
+      "unit": "MPa",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 12,
+      "unit": "MPa",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 10.5,
+      "unit": "MPa",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 700,
+      "unit": "%",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "Blattangabe „> 700 %“ — untere Schranke, kein Messwert",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 350,
+      "unit": "%",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "Blattangabe „> 350 %“ — untere Schranke, kein Messwert",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 124.3,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 88.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 200,
+      "max": 250,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 33,
+      "unit": "°C",
+      "min": 30,
+      "max": 35,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu TPU 85A",
+        "title": "Bambu TPU 85A — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_TPU_85A_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
+        }
+      }
+    ]
+  }
+}

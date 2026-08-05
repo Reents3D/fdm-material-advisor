@@ -1,0 +1,203 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-pa6-gf",
+  "materialId": "pa6-gf",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PA6-GF",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.",
+    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen."
+  },
+  "features": {
+    "de": "Die stärkste Anisotropie im ganzen Bestand: 75 MPa längs zur Schicht gegen 27 MPa quer — quer bleiben 36 % übrig, gegenüber 89 % bei ungefülltem PLA. Glasfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält nur die Matrix. Wer ein Bauteil aus diesem Werkstoff auslegt, muss die Aufbaurichtung kennen, sonst rechnet er mit dem Dreifachen dessen, was das Teil trägt. Die Wassersättigung von 2,56 % ist die zweithöchste im Bestand — Trocknen ist bei diesem Werkstoff keine Empfehlung, sondern Voraussetzung.",
+    "en": "The strongest anisotropy in the entire dataset: 75 MPa along the layers against 27 MPa across — 36 % remains across, compared with 89 % for unfilled PLA. Glass fibres align in the extrusion direction and contribute nothing across it; between layers only the matrix holds. Anyone designing a part from this material must know the build direction, otherwise they calculate with three times what the part carries. The saturated water absorption of 2.56 % is the second highest in the dataset — drying is not a recommendation for this material but a precondition."
+  },
+  "datasheet": {
+    "title": "Bambu PA6-GF — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_PA6-GF_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.14,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 219,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 67,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 2.56,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2850,
+      "unit": "MPa",
+      "tolerance": 260,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 1950,
+      "unit": "MPa",
+      "tolerance": 210,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 75,
+      "unit": "MPa",
+      "tolerance": 6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 27,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.9,
+      "unit": "%",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 2.3,
+      "unit": "%",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3670,
+      "unit": "MPa",
+      "tolerance": 140,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 2300,
+      "unit": "MPa",
+      "tolerance": 120,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 120,
+      "unit": "MPa",
+      "tolerance": 6,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthZ": {
+      "value": 51,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 7.2,
+      "unit": "kJ/m²",
+      "tolerance": 2.3,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 4.1,
+      "unit": "kJ/m²",
+      "tolerance": 0.7,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 275,
+      "unit": "°C",
+      "min": 260,
+      "max": 290,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "min": 80,
+      "max": 100,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PA6-GF",
+        "title": "Bambu PA6-GF — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_PA6-GF_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
+        }
+      }
+    ]
+  }
+}
