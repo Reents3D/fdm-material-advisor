@@ -1,0 +1,137 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-luvocom-paht-kk-fr",
+  "materialId": "paht",
+  "brand": "LUVOCOM 3F",
+  "manufacturer": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+  "productName": "LUVOCOM 3F PAHT KK 50056 BK FR",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nBefund zu diesem Datenblatt: Das Blatt bezeichnet den Werkstoff im Fließtext als „PA6 filament filled with ceramic microspheres“, führt ihn im Produktnamen aber als PAHT. PA6 und Hochtemperatur-Polyamid sind nicht dasselbe; die Zuordnung zu `paht` in dieser Datenbank folgt dem Produktnamen und der Linie, nicht der Beschreibung. Die Temperaturkennwerte (HDT-A 90 °C, Dauergebrauch 120 °C) stimmen mit den übrigen PAHT-Blättern dieser Linie überein und stützen die Zuordnung — auflösen lässt sich der Widerspruch aus dem Blatt allein nicht.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nFinding on this datasheet: In its body text the sheet calls the material a “PA6 filament filled with ceramic microspheres” but carries it in the product name as PAHT. PA6 and high-temperature polyamide are not the same; the assignment to `paht` in this database follows the product name and the product line, not the description. The temperature values (HDT-A 90 °C, continuous service 120 °C) agree with the other PAHT sheets of this line and support the assignment — the contradiction cannot be resolved from the sheet alone."
+  },
+  "features": {
+    "de": "Der einzige Werkstoff im Bestand mit Bahnzulassungsdaten: EN 45545 mit den Anforderungssätzen R22 und R23 in den Gefährdungsstufen HL1, HL2 und HL3, belegt über ISO 4589-2 (Sauerstoffindex) und ISO 5659-2 (Rauchdichte). Wer im Schienenfahrzeugbau fertigt, braucht genau diese Nachweise — und findet sie sonst auf keinem FDM-Datenblatt. Der Füllstoff sind Keramikmikrokugeln, was die Dichte von 1,49 g/cm³ erklärt, die höchste aller geführten Polyamide.",
+    "en": "The only material in the dataset with rail approval data: EN 45545 with requirement sets R22 and R23 at hazard levels HL1, HL2 and HL3, evidenced via ISO 4589-2 (oxygen index) and ISO 5659-2 (smoke density). Anyone manufacturing for rail vehicles needs exactly these proofs — and finds them on no other FDM datasheet. The filler is ceramic microspheres, which explains the density of 1.49 g/cm³, the highest of all polyamides held here."
+  },
+  "datasheet": {
+    "title": "LUVOCOM 3F PAHT KK 50056 BK FR — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256575?download=true",
+    "version": "2025-02-04",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.49,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C / 24 h; Blattangabe „< 0,3 %“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "shrinkage": {
+      "value": 0.05,
+      "unit": "%",
+      "min": 0,
+      "max": 0.1,
+      "testStandard": "DIN 16742",
+      "conditions": "Blattangabe „0,0–0,1 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 6000,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe 6 GPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 1.2,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min; Dehnung bei Höchstkraft",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa (HDT A)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "continuousServiceTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "testStandard": "IEC 60216",
+      "conditions": "20.000 h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shortTermTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "conditions": "max. 200 h über die Lebensdauer",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-0",
+      "thicknessMm": 1.6,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "medium",
+      "note": {
+        "de": "Anders als bei den ApolloX- und PETG-Flammschutztypen desselben Vertriebs nennt dieses Blatt die Materialdicke: 1/16 Zoll, also 1,6 mm. Ohne Dickenangabe ist eine UL-94-Klasse nicht übertragbar — mit ihr ist sie eine belastbare Aussage. Eine Zeugnisnummer und eine Prüfstelle nennt auch dieses Blatt nicht.",
+        "en": "Unlike the ApolloX and PETG flame-retardant grades from the same distributor, this sheet names the material thickness: 1/16 inch, that is 1.6 mm. Without a thickness a UL 94 class is not transferable — with it, it is a solid statement. This sheet too names no certificate number and no test house."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Lehvoss Group",
+        "productName": "LUVOCOM 3F PAHT KK 50056 BK FR",
+        "title": "LUVOCOM 3F PAHT KK 50056 BK FR — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256575?download=true",
+        "documentVersion": "2025-02-04",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+        }
+      }
+    ]
+  }
+}

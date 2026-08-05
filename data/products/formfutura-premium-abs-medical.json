@@ -1,0 +1,90 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-premium-abs-medical",
+  "materialId": "abs",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "Premium ABS Medical",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens."
+  },
+  "features": {
+    "de": "Das Blatt weist die gekerbte Schlagzähigkeit auch bei −30 °C aus: 7 kJ/m² gegenüber 14 kJ/m² bei Raumtemperatur. Die Hälfte der Zähigkeit bei Kälte ist die Angabe, die über die Eignung eines Bauteils im Außenbereich oder im Kühlbetrieb entscheidet — und sie steht auf kaum einem Blatt.",
+    "en": "The sheet also states the notched impact at −30 °C: 7 kJ/m² against 14 kJ/m² at room temperature. Half the toughness in the cold is the figure that decides whether a part is suitable outdoors or in refrigerated operation — and it appears on hardly any sheet."
+  },
+  "datasheet": {
+    "title": "Premium ABS Medical — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/306558?download=true",
+    "version": "2026-01-05",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.06,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 48,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2475,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2524,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 14,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "Premium ABS Medical",
+        "title": "Premium ABS Medical — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/306558?download=true",
+        "documentVersion": "2026-01-05",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

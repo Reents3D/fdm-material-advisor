@@ -1,0 +1,132 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-styx-pa6",
+  "materialId": "pa6",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "STYX PA6",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Zwei Werte passen nicht zu PA6. Die Schmelztemperatur von 185 °C liegt rund 35 K unter dem Literaturwert für PA6 (etwa 220 °C) und deutet auf ein Copolyamid statt auf reines PA6 — das Blatt sagt dazu nichts. Und eine Bruchdehnung von 1,9 % ist für trockenes PA6 außergewöhnlich niedrig; übliche Werte liegen bei 20 bis 50 %. Beide Zahlen sind übernommen und tragen `low`. Der HDT fehlt zudem die Lastangabe.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Two values do not fit PA6. The melting temperature of 185 °C sits some 35 K below the literature figure for PA6 (about 220 °C) and points to a co-polyamide rather than pure PA6 — the sheet says nothing about it. And an elongation at break of 1.9 % is exceptionally low for dry PA6; usual values lie at 20 to 50 %. Both figures are imported and carry `low`. The HDT moreover lacks its load."
+  },
+  "features": {
+    "de": "Die Wasseraufnahme bis zur Sättigung ist mit 9,5 % ausgewiesen — eine Angabe, die kaum ein Blatt macht und die bei Polyamid die wichtigste überhaupt ist: Ein gesättigtes PA6-Bauteil verliert einen erheblichen Teil seiner Steifigkeit und wächst maßlich. Dazu die Konditionierung bei 23 °C und 50 % relativer Feuchte mit 3,0 %.",
+    "en": "Water absorption to saturation is stated at 9.5 % — a figure hardly any sheet gives and the single most important one for polyamide: a saturated PA6 part loses a substantial part of its stiffness and grows dimensionally. Alongside it the conditioning at 23 °C and 50 % relative humidity at 3.0 %."
+  },
+  "datasheet": {
+    "title": "STYX PA6 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/281451?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.15,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 9.5,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C, Sättigung in Wasser",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2900,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, 1 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 1.9,
+      "unit": "%",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 112,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2800,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 6.8,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C, gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 185,
+      "unit": "°C",
+      "testStandard": "ISO 3146",
+      "conditions": "DSC, 10 °C/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 60,
+      "unit": "°C",
+      "testStandard": "ISO 75-1/-2",
+      "conditions": "Last im Blatt nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "STYX PA6",
+        "title": "STYX PA6 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/281451?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

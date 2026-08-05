@@ -1,6 +1,9 @@
 # SOURCES.md — Quellenverzeichnis und Zitierregeln
 
-**Stand:** 2026-08-01 · **Ausgewertete Quellen:** 3 Primärquellen (1 Material)
+**Stand:** 2026-08-04 · **Ausgewertete Quellen:** 192 Herstellerdatenblätter aus 14 Marken,
+dazu eine Marktdatenbank (`src_ofd`). Abschnitt 3 führt die Quellen aus, die für die
+Modellbildung ausschlaggebend waren; die vollständige Liste steht datensatzweise in
+`governance.sources[]`.
 
 ---
 
@@ -168,6 +171,41 @@ verlinkte PDF ist ein Sicherheitsdatenblatt, kein TDS. Deshalb `confidenceCeilin
 
 ---
 
+### `src_ofd` — Open Filament Database
+
+| | |
+|---|---|
+| **Typ** | `community` |
+| **Herausgeber** | Open Filament Collective |
+| **Titel** | Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern |
+| **Version** | `2026.07.31` (täglicher Neubau, Version am Datensatz geführt) |
+| **URL** | https://api.openfilamentdatabase.org/api/v1/ |
+| **Repository** | https://github.com/OpenFilamentCollective/open-filament-database |
+| **Lizenz** | MIT für Code **und** Daten |
+| **Ceiling** | `low` |
+| **Verwendet in** | 21 Werkstofftypen (Spulenlogistik), 14 Werkstofftypen (Marktkorridor) |
+
+**Wert für das Projekt:** 155 Marken, 2.020 Filamente, 22.397 Spulengrößen. Damit erstmals
+belegbar, was kein Herstellerblatt beantwortet: **welche Spulengrößen es am Markt
+überhaupt gibt** — der begrenzende Faktor im Großformat-Dauerlauf. Dazu die Streuung von
+Dichte und Verarbeitungstemperaturen über hunderte Produkte, also genau die
+`min`/`max`-Spanne, die eine Einzelquelle nie liefern kann.
+
+**Einschränkungen — und sie sind grundlegend:**
+- **Keine Kennwerte.** Weder Zugfestigkeit noch Modul, HDT, Glasübergang,
+  Schlagzähigkeit, Bruchdehnung, Orientierung oder Prüfnorm. Für die Mechanik- und
+  Thermikfelder dieses Projekts ist die Quelle **unbrauchbar** und darf dort nie
+  herangezogen werden.
+- Gemeinschaftlich gepflegt, ohne Provenienz und ohne Abrufdatum je Eintrag.
+- Datenblatt-Links tragen nur 164 von 2.020 Filamenten (8 %).
+- Beschreibt das Angebot, nicht die Lieferbarkeit — Lagerbestände kennt sie nicht.
+- Die Zuordnung ihrer 38 Werkstoffbezeichnungen auf unsere 41 Typen ist Auslegung; die
+  Regeln stehen in `scripts/import/ofd-common.mjs` und sind dort begründet.
+
+Siehe ADR-035 für die vollständige Abwägung.
+
+---
+
 ### `estimate_reasoning` (Sammel-ID)
 
 | | |
@@ -206,11 +244,32 @@ ist der wahrscheinlichste Weg, wie in dieser Datenbank grob falsche Zahlen entst
 | hoch | Prusa Polymers TDS-PDFs (Prusament-Linie) | Vollständige Kennwerttabellen, saubere Normangaben |
 | hoch | Polymaker (PolyLite/PolyMax/Fiberon), inkl. „Technical Data at a Glance" | Breite Abdeckung in einem Dokument |
 | hoch | BASF Forward AM (Ultrafuse) | Industriequalität, Regulatorik, UL94-Einstufungen |
-| mittel | Lehvoss Luvocom 3F | Hochtemperatur- und FR-Typen |
-| mittel | Fillamentum, Extrudr, Fiberlogy, FormFutura, ColorFabb | Europäische Marktbreite |
+| ~~mittel~~ ✅ | ~~Lehvoss Luvocom 3F~~ | **erledigt 2026-08-04** — 5 Blätter über den FormFutura-Vertrieb: PAHT 9825/9936, PAHT CF 9742/9891, PAHT KK 50056 FR. Die besten Blätter im Bestand: Norm UND Prüfkörper deklariert, Dauergebrauchstemperatur mit Zeitbasis, UL94 mit Dickenangabe, EN 45545 für den Bahnbereich |
+| mittel | Fillamentum, Extrudr, Fiberlogy, ~~FormFutura~~ ✅, ColorFabb | **FormFutura erledigt 2026-08-04** — 19 Produkte aus 33 Blättern mit Textebene; 13 weitere Blätter sind Rasterseiten ohne Text und bleiben offen |
 | mittel | 3DXTech, Essentium, Kimya, Nanovia | Technische Compounds, ESD-Typen |
 | mittel | Recreus, NinjaTek, Taulman | TPU/TPE-Spanne |
 | niedrig | Stratasys, Roboze | Hochtemperatur-Referenzwerte (proprietäre Systeme) |
+
+**Rangliste aus dem OFD-Bestand (Stand `2026.07.31`).** Diese Marken sind dort mit
+Produkten geführt, ohne dass eine einzige Datenblatt-Fundstelle hinterlegt wäre — die
+Blätter existieren, sie sind nur nirgends erfasst. Hier liegt der größere Hebel als bei
+den bereits verlinkten Nachzüglern:
+
+| Marke | Produkte im Bestand | bei uns |
+|---|---|---|
+| Spectrum | 97 | 12 Produkte |
+| Polymaker | 71 | — |
+| 3DXTech | 61 | — |
+| Fiberlogy | 59 | 10 Produkte |
+| PrimaCreator | 59 | — |
+| ROSA3D | 51 | — |
+| eSUN 3D | 43 | — |
+| Protopasta | 40 | — |
+| FilamentPM | 37 | — |
+
+Gegenrichtung: 148 offene Fundstellen sind bereits verlinkt und nur noch auszuwerten —
+FormFutura 48, Bambu Lab 40, Nebula 17, Alzament 13, Anycubic 12. Die tagesaktuelle
+Liste erzeugt `npm run import:ofd-datasheets`.
 
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 

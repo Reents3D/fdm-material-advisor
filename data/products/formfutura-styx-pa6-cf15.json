@@ -1,0 +1,141 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-styx-pa6-cf15",
+  "materialId": "pa6-cf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "STYX PA6-CF15",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die HDT-Werte 180 °C und 65 °C sowie die gekerbte Schlagzähigkeit von 4 kJ/m² stehen zeichengleich auch im Blatt des STYX PA6-GF30 desselben Herstellers — bei einem anderen Fasertyp und einem um mehr als das Doppelte abweichenden Fasergehalt. Zwei so verschiedene Compounds mit identischen thermischen Kennwerten deuten auf eine übernommene Vorlage statt auf zwei Messungen. Alle drei Werte tragen `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The HDT values of 180 °C and 65 °C as well as the notched impact strength of 4 kJ/m² appear character for character in the same manufacturer's STYX PA6-GF30 sheet — with a different fibre type and a fibre content differing by more than a factor of two. Two such different compounds with identical thermal values point to a copied template rather than two measurements. All three values carry `low`."
+  },
+  "features": {
+    "de": "120 MPa Zugfestigkeit bei 9000 MPa Steifigkeit — das dritthöchste Wertepaar des Bestands. Der Abstand zwischen HDT-B (180 °C) und HDT-A (65 °C) beträgt 115 K und ist typisch für ein faserverstärktes teilkristallines Polyamid: Unter geringer Last trägt die Kristallphase weit über den Glasübergang hinaus, unter hoher Last nicht.",
+    "en": "120 MPa tensile strength at 9000 MPa stiffness — the third highest value pair in the dataset. The gap between HDT-B (180 °C) and HDT-A (65 °C) is 115 K and is typical of a fibre-reinforced semi-crystalline polyamide: under low load the crystalline phase carries far beyond the glass transition, under high load it does not."
+  },
+  "datasheet": {
+    "title": "STYX PA6-CF15 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256638?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.18,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C, Sättigung in Wasser",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 120,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 9000,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 180,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 8000,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 60,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C, gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 180,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 65,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "STYX PA6-CF15",
+        "title": "STYX PA6-CF15 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256638?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

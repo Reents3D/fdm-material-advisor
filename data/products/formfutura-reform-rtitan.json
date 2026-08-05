@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-reform-rtitan",
+  "materialId": "abs",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ReForm rTitan",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die gekerbte Schlagzähigkeit von 58 kJ/m² nach ISO 179 ist für ABS außergewöhnlich hoch — übliche Werte liegen bei 10 bis 25 kJ/m², das Premium ABS Medical desselben Vertriebs nennt 14 kJ/m² (ISO 180). Ein Rezyklat übertrifft Neuware in der Zähigkeit normalerweise nicht. Wahrscheinlich ist eine UNGEKERBTE Messung als gekerbt ausgewiesen; entscheiden lässt sich das aus dem Blatt nicht. Der Wert ist unverändert übernommen und trägt `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The notched impact strength of 58 kJ/m² to ISO 179 is exceptionally high for ABS — usual values lie at 10 to 25 kJ/m², and the same distributor's Premium ABS Medical states 14 kJ/m² (ISO 180). A recyclate does not normally exceed virgin material in toughness. An UNNOTCHED measurement reported as notched is likely; this cannot be decided from the sheet. The value is imported unchanged and carries `low`."
+  },
+  "features": {
+    "de": "Ein Rezyklat-ABS, dessen Kennwerte sich vor dem Neuware-ABS desselben Herstellers nicht verstecken müssen: 43,6 gegenüber 48 MPa Streckspannung. Für Anwendungen, bei denen die Herkunft des Materials zählt, ist der Abstand von rund einem Zehntel eine brauchbare Größe.",
+    "en": "A recycled ABS whose values need not hide behind the same manufacturer's virgin ABS: 43.6 against 48 MPa yield stress. For applications where the origin of the material matters, a gap of about a tenth is a workable figure."
+  },
+  "datasheet": {
+    "title": "ReForm rTitan — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256633?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.1,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 43.6,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2030,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "1 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 58,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ReForm rTitan",
+        "title": "ReForm rTitan — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256633?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

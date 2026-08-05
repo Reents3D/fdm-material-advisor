@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-bulk-pla",
+  "materialId": "pla",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "Bulk PLA",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Beide Zugkennwerte sind nach ASTM D882 geprüft. Das ist die Norm für dünne Kunststofffolien unter 1 mm Dicke; für starre Formteile gilt ASTM D638 beziehungsweise ISO 527. An einer Folie gemessene Zugwerte sind nicht auf ein gedrucktes Bauteil übertragbar, weil Probengeometrie und Spannungszustand andere sind. Die Zahlen sind plausibel und übernommen, tragen aber `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Both tensile values are tested to ASTM D882. That is the standard for thin plastic sheeting below 1 mm thickness; for rigid mouldings ASTM D638 or ISO 527 applies. Tensile values measured on film do not transfer to a printed part because specimen geometry and stress state differ. The figures are plausible and imported but carry `low`."
+  },
+  "datasheet": {
+    "title": "Bulk PLA — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/273966?download=true",
+    "version": "2025-09-01",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 47,
+      "unit": "MPa",
+      "testStandard": "ASTM D882",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3400,
+      "unit": "MPa",
+      "testStandard": "ASTM D882",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "Bulk PLA",
+        "title": "Bulk PLA — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/273966?download=true",
+        "documentVersion": "2025-09-01",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

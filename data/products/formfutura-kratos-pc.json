@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-kratos-pc",
+  "materialId": "pc",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "Kratos PC",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Zwei Punkte. Erstens führt das Blatt Festigkeiten in kg/cm² und die Schlagzähigkeit in kgcm/cm — Einheiten, die seit Jahrzehnten außer Gebrauch sind. Die Festigkeiten sind umgerechnet und tragen `low`, die Schlagzähigkeit ist nicht übernommen. Zweitens sind BEIDE HDT-Zeilen mit „HDT B“ beschriftet, obwohl die zweite mit 1,81 MPa geprüft wurde — das ist HDT A. Der niedrigere Wert bei höherer Last bestätigt die Zuordnung; die Beschriftung ist trotzdem falsch. Die Bruchdehnung „> 100 %“ ist als offene Angabe nicht als Zahl übernommen.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Two points. First, the sheet carries strengths in kg/cm² and impact strength in kgcm/cm — units out of use for decades. The strengths are converted and carry `low`, the impact strength is not imported. Second, BOTH HDT rows are labelled “HDT B” although the second was tested at 1.81 MPa — that is HDT A. The lower value at the higher load confirms the assignment; the labelling is wrong nonetheless. The elongation at break of “> 100 %” is an open statement and not imported as a figure."
+  },
+  "features": {
+    "de": "HDT-B 139 °C und Vicat 150 °C — nach dem add:north PC Blend HT LCF der wärmeformbeständigste unverstärkte Werkstoff des Bestands. Die Bruchdehnung gibt das Blatt mit „> 100 %“ an, was zu Polycarbonat passt: Es ist einer der wenigen technischen Thermoplaste, die zäh bleiben statt zu splittern.",
+    "en": "HDT-B 139 °C and Vicat 150 °C — after the add:north PC Blend HT LCF the most heat-resistant unreinforced material in the dataset. The sheet gives the elongation at break as “> 100 %”, which fits polycarbonate: it is one of the few engineering thermoplastics that stay tough instead of splintering."
+  },
+  "datasheet": {
+    "title": "Kratos PC — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256573?download=true",
+    "version": "2024-08-15",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 61.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe 630 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 90.2,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 920 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2353.6,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 24000 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 139,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 128,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "1,81 MPa; im Blatt fälschlich ebenfalls als „HDT B“ bezeichnet",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 150,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "Kratos PC",
+        "title": "Kratos PC — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256573?download=true",
+        "documentVersion": "2024-08-15",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}
