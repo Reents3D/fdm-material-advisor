@@ -81,9 +81,13 @@ Beides zusammen ergibt eine abgeleitete Einstufung (`src/lib/evidence.ts`, ADR-0
 
 | Stufe | Bedingung | Folge |
 |---|---|---|
-| `verified` | `testStandard` gesetzt **und** `confidence` ≥ `medium` | geht in die Empfehlung ein |
+| `verified` | `testStandard` gesetzt **und** `confidence` ≥ `medium` | zählt als belastbarer Messwert |
 | `weak` | `confidence: low` **oder** kein `testStandard` | wird angezeigt, sichtbar abgewertet |
 | `editorial` | `confidence: estimated` | fachliche Ableitung — keine Messung |
+
+Die Einstufung steuert die **Darstellung und das Urteil je Datensatz**, nicht die
+Rangfolge der Engine — die läuft zu fünfzehn Sechzehnteln auf Fünferskalen, die
+konstruktionsbedingt `editorial` sind (ADR-037).
 
 Wer einen Wert mit `medium` erfasst, **muss** deshalb `testStandard` mitschreiben. Steht
 auf dem Blatt keine Norm, ist `low` die richtige Konfidenz — nicht `medium` ohne Norm.
