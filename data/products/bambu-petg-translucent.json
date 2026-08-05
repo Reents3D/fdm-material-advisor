@@ -1,0 +1,200 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-petg-translucent",
+  "materialId": "petg",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PETG Translucent",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Der Zug-E-Modul in Z steht als „1230 ± 1430 MPa“ im Blatt. Eine Streuung, die größer ist als der Messwert, beschreibt kein Ergebnis — das Intervall reichte bis ins Negative. Vermutlich ist ± 130 oder ± 140 gemeint, wie in den Nachbarzeilen; welches, sagt das Blatt nicht. Der Wert ist übernommen und trägt `low`.",
+    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: The tensile modulus in Z is stated as “1230 ± 1430 MPa”. A scatter larger than the measured value describes no result — the interval would extend into the negative. Presumably ± 130 or ± 140 is meant, as in the neighbouring rows; which one, the sheet does not say. The value is imported and carries `low`."
+  },
+  "datasheet": {
+    "title": "Bambu PETG Translucent — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_PETG_Translucent_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 228,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 70,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1420,
+      "unit": "MPa",
+      "tolerance": 160,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 1230,
+      "unit": "MPa",
+      "tolerance": 1430,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "Blattangabe „1230 ± 1430 MPa“ — die Streuung ist größer als der Wert selbst, das Intervall reicht damit ins Negative",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 33,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 29,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8.2,
+      "unit": "%",
+      "tolerance": 1.3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 5.2,
+      "unit": "%",
+      "tolerance": 0.9,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1610,
+      "unit": "MPa",
+      "tolerance": 130,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 1520,
+      "unit": "MPa",
+      "tolerance": 110,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 68,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthZ": {
+      "value": 55,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 8.6,
+      "unit": "kJ/m²",
+      "tolerance": 2.1,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 7.2,
+      "unit": "kJ/m²",
+      "tolerance": 1.8,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 250,
+      "unit": "°C",
+      "min": 230,
+      "max": 270,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 70,
+      "unit": "°C",
+      "min": 65,
+      "max": 75,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PETG Translucent",
+        "title": "Bambu PETG Translucent — Technical Data Sheet",
+        "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_PETG_Translucent_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
+        }
+      }
+    ]
+  }
+}

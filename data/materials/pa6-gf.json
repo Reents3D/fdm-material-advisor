@@ -99,6 +99,22 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.36,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu PA6-GF — nicht aus diesem Datensatz",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 36 % der Zugfestigkeit erhalten (27 von 75 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PA6-GF — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
+        "en": "Perpendicular to the layers 36 % of the tensile strength remains (27 of 75 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PA6-GF — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
+      }
     }
   },
   "thermal": {
@@ -614,6 +630,20 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+        }
+      },
+      {
         "id": "src_price_pa6_gf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -662,20 +692,6 @@
         "note": {
           "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
           "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
-        }
-      },
-      {
-        "id": "src_ofd",
-        "type": "community",
-        "publisher": "Open Filament Collective",
-        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
-        "documentVersion": "2026.07.31",
-        "url": "https://api.openfilamentdatabase.org/api/v1/",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ],
