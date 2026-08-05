@@ -3,6 +3,7 @@
  */
 
 import type { ReactNode } from "react";
+import { evidenceGrade } from "../lib/evidence";
 import type { Confidence, Quantity, Rating, I18nText } from "../engine/types";
 import type { Lang } from "../i18n";
 
@@ -54,12 +55,25 @@ export function Value({ q, lang, showRange = true }: { q?: Quantity; lang: Lang;
       : q.tolerance
         ? ` ±${fmt(q.tolerance)}`
         : "";
+  /* Ein Wert mit `medium` und OHNE Pruefnorm sah bisher aus wie einer mit Norm — die
+     Konfidenz beschreibt die Quelle, nicht die Nachpruefbarkeit. Beide zusammen ergeben
+     erst ein Urteil, und nur `verified` geht in die Empfehlung ein (src/lib/evidence.ts). */
+  const grade = evidenceGrade(q);
   return (
     <span className={cx("whitespace-nowrap", q.confidence === "estimated" && "estimated")}>
-      <span className="tabular-nums font-medium">{fmt(q.value)}</span>
+      <span className={cx("tabular-nums font-medium", grade === "weak" && "opacity-70")}>{fmt(q.value)}</span>
       <span className="muted text-xs ml-0.5">{q.unit === "-" ? "" : q.unit}</span>
       {range && <span className="muted text-xs">{range}</span>}{" "}
       <ConfidenceMark c={q.confidence} lang={lang} />
+      {grade === "weak" && q.confidence !== "low" && (
+        <span
+          className="ml-1 text-xs text-ok align-middle"
+          title={lang === "de"
+            ? "Keine Prüfnorm genannt — die Zahl ist nicht nachprüfbar und geht nicht in die Empfehlung ein."
+            : "No test standard named — the figure is not verifiable and does not enter the recommendation."}
+          aria-label={lang === "de" ? "keine Prüfnorm" : "no test standard"}
+        >⌀</span>
+      )}
     </span>
   );
 }

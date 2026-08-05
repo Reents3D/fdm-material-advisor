@@ -73,6 +73,24 @@ Das prüft R7 (Abschnitt 8) in der CI.
 **Lieber ein fehlendes Feld als ein erfundenes.** Ein weggelassenes Feld senkt nur die
 `dataCompleteness`; ein erfundenes Feld zerstört die Glaubwürdigkeit des ganzen Projekts.
 
+### 2.1 Belastbarkeit — die zweite Frage neben der Konfidenz
+
+`confidence` sagt, wie gut die **Quelle** ist. Sie sagt nicht, ob eine **Prüfnorm**
+dabeisteht — und ohne Norm ist eine Zahl nicht nachprüfbar, egal wie gut die Quelle ist.
+Beides zusammen ergibt eine abgeleitete Einstufung (`src/lib/evidence.ts`, ADR-037):
+
+| Stufe | Bedingung | Folge |
+|---|---|---|
+| `verified` | `testStandard` gesetzt **und** `confidence` ≥ `medium` | geht in die Empfehlung ein |
+| `weak` | `confidence: low` **oder** kein `testStandard` | wird angezeigt, sichtbar abgewertet |
+| `editorial` | `confidence: estimated` | fachliche Ableitung — keine Messung |
+
+Wer einen Wert mit `medium` erfasst, **muss** deshalb `testStandard` mitschreiben. Steht
+auf dem Blatt keine Norm, ist `low` die richtige Konfidenz — nicht `medium` ohne Norm.
+
+Die Fünferskalen (Abschnitt 5) sind konstruktionsbedingt `editorial`: Für „Druckbarkeit 4
+von 5" gibt es keine Norm. Sie zählen nicht in den Messwert-Anteil, sondern stehen daneben.
+
 ---
 
 ## 3. Quellen (`governance.sources[]`)
