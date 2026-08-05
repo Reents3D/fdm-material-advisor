@@ -1,0 +1,120 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-easyfil-hips",
+  "materialId": "hips",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "EasyFil HIPS",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Zwei Punkte. Die Wärmeformbeständigkeit ist nach ISO 75-2 Methode B geprüft — das sind 0,45 MPa, also HDT-B —, die Bedingungsspalte daneben sagt aber „HDT A“. Geführt ist sie nach der genannten Methode als HDT-B, mit `low`. Und Streckspannung und Bruchspannung sind beide mit 16 MPa angegeben; bei einem schlagzähmodifizierten Polystyrol, das sich vor dem Bruch merklich dehnt, wäre ein Unterschied zu erwarten.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: Two points. The heat deflection temperature is tested to ISO 75-2 method B — that is 0.45 MPa, so HDT-B — yet the condition column next to it says “HDT A”. It is held per the named method as HDT-B, with `low`. And yield stress and break stress are both given as 16 MPa; in an impact-modified polystyrene that stretches noticeably before breaking, a difference would be expected."
+  },
+  "features": {
+    "de": "Der zweite Beleg für HIPS im Bestand — bis hierher hing der Werkstofftyp an einem einzigen Produkt. Durchgehend ISO-Normen mit Methodenangabe (527-2/5, 306/B50), was auf den Blättern dieses Herstellers die Ausnahme ist.",
+    "en": "The second piece of evidence for HIPS in the dataset — until now the material type hung on a single product. ISO standards throughout with method suffixes (527-2/5, 306/B50), which is the exception on this manufacturer's sheets."
+  },
+  "datasheet": {
+    "title": "EasyFil HIPS — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256512?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 12,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "200 °C / 5 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 7,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/2",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 16,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/5",
+      "conditions": "Streckgrenze und Bruch nennt das Blatt beide mit 16 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 88,
+      "unit": "°C",
+      "testStandard": "ISO 75-2/B",
+      "conditions": "Methode B = 0,45 MPa; das Blatt beschriftet die Zeile widersprüchlich mit „HDT A“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 87,
+      "unit": "°C",
+      "testStandard": "ISO 306/B50",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "EasyFil HIPS",
+        "title": "EasyFil HIPS — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256512?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

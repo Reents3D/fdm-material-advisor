@@ -1,0 +1,103 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-reform-rpet",
+  "materialId": "petg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ReForm rPET",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Sämtliche Prüfnormen dieses Blattes sind ASTM-Bezeichnungen mit ISO-Präfix: „ISO D505“, „ISO D256“, „ISO D882“, „ISO D648“. ISO-Normen tragen keine D-Nummern; gemeint sind ASTM D-Normen. Der Fehler tritt auf jeder Zeile auf und stammt damit aus der Vorlage. Zudem weist das Blatt eine Bruchdehnung von 400 % aus — für PETG liegen übliche Werte bei 20 bis 50 %, und die Streckdehnung derselben Zeile daneben bei 4 %. Ein Faktor 100 zwischen Streck- und Bruchdehnung gibt es bei diesem Werkstoff nicht; der Wert ist nicht übernommen. Die Schlagzähigkeit steht in J/m und ist aus demselben Grund ausgelassen wie bei den ApolloX-Blättern.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: Every test standard on this sheet is an ASTM designation with an ISO prefix: “ISO D505”, “ISO D256”, “ISO D882”, “ISO D648”. ISO standards carry no D numbers; ASTM D standards are meant. The error occurs on every row and thus comes from the template. The sheet moreover states an elongation at break of 400 % — for PETG usual values lie at 20 to 50 %, and the yield elongation on the row beside it at 4 %. A factor of 100 between yield and break elongation does not exist in this material; the value is not imported. The impact strength is in J/m and is omitted for the same reason as on the ApolloX sheets."
+  },
+  "features": {
+    "de": "Ein Rezyklat, das laut eigenem Blatt PETG-basiert ist — „the most sustainable PETG-based filament“. Die Marktdatenbank führt es unter PET; hier steht es beim PETG, wo der Fließtext es hinstellt.",
+    "en": "A recyclate that is PETG-based by its own sheet — “the most sustainable PETG-based filament”. The market database files it under PET; here it sits with PETG, where its own body text places it."
+  },
+  "datasheet": {
+    "title": "ReForm rPET — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256630?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 52,
+      "unit": "MPa",
+      "testStandard": "im Blatt als „ISO D882“ angegeben; gemeint ist ASTM D882",
+      "conditions": "bei Streckgrenze; bei Bruch nennt das Blatt 59 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 4,
+      "unit": "%",
+      "testStandard": "im Blatt als „ISO D882“ angegeben; gemeint ist ASTM D882",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 68,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 70,
+      "unit": "°C",
+      "testStandard": "im Blatt als „ISO D648“ angegeben; gemeint ist ASTM D648",
+      "conditions": "Blattangabe „HDT A“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "waterAbsorption": {
+      "value": 0.2,
+      "unit": "%",
+      "conditions": "Blattangabe „< 0,2 %“ im Fließtext",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ReForm rPET",
+        "title": "ReForm rPET — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256630?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

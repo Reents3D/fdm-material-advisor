@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-refill-petg",
+  "materialId": "petg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ReFill PETG",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Die Wärmeformbeständigkeit ist mit 78 °C angegeben, als Prüfnorm steht ISO 306 daneben — das ist der Vicat-Versuch, nicht die Wärmeformbeständigkeit. Weder Methode noch Last sind genannt. Damit lässt sich der Wert weder als HDT noch als Vicat einordnen, ohne eines von beidem zu raten; er ist nicht übernommen. Ebenfalls auffällig: Der Zug-E-Modul von 2980 MPa ist zahlengleich mit dem des EasyFil ePETG desselben Herstellers, dort allerdings nach ASTM D638 geprüft.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: The heat deflection temperature is given as 78 °C with ISO 306 named as the standard — that is the Vicat test, not heat deflection. Neither method nor load is stated. The value can therefore be placed neither as HDT nor as Vicat without guessing one of the two; it is not imported. Also striking: the tensile modulus of 2980 MPa is numerically identical to that of the same manufacturer's EasyFil ePETG, tested there to ASTM D638."
+  },
+  "features": {
+    "de": "Zwei Angaben, die kaum ein Blatt macht: eine UL94-Klasse oberhalb von HB, und „food contact approved according to EU directives“. Beides steht allerdings nur im Fließtext. Zur Lebensmittelkonformität gilt unverändert, was DISCLAIMER und Datenmodell sagen — eine Materialfreigabe ist keine Bauteilfreigabe, weil die Schichtstruktur eines FDM-Teils Kapillaren und Keimnischen bildet.",
+    "en": "Two statements hardly any sheet makes: a UL 94 class above HB, and “food contact approved according to EU directives”. Both appear in the body text only. For food compliance what DISCLAIMER and the data model say remains unchanged — a material approval is not a part approval, because the layer structure of an FDM part forms capillaries and niches for germs."
+  },
+  "datasheet": {
+    "title": "ReFill PETG — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256624?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 4.7,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 20,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "conditions": "bei Bruch",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2980,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-2",
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt die Klasse im Fließtext ohne Dicke, Prüfstelle oder Zeugnisnummer. V-2 ist die unterste der drei V-Klassen: Das Material verlöscht selbst, darf dabei aber brennend abtropfen — für viele Innenraumanforderungen ist genau das der Ausschlussgrund.",
+        "en": "The sheet names the class in the body text without thickness, test house or certificate number. V-2 is the lowest of the three V classes: the material self-extinguishes but may drip while burning — for many interior requirements that is precisely the disqualifier."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ReFill PETG",
+        "title": "ReFill PETG — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256624?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

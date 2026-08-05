@@ -245,7 +245,7 @@ ist der wahrscheinlichste Weg, wie in dieser Datenbank grob falsche Zahlen entst
 | hoch | Polymaker (PolyLite/PolyMax/Fiberon), inkl. „Technical Data at a Glance" | Breite Abdeckung in einem Dokument |
 | hoch | BASF Forward AM (Ultrafuse) | Industriequalität, Regulatorik, UL94-Einstufungen |
 | ~~mittel~~ ✅ | ~~Lehvoss Luvocom 3F~~ | **erledigt 2026-08-04** — 5 Blätter über den FormFutura-Vertrieb: PAHT 9825/9936, PAHT CF 9742/9891, PAHT KK 50056 FR. Die besten Blätter im Bestand: Norm UND Prüfkörper deklariert, Dauergebrauchstemperatur mit Zeitbasis, UL94 mit Dickenangabe, EN 45545 für den Bahnbereich |
-| mittel | Fillamentum, Extrudr, Fiberlogy, ~~FormFutura~~ ✅, ColorFabb | **FormFutura erledigt 2026-08-04** — 19 Produkte aus 33 Blättern mit Textebene; 13 weitere Blätter sind Rasterseiten ohne Text und bleiben offen |
+| mittel | Fillamentum, Extrudr, Fiberlogy, ~~FormFutura~~ ✅, ColorFabb | **FormFutura vollständig erledigt 2026-08-05** — 37 Produkte aus 46 Blättern. Die 13 Blätter ohne Textebene wurden mit poppler gerendert und abgelesen; sieben davon tragen eine kopierte Tabelle und zählen als ein Beleg |
 | mittel | 3DXTech, Essentium, Kimya, Nanovia | Technische Compounds, ESD-Typen |
 | mittel | Recreus, NinjaTek, Taulman | TPU/TPE-Spanne |
 | niedrig | Stratasys, Roboze | Hochtemperatur-Referenzwerte (proprietäre Systeme) |

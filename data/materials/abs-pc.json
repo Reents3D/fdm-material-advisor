@@ -395,17 +395,22 @@
         "value": "V-0",
         "products": [
           {
+            "id": "formfutura-abspro-fr",
+            "name": "ABSpro Flame Retardant",
+            "brand": "FormFutura"
+          },
+          {
             "id": "spectrum-pc-abs-fr-v0",
             "name": "Spectrum PC/ABS FR V0",
             "brand": "Spectrum",
             "thicknessMm": 1.5
           }
         ],
-        "source": "src_flame_spectrum_pc_abs_fr_v0",
-        "confidence": "medium",
+        "source": "src_flame_formfutura_abspro_fr",
+        "confidence": "low",
         "note": {
-          "de": "ABS-PC als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: Spectrum PC/ABS FR V0. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
-          "en": "ABS-PC as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: Spectrum PC/ABS FR V0. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+          "de": "ABS-PC als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "ABS-PC as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
         }
       }
     },
@@ -567,14 +572,14 @@
         }
       },
       {
-        "id": "src_flame_spectrum_pc_abs_fr_v0",
+        "id": "src_flame_formfutura_abspro_fr",
         "type": "manufacturer-tds",
-        "publisher": "Spectrum Group",
-        "productName": "Spectrum PC/ABS FR V0",
-        "title": "Spectrum PC/ABS FR V0 — Technical Data Sheet",
-        "url": "https://spectrumfilaments.com/wp-content/uploads/2024/02/en_tds_spectrum_pc_abs_fr_v0.pdf",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
+        "publisher": "FormFutura BV",
+        "productName": "ABSpro Flame Retardant",
+        "title": "ABSpro Flame Retardant — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/254655?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
         "note": {
           "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
           "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."

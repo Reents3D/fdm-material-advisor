@@ -1,0 +1,120 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-high-gloss-pla",
+  "materialId": "pla",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "High Gloss PLA",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside."
+  },
+  "features": {
+    "de": "Das vollständigste PLA-Blatt dieses Herstellers und das einzige mit einem plausiblen E-Modul: 2700 MPa gegenüber den „3,5 MPa“, die EasyFil ePLA und Galaxy PLA ausweisen. Dazu Streckgrenze und Bruch getrennt, Dehnung an beiden Punkten, und ein Glasübergang aus der DSC.",
+    "en": "The most complete PLA sheet from this manufacturer and the only one with a plausible modulus: 2700 MPa against the “3.5 MPa” stated by EasyFil ePLA and Galaxy PLA. Alongside it yield and break separately, elongation at both points, and a glass transition from DSC."
+  },
+  "datasheet": {
+    "title": "High Gloss PLA — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256566?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "210 °C / 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 59,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze; bei Bruch nennt das Blatt 45 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2700,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 72,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 50,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "Blattangabe „HDT A“; Methode nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 57,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "High Gloss PLA",
+        "title": "High Gloss PLA — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256566?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}
