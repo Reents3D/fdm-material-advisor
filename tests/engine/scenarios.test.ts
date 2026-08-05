@@ -463,7 +463,14 @@ describe("Szenario: Brandschutz und ESD", () => {
        Neben pc-fr, das die Klasse selbst traegt, ueberleben petg und abs-pc ueber eine
        belegte flammgeschuetzte TYPE ihrer Familie (add:north PETG V0, Spectrum PC/ABS
        FR V0). Beides sind ausdruecklich flammgeschuetzte Werkstoffe; die Familie ist
-       damit NICHT freigegeben, und die Begruendung muss das Produkt nennen. */
+       damit NICHT freigegeben, und die Begruendung muss das Produkt nennen.
+
+       Seit dem FormFutura-Import (2026-08-04) kommen asa und paht dazu: ApolloX Flame
+       Retardant und LUVOCOM 3F PAHT KK 50056 BK FR. Dass `asa` hier nicht mehr in der
+       Ausschlussliste steht, ist keine gelockerte Erwartung, sondern eine geaenderte
+       Tatsache - fuer ASA ist jetzt eine V-0-Type belegt, vorher war keine erfasst.
+       Die Mechanik prueft die Schleife darunter unveraendert: Wer nur ueber ein Produkt
+       durchkommt, MUSS es benennen. */
     const r = select(MATERIALS, { flameClass: "V-0" });
     const surviving = ids(r.ranked);
 
@@ -479,7 +486,8 @@ describe("Szenario: Brandschutz und ESD", () => {
 
     expect(surviving).toContain("pc-fr");
     // Standardwerkstoffe tragen keine Einstufung - auch nicht die "selbstverlöschenden".
-    for (const id of ["pc", "petg-cf", "abs", "asa"]) expect(surviving).not.toContain(id);
+    // asa fehlt hier bewusst: fuer ASA ist seit 2026-08-04 eine V-0-Type belegt.
+    for (const id of ["pc", "petg-cf", "abs", "pla"]) expect(surviving).not.toContain(id);
   });
 
   it("der Produktverweis steht auf der Ergebniskarte, nicht nur im Verdict", () => {

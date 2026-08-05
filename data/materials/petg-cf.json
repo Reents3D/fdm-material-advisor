@@ -1148,7 +1148,13 @@
       }
     },
     "spoolSizes": [
-      "1 kg"
+      "0.5 kg",
+      "1 kg",
+      "2 kg",
+      "2.3 kg",
+      "3 kg",
+      "5 kg",
+      "8 kg"
     ],
     "xxl": {
       "maxSensibleEdgeMm": {
@@ -1177,6 +1183,28 @@
       "joiningRecommendation": {
         "de": "Segmentieren und mit 2K-Epoxid fügen; Klebefugen mit Nut-Feder oder eingelegten Passstiften formschlüssig sichern, da die Klebefuge sonst zur Schwachstelle wird.",
         "en": "Segment and join with 2K epoxy; secure the bond line with tongue-and-groove or inserted dowel pins, otherwise the joint becomes the weak point."
+      },
+      "maxSpoolWeightKg": {
+        "value": 8,
+        "unit": "kg",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "48 Produkte, 147 Spulen",
+        "note": {
+          "de": "Marktbeobachtung über 48 Produkte und 147 Spulenangebote (Open Filament Database 2026.07.31). Größte am Markt geführte Spule. Reicht sie für das Bauteil nicht, fällt mitten im Druck ein Spulenwechsel an. Keine Lieferzusage — zusammen mit largeSpoolShare lesen.",
+          "en": "Market observation across 48 products and 147 spool offers (Open Filament Database 2026.07.31). Largest spool offered on the market. If it does not cover the part, a spool change falls in mid-print. Not a supply commitment — read together with largeSpoolShare."
+        }
+      },
+      "largeSpoolShare": {
+        "value": 13.6,
+        "unit": "%",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "Anteil der Spulen ab 2 kg; 147 Spulen betrachtet",
+        "note": {
+          "de": "Marktbeobachtung über 48 Produkte und 147 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
+          "en": "Market observation across 48 products and 147 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
       }
     },
     "smallSeriesSuitability": {
@@ -1292,6 +1320,20 @@
         "note": {
           "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
           "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
+      },
+      {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ],

@@ -31,9 +31,18 @@
     "density": {
       "value": 1.2,
       "unit": "g/cm³",
-      "source": "src_bambu_tds",
+      "source": [
+        "src_bambu_tds",
+        "src_ofd"
+      ],
       "confidence": "medium",
-      "testStandard": "ISO 1183"
+      "testStandard": "ISO 1183",
+      "min": 1.1,
+      "max": 1.2,
+      "note": {
+        "de": "Spanne: Marktkorridor über 34 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Range: Market corridor across 34 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+      }
     },
     "tensileStrengthXy": {
       "value": 62,
@@ -812,6 +821,28 @@
           "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
           "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
         }
+      },
+      "maxSpoolWeightKg": {
+        "value": 5,
+        "unit": "kg",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "34 Produkte, 151 Spulen",
+        "note": {
+          "de": "Marktbeobachtung über 34 Produkte und 151 Spulenangebote (Open Filament Database 2026.07.31). Größte am Markt geführte Spule. Reicht sie für das Bauteil nicht, fällt mitten im Druck ein Spulenwechsel an. Keine Lieferzusage — zusammen mit largeSpoolShare lesen.",
+          "en": "Market observation across 34 products and 151 spool offers (Open Filament Database 2026.07.31). Largest spool offered on the market. If it does not cover the part, a spool change falls in mid-print. Not a supply commitment — read together with largeSpoolShare."
+        }
+      },
+      "largeSpoolShare": {
+        "value": 14.6,
+        "unit": "%",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "Anteil der Spulen ab 2 kg; 151 Spulen betrachtet",
+        "note": {
+          "de": "Marktbeobachtung über 34 Produkte und 151 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
+          "en": "Market observation across 34 products and 151 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
       }
     },
     "reentsPortfolioStatus": {
@@ -837,7 +868,17 @@
         "de": "Erhoben, nicht geschätzt: 8 Listenpreise von 6 Marken (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
         "en": "Surveyed, not estimated: 8 list prices from 6 brands (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
-    }
+    },
+    "spoolSizes": [
+      "0.25 kg",
+      "0.5 kg",
+      "0.75 kg",
+      "0.97 kg",
+      "1 kg",
+      "2.3 kg",
+      "3 kg",
+      "5 kg"
+    ]
   },
   "governance": {
     "lastReviewed": "2026-08-01",
@@ -878,6 +919,20 @@
         "note": {
           "de": "8 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
           "en": "8 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
+        }
+      },
+      {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ],

@@ -401,6 +401,23 @@
         "value": "not-classified",
         "source": "estimate_reasoning",
         "confidence": "estimated"
+      },
+      "ul94ViaProduct": {
+        "value": "V-0",
+        "products": [
+          {
+            "id": "formfutura-luvocom-paht-kk-fr",
+            "name": "LUVOCOM 3F PAHT KK 50056 BK FR",
+            "brand": "LUVOCOM 3F",
+            "thicknessMm": 1.6
+          }
+        ],
+        "source": "src_flame_formfutura_luvocom_paht_kk_fr",
+        "confidence": "medium",
+        "note": {
+          "de": "PAHT als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: LUVOCOM 3F PAHT KK 50056 BK FR. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "PAHT as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: LUVOCOM 3F PAHT KK 50056 BK FR. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+        }
       }
     },
     "printEmissions": {
@@ -544,6 +561,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_flame_formfutura_luvocom_paht_kk_fr",
+        "type": "manufacturer-tds",
+        "publisher": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+        "productName": "LUVOCOM 3F PAHT KK 50056 BK FR",
+        "title": "LUVOCOM 3F PAHT KK 50056 BK FR — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256575?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
       }
     ],
     "openQuestions": [

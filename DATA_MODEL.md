@@ -98,6 +98,13 @@ ausdrückliches Projektziel (die Datenbank soll auch ohne die App nutzbar sein).
 | `estimate_reasoning` | Fachliche Ableitung ohne Beleg | `estimated` |
 | `field_experience_reents` | Belegte eigene Fertigungserfahrung | `medium` |
 | `vendor_claim_unverified` | Marketingaussage ohne Prüfbeleg | `low` |
+| `src_ofd` | Open Filament Database — **Marktbeobachtung**, keine Messung | `low` |
+
+> `src_ofd` beantwortet ausschließlich die Frage „was wird angeboten", nie „wie verhält es
+> sich". Die Sammlung führt keine Prüfnormen und keine Kennwerte. Zulässig sind daraus:
+> Spulengrößen, Verfügbarkeitsanteile und Marktspannen (`min`/`max`) von Dichte und
+> Verarbeitungstemperaturen. Unzulässig ist jeder mechanische oder thermische Kennwert —
+> siehe ADR-035.
 
 > `field_experience_reents` darf **nur** gesetzt werden, wenn die Erfahrung tatsächlich
 > existiert und benannt werden kann. Im Referenzdatensatz wurde sie bewusst **nicht**
@@ -115,7 +122,8 @@ Aussage plausibel ist. Das Ceiling macht diese Regel maschinenprüfbar (R9).
 Das Schema erlaubt nur diese Einheiten (Tippfehler brechen die CI):
 
 `MPa` · `%` · `°C` · `kJ/m²` · `g/cm³` · `g/10min` · `€/kg` · `mm` · `mm/s` · `h` ·
-`%RH` · `Ω` · `Ω/sq` · `Ω·cm` · `1e-6/K` · `W/(m·K)` · `-` · `°` · `a` · `kg CO2e/kg` · `Shore D`
+`%RH` · `Ω` · `Ω/sq` · `Ω·cm` · `1e-6/K` · `W/(m·K)` · `-` · `°` · `a` · `kg CO2e/kg` ·
+`Shore D` · `kg`
 
 Moduli werden **in MPa** geführt (nicht GPa), weil alle ausgewerteten Datenblätter das so
 tun — jede Umrechnung beim Erfassen ist eine Fehlerquelle. Die Umschaltung auf
@@ -366,6 +374,8 @@ Messebau-Kunde eine ehrliche Antwort braucht.
 | `typicalLeadTime` | T | |
 | `spoolSizes` | L | Großspulen sind für XXL entscheidend |
 | `xxl.maxSensibleEdgeMm` | Q | mm |
+| `xxl.maxSpoolWeightKg` | Q | kg — größte am Markt beobachtete Spule |
+| `xxl.largeSpoolShare` | Q | % — Anteil der Angebote ab 2 kg |
 | `xxl.segmentationRecommended` | F | |
 | `xxl.joiningRecommendation` | T | |
 | `reentsPortfolioStatus` | C | `standard` / `on-request` / `partner-production` / `not-in-portfolio` / `unknown` |
@@ -376,6 +386,17 @@ Messebau-Kunde eine ehrliche Antwort braucht.
 `xxl.maxSensibleEdgeMm` ist die „maximale sinnvolle Bauteilkante" — nicht der
 Maschinenbauraum. Sie berücksichtigt Warping, Kammerbedarf, Spulengröße im Dauerlauf und
 Materialkosten bei großer Masse.
+
+**`maxSpoolWeightKg` und `largeSpoolShare` gehören zusammengelesen.** Die Maximalspule
+allein täuscht: Bei `pa12` existiert am Markt keine Spule über 1 kg, bei `pla-cf` gibt es
+5 kg — aber nur 5,6 % aller Angebote erreichen überhaupt 2 kg. Wer nach der Maximalzahl
+plant, sucht am Ende einen einzelnen Anbieter in einer einzigen Farbe. Für ein Großteil,
+das mehrere Kilogramm verbraucht, entscheidet die Kombination beider Zahlen darüber, ob
+mitten im Bauteil ein Spulenwechsel fällt — mit Chargenwechsel, sichtbarer Naht und
+Abbruchrisiko.
+
+Beide sind **Marktbeobachtungen, keine Messungen und keine Lieferzusagen** (`src_ofd`,
+Ceiling `low`, ADR-035).
 
 ### J · `governance` — Datenqualität
 
