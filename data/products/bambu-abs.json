@@ -140,5 +140,25 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "alzament-abs"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "tensileStrengthZ"
+    ],
+    "note": {
+      "de": "9 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Alzament ABS. Damit sind es nicht 2 Belege, sondern einer. Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: Das Alzament-Blatt desselben Werkstoffs verweist zum Trocknen auf das „X1 Series Printer Heatbed“ — ein Bambu-Gerät — und übernimmt die Zahlen der Bambu-Fassung V3.0 samt deren Tippfehler „MPA“. Der Verweis läuft in eine Richtung. Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.",
+      "en": "9 values in this record appear identically at: Alzament ABS. That makes them not 2 pieces of evidence but one. For this record it is established that it is not the copy: Das Alzament-Blatt desselben Werkstoffs verweist zum Trocknen auf das „X1 Series Printer Heatbed“ — ein Bambu-Gerät — und übernimmt die Zahlen der Bambu-Fassung V3.0 samt deren Tippfehler „MPA“. Der Verweis läuft in eine Richtung. Its values therefore keep their confidence — those of the other parties do not."
+    }
   }
 }

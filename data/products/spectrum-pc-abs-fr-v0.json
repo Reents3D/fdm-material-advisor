@@ -28,14 +28,14 @@
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 35,
       "unit": "kJ/m²",
       "testStandard": "ISO 180/4A, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 4,
@@ -57,7 +57,7 @@
       "unit": "MPa",
       "testStandard": "ISO 527-2/1",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 60,
@@ -65,14 +65,14 @@
       "testStandard": "ISO 527-2/50",
       "conditions": "Streckspannung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 110,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatB50": {
       "value": 104,
@@ -86,7 +86,7 @@
       "unit": "°C",
       "testStandard": "ISO 75-2/A, 1,8 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "compliance": {
@@ -121,5 +121,22 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-abspro-fr"
+    ],
+    "sharedFields": [
+      "density",
+      "flexuralStrengthXy",
+      "hdtA",
+      "izodNotchedXy",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "6 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ABSpro Flame Retardant. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "6 values in this record appear identically at: FormFutura ABSpro Flame Retardant. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

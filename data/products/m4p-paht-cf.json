@@ -29,35 +29,35 @@
       "unit": "MPa",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 2,
       "unit": "%",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 10500,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyUnnotchedXy": {
       "value": 35,
       "unit": "kJ/m²",
       "testStandard": "ISO 179 1eU",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtA": {
       "value": 90,
       "unit": "°C",
       "testStandard": "ISO 75",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 280,
@@ -95,5 +95,21 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-luvocom-paht-cf-9891"
+    ],
+    "sharedFields": [
+      "charpyUnnotchedXy",
+      "elongationAtBreakXy",
+      "hdtA",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "5 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: LUVOCOM 3F LUVOCOM 3F PAHT CF 9891. Damit sind es nicht 2 Belege, sondern einer. Als Ursprung dieser Zahlen ist LUVOCOM 3F LUVOCOM 3F PAHT CF 9891 belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
+      "en": "5 values in this record appear identically at: LUVOCOM 3F LUVOCOM 3F PAHT CF 9891. That makes them not 2 pieces of evidence but one. LUVOCOM 3F LUVOCOM 3F PAHT CF 9891 is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+    }
   }
 }

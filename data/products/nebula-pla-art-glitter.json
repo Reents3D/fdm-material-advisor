@@ -105,7 +105,7 @@
       "max": 240,
       "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 30,
@@ -114,7 +114,7 @@
       "max": 60,
       "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "governance": {
@@ -136,5 +136,34 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "fiberlogy-easy-pla",
+      "fillamentum-pla-extrafill",
+      "nebula-pla-art-glowing",
+      "nebula-pla-art-marble",
+      "nebula-pla-art-mystic-green",
+      "nebula-pla-art-thermo",
+      "nebula-pla-premium",
+      "spectrum-pla-premium"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "glassTransition",
+      "hdtB",
+      "meltFlowRate",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "11 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy Easy PLA · Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Damit sind es nicht 9 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "11 values in this record appear identically at: Fiberlogy Fiberlogy Easy PLA · Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. That makes them not 9 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

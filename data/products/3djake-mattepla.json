@@ -29,14 +29,14 @@
       "unit": "MPa",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2600,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 4,
@@ -50,14 +50,14 @@
       "unit": "%",
       "testStandard": "ISO 527-2",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 2650,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatA": {
       "value": 60,
@@ -65,14 +65,14 @@
       "testStandard": "ISO 306",
       "conditions": "Wandstärke mindestens 4 mm",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "density": {
       "value": 1.3,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 215,
@@ -80,7 +80,7 @@
       "min": 200,
       "max": 230,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 30,
@@ -110,5 +110,23 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "extrudr-pla-nx2-matt"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "vicatA"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Extrudr Extrudr PLA NX2 Matt. Damit sind es nicht 2 Belege, sondern einer. Als Ursprung dieser Zahlen ist Extrudr Extrudr PLA NX2 Matt belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
+      "en": "7 values in this record appear identically at: Extrudr Extrudr PLA NX2 Matt. That makes them not 2 pieces of evidence but one. Extrudr Extrudr PLA NX2 Matt is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+    }
   }
 }

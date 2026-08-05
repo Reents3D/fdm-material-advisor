@@ -28,7 +28,7 @@
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "meltFlowRate": {
       "value": 12,
@@ -46,7 +46,7 @@
       "max": 180,
       "testStandard": "ASTM D3418",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "glassTransition": {
       "value": 57.5,
@@ -55,7 +55,7 @@
       "max": 60,
       "testStandard": "ASTM D3418",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 40,
@@ -64,7 +64,7 @@
       "conditions": "Blattangabe 5.802 psi",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2865,
@@ -73,7 +73,7 @@
       "conditions": "Blattangabe 416 kpsi",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 73,
@@ -82,7 +82,7 @@
       "conditions": "Blattangabe 10.588 psi",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 3827,
@@ -101,7 +101,7 @@
       "testStandard": "ASTM E2092",
       "conditions": "66 psi = 0,45 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 215,
@@ -141,5 +141,23 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "spectrum-pla-pro"
+    ],
+    "sharedFields": [
+      "density",
+      "flexuralStrengthXy",
+      "glassTransition",
+      "hdtB",
+      "meltingTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Spectrum Spectrum PLA Pro. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "7 values in this record appear identically at: Spectrum Spectrum PLA Pro. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

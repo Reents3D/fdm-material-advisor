@@ -28,7 +28,7 @@
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 40,
@@ -37,7 +37,7 @@
       "conditions": "bei Streckgrenze",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2200,
@@ -45,7 +45,7 @@
       "testStandard": "ISO 527-1",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 2.8,
@@ -53,7 +53,7 @@
       "testStandard": "ISO 527-1",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 6,
@@ -61,7 +61,7 @@
       "testStandard": "ISO 527-1",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyUnnotchedXy": {
       "value": 25,
@@ -70,7 +70,7 @@
       "conditions": "23 °C",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyNotchedXy": {
       "value": 7.5,
@@ -79,7 +79,7 @@
       "conditions": "23 °C, gekerbt",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatA": {
       "value": 94,
@@ -124,5 +124,23 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "fiberlogy-asa-af"
+    ],
+    "sharedFields": [
+      "charpyNotchedXy",
+      "charpyUnnotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "elongationAtYieldXy",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy ASA+AF. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "7 values in this record appear identically at: Fiberlogy Fiberlogy ASA+AF. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

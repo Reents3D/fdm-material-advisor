@@ -29,7 +29,7 @@
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 35,
@@ -38,7 +38,7 @@
       "conditions": "gekerbt, 23 °C",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 60,
@@ -47,7 +47,7 @@
       "conditions": "bei Streckgrenze, 50 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2850,
@@ -56,7 +56,7 @@
       "conditions": "1 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 110,
@@ -64,7 +64,7 @@
       "testStandard": "ISO 178",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtA": {
       "value": 90,
@@ -72,7 +72,7 @@
       "testStandard": "ISO 75-2A",
       "conditions": "1,8 MPa (Methode A)",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatA": {
       "value": 104,
@@ -114,5 +114,22 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "spectrum-pc-abs-fr-v0"
+    ],
+    "sharedFields": [
+      "density",
+      "flexuralStrengthXy",
+      "hdtA",
+      "izodNotchedXy",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "6 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Spectrum Spectrum PC/ABS FR V0. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "6 values in this record appear identically at: Spectrum Spectrum PC/ABS FR V0. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

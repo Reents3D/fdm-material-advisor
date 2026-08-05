@@ -28,7 +28,7 @@
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "waterAbsorption": {
       "value": 8,
@@ -36,7 +36,7 @@
       "testStandard": "ISO 62",
       "conditions": "23 °C, Sättigung in Wasser",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 120,
@@ -45,7 +45,7 @@
       "conditions": "23 °C, 50 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 9000,
@@ -54,7 +54,7 @@
       "conditions": "23 °C, 50 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 4,
@@ -63,7 +63,7 @@
       "conditions": "23 °C, 50 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 180,
@@ -72,7 +72,7 @@
       "conditions": "23 °C, 2 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 8000,
@@ -81,7 +81,7 @@
       "conditions": "23 °C, 2 mm/min",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyUnnotchedXy": {
       "value": 60,
@@ -90,7 +90,7 @@
       "conditions": "23 °C",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyNotchedXy": {
       "value": 4,
@@ -99,7 +99,7 @@
       "conditions": "23 °C, gekerbt",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 180,
@@ -137,5 +137,26 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "spectrum-pa6-cf15"
+    ],
+    "sharedFields": [
+      "charpyNotchedXy",
+      "charpyUnnotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtA",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "waterAbsorption"
+    ],
+    "note": {
+      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Spectrum Spectrum PA6 Low Warp CF15. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "10 values in this record appear identically at: Spectrum Spectrum PA6 Low Warp CF15. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

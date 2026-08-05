@@ -15,10 +15,8 @@
  * Pruefung.
  *
  * WAS DIESER TEST LEISTET UND WAS NICHT
- * Er behauptet nicht, die 16 offenen Faelle seien geklaert - sie sind es nicht. Er haelt
- * fest, wie viele es sind, damit ein Import sie nicht still vermehrt. Und er sichert die
- * Faelle, die geklaert SIND: Wer ihre Konfidenz anhebt, macht aus einer Messung wieder
- * zwei, und der Test faellt.
+ * Alle 26 heute bekannten Paare sind gelesen und tragen `sharedLineage`. Der Test haelt
+ * fest, dass kein NEUES unbewertet dazukommt - und dass die bewerteten bewertet bleiben.
  *
  * Die Erkennung selbst steht in `scripts/check-lineage.ts` und wird hier importiert statt
  * nachgebaut. Eine Regel, die an zwei Stellen formuliert ist, driftet - das ist in diesem
@@ -38,14 +36,17 @@ const products = readdirSync(PROD).filter((f) => f.endsWith(".json"))
 const pairs = findLineagePairs(products);
 const open = pairs.filter((p: { handled: boolean }) => !p.handled);
 
-/* Stand 2026-08-05. Untergrenze, kein Ziel: Wer einen Fall klaert, zieht die Zahl nach. */
-const KNOWN_OPEN = 16;
+/* Stand 2026-08-05: alle 26 Paare sind gelesen und bewertet. Ein neuer Import darf die
+   Zahl nicht ohne Ansehen erhoehen - jedes neue Paar gehoert geprueft, bevor es liegt. */
+const KNOWN_OPEN = 0;
 
 describe("Markenuebergreifende Messungsdubletten", () => {
   it("vermehrt die offenen Faelle nicht still", () => {
     /* Ein Import bringt neue Produkte, und neue Produkte koennen alte Tabellen
-       mitbringen. Wenn diese Zahl steigt, ist ein Paar dazugekommen, das noch niemand
-       gelesen hat - das gehoert gesehen, bevor es in `main` liegt. */
+       mitbringen. Alle 26 heute bekannten Paare sind gelesen und tragen `sharedLineage`.
+       Steigt diese Zahl, ist ein Paar dazugekommen, das noch niemand gelesen hat - das
+       gehoert gesehen, bevor es in `main` liegt. `derive:lineage` laeuft in `import:all`
+       und setzt die Kennzeichnung; wer den Schritt vergisst, faellt hier auf. */
     expect(open.length).toBeLessThanOrEqual(KNOWN_OPEN);
   });
 

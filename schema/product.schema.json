@@ -58,6 +58,35 @@
     "features": {
       "$ref": "#/$defs/i18n"
     },
+    "sharedLineage": {
+      "type": "object",
+      "description": "Dieses Produkt teilt seine Messung mit Produkten ANDERER Marken - typischerweise, weil ein Compoundeur mehrere Marken beliefert und alle die Tabelle des Lieferanten weitergeben. Die zifferngleichen Werte tragen die Konfidenz `low`, weil sie kein zweiter Beleg sind: Zwei Marken mit derselben Messung sind ein Beleg. Gesetzt von scripts/derive-lineage.ts, siehe ADR-038.",
+      "required": [
+        "with",
+        "note"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "with": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "Produkt-IDs anderer Marken mit derselben Messung."
+        },
+        "sharedFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Feldnamen, deren Werte zifferngleich sind."
+        },
+        "note": {
+          "$ref": "#/$defs/i18n"
+        }
+      }
+    },
     "datasheet": {
       "type": "object",
       "required": [

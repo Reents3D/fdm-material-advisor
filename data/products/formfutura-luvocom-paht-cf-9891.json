@@ -131,5 +131,21 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "m4p-paht-cf"
+    ],
+    "sharedFields": [
+      "charpyUnnotchedXy",
+      "elongationAtBreakXy",
+      "hdtA",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "5 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Material4Print M4P PAHT-CF. Damit sind es nicht 2 Belege, sondern einer. Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: Das Blatt wird von der Lehvoss Group herausgegeben, also vom Compoundeur selbst; M4P führt eine Händler-Materialdatenblattseite. Ein Compoundeur steht stromaufwärts vom Wiederverkäufer. Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.",
+      "en": "5 values in this record appear identically at: Material4Print M4P PAHT-CF. That makes them not 2 pieces of evidence but one. For this record it is established that it is not the copy: Das Blatt wird von der Lehvoss Group herausgegeben, also vom Compoundeur selbst; M4P führt eine Händler-Materialdatenblattseite. Ein Compoundeur steht stromaufwärts vom Wiederverkäufer. Its values therefore keep their confidence — those of the other parties do not."
+    }
   }
 }

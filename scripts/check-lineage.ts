@@ -47,8 +47,11 @@ export const MIN_SHARE = 0.8;
 /* Bewusst schmal: Dieses Skript braucht Marke, Name und die Kennwerte - sonst nichts.
    Ein vollstaendiger Produkttyp wuerde es an das Schema binden, ohne etwas zu gewinnen. */
 export interface LineageProduct {
+  id?: string;
   brand: string;
   productName: string;
+  /** Von scripts/derive-lineage.ts gesetzt, sobald der Fall bewertet ist. */
+  sharedLineage?: { with: string[] };
   properties?: Record<string, { value?: number | null; confidence?: string }>;
 }
 
@@ -70,11 +73,21 @@ function measured(p: LineageProduct): Map<string, number> {
   return m;
 }
 
-/** Traegt dieser Datensatz seine Werte schon als nicht-eigenstaendig aus? */
-function declaresLow(p: LineageProduct): boolean {
-  const vals = Object.entries(p.properties ?? {}).filter(([k]) => !PROCESS.has(k));
-  if (!vals.length) return false;
-  return vals.every(([, v]) => v.confidence === "low" || v.confidence === "estimated");
+/**
+ * Ist dieses Paar bereits bewertet?
+ *
+ * Massgeblich ist `sharedLineage` - das Feld, das `derive-lineage.ts` setzt, wenn der
+ * Fall geprueft und die Folge gezogen ist. Die erste Fassung las stattdessen "traegt
+ * jeder Wert `low`", und das ging aus zwei Gruenden schief: Ein Datensatz mit einem
+ * einzigen NICHT geteilten Wert auf `medium` galt als unbehandelt, obwohl er es war -
+ * und umgekehrt galt jeder Datensatz aus einer schwachen Quelle als behandelt, ohne dass
+ * je jemand hingesehen haette. Eine Kennzeichnung ist eine Aussage, eine Konfidenz nicht.
+ */
+function isDeclared(a: LineageProduct, b: LineageProduct): boolean {
+  const names = (p: LineageProduct) => new Set(p.sharedLineage?.with ?? []);
+  if (a.id && names(b).has(a.id)) return true;
+  if (b.id && names(a).has(b.id)) return true;
+  return false;
 }
 
 export function findLineagePairs(products: LineageProduct[]): LineagePair[] {
@@ -94,9 +107,7 @@ export function findLineagePairs(products: LineageProduct[]): LineagePair[] {
       if (identical < MIN_IDENTICAL || identical / shared < MIN_SHARE) continue;
       out.push({
         a: products[i]!, b: products[j]!, identical, shared,
-        /* Als behandelt gilt ein Paar, wenn WENIGSTENS eine Seite ihre Werte
-           durchgaengig als `low` fuehrt - dann kann es die andere nicht bestaetigen. */
-        handled: declaresLow(products[i]) || declaresLow(products[j]),
+        handled: isDeclared(products[i]!, products[j]!),
       });
     }
   }
@@ -121,19 +132,19 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     `Erzeugt von \`npm run check:lineage\`. Schwelle: >= ${MIN_IDENTICAL} zifferngleiche`,
     `Kennwerte und >= ${Math.round(MIN_SHARE * 100)} % der gemeinsam belegten Felder.`,
     "",
-    `${pairs.length} Paare, davon ${pairs.length - open.length} bereits als \`low\` gefuehrt`,
+    `${pairs.length} Paare, davon ${pairs.length - open.length} bereits bewertet`,
     `und ${open.length} offen.`,
     "",
     "| gleich | gemeinsam | Produkt A | Produkt B | Stand |",
     "|---|---|---|---|---|",
-    ...pairs.map((p) => `| ${p.identical} | ${p.shared} | ${label(p.a)} | ${label(p.b)} | ${p.handled ? "gefuehrt" : "**offen**"} |`),
+    ...pairs.map((p) => `| ${p.identical} | ${p.shared} | ${label(p.a)} | ${label(p.b)} | ${p.handled ? "bewertet" : "**offen**"} |`),
     "",
   ];
   mkdirSync(path.join(ROOT, "data/_sources"), { recursive: true });
   writeFileSync(path.join(ROOT, "data/_sources/lineage-worklist.md"), `${lines.join("\n")}\n`);
 
   console.log(`${pairs.length} markenuebergreifende Dubletten oberhalb der Schwelle.`);
-  console.log(`  ${pairs.length - open.length} bereits als \`low\` gefuehrt · ${open.length} offen\n`);
+  console.log(`  ${pairs.length - open.length} bereits bewertet · ${open.length} offen\n`);
   console.log("  gleich/gemeinsam  Produkt A                            Produkt B");
   for (const p of pairs.slice(0, 12)) {
     console.log(`  ${String(p.identical).padStart(5)}/${String(p.shared).padEnd(11)}${label(p.a).padEnd(36)}${label(p.b)}${p.handled ? "" : "   <- offen"}`);

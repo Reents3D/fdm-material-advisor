@@ -27,7 +27,7 @@
       "value": 1.22,
       "unit": "g/cm³",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "meltingTemperature": {
       "value": 172.5,
@@ -35,7 +35,7 @@
       "min": 165,
       "max": 180,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 40,
@@ -43,7 +43,7 @@
       "orientation": "XY",
       "conditions": "gedruckt, 100 % Infill, getempert 110 °C / 20 min",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2865,
@@ -51,7 +51,7 @@
       "orientation": "XY",
       "conditions": "gedruckt, 100 % Infill, getempert 110 °C / 20 min",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 73,
@@ -59,7 +59,7 @@
       "orientation": "XY",
       "conditions": "gedruckt, 100 % Infill, getempert",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 2414,
@@ -84,7 +84,7 @@
       "max": 85,
       "conditions": "gedruckt, getempert",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "glassTransition": {
       "value": 57.5,
@@ -92,7 +92,7 @@
       "min": 55,
       "max": 60,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "governance": {
@@ -114,5 +114,23 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "nebula-pla-tech-609-hd"
+    ],
+    "sharedFields": [
+      "density",
+      "flexuralStrengthXy",
+      "glassTransition",
+      "hdtB",
+      "meltingTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Nebula Filaments PLA Tech 609 HD. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "7 values in this record appear identically at: Nebula Filaments PLA Tech 609 HD. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

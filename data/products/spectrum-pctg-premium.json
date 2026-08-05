@@ -27,38 +27,38 @@
       "value": 1.23,
       "unit": "g/cm³",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 44,
       "unit": "MPa",
       "conditions": "Streckspannung; Bruchspannung 46 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 4.4,
       "unit": "%",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 220,
       "unit": "%",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 60,
       "unit": "MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 1600,
       "unit": "MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 93,
@@ -73,14 +73,14 @@
       "unit": "°C",
       "testStandard": "ISO 75, 1,820 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 76,
       "unit": "°C",
       "testStandard": "ISO 75, 0,455 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "governance": {
@@ -102,5 +102,25 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "3djake-pctg",
+      "formfutura-athenax"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "elongationAtYieldXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtA",
+      "hdtB",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "8 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: 3DJAKE 3DJAKE PCTG · FormFutura AthenaX. Damit sind es nicht 3 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "8 values in this record appear identically at: 3DJAKE 3DJAKE PCTG · FormFutura AthenaX. That makes them not 3 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

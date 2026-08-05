@@ -29,56 +29,56 @@
       "unit": "MPa",
       "testStandard": "ISO 527 (Streckspannung; Bruchspannung 46 MPa)",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 4.4,
       "unit": "%",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 220,
       "unit": "%",
       "testStandard": "ISO 527",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 60,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 1600,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtA": {
       "value": 64,
       "unit": "°C",
       "testStandard": "ISO 75, 1,8 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 76,
       "unit": "°C",
       "testStandard": "ISO 75, 0,455 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "density": {
       "value": 1.23,
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 260,
@@ -116,5 +116,25 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-athenax",
+      "spectrum-pctg-premium"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "elongationAtYieldXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtA",
+      "hdtB",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "8 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura AthenaX · Spectrum Spectrum PCTG Premium. Damit sind es nicht 3 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "8 values in this record appear identically at: FormFutura AthenaX · Spectrum Spectrum PCTG Premium. That makes them not 3 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

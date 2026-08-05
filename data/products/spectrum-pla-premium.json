@@ -24,7 +24,7 @@
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 60,
@@ -32,42 +32,42 @@
       "testStandard": "ASTM D882 (siehe Befund)",
       "conditions": "Streckspannung; Bruchspannung 53 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 3500,
       "unit": "MPa",
       "testStandard": "ASTM D882 (siehe Befund)",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 6,
       "unit": "%",
       "testStandard": "ASTM D882 (siehe Befund)",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 83,
       "unit": "MPa",
       "testStandard": "ASTM D790",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 16,
       "unit": "J/m",
       "testStandard": "ASTM D256",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 55,
       "unit": "°C",
       "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "glassTransition": {
       "value": 57.5,
@@ -76,7 +76,7 @@
       "max": 60,
       "testStandard": "ASTM D3418",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 200,
@@ -84,7 +84,7 @@
       "min": 185,
       "max": 215,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 22,
@@ -122,5 +122,32 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "fiberlogy-easy-pla",
+      "fillamentum-pla-extrafill",
+      "nebula-pla-art-glitter",
+      "nebula-pla-art-glowing",
+      "nebula-pla-art-marble",
+      "nebula-pla-art-mystic-green",
+      "nebula-pla-art-thermo",
+      "nebula-pla-premium"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "flexuralStrengthXy",
+      "glassTransition",
+      "hdtB",
+      "izodNotchedXy",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "9 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy Easy PLA · Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium. Damit sind es nicht 9 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "9 values in this record appear identically at: Fiberlogy Fiberlogy Easy PLA · Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium. That makes them not 9 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

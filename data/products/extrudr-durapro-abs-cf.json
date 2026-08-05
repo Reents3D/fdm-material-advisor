@@ -112,5 +112,27 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "3djake-abs",
+      "extrudr-durapro-abs"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "charpyNotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtB",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS. Damit sind es nicht 3 Belege, sondern einer. Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: Wie DuraPro ABS. Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.",
+      "en": "10 values in this record appear identically at: 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS. That makes them not 3 pieces of evidence but one. For this record it is established that it is not the copy: Wie DuraPro ABS. Its values therefore keep their confidence — those of the other parties do not."
+    }
   }
 }

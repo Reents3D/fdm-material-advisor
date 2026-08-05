@@ -1735,20 +1735,53 @@ diese Marke mit diesem Wert gibt — und die ist für die Beschaffung durchaus r
 **2. Die Erkennung läuft automatisch.** `npm run check:lineage` findet Produktpaare
 verschiedener Marken mit **≥ 5 zifferngleichen Kennwerten und ≥ 80 % der gemeinsam
 belegten Felder**. Prozessparameter zählen nicht mit — dass zwei PLA-Blätter 210 °C
-empfehlen, sagt nichts über ihre Herkunft. Stand 2026-08-05: 26 Paare, 10 davon bereits
-als `low` geführt, **16 offen**.
+empfehlen, sagt nichts über ihre Herkunft. Stand 2026-08-05: **26 Paare in 13 Gruppen,
+alle gelesen und bewertet.**
 
-**3. Ein Test hält die Zahl der offenen Fälle fest.** Nicht, weil sie geklärt wären —
-sie sind es nicht —, sondern damit ein Import sie nicht still vermehrt.
+**3. Die Folge zieht `npm run derive:lineage`.** Jeder betroffene Datensatz bekommt das
+Schemafeld `sharedLineage` mit den Partnern, den geteilten Feldnamen und einem Satz, der
+die Lage benennt. Die zifferngleichen Werte werden auf `low` gesetzt — 149 Werte an
+38 Datensätzen. Der Schritt wertet nur ab, nie auf, und ist idempotent.
 
-**4. Was das Skript nicht tut: entscheiden.** Es sagt, wo sich das Nachsehen lohnt. Ob
-ein Paar eine Übernahme ist, steht in den Blättern.
+**4. Im Regelfall werden ALLE Beteiligten abgewertet.** Naheliegend wäre, die
+abgeschriebene Seite zu entwerten und die originale stehen zu lassen. Das setzt voraus,
+dass man die Richtung kennt — und meist kennt man sie nicht: FormFutura gegen Spectrum
+sind zwei Abfüller, und die Tabelle stammt vermutlich von einem Dritten, den kein Blatt
+nennt. Dann gibt es keine Vorlage und keine Kopie, sondern zwei Weitergaben derselben
+fremden Messung. Eine Seite willkürlich als Original zu führen wäre eine erfundene
+Behauptung. Beide abzuwerten ist dagegen genau richtig: Die Konfidenz beschreibt, wie gut
+für einen Wert geradegestanden werden kann — und wenn niemand sagt, wer gemessen hat,
+kann es keiner der beiden.
+
+**5. Die Ausnahme braucht einen Beleg, keine Vermutung.** Sechs Datensätze behalten ihre
+Konfidenz, weil ihr Vorrang aus den Daten hervorgeht:
+
+| Ursprung | Beleg |
+|---|---|
+| Bambu ABS / ASA | Das Alzament-Blatt verweist auf ein Bambu-Gerät und trägt Bambus Zahlen samt deren Tippfehler — der Verweis läuft in eine Richtung |
+| LUVOCOM 3F PAHT CF 9891 | Herausgeber ist die Lehvoss Group, also der Compoundeur; M4P führt eine Händlerseite |
+| Extrudr DuraPro ABS / ABS CF / PLA NX2 Matt | Extrudr ist Filamenthersteller, 3DJAKE die Eigenmarke des Shopbetreibers Niceshops — ein Shop betreibt kein Polymerlabor |
+
+Die Liste steht als `ORIGINS` im Skript, jeder Eintrag mit seinem Beleg. Wer sie
+ergänzt, schreibt den Beleg daneben — sonst ist es eine Behauptung über ein Unternehmen.
+
+**Warum diese Ausnahme sein muss:** Der erste Lauf ohne sie setzte Bambu ABS und ASA auf
+`low`, weil Alzament von ihnen abgeschrieben hatte. Eine Regel, die die beste Quelle des
+Bestands beschädigt, weil jemand sie kopiert hat, ist falsch herum gebaut.
 
 ### Konsequenzen
 
 Die Behauptung „N Hersteller belegen diesen Wert" ist im Bestand nicht mehr ohne
-Prüfung haltbar, und das ist der Punkt. 16 offene Paare sind eine Arbeitsliste, kein
-Makel — vorher waren es dieselben 16, nur unsichtbar.
+Prüfung haltbar, und das ist der Punkt. Auf der Produktebene steigt der Anteil `low`
+von 19 auf 26 % — das ist kein Rückschritt, sondern das Ende einer Überschätzung.
+
+**Die Prüfung sieht nur über Markengrenzen.** Innerhalb einer Marke prüft sie nichts,
+weil Farbvarianten desselben Grundmaterials sich zu Recht eine Tabelle teilen. Der Preis
+dafür steht bei Extrudr: **DuraPro ABS und DuraPro ABS CF tragen alle zehn Kennwerte
+identisch**, einschließlich eines Zug-E-Moduls von 2.350 MPa. Ein kurzfaserverstärktes
+ABS erreicht das Zwei- bis Dreifache — die CF-Variante hat offensichtlich die Tabelle des
+ungefüllten Materials geerbt. Wer die beiden im Werkzeug vergleicht, sieht keinen
+Unterschied, wo einer sein müsste. Das ist ein offener Fall, kein gelöster.
 
 **Die Prüfung ist ein Netz, kein Beweis.** Von den drei belegten Alzament-Übernahmen
 findet sie zwei. Das dritte Paar (PLA Basic) kommt auf 6 von 8 gleichen Werten, also
