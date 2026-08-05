@@ -4,16 +4,20 @@
  * Quelle: https://extrudr.com/de/de/page/downloads-for-resellers/
  * 37 deutschsprachige TDS auf s3.extrudr.com, Namensschema {slug}-TDS-de.pdf.
  *
- * ACHTUNG: DIESES SKRIPT NIE ALLEIN LAUFEN LASSEN, SONDERN IMMER `npm run import:all`.
- * Es schreibt nicht nur Produkte, sondern auch WERKSTOFFDATEIEN - und schreibt sie
- * vollstaendig neu. Alles, was die nachgelagerten Schritte dort ergaenzt haben, ist
- * danach weg: `derive:chemicals` (19 Chemikalienbewertungen je Werkstoff),
- * `derive:price`, `derive:xxl`, `derive:flame`, `apply:field`. Am 2026-08-05 hat ein
- * einzelner Lauf dieses Skripts zwoelf Werkstoffdateien um 250 bis 350 Zeilen gekuerzt;
- * aufgefallen ist es nur, weil die Zeilenstatistik des Commits danebenstand. Weder
- * Schema noch Plausibilitaetspruefung schlagen an - die Dateien sind ohne diese Felder
- * gueltig, nur aermer. Dasselbe gilt fuer jeden anderen Importer, der Werkstoffe
- * schreibt.
+ * ACHTUNG: NACH EINEM EINZELLAUF IMMER `npm run derive:all` HINTERHER.
+ * Dieses Skript schreibt nicht nur Produkte, sondern auch WERKSTOFFDATEIEN - und
+ * schreibt sie vollstaendig neu. Alles, was die nachgelagerten Schritte dort ergaenzt
+ * haben, ist danach weg: 798 Chemikalienbewertungen, Preise, XXL-Aufwand, Brandschutz,
+ * Anisotropiefaktoren, Feldwissen. Am 2026-08-05 hat ein einzelner Lauf dieses Skripts
+ * zwoelf Werkstoffdateien um 250 bis 350 Zeilen gekuerzt.
+ *
+ * Weder Schema noch Plausibilitaetspruefung schlagen dabei an - die Dateien bleiben ohne
+ * diese Felder gueltig, nur aermer. Aufgefallen ist es damals nur an der Zeilenstatistik
+ * des Commits. Seitdem haelt `tests/data/inventory-floor.test.ts` die Bestandszahlen als
+ * Untergrenze fest und macht den Verlust rot.
+ *
+ * Elf Importer schreiben Werkstoffdateien; das hier ist keine Eigenheit dieses einen.
+ * `npm run import:all` enthaelt die derive-Kette bereits.
  *
  * Zwei Ausgaben:
  *  1) PRODUKTE unter den generischen Werkstofftypen. "DuraPro ASA" ist Extrudrs eigene
