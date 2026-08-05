@@ -267,15 +267,49 @@ den bereits verlinkten Nachzüglern:
 | Protopasta | 40 | — |
 | FilamentPM | 37 | — |
 
-Gegenrichtung: Von den 148 verlinkten Fundstellen sind **FormFutura (48) und Nebula (17)
-ausgewertet**; offen bleiben Bambu Lab 40, Alzament 13, Anycubic 12 und die Einzelfunde.
+Gegenrichtung: Von den 148 verlinkten Fundstellen sind **FormFutura (48), Nebula (17) und
+Alzament (13) ausgewertet**; offen bleiben Bambu Lab 40, Anycubic 12 und die Einzelfunde.
 Die tagesaktuelle Liste erzeugt `npm run import:ofd-datasheets`.
 
-> **Was die Auswertung dieser beiden Marken über die Datenlage gezeigt hat:** Von 63
-> ausgewerteten Blättern tragen 17 keine eigene Messung, sondern die Tabelle eines
-> anderen Produkts — und die generische PLA-Tabelle taucht bei **beiden** Herstellern
-> auf, also über Markengrenzen hinweg. Eine Zählung von Datenblättern ist deshalb keine
-> Zählung von Belegen. Jeder betroffene Datensatz sagt das und trägt `low`.
+> **Was die Auswertung dieser drei Marken über die Datenlage gezeigt hat:** Von 76
+> ausgewerteten Blättern tragen 20 keine eigene Messung, sondern die Tabelle eines
+> anderen Produkts — und die generische PLA-Tabelle taucht bei **beiden** erstgenannten
+> Herstellern auf, also über Markengrenzen hinweg. Eine Zählung von Datenblättern ist
+> deshalb keine Zählung von Belegen. Jeder betroffene Datensatz sagt das und trägt `low`.
+>
+> Drei weitere der dreizehn Alzament-Fundstellen sind gar keine technischen Blätter,
+> sondern **Sicherheitsdatenblätter** (GHS-Einstufung, Löschmittel) ohne einen einzigen
+> Kennwert. Die OFD führt sie trotzdem unter `data_sheet_url`. Ein Link in der
+> Arbeitsliste ist also nicht einmal ein Hinweis darauf, dass Kennwerte existieren.
+
+### `src_tds` — Alzament (Alza.cz, Prag)
+
+Handelsmarke des tschechischen Händlers Alza.cz; als Hersteller nennen die Blätter
+**Landu Innovations Technology Co., Ltd.** in Shenzhen. 13 Fundstellen über die
+OFD-Arbeitsliste, davon 10 technische Blätter, alle englisch und mit Textebene.
+Abgerufen am 2026-08-05, Obergrenze `medium` — mit einer Ausnahme.
+
+**Die Ausnahme ist der eigentliche Befund.** Die Blätter zu ABS, ASA und PLA Basic sind
+zeilenweise die Bambu-Blätter derselben Werkstoffe. Beim ABS stimmen **10 von 14 Zeilen
+ziffernidentisch** überein — einschließlich der Toleranzen und einschließlich des
+Tippfehlers „MPA" statt „MPa" beim Z-Modul. Die vier abweichenden Zeilen sind die
+Festigkeiten, und die entsprechen der Bambu-Fassung V3.0, die dieser Datensatz führt.
+Zum Trocknen verweist das ABS-Blatt zusätzlich auf das „X1 Series Printer Heatbed" —
+ein Bambu-Lab-Drucker. Diese drei Datensätze tragen Obergrenze `low`, damit sie nicht
+als zweite Messung gelesen werden. Wer von wem abgeschrieben hat, sagen die Blätter
+nicht; belegt ist die gemeinsame Herkunft, nicht ihr Verlauf.
+
+Die übrigen sieben Blätter tragen eigene Zahlen. Das wertvollste ist **PLA-CF**: 31,2 MPa
+in X-Y gegen 15,1 MPa in Z aus demselben Prüfdurchgang — daraus ergibt sich der
+Anisotropiefaktor 0,48 für einen Werkstofftyp, der bisher keinen hatte. Das **PETG**-Blatt
+ist das einzige der dreizehn, das seine Prüfkörperbedingungen vollständig nennt
+(240 °C Düse, 80 °C Bett, 100 % Infill).
+
+Zwei Blätter sind in sich fehlerhaft und tragen durchgängig `low`: **PLA Chameleon**
+führt Zugfestigkeit X-Y und Z mit demselben Wert (26,1 MPa) — ein Anisotropiefaktor von
+1,00 kommt bei FDM nicht vor, der Z-Wert ist deshalb nicht übernommen. **PLA+** trägt
+unter „Composition" den Eintrag „Polyvinyl alcohol" und unter „Solubility" „Soluble in
+water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
 
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 

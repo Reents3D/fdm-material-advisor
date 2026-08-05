@@ -1,0 +1,180 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-pla-basic",
+  "materialId": "pla",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "PLA Basic",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nDieses Blatt ist keine eigene Messung. Der Zeilenvergleich gegen das Bambu-Blatt desselben Werkstoffs ergibt 10 von 14 Zeilen ziffernidentisch — einschließlich der Toleranzen und einschließlich des Tippfehlers „MPA“ statt „MPa“ beim Z-Modul. Die abweichenden Zeilen sind die Festigkeiten, und die entsprechen der Bambu-Fassung V3.0, die dieser Datensatz führt. Das ABS-Blatt verweist zum Trocknen zusätzlich auf das „X1 Series Printer Heatbed“ — ein Bambu-Lab-Drucker. Alle Werte tragen deshalb `low`: Wer Alzament und Bambu nebeneinanderstellt, vergleicht nicht zwei Hersteller, sondern eine Messung mit sich selbst. Wer von wem abgeschrieben hat, sagen die Blätter nicht — belegt ist die gemeinsame Herkunft, nicht ihr Verlauf.\n\nBefund zu diesem Datenblatt: Die Bruchdehnung in Z steht mit der Einheit MPa statt Prozent im Blatt — ein Übertragungsfehler in der Vorlage, der hier korrigiert übernommen wird; die Blattangabe steht in `conditions`.",
+    "en": "Specimens PRINTED: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nThis sheet is not an independent measurement. A row-by-row comparison against the Bambu sheet for the same material gives 10 of 14 rows digit-identical — including the tolerances and including the typo “MPA” instead of “MPa” on the Z modulus. The differing rows are the strengths, and they match the Bambu revision V3.0 this dataset holds. The ABS sheet additionally points to the “X1 Series Printer Heatbed” for drying — a Bambu Lab printer. All values therefore carry `low`: placing Alzament next to Bambu does not compare two manufacturers, it compares one measurement with itself. Who copied from whom the sheets do not say — the shared origin is established, its direction is not.\n\nFinding on this datasheet: The elongation at break in Z carries the unit MPa instead of per cent on the sheet — a transcription error in the template, imported corrected here, with the sheet's wording in `conditions`."
+  },
+  "features": {
+    "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",
+    "en": "Alzament is the own brand of the Czech retailer Alza.cz. The sheet names Landu Innovations Technology Co., Ltd. in Shenzhen as manufacturer and Alza.cz itself as tester."
+  },
+  "datasheet": {
+    "title": "Alzament PLA Basic — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/148629",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 / GB/T 1033",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 42.4,
+      "unit": "g/10min",
+      "tolerance": 3.5,
+      "conditions": "210 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2580,
+      "unit": "MPa",
+      "tolerance": 220,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusZ": {
+      "value": 2060,
+      "unit": "MPa",
+      "tolerance": 170,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 35,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthZ": {
+      "value": 31,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 6.3,
+      "unit": "%",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakZ": {
+      "value": 1.8,
+      "unit": "%",
+      "tolerance": 0.1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "Blatt schreibt in dieser Zeile „1.8 ± 0.1 MPa“ — die Einheit ist falsch, gemeint ist Prozent wie in der Zeile darüber",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2750,
+      "unit": "MPa",
+      "tolerance": 160,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusZ": {
+      "value": 2370,
+      "unit": "MPa",
+      "tolerance": 150,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 76,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthZ": {
+      "value": 59,
+      "unit": "MPa",
+      "tolerance": 6,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 3.3,
+      "unit": "kJ/m²",
+      "tolerance": 0.2,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 205,
+      "unit": "°C",
+      "min": 190,
+      "max": 220,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "min": 45,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "PLA Basic",
+        "title": "Alzament PLA Basic — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/148629",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Der Zeilenvergleich weist es als Wiedergabe des Bambu-Blattes desselben Werkstoffs aus — deshalb Obergrenze `low`, siehe Befund am Datensatz.",
+          "en": "English-language manufacturer datasheet with text layer. The row-by-row comparison identifies it as a rendering of the Bambu sheet for the same material — hence ceiling `low`, see the finding on the record."
+        }
+      }
+    ]
+  }
+}

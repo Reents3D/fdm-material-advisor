@@ -1,0 +1,129 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-pla-chameleon",
+  "materialId": "pla",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "PLA Chameleon",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Prüfkörper nicht deklariert — das Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde, und weist auch keine Z-Werte aus, aus denen es sich ableiten ließe.\n\nBefund zu diesem Datenblatt: Drei Befunde an einem Blatt. Erstens: Zugfestigkeit X-Y und Z stehen mit demselben Wert da (26,1 MPa). Ein Anisotropiefaktor von 1,00 kommt bei FDM nicht vor — quer zur Schicht liegt jeder gemessene Werkstoff darunter. Das ist ein Kopierfehler, geprüft an der gerenderten Seite; der Z-Wert ist deshalb NICHT übernommen. Zweitens: Der Einleitungssatz nennt „PLA-CF“ statt PLA Chameleon. Drittens: Der Schmelzindex ist ziffernidentisch mit dem PLA-CF-Blatt derselben Marke. Zusammen ergibt das ein aus einem anderen Blatt zusammengesetztes Dokument — alle Werte tragen `low`.",
+    "en": "Specimen not declared — the sheet does not say whether printed or moulded specimens were measured, and reports no Z values from which it could be inferred.\n\nFinding on this datasheet: Three findings on one sheet. First: tensile strength X-Y and Z carry the same value (26.1 MPa). An anisotropy factor of 1.00 does not occur in FDM — every measured material lies below it across the layers. This is a copy error, verified against the rendered page; the Z value is therefore NOT imported. Second: the introductory sentence names “PLA-CF” instead of PLA Chameleon. Third: the melt index is digit-identical with the same brand's PLA-CF sheet. Together this is a document assembled from another one — all values carry `low`."
+  },
+  "features": {
+    "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",
+    "en": "Alzament is the own brand of the Czech retailer Alza.cz. The sheet names Landu Innovations Technology Co., Ltd. in Shenzhen as manufacturer and Alza.cz itself as tester."
+  },
+  "datasheet": {
+    "title": "Alzament PLA Chameleon — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/149500",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.21,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 / GB/T 1033",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 3.7,
+      "unit": "g/10min",
+      "tolerance": 0.6,
+      "conditions": "220 °C, 2,16 kg — ziffernidentisch mit dem PLA-CF-Blatt derselben Marke",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 26.1,
+      "unit": "MPa",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.9,
+      "unit": "%",
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 115.6,
+      "unit": "MPa",
+      "testStandard": "GB/T 9341",
+      "conditions": "115,6 MPa ist für ein PLA sehr hoch — das PLA-Basic-Blatt derselben Marke nennt 76 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 3303,
+      "unit": "MPa",
+      "testStandard": "GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 52,
+      "unit": "°C",
+      "testStandard": "GB/T 1634",
+      "conditions": "Blatt nennt keine Prüflast; als Methode B geführt, weil 52 °C für ein PLA nur unter der kleinen Last (0,45 MPa) plausibel ist",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 3,
+      "unit": "kJ/m²",
+      "testStandard": "GB/T 1843",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 190,
+      "max": 230,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "min": 45,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "PLA Chameleon",
+        "title": "Alzament PLA Chameleon — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/149500",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}

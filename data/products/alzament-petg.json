@@ -1,0 +1,161 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-petg",
+  "materialId": "petg",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "PETG",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Biegemodul und Biegefestigkeit in Z sind mit „N/A“ ausgewiesen, obwohl die Zug- und Dehnungszeilen Z-Werte tragen. Der Grund steht nicht dabei.",
+    "en": "Specimens PRINTED: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: Flexural modulus and strength in Z are given as “N/A” although the tensile and elongation rows carry Z values. No reason is stated."
+  },
+  "features": {
+    "de": "Das einzige der dreizehn Blätter, das seine Prüfkörper beschreibt: gedruckt bei 240 °C Düse, 80 °C Bett, 100 % Infill. Damit ist nicht nur belegt, DASS gedruckt wurde, sondern auch wie — im Bestand sagen das 31 % der Messwerte, hier steht es vollständig. Die Zahlen weichen von Bambu PETG ab und sind eine eigene Messung.",
+    "en": "The only one of the thirteen sheets to describe its specimens: printed at 240 °C nozzle, 80 °C bed, 100 % infill. That establishes not merely THAT printing took place but how — across the dataset 31 % of measured values say so, here it is stated in full. The figures differ from Bambu PETG and are an independent measurement."
+  },
+  "datasheet": {
+    "title": "Alzament PETG — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/149498",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 / GB/T 1033",
+      "conditions": "23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 10.8,
+      "unit": "g/10min",
+      "conditions": "240 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2116.8,
+      "unit": "MPa",
+      "tolerance": 68.1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 1898.7,
+      "unit": "MPa",
+      "tolerance": 98.5,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50.8,
+      "unit": "MPa",
+      "tolerance": 0.9,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 42.8,
+      "unit": "MPa",
+      "tolerance": 2.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8.4,
+      "unit": "%",
+      "tolerance": 1.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 3.3,
+      "unit": "%",
+      "tolerance": 0.2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1898.5,
+      "unit": "MPa",
+      "tolerance": 35.5,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 69.6,
+      "unit": "MPa",
+      "tolerance": 0.8,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 2.6,
+      "unit": "kJ/m²",
+      "tolerance": 0.2,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 235,
+      "unit": "°C",
+      "min": 230,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 70,
+      "max": 80,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "PETG",
+        "title": "Alzament PETG — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/149498",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}
