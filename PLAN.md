@@ -1,8 +1,10 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-02 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
+**Stand:** 2026-08-05 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sie sind der einzige verbleibende Engpass
+**Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sowie die
+drei offenen Entscheidungen aus dem FormFutura-Import: PDF-Renderer für die 13 Rasterblätter,
+Werkstofftypen für PEEK/PEI/PCL/BVOH, Variantentypen `pctg-cf` und `pc-cf`
 
 ---
 
@@ -14,7 +16,7 @@
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
 | **3 — Oberfläche** | ✅ Wizard (6 Schritte, Schrittleiste, Antwortübersicht, Sackgassen-Auskunft, Schwerpunkte), Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ⬤ weit: 168 Herstellerprodukte aus 12 Marken, 38 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
+| **4 — Datenausbau** | ⬤ weit: 192 Herstellerprodukte aus 14 Marken, 41 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
@@ -23,15 +25,15 @@
 
 | Prüfung | Ergebnis |
 |---|---|
-| JSON Schema, 193 Dateien | PASS |
+| JSON Schema, 255 Dateien | PASS |
 | Plausibilität und Provenienz, 15 Regeln | 0 Fehler, 3 dokumentierte Datenblatt-Anomalien |
 | Typecheck (strict) | PASS |
-| Tests | 100 grün |
-| Bundle | 112 kB gzip JS + 6 kB CSS (Budget 350 kB) |
+| Tests | 135 grün |
+| Bundle | Erstaufruf 292 kB (Budget 320 kB) · gesamt 414 kB (Budget 500 kB) — ADR-036 |
 | Live-Deployment | HTTP 200, keine Konsolenfehler |
 
-**Konfidenz über die gesamte Datenbank: 2.613 belegte Aussagen —
-45 high · 611 medium · 126 low · 1.831 estimated.**
+**Konfidenz über die gesamte Datenbank: 2.824 belegte Aussagen —
+45 high · 639 medium · 239 low · 1.901 estimated.**
 
 70 % sind gekennzeichnete Schätzungen. Das ist kein Mangel der Erfassung, sondern der
 Zustand der öffentlichen Datenlage — und genau der Grund, warum die Konfidenzkennzeichnung
@@ -166,12 +168,45 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
 - [ ] Hersteller-Mapping (~30 Marken)
 - [ ] Glossar
 - [ ] Preiserhebung ≥ 5 Händler je Material
+- [x] **Open Filament Database angebunden** (ADR-035): Spulenlogistik für 21 Typen,
+      Marktkorridor für Dichte und Verarbeitungstemperaturen, Arbeitsliste mit 148 offenen
+      Datenblatt-Fundstellen. **Keine Kennwertquelle** — sie führt weder Mechanik noch
+      Thermik; der Datenausbau bleibt Handarbeit am Herstellerblatt
+- [x] **FormFutura ausgewertet** (2026-08-04): 24 Produkte aus 33 Blättern mit Textebene,
+      darunter erstmals **LUVOCOM 3F von Lehvoss** (PAHT-Linie, spritzgegossene
+      Prüfkörper deklariert). PAHT CF 9742 ist mit 15.000 MPa der steifste Werkstoff des
+      Bestands; PAHT KK 50056 FR der einzige mit EN-45545-Bahndaten
+- [ ] 13 FormFutura-Blätter sind Rasterseiten ohne Textebene (ABSpro, TitanX, EasyFil
+      ABS/ePLA/HIPS, EasyWood, Galaxy PLA, High Gloss PLA, PETG CarbonFil, ReFill PETG,
+      ReForm rPET u. a.) — brauchen einen PDF-Renderer, sonst bliebe nur Raten
+- [ ] Die übrigen ~100 verlinkten Fundstellen auswerten (Nebula 17, Alzament 13, Anycubic 12)
+- [ ] Polymaker, 3DXTech, PrimaCreator: im Marktbestand groß, ohne jeden Blattlink
 
 **Aufwand:** ~40–60 h · **DoD:** ≥ 60 Materialien, ≥ 25 davon `dataCompleteness` ≥ 85 %
 
 ---
 
 ### Phase 5 — Ausbau
+
+- [x] **Herstellerfilter in der Herstelleransicht** *(erledigt 2026-08-05)*
+
+  Vorher zeigte [src/views/Brands.tsx](src/views/Brands.tsx) nach der Wahl eines
+  Werkstofftyps **alle** Produkte als Spalten — bei PLA 46. Die Ansicht heißt „Hersteller
+  vergleichen"; ohne Auswahl verglich sie nichts, sie listete.
+
+  Jetzt: ein Knopf je Produkt, nach Marke sortiert, mit Prüfkörper-Angabe am Knopf.
+  Höchstens sechs nebeneinander (`Compare.tsx` deckelt bei fünf), Vorbelegung sind die
+  ersten sechs — `productsByMaterial()` sortiert gedruckte Prüfkörper nach vorn, die
+  Vorbelegung trifft damit automatisch die aussagekräftigsten Belege.
+
+  Werkstofftyp und Auswahl stehen in der URL (`bm`, `bp`, ADR-008), ein Vergleich ist
+  also teilbar. Der Werkstoffwechsel löscht die Auswahl, weil die IDs des alten Typs im
+  neuen nicht existieren. Die Trennung gedruckt/spritzgegossen bleibt unangetastet.
+
+  Die Auflösung des `bp`-Parameters liegt als reine Funktion in
+  [src/lib/brand-selection.ts](src/lib/brand-selection.ts) und wird von neun Tests
+  geprüft — dieselbe Fehlerklasse wie `cmp` und `chem`, die schon zweimal ungekappt
+  durchgerutscht ist (Vergleichsansicht 2026-08-02, Explorer danach).
 
 - [x] Explorer / Ashby-Plot (frei wählbare Achsen)
 - [ ] Trade-off-Radar
@@ -278,9 +313,25 @@ Getrennt von der Materialbewertung, damit die Unabhängigkeit sichtbar bleibt.
 Bauräume sind jetzt hinterlegt: **1.800 × 2.400 × 1.800 mm** und **1.200 × 1.200 × 2.200 mm**.
 Offen bleibt die materialabhängige Grenze — der Bauraum ist die Maschine, nicht der Werkstoff:
 - Welche Materialien wurden bis zu welcher Kantenlänge prozesssicher gefahren?
-- Wie löst ihr im Dauerlauf die Spulenlogistik (PETG-CF gibt es fast nur auf 1-kg-Spulen)?
+- ~~Wie löst ihr im Dauerlauf die Spulenlogistik?~~ → **Datenlage seit 2026-08-04 geklärt**, siehe unten
 - Bei welchen Materialien segmentiert ihr ab welcher Größe, und womit fügt ihr?
 → *Arbeitsannahme:* `maxSensibleEdgeMm` bleibt `estimated`, gedeckelt auf 2.400 mm.
+
+> **Spulenlogistik — die Annahme in der Frage war falsch.** Der Satz „PETG-CF gibt es fast
+> nur auf 1-kg-Spulen" hielt der Prüfung nicht stand: Über 48 Produkte und 147 Angebote im
+> Bestand der Open Filament Database reicht PETG-CF bis **8 kg**. Richtig an der Sorge war
+> etwas anderes — nur **13,6 %** aller PETG-CF-Angebote erreichen überhaupt 2 kg. Die
+> Großspule existiert, sie hängt aber an wenigen Anbietern und meist einer Farbe.
+>
+> Die eigentliche Falle liegt woanders: **`pa12` kennt am Markt keine einzige Spule über
+> 1 kg** (17 Produkte, 45 Angebote). `pla-cf` erreicht 5 kg, aber nur 5,6 % der Angebote
+> liegen bei 2 kg oder darüber. Wer ein mehrere Kilogramm schweres Bauteil in einem dieser
+> Werkstoffe plant, plant einen Spulenwechsel mitten im Druck ein — mit Chargenwechsel,
+> sichtbarer Naht und Abbruchrisiko.
+>
+> Erfasst als `commercial.xxl.maxSpoolWeightKg` und `largeSpoolShare` für 21 Werkstofftypen
+> (`npm run import:ofd-spools`, Quelle `src_ofd`, Ceiling `low` — Marktbeobachtung, keine
+> Lieferzusage). Offen bleibt die Werkstattfrage: Wie handhabt ihr den Wechsel heute?
 
 **7 · Veredelung**
 Ähnlich wertvoll und ebenfalls nirgends dokumentiert: Erfahrungswerte zu Lackhaftung,

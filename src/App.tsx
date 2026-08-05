@@ -298,7 +298,7 @@ export function App() {
             }
           >
             {route.view === "matrix" && <Matrix t={t} lang={state.lang} navigate={navigate} />}
-            {route.view === "brands" && <Brands t={t} lang={state.lang} navigate={navigate} />}
+            {route.view === "brands" && <Brands t={t} lang={state.lang} params={params} navigate={navigate} />}
           </Suspense>
         )}
         {route.view === "usecases" && <UseCases t={t} lang={state.lang} />}
