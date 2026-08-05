@@ -8,7 +8,7 @@ import { dataCompleteness, confidenceProfile } from "../engine";
 import type { ChemicalResistance, Quantity, Rating, Flag, Material } from "../engine/types";
 import { SITE, trackedUrl } from "../config/site";
 import { Card, Chip, ConfidenceMark, RatingBar, Section, Value, cx, text } from "../components/ui";
-import { tally, verdict, type Graded } from "../lib/evidence";
+import { evidenceGrade, tallyGrades, verdict, type Graded } from "../lib/evidence";
 import type { Lang } from "../i18n";
 import type { AppState } from "../App";
 
@@ -119,7 +119,7 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           maxSpoolWeightKg: (m.commercial as { xxl?: { maxSpoolWeightKg?: unknown } })?.xxl?.maxSpoolWeightKg,
           largeSpoolShare: (m.commercial as { xxl?: { largeSpoolShare?: unknown } })?.xxl?.largeSpoolShare,
         }}
-        lang={lang} t={t} />
+        lang={lang} t={t} lab={false} />
 
       <ChemicalMatrix m={m} lang={lang} t={t} />
 
@@ -199,8 +199,12 @@ export function Detail({ id, t, lang, navigate, state, update }: {
   );
 }
 
-function PropertyGroup({ title, node, lang, t, skip = [] }: {
-  title: string; node: Record<string, unknown> | undefined; lang: Lang; t: T; skip?: string[];
+function PropertyGroup({ title, node, lang, t, skip = [], lab = true }: {
+  title: string; node: Record<string, unknown> | undefined; lang: Lang; t: T;
+  skip?: string[];
+  /** Sind die Werte dieser Gruppe Laborpruefungen? Marktbeobachtungen koennen keine
+   *  Pruefnorm tragen und duerfen deshalb nicht als "ohne Norm" markiert werden. */
+  lab?: boolean;
 }) {
   if (!node) return null;
   const rows = Object.entries(node).filter(([k, v]) => !skip.includes(k) && (isQ(v) || isR(v)));
@@ -215,7 +219,7 @@ function PropertyGroup({ title, node, lang, t, skip = [] }: {
               <tr key={key} className="border-b border-hairline/70 dark:border-[#172233] last:border-0 align-top">
                 <th scope="row" className="text-left font-normal muted py-2 px-3 w-52">{humanise(key, lang)}</th>
                 <td className="py-2 px-3 w-40">
-                  {isQ(v) ? <Value q={v} lang={lang} /> : isR(v) ? <RatingBar r={v} lang={lang} /> : null}
+                  {isQ(v) ? <Value q={v} lang={lang} lab={lab} /> : isR(v) ? <RatingBar r={v} lang={lang} /> : null}
                 </td>
                 <td className="py-2 px-3 text-xs muted">
                   {isQ(v) && (
@@ -282,17 +286,19 @@ function ChemicalMatrix({ m, lang, t }: { m: Material; lang: Lang; t: T }) {
  * aussehen lassen und die Aussage entwerten, um die es hier geht.
  */
 function EvidenceSummary({ m, lang }: { m: Material; lang: Lang }) {
-  const values: Graded[] = [];
-  const walk = (node: unknown) => {
+  const grades: (ReturnType<typeof evidenceGrade>)[] = [];
+  /* `commercial` sammelt Marktbeobachtungen — Preis, Verfügbarkeit, Spulengrößen. Die
+     können keine Prüfnorm tragen, und eine zu verlangen wäre ein Kategorienfehler. */
+  const walk = (node: unknown, lab: boolean) => {
     if (!node || typeof node !== "object") return;
-    if ("confidence" in (node as object)) { values.push(node as Graded); return; }
-    for (const v of Object.values(node)) walk(v);
+    if ("confidence" in (node as object)) { grades.push(evidenceGrade(node as Graded, { labMeasurement: lab })); return; }
+    for (const v of Object.values(node)) walk(v, lab);
   };
   for (const [group, node] of Object.entries(m)) {
     if (group === "governance") continue;
-    walk(node);
+    walk(node, group !== "commercial");
   }
-  const t = tally(values);
+  const t = tallyGrades(grades);
   const v = verdict(t);
   if (!v || t.robustShare === null) return null;
 

@@ -37,6 +37,21 @@ describe("Belastbarkeit eines Wertes", () => {
     expect(evidenceGrade({ confidence: "medium", derivedFrom: [] })).toBe("weak");
   });
 
+  it("verlangt keine Norm, wo keine moeglich ist", () => {
+    /* Ein Preis kann keine ISO-Nummer tragen. Seine Provenienz ist die Haendlerliste mit
+       Abrufdatum. Die erste Fassung verlangte trotzdem eine Norm und stufte damit JEDEN
+       Preis als `weak` ein - 33 von 41, obwohl die Erhebung ueber drei bis vier Haendler
+       laeuft und jedes Einzelangebot in der Quellennotiz steht. Dasselbe Muster wie beim
+       abgeleiteten Wert: Die Regel verlangte ein Laborattribut von etwas, das keine
+       Laborpruefung ist. */
+    expect(evidenceGrade({ confidence: "medium" }, { labMeasurement: false })).toBe("verified");
+    /* Die Ausnahme gilt nur fuer die Norm, nicht fuer die Quelle. */
+    expect(evidenceGrade({ confidence: "low" }, { labMeasurement: false })).toBe("weak");
+    expect(evidenceGrade({ confidence: "estimated" }, { labMeasurement: false })).toBe("editorial");
+    /* Und sie ist nicht der Normalfall: ohne Angabe bleibt es bei der Laborpruefung. */
+    expect(evidenceGrade({ confidence: "medium" })).toBe("weak");
+  });
+
   it("weist `low` ab, auch mit Norm", () => {
     /* `low` traegt im Bestand die umgerechneten Einheiten, die kopierten Tabellen und
        die widerspruechlichen Normangaben - alles Faelle, in denen die Zahl dasteht,

@@ -1644,6 +1644,20 @@ erreicht bei keinem einzigen Werkstoff `verified` (33-mal `weak`), und `layerAdh
 fehlt bei 28 von 41. Die Skalen sind kein Mangel, sondern die Kriterien, für die es
 naturgemäß keine Messung gibt.
 
+**Eine Prüfnorm wird nur verlangt, wo eine möglich ist.** Zwei Wertarten können keine
+tragen, und die erste Fassung der Regel stufte beide fälschlich als `weak` ein:
+
+- **Abgeleitete Werte** (`derivedFrom`). Der Anisotropiefaktor ist Z-Festigkeit geteilt
+  durch XY-Festigkeit; die Normen stehen an den Operanden. Dass die aus derselben Quelle
+  stammen, prüft Regel R10 bereits. `layerAdhesion`: 0 → 12 von 41 belastbar.
+- **Marktbeobachtungen** (Feldgruppe `commercial`). Ein Preis kann keine ISO-Nummer
+  tragen; seine Provenienz ist die Händlerliste mit Abrufdatum, und die steht im
+  Quellensatz. `price`: 0 → 11 von 41 belastbar.
+
+Beide Male verlangte die Regel ein Laborattribut von etwas, das keine Laborprüfung ist.
+Maßgeblich ist jetzt die Feldgruppe: `mechanics`, `thermal` und `durability` sind
+Prüfungen und brauchen ihre Norm; `commercial` ist Marktbeobachtung.
+
 **Der Prüfkörper geht bewusst NICHT ein.** Ihn zur Ausschlussbedingung zu machen, würde
 zwei Drittel aller Messwerte und sechs von fünfzehn Marken entfernen — 3DJAKE, add:north,
 Extrudr, Fiberlogy, FormFutura und Nebula deklarieren ihn auf keinem einzigen Blatt.
