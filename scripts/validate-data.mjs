@@ -216,6 +216,109 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
   }
 }
 
+/* ----------------------------------------------------- R16, auf der Produktebene
+
+   FASERN VERSTEIFEN. WENN DAS BLATT DAS NICHT ZEIGT, STIMMT DAS BLATT NICHT.
+
+   Die erste Regel dieses Validators, die Produkte statt Werkstofftypen liest. Anlass war
+   Extrudr DuraPro ABS gegen DuraPro ABS CF: ALLE zehn gemeinsamen Kennwerte identisch,
+   Zug-E-Modul in beiden Fällen 2.350 MPa. Ein kurzfaserverstärktes ABS erreicht das Zwei-
+   bis Dreifache — die CF-Variante hat die Tabelle des ungefüllten Materials geerbt.
+
+   WARUM DIE DUBLETTENPRÜFUNG DAS NICHT FINDET
+   `check-lineage.ts` vergleicht nur über Markengrenzen, weil Farbvarianten sich zu Recht
+   eine Tabelle teilen. Innerhalb einer Marke sieht sie nichts. Hier ist der Vergleich
+   aber gerade innerhalb der Marke fällig, und er braucht kein Zahlenkriterium, sondern
+   ein physikalisches: Kurzfasern erhöhen den E-Modul. Tun sie es im Blatt nicht, ist
+   entweder die Tabelle falsch oder der Füllgrad bedeutungslos — beides gehört gesehen.
+
+   WARUM ARAMID EINE EIGENE SCHWELLE HAT
+   Kohle- und Glasfasern werden zum Versteifen zugesetzt und heben den Zug-E-Modul
+   typischerweise um die Hälfte oder mehr. Aramid wird für Zähigkeit und Verschleiß
+   zugesetzt; sein Steifigkeitsbeitrag ist deutlich kleiner. FormFutura ApolloX Kevlar
+   liegt bei Faktor 1,09 — für Kohlefaser wäre das ein Befund, für Aramid nicht.
+
+   NUR GEGEN DIESELBE PRÜFNORM
+   Die erste Fassung verglich stur die Zahlen und meldete Extrudr DuraPro ASA GF: 3.100
+   gegen 3.500 MPa, also angeblich weicher. Tatsächlich ist der eine Wert nach ISO 178
+   gemessen und der andere nach ASTM D790 — ein Vergleich, vor dem dieses Projekt sonst
+   überall warnt, hier von der Prüfung selbst begangen. Verglichen wird deshalb nur, wo
+   beide Seiten dieselbe Norm nennen; sonst schweigt die Regel.
+
+   NICHT FÜR ELASTOMERE
+   Die Regel gilt für steife Thermoplaste. Bei Extrudr Flex Hard CF meldete sie einen
+   Zug-E-Modul von 35 gegen 40 MPa und lag damit falsch: Das Blatt zeigt bei ALLEN
+   Zuggrößen einen Rückgang (auch σ50, σ100, σ300), während Shore-Härte 58 → 70 D und
+   Druckfestigkeit 40 → 50 MPa steigen. Zehn von zehn Werten unterscheiden sich — das
+   ist keine übernommene Tabelle, sondern eine eigenständige Prüfung, in der die Fasern
+   den Zug schwächen und Härte wie Druckfestigkeit anheben. In einer weichen Matrix
+   wirken kurze Fasern unter Zug als Kerbstellen. Elastomere sind deshalb ausgenommen.
+
+   DAS PRODUKT ZÄHLT, NICHT DAS EINZELFELD
+   Gemeldet wird erst, wenn KEIN vergleichbarer Modul eine Versteifung zeigt. DuraPro ASA
+   CF liegt beim Zugmodul bei Faktor 1,14 und damit knapp unter der Schwelle, beim
+   Biegemodul aber bei 1,29 — das Blatt zeigt den Effekt also sehr wohl. Auf ein
+   fehlendes Hundertstel in einem von zwei Feldern zu reagieren wäre Rauschen.
+
+   WARN, NICHT ERROR
+   Der Befund liegt im fremden Datenblatt, nicht in unserer Übertragung. Ihn zum Fehler
+   zu machen hieße, eine fehlerhafte Quelle nicht mehr treu wiedergeben zu können - genau
+   die Begründung, die oben schon für R12 gilt. */
+
+const PRODDIR = path.join(ROOT, "data/products");
+const FILLER = {
+  stiff: /\b(cf\d*|gf\d*)\b|carbon|glass\s*fib|basalt/i,
+  tough: /aramid|kevlar/i,
+};
+/* Ab welchem Faktor gilt eine Faser als wirksam? Kohle/Glas: 1,15 - darunter ist der
+   Unterschied kleiner als die Streuung zwischen zwei Chargen. Aramid: 1,0 - dort genügt,
+   dass es überhaupt steifer wird. */
+const MIN_GAIN = { stiff: 1.15, tough: 1.0 };
+
+if (existsSync(PRODDIR)) {
+  const prods = readdirSync(PRODDIR).filter((f) => f.endsWith(".json"))
+    .map((f) => JSON.parse(readFileSync(path.join(PRODDIR, f), "utf8")));
+  const kindOf = (p) => {
+    const s = `${p.productName} ${p.materialId}`;
+    if (FILLER.tough.test(s)) return "tough";
+    if (FILLER.stiff.test(s)) return "stiff";
+    return null;
+  };
+  const strip = (n) => n.replace(FILLER.stiff, "").replace(FILLER.tough, "").replace(/\s+/g, " ").trim();
+
+  /* Elastomere sind ausgenommen - siehe Kopfkommentar. Erkannt an der Shore-Härte, die
+     nur weiche Werkstoffe fuehren, und ersatzweise am Werkstofftyp. */
+  const isElastomer = (p) =>
+    p.properties?.hardnessShoreA != null || p.properties?.hardnessShoreD != null ||
+    /^(tpu|peba|tpe)/i.test(p.materialId ?? "");
+
+  for (const filled of prods) {
+    const kind = kindOf(filled);
+    if (!kind) continue;
+    const base = prods.find((p) => p.brand === filled.brand && !kindOf(p) && p.productName === strip(filled.productName));
+    if (!base) continue;
+    if (isElastomer(base) || isElastomer(filled)) continue;
+
+    const comparable = [];
+    for (const field of ["tensileModulusXy", "flexuralModulusXy"]) {
+      const b = base.properties?.[field], f = filled.properties?.[field];
+      if (typeof b?.value !== "number" || typeof f?.value !== "number" || b.value === 0) continue;
+      /* Ohne gemeinsame Norm ist der Vergleich wertlos - siehe Kopfkommentar. */
+      if (!b.testStandard || b.testStandard !== f.testStandard) continue;
+      comparable.push({ field, base: b.value, filled: f.value, gain: f.value / b.value });
+    }
+    if (!comparable.length) continue;
+    if (comparable.some((c) => c.gain >= MIN_GAIN[kind])) continue;
+
+    const detail = comparable.map((c) => {
+      const g = Math.round(c.gain * 100) / 100;
+      return `${c.field} ${c.filled} gegen ${c.base} MPa (${g === 1 ? "zifferngleich" : g < 1 ? `Faktor ${g}, also NIEDRIGER` : `nur Faktor ${g}`})`;
+    }).join("; ");
+    report("warn", filled.id, "R16-filler-no-stiffening",
+      `kein Steifigkeitsgewinn gegenüber ${base.productName} — ${detail}. Eine ${kind === "tough" ? "Aramid" : "Kohle-/Glasfaser"}füllung hebt den Modul an; tut das Blatt es nicht, ist die Tabelle vermutlich vom ungefüllten Werkstoff übernommen`);
+  }
+}
+
 /* -------------------------------------------------------------------- report */
 
 const errors = findings.filter((f) => f.sev === "error");
