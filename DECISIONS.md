@@ -1695,6 +1695,77 @@ Kommentar im Test.
 
 ---
 
+## ADR-038 — Zwei Marken mit derselben Messung sind ein Beleg, nicht zwei
+
+**Status:** akzeptiert · **Datum:** 2026-08-05
+
+### Kontext
+
+Beim Import von Alzament fiel auf, dass dessen Blätter zu ABS, ASA und PLA Basic
+zeilenweise die Bambu-Blätter derselben Werkstoffe sind: **10 von 14 Zeilen
+ziffernidentisch**, einschließlich der Toleranzen und einschließlich des Tippfehlers
+„MPA" statt „MPa" beim Z-Modul. Zum Trocknen verweist das ABS-Blatt auf das „X1 Series
+Printer Heatbed" — ein Bambu-Lab-Drucker.
+
+Das war der dritte Fall dieser Art:
+
+| Fall | Umfang | wie gefunden |
+|---|---|---|
+| FormFutura ePLA/Galaxy = Nebula PLA + 5 Varianten | 8 Produkte, eine Tabelle | beim Lesen des zweiten Blattes |
+| Alzament ABS/ASA/PLA = Bambu | 3 Produkte, zeilenweise | beim Abgleich gegen den Bestand |
+| FormFutura STYX PA6-CF15 = Spectrum PA6 Low Warp | **10 von 10** Werten gleich | erst durch die Suche danach |
+
+Dreimal derselbe Fehler heißt: Er wird nicht durch Aufmerksamkeit verhindert.
+
+**Warum er schlimmer ist als eine fehlende Zahl.** Eine Lücke sieht man. Eine Dublette
+tarnt sich als Stärke — zwei Hersteller, die zu denselben Werten kommen, sind das
+überzeugendste Muster, das es in einem Vergleichswerkzeug gibt. Genau dieses Muster
+entsteht hier ohne jede zweite Messung. Der Nutzer, der zwei Marken nebeneinanderstellt,
+vergleicht eine Messung mit sich selbst und hält das Ergebnis für eine Bestätigung.
+
+Die Ursache ist keine Täuschung, sondern die Normalform des Marktes: Ein Compoundeur
+beliefert mehrere Marken, und alle geben die Tabelle des Lieferanten weiter.
+
+### Entscheidung
+
+**1. Eine Übernahme wird durch `low` entwertet, nicht durch Löschen.** Der Wert bleibt
+sichtbar, zählt aber nicht als Beleg. Löschen würde die Information vernichten, dass es
+diese Marke mit diesem Wert gibt — und die ist für die Beschaffung durchaus relevant.
+
+**2. Die Erkennung läuft automatisch.** `npm run check:lineage` findet Produktpaare
+verschiedener Marken mit **≥ 5 zifferngleichen Kennwerten und ≥ 80 % der gemeinsam
+belegten Felder**. Prozessparameter zählen nicht mit — dass zwei PLA-Blätter 210 °C
+empfehlen, sagt nichts über ihre Herkunft. Stand 2026-08-05: 26 Paare, 10 davon bereits
+als `low` geführt, **16 offen**.
+
+**3. Ein Test hält die Zahl der offenen Fälle fest.** Nicht, weil sie geklärt wären —
+sie sind es nicht —, sondern damit ein Import sie nicht still vermehrt.
+
+**4. Was das Skript nicht tut: entscheiden.** Es sagt, wo sich das Nachsehen lohnt. Ob
+ein Paar eine Übernahme ist, steht in den Blättern.
+
+### Konsequenzen
+
+Die Behauptung „N Hersteller belegen diesen Wert" ist im Bestand nicht mehr ohne
+Prüfung haltbar, und das ist der Punkt. 16 offene Paare sind eine Arbeitsliste, kein
+Makel — vorher waren es dieselben 16, nur unsichtbar.
+
+**Die Prüfung ist ein Netz, kein Beweis.** Von den drei belegten Alzament-Übernahmen
+findet sie zwei. Das dritte Paar (PLA Basic) kommt auf 6 von 8 gleichen Werten, also
+75 %, und liegt knapp darunter — gleich sind dort ausgerechnet Dichte, beide E-Moduln
+und die Zugfestigkeit in X-Y **und** Z. Die Schwelle auf 75 % zu senken hätte diesen
+einen Fall eingefangen und zehn ungeprüfte aufgeworfen; sie bleibt, wo sie ist. Der Fall
+steht als eigener Testfall da, damit niemand die Zahl für vollständig hält. Gefunden
+wurde diese Übernahme durch Lesen, nicht durch Rechnen.
+
+**Was hier nicht behauptet wird:** wer von wem abgeschrieben hat. Die Blätter nennen als
+Hersteller Landu Innovations in Shenzhen und als Prüfer Alza.cz in Prag — beides sagt
+nichts über die Richtung. Belegt ist die gemeinsame Herkunft, nicht ihr Verlauf. Diese
+Zurückhaltung ist keine Höflichkeit: Eine Behauptung über Abschreiben wäre eine Aussage
+über ein Unternehmen, und die Daten tragen sie nicht.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |
