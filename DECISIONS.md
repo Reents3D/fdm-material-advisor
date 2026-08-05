@@ -1619,14 +1619,30 @@ Eine zweite, abgeleitete Einstufung neben `confidence`, berechnet in
 | `weak` | Konfidenz `low` **oder** keine Prüfnorm | wird angezeigt und sichtbar abgewertet |
 | `editorial` | Konfidenz `estimated` | fachliche Ableitung, keine Messung — bleibt |
 
-**Wo die Einstufung wirkt — und wo nicht.** Sie steuert, was der Nutzer sieht und
-beurteilen kann: das Datenblatt, den Herstellervergleich, das Urteil je Werkstoff. Sie
-steuert **nicht** die Rangfolge der Engine. Das ist keine Lücke in der Umsetzung, sondern
-eine Eigenschaft des Scorings: Von 17 Kriterien lesen **zwei** überhaupt einen Messwert
-(`xxl` und `price`), die übrigen fünfzehn lesen Fünferskalen — und die sind nach genau
-dieser Einstufung `editorial`. Ein Filter auf belastbare Werte würde die Rangfolge also
-nicht schärfen, sondern leeren. Was die Empfehlung belastbarer macht, ist nicht ein
-strengerer Filter, sondern **mehr messbare Kriterien** — siehe PLAN, Phase 5.
+**Wo die Einstufung wirkt.** Sie steuert, was der Nutzer sieht und beurteilen kann: das
+Datenblatt, den Herstellervergleich, das Urteil je Werkstoff. Sie steuert **nicht** die
+Rangfolge — die Engine gewichtet weiter alle vorhandenen Werte und weist den
+Schätzungsanteil über `estimatedShare` aus.
+
+**Und wie die Kriterien tatsächlich aufgestellt sind.** Die Engine liest bei den
+mechanischen und thermischen Kriterien bereits Messwerte, nicht Skalen. Über 41
+Werkstoffe:
+
+| Kriterium | liest | `verified` | `weak` | `editorial` | fehlt |
+|---|---|---|---|---|---|
+| `strength` | `tensileStrengthXy` | **31** | 9 | 1 | 0 |
+| `lightweight` | `density` | **31** | 10 | 0 | 0 |
+| `toughness` | `elongationAtBreakXy` | **29** | 9 | 1 | 2 |
+| `stiffness` | `tensileModulusXy` | **23** | 6 | 1 | 11 |
+| `temperature` | `hdtB` (Rückfall `hdtA`) | **19** | 5 | 1 | 16 |
+| `layerAdhesion` | `anisotropyFactorTensile` | **12** | 1 | 0 | 28 |
+| `price` | `pricePerKg` | 0 | **33** | 8 | 0 |
+| `xxl`, `printability`, `outdoor`, `lowWarping`, `paintability`, `availability`, `surface` | Fünferskalen | 0 | 0 | **41** | 0 |
+
+Die beiden schwachen Stellen sind damit benannt und sind **nicht** die Skalen: `price`
+erreicht bei keinem einzigen Werkstoff `verified` (33-mal `weak`), und `layerAdhesion`
+fehlt bei 28 von 41. Die Skalen sind kein Mangel, sondern die Kriterien, für die es
+naturgemäß keine Messung gibt.
 
 **Der Prüfkörper geht bewusst NICHT ein.** Ihn zur Ausschlussbedingung zu machen, würde
 zwei Drittel aller Messwerte und sechs von fünfzehn Marken entfernen — 3DJAKE, add:north,

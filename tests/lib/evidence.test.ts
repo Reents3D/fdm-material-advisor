@@ -22,6 +22,21 @@ describe("Belastbarkeit eines Wertes", () => {
     expect(isRobust(evidenceGrade({ confidence: "medium" }))).toBe(false);
   });
 
+  it("nimmt einen abgeleiteten Wert ohne eigene Norm an", () => {
+    /* Der Anisotropiefaktor ist Z-Festigkeit geteilt durch XY-Festigkeit. Die Normen
+       stehen an den Operanden, nicht am Quotienten - eine eigene Norm kann er nicht
+       haben. Die erste Fassung stufte ihn dauerhaft als `weak` ein und traf damit
+       ausgerechnet die Zahl, die dieses Projekt als Alleinstellungsmerkmal fuehrt. */
+    expect(evidenceGrade({
+      confidence: "medium",
+      derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
+    })).toBe("verified");
+    /* Die Ableitung rettet aber keine zweifelhafte Quelle. */
+    expect(evidenceGrade({ confidence: "low", derivedFrom: ["a", "b"] })).toBe("weak");
+    /* Und ein leeres derivedFrom ist keine Ableitung. */
+    expect(evidenceGrade({ confidence: "medium", derivedFrom: [] })).toBe("weak");
+  });
+
   it("weist `low` ab, auch mit Norm", () => {
     /* `low` traegt im Bestand die umgerechneten Einheiten, die kopierten Tabellen und
        die widerspruechlichen Normangaben - alles Faelle, in denen die Zahl dasteht,

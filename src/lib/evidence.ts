@@ -44,13 +44,22 @@ export type EvidenceGrade = "verified" | "weak" | "editorial";
 export interface Graded {
   confidence?: Confidence | null;
   testStandard?: string | null;
+  /** Feldpfade, aus denen dieser Wert gerechnet wurde. */
+  derivedFrom?: string[] | null;
 }
 
 export function evidenceGrade(v: Graded | null | undefined): EvidenceGrade | null {
   if (!v || !v.confidence) return null;
   if (v.confidence === "estimated") return "editorial";
   if (v.confidence === "low") return "weak";
-  return v.testStandard ? "verified" : "weak";
+  /* ABGELEITETE WERTE HABEN KEINE EIGENE NORM UND BRAUCHEN AUCH KEINE.
+     Der Anisotropiefaktor ist Z-Festigkeit geteilt durch XY-Festigkeit — die Prüfnormen
+     stehen an den beiden Operanden, nicht am Quotienten. Die erste Fassung dieser Regel
+     stufte ihn deshalb dauerhaft als `weak` ein, ausgerechnet die Zahl, die dieses
+     Projekt als Alleinstellungsmerkmal führt. Dass die Operanden aus derselben Quelle
+     stammen müssen, prüft bereits Plausibilitätsregel R10; eine zweite Prüfung hier
+     wäre Doppelarbeit mit falschem Ergebnis. */
+  return v.testStandard || v.derivedFrom?.length ? "verified" : "weak";
 }
 
 /** Geht dieser Wert in die Empfehlung ein? */
