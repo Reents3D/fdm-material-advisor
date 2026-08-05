@@ -29,14 +29,14 @@
       "unit": "MPa",
       "testStandard": "ASTM D638",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 2350,
       "unit": "MPa",
       "testStandard": "ASTM D638",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 5,
@@ -50,28 +50,28 @@
       "unit": "%",
       "testStandard": "ASTM D638",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 78,
       "unit": "MPa",
       "testStandard": "ASTM D790",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 2550,
       "unit": "MPa",
       "testStandard": "ASTM D790",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 85,
       "unit": "°C",
       "testStandard": "ASTM D648",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatA": {
       "value": 92,
@@ -85,7 +85,7 @@
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 235,
@@ -93,7 +93,7 @@
       "min": 220,
       "max": 250,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 105,
@@ -101,7 +101,7 @@
       "min": 100,
       "max": 110,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "governance": {
@@ -123,5 +123,27 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "extrudr-durapro-abs",
+      "extrudr-durapro-abs-cf"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtB",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "vicatA"
+    ],
+    "note": {
+      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF. Damit sind es nicht 3 Belege, sondern einer. Als Ursprung dieser Zahlen ist Extrudr Extrudr DuraPro ABS CF belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
+      "en": "10 values in this record appear identically at: Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF. That makes them not 3 pieces of evidence but one. Extrudr Extrudr DuraPro ABS CF is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+    }
   }
 }

@@ -23,7 +23,7 @@
       "value": 1.24,
       "unit": "g/cm³",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "meltFlowRate": {
       "value": 6,
@@ -31,7 +31,7 @@
       "testStandard": "ASTM D1238",
       "conditions": "210 °C, 2,16 kg",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 60,
@@ -60,14 +60,14 @@
       "unit": "MPa",
       "testStandard": "ASTM D790",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 3800,
       "unit": "MPa",
       "testStandard": "ASTM D790",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 16,
@@ -75,7 +75,7 @@
       "testStandard": "ASTM D256",
       "conditions": "23 °C, gekerbt",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 55,
@@ -92,7 +92,7 @@
       "max": 60,
       "testStandard": "ASTM D3418",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "nozzleTemperature": {
       "value": 200,
@@ -100,7 +100,7 @@
       "min": 190,
       "max": 210,
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 55,
@@ -130,5 +130,33 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "fiberlogy-easy-pla",
+      "nebula-pla-art-glitter",
+      "nebula-pla-art-glowing",
+      "nebula-pla-art-marble",
+      "nebula-pla-art-mystic-green",
+      "nebula-pla-art-thermo",
+      "nebula-pla-premium",
+      "spectrum-pla-premium"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "glassTransition",
+      "hdtB",
+      "izodNotchedXy",
+      "meltFlowRate",
+      "nozzleTemperature",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Damit sind es nicht 9 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "10 values in this record appear identically at: Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. That makes them not 9 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

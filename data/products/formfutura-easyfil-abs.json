@@ -25,7 +25,7 @@
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "meltFlowRate": {
       "value": 21,
@@ -33,7 +33,7 @@
       "testStandard": "ASTM D1238",
       "conditions": "220 °C / 10 kg",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 45.1,
@@ -114,5 +114,27 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-abspro",
+      "formfutura-easyfil-abs-glow",
+      "formfutura-titanx",
+      "spectrum-smart-abs"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtA",
+      "meltFlowRate",
+      "tensileStrengthXy",
+      "vicatA"
+    ],
+    "note": {
+      "de": "8 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ABSpro · FormFutura EasyFil ABS — Glow in the Dark · FormFutura TitanX · Spectrum Spectrum Smart ABS. Damit sind es nicht 5 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "8 values in this record appear identically at: FormFutura ABSpro · FormFutura EasyFil ABS — Glow in the Dark · FormFutura TitanX · Spectrum Spectrum Smart ABS. That makes them not 5 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

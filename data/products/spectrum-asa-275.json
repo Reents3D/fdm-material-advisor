@@ -32,7 +32,7 @@
       "testStandard": "ASTM D638, 23 °C",
       "conditions": "Streckspannung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 35,
@@ -40,28 +40,28 @@
       "testStandard": "ASTM D638, 23 °C",
       "conditions": "im Blatt als Mindestwert angegeben",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 1800,
       "unit": "MPa",
       "testStandard": "ASTM D638, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 64,
       "unit": "MPa",
       "testStandard": "ASTM D790, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 1900,
       "unit": "MPa",
       "testStandard": "ASTM D790, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "izodNotchedXy": {
       "value": 435,
@@ -75,7 +75,7 @@
       "value": 86,
       "unit": "°C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatB50": {
       "value": 94,
@@ -117,5 +117,22 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-apollox-fr"
+    ],
+    "sharedFields": [
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtB",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "6 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ApolloX Flame Retardant. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "6 values in this record appear identically at: FormFutura ApolloX Flame Retardant. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

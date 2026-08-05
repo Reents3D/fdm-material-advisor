@@ -170,7 +170,7 @@
       "max": 270,
       "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "bedTemperature": {
       "value": 90,
@@ -179,7 +179,7 @@
       "max": 100,
       "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   "governance": {
@@ -201,5 +201,25 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "bambu-abs"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "tensileStrengthZ"
+    ],
+    "note": {
+      "de": "9 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Bambu Lab Bambu ABS. Damit sind es nicht 2 Belege, sondern einer. Als Ursprung dieser Zahlen ist Bambu Lab Bambu ABS belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
+      "en": "9 values in this record appear identically at: Bambu Lab Bambu ABS. That makes them not 2 pieces of evidence but one. Bambu Lab Bambu ABS is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+    }
   }
 }

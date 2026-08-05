@@ -27,7 +27,7 @@
       "value": 1.05,
       "unit": "g/cm³",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "shrinkage": {
       "value": 0.55,
@@ -43,28 +43,28 @@
       "unit": "MPa",
       "conditions": "Streckspannung, 3,2 mm, 50 mm/min; im Blatt 460 kg/cm², umgerechnet",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 10,
       "unit": "%",
       "conditions": "im Blatt als „>10 %“ angegeben",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralStrengthXy": {
       "value": 72.6,
       "unit": "MPa",
       "conditions": "3,2 mm, 15 mm/min; im Blatt 740 kg/cm², umgerechnet",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "flexuralModulusXy": {
       "value": 2451.7,
       "unit": "MPa",
       "conditions": "3,2 mm, 15 mm/min; im Blatt 25 000 kg/cm², umgerechnet",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 85,
@@ -99,5 +99,24 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-abspro",
+      "formfutura-easyfil-abs",
+      "formfutura-easyfil-abs-glow",
+      "formfutura-titanx"
+    ],
+    "sharedFields": [
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "5 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ABSpro · FormFutura EasyFil ABS · FormFutura EasyFil ABS — Glow in the Dark · FormFutura TitanX. Damit sind es nicht 5 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "5 values in this record appear identically at: FormFutura ABSpro · FormFutura EasyFil ABS · FormFutura EasyFil ABS — Glow in the Dark · FormFutura TitanX. That makes them not 5 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }

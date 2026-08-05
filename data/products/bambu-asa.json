@@ -140,5 +140,26 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "alzament-asa"
+    ],
+    "sharedFields": [
+      "bedTemperature",
+      "density",
+      "elongationAtBreakXy",
+      "flexuralModulusXy",
+      "flexuralStrengthXy",
+      "hdtA",
+      "nozzleTemperature",
+      "tensileModulusXy",
+      "tensileStrengthXy",
+      "tensileStrengthZ"
+    ],
+    "note": {
+      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Alzament ASA. Damit sind es nicht 2 Belege, sondern einer. Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: Wie bei ABS: Das Alzament-Blatt trägt die Bambu-Werte, nicht umgekehrt. Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.",
+      "en": "10 values in this record appear identically at: Alzament ASA. That makes them not 2 pieces of evidence but one. For this record it is established that it is not the copy: Wie bei ABS: Das Alzament-Blatt trägt die Bambu-Werte, nicht umgekehrt. Its values therefore keep their confidence — those of the other parties do not."
+    }
   }
 }

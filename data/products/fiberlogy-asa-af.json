@@ -105,5 +105,23 @@
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-apollox-kevlar"
+    ],
+    "sharedFields": [
+      "charpyNotchedXy",
+      "charpyUnnotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "elongationAtYieldXy",
+      "tensileModulusXy",
+      "tensileStrengthXy"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ApolloX Kevlar. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "7 values in this record appear identically at: FormFutura ApolloX Kevlar. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
   }
 }
