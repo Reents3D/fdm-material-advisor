@@ -1435,6 +1435,155 @@ Was wir veröffentlichen, muss uns gehören oder gemeinfrei sein.
 
 ---
 
+## ADR-035 — Die Marktdatenbank sagt, was es gibt, nicht wie es sich verhält
+
+**Status:** akzeptiert · **Datum:** 2026-08-04
+
+### Kontext
+
+Die [Open Filament Database](https://github.com/OpenFilamentCollective/open-filament-database)
+des Open Filament Collective ist das größte offene Vorhaben in diesem Feld: Stand
+`2026.07.31` 155 Marken, 2.020 Filamente, 14.389 Farbvarianten, 22.397 Spulengrößen,
+5.918 Händlerlinks. MIT-lizenziert für Code **und** Daten, täglich neu gebaut, als
+statische API abrufbar. Die naheliegende Erwartung: eine Abkürzung für unseren
+Datenausbau.
+
+Die Prüfung des Schemas hat diese Erwartung widerlegt. `filament_schema.json` führt
+Dichte, Shore-Härte, Düsen-, Bett-, Kammer- und Trocknungstemperatur, Mindest­düsen­durch­
+messer, Zertifikate, Slicer-Profile — und einen Zeiger auf das Herstellerblatt. Es führt
+**keine Zugfestigkeit, keinen E-Modul, keine HDT, keinen Glasübergang, keine
+Schlagzähigkeit, keine Bruchdehnung, keine Orientierung und keine Prüfnorm.** Also genau
+die Felder, aus denen dieses Werkzeug seine Empfehlung rechnet.
+
+Datenblatt-Links tragen 164 von 2.020 Filamenten — 8 %, nicht die erhoffte Breite. 16
+davon waren bereits ausgewertet.
+
+### Entscheidung
+
+Die Open Filament Database wird eingebunden, aber **ausschließlich als Marktbeobachtung**,
+nie als Kennwertquelle. Drei Importer, drei klar getrennte Rollen:
+
+| Importer | Rolle |
+|---|---|
+| `ofd-spools.mjs` | Spulenlogistik je Werkstofftyp — beantwortet Rückfrage 3 aus PLAN.md |
+| `ofd-processing.mjs` | Marktkorridor für Dichte und Verarbeitungstemperaturen als `min`/`max` |
+| `ofd-datasheets.mjs` | Arbeitsliste offener Datenblatt-Fundstellen; schreibt keinen Datensatz |
+
+Vier Festlegungen dazu:
+
+**1 · Quellentyp `community`, Ceiling `low`.** Die Sammlung ist gemeinschaftlich
+gepflegt, führt keine Provenienz je Eintrag und kein Abrufdatum. Nach der
+Quellenhierarchie in `SOURCES.md` ist das Rang 8. Regel R9 erzwingt die Grenze
+maschinell.
+
+**2 · Der vorhandene Wert wird nicht angetastet.** 29 von 41 Düsen- und Betttemperaturen
+sind herstellerbelegt. Sie durch eine Gemeinschaftssammlung zu ersetzen wäre eine
+Verschlechterung. Ergänzt wird nur die Spanne, und `src_ofd` tritt als **zusätzliche**
+Quelle daneben. R9 nimmt das höchste Ceiling über alle Quellen — die Konfidenz des
+Wertes bleibt damit erhalten, der Beleg für die Spanne steht trotzdem dabei. Das ist
+genau die Trennung aus DATA_MODEL 1.1: `tolerance` gehört einer Quelle, `min`/`max`
+gehören dem Markt.
+
+**3 · Mindeststichproben, sonst kein Feld.** Fünf Produkte und zehn Spulen für die
+Spulenlogistik, acht Produkte für einen Temperaturkorridor. Zwei Zählungen, weil zwei
+Produkte mit je zwölf Farbvarianten sonst wie ein Markt aussehen. 20 von 41
+Werkstofftypen bleiben deshalb ohne Spulenangabe — ein fehlendes Feld senkt die
+`dataCompleteness`, ein erfundenes die Glaubwürdigkeit.
+
+**4 · Abweichungen werden gemeldet, nicht geglättet.** Liegt unser Wert außerhalb des
+Marktkorridors, wird die Spanne **nicht** geschrieben. Drei Fälle beim ersten Lauf:
+`asa` 1,05 g/cm³ gegen Markt 1,07–1,13 · `asa-cf` 1,02 gegen 1,05–1,11 · `pla-tough`
+1,20 gegen 1,23–1,25. Jeder ist ein Prüfauftrag.
+
+Der Bestand selbst wird **nicht** mitgeliefert, obwohl die MIT-Lizenz es erlaubte. Er
+wird täglich neu gebaut und wäre als Kopie binnen Tagen ein falscher Stand — dieselbe
+Überlegung wie in ADR-034, nur aus dem anderen Grund. Ablage unter `data/_sources/ofd/`,
+Abruf über `npm run fetch:ofd`, Provenienz über `documentVersion` und `retrievedAt`.
+
+### Konsequenzen
+
+**Positiv.** Die Spulenfrage aus PLAN.md ist für 21 Werkstofftypen mit Zahlen beantwortet
+statt mit einer Vermutung. 16 Kennwerte haben erstmals eine belegte Marktspanne, drei
+Felder sind von `estimated` auf `low` gestiegen. Die Datenblattsuche ist für 148
+Fundstellen erledigt. Und der Bestand liefert nebenbei die Rangliste, wo Handarbeit am
+meisten bringt: Polymaker (71 Produkte), 3DXTech (61), Fiberlogy (59) stehen dort **ohne
+einen einzigen** Blattlink.
+
+**Negativ.** Eine Zuordnung von 38 fremden Werkstoffbezeichnungen auf 41 eigene Typen ist
+Auslegung und bleibt fehleranfällig. Der erste Lauf hat das sofort bewiesen: Das Muster
+`\bcf\b` fand „CF10", „CF15" und „PA6-CF20" nicht, weil zwischen Kürzel und Ziffer keine
+Wortgrenze liegt. 35 gefaserte Produkte zählten dadurch als unverstärkte Basistypen —
+`asa-cf` stand mit 1 kg statt 8 kg Maximalspule da, `pa12` umgekehrt mit 5 kg statt 1 kg.
+Der Fehler ist behoben, die Lehre bleibt: **Jede Zuordnungstabelle gegen die
+Rohbezeichnungen gegenlesen, nicht gegen die eigene Erwartung.**
+
+**Offen.** Preise liefert der Bestand nicht — `purchase_link` führt Händler und URL, aber
+keinen Betrag. Die 5.918 Links sind eine Zielliste für `survey-prices.mjs`, mehr nicht.
+
+---
+
+## ADR-036 — Der Erstaufruf ist das Budget, nicht die Summe
+
+**Status:** akzeptiert · **Datum:** 2026-08-04
+
+### Kontext
+
+Das Bundle-Budget lag bei 400 kB gzip über die **Summe aller** Dateien in `dist/assets`.
+Das war richtig, solange alles in einem Brocken lag: Summe und Erstaufruf waren dasselbe.
+
+An einem Tag ist diese Grenze zweimal gerissen. Zuerst beim OFD-Import — dort waren nicht
+die Zahlen das Problem, sondern die Notiztexte: ein zweisprachiger Absatz, der in 24
+Datensätzen wiederholt wird, wiegt mehr als die Werte, die er erklärt. Nach dem Kürzen
+lagen wir bei 390 kB. Dann kamen 24 FormFutura-Produkte mit ihren Befunden dazu, und es
+waren 412 kB.
+
+Beide Male fiel es erst nach dem Push auf, denn die Prüfung stand **nur** in der
+GitHub-Action und nicht in `npm run ci`. Eine Grenze, die man lokal nicht sieht, ist keine
+Grenze, sondern eine Überraschung.
+
+### Entscheidung
+
+**Erstens: Herstelleransicht und Matrix werden nachgeladen.** Sie sind die einzigen
+Ansichten, die `data/products` lesen — inzwischen gut 2.000 Kennwertzeilen aus 192
+Produkten, 114 kB gzip. Der Weg durch das Werkzeug (Start → Assistent → Ergebnis →
+Datenblatt) kommt ohne sie aus. Zwei `React.lazy`-Aufrufe genügen; Rollup zieht
+`data/products` dann von selbst in einen eigenen Brocken, weil sonst niemand darauf zeigt.
+
+Erstaufruf vorher 412 kB, nachher **292 kB**.
+
+**Zweitens: zwei Budgets statt einem.**
+
+| Budget | Grenze | Was es schützt |
+|---|---|---|
+| Erstaufruf | 320 kB gzip | Ladezeit und Lighthouse — was ein Besucher laden muss, bevor er etwas sieht |
+| Gesamt | 500 kB gzip | verhindert, dass nachgeladene Brocken zur Abstellkammer werden |
+
+Der Erstaufruf wird aus `dist/index.html` gelesen, nicht geraten: genau die Dateien, die
+dort als `<script>` und `<stylesheet>` stehen. Wird eine Ansicht wieder statisch
+importiert, wächst die Zahl automatisch mit — die Prüfung lässt sich nicht dadurch
+umgehen, dass man vergisst, sie anzupassen.
+
+**Drittens: die Prüfung zieht in `npm run ci`.** Sie liegt als `scripts/check-bundle.mjs`
+im Repository, die Action ruft nur noch `npm run check:bundle` auf. Damit sehen lokaler
+Lauf und CI dieselbe Zahl.
+
+### Konsequenzen
+
+**Positiv.** Der Erstaufruf ist um 29 % kleiner als vor der Aufteilung und liegt jetzt
+unter dem Stand von vor beiden Importen. Wer nur beraten werden will, lädt die
+Herstellerdaten nie. Die Grenze ist vor dem Commit sichtbar.
+
+**Negativ.** Beim ersten Öffnen der Herstelleransicht entsteht eine kurze Wartezeit mit
+Platzhalter. Für eine Ansicht, die man gezielt ansteuert, ist das der richtige Tausch —
+für die Startseite wäre es der falsche.
+
+**Nächster Schritt, wenn es wieder reißt:** nicht die Grenze anheben, sondern die nächste
+Ansicht aufteilen. Glossar und Anwendungsfälle hängen ebenfalls im Erstaufruf, obwohl der
+Weg durch das Werkzeug ohne sie auskommt. Der Hinweis steht im Kopf von
+`scripts/check-bundle.mjs`, wo ihn findet, wer die Fehlermeldung liest.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |
