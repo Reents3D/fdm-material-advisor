@@ -216,6 +216,29 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
   geprüft — dieselbe Fehlerklasse wie `cmp` und `chem`, die schon zweimal ungekappt
   durchgerutscht ist (Vergleichsansicht 2026-08-02, Explorer danach).
 
+- [ ] **Messbare Kriterien statt Fünferskalen** — *der eigentliche Engpass, erkannt 2026-08-05*
+
+  Beim Einbau der Belastbarkeitsstufe (ADR-037) kam heraus: Von den **17 Kriterien der
+  Engine lesen genau zwei einen Messwert** — `xxl` (selbst eine Ableitung) und `price`
+  (bei 22 von 41 Werkstoffen nur `low`). Die übrigen fünfzehn lesen Fünferskalen, und die
+  sind konstruktionsbedingt `editorial`: Für „Druckbarkeit 4 von 5" gibt es keine Norm.
+
+  Das heißt: Die Rangfolge dieses Werkzeugs entsteht heute überwiegend aus **fachlichen
+  Einschätzungen**, nicht aus Messungen — und daran ändert kein Filter etwas. Ein Filter
+  auf belastbare Werte würde die Rangfolge nicht schärfen, sondern leeren.
+
+  Kandidaten, die sich aus vorhandenen Daten messbar machen ließen:
+  - `strength` und `stiffness` lesen heute Skalen, obwohl `tensileStrengthXy` (**31 von
+    41 belastbar**) und `tensileModulusXy` (**23**) als Messwerte danebenliegen — die
+    Skalen sind dort schlicht redundant. Das sind die beiden lohnendsten Umbauten.
+  - `temperature` könnte statt einer Skala direkt `hdtB` lesen (**19 von 41**)
+  - `toughness` **nicht**: `charpyNotchedXy` ist nur bei **1 von 41** belastbar. Hier
+    fehlen die Daten, nicht die Verdrahtung — erst importieren, dann umstellen.
+  - `lowWarping` und `printability` bleiben notwendigerweise Einschätzungen
+
+  Erst danach wird die Empfehlung selbst belastbar, und erst dann lohnt es, die
+  Belastbarkeitsstufe auch in die Rangfolge zu ziehen.
+
 - [x] Explorer / Ashby-Plot (frei wählbare Achsen)
 - [ ] Trade-off-Radar
 - [x] Export PDF/CSV, Print-Stylesheet

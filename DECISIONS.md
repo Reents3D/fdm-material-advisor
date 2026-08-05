@@ -1615,9 +1615,18 @@ Eine zweite, abgeleitete Einstufung neben `confidence`, berechnet in
 
 | Stufe | Bedingung | Folge |
 |---|---|---|
-| `verified` | Prüfnorm **und** Konfidenz ≥ `medium` | geht in die Empfehlung ein |
+| `verified` | Prüfnorm **und** Konfidenz ≥ `medium` | zählt als belastbarer Messwert |
 | `weak` | Konfidenz `low` **oder** keine Prüfnorm | wird angezeigt und sichtbar abgewertet |
 | `editorial` | Konfidenz `estimated` | fachliche Ableitung, keine Messung — bleibt |
+
+**Wo die Einstufung wirkt — und wo nicht.** Sie steuert, was der Nutzer sieht und
+beurteilen kann: das Datenblatt, den Herstellervergleich, das Urteil je Werkstoff. Sie
+steuert **nicht** die Rangfolge der Engine. Das ist keine Lücke in der Umsetzung, sondern
+eine Eigenschaft des Scorings: Von 17 Kriterien lesen **zwei** überhaupt einen Messwert
+(`xxl` und `price`), die übrigen fünfzehn lesen Fünferskalen — und die sind nach genau
+dieser Einstufung `editorial`. Ein Filter auf belastbare Werte würde die Rangfolge also
+nicht schärfen, sondern leeren. Was die Empfehlung belastbarer macht, ist nicht ein
+strengerer Filter, sondern **mehr messbare Kriterien** — siehe PLAN, Phase 5.
 
 **Der Prüfkörper geht bewusst NICHT ein.** Ihn zur Ausschlussbedingung zu machen, würde
 zwei Drittel aller Messwerte und sechs von fünfzehn Marken entfernen — 3DJAKE, add:north,
