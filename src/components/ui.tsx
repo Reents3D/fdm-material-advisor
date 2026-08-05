@@ -47,7 +47,7 @@ export function ConfidenceMark({ c, lang }: { c: Confidence | null | undefined; 
 }
 
 /** A quantity with its unit, range, standard and confidence — the atom of this tool. */
-export function Value({ q, lang, showRange = true }: { q?: Quantity; lang: Lang; showRange?: boolean }) {
+export function Value({ q, lang, showRange = true, lab = true }: { q?: Quantity; lang: Lang; showRange?: boolean; lab?: boolean }) {
   if (!q || q.value === null) return <span className="muted">–</span>;
   const range =
     showRange && (q.min !== undefined || q.max !== undefined)
@@ -57,8 +57,9 @@ export function Value({ q, lang, showRange = true }: { q?: Quantity; lang: Lang;
         : "";
   /* Ein Wert mit `medium` und OHNE Pruefnorm sah bisher aus wie einer mit Norm — die
      Konfidenz beschreibt die Quelle, nicht die Nachpruefbarkeit. Beide zusammen ergeben
-     erst ein Urteil, und nur `verified` geht in die Empfehlung ein (src/lib/evidence.ts). */
-  const grade = evidenceGrade(q);
+     erst ein Urteil (src/lib/evidence.ts). Bei Marktbeobachtungen entfaellt die Frage:
+     Ein Preis kann keine Norm tragen, deshalb `lab={false}`. */
+  const grade = evidenceGrade(q, { labMeasurement: lab });
   return (
     <span className={cx("whitespace-nowrap", q.confidence === "estimated" && "estimated")}>
       <span className={cx("tabular-nums font-medium", grade === "weak" && "opacity-70")}>{fmt(q.value)}</span>
@@ -69,8 +70,8 @@ export function Value({ q, lang, showRange = true }: { q?: Quantity; lang: Lang;
         <span
           className="ml-1 text-xs text-ok align-middle"
           title={lang === "de"
-            ? "Keine Prüfnorm genannt — die Zahl ist nicht nachprüfbar und geht nicht in die Empfehlung ein."
-            : "No test standard named — the figure is not verifiable and does not enter the recommendation."}
+            ? "Keine Prüfnorm genannt — die Zahl ist nicht nachprüfbar."
+            : "No test standard named — the figure is not verifiable."}
           aria-label={lang === "de" ? "keine Prüfnorm" : "no test standard"}
         >⌀</span>
       )}

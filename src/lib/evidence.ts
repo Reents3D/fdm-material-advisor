@@ -48,10 +48,28 @@ export interface Graded {
   derivedFrom?: string[] | null;
 }
 
-export function evidenceGrade(v: Graded | null | undefined): EvidenceGrade | null {
+/**
+ * @param labMeasurement Ist dieser Wert eine Laborprüfung? Nur dann ist eine Prüfnorm
+ *   überhaupt möglich — und nur dann wird sie verlangt.
+ *
+ *   Ein Preis kann keine ISO-Nummer tragen. Seine Provenienz ist die Händlerliste mit
+ *   Abrufdatum, und die steht im Quellensatz. Die erste Fassung dieser Regel verlangte
+ *   trotzdem eine Norm und stufte damit **jeden** Preis als `weak` ein — 33 von 41,
+ *   obwohl die Erhebung über drei bis vier Händler läuft und jedes Einzelangebot in der
+ *   Quellennotiz steht. Dasselbe galt für die Marktbeobachtungen aus der OFD.
+ *
+ *   Maßgeblich ist die Feldgruppe: Was in `commercial` steht, ist eine Marktbeobachtung
+ *   (DATA_MODEL, Gruppe I). Was in `mechanics`, `thermal` oder `durability` steht, ist
+ *   eine Prüfung und braucht ihre Norm.
+ */
+export function evidenceGrade(
+  v: Graded | null | undefined,
+  { labMeasurement = true }: { labMeasurement?: boolean } = {},
+): EvidenceGrade | null {
   if (!v || !v.confidence) return null;
   if (v.confidence === "estimated") return "editorial";
   if (v.confidence === "low") return "weak";
+  if (!labMeasurement) return "verified";
   /* ABGELEITETE WERTE HABEN KEINE EIGENE NORM UND BRAUCHEN AUCH KEINE.
      Der Anisotropiefaktor ist Z-Festigkeit geteilt durch XY-Festigkeit — die Prüfnormen
      stehen an den beiden Operanden, nicht am Quotienten. Die erste Fassung dieser Regel
@@ -85,10 +103,10 @@ export interface EvidenceTally {
   robustShare: number | null;
 }
 
-export function tally(values: Iterable<Graded | null | undefined>): EvidenceTally {
+/** Zählt bereits eingestufte Werte. Für Aufrufer, die je Feldgruppe anders einstufen. */
+export function tallyGrades(grades: Iterable<EvidenceGrade | null>): EvidenceTally {
   const out: EvidenceTally = { verified: 0, weak: 0, editorial: 0, total: 0, robustShare: null };
-  for (const v of values) {
-    const g = evidenceGrade(v);
+  for (const g of grades) {
     if (!g) continue;
     out[g]++;
     out.total++;
@@ -96,6 +114,11 @@ export function tally(values: Iterable<Graded | null | undefined>): EvidenceTall
   const measured = out.verified + out.weak;
   if (measured > 0) out.robustShare = Math.round((100 * out.verified) / measured);
   return out;
+}
+
+/** Bequemer Weg für Werte, die alle Laborprüfungen sind — etwa auf der Produktebene. */
+export function tally(values: Iterable<Graded | null | undefined>): EvidenceTally {
+  return tallyGrades([...values].map((v) => evidenceGrade(v)));
 }
 
 /**

@@ -86,9 +86,13 @@ Beides zusammen ergibt eine abgeleitete Einstufung (`src/lib/evidence.ts`, ADR-0
 | `editorial` | `confidence: estimated` | fachliche Ableitung — keine Messung |
 
 Die Einstufung steuert die **Darstellung und das Urteil je Datensatz**, nicht die
-Rangfolge der Engine (ADR-037). Ein **abgeleiteter** Wert — einer mit `derivedFrom` —
-gilt wie einer mit Norm: Der Anisotropiefaktor ist ein Quotient, die Prüfnormen stehen an
-seinen Operanden. Dass die aus derselben Quelle stammen, prüft Regel R10.
+Rangfolge der Engine (ADR-037). Eine Prüfnorm wird nur verlangt, wo eine möglich ist —
+zwei Wertarten sind ausgenommen:
+
+- **Abgeleitete Werte** (mit `derivedFrom`). Der Anisotropiefaktor ist ein Quotient, die
+  Prüfnormen stehen an seinen Operanden. Dass die aus derselben Quelle stammen, prüft R10.
+- **Marktbeobachtungen** — alles in Gruppe I (`commercial`). Ein Preis kann keine
+  ISO-Nummer tragen; seine Provenienz ist die Händlerliste mit Abrufdatum im Quellensatz.
 
 Wer einen Wert mit `medium` erfasst, **muss** deshalb `testStandard` mitschreiben. Steht
 auf dem Blatt keine Norm, ist `low` die richtige Konfidenz — nicht `medium` ohne Norm.
