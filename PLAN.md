@@ -4,8 +4,8 @@
 **Live:** https://reents3d.github.io/fdm-material-advisor/
 **Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sowie die
 zwei offenen Entscheidungen aus dem FormFutura-Import: Werkstofftypen für PEEK/PEI/PCL/BVOH und
-Variantentypen `pctg-cf` und `pc-cf`. Danach die rund 100 übrigen OFD-Fundstellen (Nebula 17,
-Alzament 13, Anycubic 12) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXTech 61)
+Variantentypen `pctg-cf` und `pc-cf`. Danach die übrigen OFD-Fundstellen (Alzament 13,
+Anycubic 12, Bambu 40) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXTech 61)
 
 ---
 
@@ -17,7 +17,7 @@ Alzament 13, Anycubic 12) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXT
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
 | **3 — Oberfläche** | ✅ Wizard (6 Schritte, Schrittleiste, Antwortübersicht, Sackgassen-Auskunft, Schwerpunkte), Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ⬤ weit: 205 Herstellerprodukte aus 14 Marken, 41 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
+| **4 — Datenausbau** | ⬤ weit: 222 Herstellerprodukte aus 15 Marken, 41 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
@@ -26,11 +26,11 @@ Alzament 13, Anycubic 12) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXT
 
 | Prüfung | Ergebnis |
 |---|---|
-| JSON Schema, 268 Dateien | PASS |
+| JSON Schema, 285 Dateien | PASS |
 | Plausibilität und Provenienz, 15 Regeln | 0 Fehler, 3 dokumentierte Datenblatt-Anomalien |
 | Typecheck (strict) | PASS |
 | Tests | 144 grün |
-| Bundle | Erstaufruf 292 kB (Budget 320 kB) · gesamt 426 kB (Budget 500 kB) — ADR-036 |
+| Bundle | Erstaufruf 292 kB (Budget 320 kB) · gesamt 436 kB (Budget 500 kB) — ADR-036 |
 | Live-Deployment | HTTP 200, keine Konsolenfehler |
 
 **Konfidenz über die gesamte Datenbank: 2.824 belegte Aussagen —
@@ -184,7 +184,10 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
       ABS Glow, und EasyFil ePLA = Galaxy PLA. Aufgenommen als **ein** Beleg, nicht als
       sieben. ABSpro Flame Retardant liefert dafür die sorgfältigsten Normangaben des
       ganzen Herstellers (ISO 527-2/50, ISO 75-2A, ISO 180-4A)
-- [ ] Die übrigen ~100 verlinkten Fundstellen auswerten (Nebula 17, Alzament 13, Anycubic 12)
+- [x] **Nebula ausgewertet** (2026-08-05): 17 Produkte, neue Marke. 17 Blätter tragen nur 9
+      Tabellen; die PLA-Tabelle ist dieselbe wie bei FormFutura und nennt die
+      Originaleinheiten — damit sind zwei dort offene Fehler aufgelöst
+- [ ] Die übrigen ~85 verlinkten Fundstellen auswerten (Alzament 13, Anycubic 12, Bambu 40)
 - [ ] Polymaker, 3DXTech, PrimaCreator: im Marktbestand groß, ohne jeden Blattlink
 
 **Aufwand:** ~40–60 h · **DoD:** ≥ 60 Materialien, ≥ 25 davon `dataCompleteness` ≥ 85 %

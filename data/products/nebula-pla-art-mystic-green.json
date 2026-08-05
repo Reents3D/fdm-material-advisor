@@ -1,0 +1,140 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-pla-art-mystic-green",
+  "materialId": "pla",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "PLA Art Mystic Green",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Diese Tabelle gehört nicht diesem Produkt allein. Sie steht identisch auf den Blättern von Nebula PLA Premium und fünf PLA-Art-Varianten — und zusätzlich, mit umgerechneten Zahlen, auf denen von FormFutura EasyFil ePLA und Galaxy PLA. Acht Produkte zweier Hersteller hängen damit an EINER Messung, vermutlich dem Blatt des Granulatlieferanten. Für diese Datenbank zählt das als ein Beleg; alle Werte tragen `low`. Die Zugkennwerte sind zudem nach ASTM D882 geprüft, der Norm für dünne Folien — für starre Formteile gilt D638 beziehungsweise ISO 527. Die Schlagzähigkeit steht in J/m und ist nicht übernommen, weil ihre Umrechnung die Probendicke braucht.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: This table does not belong to this product alone. It appears identically on the sheets of Nebula PLA Premium and five PLA Art variants — and additionally, with converted figures, on those of FormFutura EasyFil ePLA and Galaxy PLA. Eight products from two manufacturers thus hang on ONE measurement, presumably the resin supplier's sheet. For this database that counts as one piece of evidence; all values carry `low`. The tensile values are moreover tested to ASTM D882, the standard for thin film — for rigid mouldings D638 or ISO 527 applies. The impact strength is in J/m and is not imported because its conversion needs the specimen thickness."
+  },
+  "features": {
+    "de": "Spulengrößen laut Blatt: 0,5 / 1 / 3 / 9 kg.",
+    "en": "Spool sizes per the sheet: 0,5 / 1 / 3 / 9 kg."
+  },
+  "datasheet": {
+    "title": "PLA Art Mystic Green — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-MYSTIC-GREEN.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ASTM D882",
+      "conditions": "Blattangabe 8.700 psi; bei Bruch nennt das Blatt 7.700 psi (53 MPa)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 3613,
+      "unit": "MPa",
+      "testStandard": "ASTM D882",
+      "conditions": "Blattangabe 524.000 psi (3,6 GPa)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ASTM D882",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 83,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 12.000 psi",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 3827,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 555.000 psi (3,8 GPa)",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "ASTM E2092",
+      "conditions": "66 psi = 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 190,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 30,
+      "unit": "°C",
+      "min": 0,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "PLA Art Mystic Green",
+        "title": "PLA Art Mystic Green — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-MYSTIC-GREEN.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}

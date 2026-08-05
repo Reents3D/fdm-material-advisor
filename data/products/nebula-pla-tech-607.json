@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-pla-tech-607",
+  "materialId": "pla",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "PLA Tech 607",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Drei Punkte. Das Blatt führt ZWEI Zug-E-Moduln: „416 kpsi (2.865 MPa)“ und „348.440 psi (2.402 MPa)“ — beide in sich stimmig umgerechnet, aber 463 MPa auseinander. Welcher gilt, sagt das Blatt nicht; geführt ist der erste mit `low`. Die Bruchdehnung steht unter ASTM D256, der Schlagprüfnorm. Und die gekerbte Izod-Schlagzähigkeit ist mit 6,05 ft·lb/in (323 J/m) angegeben — das wäre zäher als Polycarbonat und liegt für ein PLA um mehr als eine Größenordnung zu hoch; sie ist nicht übernommen.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: Three points. The sheet carries TWO tensile moduli: “416 kpsi (2,865 MPa)” and “348,440 psi (2,402 MPa)” — each internally consistent in its conversion, but 463 MPa apart. Which one applies the sheet does not say; the first is held, with `low`. The elongation at break is filed under ASTM D256, the impact standard. And the notched Izod impact is given as 6.05 ft·lb/in (323 J/m) — that would be tougher than polycarbonate and is more than an order of magnitude too high for a PLA; it is not imported."
+  },
+  "features": {
+    "de": "Die interessanteste Zahl auf dem Blatt ist die Wärmeformbeständigkeit: 80 bis 90 °C bei 0,45 MPa, gegenüber 55 °C beim gewöhnlichen PLA desselben Herstellers. Ein PLA, das 30 K über dem Standardwert liegt, ist entweder nukleiert oder für die Kristallisation ausgelegt — genau der Unterschied, der PLA für warme Umgebungen überhaupt in Betracht kommen lässt.\n\nSpulengrößen laut Blatt: 0,5 / 1 / 3 / 9 kg.",
+    "en": "The most interesting figure on the sheet is the heat deflection temperature: 80 to 90 °C at 0.45 MPa, against 55 °C for the same manufacturer's ordinary PLA. A PLA sitting 30 K above the standard value is either nucleated or designed to crystallise — precisely the difference that puts PLA in contention for warm environments at all.\n\nSpool sizes per the sheet: 0,5 / 1 / 3 / 9 kg."
+  },
+  "datasheet": {
+    "title": "PLA Tech 607 — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-607.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "min": 5,
+      "max": 7,
+      "testStandard": "ASTM D1238",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe 5.802 psi",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2865,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe 416 kpsi; siehe Befund zur zweiten Modulzeile",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 2.3,
+      "unit": "%",
+      "testStandard": "im Blatt als ASTM D256 angegeben — das ist die Schlagprüfnorm; für die Dehnung gilt D638",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 85,
+      "unit": "°C",
+      "min": 80,
+      "max": 90,
+      "testStandard": "ASTM E2092",
+      "conditions": "66 psi = 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 190,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 70,
+      "unit": "°C",
+      "min": 60,
+      "max": 80,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "PLA Tech 607",
+        "title": "PLA Tech 607 — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-607.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}
