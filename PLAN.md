@@ -216,28 +216,24 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
   geprüft — dieselbe Fehlerklasse wie `cmp` und `chem`, die schon zweimal ungekappt
   durchgerutscht ist (Vergleichsansicht 2026-08-02, Explorer danach).
 
-- [ ] **Messbare Kriterien statt Fünferskalen** — *der eigentliche Engpass, erkannt 2026-08-05*
+- [ ] **Die zwei schwachen Kriterien der Engine** — *gemessen 2026-08-05, ADR-037*
 
-  Beim Einbau der Belastbarkeitsstufe (ADR-037) kam heraus: Von den **17 Kriterien der
-  Engine lesen genau zwei einen Messwert** — `xxl` (selbst eine Ableitung) und `price`
-  (bei 22 von 41 Werkstoffen nur `low`). Die übrigen fünfzehn lesen Fünferskalen, und die
-  sind konstruktionsbedingt `editorial`: Für „Druckbarkeit 4 von 5" gibt es keine Norm.
+  Die mechanischen und thermischen Kriterien lesen bereits Messwerte, nicht Skalen —
+  `strength` 31 von 41 belastbar, `lightweight` 31, `toughness` 29, `stiffness` 23,
+  `temperature` 19, `layerAdhesion` 12. Dort ist nichts umzustellen.
 
-  Das heißt: Die Rangfolge dieses Werkzeugs entsteht heute überwiegend aus **fachlichen
-  Einschätzungen**, nicht aus Messungen — und daran ändert kein Filter etwas. Ein Filter
-  auf belastbare Werte würde die Rangfolge nicht schärfen, sondern leeren.
+  Schwach sind genau zwei:
+  - **`price`** erreicht bei **keinem einzigen** Werkstoff `verified` — 33-mal `weak`,
+    8-mal geschätzt. Das Kriterium ist gewichtbar und entscheidet mit, stützt sich aber
+    auf nichts Nachprüfbares. Abhilfe ist die Preiserhebung über ≥ 5 Händler je Material
+    (`oq_price_survey`), die ohnehin in Phase 4 steht.
+  - **`layerAdhesion`** fehlt bei **28 von 41** Werkstoffen, weil der Anisotropiefaktor
+    Z-Werte braucht und die kaum ein Hersteller veröffentlicht. Hier hilft nur, gezielt
+    Blätter mit Z-Werten zu suchen — Ultrafuse und SUNLU liefern sie.
 
-  Kandidaten, die sich aus vorhandenen Daten messbar machen ließen:
-  - `strength` und `stiffness` lesen heute Skalen, obwohl `tensileStrengthXy` (**31 von
-    41 belastbar**) und `tensileModulusXy` (**23**) als Messwerte danebenliegen — die
-    Skalen sind dort schlicht redundant. Das sind die beiden lohnendsten Umbauten.
-  - `temperature` könnte statt einer Skala direkt `hdtB` lesen (**19 von 41**)
-  - `toughness` **nicht**: `charpyNotchedXy` ist nur bei **1 von 41** belastbar. Hier
-    fehlen die Daten, nicht die Verdrahtung — erst importieren, dann umstellen.
-  - `lowWarping` und `printability` bleiben notwendigerweise Einschätzungen
-
-  Erst danach wird die Empfehlung selbst belastbar, und erst dann lohnt es, die
-  Belastbarkeitsstufe auch in die Rangfolge zu ziehen.
+  Die sieben Skalenkriterien (`printability`, `outdoor`, `lowWarping`, `paintability`,
+  `availability`, `surface`, `xxl`) bleiben Einschätzungen. Das ist kein Mangel: Für
+  „Druckbarkeit 4 von 5" gibt es keine Norm und kann es keine geben.
 
 - [x] Explorer / Ashby-Plot (frei wählbare Achsen)
 - [ ] Trade-off-Radar

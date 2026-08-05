@@ -84,12 +84,16 @@ describe("Datengrundlage", () => {
     for (const v of estimated) expect(evidenceGrade(v)).toBe("editorial");
   });
 
-  it("nennt fuer jeden belastbaren Wert eine Pruefnorm", () => {
-    /* Die Definition selbst, gegen die echten Daten gehalten: Wenn hier je ein Wert
-       ohne Norm als belastbar durchkaeme, waere die Einstufung kaputt. */
+  it("nennt fuer jeden belastbaren Wert eine Pruefnorm ODER eine Ableitung", () => {
+    /* Die Definition selbst, gegen die echten Daten gehalten. Die Ableitung steht
+       gleichberechtigt neben der Norm: Ein Anisotropiefaktor ist ein Quotient, die
+       Normen stehen an seinen Operanden. Was hier NICHT durchkommen darf, ist ein Wert
+       ganz ohne beides - dann waere die Einstufung kaputt. */
     const robust = [...productMeasurements(), ...materialValues()]
       .filter((v) => evidenceGrade(v) === "verified");
     expect(robust.length).toBeGreaterThan(0);
-    for (const v of robust) expect(v.testStandard, JSON.stringify(v)).toBeTruthy();
+    for (const v of robust) {
+      expect(v.testStandard || v.derivedFrom?.length, JSON.stringify(v)).toBeTruthy();
+    }
   });
 });
