@@ -1584,6 +1584,78 @@ Weg durch das Werkzeug ohne sie auskommt. Der Hinweis steht im Kopf von
 
 ---
 
+## ADR-037 — Belastbarkeit ist eine eigene Frage, und `confidence` beantwortet sie nicht
+
+**Status:** akzeptiert · **Datum:** 2026-08-05
+
+### Kontext
+
+`confidence` beantwortet eine Frage: Wie gut ist die **Quelle**? Sie beantwortet nicht,
+ob überhaupt eine Prüfnorm dabeisteht. Ein Wert mit `medium` und ohne Norm sah in der
+Oberfläche aus wie einer mit Norm — obwohl niemand weiß, wonach gemessen wurde.
+
+Die Messung des Bestands machte den Umfang sichtbar:
+
+| | |
+|---|---|
+| Messwerte auf der Produktebene | 1.775 |
+| davon mit Prüfnorm **und** Konfidenz ≥ `medium` | 1.387 (78 %) |
+| davon ohne deklarierten Prüfkörper | 1.221 (69 %) |
+| Fünferskalen auf der Werkstoffebene | 41 von 41 `estimated` bei `uvResistance` und `printability` |
+
+Der letzte Punkt ist der wichtigste: **Die Fünferskalen sind konstruktionsbedingt keine
+Messungen.** Für „Druckbarkeit 4 von 5" gibt es keine Norm und kann es keine geben. Sie
+aus den Daten zu entfernen hieße, die Bewertungsdimension der Engine zu entfernen — dann
+rankt das Werkzeug nichts mehr.
+
+### Entscheidung
+
+Eine zweite, abgeleitete Einstufung neben `confidence`, berechnet in
+[`src/lib/evidence.ts`](src/lib/evidence.ts):
+
+| Stufe | Bedingung | Folge |
+|---|---|---|
+| `verified` | Prüfnorm **und** Konfidenz ≥ `medium` | geht in die Empfehlung ein |
+| `weak` | Konfidenz `low` **oder** keine Prüfnorm | wird angezeigt und sichtbar abgewertet |
+| `editorial` | Konfidenz `estimated` | fachliche Ableitung, keine Messung — bleibt |
+
+**Der Prüfkörper geht bewusst NICHT ein.** Ihn zur Ausschlussbedingung zu machen, würde
+zwei Drittel aller Messwerte und sechs von fünfzehn Marken entfernen — 3DJAKE, add:north,
+Extrudr, Fiberlogy, FormFutura und Nebula deklarieren ihn auf keinem einzigen Blatt.
+Ein undeklarierter Prüfkörper macht den Wert aber nicht falsch, sondern nur nicht quer
+vergleichbar, und genau diese Trennung leistet die Herstelleransicht bereits über
+`specimenType`.
+
+**Nichts wird gelöscht.** Ein `weak`-Wert bleibt im Datensatz, wird angezeigt und trägt
+sein Zeichen. Löschen würde die Befunde vernichten, die ihn überhaupt erst als schwach
+erkennbar machen — und die Datenbank ist auch ein Verzeichnis dessen, was die Hersteller
+veröffentlichen.
+
+**Der Anteil rechnet über die Messwerte, nicht über alles.** `verified / (verified +
+weak)`; die Schätzungen stehen daneben. Rechnete man sie mit, käme jeder Werkstoff auf
+10 bis 20 %, und die Zahl unterschiede nichts mehr.
+
+### Konsequenzen
+
+**Positiv.** Die Datengrundlage steht als Satz auf jedem Datenblatt: „gemischt — 17 von
+49 Messwerten mit Prüfnorm und belegter Quelle (35 %)". Werte ohne Norm tragen ein
+eigenes Zeichen. Und `tests/data/evidence-floor.test.ts` hält den Anteil fest: Wer
+Blätter ohne Normen importiert, sieht es vor dem Merge — dreißig Zahlen sehen nach
+Fortschritt aus und sind keiner, wenn der Anteil dabei fällt.
+
+**Negativ.** Die Einstufung ist grob. Eine genannte Norm heißt nicht, dass sie eingehalten
+wurde; `ISO 527` ohne Methode und Prüfgeschwindigkeit ist wenig wert, zählt hier aber als
+Norm. Feiner wäre besser und ist ohne Handarbeit an 1.775 Werten nicht zu haben.
+
+**Ein Fehler, der erst am fertigen Datenblatt auffiel.** Die erste Fassung rechnete den
+Anteil über alle Werte einschließlich der Schätzungen. Im Browser stand dann „7 von 14
+Messwerten (12 %)" — zwei Nenner in einem Satz, und jeder Werkstoff hieß „dünn". Der Test
+dazu hatte die falsche Formel mit abgesegnet, weil er sie aus der Implementierung
+übernommen hatte statt aus der Absicht. Beides ist korrigiert; der Fall steht als
+Kommentar im Test.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

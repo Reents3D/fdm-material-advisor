@@ -8,6 +8,7 @@ import { dataCompleteness, confidenceProfile } from "../engine";
 import type { ChemicalResistance, Quantity, Rating, Flag, Material } from "../engine/types";
 import { SITE, trackedUrl } from "../config/site";
 import { Card, Chip, ConfidenceMark, RatingBar, Section, Value, cx, text } from "../components/ui";
+import { tally, verdict, type Graded } from "../lib/evidence";
 import type { Lang } from "../i18n";
 import type { AppState } from "../App";
 
@@ -93,6 +94,7 @@ export function Detail({ id, t, lang, navigate, state, update }: {
             <span>◆◆ {conf.high}</span><span>◆ {conf.medium}</span><span>! {conf.low}</span>
             <span className="text-amber-600 dark:text-amber-400">≈ {conf.estimated} {t("ui.estimatedBadge")}</span>
           </div>
+          <EvidenceSummary m={m} lang={lang} />
         </Card>
       </div>
 
@@ -264,6 +266,52 @@ function ChemicalMatrix({ m, lang, t }: { m: Material; lang: Lang; t: T }) {
         </p>
       ))}
     </Section>
+  );
+}
+
+/**
+ * Wie belastbar ist die Datengrundlage dieses Werkstoffs?
+ *
+ * Die Konfidenzleiste darueber zeigt, wie gut die QUELLEN sind. Sie zeigt nicht, ob eine
+ * Pruefnorm dabeisteht — und ein Wert ohne Norm ist nicht nachpruefbar, egal wie gut die
+ * Quelle ist. Diese Zeile fasst beides zu einem Satz zusammen, damit niemand erst
+ * einzelne Felder durchgehen muss, um zu merken, dass die Grundlage duenn ist.
+ *
+ * Die Schaetzungen stehen bewusst DANEBEN und nicht im Nenner: Die Fuenferskalen sind
+ * konstruktionsbedingt keine Messungen. Sie mitzurechnen wuerde jeden Werkstoff schlecht
+ * aussehen lassen und die Aussage entwerten, um die es hier geht.
+ */
+function EvidenceSummary({ m, lang }: { m: Material; lang: Lang }) {
+  const values: Graded[] = [];
+  const walk = (node: unknown) => {
+    if (!node || typeof node !== "object") return;
+    if ("confidence" in (node as object)) { values.push(node as Graded); return; }
+    for (const v of Object.values(node)) walk(v);
+  };
+  for (const [group, node] of Object.entries(m)) {
+    if (group === "governance") continue;
+    walk(node);
+  }
+  const t = tally(values);
+  const v = verdict(t);
+  if (!v || t.robustShare === null) return null;
+
+  const de = lang === "de";
+  const label = {
+    solid: de ? "belastbar" : "solid",
+    mixed: de ? "gemischt" : "mixed",
+    thin: de ? "dünn" : "thin",
+  }[v];
+  const tone = { solid: "text-good", mixed: "text-ok", thin: "text-bad" }[v];
+
+  return (
+    <p className="text-xs muted mt-2 pt-2 border-t border-hairline dark:border-[#1E2B3D] leading-relaxed">
+      {de ? "Datengrundlage: " : "Evidence base: "}
+      <span className={cx("font-medium", tone)}>{label}</span>
+      {de
+        ? ` — ${t.verified} von ${t.verified + t.weak} Messwerten mit Prüfnorm und belegter Quelle (${t.robustShare} %). Dazu ${t.editorial} fachliche Einschätzungen, die keine Messung sein können.`
+        : ` — ${t.verified} of ${t.verified + t.weak} measured values with a test standard and a substantiated source (${t.robustShare} %). Alongside them ${t.editorial} expert assessments, which cannot be measurements.`}
+    </p>
   );
 }
 
