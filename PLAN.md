@@ -227,9 +227,11 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
     8-mal geschätzt. Das Kriterium ist gewichtbar und entscheidet mit, stützt sich aber
     auf nichts Nachprüfbares. Abhilfe ist die Preiserhebung über ≥ 5 Händler je Material
     (`oq_price_survey`), die ohnehin in Phase 4 steht.
-  - **`layerAdhesion`** fehlt bei **28 von 41** Werkstoffen, weil der Anisotropiefaktor
-    Z-Werte braucht und die kaum ein Hersteller veröffentlicht. Hier hilft nur, gezielt
-    Blätter mit Z-Werten zu suchen — Ultrafuse und SUNLU liefern sie.
+  - **`layerAdhesion`** fehlte bei 28 von 41 Werkstoffen. `derive:anisotropy` holt zwei
+    davon aus Produktblättern (`pc-fr` 0,35 · `pla-tough` 0,89) und erfasst einen
+    Widerspruch als offene Frage (`paht-cf`: 0,73 bei Bambu gegen 0,18 bei Ultrafuse).
+    Stand jetzt **15 von 41**. Die übrigen 25 haben in keinem einzigen Produktblatt
+    Z-Werte — hier hilft nur gezielte Suche nach Blättern, die sie ausweisen.
 
   Die sieben Skalenkriterien (`printability`, `outdoor`, `lowWarping`, `paintability`,
   `availability`, `surface`, `xxl`) bleiben Einschätzungen. Das ist kein Mangel: Für
