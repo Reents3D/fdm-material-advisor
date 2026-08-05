@@ -554,6 +554,19 @@
         "confidenceCeiling": "estimated"
       },
       {
+        "id": "src_price_abs_pc_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ABS-PC",
+        "url": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 €",
+          "en": "5 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 €"
+        }
+      },
+      {
         "id": "src_flame_spectrum_pc_abs_fr_v0",
         "type": "manufacturer-tds",
         "publisher": "Spectrum Group",
@@ -565,19 +578,6 @@
         "note": {
           "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
           "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
-        }
-      },
-      {
-        "id": "src_price_abs_pc_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise ABS-PC",
-        "url": "https://www.3djake.de/filament/pc-polycarbonat",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "5 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 €",
-          "en": "5 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 €"
         }
       }
     ],

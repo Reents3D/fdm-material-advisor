@@ -132,7 +132,8 @@
         "°",
         "a",
         "kg CO2e/kg",
-        "Shore D"
+        "Shore D",
+        "kg"
       ]
     },
     "quantity": {
@@ -272,6 +273,20 @@
           "properties": {
             "unit": {
               "const": "mm"
+            }
+          }
+        }
+      ]
+    },
+    "qKg": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "properties": {
+            "unit": {
+              "const": "kg"
             }
           }
         }
@@ -1557,6 +1572,14 @@
           "properties": {
             "maxSensibleEdgeMm": {
               "$ref": "#/$defs/qMm"
+            },
+            "maxSpoolWeightKg": {
+              "description": "Groesste am Markt beobachtete Spule dieses Werkstofftyps. Marktbeobachtung, keine Messung - sie entscheidet, ob ein Grossteil ohne Spulenwechsel durchlaeuft.",
+              "$ref": "#/$defs/qKg"
+            },
+            "largeSpoolShare": {
+              "description": "Anteil der am Markt gefuehrten Spulen mit mindestens 2 kg Fuellgewicht. Niedriger Anteil bedeutet Spulenwechsel im Dauerlauf, auch wenn eine Grossspule grundsaetzlich existiert.",
+              "$ref": "#/$defs/qPct"
             },
             "segmentationRecommended": {
               "$ref": "#/$defs/flag"

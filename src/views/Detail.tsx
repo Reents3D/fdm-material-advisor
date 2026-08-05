@@ -105,12 +105,17 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           gewichtbare Kriterien sind - wer sie im Assistenten hochzieht, konnte auf dem
           Datenblatt nicht nachsehen, worauf sich das stützt. Die XXL-Schwelle wird aus
           dem verschachtelten `xxl`-Objekt hochgezogen, sonst fiele sie durch den
-          Messwertfilter. */}
+          Messwertfilter. Dasselbe gilt seit ADR-035 für die beiden Spulenangaben: Sie
+          gehören fachlich neben die Kantenlänge, denn bei einem Großteil entscheidet
+          nicht nur der Verzug, sondern auch die Frage, ob das Material auf einer Spule
+          durchläuft. Beide nur zusammen lesbar - siehe DATA_MODEL, Gruppe I. */}
       <PropertyGroup title={lang === "de" ? "Nachhaltigkeit" : "Sustainability"} node={m.sustainability as Record<string, unknown>} lang={lang} t={t} />
       <PropertyGroup title={lang === "de" ? "Wirtschaftlichkeit & Verfügbarkeit" : "Economy & availability"}
         node={{
           ...(m.commercial as Record<string, unknown>),
           maxSensibleEdgeMm: (m.commercial as { xxl?: { maxSensibleEdgeMm?: unknown } })?.xxl?.maxSensibleEdgeMm,
+          maxSpoolWeightKg: (m.commercial as { xxl?: { maxSpoolWeightKg?: unknown } })?.xxl?.maxSpoolWeightKg,
+          largeSpoolShare: (m.commercial as { xxl?: { largeSpoolShare?: unknown } })?.xxl?.largeSpoolShare,
         }}
         lang={lang} t={t} />
 
@@ -268,6 +273,8 @@ const LABELS: Record<string, [string, string]> = {
   availability: ["Verfügbarkeit", "Availability"],
   smallSeriesSuitability: ["Kleinserientauglichkeit", "Small-series suitability"],
   maxSensibleEdgeMm: ["Kante ohne Sonderaufwand", "Edge without special effort"],
+  maxSpoolWeightKg: ["Größte Spule am Markt", "Largest spool on the market"],
+  largeSpoolShare: ["Angebote ab 2 kg", "Offers from 2 kg"],
   bioBasedContent: ["Biobasierter Anteil", "Bio-based content"],
 
   density: ["Dichte", "Density"],

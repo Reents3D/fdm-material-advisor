@@ -32,8 +32,17 @@
       "value": 1.01,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "source": [
+        "src_extrudr_tds",
+        "src_ofd"
+      ],
+      "confidence": "medium",
+      "min": 1.01,
+      "max": 1.18,
+      "note": {
+        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+      }
     },
     "tensileStrengthXy": {
       "value": 43,
@@ -517,6 +526,28 @@
           "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
           "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
         }
+      },
+      "maxSpoolWeightKg": {
+        "value": 1,
+        "unit": "kg",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "17 Produkte, 45 Spulen",
+        "note": {
+          "de": "Marktbeobachtung über 17 Produkte und 45 Spulenangebote (Open Filament Database 2026.07.31). Größte am Markt geführte Spule. Reicht sie für das Bauteil nicht, fällt mitten im Druck ein Spulenwechsel an. Keine Lieferzusage — zusammen mit largeSpoolShare lesen.",
+          "en": "Market observation across 17 products and 45 spool offers (Open Filament Database 2026.07.31). Largest spool offered on the market. If it does not cover the part, a spool change falls in mid-print. Not a supply commitment — read together with largeSpoolShare."
+        }
+      },
+      "largeSpoolShare": {
+        "value": 0,
+        "unit": "%",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "Anteil der Spulen ab 2 kg; 45 Spulen betrachtet",
+        "note": {
+          "de": "Marktbeobachtung über 17 Produkte und 45 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
+          "en": "Market observation across 17 products and 45 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
       }
     },
     "reentsPortfolioStatus": {
@@ -540,7 +571,12 @@
         "de": "Erhoben, nicht geschätzt: 6 Listenpreise von 3 Marken (Fiberlogy, eSUN, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
         "en": "Surveyed, not estimated: 6 list prices from 3 brands (Fiberlogy, eSUN, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
-    }
+    },
+    "spoolSizes": [
+      "0.5 kg",
+      "0.75 kg",
+      "1 kg"
+    ]
   },
   "governance": {
     "lastReviewed": "2026-08-01",
@@ -606,6 +642,20 @@
         "note": {
           "de": "1 Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg, 54,53 €",
           "en": "1 offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg, 54.53 €"
+        }
+      },
+      {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ],

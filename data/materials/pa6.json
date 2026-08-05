@@ -41,13 +41,16 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.13,
+      "value": 1.14,
+      "min": 1.08,
+      "max": 1.2,
       "unit": "g/cm³",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "source": "src_ofd",
+      "confidence": "low",
+      "conditions": "31 Produkte am Markt",
       "note": {
-        "de": "Standardwert für unverstärktes PA6. Gefülltes PA6 liegt darunter (PA6-CF 1,09) oder darüber (PA6-GF 1,21).",
-        "en": "Standard value for unfilled PA6. Filled PA6 sits below (PA6-CF 1.09) or above (PA6-GF 1.21)."
+        "de": "Marktkorridor über 31 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Market corridor across 31 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
       }
     },
     "tensileStrengthXy": {
@@ -179,20 +182,30 @@
   },
   "processing": {
     "nozzleTemperature": {
-      "value": 260,
+      "value": 255,
+      "min": 250,
+      "max": 290,
       "unit": "°C",
-      "min": 240,
-      "max": 280,
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "src_ofd",
+      "confidence": "low",
+      "conditions": "21 Produkte am Markt",
+      "note": {
+        "de": "Marktkorridor über 21 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Market corridor across 21 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+      }
     },
     "bedTemperature": {
-      "value": 75,
+      "value": 80,
+      "min": 80,
+      "max": 100,
       "unit": "°C",
-      "min": 60,
-      "max": 90,
-      "source": "estimate_reasoning",
-      "confidence": "estimated"
+      "source": "src_ofd",
+      "confidence": "low",
+      "conditions": "21 Produkte am Markt",
+      "note": {
+        "de": "Marktkorridor über 21 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Market corridor across 21 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+      }
     },
     "chamberRequirement": {
       "value": "recommended",
@@ -589,6 +602,28 @@
           "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
           "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
         }
+      },
+      "maxSpoolWeightKg": {
+        "value": 5,
+        "unit": "kg",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "31 Produkte, 82 Spulen",
+        "note": {
+          "de": "Marktbeobachtung über 31 Produkte und 82 Spulenangebote (Open Filament Database 2026.07.31). Größte am Markt geführte Spule. Reicht sie für das Bauteil nicht, fällt mitten im Druck ein Spulenwechsel an. Keine Lieferzusage — zusammen mit largeSpoolShare lesen.",
+          "en": "Market observation across 31 products and 82 spool offers (Open Filament Database 2026.07.31). Largest spool offered on the market. If it does not cover the part, a spool change falls in mid-print. Not a supply commitment — read together with largeSpoolShare."
+        }
+      },
+      "largeSpoolShare": {
+        "value": 22,
+        "unit": "%",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "Anteil der Spulen ab 2 kg; 82 Spulen betrachtet",
+        "note": {
+          "de": "Marktbeobachtung über 31 Produkte und 82 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
+          "en": "Market observation across 31 products and 82 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
       }
     },
     "reentsPortfolioStatus": {
@@ -608,7 +643,18 @@
         "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-02 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
         "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-02 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
       }
-    }
+    },
+    "spoolSizes": [
+      "0.25 kg",
+      "0.5 kg",
+      "0.75 kg",
+      "1 kg",
+      "2 kg",
+      "2.3 kg",
+      "3 kg",
+      "4.5 kg",
+      "5 kg"
+    ]
   },
   "governance": {
     "lastReviewed": "2026-08-02",
@@ -625,6 +671,20 @@
         "note": {
           "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
           "en": "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."
+        }
+      },
+      {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ],

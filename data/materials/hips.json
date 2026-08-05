@@ -29,8 +29,17 @@
       "value": 1.05,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": "src_tds",
-      "confidence": "low"
+      "source": [
+        "src_tds",
+        "src_ofd"
+      ],
+      "confidence": "low",
+      "min": 1.04,
+      "max": 1.05,
+      "note": {
+        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
+        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+      }
     },
     "tensileStrengthXy": {
       "value": 26,
@@ -568,6 +577,28 @@
           "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
           "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
         }
+      },
+      "maxSpoolWeightKg": {
+        "value": 9,
+        "unit": "kg",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "17 Produkte, 63 Spulen",
+        "note": {
+          "de": "Marktbeobachtung über 17 Produkte und 63 Spulenangebote (Open Filament Database 2026.07.31). Größte am Markt geführte Spule. Reicht sie für das Bauteil nicht, fällt mitten im Druck ein Spulenwechsel an. Keine Lieferzusage — zusammen mit largeSpoolShare lesen.",
+          "en": "Market observation across 17 products and 63 spool offers (Open Filament Database 2026.07.31). Largest spool offered on the market. If it does not cover the part, a spool change falls in mid-print. Not a supply commitment — read together with largeSpoolShare."
+        }
+      },
+      "largeSpoolShare": {
+        "value": 14.3,
+        "unit": "%",
+        "source": "src_ofd",
+        "confidence": "low",
+        "conditions": "Anteil der Spulen ab 2 kg; 63 Spulen betrachtet",
+        "note": {
+          "de": "Marktbeobachtung über 17 Produkte und 63 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
+          "en": "Market observation across 17 products and 63 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
       }
     },
     "reentsPortfolioStatus": {
@@ -591,7 +622,14 @@
         "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Fiberlogy HIPS, 0,85 kg für 27,43 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
         "en": "Surveyed, not estimated — but on a single offer: Fiberlogy HIPS, 0.85 kg for 27.43 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
       }
-    }
+    },
+    "spoolSizes": [
+      "0.75 kg",
+      "0.85 kg",
+      "1 kg",
+      "2 kg",
+      "9 kg"
+    ]
   },
   "governance": {
     "lastReviewed": "2026-08-02",
@@ -648,6 +686,20 @@
         "note": {
           "de": "1 Angebot: Fiberlogy HIPS, 0,85 kg, 27,43 €",
           "en": "1 offer: Fiberlogy HIPS, 0.85 kg, 27.43 €"
+        }
+      },
+      {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
       }
     ]
