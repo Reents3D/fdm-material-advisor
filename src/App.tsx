@@ -6,7 +6,7 @@
  * Hash routing (not history) because GitHub Pages serves no SPA fallback for deep paths.
  */
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
 import { LANGS, translate, type Lang } from "./i18n";
 import { MATERIALS } from "./data/materials";
 import { CHEMICALS } from "./data/chemicals";
@@ -20,12 +20,26 @@ import { Results } from "./views/Results";
 import { Detail } from "./views/Detail";
 import { Compare } from "./views/Compare";
 import { Explorer } from "./views/Explorer";
-import { Matrix } from "./views/Matrix";
-import { Brands } from "./views/Brands";
 import { UseCases } from "./views/UseCases";
 import { Glossary } from "./views/Glossary";
 import { Compliance } from "./views/Compliance";
 import { Report } from "./views/Report";
+
+/**
+ * Herstelleransicht und Matrix sind die einzigen Ansichten, die `data/products` lesen -
+ * inzwischen gut 2.000 Kennwertzeilen aus 192 Produkten. Statisch importiert lagen sie
+ * im Erstaufruf jedes Besuchers, obwohl der Weg durch das Werkzeug (Start, Assistent,
+ * Ergebnis, Datenblatt) ohne sie auskommt. Beim FormFutura-Import ist das Bundle-Budget
+ * daran gerissen; die Aufteilung war im CI-Kommentar seit dem 2026-08-02 als naechster
+ * Schritt vorgemerkt.
+ *
+ * Rollup zieht mit diesen beiden dynamischen Importen auch `data/products` in einen
+ * eigenen Brocken, weil sonst niemand darauf zeigt. Die Ansichten laden beim ersten
+ * Aufruf nach - das ist der richtige Zeitpunkt, denn wer die Herstelleransicht oeffnet,
+ * will genau diese Daten sehen.
+ */
+const Matrix = lazy(() => import("./views/Matrix").then((m) => ({ default: m.Matrix })));
+const Brands = lazy(() => import("./views/Brands").then((m) => ({ default: m.Brands })));
 
 export type Route =
   | { view: "home" }
@@ -273,8 +287,20 @@ export function App() {
         )}
         {route.view === "compare" && <Compare state={state} t={t} update={update} navigate={navigate} />}
         {route.view === "explorer" && <Explorer t={t} lang={state.lang} params={params} navigate={navigate} />}
-        {route.view === "matrix" && <Matrix t={t} lang={state.lang} navigate={navigate} />}
-        {route.view === "brands" && <Brands t={t} lang={state.lang} navigate={navigate} />}
+        {/* Nachgeladene Ansichten. Der Platzhalter ist absichtlich schlicht und traegt
+            aria-busy, damit ein Screenreader den Ladezustand meldet statt zu schweigen. */}
+        {(route.view === "matrix" || route.view === "brands") && (
+          <Suspense
+            fallback={
+              <p className="text-sm text-slate-500 dark:text-slate-400" aria-busy="true">
+                {t("ui.loading")}
+              </p>
+            }
+          >
+            {route.view === "matrix" && <Matrix t={t} lang={state.lang} navigate={navigate} />}
+            {route.view === "brands" && <Brands t={t} lang={state.lang} navigate={navigate} />}
+          </Suspense>
+        )}
         {route.view === "usecases" && <UseCases t={t} lang={state.lang} />}
         {route.view === "glossary" && <Glossary t={t} lang={state.lang} />}
         {route.view === "compliance" && <Compliance t={t} lang={state.lang} navigate={navigate} />}

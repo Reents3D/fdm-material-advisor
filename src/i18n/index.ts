@@ -14,6 +14,7 @@ type Dict = Record<string, string>;
 const de: Dict = {
   /* --- shell ------------------------------------------------------------- */
   "ui.tagline": "Welches FDM-Material passt — und warum.",
+  "ui.loading": "Wird geladen …",
   "ui.subline":
     "Kostenlos, quelloffen, ohne Anmeldung. Jeder Wert mit Quelle und Konfidenz. Geschätzte Werte sind als solche gekennzeichnet.",
   "ui.start.wizard": "Geführte Beratung",
@@ -379,6 +380,7 @@ const de: Dict = {
 
 const en: Dict = {
   "ui.tagline": "Which FDM material fits — and why.",
+  "ui.loading": "Loading …",
   "ui.subline":
     "Free, open source, no sign-up. Every value with its source and confidence. Estimated values are marked as such.",
   "ui.start.wizard": "Guided advice",

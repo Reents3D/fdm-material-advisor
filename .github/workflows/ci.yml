@@ -26,26 +26,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Bundle-Budget: 400 kB gzip, angehoben von 350 kB am 2026-08-02.
+      # Bundle-Budget. Die Logik und die Begruendung der beiden Grenzen stehen in
+      # scripts/check-bundle.mjs; hier steht nur der Aufruf.
       #
-      # Die 350 kB stammen aus dem ersten Commit, als elf Werkstoffe in der Datenbank
-      # standen. Heute sind es 38 plus 1.820 Produktzeilen, und die Aufteilung ist
-      # nachgemessen: von 359 kB sind rund 250 kB DATEN (Werkstoffe 153 kB, Produkte
-      # 123 kB, Glossar 13 kB, Anwendungsfaelle 9 kB, Chemikalien 5 kB), rund 45 kB
-      # React und rund 55 kB eigener Code. Es gibt keine dritte Abhaengigkeit, die man
-      # streichen koennte - die Datenbank IST das Produkt, und sie waechst absichtlich.
-      #
-      # Die Grenze bleibt bewusst eng: 400 kB sind rund 11 % Luft, kein Blankoscheck.
-      # Wenn sie das naechste Mal reisst, ist Routen-Aufteilung faellig (die Produkte
-      # braucht nur die Herstelleransicht) - dann muss allerdings auch diese Pruefung
-      # umgestellt werden, denn sie summiert ALLE Dateien und nicht den Erstaufruf.
-      # Deshalb steht die Aufschluesselung jetzt im Protokoll: Wachstum soll sichtbar
-      # sein, nicht erst beim Reissen auffallen.
-      - name: Bundle-Budget (< 400 kB gzip)
-        run: |
-          for f in $(find dist/assets -name '*.js' -o -name '*.css'); do
-            printf '%8d B gzip  %s\n' "$(gzip -c "$f" | wc -c)" "$f"
-          done
-          total=$(find dist/assets -name '*.js' -o -name '*.css' | xargs -I{} sh -c 'gzip -c "{}" | wc -c' | awk '{s+=$1} END {print s}')
-          echo "gzip gesamt: $total Byte ($((total / 1024)) kB)"
-          if [ "$total" -gt 409600 ]; then echo "::error::Bundle über Budget: $total > 409600"; exit 1; fi
+      # Warum als Skript und nicht mehr als Shell-Schritt: Diese Pruefung lief bis zum
+      # 2026-08-04 NUR hier und nicht in `npm run ci`. Zweimal hintereinander - beim
+      # OFD-Import und beim FormFutura-Import - war lokal alles gruen und das Budget
+      # trotzdem gerissen. Eine Grenze, die man erst nach dem Push sieht, kommt zu spaet.
+      # Sie laeuft jetzt am Ende von `npm run ci` und damit auch hier ueber diesen Schritt.
+      - name: Bundle-Budget
+        run: npm run check:bundle
