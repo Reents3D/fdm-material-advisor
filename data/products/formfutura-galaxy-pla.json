@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-galaxy-pla",
+  "materialId": "pla",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "Galaxy PLA",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Die Kennwerttabelle steht Ziffer für Ziffer auch auf dem Blatt des jeweils anderen Produkts — EasyFil ePLA und Galaxy PLA teilen sie vollständig. Galaxy PLA enthält laut eigenem Blatt Aluminiumpartikel, EasyFil ePLA ist ungefüllt; ein gefüllter und ein ungefüllter Werkstoff können nicht dieselbe Steifigkeit haben. Beide zählen als EIN Beleg. Zwei Werte sind nicht übernommen: Zug- und Biege-E-Modul stehen mit „3,5“ und „3,8 MPa“ da — ein Thermoplast mit 3,5 MPa Steifigkeit wäre weicher als Gummi, gemeint sind ersichtlich GPa. Die Zugkennwerte sind zudem nach ASTM D882 geprüft, der Norm für dünne Folien; für starre Formteile gilt D638 beziehungsweise ISO 527.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: The property table appears digit for digit on the other product's sheet as well — EasyFil ePLA and Galaxy PLA share it completely. Galaxy PLA contains aluminium particles by its own sheet, EasyFil ePLA is unfilled; a filled and an unfilled material cannot have the same stiffness. Both count as ONE piece of evidence. Two values are not imported: tensile and flexural modulus appear as “3.5” and “3.8 MPa” — a thermoplastic with 3.5 MPa stiffness would be softer than rubber, GPa is evidently meant. The tensile values are moreover tested to ASTM D882, the standard for thin film; for rigid mouldings D638 or ISO 527 applies."
+  },
+  "datasheet": {
+    "title": "Galaxy PLA — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256560?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "210 °C / 2,16 kg",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ASTM D882",
+      "conditions": "bei Streckgrenze; bei Bruch nennt das Blatt 53 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtYieldXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ASTM D882",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 83,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 55,
+      "unit": "°C",
+      "testStandard": "ASTM E2092",
+      "conditions": "Blattangabe „HDT A“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 60,
+      "unit": "°C",
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "Galaxy PLA",
+        "title": "Galaxy PLA — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256560?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

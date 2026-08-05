@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-carbonfil",
+  "materialId": "petg-cf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "CarbonFil",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Drei Punkte. Erstens widerspricht der Fließtext der eigenen Tabelle: „10 % more impact resistant than HDglass“ steht über einem Schlagwert von 5,4 kJ/m², während das HDglass desselben Herstellers 7,2 kJ/m² ausweist — das sind 25 % WENIGER, nicht 10 % mehr. Zweitens ist die Schlagzähigkeit als „Charpy notched“ bezeichnet, das Normsuffix ISO 179-1eU steht aber für den ungekerbten Versuch. Drittens trägt der Biege-E-Modul die Norm ISO 527-1, die auf diesem Blatt schon über den beiden Zugzeilen steht und offensichtlich nach unten kopiert wurde; geführt ist der Wert nach seiner Beschriftung als Biege-E-Modul, mit `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: Three points. First, the body text contradicts its own table: “10 % more impact resistant than HDglass” sits above an impact figure of 5.4 kJ/m², while the same manufacturer's HDglass states 7.2 kJ/m² — that is 25 % LESS, not 10 % more. Second, the impact strength is labelled “Charpy notched” but the standard suffix ISO 179-1eU denotes the unnotched test. Third, the flexural modulus carries the standard ISO 527-1, which on this sheet already sits above the two tensile rows and has evidently been copied downwards; the value is held per its label as flexural modulus, with `low`."
+  },
+  "features": {
+    "de": "Das Blatt nennt den Faseranteil ausdrücklich: 15 % Kohlenstofffaser in PETG. Damit ist es der einzige PETG-CF-Datensatz im Bestand mit deklariertem Fasergehalt — bei Bambu ist er undeklariert, bei Flashforge liegt er bei 10 %. Für die Vergleichbarkeit gefüllter Typen ist genau diese Angabe die wichtigste.",
+    "en": "The sheet states the fibre content explicitly: 15 % carbon fibre in PETG. It is thereby the only PETG-CF record in the dataset with a declared fibre content — Bambu leaves it undeclared, Flashforge states 10 %. For comparing filled grades this is the single most important statement."
+  },
+  "datasheet": {
+    "title": "CarbonFil — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256493?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.32,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 5.4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eU",
+      "conditions": "Blattangabe „Charpy notched“; das Normsuffix eU bezeichnet den UNGEKERBTEN Versuch",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 45,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "bei Bruch",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 4.9,
+      "unit": "%",
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 4250,
+      "unit": "MPa",
+      "testStandard": "im Blatt als ISO 527-1 angegeben; für die Biegung wäre ISO 178 einschlägig",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "conditions": "Methode nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "CarbonFil",
+        "title": "CarbonFil — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256493?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

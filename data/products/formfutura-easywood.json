@@ -1,0 +1,96 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-easywood",
+  "materialId": "pla",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "EasyWood",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Der Biege-E-Modul steht unter ISO 527, der Norm für den Zugversuch. Auf diesem Blatt trägt ISO 527 schon die beiden Zugzeilen darüber — die Norm ist also nach unten kopiert worden, nicht die Beschriftung vertauscht. Der Wert ist deshalb als Biege-E-Modul geführt und trägt `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: The flexural modulus is filed under ISO 527, the standard for tensile testing. On this sheet ISO 527 already carries the two tensile rows above it — the standard has been copied downwards, rather than the label being wrong. The value is therefore held as flexural modulus and carries `low`."
+  },
+  "features": {
+    "de": "Das Blatt nennt den Füllgrad ausdrücklich: 40 % Holzpartikel in PLA. Die Dichte von 1,15 g/cm³ deckt sich exakt mit dem add:north PLA Wood, das ebenfalls 40 % Holzfaser angibt — zwei unabhängige Hersteller, dieselbe Zahl. Das ist im Bestand die seltene Ausnahme: eine Bestätigung statt eines Widerspruchs.",
+    "en": "The sheet states the filler content explicitly: 40 % wood particles in PLA. The density of 1.15 g/cm³ matches the add:north PLA Wood exactly, which also states 40 % wood fibre — two independent manufacturers, the same figure. In this dataset that is the rare exception: a confirmation instead of a contradiction."
+  },
+  "datasheet": {
+    "title": "EasyWood — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256523?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.15,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 2.5,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "190 °C / 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 4.4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1/1eA",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 47,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze; bei Bruch nennt das Blatt 38 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2900,
+      "unit": "MPa",
+      "testStandard": "im Blatt als ISO 527 angegeben; für die Biegung wäre ISO 178 einschlägig",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltingTemperature": {
+      "value": 155,
+      "unit": "°C",
+      "testStandard": "ISO 3146-C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "EasyWood",
+        "title": "EasyWood — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256523?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

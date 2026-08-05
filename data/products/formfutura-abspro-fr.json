@@ -1,0 +1,118 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-abspro-fr",
+  "materialId": "abs-pc",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ABSpro Flame Retardant",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside."
+  },
+  "features": {
+    "de": "Die sorgfältigsten Normangaben des ganzen Herstellers: ISO 527-2/50 und ISO 527-2/1 nennen die Prüfgeschwindigkeit, ISO 75-2A die Methode und damit die Last, ISO 180-4A die Kerbform. Kein anderes FormFutura-Blatt tut das. Fachlich bemerkenswert ist die Kombination aus 35 kJ/m² gekerbter Schlagzähigkeit und UL94 V-0 — Flammschutz kostet sonst regelmäßig die Zähigkeit, beim Premium PETG Flame Retardant desselben Vertriebs bleiben 3 kJ/m² übrig.",
+    "en": "The most careful standards statements of the entire manufacturer: ISO 527-2/50 and ISO 527-2/1 name the test speed, ISO 75-2A the method and thus the load, ISO 180-4A the notch. No other FormFutura sheet does this. Technically remarkable is the combination of 35 kJ/m² notched impact with UL 94 V-0 — flame retardancy regularly costs toughness, and the same distributor's Premium PETG Flame Retardant is left with 3 kJ/m²."
+  },
+  "datasheet": {
+    "title": "ABSpro Flame Retardant — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/254655?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.17,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 35,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180-4A",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/50",
+      "conditions": "bei Streckgrenze, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2850,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/1",
+      "conditions": "1 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 110,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75-2A",
+      "conditions": "1,8 MPa (Methode A)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 104,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-0",
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt die Klasse und dazu „halogen free“ — bei einem Flammschutz die eigentlich interessante Angabe, weil halogenfreie Systeme im Brandfall deutlich weniger korrosive Gase freisetzen. Materialdicke, Prüfstelle und Zeugnisnummer fehlen auch hier.",
+        "en": "The sheet names the class and adds “halogen free” — for a flame retardant the genuinely interesting statement, because halogen-free systems release markedly fewer corrosive gases in a fire. Material thickness, test house and certificate number are missing here too."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ABSpro Flame Retardant",
+        "title": "ABSpro Flame Retardant — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/254655?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

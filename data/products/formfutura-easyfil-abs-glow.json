@@ -1,0 +1,122 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-easyfil-abs-glow",
+  "materialId": "abs",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "EasyFil ABS — Glow in the Dark",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nDieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.\n\nBefund zu diesem Datenblatt: Die gesamte Kennwerttabelle — 1,05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — steht Ziffer für Ziffer auch auf den Blättern von ABSpro, TitanX, EasyFil ABS und EasyFil ABS Glow in the Dark. ABSpro ist dabei ein PC-ABS, TitanX ein modifiziertes ABS: zwei verschiedene Grundwerkstoffe mit derselben Zahlenreihe. Für diese Datenbank zählen alle vier als EIN Beleg, nicht als vier. Sämtliche Werte tragen deshalb `low`. Zwei weitere Mängel derselben Tabelle: Festigkeiten in kg/cm² (umgerechnet, Blattangabe in `conditions`), und die Schlagzähigkeit in kgcm/cm — eine Einheit, deren Umrechnung die Probengeometrie braucht; sie ist nicht übernommen.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nThis sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.\n\nFinding on this datasheet: The entire property table — 1.05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — appears digit for digit on the sheets of ABSpro, TitanX, EasyFil ABS and EasyFil ABS Glow in the Dark as well. ABSpro is a PC-ABS, TitanX a modified ABS: two different base materials with the same row of figures. For this database all four count as ONE piece of evidence, not four. All values therefore carry `low`. Two further defects in the same table: strengths in kg/cm² (converted, sheet figure in `conditions`), and impact strength in kgcm/cm — a unit whose conversion needs the specimen geometry; it is not imported."
+  },
+  "features": {
+    "de": "Das einzige Blatt der Gruppe, das die Übernahme selbst benennt: „offers all properties of EasyFil ABS, but with a bright green glow in the dark colour effect“. Diese Offenheit ist anzuerkennen — sie ändert nichts daran, dass ein nachleuchtender Füllstoff die Mechanik verändert und das Blatt dazu nichts sagt.",
+    "en": "The only sheet in the group to state the copying itself: “offers all properties of EasyFil ABS, but with a bright green glow in the dark colour effect”. That openness deserves credit — it does not change the fact that a phosphorescent filler alters the mechanics and the sheet says nothing about it."
+  },
+  "datasheet": {
+    "title": "EasyFil ABS — Glow in the Dark — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256509?download=true",
+    "version": "2024-08-23",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 21,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "220 °C / 10 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 45.1,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe 460 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 10,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 72.6,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 740 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2451.7,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 25000 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "Blattangabe „HDT A“, Last nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 93,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "EasyFil ABS — Glow in the Dark",
+        "title": "EasyFil ABS — Glow in the Dark — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256509?download=true",
+        "documentVersion": "2024-08-23",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

@@ -3,8 +3,9 @@
 **Stand:** 2026-08-05 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
 **Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sowie die
-drei offenen Entscheidungen aus dem FormFutura-Import: PDF-Renderer für die 13 Rasterblätter,
-Werkstofftypen für PEEK/PEI/PCL/BVOH, Variantentypen `pctg-cf` und `pc-cf`
+zwei offenen Entscheidungen aus dem FormFutura-Import: Werkstofftypen für PEEK/PEI/PCL/BVOH und
+Variantentypen `pctg-cf` und `pc-cf`. Danach die rund 100 übrigen OFD-Fundstellen (Nebula 17,
+Alzament 13, Anycubic 12) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXTech 61)
 
 ---
 
@@ -16,7 +17,7 @@ Werkstofftypen für PEEK/PEI/PCL/BVOH, Variantentypen `pctg-cf` und `pc-cf`
 | **1 — Datenfundament** | ⬤ teilweise: Schema, 11 Materialien, 15 CI-Regeln. Offen: Use Cases, Chemikalien-/Normen-Register |
 | **2 — Engine** | ✅ Constraints, Perzentil-Scoring, Erklärungen, Trade-offs, Verfahrensweiche, Sensitivität |
 | **3 — Oberfläche** | ✅ Wizard (6 Schritte, Schrittleiste, Antwortübersicht, Sackgassen-Auskunft, Schwerpunkte), Ergebnis, Vergleich, Datenblatt, Ashby-Diagramm, Matrix, DE/EN, Print |
-| **4 — Datenausbau** | ⬤ weit: 192 Herstellerprodukte aus 14 Marken, 41 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
+| **4 — Datenausbau** | ⬤ weit: 205 Herstellerprodukte aus 14 Marken, 41 Werkstofftypen. Offen: restliche Ultrafuse-Typen (Portal), ColorFabb und Filament PM (keine maschinell erreichbaren Blätter), Preise |
 | **CD** | ✅ Design-Tokens von der Unternehmenswebsite abgenommen, echtes Logo, Montserrat + Sora selbst gehostet |
 | **5 — Ausbau** | ⬤ teilweise: Ashby, Print, JSON-LD, CSV-Export, PDF-Bericht und Offlinebetrieb stehen. Offen: Radar |
 | **6 — Launch** | ⬤ teilweise: README, Lizenzen, Templates, Vorschaubild stehen. Offen: Screenshots, Lighthouse, Domain |
@@ -25,11 +26,11 @@ Werkstofftypen für PEEK/PEI/PCL/BVOH, Variantentypen `pctg-cf` und `pc-cf`
 
 | Prüfung | Ergebnis |
 |---|---|
-| JSON Schema, 255 Dateien | PASS |
+| JSON Schema, 268 Dateien | PASS |
 | Plausibilität und Provenienz, 15 Regeln | 0 Fehler, 3 dokumentierte Datenblatt-Anomalien |
 | Typecheck (strict) | PASS |
-| Tests | 135 grün |
-| Bundle | Erstaufruf 292 kB (Budget 320 kB) · gesamt 414 kB (Budget 500 kB) — ADR-036 |
+| Tests | 144 grün |
+| Bundle | Erstaufruf 292 kB (Budget 320 kB) · gesamt 426 kB (Budget 500 kB) — ADR-036 |
 | Live-Deployment | HTTP 200, keine Konsolenfehler |
 
 **Konfidenz über die gesamte Datenbank: 2.824 belegte Aussagen —
@@ -172,13 +173,17 @@ Aussage, die das Tool liefern soll und die im Markt regelmäßig falsch erzählt
       Marktkorridor für Dichte und Verarbeitungstemperaturen, Arbeitsliste mit 148 offenen
       Datenblatt-Fundstellen. **Keine Kennwertquelle** — sie führt weder Mechanik noch
       Thermik; der Datenausbau bleibt Handarbeit am Herstellerblatt
-- [x] **FormFutura ausgewertet** (2026-08-04): 24 Produkte aus 33 Blättern mit Textebene,
-      darunter erstmals **LUVOCOM 3F von Lehvoss** (PAHT-Linie, spritzgegossene
-      Prüfkörper deklariert). PAHT CF 9742 ist mit 15.000 MPa der steifste Werkstoff des
-      Bestands; PAHT KK 50056 FR der einzige mit EN-45545-Bahndaten
-- [ ] 13 FormFutura-Blätter sind Rasterseiten ohne Textebene (ABSpro, TitanX, EasyFil
-      ABS/ePLA/HIPS, EasyWood, Galaxy PLA, High Gloss PLA, PETG CarbonFil, ReFill PETG,
-      ReForm rPET u. a.) — brauchen einen PDF-Renderer, sonst bliebe nur Raten
+- [x] **FormFutura vollständig ausgewertet** (2026-08-04/05): **37 Produkte aus 46
+      Blättern**, darunter erstmals **LUVOCOM 3F von Lehvoss** (PAHT-Linie,
+      spritzgegossene Prüfkörper deklariert). PAHT CF 9742 ist mit 15.000 MPa der
+      steifste Werkstoff des Bestands; PAHT KK 50056 FR der einzige mit
+      EN-45545-Bahndaten
+- [x] **13 Rasterblätter ohne Textebene** erschlossen (2026-08-05): mit poppler nach PNG
+      gerendert und abgelesen. Sieben davon tragen keine eigene Messung, sondern die
+      kopierte Tabelle eines Schwesterprodukts — ABSpro = TitanX = EasyFil ABS = EasyFil
+      ABS Glow, und EasyFil ePLA = Galaxy PLA. Aufgenommen als **ein** Beleg, nicht als
+      sieben. ABSpro Flame Retardant liefert dafür die sorgfältigsten Normangaben des
+      ganzen Herstellers (ISO 527-2/50, ISO 75-2A, ISO 180-4A)
 - [ ] Die übrigen ~100 verlinkten Fundstellen auswerten (Nebula 17, Alzament 13, Anycubic 12)
 - [ ] Polymaker, 3DXTech, PrimaCreator: im Marktbestand groß, ohne jeden Blattlink
 

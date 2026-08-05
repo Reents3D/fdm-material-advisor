@@ -10,10 +10,27 @@
  *
  * WAS ANKOMMT UND WAS NICHT
  * 46 eindeutige Blaetter, davon tragen 33 eine Textebene. Die uebrigen 13 sind
- * Rasterseiten ohne Text - ausgerechnet die Volumentypen ABSpro, TitanX, EasyFil ABS,
- * EasyFil ePLA, EasyWood, Galaxy PLA, High Gloss PLA, EasyFil HIPS, PETG CarbonFil,
- * ReFill PETG und ReForm rPET. Sie sind NICHT importiert: Ohne den Text bliebe nur
- * Raten, und geraten wird in dieser Datenbank nicht.
+ * Rasterseiten ohne Text. Sie wurden am 2026-08-05 mit poppler nach PNG gerendert und
+ * abgelesen - siehe Abschnitt "DIE DREIZEHN GERENDERTEN BLAETTER" weiter unten.
+ *
+ * DER SCHWERSTE BEFUND DIESES HERSTELLERS
+ * Sieben der dreizehn gerenderten Blaetter tragen keine eigene Messung, sondern die
+ * Tabelle eines anderen Produkts. Zwei Familien sind betroffen:
+ *
+ *   ABSpro, TitanX, EasyFil ABS, EasyFil ABS Glow  ->  1,05 / 21 / 33 / 460 / 10 /
+ *                                                       740 / 25000 / 85 / 93
+ *   EasyFil ePLA, Galaxy PLA                       ->  1,24 / 6 / 16 / 60 / 53 /
+ *                                                       3,5 / 6 / 83 / 3,8 / 55 / 60
+ *
+ * Das waere fuer sich genommen noch erklaerbar - aber ABSpro ist ein PC-ABS und TitanX
+ * ein modifiziertes ABS, zwei verschiedene Werkstoffe mit derselben Zahlenreihe. Und
+ * Galaxy PLA enthaelt laut eigenem Blatt Aluminiumpartikel, waehrend EasyFil ePLA
+ * ungefuellt ist. Gefuellt und ungefuellt koennen nicht dieselbe Steifigkeit haben.
+ *
+ * Alle betroffenen Datensaetze sind trotzdem aufgenommen - dieselbe Systematik wie beim
+ * add:north Adura FDA: Sie zaehlen als EIN Beleg, nicht als sieben, und jeder Datensatz
+ * sagt das. Weglassen waere die schlechtere Loesung, weil die Produkte am Markt
+ * existieren und die Herstelleransicht sie zeigen soll.
  *
  * DER WICHTIGERE FUND SIND DIE LUVOCOM-BLAETTER
  * Lehvoss stand auf dem Erschliessungsplan in SOURCES.md unter "mittel" und war bisher
@@ -48,6 +65,33 @@
  * Energie je Flaeche - die Umrechnung braucht die Probendicke und verschiebt die
  * Bedeutung. ApolloX FR und ApolloX Foaming verlieren dadurch ihre Schlagwerte. Das ist
  * der richtige Verlust.
+ *
+ * DIE DREIZEHN GERENDERTEN BLAETTER
+ * `pdftotext` findet auf ihnen nichts, weil die Seite ein Bild ist - xpdf und poppler
+ * sind sich darin einig. Gelesen wurden sie deshalb aus einem 200-dpi-Rendering
+ * (`pdftoppm -png -r 200`). Das ist eine ABSCHRIFT AUS EINEM BILD und damit eine
+ * Fehlerquelle, die eine Textextraktion nicht hat: Eine verwechselte Ziffer faellt
+ * niemandem auf. Der Quellensatz sagt das an jedem dieser Datensaetze, damit ein
+ * Gegenleser weiss, dass hier das Blatt selbst danebengelegt gehoert.
+ *
+ * Sechs der dreizehn tragen dafuer die besten Normangaben des ganzen Herstellers -
+ * ABSpro Flame Retardant nennt ISO 527-2/50, ISO 527-2/1, ISO 75-2A und ISO 180-4A,
+ * also Norm MIT Methode und Pruefgeschwindigkeit. Dass ausgerechnet die gescannten
+ * Blaetter die sorgfaeltigsten sind, ist ein Hinweis auf ihr Alter: Sie stammen aus
+ * einer aelteren Vorlage, die spaeter durch die schlampigere ersetzt wurde.
+ *
+ * WENN ZEILENBESCHRIFTUNG UND NORM SICH WIDERSPRECHEN
+ * Das kommt auf FormFutura-Blaettern staendig vor, und es gibt keine Regel, die immer
+ * passt. Entschieden wird nach dem, was den Widerspruch erklaert:
+ *
+ *   CarbonFil, EasyWood   "Flexural modulus" mit ISO 527. Die Norm steht auf diesem
+ *                         Blatt schon ueber den Zugzeilen und ist offensichtlich nach
+ *                         unten kopiert. Die BESCHRIFTUNG gewinnt -> Biege-E-Modul.
+ *   AthenaX GF10          "Izod" mit ISO 179. Die Norm steht nur auf der Schlagzeile,
+ *                         ist also nicht kopiert. Die NORM gewinnt -> Charpy.
+ *   ReFill PETG           "Heat deflection temperature" mit ISO 306 (Vicat), ohne
+ *                         Methode und ohne Last. Weder Beschriftung noch Norm lassen
+ *                         sich stuetzen - NICHT uebernommen.
  *
  * WAS AUSGELASSEN WURDE, OBWOHL EIN BLATT VORLIEGT
  * PEEK 9581, PEEK CF 9676, PEI 50236, PEI ULTEM 9085, BioFil PCL, BioFil Wood und BVOH:
@@ -111,6 +155,45 @@ const UNDECLARED = t(
 const SELF_DECLARED_V0 = t(
   "Das Blatt nennt die Klasse V-0 und setzt selbst eine Fußnote darunter: „meets the self-extinguishing flammability standards of UL 94 V0, but is not certified by Underwriters Laboratories and does not have a UL number.“ Diese Offenheit ist anzuerkennen und ändert nichts an der Konsequenz — ohne Prüfzeugnis und ohne Dickenangabe ist die Angabe für eine Auditvorlage nicht verwendbar. Dieselbe Rezeptur kann bei 1,5 mm V-0 und bei 0,8 mm nur V-2 erreichen.",
   "The sheet names class V-0 and puts a footnote under it itself: “meets the self-extinguishing flammability standards of UL 94 V0, but is not certified by Underwriters Laboratories and does not have a UL number.” That openness deserves credit and changes nothing about the consequence — without a test certificate and without a thickness the statement cannot be used for an audit submission. The same formulation can reach V-0 at 1.5 mm and only V-2 at 0.8 mm.",
+);
+
+/* Abschrift aus einem Rendering statt aus einer Textebene - das gehoert an die Quelle. */
+const SCANNED = t(
+  "Dieses Blatt hat keine Textebene; die Seite ist ein Bild. Die Werte sind aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Eine verwechselte Ziffer fiele dabei niemandem auf — wer einen Wert anzweifelt, legt das Blatt daneben.",
+  "This sheet has no text layer; the page is an image. The values were read from a 200 dpi rendering, not extracted mechanically. A misread digit would go unnoticed — anyone doubting a value should put the sheet alongside.",
+);
+
+/* Die kopierte ABS-Tabelle. Vier Produkte, eine Messung. */
+const ABS_TABLE = {
+  density: q(1.05, "g/cm³", { std: "ASTM D792" }),
+  meltFlowRate: q(21, "g/10min", { std: "ASTM D1238", conditions: "220 °C / 10 kg" }),
+  tensileStrengthXy: kgcm2(460, { std: "ASTM D638", orientation: "XY" }),
+  elongationAtBreakXy: q(10, "%", { std: "ASTM D638", orientation: "XY", confidence: "low" }),
+  flexuralStrengthXy: kgcm2(740, { std: "ASTM D790", orientation: "XY" }),
+  flexuralModulusXy: kgcm2(25000, { std: "ASTM D790", orientation: "XY" }),
+  hdtA: q(85, "°C", { std: "ASTM D648", conditions: "Blattangabe „HDT A“, Last nicht genannt", confidence: "low" }),
+  vicatA: q(93, "°C", { std: "ASTM D1525", confidence: "low" }),
+};
+
+const ABS_COPY = t(
+  "Die gesamte Kennwerttabelle — 1,05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — steht Ziffer für Ziffer auch auf den Blättern von ABSpro, TitanX, EasyFil ABS und EasyFil ABS Glow in the Dark. ABSpro ist dabei ein PC-ABS, TitanX ein modifiziertes ABS: zwei verschiedene Grundwerkstoffe mit derselben Zahlenreihe. Für diese Datenbank zählen alle vier als EIN Beleg, nicht als vier. Sämtliche Werte tragen deshalb `low`. Zwei weitere Mängel derselben Tabelle: Festigkeiten in kg/cm² (umgerechnet, Blattangabe in `conditions`), und die Schlagzähigkeit in kgcm/cm — eine Einheit, deren Umrechnung die Probengeometrie braucht; sie ist nicht übernommen.",
+  "The entire property table — 1.05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — appears digit for digit on the sheets of ABSpro, TitanX, EasyFil ABS and EasyFil ABS Glow in the Dark as well. ABSpro is a PC-ABS, TitanX a modified ABS: two different base materials with the same row of figures. For this database all four count as ONE piece of evidence, not four. All values therefore carry `low`. Two further defects in the same table: strengths in kg/cm² (converted, sheet figure in `conditions`), and impact strength in kgcm/cm — a unit whose conversion needs the specimen geometry; it is not imported.",
+);
+
+/* Die kopierte PLA-Tabelle. Zwei Produkte, eine Messung. */
+const PLA_TABLE = {
+  density: q(1.24, "g/cm³", { std: "ASTM D792", confidence: "low" }),
+  meltFlowRate: q(6, "g/10min", { std: "ASTM D1238", conditions: "210 °C / 2,16 kg", confidence: "low" }),
+  tensileStrengthXy: q(60, "MPa", { std: "ASTM D882", conditions: "bei Streckgrenze; bei Bruch nennt das Blatt 53 MPa", orientation: "XY", confidence: "low" }),
+  elongationAtYieldXy: q(6, "%", { std: "ASTM D882", orientation: "XY", confidence: "low" }),
+  flexuralStrengthXy: q(83, "MPa", { std: "ASTM D790", orientation: "XY", confidence: "low" }),
+  hdtA: q(55, "°C", { std: "ASTM E2092", conditions: "Blattangabe „HDT A“", confidence: "low" }),
+  glassTransition: q(60, "°C", { std: "ASTM D3418", confidence: "low" }),
+};
+
+const PLA_COPY = t(
+  "Die Kennwerttabelle steht Ziffer für Ziffer auch auf dem Blatt des jeweils anderen Produkts — EasyFil ePLA und Galaxy PLA teilen sie vollständig. Galaxy PLA enthält laut eigenem Blatt Aluminiumpartikel, EasyFil ePLA ist ungefüllt; ein gefüllter und ein ungefüllter Werkstoff können nicht dieselbe Steifigkeit haben. Beide zählen als EIN Beleg. Zwei Werte sind nicht übernommen: Zug- und Biege-E-Modul stehen mit „3,5“ und „3,8 MPa“ da — ein Thermoplast mit 3,5 MPa Steifigkeit wäre weicher als Gummi, gemeint sind ersichtlich GPa. Die Zugkennwerte sind zudem nach ASTM D882 geprüft, der Norm für dünne Folien; für starre Formteile gilt D638 beziehungsweise ISO 527.",
+  "The property table appears digit for digit on the other product's sheet as well — EasyFil ePLA and Galaxy PLA share it completely. Galaxy PLA contains aluminium particles by its own sheet, EasyFil ePLA is unfilled; a filled and an unfilled material cannot have the same stiffness. Both count as ONE piece of evidence. Two values are not imported: tensile and flexural modulus appear as “3.5” and “3.8 MPa” — a thermoplastic with 3.5 MPa stiffness would be softer than rubber, GPa is evidently meant. The tensile values are moreover tested to ASTM D882, the standard for thin film; for rigid mouldings D638 or ISO 527 applies.",
 );
 
 const P = [
@@ -511,6 +594,169 @@ const P = [
     anomaly: t("Beide Zugkennwerte sind nach ASTM D882 geprüft. Das ist die Norm für dünne Kunststofffolien unter 1 mm Dicke; für starre Formteile gilt ASTM D638 beziehungsweise ISO 527. An einer Folie gemessene Zugwerte sind nicht auf ein gedrucktes Bauteil übertragbar, weil Probengeometrie und Spannungszustand andere sind. Die Zahlen sind plausibel und übernommen, tragen aber `low`.",
                "Both tensile values are tested to ASTM D882. That is the standard for thin plastic sheeting below 1 mm thickness; for rigid mouldings ASTM D638 or ISO 527 applies. Tensile values measured on film do not transfer to a printed part because specimen geometry and stress state differ. The figures are plausible and imported but carry `low`."),
   },
+
+  /* ======================= Aus Rasterseiten abgelesen (2026-08-05) ======================= */
+
+  /* --- Die kopierte ABS-Familie: vier Produkte, eine Messung ------------------ */
+  {
+    id: "formfutura-abspro", material: "abs-pc", name: "ABSpro", doc: 254657, date: "23-08-2024", scan: true,
+    props: ABS_TABLE,
+    ul94: { value: "HB", note: t("Das Blatt nennt die Klasse im Fließtext, ohne Dicke, Prüfstelle oder Zeugnisnummer. HB ist zudem die unterste UL94-Stufe und bedeutet nur „brennt langsam“ — als Brandschutz im Sinne einer Bahn- oder Innenraumanforderung zählt sie nicht.",
+                                  "The sheet names the class in the body text, without thickness, test house or certificate number. HB is moreover the lowest UL 94 rating and means only “burns slowly” — it does not count as flame protection in the sense of a rail or interior requirement.") },
+    features: t("Der einzige Hinweis auf den Grundwerkstoff steht im Fließtext: „ABSpro is a PC-ABS filament“. Die Marktdatenbank führt das Produkt unter ABS — hier steht es beim PC-ABS, wo es hingehört. Polycarbonat im Blend erklärt die für ABS hohe Wärmeformbeständigkeit von 85 °C.",
+                "The only pointer to the base material is in the body text: “ABSpro is a PC-ABS filament”. The market database files this product under ABS — here it sits with PC-ABS, where it belongs. Polycarbonate in the blend explains the heat deflection of 85 °C, high for ABS."),
+    anomaly: ABS_COPY,
+  },
+  {
+    id: "formfutura-titanx", material: "abs", name: "TitanX", doc: 256648, date: "23-08-2024", scan: true,
+    props: ABS_TABLE,
+    ul94: { value: "HB" },
+    anomaly: t(`${ABS_COPY.de}\n\nAuf DIESEM Blatt kommt ein eigener Fehler dazu: Der Biege-E-Modul trägt die Einheit MPa statt kg/cm² — bei identischer Zahl 25000. 25.000 MPa wären für ein ABS das Zehnfache des Erwartbaren und lägen über jedem kohlenstofffaserverstärkten Werkstoff dieser Datenbank. Geführt ist der Wert deshalb wie auf den drei Schwesterblättern als kg/cm². Dazu behauptet der Fließtext „>65 % schlagzäher als gewöhnliches ABS“, während die Tabelle exakt denselben Schlagwert nennt wie das gewöhnliche EasyFil ABS.`,
+               `${ABS_COPY.en}\n\nTHIS sheet adds an error of its own: the flexural modulus carries the unit MPa instead of kg/cm² — at the identical figure of 25000. 25,000 MPa would be tenfold what an ABS can reach and above every carbon-fibre reinforced material in this database. The value is therefore held as kg/cm², as on the three sister sheets. The body text moreover claims “>65 % more impact resistant than regular ABS” while the table gives exactly the same impact figure as the regular EasyFil ABS.`),
+  },
+  {
+    id: "formfutura-easyfil-abs", material: "abs", name: "EasyFil ABS", doc: 256508, date: "23-08-2024", scan: true,
+    props: ABS_TABLE,
+    ul94: { value: "HB" },
+    anomaly: ABS_COPY,
+  },
+  {
+    id: "formfutura-easyfil-abs-glow", material: "abs", name: "EasyFil ABS — Glow in the Dark", doc: 256509, date: "23-08-2024", scan: true,
+    props: ABS_TABLE,
+    ul94: { value: "HB" },
+    features: t("Das einzige Blatt der Gruppe, das die Übernahme selbst benennt: „offers all properties of EasyFil ABS, but with a bright green glow in the dark colour effect“. Diese Offenheit ist anzuerkennen — sie ändert nichts daran, dass ein nachleuchtender Füllstoff die Mechanik verändert und das Blatt dazu nichts sagt.",
+                "The only sheet in the group to state the copying itself: “offers all properties of EasyFil ABS, but with a bright green glow in the dark colour effect”. That openness deserves credit — it does not change the fact that a phosphorescent filler alters the mechanics and the sheet says nothing about it."),
+    anomaly: ABS_COPY,
+  },
+
+  /* --- ABSpro Flame Retardant: eigene Messung, beste Normangaben des Herstellers --- */
+  {
+    id: "formfutura-abspro-fr", material: "abs-pc", name: "ABSpro Flame Retardant", doc: 254655, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.17, "g/cm³", { std: "ISO 1183" }),
+      izodNotchedXy: q(35, "kJ/m²", { std: "ISO 180-4A", conditions: "gekerbt, 23 °C", orientation: "XY" }),
+      tensileStrengthXy: q(60, "MPa", { std: "ISO 527-2/50", conditions: "bei Streckgrenze, 50 mm/min", orientation: "XY" }),
+      tensileModulusXy: q(2850, "MPa", { std: "ISO 527-2/1", conditions: "1 mm/min", orientation: "XY" }),
+      flexuralStrengthXy: q(110, "MPa", { std: "ISO 178", orientation: "XY" }),
+      hdtA: q(90, "°C", { std: "ISO 75-2A", conditions: "1,8 MPa (Methode A)" }),
+      vicatA: q(104, "°C", { std: "ISO 306" }),
+    },
+    ul94: { value: "V-0", note: t("Das Blatt nennt die Klasse und dazu „halogen free“ — bei einem Flammschutz die eigentlich interessante Angabe, weil halogenfreie Systeme im Brandfall deutlich weniger korrosive Gase freisetzen. Materialdicke, Prüfstelle und Zeugnisnummer fehlen auch hier.",
+                                  "The sheet names the class and adds “halogen free” — for a flame retardant the genuinely interesting statement, because halogen-free systems release markedly fewer corrosive gases in a fire. Material thickness, test house and certificate number are missing here too.") },
+    features: t("Die sorgfältigsten Normangaben des ganzen Herstellers: ISO 527-2/50 und ISO 527-2/1 nennen die Prüfgeschwindigkeit, ISO 75-2A die Methode und damit die Last, ISO 180-4A die Kerbform. Kein anderes FormFutura-Blatt tut das. Fachlich bemerkenswert ist die Kombination aus 35 kJ/m² gekerbter Schlagzähigkeit und UL94 V-0 — Flammschutz kostet sonst regelmäßig die Zähigkeit, beim Premium PETG Flame Retardant desselben Vertriebs bleiben 3 kJ/m² übrig.",
+                "The most careful standards statements of the entire manufacturer: ISO 527-2/50 and ISO 527-2/1 name the test speed, ISO 75-2A the method and thus the load, ISO 180-4A the notch. No other FormFutura sheet does this. Technically remarkable is the combination of 35 kJ/m² notched impact with UL 94 V-0 — flame retardancy regularly costs toughness, and the same distributor's Premium PETG Flame Retardant is left with 3 kJ/m²."),
+  },
+
+  /* --- Die kopierte PLA-Familie ---------------------------------------------- */
+  {
+    id: "formfutura-easyfil-epla", material: "pla", name: "EasyFil ePLA", doc: 256521, date: "23-08-2024", scan: true,
+    props: PLA_TABLE,
+    anomaly: PLA_COPY,
+  },
+  {
+    id: "formfutura-galaxy-pla", material: "pla", name: "Galaxy PLA", doc: 256560, date: "23-08-2024", scan: true,
+    props: PLA_TABLE,
+    anomaly: PLA_COPY,
+  },
+
+  /* --- PLA mit eigenen Messungen --------------------------------------------- */
+  {
+    id: "formfutura-easywood", material: "pla", name: "EasyWood", doc: 256523, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.15, "g/cm³"),
+      meltFlowRate: q(2.5, "g/10min", { std: "ISO 1133", conditions: "190 °C / 2,16 kg" }),
+      charpyNotchedXy: q(4.4, "kJ/m²", { std: "ISO 179-1/1eA", conditions: "gekerbt, 23 °C", orientation: "XY" }),
+      tensileStrengthXy: q(47, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze; bei Bruch nennt das Blatt 38 MPa", orientation: "XY" }),
+      flexuralModulusXy: q(2900, "MPa", { std: "im Blatt als ISO 527 angegeben; für die Biegung wäre ISO 178 einschlägig", orientation: "XY", confidence: "low" }),
+      meltingTemperature: q(155, "°C", { std: "ISO 3146-C" }),
+    },
+    features: t("Das Blatt nennt den Füllgrad ausdrücklich: 40 % Holzpartikel in PLA. Die Dichte von 1,15 g/cm³ deckt sich exakt mit dem add:north PLA Wood, das ebenfalls 40 % Holzfaser angibt — zwei unabhängige Hersteller, dieselbe Zahl. Das ist im Bestand die seltene Ausnahme: eine Bestätigung statt eines Widerspruchs.",
+                "The sheet states the filler content explicitly: 40 % wood particles in PLA. The density of 1.15 g/cm³ matches the add:north PLA Wood exactly, which also states 40 % wood fibre — two independent manufacturers, the same figure. In this dataset that is the rare exception: a confirmation instead of a contradiction."),
+    anomaly: t("Der Biege-E-Modul steht unter ISO 527, der Norm für den Zugversuch. Auf diesem Blatt trägt ISO 527 schon die beiden Zugzeilen darüber — die Norm ist also nach unten kopiert worden, nicht die Beschriftung vertauscht. Der Wert ist deshalb als Biege-E-Modul geführt und trägt `low`.",
+               "The flexural modulus is filed under ISO 527, the standard for tensile testing. On this sheet ISO 527 already carries the two tensile rows above it — the standard has been copied downwards, rather than the label being wrong. The value is therefore held as flexural modulus and carries `low`."),
+  },
+  {
+    id: "formfutura-high-gloss-pla", material: "pla", name: "High Gloss PLA", doc: 256566, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.22, "g/cm³", { std: "ASTM D792" }),
+      meltFlowRate: q(6, "g/10min", { std: "ASTM D1238", conditions: "210 °C / 2,16 kg" }),
+      tensileStrengthXy: q(59, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze; bei Bruch nennt das Blatt 45 MPa", orientation: "XY" }),
+      tensileModulusXy: q(2700, "MPa", { std: "ISO 527", orientation: "XY" }),
+      elongationAtYieldXy: q(5, "%", { std: "ISO 527", orientation: "XY" }),
+      elongationAtBreakXy: q(10, "%", { std: "ISO 527", orientation: "XY" }),
+      flexuralStrengthXy: q(72, "MPa", { std: "ASTM D790", orientation: "XY" }),
+      hdtA: q(50, "°C", { std: "ISO 75", conditions: "Blattangabe „HDT A“; Methode nicht genannt", confidence: "low" }),
+      glassTransition: q(57, "°C", { std: "DSC" }),
+    },
+    features: t("Das vollständigste PLA-Blatt dieses Herstellers und das einzige mit einem plausiblen E-Modul: 2700 MPa gegenüber den „3,5 MPa“, die EasyFil ePLA und Galaxy PLA ausweisen. Dazu Streckgrenze und Bruch getrennt, Dehnung an beiden Punkten, und ein Glasübergang aus der DSC.",
+                "The most complete PLA sheet from this manufacturer and the only one with a plausible modulus: 2700 MPa against the “3.5 MPa” stated by EasyFil ePLA and Galaxy PLA. Alongside it yield and break separately, elongation at both points, and a glass transition from DSC."),
+  },
+
+  /* --- HIPS, PETG, PETG-CF mit eigenen Messungen ----------------------------- */
+  {
+    id: "formfutura-easyfil-hips", material: "hips", name: "EasyFil HIPS", doc: 256512, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.05, "g/cm³"),
+      meltFlowRate: q(12, "g/10min", { std: "ISO 1133", conditions: "200 °C / 5 kg" }),
+      charpyNotchedXy: q(7, "kJ/m²", { std: "ISO 179/2", conditions: "gekerbt, 23 °C", orientation: "XY" }),
+      tensileStrengthXy: q(16, "MPa", { std: "ISO 527-2/5", conditions: "Streckgrenze und Bruch nennt das Blatt beide mit 16 MPa", orientation: "XY", confidence: "low" }),
+      flexuralStrengthXy: q(50, "MPa", { std: "ISO 178", orientation: "XY" }),
+      flexuralModulusXy: q(2000, "MPa", { std: "ISO 178", orientation: "XY" }),
+      hdtB: q(88, "°C", { std: "ISO 75-2/B", conditions: "Methode B = 0,45 MPa; das Blatt beschriftet die Zeile widersprüchlich mit „HDT A“", confidence: "low" }),
+      vicatB50: q(87, "°C", { std: "ISO 306/B50" }),
+    },
+    ul94: { value: "HB" },
+    features: t("Der zweite Beleg für HIPS im Bestand — bis hierher hing der Werkstofftyp an einem einzigen Produkt. Durchgehend ISO-Normen mit Methodenangabe (527-2/5, 306/B50), was auf den Blättern dieses Herstellers die Ausnahme ist.",
+                "The second piece of evidence for HIPS in the dataset — until now the material type hung on a single product. ISO standards throughout with method suffixes (527-2/5, 306/B50), which is the exception on this manufacturer's sheets."),
+    anomaly: t("Zwei Punkte. Die Wärmeformbeständigkeit ist nach ISO 75-2 Methode B geprüft — das sind 0,45 MPa, also HDT-B —, die Bedingungsspalte daneben sagt aber „HDT A“. Geführt ist sie nach der genannten Methode als HDT-B, mit `low`. Und Streckspannung und Bruchspannung sind beide mit 16 MPa angegeben; bei einem schlagzähmodifizierten Polystyrol, das sich vor dem Bruch merklich dehnt, wäre ein Unterschied zu erwarten.",
+               "Two points. The heat deflection temperature is tested to ISO 75-2 method B — that is 0.45 MPa, so HDT-B — yet the condition column next to it says “HDT A”. It is held per the named method as HDT-B, with `low`. And yield stress and break stress are both given as 16 MPa; in an impact-modified polystyrene that stretches noticeably before breaking, a difference would be expected."),
+  },
+  {
+    id: "formfutura-refill-petg", material: "petg", name: "ReFill PETG", doc: 256624, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.29, "g/cm³"),
+      izodNotchedXy: q(4.7, "kJ/m²", { std: "ISO 180", conditions: "gekerbt, 23 °C", orientation: "XY" }),
+      tensileStrengthXy: q(20, "MPa", { std: "ISO 527-2", conditions: "bei Bruch", orientation: "XY", confidence: "low" }),
+      tensileModulusXy: q(2980, "MPa", { std: "ISO 527-2", orientation: "XY" }),
+    },
+    ul94: { value: "V-2", note: t("Das Blatt nennt die Klasse im Fließtext ohne Dicke, Prüfstelle oder Zeugnisnummer. V-2 ist die unterste der drei V-Klassen: Das Material verlöscht selbst, darf dabei aber brennend abtropfen — für viele Innenraumanforderungen ist genau das der Ausschlussgrund.",
+                                   "The sheet names the class in the body text without thickness, test house or certificate number. V-2 is the lowest of the three V classes: the material self-extinguishes but may drip while burning — for many interior requirements that is precisely the disqualifier.") },
+    features: t("Zwei Angaben, die kaum ein Blatt macht: eine UL94-Klasse oberhalb von HB, und „food contact approved according to EU directives“. Beides steht allerdings nur im Fließtext. Zur Lebensmittelkonformität gilt unverändert, was DISCLAIMER und Datenmodell sagen — eine Materialfreigabe ist keine Bauteilfreigabe, weil die Schichtstruktur eines FDM-Teils Kapillaren und Keimnischen bildet.",
+                "Two statements hardly any sheet makes: a UL 94 class above HB, and “food contact approved according to EU directives”. Both appear in the body text only. For food compliance what DISCLAIMER and the data model say remains unchanged — a material approval is not a part approval, because the layer structure of an FDM part forms capillaries and niches for germs."),
+    anomaly: t("Die Wärmeformbeständigkeit ist mit 78 °C angegeben, als Prüfnorm steht ISO 306 daneben — das ist der Vicat-Versuch, nicht die Wärmeformbeständigkeit. Weder Methode noch Last sind genannt. Damit lässt sich der Wert weder als HDT noch als Vicat einordnen, ohne eines von beidem zu raten; er ist nicht übernommen. Ebenfalls auffällig: Der Zug-E-Modul von 2980 MPa ist zahlengleich mit dem des EasyFil ePETG desselben Herstellers, dort allerdings nach ASTM D638 geprüft.",
+               "The heat deflection temperature is given as 78 °C with ISO 306 named as the standard — that is the Vicat test, not heat deflection. Neither method nor load is stated. The value can therefore be placed neither as HDT nor as Vicat without guessing one of the two; it is not imported. Also striking: the tensile modulus of 2980 MPa is numerically identical to that of the same manufacturer's EasyFil ePETG, tested there to ASTM D638."),
+  },
+  {
+    id: "formfutura-reform-rpet", material: "petg", name: "ReForm rPET", doc: 256630, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.23, "g/cm³", { confidence: "low" }),
+      tensileStrengthXy: q(52, "MPa", { std: "im Blatt als „ISO D882“ angegeben; gemeint ist ASTM D882", conditions: "bei Streckgrenze; bei Bruch nennt das Blatt 59 MPa", orientation: "XY", confidence: "low" }),
+      elongationAtYieldXy: q(4, "%", { std: "im Blatt als „ISO D882“ angegeben; gemeint ist ASTM D882", orientation: "XY", confidence: "low" }),
+      flexuralStrengthXy: q(68, "MPa", { std: "ISO 178", orientation: "XY" }),
+      flexuralModulusXy: q(2000, "MPa", { std: "ISO 178", orientation: "XY" }),
+      hdtA: q(70, "°C", { std: "im Blatt als „ISO D648“ angegeben; gemeint ist ASTM D648", conditions: "Blattangabe „HDT A“", confidence: "low" }),
+      waterAbsorption: q(0.2, "%", { conditions: "Blattangabe „< 0,2 %“ im Fließtext", confidence: "low" }),
+    },
+    features: t("Ein Rezyklat, das laut eigenem Blatt PETG-basiert ist — „the most sustainable PETG-based filament“. Die Marktdatenbank führt es unter PET; hier steht es beim PETG, wo der Fließtext es hinstellt.",
+                "A recyclate that is PETG-based by its own sheet — “the most sustainable PETG-based filament”. The market database files it under PET; here it sits with PETG, where its own body text places it."),
+    anomaly: t("Sämtliche Prüfnormen dieses Blattes sind ASTM-Bezeichnungen mit ISO-Präfix: „ISO D505“, „ISO D256“, „ISO D882“, „ISO D648“. ISO-Normen tragen keine D-Nummern; gemeint sind ASTM D-Normen. Der Fehler tritt auf jeder Zeile auf und stammt damit aus der Vorlage. Zudem weist das Blatt eine Bruchdehnung von 400 % aus — für PETG liegen übliche Werte bei 20 bis 50 %, und die Streckdehnung derselben Zeile daneben bei 4 %. Ein Faktor 100 zwischen Streck- und Bruchdehnung gibt es bei diesem Werkstoff nicht; der Wert ist nicht übernommen. Die Schlagzähigkeit steht in J/m und ist aus demselben Grund ausgelassen wie bei den ApolloX-Blättern.",
+               "Every test standard on this sheet is an ASTM designation with an ISO prefix: “ISO D505”, “ISO D256”, “ISO D882”, “ISO D648”. ISO standards carry no D numbers; ASTM D standards are meant. The error occurs on every row and thus comes from the template. The sheet moreover states an elongation at break of 400 % — for PETG usual values lie at 20 to 50 %, and the yield elongation on the row beside it at 4 %. A factor of 100 between yield and break elongation does not exist in this material; the value is not imported. The impact strength is in J/m and is omitted for the same reason as on the ApolloX sheets."),
+  },
+  {
+    id: "formfutura-carbonfil", material: "petg-cf", name: "CarbonFil", doc: 256493, date: "23-08-2024", scan: true,
+    props: {
+      density: q(1.32, "g/cm³", { std: "ISO 1183" }),
+      charpyNotchedXy: q(5.4, "kJ/m²", { std: "ISO 179-1eU", conditions: "Blattangabe „Charpy notched“; das Normsuffix eU bezeichnet den UNGEKERBTEN Versuch", orientation: "XY", confidence: "low" }),
+      tensileStrengthXy: q(45, "MPa", { std: "ISO 527-1", conditions: "bei Bruch", orientation: "XY" }),
+      elongationAtBreakXy: q(4.9, "%", { std: "ISO 527-1", orientation: "XY" }),
+      flexuralModulusXy: q(4250, "MPa", { std: "im Blatt als ISO 527-1 angegeben; für die Biegung wäre ISO 178 einschlägig", orientation: "XY", confidence: "low" }),
+      vicatA: q(80, "°C", { std: "ISO 306", conditions: "Methode nicht genannt", confidence: "low" }),
+    },
+    features: t("Das Blatt nennt den Faseranteil ausdrücklich: 15 % Kohlenstofffaser in PETG. Damit ist es der einzige PETG-CF-Datensatz im Bestand mit deklariertem Fasergehalt — bei Bambu ist er undeklariert, bei Flashforge liegt er bei 10 %. Für die Vergleichbarkeit gefüllter Typen ist genau diese Angabe die wichtigste.",
+                "The sheet states the fibre content explicitly: 15 % carbon fibre in PETG. It is thereby the only PETG-CF record in the dataset with a declared fibre content — Bambu leaves it undeclared, Flashforge states 10 %. For comparing filled grades this is the single most important statement."),
+    anomaly: t("Drei Punkte. Erstens widerspricht der Fließtext der eigenen Tabelle: „10 % more impact resistant than HDglass“ steht über einem Schlagwert von 5,4 kJ/m², während das HDglass desselben Herstellers 7,2 kJ/m² ausweist — das sind 25 % WENIGER, nicht 10 % mehr. Zweitens ist die Schlagzähigkeit als „Charpy notched“ bezeichnet, das Normsuffix ISO 179-1eU steht aber für den ungekerbten Versuch. Drittens trägt der Biege-E-Modul die Norm ISO 527-1, die auf diesem Blatt schon über den beiden Zugzeilen steht und offensichtlich nach unten kopiert wurde; geführt ist der Wert nach seiner Beschriftung als Biege-E-Modul, mit `low`.",
+               "Three points. First, the body text contradicts its own table: “10 % more impact resistant than HDglass” sits above an impact figure of 5.4 kJ/m², while the same manufacturer's HDglass states 7.2 kJ/m² — that is 25 % LESS, not 10 % more. Second, the impact strength is labelled “Charpy notched” but the standard suffix ISO 179-1eU denotes the unnotched test. Third, the flexural modulus carries the standard ISO 527-1, which on this sheet already sits above the two tensile rows and has evidently been copied downwards; the value is held per its label as flexural modulus, with `low`."),
+  },
 ];
 
 /* ------------------------------------------------------------------ Ausgabe */
@@ -525,6 +771,7 @@ for (const p of P) {
   const url = `${BASE}/${p.doc}?download=true`;
   const version = iso(p.date);
   const parts = [p.lehvoss ? MOULDED : UNDECLARED];
+  if (p.scan) parts.push(SCANNED);
   if (p.anomaly) {
     parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`));
   }
@@ -577,8 +824,11 @@ for (const p of P) {
         note: p.lehvoss
           ? t("Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
               "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset.")
-          : t("Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-              "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."),
+          : p.scan
+            ? t("Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
+                "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared.")
+            : t("Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+                "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."),
       }],
     },
   };
@@ -597,8 +847,12 @@ console.log("  Werkstofftyp   Produkte");
 for (const [m, c] of [...byMaterial.entries()].sort((a, b) => b[1] - a[1])) {
   console.log(`  ${m.padEnd(14)}${String(c).padStart(4)}`);
 }
+const scans = P.filter((p) => p.scan).length;
+console.log(`\n  ${scans} davon aus Rasterseiten abgelesen (200-dpi-Rendering, keine Textebene).`);
+console.log("    Sieben dieser dreizehn tragen keine eigene Messung, sondern eine kopierte Tabelle:");
+console.log("      ABSpro = TitanX = EasyFil ABS = EasyFil ABS Glow   (vier Produkte, eine Messung)");
+console.log("      EasyFil ePLA = Galaxy PLA                          (zwei Produkte, eine Messung)");
+console.log("    Aufgenommen sind sie trotzdem - sie zaehlen als EIN Beleg, und jeder Satz sagt das.");
 console.log("\n  Nicht importiert:");
-console.log("    13 Blaetter ohne Textebene (ABSpro, TitanX, EasyFil ABS/ePLA/HIPS, EasyWood,");
-console.log("       Galaxy PLA, High Gloss PLA, PETG CarbonFil, ReFill PETG, ReForm rPET u. a.)");
 console.log("    7 Blaetter ohne Werkstofftyp in dieser Datenbank (PEEK x2, PEI x2, PCL x2, BVOH)");
 console.log("    2 Blaetter ohne passenden Variantentyp (AthenaX CF10 -> pctg-cf, Kratos PC CF10 -> pc-cf)");
