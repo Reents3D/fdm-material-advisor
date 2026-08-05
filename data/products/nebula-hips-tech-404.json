@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-hips-tech-404",
+  "materialId": "hips",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "HIPS Tech 404",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Tabelle nennt weder Zugfestigkeit noch Bruchdehnung, Schlagzähigkeit oder Wärmeformbeständigkeit — vier Zeilen insgesamt. Für einen Vergleich mit den beiden anderen HIPS-Datensätzen reicht das nur beim E-Modul und bei der Biegefestigkeit.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: The table names neither tensile strength nor elongation, impact or heat deflection — four rows in total. For a comparison with the two other HIPS records that suffices only for modulus and flexural strength."
+  },
+  "features": {
+    "de": "Der dritte HIPS-Beleg im Bestand und der einzige, der die Vicat-Methode vollständig nennt (ISO 306/A120 — Methode A bei 120 °C/h). Das Blatt weist den Werkstoff ausdrücklich als Stützmaterial aus, was die dünne Kennwertlage erklärt: Für ein Material, das nach dem Druck weggelöst wird, sind Zugfestigkeit und Schlagzähigkeit nachrangig.\n\nSpulengrößen laut Blatt: 0,5 / 1 / 2,5 kg.",
+    "en": "The third HIPS record in the dataset and the only one to name the Vicat method in full (ISO 306/A120 — method A at 120 °C/h). The sheet explicitly designates the material as support material, which explains the thin data: for a material dissolved away after printing, tensile strength and impact are secondary.\n\nSpool sizes per the sheet: 0,5 / 1 / 2,5 kg."
+  },
+  "datasheet": {
+    "title": "HIPS Tech 404 — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-HIPS-404.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1750,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2/1",
+      "conditions": "1 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 38,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 100,
+      "unit": "°C",
+      "testStandard": "ISO 306/A120",
+      "conditions": "Methode A, 120 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 240,
+      "unit": "°C",
+      "min": 235,
+      "max": 245,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 95,
+      "unit": "°C",
+      "min": 90,
+      "max": 100,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "HIPS Tech 404",
+        "title": "HIPS Tech 404 — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-HIPS-404.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}

@@ -267,9 +267,15 @@ den bereits verlinkten Nachzüglern:
 | Protopasta | 40 | — |
 | FilamentPM | 37 | — |
 
-Gegenrichtung: 148 offene Fundstellen sind bereits verlinkt und nur noch auszuwerten —
-FormFutura 48, Bambu Lab 40, Nebula 17, Alzament 13, Anycubic 12. Die tagesaktuelle
-Liste erzeugt `npm run import:ofd-datasheets`.
+Gegenrichtung: Von den 148 verlinkten Fundstellen sind **FormFutura (48) und Nebula (17)
+ausgewertet**; offen bleiben Bambu Lab 40, Alzament 13, Anycubic 12 und die Einzelfunde.
+Die tagesaktuelle Liste erzeugt `npm run import:ofd-datasheets`.
+
+> **Was die Auswertung dieser beiden Marken über die Datenlage gezeigt hat:** Von 63
+> ausgewerteten Blättern tragen 17 keine eigene Messung, sondern die Tabelle eines
+> anderen Produkts — und die generische PLA-Tabelle taucht bei **beiden** Herstellern
+> auf, also über Markengrenzen hinweg. Eine Zählung von Datenblättern ist deshalb keine
+> Zählung von Belegen. Jeder betroffene Datensatz sagt das und trägt `low`.
 
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 

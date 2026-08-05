@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-petg-premium",
+  "materialId": "petg",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "PETG Premium",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Dieses Blatt beschreibt den ROHSTOFF, nicht das Bauteil: Grenzviskosität nach ISO 1628-5, Glasübergang, Schütt- und Reindichte — und keinen einzigen mechanischen Kennwert. Weder Zugfestigkeit noch Modul, Biegung oder Schlagzähigkeit stehen darauf. Für eine Werkstoffauswahl trägt es damit nur die Dichte und den Glasübergang bei. Nicht übernommen ist die angegebene Schüttdichte von 0,72 g/cm³ — das ist die Schüttdichte des Granulats, nicht die Dichte des Werkstoffs, und eine Verwechslung der beiden würde jede Masseabschätzung um ein Drittel danebenlegen. Dieselbe Tabelle steht auch auf dem Blatt von PETG Art Chameleon.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: This sheet describes the RAW MATERIAL, not the part: intrinsic viscosity to ISO 1628-5, glass transition, bulk and true density — and not a single mechanical value. Neither tensile strength nor modulus, flexure or impact appears on it. For material selection it therefore contributes only density and glass transition. Not imported is the stated bulk density of 0.72 g/cm³ — that is the bulk density of the pellets, not the density of the material, and confusing the two would put any mass estimate out by a third. The same table also appears on the PETG Art Chameleon sheet."
+  },
+  "features": {
+    "de": "Spulengrößen laut Blatt: 0,5 / 1 / 3 / 9 kg.",
+    "en": "Spool sizes per the sheet: 0,5 / 1 / 3 / 9 kg."
+  },
+  "datasheet": {
+    "title": "PETG Premium — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PETG-PREMIUM.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 80,
+      "unit": "°C",
+      "testStandard": "ASTM D3418",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 220,
+      "max": 230,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 75,
+      "unit": "°C",
+      "min": 60,
+      "max": 90,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "PETG Premium",
+        "title": "PETG Premium — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PETG-PREMIUM.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}

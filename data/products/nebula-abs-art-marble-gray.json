@@ -1,0 +1,138 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-abs-art-marble-gray",
+  "materialId": "abs",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "ABS Art Marble Gray",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Dieselbe Tabelle steht auf den Blättern von ABS Tech 702, ABS Art Glowing, ABS Art Marble Gray und ABS Art Thermo. Vier Produkte, eine Messung — die Art-Varianten unterscheiden sich im Farbeffekt, nicht im Grundwerkstoff, was diesmal plausibel ist. Sie zählen trotzdem als ein Beleg.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: The same table appears on the sheets of ABS Tech 702, ABS Art Glowing, ABS Art Marble Gray and ABS Art Thermo. Four products, one measurement — the Art variants differ in colour effect, not in base material, which is plausible this time. They still count as one piece of evidence."
+  },
+  "features": {
+    "de": "Spulengrößen laut Blatt: 0,5 / 1 / 2,5 / 8 kg.",
+    "en": "Spool sizes per the sheet: 0,5 / 1 / 2,5 / 8 kg."
+  },
+  "datasheet": {
+    "title": "ABS Art Marble Gray — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-ABS-MARBLE-GRAY.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.04,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 44,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "5 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 13,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "conditions": "5 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 64,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "2,8 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.55,
+      "unit": "%",
+      "min": 0.4,
+      "max": 0.7,
+      "testStandard": "ASTM D955",
+      "conditions": "3,2 mm, in Fließrichtung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 81,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "18,56 kg/cm² = 1,82 MPa (Methode A)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 94,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "conditions": "5 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 245,
+      "unit": "°C",
+      "min": 240,
+      "max": 250,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 95,
+      "unit": "°C",
+      "min": 90,
+      "max": 100,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "thicknessMm": 1.5,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Die einzige UL94-Angabe im ganzen Bestand mit MEHREREN Materialdicken: HB bei 1,5 mm, bei 3,0 mm und bei 6,0 mm. Eine UL94-Klasse ohne Dickenangabe ist nicht übertragbar, weil dieselbe Rezeptur je nach Dicke unterschiedlich eingestuft wird — hier steht sie dreimal und ist damit belastbar. HB bleibt allerdings die unterste Stufe und bedeutet nur „brennt langsam“; als Brandschutz im Sinne einer Bahn- oder Innenraumanforderung zählt sie nicht. Eine Prüfstelle und eine Zeugnisnummer nennt auch dieses Blatt nicht.",
+        "en": "The only UL 94 statement in the entire dataset with SEVERAL material thicknesses: HB at 1.5 mm, at 3.0 mm and at 6.0 mm. A UL 94 class without a thickness is not transferable, because the same formulation is rated differently depending on thickness — here it appears three times and is therefore solid. HB remains the lowest rating and means only “burns slowly”; it does not count as flame protection in the sense of a rail or interior requirement. This sheet too names no test house and no certificate number."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "ABS Art Marble Gray",
+        "title": "ABS Art Marble Gray — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-ABS-MARBLE-GRAY.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}

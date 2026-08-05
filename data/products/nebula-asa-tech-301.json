@@ -1,0 +1,120 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-asa-tech-301",
+  "materialId": "asa",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "ASA Tech 301",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Festigkeiten stehen in kg/cm², einer seit Jahrzehnten außer Gebrauch gekommenen Einheit; sie sind umgerechnet und tragen `low`, die Blattangabe steht in `conditions`. Eine Wärmeformbeständigkeit weist das Blatt nicht aus — bei einem Außenwerkstoff wäre gerade sie die entscheidende Angabe.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: The strengths are in kg/cm², a unit out of use for decades; they are converted and carry `low`, with the sheet figure in `conditions`. The sheet states no heat deflection temperature — for an outdoor material that would be precisely the decisive figure."
+  },
+  "features": {
+    "de": "Eine Bruchdehnung von 55 % ist für ein ASA ungewöhnlich hoch — die übrigen ASA-Datensätze im Bestand liegen zwischen 1,8 und 15 %. Zusammen mit einer Vicat-Temperatur von 105 °C ergibt das ein für den Außeneinsatz interessantes Profil: zäh und wärmefest zugleich.\n\nSpulengrößen laut Blatt: 0,5 / 1 / 3 / 9 kg.",
+    "en": "An elongation at break of 55 % is unusually high for an ASA — the other ASA records in the dataset lie between 1.8 and 15 %. Together with a Vicat temperature of 105 °C that gives a profile interesting for outdoor use: tough and heat-resistant at once.\n\nSpool sizes per the sheet: 0,5 / 1 / 3 / 9 kg."
+  },
+  "datasheet": {
+    "title": "ASA Tech 301 — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-ASA-301.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 43.1,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "Blattangabe 440 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 55,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "conditions": "6 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 63.7,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "Blattangabe 650 kg/cm², umgerechnet mit 1 kg/cm² = 0,0980665 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 105,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "conditions": "1 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 258,
+      "unit": "°C",
+      "min": 250,
+      "max": 265,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 95,
+      "unit": "°C",
+      "min": 90,
+      "max": 100,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "HB",
+      "thicknessMm": 3,
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "HB bei 3,0 mm, mit Dickenangabe. HB ist die unterste UL94-Stufe und bedeutet nur „brennt langsam“.",
+        "en": "HB at 3.0 mm, with the thickness stated. HB is the lowest UL 94 rating and means only “burns slowly”."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "ASA Tech 301",
+        "title": "ASA Tech 301 — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-ASA-301.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}

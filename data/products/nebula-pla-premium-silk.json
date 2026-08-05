@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "nebula-pla-premium-silk",
+  "materialId": "pla",
+  "brand": "Nebula Filaments",
+  "manufacturer": "Nebula Filaments (Stare Bystre, Polen)",
+  "productName": "PLA Premium Silk",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Das Blatt ist polnisch. Prüfkörper nicht deklariert — es sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Wärmeformbeständigkeit steht mit 51 °C unter „ISO 75“ — ohne Methode und ohne Last. ISO 75 kennt Methode A (1,8 MPa) und B (0,45 MPa), und die beiden liegen bei PLA rund 10 K auseinander. Ohne die Angabe lässt sich der Wert weder als HDT-A noch als HDT-B führen; er ist nicht übernommen. Die Bruchdehnung trägt als einzige Zeile ASTM D882, während die übrigen Zugzeilen ISO 527 nennen.",
+    "en": "The sheet is in Polish. Specimen not declared — it does not say whether printed or moulded specimens were measured.\n\nFinding on this datasheet: The heat deflection temperature is given as 51 °C under “ISO 75” — without method and without load. ISO 75 knows method A (1.8 MPa) and B (0.45 MPa), and for PLA the two lie about 10 K apart. Without that statement the value can be held neither as HDT-A nor as HDT-B; it is not imported. The elongation at break is the only row to carry ASTM D882 while the other tensile rows name ISO 527."
+  },
+  "features": {
+    "de": "Ein zweiter Beleg für dieselben Zahlen, die FormFutura beim High Gloss PLA ausweist: 1,22 g/cm³, 2700 MPa Zug-E-Modul, 72 MPa Biegefestigkeit, 6 J/m Izod — bei zwei unabhängigen Herstellern. Silk- und Hochglanz-PLA sind derselbe Rezepturtyp, insofern passt das zusammen; die kleinen Abweichungen (Bruchspannung 47 gegen 45 MPa, HDT 51 gegen 50 °C) sprechen dafür, dass beide dieselbe Quelle unterschiedlich gerundet wiedergeben.\n\nSpulengrößen laut Blatt: 0,5 / 1 / 3 / 5 / 9 kg.",
+    "en": "A second piece of evidence for the same figures FormFutura states for High Gloss PLA: 1.22 g/cm³, 2700 MPa tensile modulus, 72 MPa flexural strength, 6 J/m Izod — from two independent manufacturers. Silk and high-gloss PLA are the same formulation type, so that fits; the small deviations (break stress 47 against 45 MPa, HDT 51 against 50 °C) suggest both reproduce the same source with different rounding.\n\nSpool sizes per the sheet: 0,5 / 1 / 3 / 5 / 9 kg."
+  },
+  "datasheet": {
+    "title": "PLA Premium Silk — Karta techniczna",
+    "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-SILK.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://nebulafilaments.com/",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 6,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 59,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Bruch nennt das Blatt 47 MPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2700,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 9,
+      "unit": "%",
+      "testStandard": "im Blatt als ASTM D882 angegeben, während die übrigen Zugzeilen ISO 527 nennen",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 72,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 57.5,
+      "unit": "°C",
+      "min": 55,
+      "max": 60,
+      "testStandard": "DSC",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 200,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 50,
+      "unit": "°C",
+      "min": 40,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Nebula Filaments",
+        "productName": "PLA Premium Silk",
+        "title": "PLA Premium Silk — Karta techniczna",
+        "url": "https://api.nebulafilaments.com/wp-content/uploads/2025/02/TDS-PLA-SILK.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
+          "en": "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."
+        }
+      }
+    ]
+  }
+}
