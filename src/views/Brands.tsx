@@ -8,12 +8,14 @@
  * wie ein gedruckter Prüfkörper.
  */
 
-import { useState } from "react";
 import { PRODUCTS, productsByMaterial, type Product } from "../data/products";
 import { byId } from "../data/materials";
 import { CHEMICALS } from "../data/chemicals";
 import { Chip, Disclosure, cx, fmt, text } from "../components/ui";
 import { SITE } from "../config/site";
+import {
+  BRAND_SELECTION_NONE as NONE, MAX_BRAND_COLUMNS as MAX_COLUMNS, resolveBrandSelection,
+} from "../lib/brand-selection";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -132,18 +134,143 @@ function ProductClaims({ p, lang }: { p: Product; lang: Lang }) {
   );
 }
 
-export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: string) => void }) {
+/**
+ * Auswahl der Hersteller, die nebeneinander stehen sollen.
+ *
+ * Ein Knopf je PRODUKT, nicht je Marke: Extrudr führt allein bei PLA sechs Typen, und
+ * "Extrudr" als eine Schaltfläche würde die Frage offen lassen, welcher davon in der
+ * Tabelle landet. Der Markenname steht deshalb gross, der Produktname klein darunter —
+ * und nur dann, wenn die Marke in diesem Werkstofftyp mehr als ein Produkt führt.
+ *
+ * Der Prüfkörper steht am Knopf und nicht erst in der Tabelle. Wer auswählt, soll vorher
+ * sehen, ob er gerade einen gedruckten Wert oder einen Rohstoffkennwert dazuholt — das
+ * ist die Aussage, um die es in dieser ganzen Ansicht geht.
+ */
+function BrandPicker({ brandNames, brands, chosen, available, toggle, write, lang }: {
+  brandNames: string[]; brands: Map<string, Product[]>; chosen: Set<string>;
+  available: string[]; toggle: (id: string) => void; write: (next: Set<string>) => void;
+  lang: Lang;
+}) {
+  const de = lang === "de";
+  const full = chosen.size >= MAX_COLUMNS;
+
+  const mark = (p: Product) =>
+    p.specimenType === "printed" ? (de ? "gedruckt" : "printed")
+      : p.specimenType === "moulded" ? (de ? "spritzgegossen" : "moulded")
+        : (de ? "nicht deklariert" : "undeclared");
+
+  return (
+    <section className="surface p-4 mb-6 no-print">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-3">
+        <h2 className="font-display font-bold text-base">
+          {de ? "Wen möchten Sie gegenüberstellen?" : "Who do you want to compare?"}
+        </h2>
+        <p className="text-xs muted">
+          {de
+            ? `${chosen.size} von ${available.length} ausgewählt · höchstens ${MAX_COLUMNS}`
+            : `${chosen.size} of ${available.length} selected · at most ${MAX_COLUMNS}`}
+          {" · "}
+          <button className="hl hover:underline"
+            onClick={() => write(new Set(available.slice(0, MAX_COLUMNS)))}>
+            {de ? "Vorbelegung" : "Default"}
+          </button>
+          {" · "}
+          <button className="hl hover:underline" onClick={() => write(new Set())}>
+            {de ? "keine" : "none"}
+          </button>
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-1.5">
+        {brandNames.flatMap((brand) => {
+          const items = brands.get(brand) ?? [];
+          return items.map((p) => {
+            const on = chosen.has(p.id);
+            // Gesperrt wird nur, was noch dazukommen SOLL - Abwaehlen bleibt immer moeglich,
+            // sonst sitzt man am Deckel fest.
+            const locked = !on && full;
+            return (
+              <button key={p.id} type="button" onClick={() => toggle(p.id)}
+                aria-pressed={on} disabled={locked}
+                title={locked ? (de ? `Erst abwählen — höchstens ${MAX_COLUMNS} nebeneinander` : `Deselect first — at most ${MAX_COLUMNS} side by side`) : undefined}
+                className={cx("text-left px-3 py-1.5 rounded-lg border text-sm transition-colors",
+                  on
+                    ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
+                    : locked
+                      ? "border-hairline dark:border-[#1E2B3D] opacity-40 cursor-not-allowed"
+                      : "border-hairline dark:border-[#1E2B3D] hover:border-petrol-400")}>
+                <span className="block font-medium leading-tight">{brand}</span>
+                {items.length > 1 && (
+                  <span className={cx("block text-xs leading-tight", on ? "opacity-80" : "muted")}>
+                    {p.productName}
+                  </span>
+                )}
+                <span className={cx("block text-xs leading-tight", on ? "opacity-70" : "muted")}>
+                  {mark(p)}
+                </span>
+              </button>
+            );
+          });
+        })}
+      </div>
+    </section>
+  );
+}
+
+export function Brands({ lang, params, navigate }: {
+  t: T; lang: Lang; params: URLSearchParams; navigate: (p: string) => void;
+}) {
+  const de = lang === "de";
   const grouped = productsByMaterial();
   // Nach Markenzahl sortieren: eine Ansicht, die mit einem einzigen Anbieter startet,
   // wirkt leer und verfehlt den Zweck des Vergleichs.
   const materialIds = [...grouped.keys()].sort(
     (a, b) => (grouped.get(b)?.length ?? 0) - (grouped.get(a)?.length ?? 0) || a.localeCompare(b),
   );
-  const [sel, setSel] = useState(materialIds[0] ?? "");
+
+  /* Werkstofftyp UND Produktauswahl stehen in der Adresszeile, nicht in `useState`.
+     Diese Ansicht heisst "Hersteller vergleichen" - ein Vergleich, den man nicht
+     verlinken kann, taugt nicht zum Argumentieren (ADR-008). Alle Aenderungen gehen in
+     EINEM Schreibvorgang raus, sonst liest der zweite Aufruf den alten Stand. */
+  const setParams = (patch: Record<string, string | null>) => {
+    const p = new URLSearchParams(params);
+    for (const [k, v] of Object.entries(patch)) v === null ? p.delete(k) : p.set(k, v);
+    location.hash = `#/brands?${p.toString()}`;
+  };
+
+  const fromUrl = params.get("bm") ?? "";
+  const sel = materialIds.includes(fromUrl) ? fromUrl : materialIds[0] ?? "";
   const list = grouped.get(sel) ?? [];
 
-  const printed = list.filter((p) => p.specimenType === "printed");
-  const other = list.filter((p) => p.specimenType !== "printed");
+  /* `list` kommt aus productsByMaterial() bereits in der richtigen Reihenfolge:
+     gedruckte Pruefkoerper zuerst, dann nicht deklariert, dann spritzgegossen. Die
+     Vorbelegung nimmt deshalb einfach die ersten sechs und trifft damit automatisch
+     die aussagekraeftigsten Belege. */
+  const available = list.map((p) => p.id);
+  const chosen = new Set(resolveBrandSelection(params.get("bp"), available));
+
+  const write = (next: Set<string>) => {
+    const ordered = available.filter((id) => next.has(id));
+    setParams({ bp: ordered.length ? ordered.join(",") : NONE });
+  };
+  const toggle = (id: string) => {
+    const next = new Set(chosen);
+    if (next.has(id)) next.delete(id);
+    else if (next.size < MAX_COLUMNS) next.add(id);
+    else return;                                    // Deckel, kein stilles Verschlucken
+    write(next);
+  };
+
+  /* Marken alphabetisch, nicht nach Produktzahl: Wer hier sucht, sucht einen Namen.
+     Ein Hersteller kann mehrere Produkte im selben Werkstofftyp fuehren (3DJake,
+     Extrudr) - dann ist der Produktname noetig, um sie auseinanderzuhalten. */
+  const brands = new Map<string, Product[]>();
+  for (const p of list) brands.set(p.brand, [...(brands.get(p.brand) ?? []), p]);
+  const brandNames = [...brands.keys()].sort((a, b) => a.localeCompare(b));
+
+  const selected = list.filter((p) => chosen.has(p.id));
+  const printed = selected.filter((p) => p.specimenType === "printed");
+  const other = selected.filter((p) => p.specimenType !== "printed");
 
   return (
     <div>
@@ -254,9 +381,12 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 mb-5 no-print">
+      <div className="flex flex-wrap gap-1.5 mb-4 no-print">
         {materialIds.map((id) => (
-          <button key={id} onClick={() => setSel(id)} aria-pressed={sel === id}
+          /* Der Werkstoffwechsel loescht die Produktauswahl: Die IDs des alten Typs
+             gaebe es im neuen nicht, und eine halb leere Tabelle waere schlimmer als
+             die Vorbelegung. */
+          <button key={id} onClick={() => setParams({ bm: id, bp: null })} aria-pressed={sel === id}
             className={cx("px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors",
               sel === id
                 ? "bg-petrol-700 text-white border-petrol-700 dark:bg-petrol-300 dark:text-ink dark:border-petrol-300"
@@ -267,10 +397,24 @@ export function Brands({ lang, navigate }: { t: T; lang: Lang; navigate: (p: str
         ))}
       </div>
 
-      {printed.length > 0 && <Group title={lang === "de" ? "An gedruckten Prüfkörpern gemessen" : "Measured on printed specimens"}
-        products={printed} lang={lang} />}
-      {other.length > 0 && <Group title={lang === "de" ? "Rohstoffkennwerte / nicht deklariert — nicht mit obigen vergleichbar" : "Raw-material or undeclared — not comparable with the above"}
-        products={other} lang={lang} />}
+      <BrandPicker
+        brandNames={brandNames} brands={brands} chosen={chosen} available={available}
+        toggle={toggle} write={write} lang={lang} />
+
+      {selected.length === 0 ? (
+        <p className="surface p-5 text-sm muted">
+          {de
+            ? "Keine Hersteller ausgewählt. Wählen Sie oben aus, wen Sie nebeneinander sehen möchten."
+            : "No manufacturers selected. Choose above who you want to see side by side."}
+        </p>
+      ) : (
+        <>
+          {printed.length > 0 && <Group title={lang === "de" ? "An gedruckten Prüfkörpern gemessen" : "Measured on printed specimens"}
+            products={printed} lang={lang} />}
+          {other.length > 0 && <Group title={lang === "de" ? "Rohstoffkennwerte / nicht deklariert — nicht mit obigen vergleichbar" : "Raw-material or undeclared — not comparable with the above"}
+            products={other} lang={lang} />}
+        </>
+      )}
 
       <p className="text-sm muted mt-6">
         <button className="hl hover:underline" onClick={() => navigate(`material/${sel}`)}>
