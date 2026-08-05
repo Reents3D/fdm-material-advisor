@@ -252,10 +252,13 @@ npm run ci         # alles, wie in der Pipeline
 ```
 
 **Die CI blockt einen Wert mit `confidence: high` oder `medium` ohne echte Quelle.**
-Das ist Absicht. 16 Plausibilitätsregeln (R0–R15) prüfen außerdem, dass Z nie über X-Y
+Das ist Absicht. 17 Plausibilitätsregeln (R0–R16) prüfen außerdem, dass Z nie über X-Y
 liegt, die HDT unterhalb Tg plus Toleranz bleibt, das Bett unter der Düse, jede
 Quellenkennung auflösbar ist, jede Bewertungsskala registriert und jeder i18n-Text in
-beiden Sprachen vorliegt. Dazu 122 Tests, darunter fachliche Szenarien: Wenn die Engine
+beiden Sprachen vorliegt. Die jüngste (R16) fragt etwas Physikalisches: Ist die
+carbonverstärkte Variante eines Werkstoffs im Datenblatt überhaupt steifer als die
+ungefüllte? Bei Extrudr DuraPro ABS CF lautet die Antwort nein — Zug- und Biegemodul
+stehen zifferngleich beim ungefüllten ABS. Dazu 165 Tests, darunter fachliche Szenarien: Wenn die Engine
 einem Anwendungsfall die falsche Antwort gibt, geht der Lauf rot — auch dann, wenn die
 Arithmetik stimmt.
 

@@ -4,6 +4,17 @@
  * Quelle: https://extrudr.com/de/de/page/downloads-for-resellers/
  * 37 deutschsprachige TDS auf s3.extrudr.com, Namensschema {slug}-TDS-de.pdf.
  *
+ * ACHTUNG: DIESES SKRIPT NIE ALLEIN LAUFEN LASSEN, SONDERN IMMER `npm run import:all`.
+ * Es schreibt nicht nur Produkte, sondern auch WERKSTOFFDATEIEN - und schreibt sie
+ * vollstaendig neu. Alles, was die nachgelagerten Schritte dort ergaenzt haben, ist
+ * danach weg: `derive:chemicals` (19 Chemikalienbewertungen je Werkstoff),
+ * `derive:price`, `derive:xxl`, `derive:flame`, `apply:field`. Am 2026-08-05 hat ein
+ * einzelner Lauf dieses Skripts zwoelf Werkstoffdateien um 250 bis 350 Zeilen gekuerzt;
+ * aufgefallen ist es nur, weil die Zeilenstatistik des Commits danebenstand. Weder
+ * Schema noch Plausibilitaetspruefung schlagen an - die Dateien sind ohne diese Felder
+ * gueltig, nur aermer. Dasselbe gilt fuer jeden anderen Importer, der Werkstoffe
+ * schreibt.
+ *
  * Zwei Ausgaben:
  *  1) PRODUKTE unter den generischen Werkstofftypen. "DuraPro ASA" ist Extrudrs eigene
  *     Rezeptur von ASA, nicht ein eigener Werkstoff - also materialId "asa". Genau so
@@ -418,8 +429,8 @@ const P = [
       hardnessShoreD: q(70, "Shore D", { std: "ISO 868" }), tearStrength: q(165, "kN/m", { std: "ISO 34-1B" }),
       abrasionLoss: q(26, "mm³", { std: "ISO 4649-A" }), glassTransition: q(-24, "°C"),
       nozzleTemperature: q(245, "°C", { min: 230, max: 260 }), bedTemperature: q(70, "°C", { min: 50, max: 90 }) },
-    features: t("Shore D 70 ist das härteste Elastomer dieser Datenbank. Anders als bei den meisten CF-Varianten sind die Werte hier eigenständig geprüft: Härte, Dichte und Bruchdehnung unterscheiden sich sichtbar von der ungefüllten Variante.",
-                "Shore D 70 is the hardest elastomer in this database. Unlike most CF grades, these values were separately tested: hardness, density and elongation differ visibly from the unfilled grade.") },
+    features: t("Shore D 70 ist das härteste Elastomer dieser Datenbank. Anders als bei den meisten CF-Varianten sind die Werte hier eigenständig geprüft — und zwar erkennbar an der Richtung, in die sie gehen: Gegenüber dem ungefüllten Flex Hard steigen Härte (58 → 70 Shore D), Dichte (1,20 → 1,22 g/cm³) und Druckfestigkeit (40 → 50 MPa), während ALLE Zuggrößen fallen — E-Modul 40 → 35 MPa, Spannung bei 50, 100 und 300 % Dehnung ebenso, Bruchdehnung 490 → 380 %, Reißfestigkeit 175 → 165 kN/m. Das ist kein übernommenes Blatt, sondern das erwartbare Verhalten kurzer Fasern in einer weichen Matrix: Unter Druck versteifen sie, unter Zug wirken sie als Kerbstellen. Wer ein Bauteil auf Zug auslegt, gewinnt mit dieser CF-Variante nichts.",
+                "Shore D 70 is the hardest elastomer in this database. Unlike most CF grades these values were separately tested — recognisably so from the direction they take: against the unfilled Flex Hard, hardness (58 → 70 Shore D), density (1.20 → 1.22 g/cm³) and compressive strength (40 → 50 MPa) rise, while EVERY tensile quantity falls — modulus 40 → 35 MPa, stress at 50, 100 and 300 % elongation likewise, elongation at break 490 → 380 %, tear strength 175 → 165 kN/m. That is not a borrowed table but the expected behaviour of short fibres in a soft matrix: under compression they stiffen, under tension they act as notches. Anyone designing a part for tensile load gains nothing from this CF grade.") },
 ];
 
 /* =========================================================== NEUE TYPEN ==== */
