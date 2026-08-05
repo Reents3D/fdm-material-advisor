@@ -64,6 +64,7 @@
     "check:bundle": "node scripts/check-bundle.mjs",
     "import:nebula": "node scripts/import/nebula.mjs",
     "import:alzament": "node scripts/import/alzament.mjs",
+    "check:lineage": "node scripts/check-lineage.ts",
     "derive:anisotropy": "node scripts/derive-anisotropy.mjs"
   },
   "dependencies": {
