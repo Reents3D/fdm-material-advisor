@@ -1,0 +1,136 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-hyper-pla-plus",
+  "materialId": "pla",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "Hyper PLA+",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Prüfkörper nicht deklariert — das Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde, und weist auch keine Z-Werte aus, aus denen es sich ableiten ließe.\n\nBefund zu diesem Datenblatt: Der Einleitungssatz nennt das Produkt „Hyper PLA“, die Verpackung und der Händlereintrag „Hyper PLA+“. Ob das Blatt zu diesem Produkt gehört, sagt es selbst nicht eindeutig.",
+    "en": "Specimen not declared — the sheet does not say whether printed or moulded specimens were measured, and reports no Z values from which it could be inferred.\n\nFinding on this datasheet: The introductory sentence names the product “Hyper PLA”, the packaging and the retail listing “Hyper PLA+”. Whether the sheet belongs to this product it does not itself state unambiguously."
+  },
+  "features": {
+    "de": "Bruchdehnung 23,4 % und Schlagzähigkeit 22,7 kJ/m² liegen weit über dem, was ein Standard-PLA erreicht (6,3 % und 3,3 kJ/m² auf dem PLA-Basic-Blatt derselben Marke). Das ist das Profil eines schlagzäh modifizierten PLA, und es deckt sich mit der Vermarktung als Hochgeschwindigkeitsmaterial. Der Werkstofftyp `pla-tough` wäre die genauere Zuordnung — das Blatt sagt aber nur „Hyper PLA“, und eine Modifikation wird nirgends benannt.",
+    "en": "Elongation at break of 23.4 % and impact strength of 22.7 kJ/m² lie far above what a standard PLA reaches (6.3 % and 3.3 kJ/m² on the same brand's PLA Basic sheet). That is the profile of an impact-modified PLA and matches its marketing as a high-speed material. The material type `pla-tough` would be the more accurate assignment — but the sheet says only “Hyper PLA” and names no modification."
+  },
+  "datasheet": {
+    "title": "Alzament Hyper PLA+ — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/148631",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 / GB/T 1033",
+      "conditions": "21,5 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 15.5,
+      "unit": "g/10min",
+      "conditions": "210 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2360,
+      "unit": "MPa",
+      "tolerance": 30.1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 42.1,
+      "unit": "MPa",
+      "tolerance": 0.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 23.4,
+      "unit": "%",
+      "tolerance": 6.3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "23,4 ± 6,3 % — der Wert ist hoch für ein PLA und seine Streuung beträgt gut ein Viertel des Werts",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 2688.7,
+      "unit": "MPa",
+      "tolerance": 26.1,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 67.5,
+      "unit": "MPa",
+      "tolerance": 0.7,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 22.7,
+      "unit": "kJ/m²",
+      "tolerance": 2.5,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "conditions": "Blatt schreibt die Einheit als „KJ/²“ — gemeint ist kJ/m², wie in den übrigen Blättern der Reihe",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 210,
+      "max": 230,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "min": 45,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "Hyper PLA+",
+        "title": "Alzament Hyper PLA+ — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/148631",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}

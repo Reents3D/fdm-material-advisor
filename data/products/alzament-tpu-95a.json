@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-tpu-95a",
+  "materialId": "tpu-95a",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "TPU 95A",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Prüfkörper nicht deklariert — das Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde, und weist auch keine Z-Werte aus, aus denen es sich ableiten ließe.\n\nBefund zu diesem Datenblatt: Eine Zugfestigkeit nennt das Blatt nicht — bei einem Elastomer ist gerade sie die Kennzahl, an der man Typen vergleicht. Angegeben sind stattdessen E-Modul, Spannung bei 100 % Dehnung und Bruchdehnung. Die Dichte steht als Spanne (1,20–1,24) und nur nach GB/T 1033, ohne ISO-Entsprechung.",
+    "en": "Specimen not declared — the sheet does not say whether printed or moulded specimens were measured, and reports no Z values from which it could be inferred.\n\nFinding on this datasheet: The sheet states no tensile strength — for an elastomer that is precisely the figure by which types are compared. Given instead are modulus, stress at 100 % elongation and elongation at break. The density is a range (1.20–1.24) and cites only GB/T 1033, with no ISO equivalent."
+  },
+  "features": {
+    "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",
+    "en": "Alzament is the own brand of the Czech retailer Alza.cz. The sheet names Landu Innovations Technology Co., Ltd. in Shenzhen as manufacturer and Alza.cz itself as tester."
+  },
+  "datasheet": {
+    "title": "Alzament TPU 95A — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/161249",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "min": 1.2,
+      "max": 1.24,
+      "testStandard": "GB/T 1033",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 4.5,
+      "unit": "g/10min",
+      "min": 3,
+      "max": 6,
+      "conditions": "210 °C, 1,2 kg",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 29,
+      "unit": "MPa",
+      "tolerance": 2.8,
+      "testStandard": "ISO 37 / GB/T 528",
+      "conditions": "ISO 37 ist die Zugprüfung für Elastomere; das Blatt beschriftet die Zeile als „Young's modulus“",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "stressAt100Percent": {
+      "value": 9.4,
+      "unit": "MPa",
+      "tolerance": 0.3,
+      "testStandard": "ISO 37 / GB/T 528",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 330.1,
+      "unit": "%",
+      "tolerance": 14,
+      "testStandard": "ISO 37 / GB/T 528",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 95,
+      "unit": "Shore A",
+      "testStandard": "ISO 7619-1 / GB/T 531.1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 230,
+      "unit": "°C",
+      "min": 220,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "TPU 95A",
+        "title": "Alzament TPU 95A — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/161249",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}

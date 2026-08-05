@@ -1,0 +1,136 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-pla-plus",
+  "materialId": "pla",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "PLA+",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Prüfkörper nicht deklariert — das Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Proben gemessen wurde, und weist auch keine Z-Werte aus, aus denen es sich ableiten ließe.\n\nBefund zu diesem Datenblatt: Das Blatt trägt die Chemietabelle eines anderen Werkstoffs: Unter „Composition“ steht „Polyvinyl alcohol“ und unter „Solubility“ „Soluble in water“ — das beschreibt PVA, ein wasserlösliches Stützmaterial, nicht PLA. In der Zeile Schmelzindex steht statt eines Messwerts die Prüfbedingung („190 °C/2,16 kg“), der Wert fehlt also ganz. Und anders als die übrigen Blätter der Marke nennt dieses ausschließlich GB/T-Normen, keine ISO-Entsprechungen. Alle Werte tragen `low`; die Zugfestigkeit von 63 MPa ist für ein PLA+ zwar erreichbar, steht hier aber auf einem Blatt, das nachweislich fremde Abschnitte enthält.",
+    "en": "Specimen not declared — the sheet does not say whether printed or moulded specimens were measured, and reports no Z values from which it could be inferred.\n\nFinding on this datasheet: The sheet carries another material's chemistry table: under “Composition” it says “Polyvinyl alcohol” and under “Solubility” “Soluble in water” — that describes PVA, a water-soluble support material, not PLA. In the melt index row the test condition (“190 °C/2.16 kg”) stands where the measured value should be, so the value is missing entirely. And unlike the brand's other sheets this one names only GB/T standards, no ISO equivalents. All values carry `low`; a tensile strength of 63 MPa is attainable for a PLA+, but here it stands on a sheet demonstrably containing foreign sections."
+  },
+  "features": {
+    "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",
+    "en": "Alzament is the own brand of the Czech retailer Alza.cz. The sheet names Landu Innovations Technology Co., Ltd. in Shenzhen as manufacturer and Alza.cz itself as tester."
+  },
+  "datasheet": {
+    "title": "Alzament PLA+ — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/148632",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "GB/T 1033",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransition": {
+      "value": 60,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "waterAbsorption": {
+      "value": 0.43,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 63,
+      "unit": "MPa",
+      "testStandard": "GB/T 1040",
+      "conditions": "Blatt nennt keine Orientierung; hier als X-Y geführt, weil gedruckte Zugproben liegend geprüft werden",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 20,
+      "unit": "%",
+      "testStandard": "GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 1973,
+      "unit": "MPa",
+      "testStandard": "GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 75,
+      "unit": "MPa",
+      "testStandard": "GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "izodNotchedXy": {
+      "value": 9,
+      "unit": "kJ/m²",
+      "testStandard": "GB/T 1843",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 53,
+      "unit": "°C",
+      "testStandard": "GB/T 1634",
+      "conditions": "Blatt nennt keine Prüflast; als Methode B geführt, weil 53 °C für ein PLA nur unter der kleinen Last plausibel ist",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 220,
+      "unit": "°C",
+      "min": 210,
+      "max": 230,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 53,
+      "unit": "°C",
+      "min": 45,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "PLA+",
+        "title": "Alzament PLA+ — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/148632",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}

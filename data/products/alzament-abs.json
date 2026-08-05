@@ -1,0 +1,205 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-abs",
+  "materialId": "abs",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "ABS",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nDieses Blatt ist keine eigene Messung. Der Zeilenvergleich gegen das Bambu-Blatt desselben Werkstoffs ergibt 10 von 14 Zeilen ziffernidentisch — einschließlich der Toleranzen und einschließlich des Tippfehlers „MPA“ statt „MPa“ beim Z-Modul. Die abweichenden Zeilen sind die Festigkeiten, und die entsprechen der Bambu-Fassung V3.0, die dieser Datensatz führt. Das ABS-Blatt verweist zum Trocknen zusätzlich auf das „X1 Series Printer Heatbed“ — ein Bambu-Lab-Drucker. Alle Werte tragen deshalb `low`: Wer Alzament und Bambu nebeneinanderstellt, vergleicht nicht zwei Hersteller, sondern eine Messung mit sich selbst. Wer von wem abgeschrieben hat, sagen die Blätter nicht — belegt ist die gemeinsame Herkunft, nicht ihr Verlauf.\n\nBefund zu diesem Datenblatt: Das Blatt nennt zum Trocknen „X1 Series Printer Heatbed: 90–100 °C, 12 h“ — ein Druckermodell von Bambu Lab, nicht von Alzament.",
+    "en": "Specimens PRINTED: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nThis sheet is not an independent measurement. A row-by-row comparison against the Bambu sheet for the same material gives 10 of 14 rows digit-identical — including the tolerances and including the typo “MPA” instead of “MPa” on the Z modulus. The differing rows are the strengths, and they match the Bambu revision V3.0 this dataset holds. The ABS sheet additionally points to the “X1 Series Printer Heatbed” for drying — a Bambu Lab printer. All values therefore carry `low`: placing Alzament next to Bambu does not compare two manufacturers, it compares one measurement with itself. Who copied from whom the sheets do not say — the shared origin is established, its direction is not.\n\nFinding on this datasheet: For drying the sheet names “X1 Series Printer Heatbed: 90–100 °C, 12 h” — a printer model made by Bambu Lab, not by Alzament."
+  },
+  "features": {
+    "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",
+    "en": "Alzament is the own brand of the Czech retailer Alza.cz. The sheet names Landu Innovations Technology Co., Ltd. in Shenzhen as manufacturer and Alza.cz itself as tester."
+  },
+  "datasheet": {
+    "title": "Alzament ABS — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/161246",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.05,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 34.2,
+      "unit": "g/10min",
+      "tolerance": 3.8,
+      "conditions": "260 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "waterAbsorption": {
+      "value": 0.65,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "tolerance": 190,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusZ": {
+      "value": 1960,
+      "unit": "MPa",
+      "tolerance": 110,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 33,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthZ": {
+      "value": 28,
+      "unit": "MPa",
+      "tolerance": 2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 10.5,
+      "unit": "%",
+      "tolerance": 1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakZ": {
+      "value": 4.7,
+      "unit": "%",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusXy": {
+      "value": 1880,
+      "unit": "MPa",
+      "tolerance": 110,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralModulusZ": {
+      "value": 1590,
+      "unit": "MPa",
+      "tolerance": 100,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "flexuralStrengthZ": {
+      "value": 39,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 39.3,
+      "unit": "kJ/m²",
+      "tolerance": 3.6,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 21.5,
+      "unit": "kJ/m²",
+      "tolerance": 2.2,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedZ": {
+      "value": 7.4,
+      "unit": "kJ/m²",
+      "tolerance": 1.2,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "conditions": "Blatt sagt für die Z-Zeile nicht, ob gekerbt; die X-Y-Zeile markiert die gekerbte Zahl ausdrücklich, die unmarkierte gilt hier als ungekerbt",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "nozzleTemperature": {
+      "value": 255,
+      "unit": "°C",
+      "min": 240,
+      "max": 270,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "min": 80,
+      "max": 100,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "ABS",
+        "title": "Alzament ABS — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/161246",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Der Zeilenvergleich weist es als Wiedergabe des Bambu-Blattes desselben Werkstoffs aus — deshalb Obergrenze `low`, siehe Befund am Datensatz.",
+          "en": "English-language manufacturer datasheet with text layer. The row-by-row comparison identifies it as a rendering of the Bambu sheet for the same material — hence ceiling `low`, see the finding on the record."
+        }
+      }
+    ]
+  }
+}

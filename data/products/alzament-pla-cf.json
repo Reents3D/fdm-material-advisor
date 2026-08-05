@@ -1,0 +1,162 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "alzament-pla-cf",
+  "materialId": "pla-cf",
+  "brand": "Alzament",
+  "manufacturer": "Landu Innovations Technology Co., Ltd. (Shenzhen) für Alza.cz, a.s. (Prag)",
+  "productName": "PLA-CF",
+  "origin": "China (Handelsmarke Tschechien)",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Die Bruchdehnung in X-Y steht mit 13,2 % im Blatt. Für ein kurzfaserverstärktes PLA ist das außergewöhnlich hoch — Fasern versteifen und verspröden, die übrigen PLA-CF-Belege im Bestand liegen unter 3 %. Zusammen mit einer für PLA-CF niedrigen Zugfestigkeit von 31,2 MPa liest sich das eher wie ein schwach gefülltes Compound. Der Dehnungswert trägt deshalb `low`.",
+    "en": "Specimens PRINTED: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: The elongation at break in X-Y is stated as 13.2 %. For a short-fibre reinforced PLA that is exceptionally high — fibres stiffen and embrittle, and the other PLA-CF records in the dataset lie below 3 %. Together with a tensile strength of 31.2 MPa, low for PLA-CF, this reads more like a lightly filled compound. The elongation value therefore carries `low`."
+  },
+  "features": {
+    "de": "Das wertvollste Blatt dieser Marke: Es führt Zugfestigkeit in X-Y UND Z aus demselben Prüfdurchgang — 31,2 gegen 15,1 MPa. Der Werkstofftyp `pla-cf` hatte bisher keinen Anisotropiefaktor; aus diesem Blatt ergibt er sich zu 0,48. Quer zur Schicht bleibt also weniger als die Hälfte der Festigkeit, deutlich weniger als bei ungefülltem PLA (0,89). Das passt zum Mechanismus: Kurzfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei.",
+    "en": "The most valuable sheet of this brand: it carries tensile strength in X-Y AND Z from the same test run — 31.2 against 15.1 MPa. The material type `pla-cf` had no anisotropy factor so far; from this sheet it works out to 0.48. Perpendicular to the layers less than half the strength remains, markedly less than for unfilled PLA (0.89). That fits the mechanism: short fibres align in the extrusion direction and contribute nothing across it."
+  },
+  "datasheet": {
+    "title": "Alzament PLA-CF — Technical Data Sheet",
+    "url": "https://dwn.alza.cz/manual/161248",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://alzament.com",
+  "properties": {
+    "density": {
+      "value": 1.22,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183 / GB/T 1033",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 3.7,
+      "unit": "g/10min",
+      "tolerance": 0.6,
+      "conditions": "220 °C, 2,16 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3280.7,
+      "unit": "MPa",
+      "tolerance": 79.6,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 2213.1,
+      "unit": "MPa",
+      "tolerance": 42.9,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 31.2,
+      "unit": "MPa",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 15.1,
+      "unit": "MPa",
+      "tolerance": 0.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 13.2,
+      "unit": "%",
+      "tolerance": 1.7,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "conditions": "13,2 % ist für ein kurzfaserverstärktes PLA außergewöhnlich hoch — die übrigen PLA-CF-Belege im Bestand liegen unter 3 %",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.9,
+      "unit": "%",
+      "tolerance": 0.1,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3380.5,
+      "unit": "MPa",
+      "tolerance": 52.1,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 51.7,
+      "unit": "MPa",
+      "tolerance": 0.6,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 5.5,
+      "unit": "kJ/m²",
+      "tolerance": 0.2,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 210,
+      "max": 240,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 45,
+      "unit": "°C",
+      "min": 30,
+      "max": 60,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Alzament (Alza.cz, a.s.)",
+        "productName": "PLA-CF",
+        "title": "Alzament PLA-CF — Technical Data Sheet",
+        "url": "https://dwn.alza.cz/manual/161248",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
+          "en": "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."
+        }
+      }
+    ]
+  }
+}
