@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-luvocom-paht-9936",
+  "materialId": "paht",
+  "brand": "LUVOCOM 3F",
+  "manufacturer": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+  "productName": "LUVOCOM 3F PAHT 9936",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values."
+  },
+  "features": {
+    "de": "Die Dauergebrauchstemperatur steht hier MIT Zeitbasis: 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig 160 °C für höchstens 200 Stunden über die gesamte Lebensdauer. Genau diese Trennung fehlt fast überall — eine Temperaturangabe ohne Zeitbasis ist für die Auslegung eines dauerwarmen Bauteils wertlos. Dazu 90 kJ/m² ungekerbte Schlagzähigkeit bei 78 MPa Festigkeit.",
+    "en": "The continuous service temperature stands here WITH a time basis: 120 °C over 20,000 hours to IEC 60216, short-term 160 °C for at most 200 hours across the entire service life. Precisely this distinction is missing almost everywhere — a temperature statement without a time basis is worthless for designing a permanently warm part. Alongside it 90 kJ/m² unnotched impact at 78 MPa strength."
+  },
+  "datasheet": {
+    "title": "LUVOCOM 3F PAHT 9936 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256551?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C / 24 h; Blattangabe „< 0,3 %“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 5.5,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "250 °C / 2,16 kg, Granulat",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.4,
+      "unit": "%",
+      "min": 0.3,
+      "max": 0.5,
+      "testStandard": "DIN 16742",
+      "conditions": "MPTS ISO 3167 A; Blattangabe „0,3–0,5 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 78,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min, MPTS ISO 3167 A",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3400,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe 3,4 GPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 4.4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min; Dehnung bei Höchstkraft",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 90,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "trocken, 80 × 10 × 4 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa (HDT A), Spritzgusskörper",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "continuousServiceTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "testStandard": "IEC 60216",
+      "conditions": "20.000 h, MPTS ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shortTermTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "conditions": "max. 200 h über die Lebensdauer, MPTS ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Lehvoss Group",
+        "productName": "LUVOCOM 3F PAHT 9936",
+        "title": "LUVOCOM 3F PAHT 9936 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256551?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+        }
+      }
+    ]
+  }
+}

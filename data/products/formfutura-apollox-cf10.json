@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-apollox-cf10",
+  "materialId": "asa-cf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ApolloX CF10",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Ein europäisches Blatt mit ISO-Normen führt die Schlagzähigkeit in ft·lbf/in² und die HDT-Last in psi. Die Zahlen sind eindeutig umrechenbar und stehen hier in kJ/m² beziehungsweise mit der Lastangabe in MPa; die Blattangaben stehen jeweils in `conditions`. Der Mischmasch aus ISO-Norm und imperialer Einheit deutet auf eine übernommene Vorlage aus einer anderen Quelle — die Schlagwerte tragen deshalb `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: A European sheet with ISO standards carries impact strength in ft·lbf/in² and the HDT load in psi. The figures convert unambiguously and appear here in kJ/m² and with the load in MPa; the sheet's own figures stand in `conditions` in each case. The mixture of ISO standard and imperial unit suggests a template taken from another source — the impact values therefore carry `low`."
+  },
+  "features": {
+    "de": "Der steifste ASA-Werkstoff des Bestands: 7580 MPa gegenüber 2020 MPa beim unverstärkten ApolloX desselben Herstellers, also fast das Vierfache. Anders als bei PETG steigt hier auch die Wärmeformbeständigkeit deutlich mit — HDT-B 100,5 °C. Bezahlt wird mit 1,8 % Bruchdehnung gegenüber 15 %.",
+    "en": "The stiffest ASA material in the dataset: 7580 MPa against 2020 MPa for the same manufacturer's unreinforced ApolloX, almost fourfold. Unlike with PETG the heat deflection rises markedly too — HDT-B 100.5 °C. The price is 1.8 % elongation at break against 15 %."
+  },
+  "datasheet": {
+    "title": "ApolloX CF10 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256467?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.1,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 79,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 7580,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 1.8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 16.8,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "Blattangabe 8 ft·lbf/in², umgerechnet mit 1 ft·lbf/in² = 2,1013 kJ/m²",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyNotchedXy": {
+      "value": 5.4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "Blattangabe 2.57 ft·lbf/in², umgerechnet mit 1 ft·lbf/in² = 2,1013 kJ/m²",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 101.6,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 100.5,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "66 psi = 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 95,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "264 psi = 1,82 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ApolloX CF10",
+        "title": "ApolloX CF10 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256467?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

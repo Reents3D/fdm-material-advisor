@@ -1,0 +1,145 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-apollox-fr",
+  "materialId": "asa",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ApolloX Flame Retardant",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit steht in J/m nach ASTM D256 (435 J/m bei 3,2 mm, 60 J/m bei −30 °C). J/m ist Energie je Probenbreite, die hier geführte Einheit kJ/m² ist Energie je Bruchfläche — die Umrechnung braucht die Probendicke und verschiebt die Aussage. Die Werte sind deshalb nicht übernommen. Ebenso fehlt bei der HDT die Lastangabe, ohne die eine HDT nicht einzuordnen ist.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The impact strength appears in J/m to ASTM D256 (435 J/m at 3.2 mm, 60 J/m at −30 °C). J/m is energy per specimen width, the unit used here, kJ/m², is energy per fracture area — the conversion requires the specimen thickness and shifts the meaning. The values are therefore not imported. The HDT likewise lacks the load without which an HDT cannot be placed."
+  },
+  "features": {
+    "de": "Die Dauergebrauchstemperatur von 50 °C nach UL 746B ist die ehrlichste Zahl auf diesem Blatt und die unbequemste: Sie liegt 36 K unter der HDT. Der RTI ist eine Langzeitgröße mit Alterung, die HDT eine Kurzzeitmessung — wer ein Bauteil auf Jahre auslegt, rechnet mit 50 °C, nicht mit 86 °C. Nur wenige Blätter im Bestand geben diese Zahl überhaupt an.",
+    "en": "The continuous service temperature of 50 °C to UL 746B is the most honest figure on this sheet and the most inconvenient: it sits 36 K below the HDT. The RTI is a long-term figure including ageing, the HDT a short-term measurement — anyone designing a part for years counts on 50 °C, not 86 °C. Few sheets in the dataset state this figure at all."
+  },
+  "datasheet": {
+    "title": "ApolloX Flame Retardant — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256472?download=true",
+    "version": "2025-01-20",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.08,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 5,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "220 °C / 10 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 42,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "23 °C, 50 mm/min, 3,2 mm; bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1800,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "23 °C, 50 mm/min, 3,2 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 35,
+      "unit": "%",
+      "testStandard": "ASTM D638",
+      "conditions": "23 °C, 50 mm/min, 3,2 mm; Blattangabe „35 % (Min)“",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 64,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "23 °C, 15 mm/min, 3,2 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1900,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "23 °C, 15 mm/min, 3,2 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 86,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "Last im Blatt nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "conditions": "50 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "continuousServiceTemperature": {
+      "value": 50,
+      "unit": "°C",
+      "testStandard": "UL 746B",
+      "conditions": "RTI mechanisch mit Schlag",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-0",
+      "testStandard": "UL 94",
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt die Klasse V-0 und setzt selbst eine Fußnote darunter: „meets the self-extinguishing flammability standards of UL 94 V0, but is not certified by Underwriters Laboratories and does not have a UL number.“ Diese Offenheit ist anzuerkennen und ändert nichts an der Konsequenz — ohne Prüfzeugnis und ohne Dickenangabe ist die Angabe für eine Auditvorlage nicht verwendbar. Dieselbe Rezeptur kann bei 1,5 mm V-0 und bei 0,8 mm nur V-2 erreichen.",
+        "en": "The sheet names class V-0 and puts a footnote under it itself: “meets the self-extinguishing flammability standards of UL 94 V0, but is not certified by Underwriters Laboratories and does not have a UL number.” That openness deserves credit and changes nothing about the consequence — without a test certificate and without a thickness the statement cannot be used for an audit submission. The same formulation can reach V-0 at 1.5 mm and only V-2 at 0.8 mm."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ApolloX Flame Retardant",
+        "title": "ApolloX Flame Retardant — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256472?download=true",
+        "documentVersion": "2025-01-20",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

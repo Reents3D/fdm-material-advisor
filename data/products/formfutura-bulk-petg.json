@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-bulk-petg",
+  "materialId": "petg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "Bulk PETG",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens."
+  },
+  "datasheet": {
+    "title": "Bulk PETG — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/273965?download=true",
+    "version": "2025-08-01",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "conditions": "23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50.2,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "23 °C, 50 mm/min; bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 66.8,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "Bulk PETG",
+        "title": "Bulk PETG — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/273965?download=true",
+        "documentVersion": "2025-08-01",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

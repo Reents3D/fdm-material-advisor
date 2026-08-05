@@ -1,0 +1,128 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-apollox-kevlar",
+  "materialId": "asa",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ApolloX Kevlar",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die HDT-Werte stehen in der falschen Reihenfolge: Das Blatt nennt bei 0,45 MPa 89 °C und bei 1,81 MPa 95 °C. Eine HÖHERE Last muss zu einer NIEDRIGEREN Temperatur führen — bei jedem Thermoplast, ausnahmslos. Einer der beiden Werte ist falsch zugeordnet oder falsch gemessen; welcher, lässt sich aus dem Blatt nicht entscheiden. Beide sind unverändert übernommen und tragen `low`. Sie zu vertauschen wäre geraten.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The HDT values stand in the wrong order: the sheet gives 89 °C at 0.45 MPa and 95 °C at 1.81 MPa. A HIGHER load must lead to a LOWER temperature — in every thermoplastic, without exception. One of the two values is mis-assigned or mis-measured; which one cannot be decided from the sheet. Both are imported unchanged and carry `low`. Swapping them would be guesswork."
+  },
+  "features": {
+    "de": "Der einzige aramidverstärkte Werkstoff im Bestand: ASA mit 10 % Kevlar. Aramidfaser ist im Gegensatz zu Kohlenstoff- und Glasfaser nicht spröde, und das zeigt sich — 7,5 kJ/m² gekerbte Schlagzähigkeit bei 2200 MPa Steifigkeit. Zum Vergleich bricht ApolloX CF10 desselben Herstellers bei 1,8 % Dehnung, dieses hier bei 6 %.",
+    "en": "The only aramid-reinforced material in the dataset: ASA with 10 % Kevlar. Unlike carbon and glass fibre, aramid fibre is not brittle, and it shows — 7.5 kJ/m² notched impact at 2200 MPa stiffness. For comparison, the same manufacturer's ApolloX CF10 breaks at 1.8 % strain, this one at 6 %."
+  },
+  "datasheet": {
+    "title": "ApolloX Kevlar — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256474?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 2.8,
+      "unit": "%",
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 6,
+      "unit": "%",
+      "testStandard": "ISO 527-1",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 25,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 7.5,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C, gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 94,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 89,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa — siehe Befund zur Reihenfolge",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 95,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,81 MPa — siehe Befund zur Reihenfolge",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ApolloX Kevlar",
+        "title": "ApolloX Kevlar — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256474?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

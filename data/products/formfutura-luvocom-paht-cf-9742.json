@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-luvocom-paht-cf-9742",
+  "materialId": "paht-cf",
+  "brand": "LUVOCOM 3F",
+  "manufacturer": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+  "productName": "LUVOCOM 3F PAHT CF 9742",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nBefund zu diesem Datenblatt: Der lineare Wärmeausdehnungskoeffizient steht mit dem Wert 0,4 und der Einheit „10/K“ da. Gemeint ist ersichtlich eine Zehnerpotenz, deren Exponent bei der Erstellung des Blattes verloren gegangen ist; ob 10⁻⁴ oder 10⁻⁵ gemeint war, entscheidet über den Faktor zehn. Nicht übernommen. Die Bruchdehnung von 1 % ist kein Fehler, sondern der Preis der Steifigkeit: Dieses Material bricht ohne Vorwarnung.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nFinding on this datasheet: The linear coefficient of thermal expansion appears with the value 0.4 and the unit “10/K”. A power of ten is evidently meant whose exponent was lost when the sheet was produced; whether 10⁻⁴ or 10⁻⁵ was intended decides a factor of ten. Not imported. The elongation at break of 1 % is not an error but the price of the stiffness: this material breaks without warning."
+  },
+  "features": {
+    "de": "Der steifste Werkstoff des gesamten Bestands: 15.000 MPa Zug-E-Modul bei 170 MPa Festigkeit. Der bisherige Spitzenreiter, add:north PC Blend HT LCF, lag bei 9.800 MPa. Dazu HDT-A 200 °C und eine Dauergebrauchstemperatur von 150 °C über 20.000 Stunden — kein anderer Datensatz erreicht diese Kombination. Die Wärmeleitfähigkeit von 1 W/(m·K) ist etwa das Vierfache eines ungefüllten Thermoplasten und für Bauteile mit Wärmeabfuhr interessant.",
+    "en": "The stiffest material in the entire dataset: 15,000 MPa tensile modulus at 170 MPa strength. The previous leader, add:north PC Blend HT LCF, sat at 9,800 MPa. Alongside it HDT-A 200 °C and a continuous service temperature of 150 °C over 20,000 hours — no other record reaches this combination. The thermal conductivity of 1 W/(m·K) is about four times that of an unfilled thermoplastic and interesting for parts that must shed heat."
+  },
+  "datasheet": {
+    "title": "LUVOCOM 3F PAHT CF 9742 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256553?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C / 24 h; Blattangabe „< 0,3 %“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "shrinkage": {
+      "value": 0.05,
+      "unit": "%",
+      "min": 0,
+      "max": 0.1,
+      "testStandard": "DIN 16742",
+      "conditions": "ISO 3167 A; Blattangabe „0,00–0,1 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 170,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min, ISO 3167 A",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 15000,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe 15 GPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 1,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min; Dehnung bei Höchstkraft",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 47,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "trocken, 80 × 10 × 4 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 200,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa (HDT A), 80 × 10 × 4 mm",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "continuousServiceTemperature": {
+      "value": 150,
+      "unit": "°C",
+      "testStandard": "IEC 60216",
+      "conditions": "20.000 h, ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shortTermTemperature": {
+      "value": 180,
+      "unit": "°C",
+      "conditions": "max. 200 h über die Lebensdauer, ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "thermalConductivity": {
+      "value": 1,
+      "unit": "W/(m·K)",
+      "testStandard": "ISO 22007",
+      "conditions": "Hot-Disk, 60 × 60 × 3 mm, in der Ebene",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Lehvoss Group",
+        "productName": "LUVOCOM 3F PAHT CF 9742",
+        "title": "LUVOCOM 3F PAHT CF 9742 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256553?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+        }
+      }
+    ]
+  }
+}

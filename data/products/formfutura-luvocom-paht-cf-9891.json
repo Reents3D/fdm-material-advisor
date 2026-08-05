@@ -1,0 +1,135 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-luvocom-paht-cf-9891",
+  "materialId": "paht-cf",
+  "brand": "LUVOCOM 3F",
+  "manufacturer": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+  "productName": "LUVOCOM 3F PAHT CF 9891",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nBefund zu diesem Datenblatt: Die thermischen Kennwerte passen nicht zum mechanischen Befund. Dieses Compound erreicht mit 10.500 MPa mehr als das Dreifache der Steifigkeit des unverstärkten PAHT 9936 — bei den Temperaturen steht aber exakt derselbe Satz wie dort: HDT-A 90 °C, Dauergebrauch 120 °C, kurzzeitig 160 °C. Beim PAHT CF 9742 desselben Herstellers, mechanisch vergleichbar aufgebaut, liegt die HDT-A stattdessen bei 200 °C. Kohlenstofffaser hebt bei teilkristallinen Polyamiden die Wärmeformbeständigkeit erfahrungsgemäß deutlich; dass sie es hier nicht tut, ist erklärungsbedürftig und wird vom Blatt nicht erklärt. Die drei Temperaturwerte tragen `low`.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nFinding on this datasheet: The thermal values do not fit the mechanical finding. At 10,500 MPa this compound reaches more than three times the stiffness of the unreinforced PAHT 9936 — yet for the temperatures it carries exactly the same set as that sheet: HDT-A 90 °C, continuous service 120 °C, short-term 160 °C. On the same manufacturer's PAHT CF 9742, comparably built mechanically, the HDT-A sits at 200 °C instead. In semi-crystalline polyamides carbon fibre raises heat deflection markedly by experience; that it does not here calls for explanation, and the sheet gives none. The three temperature values carry `low`."
+  },
+  "datasheet": {
+    "title": "LUVOCOM 3F PAHT CF 9891 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256555?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.24,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183-3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C / 24 h; Blattangabe „< 0,3 %“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 4,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "250 °C / 2,16 kg, Granulat",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.4,
+      "unit": "%",
+      "min": 0.3,
+      "max": 0.5,
+      "testStandard": "DIN 16742",
+      "conditions": "MPTS ISO 3167 A; Blattangabe „0,3–0,5 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 120,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min, MPTS ISO 3167 A",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 10500,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe 10,5 GPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 2,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "trocken, 50 mm/min; Dehnung bei Höchstkraft",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 35,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "trocken, 80 × 10 × 4 mm",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa (HDT A), Spritzgusskörper",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "continuousServiceTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "testStandard": "IEC 60216",
+      "conditions": "20.000 h, MPTS ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "shortTermTemperature": {
+      "value": 160,
+      "unit": "°C",
+      "conditions": "max. 200 h über die Lebensdauer, MPTS ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Lehvoss Group",
+        "productName": "LUVOCOM 3F PAHT CF 9891",
+        "title": "LUVOCOM 3F PAHT CF 9891 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256555?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+        }
+      }
+    ]
+  }
+}

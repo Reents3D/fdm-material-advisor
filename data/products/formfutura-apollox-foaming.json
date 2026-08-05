@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-apollox-foaming",
+  "materialId": "asa-aero",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "ApolloX Foaming",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Der schwerwiegendste Befund dieses Imports. Sämtliche mechanischen Kennwerte des Blattes — 42 MPa, 35 %, 1800 MPa, 64 MPa, 1900 MPa, 435 J/m, 60 J/m, Rockwell 92, HDT 86 °C — stehen Ziffer für Ziffer auch im Blatt von ApolloX Flame Retardant desselben Herstellers. Abweichend sind nur Dichte (1,07 gegen 1,08) und Vicat (94 gegen 90). Ein schäumendes und ein flammgeschütztes Filament haben keine gemeinsame Rezeptur; hier wurde eine Tabelle übernommen. Dazu kommt das grundsätzliche Problem: Ein GESCHÄUMT gedrucktes Bauteil erreicht die Kennwerte des kompakten Werkstoffs prinzipiell nicht — genau dafür wird geschäumt. Die mechanischen Werte sind deshalb NICHT übernommen; geführt sind nur Dichte, Schmelzindex und Vicat.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The most serious finding of this import. Every mechanical value on the sheet — 42 MPa, 35 %, 1800 MPa, 64 MPa, 1900 MPa, 435 J/m, 60 J/m, Rockwell 92, HDT 86 °C — appears digit for digit in the same manufacturer's ApolloX Flame Retardant sheet as well. Only density (1.07 against 1.08) and Vicat (94 against 90) differ. A foaming and a flame-retardant filament share no formulation; a table was copied here. On top of that comes the fundamental problem: a FOAMED printed part cannot in principle reach the values of the compact material — that is precisely why one foams. The mechanical values are therefore NOT imported; only density, melt index and Vicat are held."
+  },
+  "features": {
+    "de": "Das Blatt nennt eine Gewichtsersparnis von bis zu 66 % durch Aufschäumen und gibt dazu eine Vorgehensweise zur Flusskalibrierung an — typische Flusswerte 28 bis 40 %, Lüfter auf 0 bis 10 %. Solche Verarbeitungshinweise sind für ein schäumendes Filament wertvoller als jeder Kennwert, weil das Ergebnis fast vollständig an der Einstellung hängt.",
+    "en": "The sheet states a weight saving of up to 66 % through foaming and gives a procedure for flow calibration alongside — typical flow values 28 to 40 %, fan at 0 to 10 %. For a foaming filament such processing notes are worth more than any material value, because the result hangs almost entirely on the setting."
+  },
+  "datasheet": {
+    "title": "ApolloX Foaming — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/266229?download=true",
+    "version": "2025-07-25",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "conditions": "23 °C; Filament, NICHT das geschäumte Bauteil",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 5,
+      "unit": "g/10min",
+      "testStandard": "ASTM D1238",
+      "conditions": "220 °C / 10 kg",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 94,
+      "unit": "°C",
+      "testStandard": "ASTM D1525",
+      "conditions": "50 N, 50 °C/h",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ApolloX Foaming",
+        "title": "ApolloX Foaming — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/266229?download=true",
+        "documentVersion": "2025-07-25",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

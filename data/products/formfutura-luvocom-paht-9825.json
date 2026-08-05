@@ -1,0 +1,123 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-luvocom-paht-9825",
+  "materialId": "paht",
+  "brand": "LUVOCOM 3F",
+  "manufacturer": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+  "productName": "LUVOCOM 3F PAHT 9825",
+  "origin": "Deutschland",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nBefund zu diesem Datenblatt: Die Tabelle des Blattes hat leere Zellen: Biegefestigkeit, Biegedehnung, Biege-E-Modul, alle vier Charpy-Zeilen und die Vicat-Temperatur stehen ohne Wert da. Auch die UL-94-Zeile ist angelegt, aber nicht gefüllt. Das ist kein Fehler — es ist eine Vorlage mit offenen Feldern —, begrenzt aber, was dieses Blatt beitragen kann.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nFinding on this datasheet: The sheet's table has empty cells: flexural strength, flexural strain, flexural modulus, all four Charpy rows and the Vicat temperature stand without a value. The UL 94 row too is laid out but not filled. This is not an error — it is a template with open fields — but it limits what this sheet can contribute."
+  },
+  "features": {
+    "de": "Ein Blatt, das den Prüfkörper benennt — im Bestand die Ausnahme. „MPTS ISO 3167 A“ ist der spritzgegossene Mehrzweckprüfkörper; damit ist eindeutig, worauf sich die Zahlen beziehen, und ebenso eindeutig, dass ein gedrucktes Bauteil sie nicht erreicht. Diese Klarheit ist mehr wert als eine Nachkommastelle.",
+    "en": "A sheet that names the specimen — the exception in this dataset. “MPTS ISO 3167 A” is the injection-moulded multi-purpose specimen; that makes clear what the figures refer to, and equally clear that a printed part will not reach them. This clarity is worth more than a decimal place."
+  },
+  "datasheet": {
+    "title": "LUVOCOM 3F PAHT 9825 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256549?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.2,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 0.3,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C / 24 h; Blattangabe „< 0,3 %“",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "meltFlowRate": {
+      "value": 3.6,
+      "unit": "g/10min",
+      "testStandard": "ISO 1133",
+      "conditions": "Granulat",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "shrinkage": {
+      "value": 0.4,
+      "unit": "%",
+      "min": 0.3,
+      "max": 0.5,
+      "testStandard": "DIN 16901",
+      "conditions": "VSR 3 mm, längs; Blattangabe „0,3–0,5 %“",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 85,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "MPTS ISO 3167 A",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3400,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Blattangabe 3,4 GPa",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.6,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "MPTS ISO 3167 A",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa (HDT A)",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "continuousServiceTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "testStandard": "UL 746B",
+      "conditions": "MPTS ISO 3167 A",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Lehvoss Group",
+        "productName": "LUVOCOM 3F PAHT 9825",
+        "title": "LUVOCOM 3F PAHT 9825 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256549?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+        }
+      }
+    ]
+  }
+}

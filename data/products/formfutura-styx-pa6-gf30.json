@@ -1,0 +1,143 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-styx-pa6-gf30",
+  "materialId": "pa6-gf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "STYX PA6-GF30",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Siehe den Befund beim STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C und gekerbte Schlagzähigkeit 4 kJ/m² sind auf beiden Blättern identisch, obwohl Fasertyp und Fasergehalt sich deutlich unterscheiden. Die drei Werte tragen deshalb `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: See the finding on the STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C and notched impact strength 4 kJ/m² are identical on both sheets although fibre type and fibre content differ markedly. The three values therefore carry `low`."
+  },
+  "features": {
+    "de": "Der bislang einzige zweite Beleg für PA6-GF im Bestand. Aufschlussreich ist der Vergleich mit dem PA6-CF15 desselben Herstellers: 30 % Glasfaser bringen 5500 MPa, 15 % Kohlenstofffaser 9000 MPa. Die doppelte Fasermenge des billigeren Werkstoffs erreicht nicht zwei Drittel der Steifigkeit — dafür bleibt die ungekerbte Schlagzähigkeit bei 25 statt 60 kJ/m².",
+    "en": "So far the only second piece of evidence for PA6-GF in the dataset. The comparison with the same manufacturer's PA6-CF15 is instructive: 30 % glass fibre yields 5500 MPa, 15 % carbon fibre 9000 MPa. Twice the fibre load of the cheaper material does not reach two thirds of the stiffness — in exchange the unnotched impact stays at 25 instead of 60 kJ/m²."
+  },
+  "datasheet": {
+    "title": "STYX PA6-GF30 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256639?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.34,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 6.5,
+      "unit": "%",
+      "testStandard": "ISO 62",
+      "conditions": "23 °C, Sättigung in Wasser",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 80,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 5500,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.5,
+      "unit": "%",
+      "min": 3,
+      "max": 4,
+      "testStandard": "ISO 527-1",
+      "conditions": "23 °C, 50 mm/min; Blattangabe „3–4 %“",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 125,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 4500,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, 2 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 25,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 4,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179/1eU",
+      "conditions": "23 °C, gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 180,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 65,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "STYX PA6-GF30",
+        "title": "STYX PA6-GF30 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256639?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

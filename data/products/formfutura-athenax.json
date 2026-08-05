@@ -1,0 +1,122 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-athenax",
+  "materialId": "pctg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "AthenaX",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Zwei Mängel auf einem Blatt. Erstens steht die Schlagzähigkeit als „93°C KJ/m2“ da — eine Temperatureinheit an einem Schlagwert. Was gemeint ist, lässt sich nicht entscheiden, der Wert ist deshalb nicht übernommen. Zweitens ist die Vicat-Erweichungstemperatur unter „DSC“ geführt; DSC ist die Kalorimetrie, für Vicat gilt ISO 306. Der Zahlenwert 88 °C ist plausibel und übernommen, trägt aber `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Two defects on one sheet. First, the impact strength appears as “93°C KJ/m2” — a temperature unit on an impact value. What is meant cannot be decided, so the value is not imported. Second, the Vicat softening temperature is filed under “DSC”; DSC is calorimetry, ISO 306 applies to Vicat. The figure of 88 °C is plausible and imported but carries `low`."
+  },
+  "features": {
+    "de": "Die Bruchdehnung von 220 % ist der höchste Wert unter allen nicht-elastomeren Werkstoffen des Bestands — PETG desselben Marktes liegt bei 20 bis 30 %. Zusammen mit einer HDT-B von 76 °C erklärt das, warum PCTG als zäher PETG-Ersatz gehandelt wird.",
+    "en": "The elongation at break of 220 % is the highest figure among all non-elastomeric materials in the dataset — PETG in the same market sits at 20 to 30 %. Together with an HDT-B of 76 °C this explains why PCTG is traded as a tough PETG substitute."
+  },
+  "datasheet": {
+    "title": "AthenaX — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256479?download=true",
+    "version": "2024-10-07",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 44,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 220,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtYieldXy": {
+      "value": 4.4,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "15 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "15 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 76,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 64,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,82 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 88,
+      "unit": "°C",
+      "testStandard": "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "AthenaX",
+        "title": "AthenaX — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256479?download=true",
+        "documentVersion": "2024-10-07",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-easyfil-epetg",
+  "materialId": "petg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "EasyFil ePETG",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Streckspannung von 25 MPa liegt bei der Hälfte dessen, was die übrigen PETG-Blätter dieses Herstellers ausweisen (Bulk PETG 50,2 MPa, Hdglass 50 MPa) — bei einem E-Modul von 2980 MPa, das über beiden liegt. Hohe Steifigkeit bei halber Festigkeit ist bei derselben Polymerfamilie erklärungsbedürftig. Der Wert ist übernommen und trägt `low`. Für die Schlagzähigkeit nennt das Blatt keine Prüfnorm.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The yield stress of 25 MPa is half of what the same manufacturer's other PETG sheets state (Bulk PETG 50.2 MPa, Hdglass 50 MPa) — at a modulus of 2980 MPa that lies above both. High stiffness at half the strength calls for explanation within the same polymer family. The value is imported and carries `low`. For the impact strength the sheet names no test standard."
+  },
+  "datasheet": {
+    "title": "EasyFil ePETG — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/281456?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 25,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 2980,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 4.7,
+      "unit": "kJ/m²",
+      "testStandard": "Norm im Blatt nicht genannt",
+      "conditions": "gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "EasyFil ePETG",
+        "title": "EasyFil ePETG — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/281456?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

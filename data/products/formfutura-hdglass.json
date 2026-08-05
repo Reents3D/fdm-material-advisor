@@ -1,0 +1,103 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-hdglass",
+  "materialId": "petg",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "HDglass",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Zeile „Viscat softening temp.“ trägt die Norm ASTM D648 und die Bedingung „@ 0.455 Mpa (66psi)“. ASTM D648 ist die Wärmeformbeständigkeit unter Last, nicht der Vicat-Versuch — und eine Lastangabe gibt es beim Vicat gar nicht in dieser Form. Der Wert ist deshalb als HDT-B geführt, nicht als Vicat. Die Schreibweise „Viscat“ und der Biege-E-Modul mit 2147,6 MPa auf eine Zehntelstelle genau runden das Bild ab: Dieses Blatt ist nicht sorgfältig gepflegt. Der Wert trägt `low`.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The row “Viscat softening temp.” carries the standard ASTM D648 and the condition “@ 0.455 Mpa (66psi)”. ASTM D648 is heat deflection under load, not the Vicat test — and a load statement does not exist for Vicat in this form at all. The value is therefore held as HDT-B, not as Vicat. The spelling “Viscat” and a flexural modulus given as 2147.6 MPa to a tenth complete the picture: this sheet is not carefully maintained. The value carries `low`."
+  },
+  "datasheet": {
+    "title": "HDglass — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256561?download=true",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.27,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 50,
+      "unit": "MPa",
+      "testStandard": "ASTM D638",
+      "conditions": "bei Streckgrenze, 50 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 1940,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "1 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 70.6,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "1,27 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2147.6,
+      "unit": "MPa",
+      "testStandard": "ASTM D790",
+      "conditions": "1,27 mm/min",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 7.2,
+      "unit": "kJ/m²",
+      "testStandard": "ASTM D256",
+      "conditions": "gekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 70,
+      "unit": "°C",
+      "testStandard": "ASTM D648",
+      "conditions": "0,455 MPa (66 psi); im Blatt fälschlich als Vicat bezeichnet — siehe Befund",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "HDglass",
+        "title": "HDglass — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256561?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

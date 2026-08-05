@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-carbonfil-cf03",
+  "materialId": "petg-cf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "CarbonFil CF03",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens."
+  },
+  "features": {
+    "de": "Ein dritter unabhängiger Beleg für den Kernbefund zu PETG-CF: 3515 MPa gegenüber 1940 MPa beim HDglass desselben Herstellers — Kohlenstofffaser bringt bei PETG Steifigkeit, ungefähr das Doppelte. Eine Wärmeformbeständigkeit weist auch dieses Blatt nicht aus, womit die Aussage „CF bringt bei PETG keinen Temperaturgewinn“ weiter unwidersprochen bleibt.",
+    "en": "A third independent piece of evidence for the core finding on PETG-CF: 3515 MPa against 1940 MPa for the same manufacturer's HDglass — carbon fibre brings PETG stiffness, roughly double. This sheet too states no heat deflection temperature, leaving the statement “CF brings PETG no temperature gain” unchallenged."
+  },
+  "datasheet": {
+    "title": "CarbonFil CF03 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256494?download=true",
+    "version": "2024-05-15",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.29,
+      "unit": "g/cm³",
+      "testStandard": "Norm im Blatt nicht genannt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 44,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "conditions": "bei Bruch",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 3515,
+      "unit": "MPa",
+      "testStandard": "ISO 527-2",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "izodNotchedXy": {
+      "value": 4.6,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 180",
+      "conditions": "gekerbt",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "CarbonFil CF03",
+        "title": "CarbonFil CF03 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256494?download=true",
+        "documentVersion": "2024-05-15",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

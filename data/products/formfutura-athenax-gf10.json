@@ -1,0 +1,105 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-athenax-gf10",
+  "materialId": "pctg-gf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "AthenaX GF10",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit ist als „Izod“ bezeichnet, die Norm daneben lautet ISO 179 — das ist der Charpy-Versuch, Izod wäre ISO 180. Beide Versuche belasten den Prüfkörper unterschiedlich und liefern nicht dieselbe Zahl. Geführt als Charpy nach der genannten Norm, mit `low`. Zudem liegt die Vicat-Temperatur mit 77 °C UNTER der HDT-B von 78 °C; normalerweise liegt sie darüber.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The impact strength is labelled “Izod” while the standard next to it reads ISO 179 — that is the Charpy test, Izod would be ISO 180. The two tests load the specimen differently and do not give the same figure. Held as Charpy per the named standard, with `low`. The Vicat temperature of 77 °C moreover sits BELOW the HDT-B of 78 °C; normally it lies above."
+  },
+  "features": {
+    "de": "Glasfaser kostet hier die Zähigkeit fast vollständig: 8 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX desselben Herstellers, also ein Achtundzwanzigstel. Die Wärmeformbeständigkeit steigt dabei um zwei Kelvin. Wer GF10 wegen der Temperatur wählt, hat den falschen Grund.",
+    "en": "Glass fibre costs almost all of the toughness here: 8 % elongation at break against 220 % for the same manufacturer's unreinforced AthenaX, a twenty-eighth. Heat deflection rises by two kelvin in return. Anyone choosing GF10 for the temperature has the wrong reason."
+  },
+  "datasheet": {
+    "title": "AthenaX GF10 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256483?download=true",
+    "version": "2024-10-07",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.31,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 45,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eU",
+      "conditions": "23 °C; im Blatt als „Izod“ bezeichnet",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 78,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,82 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 77,
+      "unit": "°C",
+      "testStandard": "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "AthenaX GF10",
+        "title": "AthenaX GF10 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256483?download=true",
+        "documentVersion": "2024-10-07",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}
