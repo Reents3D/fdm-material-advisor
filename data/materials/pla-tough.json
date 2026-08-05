@@ -77,6 +77,22 @@
       "scale": "creepTendency",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.89,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu PLA Tough — nicht aus diesem Datensatz",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 89 % der Zugfestigkeit erhalten (39 von 44 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PLA Tough — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
+        "en": "Perpendicular to the layers 89 % of the tensile strength remains (39 of 44 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PLA Tough — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
+      }
     }
   },
   "thermal": {

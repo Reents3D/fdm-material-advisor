@@ -620,6 +620,17 @@
           "mechanics",
           "thermal"
         ]
+      },
+      {
+        "id": "oq_anisotropy_conflict",
+        "question": {
+          "de": "Der Anisotropiefaktor lässt sich aus 2 Produktblättern ableiten, und sie widersprechen sich um den Faktor 4.12: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). Beide Blätter rechnen quellenrein, der Unterschied liegt also am Werkstoff oder an der Prüfung — nicht an der Rechnung. Solange nicht geklärt ist, welches Blatt den hier geführten Typ beschreibt, bleibt der Faktor leer; ein Mittelwert wäre eine erfundene Zahl.",
+          "en": "The anisotropy factor can be derived from 2 product sheets, and they contradict each other by a factor of 4.12: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). Both sheets calculate source-pure, so the difference lies in the material or the testing — not in the arithmetic. Until it is clear which sheet describes the type held here, the factor stays empty; an average would be an invented figure."
+        },
+        "affectsFields": [
+          "mechanics.anisotropyFactorTensile"
+        ],
+        "blocking": false
       }
     ]
   }
