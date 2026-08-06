@@ -311,6 +311,31 @@ führt Zugfestigkeit X-Y und Z mit demselben Wert (26,1 MPa) — ein Anisotropie
 unter „Composition" den Eintrag „Polyvinyl alcohol" und unter „Solubility" „Soluble in
 water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
 
+**FormFutura AthenaX CF10 und Kratos PC CF10 — dasselbe Haus, gegensätzlicher Befund
+(2026-08-06).** Beide Blätter lagen seit dem ersten FormFutura-Import ausgewertet, aber
+ohne Werkstofftyp im Arbeitsplatz. Beide sind gegen ihr ungefülltes Schwesterblatt
+gehalten worden.
+
+| | AthenaX → CF10 | Kratos PC → CF10 |
+|---|---|---|
+| Dichte | 1,23 → **1,28** | 1,20 → 1,22 |
+| Zugfestigkeit | 44 → **70 MPa** | 61,8 → 76 MPa |
+| Bruchdehnung | 220 % → **5 %** | > 100 % → **> 100 %** |
+| Biege-E-Modul | *fehlt auf dem Blatt* | 24.000 → **24.000 kg/cm²** |
+| Biegefestigkeit | *fehlt auf dem Blatt* | 920 → **920 kg/cm²** |
+| Schlagzähigkeit | 93 → **4 kJ/m²** | 70 → **70 kgcm/cm** |
+
+AthenaX CF10 ist als `pctg-cf` aufgenommen: Jeder Wert bewegt sich in die von einer
+Kohlefaserfüllung erzwungene Richtung, und die Bruchdehnung von 220 auf 5 Prozent ist
+nichts, was man abschreiben könnte. Kratos PC CF10 trägt vier von acht Kennwerten
+zifferngleich mit dem ungefüllten Blatt — darunter eine Bruchdehnung über 100 %, die bei
+10 % Kohlefaser ausgeschlossen ist. **`pc-cf` ist deshalb nicht angelegt.**
+
+Beide AthenaX-Blätter tragen zwei Beschriftungsfehler, die an den betroffenen Werten
+dokumentiert sind: Die Schlagzeilen nennen ISO 179-1eU (Charpy **ungekerbt**), obwohl eine
+davon als „Izod Notched" beschriftet ist, und die Vicat-Zeile nennt als Methode „DSC" —
+keine Vicat-Norm. Beide Werte stehen deshalb ohne Prüfnorm.
+
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 
 - Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`) — **das Ziel ist weiter

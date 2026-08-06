@@ -98,8 +98,13 @@
  * Fuer diese Werkstoffe fuehrt die Datenbank keinen Typ. PEI wurde in ac59507
  * ausdruecklich wieder entfernt ("kein gaengiges Material"). Ein Produkt ohne
  * Werkstofftyp waere eine tote Referenz - die Blaetter bleiben im Arbeitsplatz liegen,
- * bis ueber die Typen entschieden ist. Ebenso AthenaX CF10 und Kratos PC CF10: Es gibt
- * weder `pctg-cf` noch `pc-cf`.
+ * bis ueber die Typen entschieden ist.
+ *
+ * NACHTRAG 2026-08-06: AthenaX CF10 ist aufgenommen - `pctg-cf` gibt es jetzt. Kratos PC
+ * CF10 bleibt liegen, und zwar dauerhaft: Sein Blatt traegt vier von acht Kennwerten
+ * zifferngleich mit dem ungefuellten Kratos PC - darunter eine Bruchdehnung von ueber
+ * 100 %, die bei 10 % Kohlefaser ausgeschlossen ist. Begruendung in
+ * `formfutura-types.mjs`.
  */
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -231,6 +236,26 @@ const P = [
                 "Glass fibre costs almost all of the toughness here: 8 % elongation at break against 220 % for the same manufacturer's unreinforced AthenaX, a twenty-eighth. Heat deflection rises by two kelvin in return. Anyone choosing GF10 for the temperature has the wrong reason."),
     anomaly: t("Die Schlagzähigkeit ist als „Izod“ bezeichnet, die Norm daneben lautet ISO 179 — das ist der Charpy-Versuch, Izod wäre ISO 180. Beide Versuche belasten den Prüfkörper unterschiedlich und liefern nicht dieselbe Zahl. Geführt als Charpy nach der genannten Norm, mit `low`. Zudem liegt die Vicat-Temperatur mit 77 °C UNTER der HDT-B von 78 °C; normalerweise liegt sie darüber.",
                "The impact strength is labelled “Izod” while the standard next to it reads ISO 179 — that is the Charpy test, Izod would be ISO 180. The two tests load the specimen differently and do not give the same figure. Held as Charpy per the named standard, with `low`. The Vicat temperature of 77 °C moreover sits BELOW the HDT-B of 78 °C; normally it lies above."),
+  },
+  {
+    /* Nachgezogen am 2026-08-06, als `pctg-cf` angelegt wurde. Das Blatt lag seit dem
+       ersten Import ausgewertet im Arbeitsplatz und war nur deshalb zurueckgehalten,
+       weil es keinen Werkstofftyp gab (siehe Kopf dieser Datei). */
+    id: "formfutura-athenax-cf10", material: "pctg-cf", name: "AthenaX CF10", doc: 256481, date: "07-10-2024",
+    props: {
+      density: q(1.28, "g/cm³", { std: "ASTM D792" }),
+      tensileStrengthXy: q(70, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze", orientation: "XY" }),
+      elongationAtBreakXy: q(5, "%", { std: "ISO 527", orientation: "XY" }),
+      charpyUnnotchedXy: q(45, "kJ/m²", { std: "ISO 179-1eU", conditions: "ungekerbt, 23 °C", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: "gekerbt, 23 °C; im Blatt als „Izod Notched“ mit der UNGEKERBTEN Norm ISO 179-1eU bezeichnet", orientation: "XY", confidence: "low" }),
+      hdtB: q(78, "°C", { std: "ISO 75", conditions: "0,455 MPa" }),
+      hdtA: q(68, "°C", { std: "ISO 75", conditions: "1,82 MPa" }),
+      vicatB50: q(89, "°C", { std: "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig", confidence: "low" }),
+    },
+    features: t("Das Blatt rechnet seinen eigenen Zugewinn vor — „59 % higher tensile strength than AthenaX“ —, und die Rechnung geht auf: 44 auf 70 MPa sind 59,1 %. Wichtiger als der Zugewinn ist der Preis dafür: 5 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX. Bemerkenswert ist die Verarbeitung: „No enclosure, or heated chamber needed“ — für einen faserverstärkten Werkstoff die Ausnahme.",
+                "The sheet works out its own gain — “59 % higher tensile strength than AthenaX” — and the arithmetic holds: 44 to 70 MPa is 59.1 %. More important than the gain is what it costs: 5 % elongation at break against 220 % for unreinforced AthenaX. Processing is the remarkable part: “No enclosure, or heated chamber needed” — the exception among fibre-reinforced materials."),
+    anomaly: t("Zwei Beschriftungsfehler, beide auch im ungefüllten Schwesterblatt. Erstens tragen BEIDE Schlagzeilen die Norm ISO 179-1eU, also Charpy UNGEKERBT — eine davon ist aber als „Izod Notched“ beschriftet. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; die gekerbte Zahl steht deshalb ohne Norm und mit `low`. Zweitens nennt die Vicat-Zeile als Methode „DSC“, was keine Vicat-Norm ist. Kein Kennwert des Blattes ist zifferngleich mit dem ungefüllten AthenaX — anders als beim Kratos PC CF10 desselben Herstellers, das deshalb keinen Werkstofftyp bekommen hat.",
+               "Two labelling errors, both present in the unfilled sister sheet as well. First, BOTH impact rows carry the standard ISO 179-1eU, that is Charpy UNNOTCHED — yet one of them is labelled “Izod Notched”. A notched value cannot arise from an unnotched standard; the notched figure therefore carries no standard and `low`. Second, the Vicat row names “DSC” as the method, which is not a Vicat standard. No value on this sheet is digit-identical with unfilled AthenaX — unlike the same manufacturer's Kratos PC CF10, which for that reason received no material type."),
   },
 
   /* ---------------------------------------------------------------- ASA */
@@ -855,4 +880,4 @@ console.log("      EasyFil ePLA = Galaxy PLA                          (zwei Prod
 console.log("    Aufgenommen sind sie trotzdem - sie zaehlen als EIN Beleg, und jeder Satz sagt das.");
 console.log("\n  Nicht importiert:");
 console.log("    7 Blaetter ohne Werkstofftyp in dieser Datenbank (PEEK x2, PEI x2, PCL x2, BVOH)");
-console.log("    2 Blaetter ohne passenden Variantentyp (AthenaX CF10 -> pctg-cf, Kratos PC CF10 -> pc-cf)");
+console.log("    1 Blatt ohne passenden Variantentyp (Kratos PC CF10 -> pc-cf, abgelehnt: Tabelle des ungefuellten PC)");

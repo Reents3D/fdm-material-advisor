@@ -1,13 +1,15 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-05 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
+**Stand:** 2026-08-06 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** `ppa-cf` als Werkstofftyp anlegen — der einzige der elf Kandidaten aus
-Abschnitt 5a, der noch aussteht und ein neuer Typ wäre (PEEK, PEI, PVA, BVOH und die vier
-Support-Sorten sind entschieden und fallen weg). Dazu die Rückfragen in Abschnitt 5
-(Portfolio, XXL-Grenzen, Preise) und die Variantentypen `pctg-cf` und `pc-cf`. Danach die
-übrigen OFD-Fundstellen (Anycubic 12, Bambu 7 mit offener Typfrage) und die Marken ganz
-ohne Blattlink (Polymaker 71, 3DXTech 61)
+**Nächster Schritt:** Die **Rückfragen in Abschnitt 5** (Portfolio, XXL-Grenzen) — sie sind
+das Einzige, was auf eine Entscheidung wartet statt auf Arbeit. Danach die übrigen
+OFD-Fundstellen (Anycubic 12, Add-North PVDF, Nebula 7) und die Marken ganz ohne Blattlink
+(Spectrum 97, Polymaker 71, 3DXTech 61).
+
+**Erledigt seit dem letzten Stand:** `ppa-cf` (2026-08-05) und `pctg-cf` (2026-08-06) sind
+angelegt; `pc-cf` ist **abgelehnt**, weil sein einziges Blatt die Tabelle des ungefüllten
+Polymers trägt (Abschnitt 5a). Damit ist die Liste der Werkstofftyp-Kandidaten leer.
 
 ---
 
@@ -501,6 +503,43 @@ diese Vorlage nennt die Datenlage.
 5. ~~PEEK, PEI~~ — entschieden: außerhalb des Rahmens (2026-08-05)
 
 Von elf Kandidaten bleiben damit drei, und nur einer davon ist ein neuer Typ.
+
+### Die zwei Variantentypen aus dem FormFutura-Import — entschieden am 2026-08-06
+
+Zwei Blätter lagen seit dem 2026-08-04 ausgewertet im Arbeitsplatz, weil es keinen
+passenden Typ gab. Beide sind gegen ihr **ungefülltes Schwesterblatt** gehalten worden —
+dieselbe Prüfung, die R16 seit dem Alzament-Import automatisch macht. Das Ergebnis fällt
+gegensätzlich aus, und genau deshalb war die Prüfung nötig.
+
+| | AthenaX CF10 → `pctg-cf` | Kratos PC CF10 → `pc-cf` |
+|---|---|---|
+| Dichte | 1,23 → **1,28** | 1,20 → 1,22 |
+| Zugfestigkeit | 44 → **70 MPa** (+59 %) | 61,8 → 76 MPa |
+| Bruchdehnung | 220 % → **5 %** | > 100 % → **> 100 %** |
+| Biege-E-Modul | *nicht auf dem Blatt* | 24.000 → **24.000 kg/cm²** |
+| Biegefestigkeit | *nicht auf dem Blatt* | 920 → **920 kg/cm²** |
+| Schlagzähigkeit | 93 → **4 kJ/m²** | 70 → **70 kgcm/cm** |
+| **Urteil** | **angelegt** | **abgelehnt** |
+
+Bei AthenaX CF10 bewegt sich jeder Wert in die Richtung, die eine Kohlefaserfüllung
+erzwingt. Die Bruchdehnung von 220 auf 5 Prozent ist der Beleg: Das lässt sich nicht
+abschreiben. Zusätzlich stimmt die Eigenwerbung des Blattes („59 % higher tensile
+strength") auf den Prozentpunkt mit seinen eigenen Zahlen.
+
+Bei Kratos PC CF10 sind **vier von acht** Kennwerten zifferngleich mit dem ungefüllten
+Blatt — und zwar genau die vier, die eine Faserfüllung am stärksten verändern müsste. Eine
+Bruchdehnung über 100 % ist bei 10 % Kohlefaser physikalisch ausgeschlossen; ein
+Biege-E-Modul, das sich durch die Füllung um kein Prozent bewegt, ebenfalls.
+
+**`pc-cf` wird deshalb nicht angelegt** — nicht weil der Werkstoff uninteressant wäre,
+sondern weil die einzige Quelle ihn nicht belegt. Ein Typ, dessen Kennwerte aus dem
+ungefüllten Nachbarn stammen, wäre schlimmer als keiner: Er sähe aus wie Wissen. Kommt
+eine zweite Quelle, ist die Entscheidung in zehn Minuten umgedreht.
+
+**Was `pctg-cf` fehlt und am Datensatz steht:** kein E-Modul (das Blatt nennt keinen —
+ausgerechnet die Zahl, die eine Füllung am deutlichsten zeigt), keine zweite Quelle, und
+kein Preis, weil ihn nur FormFutura führt und deren robots.txt Anthropics Agenten sperrt.
+Drei offene Fragen, eine davon blockierend.
 
 ### Das daraus folgende Aufnahmekriterium
 

@@ -184,7 +184,26 @@ for (const f of files) {
   const file = path.join(DIR, f);
   const m = JSON.parse(readFileSync(file, "utf8"));
   const p = priceFor(m.id);
-  if (!p) { missing.push(m.id); continue; }
+  if (!p) {
+    /* GAR KEIN Preis - weder erhoben noch geschaetzt. Das ist der schwerste Fall und
+       muss am Datensatz stehen, nicht nur in der Konsolenausgabe dieses Skripts.
+       `ppa-cf` trug dafuer bis 2026-08-06 eine von Hand geschriebene Frage; als der
+       Preis kam, wurde sie geloescht - und `pctg-cf` fiel am selben Tag in dieselbe
+       Luecke, nur durch einen anderen Zweig. Ein Vorbehalt, den es nur auf einem von
+       zwei Pfaden gibt, ist keine Buchfuehrung. */
+    const oq = m.governance.openQuestions ?? [];
+    let idx = oq.findIndex((x) => x.id === "oq_price_survey");
+    if (idx < 0) { oq.push({ id: "oq_price_survey", question: t("", ""), blocking: true, affectsFields: ["commercial.pricePerKg"] }); idx = oq.length - 1; }
+    oq[idx].blocking = true;
+    oq[idx].affectsFields = ["commercial.pricePerKg"];
+    oq[idx].question = t(
+      `Preis erheben: Für diesen Werkstoff liegt kein Preis je Kilogramm vor — weder ein Händlerangebot (${SURVEYED}) noch eine Schätzbandbreite. Folge: Er fehlt in der Ansicht „Festigkeit gegen Preis“, und die Kompromissanalyse kann seinen wirtschaftlichen Preis nicht beziffern.`,
+      `Collect a price: no price per kilogram is available for this material — neither a retailer offer (${SURVEYED}) nor an estimated band. Consequence: it is missing from the “strength against price” view, and the trade-off analysis cannot quantify its economic price.`);
+    m.governance.openQuestions = oq;
+    writeFileSync(file, `${JSON.stringify(m, null, 2)}\n`);
+    missing.push(m.id);
+    continue;
+  }
 
   m.commercial ??= {};
   /* Quellen aus dem vorigen Lauf entfernen, damit sich nichts anhaeuft. */

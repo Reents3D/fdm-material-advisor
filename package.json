@@ -39,7 +39,7 @@
     "import:extrudr": "node scripts/import/extrudr.mjs",
     "import:azurefilm": "node scripts/import/azurefilm.mjs",
     "import:manufacturers": "node scripts/import/manufacturer-products.mjs",
-    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:pa6 && npm run import:types && npm run import:sunlu && npm run import:ultrafuse && npm run import:fiberlogy && npm run import:spectrum && npm run import:fillamentum && npm run import:addnorth && npm run import:fiberlogy-types && npm run import:formfutura && npm run import:nebula && npm run import:alzament && npm run import:bambu2 && npm run import:ppa-cf && npm run derive:all",
+    "import:all": "npm run import:bambu && npm run import:manufacturers && npm run import:extrudr && npm run import:azurefilm && npm run import:3djake && npm run import:m4p && node scripts/import/bambu-products.mjs && npm run import:bambu-catalogue && npm run import:pa6 && npm run import:types && npm run import:sunlu && npm run import:ultrafuse && npm run import:fiberlogy && npm run import:spectrum && npm run import:fillamentum && npm run import:addnorth && npm run import:fiberlogy-types && npm run import:formfutura && npm run import:nebula && npm run import:alzament && npm run import:bambu2 && npm run import:ppa-cf && npm run import:formfutura-types && npm run derive:all",
     "import:3djake": "node scripts/import/3djake.mjs",
     "import:m4p": "node scripts/import/material4print.mjs",
     "import:bambu-catalogue": "node scripts/import/bambu-catalogue.mjs",
@@ -76,7 +76,8 @@
     "derive:lineage": "node scripts/derive-lineage.ts",
     "normalize:sources": "node scripts/normalize-sources.mjs",
     "derive:all": "npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:anisotropy && npm run derive:price && npm run derive:lineage && npm run import:ofd-spools && npm run import:ofd-processing && npm run apply:field && npm run normalize:sources",
-    "derive:anisotropy": "node scripts/derive-anisotropy.mjs"
+    "derive:anisotropy": "node scripts/derive-anisotropy.mjs",
+    "import:formfutura-types": "node scripts/import/formfutura-types.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

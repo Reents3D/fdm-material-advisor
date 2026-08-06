@@ -65,9 +65,11 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Typ ohne Preis dastand - die Ableitung fand im OFD-Marktbestand keine Entsprechung,
    PPA wird dort als Werkstoffklasse nicht gefuehrt. Mit der Aufnahme von 3DJAKE steht
    ein Angebot da (207,99 €/kg aus einer 750-g-Spule), und die Untergrenze zieht auf 42
-   nach. Sie darf ab jetzt nicht mehr unter die Zahl der Werkstoffe fallen: Ein Werkstoff
-   ohne Preis verschwindet aus der Ansicht "Festigkeit gegen Preis", und das faellt
-   niemandem auf.
+   nach. Sie bleibt einen Tag spaeter bei 42, obwohl es inzwischen 43 Werkstoffe gibt:
+   `pctg-cf` hat keinen Preis, weil ihn nur FormFutura fuehrt - und FormFutura sperrt
+   Anthropics Agenten in seiner robots.txt, kann also nicht erhoben werden. Der Fall
+   steht seit demselben Tag als BLOCKIERENDE offene Frage am Datensatz; die Untergrenze
+   ist deshalb bewusst eine unter der Zahl der Werkstoffe.
 
    `openQuestions` ist am 2026-08-06 von 74 auf 88 GESTIEGEN, und das ist kein Zuwachs an
    Problemen, sondern an Buchfuehrung: `derive-price.mjs` legt den Vorbehalt
@@ -86,16 +88,16 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
    Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen. */
 const FLOOR = {
-  materials: 42,
-  products: 240,
+  materials: 43,
+  products: 241,
   brands: 16,
-  datasheets: 218,
-  materialFacts: 2984,
-  productValues: 2008,
-  chemicalRatings: 882,
+  datasheets: 219,
+  materialFacts: 3048,
+  productValues: 2016,
+  chemicalRatings: 903,
   materialsWithPrice: 42,
   anisotropyFactors: 19,
-  openQuestions: 91,
+  openQuestions: 94,
 };
 
 const actual = {
