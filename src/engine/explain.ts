@@ -64,6 +64,21 @@ export function buildExplanations(
     }
   }
 
+  /* Ein gestauchter Score MUSS dastehen. Sonst liest der Nutzer "günstig" und eine
+     Platzierung, die zu dem Preis nicht passt, und hält die Zahl für falsch - dabei ist
+     nicht die Zahl gedämpft, sondern das Zutrauen in sie (ADR-040). Der Hinweis kommt
+     auch dann, wenn das Kriterium daneben als Stärke ausgewiesen ist: Beides stimmt. */
+  for (const c of byImportance) {
+    if (!c.discounted) continue;
+    out.push({
+      type: "risk",
+      criterionId: c.criterionId,
+      key: `risk.thinEvidence.${c.criterionId}.${c.confidence}`,
+      params: display(c),
+      evidence: c.evidence,
+    });
+  }
+
   /* constraints that only just hold */
   for (const v of verdicts) {
     if (!v.passed) continue;

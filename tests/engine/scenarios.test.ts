@@ -274,9 +274,13 @@ describe("Wissenslücken dürfen nicht belohnen", () => {
      kein Vorteil ist - und dazu gehoert der Preis nicht in die Gewichtung. Er ist hier
      herausgenommen, damit der Test misst, was in seiner Ueberschrift steht.
 
-     Der Befund dahinter bleibt und ist nicht harmlos: Ein Einzelangebot kann eine
-     Rangfolge kippen, und eine Schaetzung tritt im Scoring gleichberechtigt neben eine
-     Erhebung. Beides steht in SOURCES.md unter der Preiserhebung.
+     Der Befund dahinter ist am 2026-08-06 nachgemessen worden (ADR-040) - und die Haelfte
+     davon war falsch. Von 35 ersetzten Schaetzpreisen waren 24 zu TEUER; Schaetzungen
+     verschaffen hier keinen Vorteil. Zu guenstig ist systematisch der EINZELFUND: 15
+     Werkstoffe, die von einem auf mehrere Haendler wuchsen, wurden im Mittel 6,6
+     Rangpunkte teurer. PPs 73,32 € aus einem 0,6-kg-Angebot ist also die schwaechere
+     Zahl, nicht OBCs Schaetzung - eine Regel "Erhebung schlaegt Schaetzung" haette
+     genau das Falsche bevorzugt. Die Gewichtung ohne Preis bleibt deshalb bestehen.
 
      Die Gewichtung OHNE Preis gilt nur fuer den Prinzipientest; der Abdeckungstest
      darunter misst etwas anderes und behaelt die urspruengliche. */

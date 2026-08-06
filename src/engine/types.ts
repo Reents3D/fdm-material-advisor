@@ -194,6 +194,12 @@ export interface CriterionScore {
   confidence: Confidence | null;
   weight: number;
   evidence?: string;
+  /**
+   * Gesetzt, wenn der Score gestaucht wurde, weil die Beleglage einen Vorsprung nicht
+   * traegt (ADR-040). `raw` bleibt dabei der unveraenderte Messwert - wer beides sieht,
+   * soll die Differenz erklaeren koennen und nicht an der Zahl zweifeln.
+   */
+  discounted?: true;
 }
 
 export type ExplanationType = "strength" | "weakness" | "risk" | "hint" | "gap";
