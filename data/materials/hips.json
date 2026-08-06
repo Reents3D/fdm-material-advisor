@@ -530,7 +530,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 1,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -611,16 +611,18 @@
       }
     },
     "pricePerKg": {
-      "value": 28.5,
-      "min": 22,
-      "max": 35,
+      "value": 37.11,
+      "min": 34.36,
+      "max": 37.11,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, geschätzt, Stand 2026-08-06",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 5 Angeboten EINES Händlers (fillamentum), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "source": [
+        "src_price_hips_fillamentum"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-06 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
-        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-06 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
+        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 1 Marken (Fillamentum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 5 list prices from 1 brands (Fillamentum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -661,6 +663,19 @@
         "note": {
           "de": "Einziges Datenblatt für diesen Werkstofftyp.",
           "en": "Only datasheet for this material type."
+        }
+      },
+      {
+        "id": "src_price_hips_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise HIPS",
+        "url": "https://shop.fillamentum.com/products/hips-extrafill-natural",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg, 25,77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg, 27,83 €",
+          "en": "5 offers: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg, 25.77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg, 27.83 €"
         }
       },
       {

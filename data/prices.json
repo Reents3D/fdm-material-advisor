@@ -7444,6 +7444,17 @@
         "pricePerKg": 62.49,
         "listingUrl": "https://www.3djake.de/extrudr",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "CPE CF112 Carbon — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 53.49,
+        "pricePerKg": 71.32,
+        "listingUrl": "https://shop.fillamentum.com/products/cpe-cf112-carbon",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "pet-cf": [
@@ -8375,6 +8386,61 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon FX256 \"Traffic Black\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 52.01,
+        "pricePerKg": 69.35,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-fx256-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon FX256 \"Sky Blue\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 52.01,
+        "pricePerKg": 69.35,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-fx256-sky-blue",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon FX256 \"Vertigo Grey\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 52.01,
+        "pricePerKg": 69.35,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-fx256-vertigo-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon FX256 \"Signal Red\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 52.01,
+        "pricePerKg": 69.35,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-fx256-signal-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon FX256 \"Metallic Grey\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 52.01,
+        "pricePerKg": 69.35,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-fx256-metallic-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "3djake",
         "brand": "eSUN",
         "product": "PA12 White",
@@ -8394,6 +8460,17 @@
         "listingUrl": "https://extrudr.com/de/de/products/durapro-pa12/",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon AF80 Aramid — 2.85 mm",
+        "spoolKg": 0.6,
+        "priceEur": 81,
+        "pricePerKg": 135,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-af80-aramid",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "pa12-cf": [
@@ -8406,6 +8483,17 @@
         "pricePerKg": 78.4,
         "listingUrl": "https://www.3djake.de/filament/nylon",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Nylon CF15 Carbon — 1.75 mm",
+        "spoolKg": 0.6,
+        "priceEur": 64.01,
+        "pricePerKg": 106.68,
+        "listingUrl": "https://shop.fillamentum.com/products/nylon-cf15-carbon",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "extrudr",
@@ -8623,6 +8711,28 @@
         "pricePerKg": 39.99,
         "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 92A \"Natural\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-92a-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 92A \"Natural\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-92a-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "tpu-98a": [
@@ -9029,6 +9139,182 @@
         "priceEur": 39.65,
         "pricePerKg": 52.87,
         "listingUrl": "https://extrudr.com/de/de/products/flex-medium-matt/",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Traffic Black\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Traffic White\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-traffic-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Vertigo Grey\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-vertigo-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Pistachio Green\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-pistachio-green",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Metallic Grey\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-metallic-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Signal Red\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-signal-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Signal Red\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-signal-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Sky Blue\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-sky-blue",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Natural\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Natural\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Luminous Green\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-luminous-green",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Luminous Green\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-luminous-green",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Powder Beige\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-powder-beige",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Powder Beige\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-powder-beige",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Blue Transparent\" — 1.75 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-blue-transparent",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm",
+        "spoolKg": 0.5,
+        "priceEur": 35.29,
+        "pricePerKg": 70.58,
+        "listingUrl": "https://shop.fillamentum.com/products/flexfill-tpu-98a-blue-transparent",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
       },
@@ -10233,8 +10519,76 @@
         "collectedBy": "survey-prices"
       }
     ],
-    "hips": [],
-    "pp": [],
+    "hips": [
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "HIPS Extrafill \"Natural\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 25.77,
+        "pricePerKg": 34.36,
+        "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "HIPS Extrafill \"Traffic Black\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 27.83,
+        "pricePerKg": 37.11,
+        "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "HIPS Extrafill \"Metallic Grey\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 27.83,
+        "pricePerKg": 37.11,
+        "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-metallic-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "HIPS Extrafill \"Signal Red\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 27.83,
+        "pricePerKg": 37.11,
+        "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-signal-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "HIPS Extrafill \"Signal Red\" — 2.85 mm",
+        "spoolKg": 0.75,
+        "priceEur": 27.83,
+        "pricePerKg": 37.11,
+        "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-signal-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pp": [
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Polypropylene PP 2320 — 1.75 mm / Black",
+        "spoolKg": 0.6,
+        "priceEur": 43.99,
+        "pricePerKg": 73.32,
+        "listingUrl": "https://shop.fillamentum.com/products/polypropylene-pp-2320",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
     "abs-gf": [],
     "pla-cf": [],
     "pctg-gf": [],
@@ -10865,6 +11219,41 @@
         "priceEur": 5.95,
         "pricePerKg": 119,
         "listingUrl": "https://www.material4print.de/collections/filament/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pvc": [
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Vinyl 303 \"Black\" — 2.85 mm",
+        "spoolKg": 0.75,
+        "priceEur": 42,
+        "pricePerKg": 56,
+        "listingUrl": "https://shop.fillamentum.com/products/vinyl-303-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Vinyl 303 \"Natural\" — 1.75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 42,
+        "pricePerKg": 56,
+        "listingUrl": "https://shop.fillamentum.com/products/vinyl-303-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "fillamentum",
+        "brand": "Fillamentum",
+        "product": "Vinyl 303 \"Natural\" — 2.85 mm",
+        "spoolKg": 0.75,
+        "priceEur": 42,
+        "pricePerKg": 56,
+        "listingUrl": "https://shop.fillamentum.com/products/vinyl-303-natural",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
       }

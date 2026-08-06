@@ -727,7 +727,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"

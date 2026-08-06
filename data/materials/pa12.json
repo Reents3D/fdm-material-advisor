@@ -556,19 +556,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 69.66,
+      "value": 69.35,
       "min": 60.99,
-      "max": 77.9,
+      "max": 135,
       "unit": "€/kg",
-      "conditions": "Median aus 4 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 10 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa12_3djake",
+        "src_price_pa12_fillamentum",
         "src_price_pa12_extrudr"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 3 Marken (Fiberlogy, eSUN, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 4 list prices from 3 brands (Fiberlogy, eSUN, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 10 Listenpreise von 4 Marken (Fiberlogy, Fillamentum, eSUN, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 10 list prices from 4 brands (Fiberlogy, Fillamentum, eSUN, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -621,6 +622,19 @@
         "note": {
           "de": "1 Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg, 54,53 €",
           "en": "1 offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg, 54.53 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise PA12",
+        "url": "https://shop.fillamentum.com/products/nylon-fx256-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "6 Angebote: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0,6 kg, 81,00 €",
+          "en": "6 offers: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0.6 kg, 81.00 €"
         }
       },
       {

@@ -336,21 +336,66 @@ const SHOPS = [
         [/NonOilen|Timberfill|PLA\s*(Crystal\s*Clear|Extrafill)/i, "pla"],
       ];
 
+      /* Erster Durchgang: das Gewicht steht im Variantentitel, ein Aufruf genuegt fuer
+         alle 199 Produkte. Was hier nichts ergibt, kommt in die Nachlese. */
+      const pending = [];
       for (const p of list) {
         const hit = MAP.find(([re]) => re.test(p.title));
         if (!hit) continue;
         for (const v of p.variants ?? []) {
           if (v.available === false) continue;
-          const kg = spoolKgFromTitle(String(v.title));
           const price = Number(v.price);
-          if (!kg || !Number.isFinite(price) || price <= 0) continue;
+          if (!Number.isFinite(price) || price <= 0) continue;
+          const kg = spoolKgFromTitle(String(v.title));
+          if (!kg) { pending.push({ p, mid: hit[1] }); continue; }
           out.push({
             mid: hit[1], product: `${p.title.split("|")[0].trim()} — ${v.title}`,
             spoolKg: kg, priceEur: price, url,
           });
         }
       }
-      ctx.log(`${list.length} Produkte gelesen, ${out.length} Angebote zugeordnet`);
+
+      /**
+       * NACHLESE - und zwar nur da, wo der billige Weg gar nichts ergeben hat.
+       *
+       * 87 Produkte nennen ihr Gewicht nicht im Variantentitel; sie alle einzeln zu holen
+       * waeren 87 Aufrufe. Die meisten davon gehoeren aber zu Werkstoffen, die aus den
+       * uebrigen Varianten laengst Preise haben - PETG, ABS, ASA. Dort noch einmal
+       * anzuklopfen kostet den Shop Last und bringt uns nichts.
+       *
+       * Geholt wird deshalb nur, wo dieser Shop fuer den Werkstofftyp bisher NULL
+       * Angebote geliefert hat. Das sind `hips`, `pvc` und `pp` - und ausgerechnet `hips`
+       * hat seit der Fiberlogy-Stilllegung ueberhaupt keine Preisquelle mehr.
+       *
+       * Auf der Produktseite steht das Gewicht in einer Spezifikationsliste
+       * ("<strong>Weight:</strong><br/>750 g"). Das ist Markup und kein Maschinenfeld -
+       * gelesen wird es trotzdem, weil die robots.txt es erlaubt und die Alternative
+       * waere, das Gewicht zu RATEN. Findet das Muster nichts, bleibt das Angebot
+       * verworfen.
+       */
+      const covered = new Set(out.map((o) => o.mid));
+      const gaps = [...new Map(pending.filter((x) => !covered.has(x.mid)).map((x) => [x.p.handle, x])).values()];
+      let looked = 0;
+      for (const g of gaps) {
+        await ctx.wait();
+        let html;
+        try { html = await ctx.get(`https://shop.fillamentum.com/products/${g.p.handle}`); ctx.counted(); looked++; }
+        catch (e) { ctx.skip(`${g.p.handle}: ${e.message}`); continue; }
+        const w = /<strong>\s*Weight:\s*<\/strong>\s*(?:<br\s*\/?>)?\s*([0-9]+(?:[.,][0-9]+)?)\s*(kg|g)\b/i.exec(html);
+        if (!w) { ctx.skip(`${g.p.handle}: kein Gewicht auf der Produktseite`); continue; }
+        const kg = w[2].toLowerCase() === "kg" ? Number(w[1].replace(",", ".")) : Number(w[1]) / 1000;
+        if (!kg) continue;
+        for (const v of g.p.variants ?? []) {
+          if (v.available === false) continue;
+          const price = Number(v.price);
+          if (!Number.isFinite(price) || price <= 0) continue;
+          out.push({
+            mid: g.mid, product: `${g.p.title.split("|")[0].trim()} — ${v.title}`,
+            spoolKg: kg, priceEur: price, url: `https://shop.fillamentum.com/products/${g.p.handle}`,
+          });
+        }
+      }
+      ctx.log(`${list.length} Produkte gelesen, ${looked} Seiten nachgeschlagen, ${out.length} Angebote zugeordnet`);
       return out;
     },
   },

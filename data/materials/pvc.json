@@ -530,16 +530,18 @@
       }
     },
     "pricePerKg": {
-      "value": 62.5,
-      "min": 45,
-      "max": 80,
+      "value": 56,
+      "min": 56,
+      "max": 56,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, geschätzt, Stand 2026-08-06",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 3 Angeboten EINES Händlers (fillamentum), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "source": [
+        "src_price_pvc_fillamentum"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-06 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
-        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-06 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 1 Marken (Fillamentum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 1 brands (Fillamentum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -573,6 +575,19 @@
         "note": {
           "de": "Einziges Datenblatt für diesen Werkstofftyp.",
           "en": "Only datasheet for this material type."
+        }
+      },
+      {
+        "id": "src_price_pvc_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise PVC",
+        "url": "https://shop.fillamentum.com/products/vinyl-303-black",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg, 42,00 €",
+          "en": "3 offers: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg, 42.00 €"
         }
       },
       {
