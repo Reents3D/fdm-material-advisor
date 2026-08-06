@@ -390,6 +390,95 @@ PA6-CF (technisch anspruchsvoll), PET-CF (Verwechslungsgefahr auflösen).
 
 ---
 
+## 5a. Elf Werkstofftyp-Kandidaten — Entscheidungsvorlage
+
+Aus dem FormFutura- und dem Bambu-Import liegen elf Datenblattgruppen vor, für die es
+noch keinen Werkstofftyp gibt. Ein Typ kostet **rund 92 belegte Aussagen, davon 49
+Schätzungen und 18 Bewertungsskalen** — das ist redaktionelle Arbeit, keine Übertragung,
+und deshalb steht sie hier statt in einem Importer.
+
+Diese Vorlage nennt je Kandidat, was an Daten vorliegt und was der Typ dem Werkzeug
+bringt. Entschieden ist nichts.
+
+### Das Ergebnis kehrt die Erwartung um
+
+Die vier Kandidaten, die seit dem FormFutura-Import warten, klingen am beeindruckendsten
+und tragen die schwächsten Daten. Die drei, die gerade erst durch Bambu dazukamen,
+klingen unscheinbar und tragen die besten.
+
+| Kandidat | Blätter | Prüfkörper | Z-Werte | Datenlage |
+|---|---|---|---|---|
+| **PPA-CF** | 1 (Bambu) | gedruckt | ja | vollständig, 17 Kennwerte |
+| **TPU 90A** | 1 (Bambu) | gedruckt | ja | vollständig, 17 Kennwerte |
+| PEEK | 2 (LUVOCOM) | **spritzgegossen** | nein | vollständig, aber MPTS ISO 3167 A |
+| PEI | 2 (LUVOCOM/Ultem) | **spritzgegossen** | nein | vollständig, aber MPTS ISO 3167 A |
+| PCL | 1 (FormFutura) | nicht deklariert | nein | 9 Kennwerte, eine Quelle |
+| PVA | 1 (Bambu) | gedruckt | — | **Mechanik durchweg „N/A"** |
+| Support ABS/PLA/PLA-PETG/PA-PET | 4 (Bambu) | gedruckt | — | **Mechanik durchweg „N/A"** |
+| BVOH | 1 (FormFutura) | nicht deklariert | — | **Mechanik durchweg „–"** |
+
+### Die Kandidaten im Einzelnen
+
+**PPA-CF — der stärkste Fall.** Zugfestigkeit 168 MPa in X-Y gegen 57 MPa in Z, E-Modul
+11.800 MPa, Dauergebrauch über den Schmelzpunkt von 258 °C hinweg angedeutet. Damit wäre
+Polyphthalamid-CF **der festeste Werkstoff der Datenbank** — der bisherige Höchstwert
+liegt bei `paht-cf` mit 120 MPa, also 40 % darunter. Gedruckte Prüfkörper, beide
+Orientierungen, ein Anisotropiefaktor von 0,34 fiele nebenbei ab. Der Preis: ein Typ, für
+den genau **eine** Quelle existiert, also durchweg `low` bis `medium`.
+
+**TPU 90A — der schwächste Fall trotz guter Daten.** Das Blatt ist tadellos: gedruckt,
+Z-Werte, Streuungsangaben. Nur bringt der Typ nichts. Bambu TPU 85A liegt bei 12,0 MPa,
+Bambu TPU 90A bei 12,5 — ein halbes Megapascal auseinander, gemessen vom selben Hersteller
+nach derselben Norm. Ein eigener Typ dafür trennt nichts, sondern verlängert die Liste.
+*Empfehlung: als Produkt unter `tpu-85a` führen und den Härteunterschied in `features`
+benennen.*
+
+**PEEK und PEI — reiche Daten, falsche Prüfkörper.** Beide Blattgruppen nennen ISO-Normen
+durchgehend und liefern vollständige Tabellen (PEEK: 97 MPa Zug, 145 MPa Biegung, 3,8 GPa
+Modul; PEI: 105 MPa Zug, HDT-A 200 °C, Dauergebrauchstemperatur 170 °C nach IEC 60216).
+Sie tragen aber alle den Vermerk **„MPTS ISO 3167 A"** — Vielzweckprobekörper,
+spritzgegossen. Genau gegen diese Zahlen ist dieses Werkzeug gebaut: Der Startseitentext
+begründet die Existenz des Projekts damit, dass PLA anderswo mit 60 MPa steht und hier mit
+35, weil dort gegossen und hier gedruckt wird. Zwei Hochleistungswerkstoffe mit
+`specimenType: moulded` aufzunehmen wäre nicht falsch — das Feld ist dafür da —, aber sie
+würden in jeder Rangliste oben stehen, ohne dass ein gedrucktes Bauteil diese Werte je
+erreicht. *Wenn, dann nur mit sichtbarer Kennzeichnung und dem ausdrücklichen Hinweis,
+dass FDM-Werte fehlen.*
+
+**PCL — dünn und auffällig.** Neun Kennwerte aus einer Quelle, Prüfkörper nicht
+deklariert. Und die Zahlen passen nicht zueinander: 45 MPa Zugfestigkeit bei 350 MPa
+E-Modul und Shore D 46 beschreibt einen Werkstoff, der zugleich sehr fest und sehr weich
+wäre. Polycaprolacton liegt in der Literatur eher bei 16 MPa. *Vor einer Typentscheidung
+gehört das Blatt gegen eine zweite Quelle geprüft.*
+
+**PVA, BVOH und die vier Support-Materialien — eine Kategorie, keine Kennwerte.** Bei allen
+sechs steht die gesamte Mechanik auf „N/A" beziehungsweise „–". Vorhanden sind Dichte,
+Schmelztemperatur und — aufschlussreich — eine Wassersättigung von 6,25 % bei Bambu PVA.
+
+Das ist kein Mangel der Blätter, sondern der Natur der Sache: Ein Material, das nach dem
+Druck weggelöst wird, braucht keine Zugfestigkeit. Ihr Wert liegt woanders. Der Bestand
+kennt als Stützmaterial bislang **nur HIPS**, und HIPS löst sich in Limonen, nicht in
+Wasser. Wer eine Innengeometrie aus PETG oder PA drucken will, findet im Werkzeug derzeit
+keine Antwort auf die Frage, womit er stützt.
+
+*Vorschlag: EIN Typ `pva` statt sechs.* Die vier Bambu-Support-Sorten und BVOH sind
+Produkte darunter, nicht eigene Werkstoffe — sie unterscheiden sich in der Verträglichkeit
+mit dem Bauteilmaterial, nicht im Polymer. Der Typ trüge dann bewusst kaum Mechanik und
+stattdessen die Angaben, die zählen: Löslichkeit, Verträglichkeit, Trocknungsbedarf.
+
+### Wenn du eine Reihenfolge willst
+
+1. **`pva`** — schließt eine Kategorielücke, sechs Blätter unter einem Typ, geringe
+   redaktionelle Last, weil die Bewertungsskalen für ein Stützmaterial größtenteils
+   entfallen oder trivial sind
+2. **`ppa-cf`** — der größte fachliche Zugewinn, aber nur eine Quelle
+3. **PEEK/PEI** — nur mit `moulded`-Kennzeichnung, und erst wenn geklärt ist, wie die
+   Oberfläche das ausweist
+4. **PCL** — erst nach einer zweiten Quelle
+5. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
+
+---
+
 ## 6. Sichtbarkeit (Sammlung für Phase 6)
 
 - LinkedIn-Launch-Post — passt zur founder-led Strategie; der Anisotropie-Befund
