@@ -533,7 +533,7 @@
       "min": 43.99,
       "max": 107.98,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_paht_cf_3djake"
       ],
@@ -577,6 +577,13 @@
         }
       },
       {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_paht_cf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -588,13 +595,6 @@
           "de": "2 Angebote: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 € · Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 €",
           "en": "2 offers: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 € · Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 €"
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

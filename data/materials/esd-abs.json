@@ -518,7 +518,7 @@
       "min": 28.99,
       "max": 119.99,
       "unit": "€/kg",
-      "conditions": "Median aus 4 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 4 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_esd_abs_3djake"
       ],
@@ -562,6 +562,13 @@
         }
       },
       {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_esd_abs_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -573,13 +580,6 @@
           "de": "4 Angebote: eSUN ABS-ESD Black, 1 kg, 28,99 € · Nobufil ABSx ESD Black, 0,5 kg, 49,99 € · Fiberlogy ABS ESD Black, 1 kg, 114,99 € · Prusa Buddy3D ABS ESD Black, 0,75 kg, 89,99 €",
           "en": "4 offers: eSUN ABS-ESD Black, 1 kg, 28.99 € · Nobufil ABSx ESD Black, 0.5 kg, 49.99 € · Fiberlogy ABS ESD Black, 1 kg, 114.99 € · Prusa Buddy3D ABS ESD Black, 0.75 kg, 89.99 €"
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

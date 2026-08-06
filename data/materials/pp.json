@@ -594,7 +594,7 @@
       "min": 49.5,
       "max": 51,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten EINES Händlers (fiberlogy), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_pp_fiberlogy"
       ],
@@ -644,19 +644,6 @@
         }
       },
       {
-        "id": "src_price_pp_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PP",
-        "url": "https://fiberlogy.com/en_US/c/PP/168",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Fiberlogy PP, 2,5 kg, 123,74 € · Fiberlogy PP, 0,75 kg, 38,25 €",
-          "en": "2 offers: Fiberlogy PP, 2.5 kg, 123.74 € · Fiberlogy PP, 0.75 kg, 38.25 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -680,6 +667,19 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_price_pp_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PP",
+        "url": "https://fiberlogy.com/en_US/c/PP/168",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fiberlogy PP, 2,5 kg, 123,74 € · Fiberlogy PP, 0,75 kg, 38,25 €",
+          "en": "2 offers: Fiberlogy PP, 2.5 kg, 123.74 € · Fiberlogy PP, 0.75 kg, 38.25 €"
         }
       }
     ]

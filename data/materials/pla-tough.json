@@ -596,7 +596,7 @@
       "min": 25.62,
       "max": 34.98,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten EINES Händlers (fiberlogy), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_pla_tough_fiberlogy"
       ],
@@ -649,19 +649,6 @@
         }
       },
       {
-        "id": "src_price_pla_tough_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PLA-Tough",
-        "url": "https://fiberlogy.com/en_US/c/Impact-PLA/142",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Fiberlogy Impact PLA, 0,85 kg, 21,78 € · Fiberlogy Impact PLA, 2,5 kg, 87,45 €",
-          "en": "2 offers: Fiberlogy Impact PLA, 0.85 kg, 21.78 € · Fiberlogy Impact PLA, 2.5 kg, 87.45 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -681,6 +668,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pla_tough_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PLA-Tough",
+        "url": "https://fiberlogy.com/en_US/c/Impact-PLA/142",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fiberlogy Impact PLA, 0,85 kg, 21,78 € · Fiberlogy Impact PLA, 2,5 kg, 87,45 €",
+          "en": "2 offers: Fiberlogy Impact PLA, 0.85 kg, 21.78 € · Fiberlogy Impact PLA, 2.5 kg, 87.45 €"
+        }
       }
     ],
     "openQuestions": [

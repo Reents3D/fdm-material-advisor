@@ -835,7 +835,7 @@
       "min": 15.99,
       "max": 35.9,
       "unit": "€/kg",
-      "conditions": "Median aus 15 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 15 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_petg_3djake",
         "src_price_petg_fiberlogy",
@@ -913,45 +913,6 @@
         }
       },
       {
-        "id": "src_price_petg_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PETG",
-        "url": "https://www.3djake.de/filament/petg",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "7 Angebote: eSUN PETG Black, 1 kg, 15,99 € · Polymaker PETG Black, 1 kg, 19,99 € · Bambu Lab PETG Basic Black, 1 kg, 22,99 € · Fiberlogy Easy PETG Black, 0,85 kg, 19,99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24,99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29,99 € · Extrudr PETG Schwarz, 1,1 kg, 39,49 €",
-          "en": "7 offers: eSUN PETG Black, 1 kg, 15.99 € · Polymaker PETG Black, 1 kg, 19.99 € · Bambu Lab PETG Basic Black, 1 kg, 22.99 € · Fiberlogy Easy PETG Black, 0.85 kg, 19.99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24.99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29.99 € · Extrudr PETG Schwarz, 1.1 kg, 39.49 €"
-        }
-      },
-      {
-        "id": "src_price_petg_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PETG",
-        "url": "https://extrudr.com/de/de/products/xpetg-matt/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "3 Angebote: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1,1 kg, 38,68 €",
-          "en": "3 offers: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1.1 kg, 38.68 €"
-        }
-      },
-      {
-        "id": "src_price_petg_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PETG",
-        "url": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "5 Angebote: Fiberlogy Easy PETG Refill, 0,85 kg, 15,47 € · Fiberlogy Easy PETG, 2,5 kg, 54,37 € · Fiberlogy Easy PETG, 0,85 kg, 19,56 € · Fiberlogy Matte PETG, 2,5 kg, 73,31 € · Fiberlogy Matte PETG, 0,85 kg, 27,68 €",
-          "en": "5 offers: Fiberlogy Easy PETG Refill, 0.85 kg, 15.47 € · Fiberlogy Easy PETG, 2.5 kg, 54.37 € · Fiberlogy Easy PETG, 0.85 kg, 19.56 € · Fiberlogy Matte PETG, 2.5 kg, 73.31 € · Fiberlogy Matte PETG, 0.85 kg, 27.68 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -971,6 +932,45 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_petg_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PETG",
+        "url": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: eSUN PETG Black, 1 kg, 15,99 € · Polymaker PETG Black, 1 kg, 19,99 € · Bambu Lab PETG Basic Black, 1 kg, 22,99 € · Fiberlogy Easy PETG Black, 0,85 kg, 19,99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24,99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29,99 € · Extrudr PETG Schwarz, 1,1 kg, 39,49 €",
+          "en": "7 offers: eSUN PETG Black, 1 kg, 15.99 € · Polymaker PETG Black, 1 kg, 19.99 € · Bambu Lab PETG Basic Black, 1 kg, 22.99 € · Fiberlogy Easy PETG Black, 0.85 kg, 19.99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24.99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29.99 € · Extrudr PETG Schwarz, 1.1 kg, 39.49 €"
+        }
+      },
+      {
+        "id": "src_price_petg_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PETG",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: Fiberlogy Easy PETG Refill, 0,85 kg, 15,47 € · Fiberlogy Easy PETG, 2,5 kg, 54,37 € · Fiberlogy Easy PETG, 0,85 kg, 19,56 € · Fiberlogy Matte PETG, 2,5 kg, 73,31 € · Fiberlogy Matte PETG, 0,85 kg, 27,68 €",
+          "en": "5 offers: Fiberlogy Easy PETG Refill, 0.85 kg, 15.47 € · Fiberlogy Easy PETG, 2.5 kg, 54.37 € · Fiberlogy Easy PETG, 0.85 kg, 19.56 € · Fiberlogy Matte PETG, 2.5 kg, 73.31 € · Fiberlogy Matte PETG, 0.85 kg, 27.68 €"
+        }
+      },
+      {
+        "id": "src_price_petg_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PETG",
+        "url": "https://extrudr.com/de/de/products/xpetg-matt/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1,1 kg, 38,68 €",
+          "en": "3 offers: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1.1 kg, 38.68 €"
+        }
       }
     ],
     "openQuestions": [

@@ -629,19 +629,6 @@
         }
       },
       {
-        "id": "src_price_pctg_gf_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PCTG-GF",
-        "url": "https://fiberlogy.com/en_US/c/PCTG-GF/164",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Fiberlogy PCTGGF10, 0,75 kg, 47,97 €",
-          "en": "1 offer: Fiberlogy PCTGGF10, 0.75 kg, 47.97 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -665,6 +652,19 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_price_pctg_gf_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PCTG-GF",
+        "url": "https://fiberlogy.com/en_US/c/PCTG-GF/164",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fiberlogy PCTGGF10, 0,75 kg, 47,97 €",
+          "en": "1 offer: Fiberlogy PCTGGF10, 0.75 kg, 47.97 €"
         }
       }
     ]

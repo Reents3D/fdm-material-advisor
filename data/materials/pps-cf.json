@@ -598,7 +598,7 @@
       "min": 135,
       "max": 178.65,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pps_cf_3djake",
         "src_price_pps_cf_bambu_eu"
@@ -643,6 +643,13 @@
         }
       },
       {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_pps_cf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -667,13 +674,6 @@
           "de": "1 Angebot: Bambu Lab PPS-CF, 0,75 kg, 133,99 €",
           "en": "1 offer: Bambu Lab PPS-CF, 0.75 kg, 133.99 €"
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [
