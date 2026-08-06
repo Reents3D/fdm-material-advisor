@@ -492,8 +492,9 @@ diese Vorlage nennt die Datenlage.
 
 ### Was von den elf übrig bleibt
 
-1. **`ppa-cf`** — der größte fachliche Zugewinn, aber nur eine Quelle. Jetzt an erster
-   Stelle
+1. ~~`ppa-cf`~~ — **gebaut am 2026-08-05.** 42. Werkstofftyp, 66 belegte Aussagen, davon
+   24 Bewertungsskalen. Zwei offene Fragen stehen am Datensatz: die fehlende zweite Quelle
+   und der fehlende Preis
 2. **PCL** — erst nach einer zweiten Quelle
 3. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
 4. ~~`pva`, BVOH, 4× Support~~ — entschieden: wird nicht gebraucht (2026-08-05)
@@ -523,6 +524,18 @@ entscheidbar.
 hervorragendes Material; es ist nur keines für den Leser dieses Werkzeugs. Sollte sich der
 Markt ändern — Hochtemperatur-Hotends sind in den letzten Jahren deutlich billiger
 geworden —, gehört die Schwelle nachgezogen und nicht die Entscheidung verteidigt.
+
+### Eine harte Grenze, die beim Bau von `ppa-cf` sichtbar wurde
+
+Ein Werkstofftyp kostet **rund 10 kB gzip im Erstaufruf-Bündel**. Mit `ppa-cf` als 42.
+Typ steht der Erstaufruf bei 305,5 von 320 kB, also bei 95 % des Budgets — es bleiben
+etwa **anderthalb weitere Typen**, dann ist Schluss.
+
+Das ist keine Warnung vor dem nächsten Typ, sondern die Ansage, dass davor eine
+Entscheidung fällig wird. Naheliegend wäre, die Werkstoffdaten wie die Produktdaten in
+einen nachgeladenen Teil zu verschieben (ADR-036 hat das für die Produkte bereits
+gemacht: `products-*.js` ist heute 143 kB gzip und wird erst bei Bedarf geladen). Solange
+das nicht passiert ist, gilt: **vor dem nächsten Werkstofftyp erst das Bündel aufteilen.**
 
 ---
 

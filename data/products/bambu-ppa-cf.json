@@ -1,0 +1,277 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "bambu-ppa-cf",
+  "materialId": "ppa-cf",
+  "brand": "Bambu Lab",
+  "manufacturer": "Bambu Lab",
+  "productName": "Bambu PPA-CF",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Prüfkörper GEDRUCKT, und das Blatt nennt die Bedingungen vollständig: 290 °C Düse, 110 °C Bett. Alle mechanischen Kennwerte sind getrennt nach X-Y und Z ausgewiesen.",
+    "en": "Specimens PRINTED, and the sheet states the conditions in full: 290 °C nozzle, 110 °C bed. All mechanical values are reported separately for X-Y and Z."
+  },
+  "features": {
+    "de": "Das einzige Produkt dieses Werkstofftyps im Bestand — der Typ und dieses Produkt sind derzeit dasselbe. Spulengröße 0,75 kg auf Karton, Spule bis 145 °C temperaturbeständig, was zum Trocknen im Ofen bei 100 bis 140 °C passt.",
+    "en": "The only product of this material type in the dataset — the type and this product are currently the same thing. Spool size 0.75 kg on cardboard, spool temperature-resistant to 145 °C, which fits oven drying at 100 to 140 °C."
+  },
+  "datasheet": {
+    "title": "Bambu PPA-CF — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambus_PPA-CF_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
+  },
+  "productUrl": "https://eu.store.bambulab.com/collections/all",
+  "properties": {
+    "density": {
+      "value": 1.25,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "meltFlowRate": {
+      "value": 8.4,
+      "unit": "g/10min",
+      "tolerance": 0.7,
+      "conditions": "280 °C, 2,16 kg",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 258,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": 85,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "vicatA": {
+      "value": 232,
+      "unit": "°C",
+      "testStandard": "ISO 306 / GB/T 1633",
+      "conditions": "Blatt nennt die Methode nicht (A oder B); als A geführt",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 196,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,8 MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 227,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,45 MPa",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "waterAbsorption": {
+      "value": 1.3,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 11800,
+      "unit": "MPa",
+      "tolerance": 670,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 4300,
+      "unit": "MPa",
+      "tolerance": 340,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 168,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 57,
+      "unit": "MPa",
+      "tolerance": 5,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 3.2,
+      "unit": "%",
+      "tolerance": 0.4,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.9,
+      "unit": "%",
+      "tolerance": 0.2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 9860,
+      "unit": "MPa",
+      "tolerance": 480,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 3240,
+      "unit": "MPa",
+      "tolerance": 360,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 208,
+      "unit": "MPa",
+      "tolerance": 6,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthZ": {
+      "value": 63,
+      "unit": "MPa",
+      "tolerance": 4,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 41.7,
+      "unit": "kJ/m²",
+      "tolerance": 2.8,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 6.5,
+      "unit": "kJ/m²",
+      "tolerance": 2.3,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 4.3,
+      "unit": "kJ/m²",
+      "tolerance": 0.4,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 295,
+      "unit": "°C",
+      "min": 280,
+      "max": 310,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 110,
+      "unit": "°C",
+      "min": 100,
+      "max": 120,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "chamberTemperature": {
+      "value": 65,
+      "unit": "°C",
+      "min": 50,
+      "max": 80,
+      "conditions": "Herstellerempfehlung",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "dryingTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "min": 100,
+      "max": 140,
+      "conditions": "Umluft-Trockenofen, 8 bis 12 h",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "printSpeed": {
+      "value": 100,
+      "unit": "mm/s",
+      "conditions": "Blattangabe „< 100 mm/s“ — Obergrenze",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    },
+    "minNozzleDiameter": {
+      "value": 0.4,
+      "unit": "mm",
+      "conditions": "0,4 / 0,6 (empfohlen) / 0,8 mm",
+      "source": "src_bambu_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Bambu Lab",
+        "productName": "Bambu PPA-CF",
+        "title": "Bambu PPA-CF — Technical Data Sheet",
+        "documentVersion": "V1.0",
+        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambus_PPA-CF_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
+        "confidenceCeiling": "high",
+        "note": {
+          "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",
+          "en": "Manufacturer datasheet with printed specimens, both orientations and scatter figures. Verify against the linked original document."
+        }
+      }
+    ]
+  }
+}

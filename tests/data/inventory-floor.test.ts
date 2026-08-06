@@ -59,18 +59,24 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Nachstellen zeigte sich, dass `derive:chemicals` fuer abs-gf, pctg-gf und pla-cf
    Bewertungen erzeugt, die im eingecheckten Stand fehlten - 63 Stueck. Der Bestand war
    also nicht nur gefaehrdet, sondern an dieser Stelle schon veraltet. Ein Beleg dafuer,
-   dass ein Test ueber die Masse mehr findet als den Fall, fuer den er gebaut wurde. */
+   dass ein Test ueber die Masse mehr findet als den Fall, fuer den er gebaut wurde.
+
+   `materialsWithPrice` bleibt bei 41, obwohl es 42 Werkstoffe gibt: `ppa-cf` hat keinen
+   Preis, weil die Ableitung im OFD-Marktbestand keine Entsprechung findet - PPA wird dort
+   als Werkstoffklasse noch nicht gefuehrt. Der Fall steht als offene Frage
+   `oq_ppa_cf_price` am Datensatz; die Untergrenze bleibt deshalb bewusst unter der Zahl
+   der Werkstoffe. */
 const FLOOR = {
-  materials: 41,
-  products: 239,
+  materials: 42,
+  products: 240,
   brands: 16,
-  datasheets: 217,
-  materialFacts: 2894,
-  productValues: 1987,
-  chemicalRatings: 861,
+  datasheets: 218,
+  materialFacts: 2983,
+  productValues: 2008,
+  chemicalRatings: 882,
   materialsWithPrice: 41,
-  anisotropyFactors: 18,
-  openQuestions: 73,
+  anisotropyFactors: 19,
+  openQuestions: 75,
 };
 
 const actual = {

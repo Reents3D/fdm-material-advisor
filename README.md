@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**41 Werkstofftypen · 239 Produkte von 16 Marken · 2.894 belegte Einzelaussagen ·
+**42 Werkstofftypen · 240 Produkte von 16 Marken · 2.983 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
@@ -34,7 +34,7 @@ FDM-Bauteil ist der gedruckte Wert der ehrliche.
 
 Ein FDM-Bauteil ist senkrecht zur Schicht schwächer als in der Ebene. Wie viel schwächer,
 steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-Wert
-überhaupt angibt — bei 18 von 41 Werkstofftypen:
+überhaupt angibt — bei 19 von 42 Werkstofftypen:
 
 | Material | Zug X-Y | Zug Z | **bleibt in Z** |
 |---|---:|---:|---:|
@@ -46,6 +46,7 @@ steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-W
 | PLA-CF | 31 MPa | 15 MPa | **48 %** |
 | PA6-CF | 102 MPa | 48 MPa | **47 %** |
 | **PA6-GF** | **75 MPa** | **27 MPa** | **36 %** |
+| **PPA-CF** | **168 MPa** | **57 MPa** | **34 %** |
 | PPS-CF | 87 MPa | 24 MPa | **28 %** |
 
 Die faserverstärkten Hochleistungswerkstoffe verlieren senkrecht zur Schicht **die Hälfte
@@ -59,7 +60,7 @@ hält nur die Matrix, weshalb PA6-GF auf 36 % fällt. Ein weiches TPU verschwei�
 gut, weil die Schmelze länger fließfähig bleibt und die Grenzfläche nicht als
 Sprödbruchebene wirkt; es hält 88 %.
 
-Dass nur 18 von 41 Typen hier stehen, ist selbst ein Befund: **23 Hersteller nennen den
+Dass nur 19 von 42 Typen hier stehen, ist selbst ein Befund: **23 Hersteller nennen den
 Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 
 ### 3. Sie füllen jede Zelle, auch ohne Quelle
@@ -67,7 +68,7 @@ Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 Eine vollständig gefüllte Tabelle sieht professionell aus. Sie ist meist geraten.
 
 Hier trägt jeder Wert eine Konfidenzstufe, und geschätzte Werte sind in der Oberfläche
-sichtbar markiert. Über die gesamte Datenbank, 2.894 Einzelaussagen:
+sichtbar markiert. Über die gesamte Datenbank, 2.983 Einzelaussagen:
 
 | Konfidenz | Anteil | bedeutet |
 |---|---:|---|
