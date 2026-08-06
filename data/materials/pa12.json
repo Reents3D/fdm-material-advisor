@@ -479,7 +479,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 3,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -560,7 +560,7 @@
       "min": 60.99,
       "max": 135,
       "unit": "€/kg",
-      "conditions": "Median aus 10 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 13 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa12_3djake",
         "src_price_pa12_fillamentum",
@@ -568,8 +568,8 @@
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 10 Listenpreise von 4 Marken (Fiberlogy, Fillamentum, eSUN, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 10 list prices from 4 brands (Fiberlogy, Fillamentum, eSUN, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 4 Marken (Fiberlogy, Fillamentum, eSUN, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 13 list prices from 4 brands (Fiberlogy, Fillamentum, eSUN, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -607,8 +607,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 € · eSUN PA12 White, 1 kg, 69,99 €",
-          "en": "3 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 € · eSUN PA12 White, 1 kg, 69.99 €"
+          "de": "6 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0,75 kg, 46,99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0,75 kg, 51,99 € · eSUN PA12 White, 1 kg, 69,99 €",
+          "en": "6 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0.75 kg, 46.99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0.75 kg, 51.99 € · eSUN PA12 White, 1 kg, 69.99 €"
         }
       },
       {

@@ -399,7 +399,231 @@ const SHOPS = [
       return out;
     },
   },
+
+  /**
+   * 3DJAKE — aufgenommen am 2026-08-06, und diesmal ist es KEIN Herstellershop.
+   *
+   * WARUM DER BRUCH MIT DEM MUSTER
+   * Zweimal hat die Frage "welche MARKE liefert die duennen Werkstoffe?" zu einem
+   * Herstellershop gefuehrt. Diesmal fuehrt sie ins Leere: Die vier Marken, die die
+   * verbleibenden Luecken abdecken - Bambu Lab, FormFutura, Spectrum, Fiberlogy - sind
+   * als Preisquelle alle nicht verfuegbar.
+   *
+   *   Bambu Lab EU   beantwortet die robots.txt nicht. `eu.store.bambulab.com/robots.txt`
+   *                  liefert eine 302 auf `eu.store.bambulab.combots.txt` - eine Adresse,
+   *                  die es nicht gibt. Auch `/en/`, `/de-de/` und Grossschreibung fuehren
+   *                  zu 302 oder 404. Die Schwesterhosts `us.` und `asia.` liefern eine
+   *                  regulaere Shopify-robots.txt, die Anthropics Agenten ausdruecklich
+   *                  MITZAEHLT statt sie zu sperren - aber deren Preise sind Dollar- und
+   *                  Asienpreise, keine europaeischen. Ein umgerechneter Dollarpreis waere
+   *                  derselbe Fehler wie ein geratenes Spulengewicht: eine Zahl, die
+   *                  aussieht wie eine Erhebung und keine ist. Geprueft 2026-08-06.
+   *   FormFutura     erlaubt allen (`User-agent: * / Allow: /`), sperrt aber `ClaudeBot`
+   *                  namentlich mit `Disallow: /`. Der Betreiber hat sich zu Anthropics
+   *                  Agenten geaeussert, und die Aeusserung ist ein Nein. Dass dieses
+   *                  Skript einen anderen User-Agent traegt, ist eine Formalie, kein
+   *                  Argument. Geprueft 2026-08-06.
+   *   Spectrum       kein eigener Direktverkauf mit maschinenlesbaren Preisen geprueft.
+   *   Fiberlogy      Direktverkauf eingestellt, siehe oben.
+   *
+   * Bleibt der Haendler. 3DJAKE (Niceshops GmbH) fuehrt alle vier Marken, und seine
+   * robots.txt sperrt genau zwei Pfade - `/kunden/*` und `/webshop/*` - fuer alle
+   * Agenten gleich. Kein KI-Agent ist namentlich genannt, weder erlaubt noch verboten.
+   * Produktseiten tragen vollstaendiges JSON-LD nach schema.org mit Preis, Waehrung,
+   * Verfuegbarkeit und dem Spulengewicht im Produktnamen. Geprueft 2026-08-06.
+   *
+   * WAS DAS FUER DIE ERHEBUNG BEDEUTET
+   * Ein Haendler ist ein Anbieter, egal wie viele Marken er fuehrt - `derive-price.mjs`
+   * zaehlt Anbieter, nicht Marken. 3DJAKE bringt deshalb fuer keinen Werkstoff mehr als
+   * EINEN zusaetzlichen Anbieter. Genau das ist aber, was fehlt: 15 Werkstoffe hingen an
+   * einem einzigen Haendler, und ADR-040 hat gemessen, dass so ein Einzelfund im Mittel
+   * 6,6 Rangpunkte zu guenstig liegt.
+   *
+   * WARUM NUR DREI FARBEN JE PRODUKTLINIE
+   * Spectrum fuehrt LW-ASA UltraFoam in sieben Farben zum selben Preis. Alle sieben
+   * aufzunehmen wuerde den Median nicht genauer machen, sondern ihn zu einer Aussage
+   * ueber EINE Produktlinie verzerren - und es waere ein knappes Dutzend Abrufe fuer eine
+   * einzige Zahl. Drei genuegen, um einen Ausreisser zu erkennen.
+   */
+  {
+    id: "3djake",
+    name: "3DJAKE",
+    country: "AT",
+    url: "https://www.3djake.de/",
+    robots: "Allow: / — gesperrt sind nur /kunden/* und /webshop/*, kein KI-Agent namentlich genannt. Geprüft 2026-08-06",
+    /* Ein Haendler, viele Marken: die Marke steht am Angebot, nicht am Shop. */
+    brand: null,
+    async collect(ctx) {
+      const xml = await ctx.get("https://www.3djake.de/sitemap-p.xml"); ctx.counted();
+      const paths = [...xml.matchAll(/<loc>https:\/\/www\.3djake\.de\/([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+      const picked = [];
+      const perLine = new Map();
+      for (const p of paths) {
+        const mid = jakeMaterialOf(p);
+        if (!mid) continue;
+        const brand = JAKE_BRANDS[p.split("/")[0]];
+        if (!brand) continue;
+        const key = `${brand}|${mid}`;
+        const n = perLine.get(key) ?? 0;
+        if (n >= JAKE_MAX_COLOURS) continue;
+        perLine.set(key, n + 1);
+        picked.push({ path: p, mid, brand });
+      }
+      ctx.log(`${paths.length} Produktseiten, ${picked.length} ausgewählt (${perLine.size} Marke-Werkstoff-Paare, max. ${JAKE_MAX_COLOURS} Farben je Paar)`);
+
+      const out = [];
+      let noWeight = 0, outOfStock = 0;
+      for (const it of picked) {
+        await ctx.wait();
+        const url = `https://www.3djake.de/${it.path}`;
+        let html;
+        try { html = await ctx.get(url); ctx.counted(); } catch (e) { ctx.skip(`${it.path}: ${e.message}`); continue; }
+        const text = html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
+        for (const p of jsonLdProducts(html)) {
+          const offers = Array.isArray(p.offers) ? p.offers : p.offers ? [p.offers] : [];
+          for (const o of offers) {
+            /* Ein Preis, den man nicht bezahlen kann, ist ein schwaecherer Beleg als
+               einer, den man bezahlen kann - dieselbe Regel wie bei den Shopify-Shops
+               oben, die nicht verfuegbare Varianten ueberspringen. */
+            if (o.availability && !/InStock|LimitedAvailability|PreOrder/i.test(String(o.availability))) { outOfStock++; continue; }
+            if ((o.priceCurrency ?? "EUR") !== "EUR") continue;
+            const price = Number(o.price);
+            const kg = jakeSpoolKg(String(p.name ?? ""), text);
+            if (!Number.isFinite(price) || price <= 0) continue;
+            if (!kg) { noWeight++; continue; }
+            out.push({ mid: it.mid, brand: it.brand, product: String(p.name), spoolKg: kg, priceEur: price, url });
+          }
+        }
+      }
+      ctx.log(`  ${out.length} Angebote übernommen · ${outOfStock} nicht lieferbar · ${noWeight} ohne Spulengewicht`);
+      return out;
+    },
+  },
 ];
+
+/** Wie viele Farben je Marke und Werkstoff. Begruendung im Shop-Kommentar oben. */
+const JAKE_MAX_COLOURS = 3;
+
+/** Pfadsegment bei 3DJAKE -> Markenname, wie er im Bestand steht. */
+const JAKE_BRANDS = {
+  "bambu-lab": "Bambu Lab",
+  extrudr: "Extrudr",
+  fiberlogy: "Fiberlogy",
+  formfutura: "FormFutura",
+  spectrum: "Spectrum",
+};
+
+/**
+ * 3DJAKE-Zuordnung: `marke/slug` -> Werkstofftyp.
+ *
+ * Aufgenommen ist nur, was die Luecke schliesst - ein zweiter Haendler fuer `pla` bringt
+ * nichts, `pla` hat fuenf. Und aufgenommen ist nur, was EINDEUTIG ist. Die Fallen, die
+ * beim Durchsehen der 2.687 Produktadressen dieser fuenf Marken auffielen:
+ *
+ *   formfutura/abspro-flame-retardant     ist ABS FR, nicht PC-FR
+ *   formfutura/engineering-sla-series-*   sind SLA-HARZE, kein Filament
+ *   bambu-lab/pla-aero-*                  ist PLA Aero, nicht ASA Aero
+ *   bambu-lab/*-pvc-sheet, *acrylic-sheet Zuschnitte, kein Filament
+ *   spectrum/pc-ptfe-*                    PC/PTFE-Blend, nicht PC
+ *   spectrum/pla-esd-*, fiberlogy/abs-esd ESD-Typen anderer Grundpolymere
+ *   extrudr/durapro-pc-pbt-cf-*           die CF-Variante, die es als Typ nicht gibt
+ *   spectrum/refill-*                     Nachfuellungen ohne Spule sind je Kilo
+ *                                         billiger und wuerden den Median druecken
+ *
+ * Reihenfolge entscheidet, gefuellt vor ungefuellt. Was hier nicht steht, wird verworfen.
+ */
+const JAKE_MATCH = [
+  /* Nachfuellungen und Zuschnitte zuerst aussortieren. */
+  [/^[a-z-]+\/refill-/, null],
+  [/-(sheet|platte)(-|$)/, null],
+
+  [/^formfutura\/easyfiltm-hips-/, "hips"],
+  [/^fiberlogy\/hips-/, "hips"],
+  [/^spectrum\/hips-x-/, "hips"],
+
+  [/^formfutura\/centaur-pp-/, "pp"],
+
+  [/^spectrum\/pa6-neat-/, "pa6"],
+  [/^formfutura\/styx-pa6-(?!gf)/, "pa6"],
+
+  [/^fiberlogy\/nylon-pa12cf/, "pa12-cf"],
+  [/^spectrum\/pa12-cf/, "pa12-cf"],
+  [/^extrudr\/durapro-pa12-cf-/, "pa12-cf"],
+  [/^fiberlogy\/nylon-pa12-/, "pa12"],
+  [/^extrudr\/durapro-pa12-/, "pa12"],
+
+  [/^bambu-lab\/paht-cf-/, "paht-cf"],
+  [/^bambu-lab\/pps-cf-/, "pps-cf"],
+  [/^bambu-lab\/ppa-cf-/, "ppa-cf"],
+  [/^bambu-lab\/abs-gf-/, "abs-gf"],
+
+  [/^bambu-lab\/pc-fr-/, "pc-fr"],
+  [/^bambu-lab\/pc-(white|black|clear|transparent|gray|grey)/, "pc"],
+  [/^spectrum\/pc-275-/, "pc"],
+  [/^fiberlogy\/pc-abs-/, "abs-pc"],
+  [/^extrudr\/durapro-pc-pbt-(?!cf)/, "pc-pbt"],
+
+  [/^extrudr\/xpetg-cf-/, "petg-cf"],
+  [/^bambu-lab\/petg-cf-/, "petg-cf"],
+  [/^spectrum\/carbon-petg/, "petg-cf"],
+
+  [/^bambu-lab\/pla-cf-/, "pla-cf"],
+  [/^bambu-lab\/pla-tough-/, "pla-tough"],
+  [/^spectrum\/pla-tough-/, "pla-tough"],
+
+  [/^spectrum\/pctg-gf/, "pctg-gf"],
+  [/^fiberlogy\/pctggf/, "pctg-gf"],
+  [/^spectrum\/peba-/, "peba"],
+
+  [/^extrudr\/tpu-medium-esd-/, "tpu-esd"],
+  [/^extrudr\/tpu-hard-/, "tpu-58d"],
+  [/^extrudr\/tpu-semi-soft-/, "tpu-85a"],
+
+  /* Spectrums LW-ASA UltraFoam ist wie Bambus ASA Aero ein schaeumendes ASA fuer
+     Leichtbau - dieselbe Werkstoffklasse, derselbe Zweck. Bambu selbst fuehrt sein ASA
+     Aero bei 3DJAKE nicht. */
+  [/^spectrum\/lw-asa-ultrafoam-/, "asa-aero"],
+];
+
+function jakeMaterialOf(pathname) {
+  for (const [re, id] of JAKE_MATCH) if (re.test(pathname)) return id;
+  return null;
+}
+
+/**
+ * Spulengewicht bei 3DJAKE - es steht an zwei Stellen, und keine Seite hat beide.
+ *
+ * Der uebliche Fall traegt es im Produktnamen und damit im JSON-LD:
+ *   "Extrudr TPU hard Schwarz, 1,75 mm / 750 g"
+ *
+ * Bei Bambu Lab, Spectrum und Fiberlogy endet der JSON-LD-Name dagegen vor der Zahl:
+ *   "Bambu Lab ABS-GF Black, Spule"       "Spectrum PLA Tough Polar White, 1,75 mm"
+ *
+ * Das Gewicht fehlt aber nicht, es steht nur in der laengeren Titelfassung, die der Shop
+ * in seinen Produktkacheln verwendet:
+ *   "Bambu Lab ABS-GF Black, Spule (1.000 g)"
+ *
+ * Deshalb wird der JSON-LD-Name als Anker genommen und geprueft, ob im Seitentext direkt
+ * dahinter eine Klammer mit Gewicht steht. Das ist kein Raten und keine Naeherung: Es ist
+ * derselbe Produkttitel, nur ungekuerzt. Ohne Treffer bleibt es bei `null`, und der
+ * Aufrufer verwirft das Angebot - die Regel aus dem Fillamentum-Lauf gilt unveraendert.
+ *
+ * An zehn Seiten geprueft (2026-08-06): fuenf tragen die Zahl im Namen, fuenf in der
+ * Klammer, keine in beiden, keine in keiner.
+ */
+function jakeSpoolKg(name, pageText) {
+  const fromName = spoolKg(name);
+  if (fromName) return fromName;
+  if (!name) return null;
+  const anchor = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const m = new RegExp(`${anchor}\\s*\\(([0-9][0-9.,]*)\\s*(g|kg)\\)`, "i").exec(pageText);
+  if (!m) return null;
+  /* Deutsche Schreibweise: Punkt trennt Tausender ("1.000 g"), Komma die Dezimalen. */
+  const n = Number(m[1].replace(/\./g, "").replace(",", "."));
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return m[2].toLowerCase() === "kg" ? n : n / 1000;
+}
 
 /**
  * Spulengewicht aus einem Shopify-Variantentitel.
@@ -495,7 +719,9 @@ for (const shop of SHOPS) {
   survey.retailers[shop.id] = { name: shop.name, country: shop.country, url: shop.url, robots: shop.robots };
   for (const o of offers) {
     (survey.offers[o.mid] ??= []).push({
-      retailer: shop.id, brand: shop.brand, product: o.product,
+      /* Ein Haendler kann viele Marken fuehren. Wo das Angebot seine Marke selbst
+         mitbringt, gilt sie; sonst die des Shops. */
+      retailer: shop.id, brand: o.brand ?? shop.brand, product: o.product,
       spoolKg: o.spoolKg, priceEur: o.priceEur,
       pricePerKg: Math.round((o.priceEur / o.spoolKg) * 100) / 100,
       listingUrl: o.url, retrievedAt: today(), collectedBy: "survey-prices",

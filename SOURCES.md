@@ -321,10 +321,13 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   |---|---|---|---|---|---|---|
   | Stand 2026-08-05 | 9 | 14 | 8 | 10 | 1 | **0** |
   | mit Material4Print | 12 | 5 | 16 | 8 | 1 | **0** |
-  | **mit Fillamentum** | 12 | **5** | **16** | 5 | 3 | **1** |
+  | mit Fillamentum | 12 | 5 | 16 | 5 | 3 | **1** |
+  | **mit 3DJAKE** | **2** | 12 | **16** | **7** | **4** | **1** |
 
-  Werkstoffe mit mindestens zwei Händlern: 19 → **25**. Preiskonfidenz `medium` 11 → **16**,
-  `low` 22 → **14**. **`asa` erreicht als erster Werkstoff die geforderten fünf Händler.**
+  Werkstoffe mit mindestens zwei Händlern: 19 → 25 → **28**. Preiskonfidenz `medium`
+  11 → 16 → **25**, geschätzt 8 → **2**. **`asa` erreicht als erster Werkstoff die
+  geforderten fünf Händler**, und mit `ppa-cf` hat zum ersten Mal **jeder der 42 Typen
+  einen Preis**.
 
   **Fillamentum (aufgenommen 2026-08-06)** stand mit acht dünnen Werkstoffen an zweiter
   Stelle. Verkauft wird nicht auf `fillamentum.com` — die Herstellerseite nennt nur
@@ -395,6 +398,42 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   Mit jedem neuen Händler wächst die Stichprobe. Die Zahlen bleiben aber eine Aussage über
   *diese* Erhebung, nicht über Preisschätzungen im Allgemeinen — Messgerät und Messobjekt
   sind derselbe Datenbestand.
+
+  **3DJAKE (aufgenommen 2026-08-06) — und warum diesmal kein Herstellershop.**
+  Zweimal hatte die Frage *„welche Marke liefert die dünnen Werkstoffe?"* zu einem
+  Herstellershop geführt. Beim dritten Mal führt sie ins Leere: Die vier Marken, die die
+  verbliebenen Lücken abdecken, sind als Preisquelle alle nicht verfügbar.
+
+  | Kandidat | Lücken | Befund |
+  |---|---|---|
+  | Bambu Lab | 8 | `eu.store.bambulab.com/robots.txt` antwortet mit einer 302 auf `eu.store.bambulab.combots.txt` — eine Adresse, die es nicht gibt. Auch `/en/`, `/de-de/` und Großschreibung enden in 302 oder 404. Die Schwesterhosts `us.` und `asia.` liefern eine reguläre Shopify-robots.txt, die Anthropics Agenten ausdrücklich **mitzählt** statt sie zu sperren — aber deren Preise sind Dollar- und Asienpreise. |
+  | FormFutura | 6 | `User-agent: * / Allow: /`, aber `ClaudeBot: Disallow: /`. Der Betreiber hat sich zu Anthropics Agenten geäußert, und die Äußerung ist ein Nein. |
+  | Spectrum | 5 | kein geprüfter Direktverkauf mit maschinenlesbaren Preisen |
+  | Fiberlogy | 4 | Direktverkauf eingestellt, siehe oben |
+
+  Zum Bambu-Fall gehört eine Klarstellung: Ein umgerechneter Dollarpreis wäre derselbe
+  Fehler wie ein geratenes Spulengewicht — eine Zahl, die aussieht wie eine Erhebung und
+  keine ist. Der eine Bambu-Preis im Bestand bleibt deshalb der von Hand im Browser
+  abgelesene.
+
+  Bleibt der **Händler**. 3DJAKE (Niceshops GmbH) führt alle vier Marken; seine robots.txt
+  sperrt genau `/kunden/*` und `/webshop/*`, für alle gleich, und nennt keinen KI-Agenten
+  namentlich — weder erlaubt noch verboten. Produktseiten tragen JSON-LD nach schema.org
+  mit Preis, Währung und Verfügbarkeit.
+
+  **Das Spulengewicht steht an zwei Stellen, und keine Seite hat beide.** Der übliche Fall
+  trägt es im Produktnamen („Extrudr TPU hard Schwarz, 1,75 mm / 750 g"). Bei Bambu Lab,
+  Spectrum und Fiberlogy endet der JSON-LD-Name davor („Bambu Lab ABS-GF Black, Spule") —
+  im ersten Lauf fielen dadurch **31 von 72** Seiten durch. Die Zahl fehlt aber nicht, sie
+  steht in der längeren Titelfassung der Produktkacheln: „Bambu Lab ABS-GF Black, Spule
+  **(1.000 g)**". Mit dem JSON-LD-Namen als Anker sind es 0 von 72. An zehn Seiten
+  gegengeprüft: fünf tragen die Zahl im Namen, fünf in der Klammer, keine in beiden.
+
+  **Was 3DJAKE nicht ist: ein neuer Anbieter für alles.** Der Shop stand schon mit 87
+  handerhobenen Angeboten im Bestand. Neu sind 64 maschinell gelesene, und `derive-price`
+  zählt Anbieter, nicht Marken — für Werkstoffe, deren einziger Händler ohnehin 3DJAKE
+  war, ändert sich die Konfidenz nicht. Ohne Preisquelle bleiben `obc` und `pvdf`: beide
+  gibt es dort nicht als Filament.
 - Bewitterungsdaten (QUV/Xenon) — vermutlich nur über Fachliteratur (`oq_uv_data`)
 - Lackhaftung, Verklebbarkeit, XXL-Eignung → eigene Fertigungserfahrung Reents3D
 - ESD-Messungen zur Absicherung der `insulating`-Einstufung bei CF-Typen (`oq_esd_measurement`)

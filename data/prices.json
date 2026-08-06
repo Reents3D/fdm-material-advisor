@@ -13,8 +13,9 @@
   "retailers": {
     "3djake": {
       "name": "3DJAKE",
-      "country": "AT/DE",
-      "url": "https://www.3djake.de/"
+      "country": "AT",
+      "url": "https://www.3djake.de/",
+      "robots": "Allow: / — gesperrt sind nur /kunden/* und /webshop/*, kein KI-Agent namentlich genannt. Geprüft 2026-08-06"
     },
     "filamentworld": {
       "name": "Filamentworld",
@@ -7425,6 +7426,28 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PETG-CF Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 35.99,
+        "pricePerKg": 35.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/petg-cf-black-1",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PETG-CF Brick Red, Spule",
+        "spoolKg": 1,
+        "priceEur": 35.99,
+        "pricePerKg": 35.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/petg-cf-brick-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "extrudr",
         "brand": "Extrudr",
         "product": "XPETG CF black 1.75 mm 0.8 kg",
@@ -7444,6 +7467,28 @@
         "pricePerKg": 62.49,
         "listingUrl": "https://www.3djake.de/extrudr",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr XPETG CF Carbon, 1,75 mm / 800 g",
+        "spoolKg": 0.8,
+        "priceEur": 49.99,
+        "pricePerKg": 62.49,
+        "listingUrl": "https://www.3djake.de/extrudr/xpetg-cf-carbon",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum Carbon PETG, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 32.99,
+        "pricePerKg": 65.98,
+        "listingUrl": "https://www.3djake.de/spectrum/carbon-petg",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "fillamentum",
@@ -7730,6 +7775,28 @@
       },
       {
         "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PC 275 Lime Green, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 39.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/spectrum/pc-275-lime-green",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PC 275 Lion Orange, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 39.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/spectrum/pc-275-lion-orange",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
         "brand": "Bambu Lab",
         "product": "PC Black",
         "spoolKg": 1,
@@ -7737,6 +7804,39 @@
         "pricePerKg": 42.99,
         "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC White, Spule",
+        "spoolKg": 1,
+        "priceEur": 42.99,
+        "pricePerKg": 42.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-white-2",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 42.99,
+        "pricePerKg": 42.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-black-2",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC Clear Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 42.99,
+        "pricePerKg": 42.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-clear-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "3djake",
@@ -7800,6 +7900,39 @@
         "pricePerKg": 56.99,
         "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC FR White, Spule",
+        "spoolKg": 1,
+        "priceEur": 56.99,
+        "pricePerKg": 56.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-fr-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC FR Gray, Spule",
+        "spoolKg": 1,
+        "priceEur": 56.99,
+        "pricePerKg": 56.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-fr-gray",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PC FR Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 56.99,
+        "pricePerKg": 56.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pc-fr-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "filamentworld",
@@ -8130,6 +8263,17 @@
       },
       {
         "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy PC/ABS Natural, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 29.99,
+        "pricePerKg": 39.99,
+        "listingUrl": "https://www.3djake.de/fiberlogy/pc-abs-natural-1",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
         "brand": "Polymaker",
         "product": "PC-ABS Black",
         "spoolKg": 1,
@@ -8236,6 +8380,17 @@
         "pricePerKg": 71.99,
         "listingUrl": "https://www.3djake.de/filament/pc-polycarbonat",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr DuraPro PC/PBT White, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 53.99,
+        "pricePerKg": 71.99,
+        "listingUrl": "https://www.3djake.de/extrudr/durapro-pc-pbt-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "pa6-cf": [
@@ -8378,12 +8533,45 @@
       {
         "retailer": "3djake",
         "brand": "Fiberlogy",
+        "product": "Fiberlogy Nylon PA12 Natural, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 46.99,
+        "pricePerKg": 62.65,
+        "listingUrl": "https://www.3djake.de/fiberlogy/nylon-pa12-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 65.99,
+        "pricePerKg": 65.99,
+        "listingUrl": "https://www.3djake.de/fiberlogy/nylon-pa12-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
         "product": "Nylon PA12 Blue",
         "spoolKg": 0.75,
         "priceEur": 51.99,
         "pricePerKg": 69.32,
         "listingUrl": "https://www.3djake.de/filament/nylon",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy Nylon PA12 Blue, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 51.99,
+        "pricePerKg": 69.32,
+        "listingUrl": "https://www.3djake.de/fiberlogy/nylon-pa12-blue",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "fillamentum",
@@ -8483,6 +8671,39 @@
         "pricePerKg": 78.4,
         "listingUrl": "https://www.3djake.de/filament/nylon",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy Nylon PA12+CF, 2,85 mm / 2500 g",
+        "spoolKg": 2.5,
+        "priceEur": 195.99,
+        "pricePerKg": 78.4,
+        "listingUrl": "https://www.3djake.de/fiberlogy/nylon-pa12cf15",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PA12 CF15 Carbon Black, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 84.99,
+        "pricePerKg": 84.99,
+        "listingUrl": "https://www.3djake.de/spectrum/pa12-cf15-carbon-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g",
+        "spoolKg": 2,
+        "priceEur": 169.99,
+        "pricePerKg": 85,
+        "listingUrl": "https://www.3djake.de/extrudr/durapro-pa12-cf-schwarz",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       },
       {
         "retailer": "fillamentum",
@@ -8617,6 +8838,17 @@
         "retrievedAt": "2026-08-02"
       },
       {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PAHT-CF Black, 500 g / Spule",
+        "spoolKg": 0.5,
+        "priceEur": 53.99,
+        "pricePerKg": 107.98,
+        "listingUrl": "https://www.3djake.de/bambu-lab/paht-cf-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "material4print",
         "brand": "M4P",
         "product": "PAHT-CF15 Sample — 1.75 mm / 0.05 Kg",
@@ -8659,6 +8891,17 @@
         "pricePerKg": 178.65,
         "listingUrl": "https://eu.store.bambulab.com/de/products/pps-cf",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PPS-CF Black, Spule",
+        "spoolKg": 0.75,
+        "priceEur": 133.99,
+        "pricePerKg": 178.65,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pps-cf-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "tpu-95a": [
@@ -9373,6 +9616,39 @@
         "pricePerKg": 53.32,
         "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU semi-soft Transparent, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-semi-soft-natur",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU semi-soft Weiß, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-semi-soft-weiss",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU semi-soft Schwarz, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-semi-soft-schwarz",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "tpu-58d": [
@@ -9396,6 +9672,39 @@
         "pricePerKg": 46.65,
         "listingUrl": "https://www.3djake.de/filament/flexibel-tpu",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU hard Transparent, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 34.99,
+        "pricePerKg": 46.65,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-hard-transparent",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU hard Weiß, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 34.99,
+        "pricePerKg": 46.65,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-hard-weiss",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU hard Schwarz, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 34.99,
+        "pricePerKg": 46.65,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-hard-schwarz",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "esd-pla": [
@@ -9855,6 +10164,17 @@
         "pricePerKg": 129.98,
         "listingUrl": "https://www.3djake.de/filament/esd-antistatisch",
         "retrievedAt": "2026-08-02"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Extrudr",
+        "product": "Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 64.99,
+        "pricePerKg": 129.98,
+        "listingUrl": "https://www.3djake.de/extrudr/tpu-medium-esd-schwarz",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "pla-tough": [
@@ -9866,6 +10186,28 @@
         "priceEur": 6.95,
         "pricePerKg": 9.27,
         "listingUrl": "https://www.material4print.de/collections/filament/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PLA Tough Polar White, 1,75 mm",
+        "spoolKg": 1,
+        "priceEur": 23.92,
+        "pricePerKg": 23.92,
+        "listingUrl": "https://www.3djake.de/spectrum/pla-tough-polar-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PLA Tough Dark Grey, 1,75 mm",
+        "spoolKg": 1,
+        "priceEur": 23.92,
+        "pricePerKg": 23.92,
+        "listingUrl": "https://www.3djake.de/spectrum/pla-tough-dark-grey",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
       },
@@ -10178,6 +10520,39 @@
         "collectedBy": "survey-prices"
       },
       {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA Tough+ Orange, Spule",
+        "spoolKg": 1,
+        "priceEur": 26.99,
+        "pricePerKg": 26.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-tough-orange",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA Tough+ White, Spule",
+        "spoolKg": 1,
+        "priceEur": 26.99,
+        "pricePerKg": 26.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-tough-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA Tough+ Gray, Spule",
+        "spoolKg": 1,
+        "priceEur": 26.99,
+        "pricePerKg": 26.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-tough-gray",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "material4print",
         "brand": "M4P",
         "product": "Tough PLA Tiefschwarz — 1.75 mm / 2 Kg",
@@ -10486,6 +10861,17 @@
         "collectedBy": "survey-prices"
       },
       {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PLA Tough Deep Black, 1,75 mm",
+        "spoolKg": 1,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/spectrum/pla-tough-deep-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
         "retailer": "material4print",
         "brand": "M4P",
         "product": "Tough PLA Sample Signalweiss — 1.75 mm / 0.05 Kg",
@@ -10520,6 +10906,72 @@
       }
     ],
     "hips": [
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 23.99,
+        "pricePerKg": 23.99,
+        "listingUrl": "https://www.3djake.de/spectrum/hips-x-gypsum-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 23.99,
+        "pricePerKg": 23.99,
+        "listingUrl": "https://www.3djake.de/spectrum/hips-x-bahama-yellow",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g",
+        "spoolKg": 1,
+        "priceEur": 23.99,
+        "pricePerKg": 23.99,
+        "listingUrl": "https://www.3djake.de/spectrum/hips-x-dragon-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy HIPS Black, 1,75 mm / 850 g",
+        "spoolKg": 0.85,
+        "priceEur": 26.99,
+        "pricePerKg": 31.75,
+        "listingUrl": "https://www.3djake.de/fiberlogy/hips-black-1",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy HIPS Graphite, 1,75 mm",
+        "spoolKg": 0.85,
+        "priceEur": 26.99,
+        "pricePerKg": 31.75,
+        "listingUrl": "https://www.3djake.de/fiberlogy/hips-graphite",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy HIPS Natural, 1,75 mm",
+        "spoolKg": 0.85,
+        "priceEur": 26.99,
+        "pricePerKg": 31.75,
+        "listingUrl": "https://www.3djake.de/fiberlogy/hips-natural-1",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
       {
         "retailer": "fillamentum",
         "brand": "Fillamentum",
@@ -10574,6 +11026,39 @@
         "listingUrl": "https://shop.fillamentum.com/products/hips-extrafill-signal-red",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 28.99,
+        "pricePerKg": 38.65,
+        "listingUrl": "https://www.3djake.de/formfutura/easyfiltm-hips-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 28.99,
+        "pricePerKg": 38.65,
+        "listingUrl": "https://www.3djake.de/formfutura/easyfiltm-hips-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 28.99,
+        "pricePerKg": 38.65,
+        "listingUrl": "https://www.3djake.de/formfutura/easyfiltm-hips-grey",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
       }
     ],
     "pp": [
@@ -10589,9 +11074,111 @@
         "collectedBy": "survey-prices"
       }
     ],
-    "abs-gf": [],
-    "pla-cf": [],
-    "pctg-gf": [],
+    "abs-gf": [
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab ABS-GF Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 31.99,
+        "pricePerKg": 31.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/abs-gf-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab ABS-GF White, Spule",
+        "spoolKg": 1,
+        "priceEur": 31.99,
+        "pricePerKg": 31.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/abs-gf-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab ABS-GF Gray, Spule",
+        "spoolKg": 1,
+        "priceEur": 31.99,
+        "pricePerKg": 31.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/abs-gf-gray",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pla-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA-CF Black, Spule",
+        "spoolKg": 1,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-cf-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA-CF Lava Gray, Spule",
+        "spoolKg": 1,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-cf-lava-gray",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PLA-CF Burgundy Red, Spule",
+        "spoolKg": 1,
+        "priceEur": 29.99,
+        "pricePerKg": 29.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/pla-cf-burgundy-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pctg-gf": [
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PCTG GF10 Natural, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 29.99,
+        "pricePerKg": 59.98,
+        "listingUrl": "https://www.3djake.de/spectrum/pctg-gf10-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy PCTG+GF10 Black, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 46.99,
+        "pricePerKg": 62.65,
+        "listingUrl": "https://www.3djake.de/fiberlogy/pctggf10-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Fiberlogy",
+        "product": "Fiberlogy PCTG+GF10 Natural, 1,75 mm",
+        "spoolKg": 0.75,
+        "priceEur": 46.99,
+        "pricePerKg": 62.65,
+        "listingUrl": "https://www.3djake.de/fiberlogy/pctggf10-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
     "pmma": [
       {
         "retailer": "material4print",
@@ -11254,6 +11841,135 @@
         "priceEur": 42,
         "pricePerKg": 56,
         "listingUrl": "https://shop.fillamentum.com/products/vinyl-303-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "pa6": [
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura STYX PA6 Natural, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 34.99,
+        "pricePerKg": 69.98,
+        "listingUrl": "https://www.3djake.de/formfutura/styx-pa6-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura STYX PA6 Signal White, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 34.99,
+        "pricePerKg": 69.98,
+        "listingUrl": "https://www.3djake.de/formfutura/styx-pa6-signal-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "FormFutura",
+        "product": "FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g",
+        "spoolKg": 0.5,
+        "priceEur": 34.99,
+        "pricePerKg": 69.98,
+        "listingUrl": "https://www.3djake.de/formfutura/styx-pa6-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PA6 Neat Natural, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 69.99,
+        "pricePerKg": 93.32,
+        "listingUrl": "https://www.3djake.de/spectrum/pa6-neat-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PA6 Neat Black, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 69.99,
+        "pricePerKg": 93.32,
+        "listingUrl": "https://www.3djake.de/spectrum/pa6-neat-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "ppa-cf": [
+      {
+        "retailer": "3djake",
+        "brand": "Bambu Lab",
+        "product": "Bambu Lab PPA-CF Black, 750 g / Spule",
+        "spoolKg": 0.75,
+        "priceEur": 155.99,
+        "pricePerKg": 207.99,
+        "listingUrl": "https://www.3djake.de/bambu-lab/ppa-cf-black",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "asa-aero": [
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/spectrum/lw-asa-ultrafoam-natural",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum LW-ASA UltraFoam Pure White, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/spectrum/lw-asa-ultrafoam-pure-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g",
+        "spoolKg": 0.75,
+        "priceEur": 39.99,
+        "pricePerKg": 53.32,
+        "listingUrl": "https://www.3djake.de/spectrum/lw-asa-ultrafoam-bloody-red",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      }
+    ],
+    "peba": [
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PEBA Pure White, 1,75 mm / 800 g",
+        "spoolKg": 0.8,
+        "priceEur": 64.99,
+        "pricePerKg": 81.24,
+        "listingUrl": "https://www.3djake.de/spectrum/peba-pure-white",
+        "retrievedAt": "2026-08-06",
+        "collectedBy": "survey-prices"
+      },
+      {
+        "retailer": "3djake",
+        "brand": "Spectrum",
+        "product": "Spectrum PEBA Forest Green, 1,75 mm / 800 g",
+        "spoolKg": 0.8,
+        "priceEur": 64.99,
+        "pricePerKg": 81.24,
+        "listingUrl": "https://www.3djake.de/spectrum/peba-forest-green",
         "retrievedAt": "2026-08-06",
         "collectedBy": "survey-prices"
       }

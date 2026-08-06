@@ -551,20 +551,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 53.29,
+      "value": 56.99,
       "min": 35.99,
       "max": 106.53,
       "unit": "€/kg",
-      "conditions": "Median aus 4 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 7 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pc_fr_3djake",
         "src_price_pc_fr_extrudr",
         "src_price_pc_fr_filamentworld"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 4 Listenpreise von 4 Marken (Spectrum, Extrudr, Bambu Lab, 3DXTech) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 4 list prices from 4 brands (Spectrum, Extrudr, Bambu Lab, 3DXTech) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 7 Listenpreise von 4 Marken (Spectrum, Extrudr, Bambu Lab, 3DXTech) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 7 list prices from 4 brands (Spectrum, Extrudr, Bambu Lab, 3DXTech) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -597,8 +597,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Spectrum PC/ABS FR V0 Black, 1 kg, 35,99 € · Bambu Lab PC FR Black, 1 kg, 56,99 €",
-          "en": "2 offers: Spectrum PC/ABS FR V0 Black, 1 kg, 35.99 € · Bambu Lab PC FR Black, 1 kg, 56.99 €"
+          "de": "5 Angebote: Spectrum PC/ABS FR V0 Black, 1 kg, 35,99 € · Bambu Lab PC FR Black, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR White, Spule, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR Gray, Spule, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg, 56,99 €",
+          "en": "5 offers: Spectrum PC/ABS FR V0 Black, 1 kg, 35.99 € · Bambu Lab PC FR Black, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR White, Spule, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR Gray, Spule, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg, 56.99 €"
         }
       },
       {

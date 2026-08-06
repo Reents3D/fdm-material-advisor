@@ -473,7 +473,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -528,19 +528,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 53.1,
+      "value": 53.32,
       "min": 52.87,
       "max": 53.32,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 5 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_85a_extrudr",
         "src_price_tpu_85a_3djake"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 2 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 5 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -573,8 +573,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 €",
-          "en": "1 offer: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 €"
+          "de": "4 Angebote: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Transparent, 1,75 mm, 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Weiß, 1,75 mm, 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0,75 kg, 39,99 €",
+          "en": "4 offers: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Transparent, 1,75 mm, 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Weiß, 1,75 mm, 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0.75 kg, 39.99 €"
         }
       },
       {

@@ -818,11 +818,14 @@
     "priceIndex": {
       "value": 5,
       "scale": "priceIndex",
+      "derivedFrom": [
+        "commercial.pricePerKg"
+      ],
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Die teuerste Type des Bestands. Das Blatt weist 0,75 kg je Spule aus statt der üblichen 1 kg — beim Preisvergleich je Kilogramm fällt das leicht unter den Tisch.",
-        "en": "The most expensive grade in the dataset. The sheet states 0.75 kg per spool instead of the usual 1 kg — in a per-kilogram price comparison that is easily overlooked."
+        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
+        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
       }
     },
     "availability": {
@@ -881,6 +884,19 @@
           "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
         }
       }
+    },
+    "pricePerKg": {
+      "value": 207.99,
+      "unit": "€/kg",
+      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — keine Spanne ableitbar",
+      "source": [
+        "src_price_ppa_cf_3djake"
+      ],
+      "confidence": "low",
+      "note": {
+        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
+        "en": "Surveyed, not estimated — but on a single offer: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg for 155.99 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+      }
     }
   },
   "governance": {
@@ -902,6 +918,19 @@
         "note": {
           "de": "Prüfkörper GEDRUCKT (290 °C Düse, 110 °C Bett), Kennwerte getrennt nach X-Y und Z, Streuungsangaben durchgehend. Die Obergrenze steht dennoch auf `medium` und nicht auf `high`: Dieser Werkstofftyp hat im ganzen Bestand nur diese eine Quelle, es gibt also keinen zweiten Beleg, an dem sich die Zahlen prüfen ließen.",
           "en": "Specimens PRINTED (290 °C nozzle, 110 °C bed), values separated by X-Y and Z, scatter stated throughout. The ceiling nevertheless stands at `medium` and not `high`: this material type has only this one source in the entire dataset, so there is no second piece of evidence against which the figures could be checked."
+        }
+      },
+      {
+        "id": "src_price_ppa_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PPA-CF",
+        "url": "https://www.3djake.de/bambu-lab/ppa-cf-black",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg, 155,99 €",
+          "en": "1 offer: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg, 155.99 €"
         }
       },
       {
@@ -927,15 +956,15 @@
         "blocking": false
       },
       {
-        "id": "oq_ppa_cf_price",
+        "id": "oq_price_survey",
         "question": {
-          "de": "Für diesen Werkstoff liegt kein Preis je Kilogramm vor — er ist der einzige der 42 Typen ohne. Die Preisableitung findet keine Entsprechung im OFD-Marktbestand, weil PPA dort als Werkstoffklasse noch nicht geführt wird. Folge: In der Ansicht „Festigkeit gegen Preis“ fehlt der Werkstoff, und die Kompromissanalyse kann seinen wirtschaftlichen Preis nicht beziffern. Zu erheben über Händlerlistungen, wie in SOURCES.md §5 für alle Typen vorgesehen. Zu beachten ist dabei die Spulengröße von 0,75 kg statt der üblichen 1 kg — wer den Spulenpreis für den Kilopreis hält, rechnet ein Drittel zu günstig.",
-          "en": "No price per kilogram is available for this material — it is the only one of the 42 types without. The price derivation finds no counterpart in the OFD market inventory because PPA is not yet carried there as a material class. Consequence: the material is missing from the “strength against price” view, and the trade-off analysis cannot quantify its economic price. To be collected from retailer listings, as foreseen in SOURCES.md §5 for all types. Note the spool size of 0.75 kg rather than the usual 1 kg — anyone taking the spool price for the kilo price calculates a third too cheap."
+          "de": "Preiserhebung vertiefen: Bisher 1 Angebot von 1 Anbieter (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 1 offer from 1 retailer (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
         },
+        "blocking": false,
         "affectsFields": [
-          "commercial.pricePerKg"
-        ],
-        "blocking": false
+          "commercial.priceIndex"
+        ]
       }
     ]
   }

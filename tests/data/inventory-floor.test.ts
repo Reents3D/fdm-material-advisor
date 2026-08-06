@@ -61,29 +61,38 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    also nicht nur gefaehrdet, sondern an dieser Stelle schon veraltet. Ein Beleg dafuer,
    dass ein Test ueber die Masse mehr findet als den Fall, fuer den er gebaut wurde.
 
-   `materialsWithPrice` bleibt bei 41, obwohl es 42 Werkstoffe gibt: `ppa-cf` hat keinen
-   Preis, weil die Ableitung im OFD-Marktbestand keine Entsprechung findet - PPA wird dort
-   als Werkstoffklasse noch nicht gefuehrt. Der Fall steht als offene Frage
-   `oq_ppa_cf_price` am Datensatz; die Untergrenze bleibt deshalb bewusst unter der Zahl
-   der Werkstoffe.
+   `materialsWithPrice` stand bis 2026-08-06 bei 41 statt 42, weil `ppa-cf` als einziger
+   Typ ohne Preis dastand - die Ableitung fand im OFD-Marktbestand keine Entsprechung,
+   PPA wird dort als Werkstoffklasse nicht gefuehrt. Mit der Aufnahme von 3DJAKE steht
+   ein Angebot da (207,99 €/kg aus einer 750-g-Spule), und die Untergrenze zieht auf 42
+   nach. Sie darf ab jetzt nicht mehr unter die Zahl der Werkstoffe fallen: Ein Werkstoff
+   ohne Preis verschwindet aus der Ansicht "Festigkeit gegen Preis", und das faellt
+   niemandem auf.
 
-   `openQuestions` ist am 2026-08-06 von 75 auf 74 GESUNKEN, und das ist eine Aufloesung
-   und kein Verlust: `pet-cf` hatte die Frage `oq_price_survey`, weil nur ein Haendler
-   einen Preis fuehrte. Mit der Aufnahme von Material4Print sind es zwei, und die Frage
-   ist beantwortet. Genau dafuer sieht der Kopf dieses Tests vor, dass eine gerissene
-   Untergrenze mit Begruendung nachgezogen wird - eine Zahl, die nur steigen darf, waere
-   ein Test gegen das Aufraeumen. */
+   `openQuestions` ist am 2026-08-06 von 74 auf 88 GESTIEGEN, und das ist kein Zuwachs an
+   Problemen, sondern an Buchfuehrung: `derive-price.mjs` legt den Vorbehalt
+   `oq_price_survey` seither selbst an, statt nur eine von Hand geschriebene Frage zu
+   pflegen. Vorher trugen 16 von 17 Werkstoffen mit duenner Preislage GAR KEINEN
+   Vorbehalt - +16. Weggefallen sind zwei: `petg-cf` hat mit 3DJAKE seinen dritten
+   Haendler bekommen und ist damit beantwortet, und `ppa-cf:oq_ppa_cf_price` war
+   schlicht falsch geworden ("er ist der einzige der 42 Typen ohne Preis" - ist er nicht
+   mehr). 74 + 16 - 2 = 88.
+
+   Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
+   durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
+   eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
+   Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen. */
 const FLOOR = {
   materials: 42,
   products: 240,
   brands: 16,
   datasheets: 218,
-  materialFacts: 2983,
+  materialFacts: 2984,
   productValues: 2008,
   chemicalRatings: 882,
-  materialsWithPrice: 41,
+  materialsWithPrice: 42,
   anisotropyFactors: 19,
-  openQuestions: 74,
+  openQuestions: 88,
 };
 
 const actual = {
@@ -116,5 +125,26 @@ describe("Bestandsuntergrenzen", () => {
        naechsten Mal als Fehlalarm durch. Deshalb steht der Pfad hier fest. */
     expect(materials[0].chemicalResistance).toBeUndefined();
     expect(actual.chemicalRatings).toBeGreaterThan(0);
+  });
+
+  /* Eine Untergrenze faengt nur die Menge. Dass der Vorbehalt am RICHTIGEN Werkstoff
+     steht, faengt sie nicht - und genau das war das Loch: `derive-price.mjs` pflegte die
+     Frage `oq_price_survey` nur dort, wo jemand sie von Hand angelegt hatte. 16 von 17
+     Werkstoffen mit duenner Preislage trugen deshalb keinen Vorbehalt, darunter `ppa-cf`
+     mit einem einzigen Angebot. Seit ADR-040 wiegt das schwerer: Das Scoring daempft
+     duenne Preisbelege, und wo gedaempft wird, muss der Grund am Datensatz stehen. */
+  it("jede dünne Preislage trägt ihren Vorbehalt — und keine breite trägt einen alten", () => {
+    const thin: string[] = [];
+    const stale: string[] = [];
+    for (const m of materials) {
+      const conf = m.commercial?.pricePerKg?.confidence;
+      if (conf == null) continue;
+      const questions = (m.governance?.openQuestions ?? []) as { id?: string }[];
+      const has = questions.some((q) => q.id === "oq_price_survey");
+      if ((conf === "low" || conf === "estimated") && !has) thin.push(m.id);
+      if ((conf === "medium" || conf === "high") && has) stale.push(m.id);
+    }
+    expect(thin, "dünne Preislage ohne offene Frage").toEqual([]);
+    expect(stale, "breite Erhebung mit übrig gebliebener Frage").toEqual([]);
   });
 });

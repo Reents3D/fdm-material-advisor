@@ -520,15 +520,15 @@
       "min": 27.93,
       "max": 119.6,
       "unit": "€/kg",
-      "conditions": "Median aus 36 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 37 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_abs_pc_material4print",
         "src_price_abs_pc_3djake"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 36 Listenpreise von 6 Marken (M4P, SUNLU, Spectrum, Fiberlogy, AzureFilm, Polymaker) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 36 list prices from 6 brands (M4P, SUNLU, Spectrum, Fiberlogy, AzureFilm, Polymaker) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 37 Listenpreise von 6 Marken (M4P, SUNLU, Spectrum, Fiberlogy, AzureFilm, Polymaker) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 37 list prices from 6 brands (M4P, SUNLU, Spectrum, Fiberlogy, AzureFilm, Polymaker) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -575,8 +575,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 €",
-          "en": "5 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 €"
+          "de": "6 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Fiberlogy Fiberlogy PC/ABS Natural, 1,75 mm, 0,75 kg, 29,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 €",
+          "en": "6 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Fiberlogy Fiberlogy PC/ABS Natural, 1,75 mm, 0.75 kg, 29.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 €"
         }
       },
       {

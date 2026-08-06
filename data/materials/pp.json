@@ -625,6 +625,17 @@
           "thermal",
           "processing"
         ]
+      },
+      {
+        "id": "oq_price_survey",
+        "question": {
+          "de": "Preiserhebung vertiefen: Bisher 1 Angebot von 1 Anbieter (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 1 offer from 1 retailer (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "commercial.priceIndex"
+        ]
       }
     ],
     "sources": [
