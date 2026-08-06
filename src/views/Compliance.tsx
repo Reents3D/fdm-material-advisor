@@ -10,6 +10,7 @@
  */
 
 import { MATERIALS } from "../data/materials";
+import { useMaterialNotes, withNotes } from "../data/material-notes";
 import type { Choice, Flag, I18nText, Material, Quantity } from "../engine/types";
 import { Card, Chip, Disclosure, cx, text } from "../components/ui";
 import type { Lang } from "../i18n";
@@ -51,7 +52,13 @@ function read(m: Material): Row {
 }
 
 export function Compliance({ lang, navigate }: { t: T; lang: Lang; navigate: (p: string) => void }) {
-  const rows = MATERIALS.map(read).sort((a, b) => a.m.identity.name.localeCompare(b.m.identity.name));
+  /* Diese Ansicht zeigt zu jeder UL94-Angabe die Begründung — und Begründungen sind
+     Notizen, die seit der Bündelteilung nachgeladen werden (data/material-notes.ts).
+     Bis sie da sind, stehen die Klassen ohne Erläuterung; die Tabelle ist sofort
+     benutzbar, der Text wächst nach. */
+  const notes = useMaterialNotes();
+  const rows = MATERIALS.map((m) => read(withNotes(m, notes)))
+    .sort((a, b) => a.m.identity.name.localeCompare(b.m.identity.name));
 
   const classified = rows.filter((r) => r.ul94 && r.ul94 !== "not-classified").length;
   const foodDeclared = rows.filter((r) => r.food?.startsWith("declared")).length;

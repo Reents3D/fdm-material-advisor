@@ -14,6 +14,7 @@ import { Button, Card, RatingBar, Section, Toggle, Value, cx, text } from "../co
 import { toCsv } from "../lib/csv";
 import { downloadText, exportFilename } from "../lib/download";
 import { compareRows } from "../lib/exports";
+import { loadMaterialNotes, withNotes } from "../data/material-notes";
 import { COMPARE_FIELDS, GROUP_TITLES, fieldLabel, nodeAt, numberAt, type FieldGroup } from "../lib/fields";
 import type { AppState } from "../App";
 
@@ -39,10 +40,12 @@ export function Compare({ state, t, update, navigate }: {
 
   // Der Export nimmt immer die vollstaendige Kennwertliste, auch wenn "nur Unterschiede"
   // aktiv ist: eine Tabelle, der ohne Vermerk Zeilen fehlen, ist im Zweifel irrefuehrend.
-  const exportCsv = () => downloadText(
+  // Die Begruendungen je Kennwert liegen im nachgeladenen Notizbuendel; sie werden erst
+  // beim Klick geholt, nicht beim Oeffnen der Vergleichsansicht.
+  const exportCsv = () => { void loadMaterialNotes().then((n) => downloadText(
     exportFilename("vergleich"),
-    toCsv(compareRows(selected, lang), "excel-de"),
-  );
+    toCsv(compareRows(selected.map((m) => withNotes(m, n)), lang), "excel-de"),
+  )); };
 
   return (
     <div>

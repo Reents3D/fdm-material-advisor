@@ -18,6 +18,11 @@
   },
   "scripts": {
     "dev": "vite",
+    "build:data": "node scripts/build-data-chunks.mjs",
+    "prebuild": "npm run build:data",
+    "pretypecheck": "npm run build:data",
+    "pretest": "npm run build:data",
+    "predev": "npm run build:data",
     "build": "tsc --noEmit && vite build && node scripts/build-seo.mjs && node scripts/export-csv.mjs && node scripts/build-sw.mjs",
     "preview": "vite preview",
     "test": "vitest run",
