@@ -1113,7 +1113,7 @@
       "min": 32.99,
       "max": 62.49,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 3 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_petg_cf_3djake",
         "src_price_petg_cf_extrudr"
@@ -1286,6 +1286,31 @@
         }
       },
       {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Sammel-ID für alle Werte, die aus Werkstoffkunde und Verfahrenswissen abgeleitet und NICHT belegt sind. In der UI zwingend als Schätzung zu kennzeichnen.",
+          "en": "Collective ID for all values derived from materials science and process knowledge and NOT substantiated. Must be flagged as an estimate in the UI."
+        }
+      },
+      {
         "id": "src_price_petg_cf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -1309,31 +1334,6 @@
         "note": {
           "de": "1 Angebot: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg, 49,58 €",
           "en": "1 offer: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg, 49.58 €"
-        }
-      },
-      {
-        "id": "src_ofd",
-        "type": "community",
-        "publisher": "Open Filament Collective",
-        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
-        "documentVersion": "2026.07.31",
-        "url": "https://api.openfilamentdatabase.org/api/v1/",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
-        }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated",
-        "note": {
-          "de": "Sammel-ID für alle Werte, die aus Werkstoffkunde und Verfahrenswissen abgeleitet und NICHT belegt sind. In der UI zwingend als Schätzung zu kennzeichnen.",
-          "en": "Collective ID for all values derived from materials science and process knowledge and NOT substantiated. Must be flagged as an estimate in the UI."
         }
       }
     ],

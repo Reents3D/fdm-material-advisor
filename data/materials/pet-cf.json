@@ -929,19 +929,6 @@
         }
       },
       {
-        "id": "src_price_pet_cf_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PET-CF",
-        "url": "https://www.3djake.de/filament/petg",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Polymaker Fiberon PET-CF17 Black, 0,5 kg, 24,99 €",
-          "en": "1 offer: Polymaker Fiberon PET-CF17 Black, 0.5 kg, 24.99 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -961,6 +948,19 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pet_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PET-CF",
+        "url": "https://www.3djake.de/filament/petg",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Polymaker Fiberon PET-CF17 Black, 0,5 kg, 24,99 €",
+          "en": "1 offer: Polymaker Fiberon PET-CF17 Black, 0.5 kg, 24.99 €"
+        }
       }
     ],
     "openQuestions": [

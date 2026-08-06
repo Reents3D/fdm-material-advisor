@@ -520,7 +520,7 @@
       "min": 27.99,
       "max": 49.99,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_abs_pc_3djake"
       ],
@@ -566,6 +566,13 @@
         }
       },
       {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_abs_pc_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -577,13 +584,6 @@
           "de": "5 Angebote: SUNLU PC-ABS Black, 1 kg, 27,99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35,99 € · Fiberlogy PC/ABS Natural, 0,75 kg, 29,99 € · AzureFilm PC ABS Natural, 1 kg, 39,99 € · Polymaker PC-ABS Black, 1 kg, 49,99 €",
           "en": "5 offers: SUNLU PC-ABS Black, 1 kg, 27.99 € · Spectrum PC/ABS FR V0 White, 1 kg, 35.99 € · Fiberlogy PC/ABS Natural, 0.75 kg, 29.99 € · AzureFilm PC ABS Natural, 1 kg, 39.99 € · Polymaker PC-ABS Black, 1 kg, 49.99 €"
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

@@ -664,19 +664,6 @@
         }
       },
       {
-        "id": "src_price_hips_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise HIPS",
-        "url": "https://fiberlogy.com/en_US/c/HIPS/193",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Fiberlogy HIPS, 0,85 kg, 27,43 €",
-          "en": "1 offer: Fiberlogy HIPS, 0.85 kg, 27.43 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -700,6 +687,19 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_price_hips_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise HIPS",
+        "url": "https://fiberlogy.com/en_US/c/HIPS/193",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fiberlogy HIPS, 0,85 kg, 27,43 €",
+          "en": "1 offer: Fiberlogy HIPS, 0.85 kg, 27.43 €"
         }
       }
     ]

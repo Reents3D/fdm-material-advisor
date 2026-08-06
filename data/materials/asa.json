@@ -828,7 +828,7 @@
       "min": 21.99,
       "max": 46.25,
       "unit": "€/kg",
-      "conditions": "Median aus 13 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 13 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_asa_3djake",
         "src_price_asa_fiberlogy",
@@ -907,58 +907,6 @@
         }
       },
       {
-        "id": "src_price_asa_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise ASA",
-        "url": "https://www.3djake.de/filament/asa",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
-          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
-        }
-      },
-      {
-        "id": "src_price_asa_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise ASA",
-        "url": "https://extrudr.com/de/de/products/durapro-asa/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
-          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
-        }
-      },
-      {
-        "id": "src_price_asa_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise ASA",
-        "url": "https://fiberlogy.com/en_US/c/ASA/162",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
-          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
-        }
-      },
-      {
-        "id": "src_price_asa_filamentworld",
-        "type": "retailer-listing",
-        "publisher": "Filamentworld",
-        "title": "Filamentworld — Listenpreise ASA",
-        "url": "https://www.filamentworld.de/shop/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
-          "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -978,6 +926,58 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_asa_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ASA",
+        "url": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
+          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+        }
+      },
+      {
+        "id": "src_price_asa_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise ASA",
+        "url": "https://fiberlogy.com/en_US/c/ASA/162",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
+          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
+        }
+      },
+      {
+        "id": "src_price_asa_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise ASA",
+        "url": "https://extrudr.com/de/de/products/durapro-asa/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
+          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
+        }
+      },
+      {
+        "id": "src_price_asa_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise ASA",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
+          "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
+        }
       }
     ],
     "openQuestions": [

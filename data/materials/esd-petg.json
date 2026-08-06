@@ -518,7 +518,7 @@
       "min": 27.99,
       "max": 117.98,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 3 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_esd_petg_3djake"
       ],
@@ -562,6 +562,13 @@
         }
       },
       {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_esd_petg_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -573,13 +580,6 @@
           "de": "3 Angebote: eSUN PETG-ESD Black, 1 kg, 27,99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79,99 € · Fiberlogy PETG ESD Schwarz, 0,5 kg, 58,99 €",
           "en": "3 offers: eSUN PETG-ESD Black, 1 kg, 27.99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79.99 € · Fiberlogy PETG ESD Schwarz, 0.5 kg, 58.99 €"
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

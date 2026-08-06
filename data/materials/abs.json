@@ -809,7 +809,7 @@
       "min": 16.11,
       "max": 33.04,
       "unit": "€/kg",
-      "conditions": "Median aus 8 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 8 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_abs_fiberlogy",
         "src_price_abs_3djake",
@@ -871,6 +871,40 @@
         }
       },
       {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_abs_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise ABS",
+        "url": "https://fiberlogy.com/en_US/c/ABS/188",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Fiberlogy ABS, 0,85 kg, 13,69 € · Fiberlogy ABS Refill, 0,85 kg, 15,47 € · Fiberlogy Easy ABS, 0,75 kg, 14,38 € · Fiberlogy ABS, 2,5 kg, 54,37 €",
+          "en": "4 offers: Fiberlogy ABS, 0.85 kg, 13.69 € · Fiberlogy ABS Refill, 0.85 kg, 15.47 € · Fiberlogy Easy ABS, 0.75 kg, 14.38 € · Fiberlogy ABS, 2.5 kg, 54.37 €"
+        }
+      },
+      {
         "id": "src_price_abs_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -895,40 +929,6 @@
           "de": "1 Angebot: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0,75 kg, 24,78 €",
           "en": "1 offer: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0.75 kg, 24.78 €"
         }
-      },
-      {
-        "id": "src_price_abs_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise ABS",
-        "url": "https://fiberlogy.com/en_US/c/ABS/188",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Fiberlogy ABS, 0,85 kg, 13,69 € · Fiberlogy ABS Refill, 0,85 kg, 15,47 € · Fiberlogy Easy ABS, 0,75 kg, 14,38 € · Fiberlogy ABS, 2,5 kg, 54,37 €",
-          "en": "4 offers: Fiberlogy ABS, 0.85 kg, 13.69 € · Fiberlogy ABS Refill, 0.85 kg, 15.47 € · Fiberlogy Easy ABS, 0.75 kg, 14.38 € · Fiberlogy ABS, 2.5 kg, 54.37 €"
-        }
-      },
-      {
-        "id": "src_ofd",
-        "type": "community",
-        "publisher": "Open Filament Collective",
-        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
-        "documentVersion": "2026.07.31",
-        "url": "https://api.openfilamentdatabase.org/api/v1/",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
-        }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

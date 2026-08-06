@@ -313,7 +313,26 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
 
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 
-- Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`)
+- Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`) — **Stand 2026-08-05: das
+  Ziel ist weit verfehlt, und zwar messbar.** Kein einziger Werkstoff erreicht fünf
+  Händler; das Maximum sind vier, und das bei einem einzigen Typ:
+
+  | Händler je Werkstoff | 0 | 1 | 2 | 3 | 4 | ≥ 5 |
+  |---|---|---|---|---|---|---|
+  | Werkstoffe | 9 | **14** | 8 | 10 | 1 | **0** |
+
+  Vierzehn Werkstoffe hängen an einem einzigen Shop. Die Preiskonfidenz bildet das
+  inzwischen ab (11 × `medium`, 22 × `low`, 8 geschätzt, 1 ohne Preis), und seit
+  2026-08-05 nennt auch die kurze Bedingungszeile die Händlerzahl statt nur der
+  Angebotszahl — bei `pc` stand dort „Median aus 8 Händlerangeboten", und alle acht kamen
+  aus derselben Preisliste.
+
+  **Die Open Filament Database hilft hier nicht.** Sie führt 5.918 Kauflinks über 50
+  Händler, aber **kein einziger trägt einen Preis** — geprüft am Schnappschuss 2026.07.31,
+  0 von 5.918. Auch `sizes` und `variants` haben kein Preisfeld. Was die OFD liefert, ist
+  eine Fundstellenliste für eine Erhebung, keine Erhebung. Wer den nächsten Anlauf
+  unternimmt, muss weitere Shops einzeln prüfen: robots.txt lesen, JSON-LD suchen,
+  `scripts/survey-prices.mjs` erweitern.
 - Bewitterungsdaten (QUV/Xenon) — vermutlich nur über Fachliteratur (`oq_uv_data`)
 - Lackhaftung, Verklebbarkeit, XXL-Eignung → eigene Fertigungserfahrung Reents3D
 - ESD-Messungen zur Absicherung der `insulating`-Einstufung bei CF-Typen (`oq_esd_measurement`)

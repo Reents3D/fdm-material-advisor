@@ -199,9 +199,17 @@ for (const f of files) {
       value: p.value,
       ...(p.min !== undefined ? { min: p.min, max: p.max } : {}),
       unit: "€/kg",
+      /* Die Zeile nennt die HAENDLERzahl, nicht nur die Angebotszahl.
+         Vorher stand hier "Median aus 8 Haendlerangeboten" - und bei `pc` stammten alle
+         acht von einem einzigen Shop. Wer das liest, nimmt Marktbreite an, die es nicht
+         gibt: acht Positionen aus einer Preisliste sind ein Haendler, nicht acht. Die
+         ausfuehrliche Notiz nannte die Zahl schon, aber in der Tabelle steht diese Zeile,
+         und die wird gelesen. */
       conditions: p.offers.length === 1
         ? `Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED} — keine Spanne ableitbar`
-        : `Median aus ${p.offers.length} Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED}`,
+        : byRetailer.size === 1
+          ? `Median aus ${p.offers.length} Angeboten EINES Händlers (${[...byRetailer.keys()][0]}), auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED} — eine Preisliste, kein Marktvergleich`
+          : `Median aus ${p.offers.length} Angeboten über ${byRetailer.size} Händler, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED}`,
       source: srcIds, confidence: p.confidence,
       note: t(
         p.offers.length === 1

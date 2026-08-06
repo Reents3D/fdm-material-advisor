@@ -564,7 +564,7 @@
       "min": 78.4,
       "max": 118.98,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pa12_cf_3djake",
         "src_price_pa12_cf_fiberlogy",
@@ -616,45 +616,6 @@
         }
       },
       {
-        "id": "src_price_pa12_cf_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PA12-CF",
-        "url": "https://www.3djake.de/filament/nylon",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
-          "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
-        }
-      },
-      {
-        "id": "src_price_pa12_cf_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PA12-CF",
-        "url": "https://extrudr.com/de/de/products/durapro-pa12-cf/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg, 59,49 €",
-          "en": "1 offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg, 59.49 €"
-        }
-      },
-      {
-        "id": "src_price_pa12_cf_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PA12-CF",
-        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "3 Angebote: Fiberlogy Nylon PA12CF15, 2,5 kg, 290,03 € · Fiberlogy Nylon PA12CF15, 0,5 kg, 58,79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117,59 €",
-          "en": "3 offers: Fiberlogy Nylon PA12CF15, 2.5 kg, 290.03 € · Fiberlogy Nylon PA12CF15, 0.5 kg, 58.79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117.59 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -674,6 +635,45 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pa12_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PA12-CF",
+        "url": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
+          "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_cf_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PA12-CF",
+        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Fiberlogy Nylon PA12CF15, 2,5 kg, 290,03 € · Fiberlogy Nylon PA12CF15, 0,5 kg, 58,79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117,59 €",
+          "en": "3 offers: Fiberlogy Nylon PA12CF15, 2.5 kg, 290.03 € · Fiberlogy Nylon PA12CF15, 0.5 kg, 58.79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117.59 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_cf_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PA12-CF",
+        "url": "https://extrudr.com/de/de/products/durapro-pa12-cf/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg, 59,49 €",
+          "en": "1 offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg, 59.49 €"
+        }
       }
     ],
     "openQuestions": [

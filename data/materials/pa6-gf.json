@@ -580,7 +580,7 @@
       "min": 39.99,
       "max": 119.87,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pa6_gf_3djake",
         "src_price_pa6_gf_extrudr",
@@ -635,6 +635,27 @@
         }
       },
       {
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
+      },
+      {
         "id": "src_price_pa6_gf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -672,27 +693,6 @@
           "de": "1 Angebot: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg, 89,90 €",
           "en": "1 offer: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg, 89.90 €"
         }
-      },
-      {
-        "id": "src_ofd",
-        "type": "community",
-        "publisher": "Open Filament Collective",
-        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
-        "documentVersion": "2026.07.31",
-        "url": "https://api.openfilamentdatabase.org/api/v1/",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
-        }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

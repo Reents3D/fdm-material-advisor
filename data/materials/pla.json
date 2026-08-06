@@ -872,7 +872,7 @@
       "min": 12.49,
       "max": 103.56,
       "unit": "€/kg",
-      "conditions": "Median aus 17 Händlerangeboten, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 17 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
       "source": [
         "src_price_pla_3djake",
         "src_price_pla_fiberlogy",
@@ -942,45 +942,6 @@
         }
       },
       {
-        "id": "src_price_pla_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PLA",
-        "url": "https://www.3djake.de/filament/pla",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "7 Angebote: eSUN PLA-Basic Black, 1 kg, 12,49 € · Elegoo PLA Schwarz, 1 kg, 12,99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14,99 € · eSUN PLA+ Black, 1 kg, 18,99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19,99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25,99 € · Bambu Lab PLA Basic Black, 1 kg, 25,99 €",
-          "en": "7 offers: eSUN PLA-Basic Black, 1 kg, 12.49 € · Elegoo PLA Schwarz, 1 kg, 12.99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14.99 € · eSUN PLA+ Black, 1 kg, 18.99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19.99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25.99 € · Bambu Lab PLA Basic Black, 1 kg, 25.99 €"
-        }
-      },
-      {
-        "id": "src_price_pla_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PLA",
-        "url": "https://extrudr.com/de/de/products/pla-basic/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Extrudr PLA Basic black 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA Basic CMYK lithowhite 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA HS black 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA NX2 MATT black 1.75 mm 1 kg, 1 kg, 25,76 €",
-          "en": "4 offers: Extrudr PLA Basic black 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA Basic CMYK lithowhite 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA HS black 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA NX2 MATT black 1.75 mm 1 kg, 1 kg, 25.76 €"
-        }
-      },
-      {
-        "id": "src_price_pla_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PLA",
-        "url": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "6 Angebote: Fiberlogy Easy PLA Refill, 0,85 kg, 15,47 € · Fiberlogy Matte PLA, 0,85 kg, 16,18 € · Fiberlogy HS PLA Clear, 0,85 kg, 16,46 € · Fiberlogy Easy PLA, 2,5 kg, 54,37 € · Fiberlogy Easy PLA, 0,85 kg, 19,56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0,5 kg, 51,78 €",
-          "en": "6 offers: Fiberlogy Easy PLA Refill, 0.85 kg, 15.47 € · Fiberlogy Matte PLA, 0.85 kg, 16.18 € · Fiberlogy HS PLA Clear, 0.85 kg, 16.46 € · Fiberlogy Easy PLA, 2.5 kg, 54.37 € · Fiberlogy Easy PLA, 0.85 kg, 19.56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0.5 kg, 51.78 €"
-        }
-      },
-      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -1000,6 +961,45 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_price_pla_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PLA",
+        "url": "https://www.3djake.de/filament/pla",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: eSUN PLA-Basic Black, 1 kg, 12,49 € · Elegoo PLA Schwarz, 1 kg, 12,99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14,99 € · eSUN PLA+ Black, 1 kg, 18,99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19,99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25,99 € · Bambu Lab PLA Basic Black, 1 kg, 25,99 €",
+          "en": "7 offers: eSUN PLA-Basic Black, 1 kg, 12.49 € · Elegoo PLA Schwarz, 1 kg, 12.99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14.99 € · eSUN PLA+ Black, 1 kg, 18.99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19.99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25.99 € · Bambu Lab PLA Basic Black, 1 kg, 25.99 €"
+        }
+      },
+      {
+        "id": "src_price_pla_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PLA",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "6 Angebote: Fiberlogy Easy PLA Refill, 0,85 kg, 15,47 € · Fiberlogy Matte PLA, 0,85 kg, 16,18 € · Fiberlogy HS PLA Clear, 0,85 kg, 16,46 € · Fiberlogy Easy PLA, 2,5 kg, 54,37 € · Fiberlogy Easy PLA, 0,85 kg, 19,56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0,5 kg, 51,78 €",
+          "en": "6 offers: Fiberlogy Easy PLA Refill, 0.85 kg, 15.47 € · Fiberlogy Matte PLA, 0.85 kg, 16.18 € · Fiberlogy HS PLA Clear, 0.85 kg, 16.46 € · Fiberlogy Easy PLA, 2.5 kg, 54.37 € · Fiberlogy Easy PLA, 0.85 kg, 19.56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0.5 kg, 51.78 €"
+        }
+      },
+      {
+        "id": "src_price_pla_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PLA",
+        "url": "https://extrudr.com/de/de/products/pla-basic/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Extrudr PLA Basic black 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA Basic CMYK lithowhite 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA HS black 1.75 mm 1 kg, 1 kg, 24,78 € · Extrudr PLA NX2 MATT black 1.75 mm 1 kg, 1 kg, 25,76 €",
+          "en": "4 offers: Extrudr PLA Basic black 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA Basic CMYK lithowhite 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA HS black 1.75 mm 1 kg, 1 kg, 24.78 € · Extrudr PLA NX2 MATT black 1.75 mm 1 kg, 1 kg, 25.76 €"
+        }
       }
     ],
     "openQuestions": [
