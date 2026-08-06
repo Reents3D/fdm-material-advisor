@@ -560,19 +560,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 98.69,
+      "value": 106.68,
       "min": 78.4,
       "max": 118.98,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 3 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa12_cf_3djake",
+        "src_price_pa12_cf_fillamentum",
         "src_price_pa12_cf_extrudr"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 2 Listenpreise von 2 Marken (Fiberlogy, Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 2 list prices from 2 brands (Fiberlogy, Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (Fiberlogy, Fillamentum, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 3 brands (Fiberlogy, Fillamentum, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -638,6 +639,19 @@
         "note": {
           "de": "1 Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg, 59,49 €",
           "en": "1 offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg, 59.49 €"
+        }
+      },
+      {
+        "id": "src_price_pa12_cf_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise PA12-CF",
+        "url": "https://shop.fillamentum.com/products/nylon-cf15-carbon",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg, 64,01 €",
+          "en": "1 offer: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg, 64.01 €"
         }
       },
       {

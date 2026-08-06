@@ -706,18 +706,19 @@
       }
     },
     "pricePerKg": {
-      "value": 22.99,
+      "value": 34.99,
       "min": 17.99,
-      "max": 39.99,
+      "max": 70.58,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 7 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
-        "src_price_tpu_95a_3djake"
+        "src_price_tpu_95a_3djake",
+        "src_price_tpu_95a_fillamentum"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 5 Marken (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 5 list prices from 5 brands (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 7 Listenpreise von 6 Marken (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE, Fillamentum) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 7 list prices from 6 brands (Elegoo, GEEETECH, SUNLU, Bambu Lab, 3DJAKE, Fillamentum) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -761,6 +762,19 @@
         "note": {
           "de": "5 Angebote: Elegoo TPU 95A Translucent, 1 kg, 17,99 € · GEEETECH TPU Black, 1 kg, 19,99 € · SUNLU TPU Black, 1 kg, 22,99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34,99 € · 3DJAKE TPU A95 Schwarz, 0,75 kg, 29,99 €",
           "en": "5 offers: Elegoo TPU 95A Translucent, 1 kg, 17.99 € · GEEETECH TPU Black, 1 kg, 19.99 € · SUNLU TPU Black, 1 kg, 22.99 € · Bambu Lab TPU 95A HF Black, 1 kg, 34.99 € · 3DJAKE TPU A95 Schwarz, 0.75 kg, 29.99 €"
+        }
+      },
+      {
+        "id": "src_price_tpu_95a_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise TPU 95A",
+        "url": "https://shop.fillamentum.com/products/flexfill-tpu-92a-natural",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fillamentum Flexfill TPU 92A \"Natural\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 92A \"Natural\" — 2.85 mm, 0,5 kg, 35,29 €",
+          "en": "2 offers: Fillamentum Flexfill TPU 92A \"Natural\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 92A \"Natural\" — 2.85 mm, 0.5 kg, 35.29 €"
         }
       },
       {

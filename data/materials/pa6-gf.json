@@ -499,7 +499,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 3,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"

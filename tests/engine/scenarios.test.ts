@@ -65,12 +65,30 @@ describe("Szenario: Aussenbauteil, 5 Jahre, UV", () => {
     expect(ids(select(MATERIALS, { outdoorYears: 1 }).ranked)).toContain("petg");
   });
 
-  it("wenn Witterung dominiert, belegt die ASA-Familie die ersten Plätze", () => {
+  it("wenn Witterung dominiert, stehen die witterungsfestesten Werkstoffe vorn", () => {
+    /* Hier stand bis 2026-08-06 die Forderung, die ersten drei Plaetze muessten alle mit
+       "asa" beginnen. Am 2026-08-06 belegte PMMA den ersten Platz, und der Test wurde rot.
+       Nachgesehen: PMMA traegt UV 5 und Witterungsbestaendigkeit 5, genau wie die
+       ASA-Familie - fuer Aussenverglasung ist Acrylglas der Standardwerkstoff. Es gewann
+       ueber einen Gleichstand, nachdem die erweiterte Preiserhebung ihm einen erhobenen
+       statt eines geschaetzten Preises gab.
+
+       Damit war die Namensliste falsch, nicht das Ergebnis - derselbe Fehler wie im Test
+       daruber, wo eine feste Liste schon einmal durch die Regel ersetzt werden musste,
+       und aus genau demselben Anlass. Eine Rangfolge nach Namen zu pruefen heisst, den
+       Datenstand einzufrieren; geprueft wird deshalb die EIGENSCHAFT, um die es geht. */
     const r = select(MATERIALS, {
       outdoorYears: 2,
       weights: { outdoor: 5, temperature: 1, price: 1, printability: 1 },
     });
-    for (const top of ids(r.ranked).slice(0, 3)) expect(top).toMatch(/^asa/);
+    for (const top of r.ranked.slice(0, 3)) {
+      const w = (top.material.durability as { weatherResistance?: { value?: number } })
+        ?.weatherResistance?.value;
+      expect(w ?? 0, `${top.material.id} steht vorn, ist aber nicht witterungsfest`).toBe(5);
+    }
+    /* Und die ASA-Familie muss weiterhin dabei sein - sonst hat die Gewichtung nicht
+       gegriffen, sondern etwas anderes entschieden. */
+    expect(ids(r.ranked).slice(0, 3).some((id) => id.startsWith("asa"))).toBe(true);
   });
 
   it("bei ausgewogener Gewichtung führt weiterhin die ASA-Familie", () => {
@@ -243,11 +261,31 @@ describe("Wissenslücken dürfen nicht belohnen", () => {
      keinen E-Modul hinterlegt - obwohl es mit 244 MPa Biegemodul noch WEICHER ist. Der
      gewichtete Mittelwert lief nur ueber Kriterien MIT Daten, die fehlende Zahl war
      damit ein Freifahrtschein. */
+  /* Der Preis stand hier urspruenglich mit Gewicht 3 dabei und hat den Test am
+     2026-08-06 zu Fall gebracht - aber aus einem Grund, der mit dem geprueften Prinzip
+     nichts zu tun hat: PP bekam durch die erweiterte Preiserhebung einen ECHTEN Preis
+     (73,32 €/kg, aus einem einzigen 0,6-kg-Angebot bei Fillamentum), waehrend OBC
+     weiterhin auf einer SCHAETZUNG von 67,50 sitzt. Der geschaetzte Preis schlaegt den
+     erhobenen, PP faellt hinter OBC, und die Behauptung "PP muss vor OBC liegen" stimmt
+     nicht mehr.
+
+     Die Behauptung war aber nie das Prinzip, sondern eine Folge davon unter einem
+     bestimmten Datenstand. Geprueft werden soll, dass eine LUECKE bei der Steifigkeit
+     kein Vorteil ist - und dazu gehoert der Preis nicht in die Gewichtung. Er ist hier
+     herausgenommen, damit der Test misst, was in seiner Ueberschrift steht.
+
+     Der Befund dahinter bleibt und ist nicht harmlos: Ein Einzelangebot kann eine
+     Rangfolge kippen, und eine Schaetzung tritt im Scoring gleichberechtigt neben eine
+     Erhebung. Beides steht in SOURCES.md unter der Preiserhebung.
+
+     Die Gewichtung OHNE Preis gilt nur fuer den Prinzipientest; der Abdeckungstest
+     darunter misst etwas anderes und behaelt die urspruengliche. */
   const req = { chemicals: ["chem_dilute_alkali"], serviceTemperatureC: 60,
     weights: { chemical: 5, stiffness: 3, price: 3, printability: 3 } };
+  const reqOhnePreis = { ...req, weights: { chemical: 5, stiffness: 3, printability: 3 } };
 
   it("ein Werkstoff ohne Daten zum gewichteten Kriterium schlägt keinen mit schlechten Daten", () => {
-    const r = select(MATERIALS, req);
+    const r = select(MATERIALS, reqOhnePreis);
     const obc = r.ranked.find((x) => x.material.id === "obc")!;
     const pp = r.ranked.find((x) => x.material.id === "pp")!;
 

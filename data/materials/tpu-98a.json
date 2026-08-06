@@ -511,20 +511,21 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 46.66,
+      "value": 46.82,
       "min": 33.27,
       "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 40 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 56 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_98a_material4print",
         "src_price_tpu_98a_extrudr",
-        "src_price_tpu_98a_3djake"
+        "src_price_tpu_98a_3djake",
+        "src_price_tpu_98a_fillamentum"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 40 Listenpreise von 2 Marken (M4P, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 40 list prices from 2 brands (M4P, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 56 Listenpreise von 3 Marken (M4P, Extrudr, Fillamentum) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 56 list prices from 3 brands (M4P, Extrudr, Fillamentum) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -572,6 +573,19 @@
         "note": {
           "de": "2 Angebote: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0,75 kg, 34,70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
           "en": "2 offers: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0.75 kg, 34.70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+        }
+      },
+      {
+        "id": "src_price_tpu_98a_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise TPU 98A",
+        "url": "https://shop.fillamentum.com/products/flexfill-tpu-98a-traffic-black",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "16 Angebote: Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Traffic White\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Vertigo Grey\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Pistachio Green\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Metallic Grey\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Sky Blue\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0,5 kg, 35,29 €",
+          "en": "16 offers: Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Traffic White\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Vertigo Grey\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Pistachio Green\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Metallic Grey\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Sky Blue\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0.5 kg, 35.29 €"
         }
       },
       {
