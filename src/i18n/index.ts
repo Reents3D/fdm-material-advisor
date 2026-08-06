@@ -358,6 +358,10 @@ const de: Dict = {
   "risk.flameViaProduct":
     "{required} nur über eine bestimmte Type: {product}. Die Werkstofffamilie als solche ist nicht klassifiziert — wer irgendeine Type davon bestellt, verfehlt die Anforderung.",
   "risk.estimatedShare": "{pct} % dieser Bewertung beruhen auf Schätzungen, nicht auf Messwerten.",
+  "risk.thinEvidence.price.low":
+    "Der Preis ({value} €/kg) steht bei einem einzigen Händler. Wo später ein zweiter dazukam, lag der erste Fund im Mittel 14 % zu günstig — als Vorteil zählt er deshalb nur gedämpft.",
+  "risk.thinEvidence.price.estimated":
+    "Der Preis ({value} €/kg) ist geschätzt, nicht erhoben. Solche Schätzungen lagen im Median 15 % neben dem später erhobenen Preis — als Vorteil zählt er deshalb nur gedämpft.",
   "hint.hardenedNozzle": "Gehärtete Düse erforderlich — Messing ist nach wenigen Stunden aufgeweitet.",
   "hint.drying": "Vor dem Druck {hours} h bei {temp} °C trocknen und trocken fördern.",
   "hint.chamberMandatory": "Nur mit beheizter Kammer prozesssicher.",
@@ -718,6 +722,10 @@ const en: Dict = {
   "risk.flameViaProduct":
     "{required} only via a specific grade: {product}. The material family as such is not classified — ordering just any grade of it misses the requirement.",
   "risk.estimatedShare": "{pct} % of this assessment rests on estimates, not measurements.",
+  "risk.thinEvidence.price.low":
+    "The price ({value} €/kg) comes from a single retailer. Where a second one was added later, the first find averaged 14 % too cheap — so it counts only in muted form as an advantage.",
+  "risk.thinEvidence.price.estimated":
+    "The price ({value} €/kg) is estimated, not surveyed. Such estimates were a median 15 % off the price later surveyed — so it counts only in muted form as an advantage.",
   "hint.hardenedNozzle": "Hardened nozzle required — brass widens within hours.",
   "hint.drying": "Dry {hours} h at {temp} °C before printing and feed dry.",
   "hint.chamberMandatory": "Only process reliable with a heated chamber.",

@@ -13,6 +13,7 @@
  */
 
 import { CRITERIA, type Criterion } from "./criteria";
+import { creditable } from "./reliability";
 import type { Confidence, CriterionScore, Material, Recommendation, Requirements } from "./types";
 
 export interface NormalisationTable {
@@ -57,14 +58,18 @@ export function scoreCriterion(
     return { criterionId: c.id, score: null, raw: null, unit: c.unit, confidence: null, weight, evidence: c.evidence };
   }
   const rank = percentileRank(value, table.values[c.id] ?? []);
+  /* Eine schwach belegte Angabe darf keine Staerke behaupten, die sie nicht zeigen kann.
+     Der Abschlag ist gemessen, nicht gewaehlt - siehe reliability.ts und ADR-040. */
+  const { score, discounted } = creditable(c.id, confidence, c.higherIsBetter ? rank : 1 - rank);
   return {
     criterionId: c.id,
-    score: c.higherIsBetter ? rank : 1 - rank,
+    score,
     raw: value,
     unit: c.unit,
     confidence,
     weight,
     evidence: c.evidence,
+    ...(discounted ? { discounted: true as const } : {}),
   };
 }
 

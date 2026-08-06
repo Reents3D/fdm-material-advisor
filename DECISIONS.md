@@ -1856,6 +1856,111 @@ an die Menge, nicht an die Verteilung.
 
 ---
 
+## ADR-040 — Was eine schwach belegte Angabe im Ranking wert sein darf
+
+**Status:** akzeptiert · **Datum:** 2026-08-06
+
+### Kontext
+
+Beim Ausbau der Preiserhebung fiel auf, dass ein **geschätzter** Preis im Scoring exakt so
+viel wiegt wie einer, der bei fünf Händlern erhoben wurde. Der Befund stand seit PR #18 in
+`SOURCES.md` und in einem Testkommentar:
+
+> Ein Einzelangebot kann eine Rangfolge kippen, und eine Schätzung tritt im Scoring
+> gleichberechtigt neben eine Erhebung.
+
+Die naheliegende Reparatur hieß **„erhobene Preise sollen Schätzungen schlagen"**. Sie
+hätte einen Abschlag auf Schätzungen gebraucht — mit einer Zahl, die man sich ausdenkt.
+Genau das ist hier verboten (ADR-003), also wurde erst gemessen.
+
+### Die Messung
+
+Das Repository trägt ein echtes Experiment in seiner eigenen Historie:
+**50 Übergänge**, bei denen eine schwächere Preisangabe durch eine bessere ersetzt wurde.
+`scripts/measure-price-reliability.mjs` liest sie aus den Commits und rechnet nicht den
+Preisfehler in Euro aus — der interessiert die Engine nicht —, sondern den **Rangfehler**:
+um wie viele Perzentile rutscht der Werkstoff im Preisfeld, wenn die bessere Zahl kommt?
+
+| | n | Preisfehler (Median) | Rangfehler (Mittel) | systematischer Versatz |
+|---|---|---|---|---|
+| Schätzung → Erhebung | 35 | 15,4 % | 11,4 % | **−5,7 %** (war zu **teuer**) |
+| ein Händler → mehrere | 15 | 14,4 % | 8,5 % | **+6,6 %** (war zu **günstig**) |
+
+**Das Ergebnis widerlegt die Ausgangsvermutung.** Von 35 ersetzten Schätzpreisen waren
+**24 zu hoch** angesetzt. Schätzungen verschaffen in dieser Datenbank keinen Vorteil — sie
+sind eher zu vorsichtig. Wer „Erhebung schlägt Schätzung" als Rangregel eingebaut hätte,
+hätte systematisch die **schwächere** Zahl bevorzugt.
+
+Der unverdiente Vorteil liegt beim **Einzelfund**: Der erste gefundene Shop ist im Mittel
+6,6 Rangpunkte zu billig. Das ist plausibel und unangenehm zugleich — die Erhebung sucht
+Angebote und findet zuerst das günstige. Ein Werkstoff mit genau einem Angebot sieht
+deshalb billiger aus, als er ist.
+
+### Entscheidung
+
+**Eine schwach belegte Angabe darf keine Stärke behaupten.** Liegt ihr Score über dem
+neutralen Mittelfeld (0,5), wird der Abstand dorthin auf die **gemessene**
+Verlässlichkeit gestaucht. Liegt er darunter, bleibt er unangetastet.
+
+```
+Verlässlichkeit = 1 − Rangfehler / (1/3)          (1/3 = Abstand zweier zufälliger Ränge)
+
+price: { estimated: 0,66,  low: 0,74 }
+
+Score 0,93 · low   →  0,5 + 0,74 · 0,43 = 0,82
+Score 0,30 · low   →  0,30 (unverändert)
+```
+
+Betroffen sind zehn Werkstoffe, mit Verschiebungen zwischen 2 und 15 Rangpunkten. Keiner
+der 177 bestehenden Tests hat sich daran gestört.
+
+### Warum einseitig
+
+Symmetrisch wäre statistisch sauberer — Rauschen zieht in beide Richtungen. Es wäre hier
+aber **falsch herum**: Eine Stauchung nach oben würde einen Werkstoff belohnen, dessen
+schlechter Wert schlecht belegt ist. Das ist derselbe Freifahrtschein, den ADR-006 für
+fehlende Daten ausschließt.
+
+Und die Einseitigkeit ist nicht nur bequem, sie ist **gemessen**: Der systematische Versatz
+beim Einzelhändler zeigt in die günstige Richtung. Korrigiert wird genau dort, wo die
+Abweichung nachweislich zugunsten des Werkstoffs ausfällt.
+
+### Warum nur der Preis
+
+Weil nur dort ein Experiment vorliegt. Für Festigkeit, Steifigkeit,
+Wärmeformbeständigkeit und Zähigkeit findet das Skript **null** Übergänge von Schätzung
+auf Messung — dort ist nie geschätzt und später gemessen worden. Eine Verlässlichkeit für
+diese Kriterien wäre geraten. Kriterien ohne Eintrag behalten ihren vollen Score.
+
+Bei sechs Kriterien — Witterung, Druckbarkeit, XXL-Eignung, Verfügbarkeit, Verzug,
+Oberfläche — ist ohnehin **jeder** Wert eine fachliche Einschätzung. Ein Abschlag träfe
+dort alle gleich und löschte das Kriterium aus der Entscheidung, statt es zu relativieren.
+
+### Konsequenzen
+
+**Die Stauchung ist sichtbar.** `CriterionScore.discounted` trägt sie bis in die
+Erläuterungen (`risk.thinEvidence.price.low` / `.estimated`), und die Sätze nennen die
+gemessene Abweichung. Ohne das läse ein Nutzer „günstig" und eine Platzierung, die dazu
+nicht passt, und hielte die Zahl für falsch — dabei ist nicht die Zahl gedämpft, sondern
+das Zutrauen in sie. **`raw` bleibt unverändert der Messwert.**
+
+**Die Konstanten wandern nicht automatisch.** Das Messskript druckt sie, schreibt sie aber
+nicht. Wer sie ändert, ändert Rangfolgen; das gehört in einen Commit mit der Ausgabe
+daneben. Es läuft aus demselben Grund nicht in `npm run ci`: Es liest die komplette
+Git-Historie aller Werkstoffdateien und braucht dafür gut eine Minute.
+
+**Der Datenbestand ist gleichzeitig Messgerät und Messobjekt.** Die 50 Paare stammen aus
+derselben Erhebung, die sie bewerten. Mit jedem neuen Händler wächst die Stichprobe und
+die Zahlen werden belastbarer — aber sie bleiben eine Aussage über *diese* Erhebung, nicht
+über Preisschätzungen im Allgemeinen.
+
+**Was hier nicht entschieden ist:** ob eine Erhebung aus fünf Angeboten *eines* Händlers
+schon `medium` verdient. `derive-price.mjs` vergibt die Stufe nach Breite, und die
+Messung oben stützt das — aber sie kann es nicht prüfen, weil in der Historie kein Fall
+vorkommt, in dem eine breite Erhebung später korrigiert wurde.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

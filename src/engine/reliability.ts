@@ -1,0 +1,82 @@
+/**
+ * Stage 2b — was eine schwach belegte Angabe im Ranking wert sein darf.
+ *
+ * DER BEFUND (siehe ADR-040)
+ * Bis 2026-08-06 wog ein geschaetzter Preis genau so viel wie ein bei fuenf Haendlern
+ * erhobener. Die naheliegende Reparatur - "erhobene Preise schlagen Schaetzungen" -
+ * hat die eigene Historie widerlegt: Von 35 Werkstoffen, deren Schaetzpreis spaeter
+ * durch eine Erhebung ersetzt wurde, war die Schaetzung 24-mal ZU TEUER. Schaetzungen
+ * verschaffen in dieser Datenbank keinen Vorteil, sie sind eher zu vorsichtig.
+ *
+ * Der unverdiente Vorteil liegt woanders: Bei 15 Werkstoffen, die von einem einzigen
+ * Haendler auf mehrere gewachsen sind, stieg der Preis im Mittel um 6,6 Rangpunkte.
+ * Der erste gefundene Shop ist systematisch der billige. Ein Einzelfund laesst einen
+ * Werkstoff also guenstiger aussehen, als er ist - und das ist ein MESSWERT, keine
+ * Vermutung.
+ *
+ * DIE REGEL
+ * Eine schwach belegte Angabe darf keine Staerke behaupten. Liegt ihr Score ueber dem
+ * neutralen Mittelfeld, wird der Abstand zum Mittelfeld auf die gemessene
+ * Verlaesslichkeit gestaucht. Liegt er darunter, bleibt er unangetastet.
+ *
+ *   Score 0,93 · Verlaesslichkeit 0,74   ->   0,5 + 0,74 · 0,43 = 0,82
+ *   Score 0,30 · Verlaesslichkeit 0,74   ->   0,30 (unveraendert)
+ *
+ * WARUM EINSEITIG
+ * Symmetrisch waere statistisch sauberer - Rauschen zieht in beide Richtungen. Es waere
+ * hier aber falsch herum: Eine Stauchung nach oben WUERDE einen Werkstoff belohnen,
+ * dessen schlechter Wert schlecht belegt ist. Das ist derselbe Freifahrtschein, den
+ * ADR-006 fuer fehlende Daten ausschliesst. Und die Messung stuetzt die Einseitigkeit:
+ * Der systematische Versatz beim Einzelhaendler zeigt genau in die guenstige Richtung.
+ *
+ * WARUM NUR DER PREIS
+ * Weil nur dort ein Experiment vorliegt. `scripts/measure-price-reliability.mjs` findet
+ * fuer Festigkeit, Steifigkeit, Waermeformbestaendigkeit und Zaehigkeit NULL Uebergaenge
+ * von Schaetzung auf Messung - dort ist nie geschaetzt und spaeter gemessen worden. Eine
+ * Verlaesslichkeit fuer diese Kriterien waere geraten, und geraten wird hier nicht.
+ * Kriterien ohne Eintrag behalten ihren vollen Score.
+ *
+ * Bei sechs Kriterien - Witterung, Druckbarkeit, XXL-Eignung, Verfuegbarkeit, Verzug,
+ * Oberflaeche - ist ohnehin JEDER Wert eine fachliche Einschaetzung. Dort waere ein
+ * Abschlag sinnlos: Er traefe alle gleich und loeschte das Kriterium aus der
+ * Entscheidung, statt es zu relativieren.
+ */
+
+import type { Confidence } from "./types";
+
+/** Das Mittelfeld. Per Konstruktion der Median der Datenbank (Perzentilrang). */
+export const NEUTRAL = 0.5;
+
+/**
+ * Gemessen am 2026-08-06 mit `npm run measure:price-reliability`:
+ *
+ *   Schaetzung     n = 35   Rangfehler 11,4 %   Versatz -5,7 %   -> 0,66
+ *   ein Haendler   n = 15   Rangfehler  8,5 %   Versatz +6,6 %   -> 0,74
+ *
+ * `high` und `medium` stehen nicht drin und bekommen damit den vollen Score - ein
+ * Datenblattwert und eine breite Erhebung sind das, woran hier gemessen wird.
+ */
+export const RELIABILITY: Readonly<Record<string, Partial<Record<Confidence, number>>>> = {
+  price: { estimated: 0.66, low: 0.74 },
+};
+
+/** Verlaesslichkeit dieser Kombination, oder `null`, wenn sie nie gemessen wurde. */
+export function reliabilityOf(criterionId: string, confidence: Confidence | null): number | null {
+  if (confidence === null) return null;
+  return RELIABILITY[criterionId]?.[confidence] ?? null;
+}
+
+/**
+ * Der Score, den diese Angabe belegen kann. Unveraendert, solange sie keinen Vorsprung
+ * behauptet; sonst auf die gemessene Verlaesslichkeit gestaucht.
+ */
+export function creditable(
+  criterionId: string,
+  confidence: Confidence | null,
+  score: number,
+): { score: number; discounted: boolean } {
+  if (score <= NEUTRAL) return { score, discounted: false };
+  const rel = reliabilityOf(criterionId, confidence);
+  if (rel === null || rel >= 1) return { score, discounted: false };
+  return { score: NEUTRAL + rel * (score - NEUTRAL), discounted: true };
+}

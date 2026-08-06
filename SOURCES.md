@@ -370,6 +370,31 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   eine Fundstellenliste für eine Erhebung, keine Erhebung. Wer den nächsten Anlauf
   unternimmt, muss weitere Shops einzeln prüfen: robots.txt lesen, JSON-LD suchen,
   `scripts/survey-prices.mjs` erweitern.
+
+  **Wie verlässlich die schwachen Preisangaben sind — gemessen, nicht geschätzt.**
+  Die Erhebung hat nebenbei ein Experiment erzeugt: 50 Werkstoffe sind im Lauf der letzten
+  Wochen von einer schwächeren auf eine bessere Preisangabe umgestellt worden. Jeder
+  Übergang ist ein Paar aus „was wir glaubten" und „was wir dann gemessen haben".
+  `npm run measure:price-reliability` liest sie aus der Git-Historie (Stand 2026-08-06):
+
+  | | n | Preisfehler (Median) | Rangfehler (Mittel) | systematischer Versatz |
+  |---|---|---|---|---|
+  | Schätzung → Erhebung | 35 | 15,4 % | 11,4 % | **−5,7 %** (war zu **teuer**) |
+  | ein Händler → mehrere | 15 | 14,4 % | 8,5 % | **+6,6 %** (war zu **günstig**) |
+
+  Die größten Ausreißer nach unten: `pet-cf` 105 → 49,98 €/kg, `pmma` 60 → 32,98,
+  `tpu-95a` 40 → 22,99. Nach oben: `pp` 47,50 → 73,32 und `tpu-esd` 90 → 129,98.
+
+  **Der Befund kehrt die Vermutung um.** In `SOURCES.md` und im Testkommentar stand seit
+  PR #18, eine Schätzung trete gleichberechtigt neben eine Erhebung und gewinne dadurch.
+  Von 35 ersetzten Schätzpreisen waren aber **24 zu hoch** — Schätzungen sind hier eher zu
+  vorsichtig. Zu günstig ist systematisch der **Einzelfund**: Die Erhebung sucht Angebote
+  und findet zuerst das billige. Das ist die Verzerrung, die eine Empfehlung tatsächlich
+  kippen kann, und sie wird seit ADR-040 im Scoring gedämpft.
+
+  Mit jedem neuen Händler wächst die Stichprobe. Die Zahlen bleiben aber eine Aussage über
+  *diese* Erhebung, nicht über Preisschätzungen im Allgemeinen — Messgerät und Messobjekt
+  sind derselbe Datenbestand.
 - Bewitterungsdaten (QUV/Xenon) — vermutlich nur über Fachliteratur (`oq_uv_data`)
 - Lackhaftung, Verklebbarkeit, XXL-Eignung → eigene Fertigungserfahrung Reents3D
 - ESD-Messungen zur Absicherung der `insulating`-Einstufung bei CF-Typen (`oq_esd_measurement`)
