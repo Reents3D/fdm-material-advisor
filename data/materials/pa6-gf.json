@@ -580,7 +580,7 @@
       "min": 39.99,
       "max": 119.87,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 5 Angeboten über 3 Händler und 5 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa6_gf_3djake",
         "src_price_pa6_gf_extrudr",

@@ -882,7 +882,7 @@
       "min": 49.98,
       "max": 119,
       "unit": "€/kg",
-      "conditions": "Median aus 11 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 11 Angeboten über 2 Händler und 2 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pet_cf_3djake",
         "src_price_pet_cf_material4print"

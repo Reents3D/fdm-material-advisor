@@ -872,7 +872,7 @@
       "min": 9.27,
       "max": 106.53,
       "unit": "€/kg",
-      "conditions": "Median aus 307 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 307 Angeboten über 4 Händler und 8 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pla_material4print",
         "src_price_pla_3djake",

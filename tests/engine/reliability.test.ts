@@ -18,9 +18,15 @@ import type { Confidence } from "../../src/engine/types";
 
 describe("Stauchung schwacher Belege", () => {
   it("stutzt nur den Vorsprung, nie den Rückstand", () => {
+    /* Geprüft wird die FORMEL, nicht die Konstante: Die Verlässlichkeit wird
+       nachgemessen, sobald die Erhebung wächst (ADR-040), und ein Test, der die Zahl
+       zweitschreibt, wäre bei jeder Nachkalibrierung rot - ohne dass etwas kaputt ist. */
+    const rel = RELIABILITY.price!.low!;
     const good = creditable("price", "low", 0.9);
     expect(good.discounted).toBe(true);
-    expect(good.score).toBeCloseTo(NEUTRAL + 0.74 * 0.4, 6);
+    expect(good.score).toBeCloseTo(NEUTRAL + rel * 0.4, 6);
+    expect(rel).toBeGreaterThan(0);
+    expect(rel).toBeLessThan(1);
 
     /* Ein schlecht belegter SCHLECHTER Wert bleibt schlecht. Eine Stauchung nach oben
        wäre der Freifahrtschein, den ADR-006 für fehlende Daten ausschliesst: Wer bei

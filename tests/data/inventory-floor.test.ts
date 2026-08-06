@@ -76,7 +76,10 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Vorbehalt - +16. Weggefallen sind zwei: `petg-cf` hat mit 3DJAKE seinen dritten
    Haendler bekommen und ist damit beantwortet, und `ppa-cf:oq_ppa_cf_price` war
    schlicht falsch geworden ("er ist der einzige der 42 Typen ohne Preis" - ist er nicht
-   mehr). 74 + 16 - 2 = 88.
+   mehr). 74 + 16 - 2 = 88. Einen Tag spaeter sind es 91: `greentec`, `tpu-58d` und
+   `tpu-85a` sind von `medium` auf `low` zurueckgefallen, weil ihre fuenf Angebote alle
+   von EINER Marke stammen (Extrudr, gefuehrt von Extrudr und von 3DJAKE) - und tragen
+   damit ihren Vorbehalt wieder.
 
    Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
    durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
@@ -92,7 +95,7 @@ const FLOOR = {
   chemicalRatings: 882,
   materialsWithPrice: 42,
   anisotropyFactors: 19,
-  openQuestions: 88,
+  openQuestions: 91,
 };
 
 const actual = {
@@ -146,5 +149,21 @@ describe("Bestandsuntergrenzen", () => {
     }
     expect(thin, "dünne Preislage ohne offene Frage").toEqual([]);
     expect(stale, "breite Erhebung mit übrig gebliebener Frage").toEqual([]);
+  });
+
+  /* `tpu-58d` und `tpu-85a` standen am 2026-08-06 auf `medium` mit fünf Angeboten aus
+     zwei Shops - und alle fünf waren Extrudr, einmal bei Extrudr selbst, einmal bei
+     3DJAKE. Zwei Händler, die dieselbe Herstellerliste führen, vergleichen keine Preise.
+     Sichtbar wurde es an der Kalibrierung aus ADR-040: Beide bewegten sich beim Übergang
+     um 0,0 %, während echte Markenwechsel im Median 15 % sprangen. */
+  it("kein `medium` steht auf einer einzigen Marke", () => {
+    const survey = JSON.parse(readFileSync(path.join(ROOT, "data/prices.json"), "utf8"));
+    const single: string[] = [];
+    for (const m of materials) {
+      if (m.commercial?.pricePerKg?.confidence !== "medium") continue;
+      const offers = (survey.offers[m.id] ?? []) as { brand: string }[];
+      if (new Set(offers.map((o) => o.brand)).size < 2) single.push(m.id);
+    }
+    expect(single, "medium, obwohl alle Angebote von einer Marke stammen").toEqual([]);
   });
 });

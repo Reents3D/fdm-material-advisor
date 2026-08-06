@@ -565,8 +565,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 1 Anbieter (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 3 offers from 1 retailer (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
+          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 1 Anbieter und 1 Marke (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 3 offers from 1 retailer and 1 brand (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
         },
         "blocking": false,
         "affectsFields": [

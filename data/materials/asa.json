@@ -828,7 +828,7 @@
       "min": 21.99,
       "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 100 Angeboten über 5 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 100 Angeboten über 5 Händler und 10 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_asa_3djake",
         "src_price_asa_fillamentum",
