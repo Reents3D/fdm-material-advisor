@@ -1,0 +1,25 @@
+# Zeilenenden im Arbeitsbaum festnageln.
+#
+# Ohne diese Datei entscheidet die lokale Einstellung `core.autocrlf` jedes Entwicklers,
+# und unter Windows steht sie oft auf `true`. Dann liefert jeder Checkout CRLF, waehrend
+# die Importer und derive-Skripte dieses Projekts LF schreiben - und Git meldet
+# anschliessend Dutzende Dateien als geaendert, die inhaltlich identisch sind.
+#
+# Das ist nicht bloss laestig. Der Datenverlust am 2026-08-05 (zwoelf Werkstoffdateien um
+# 250 Zeilen gekuerzt) wurde nur bemerkt, weil jemand die Zeilenstatistik eines Commits
+# gelesen hat. Ein Diff, in dem staendig inhaltsleere Aenderungen stehen, macht genau
+# diese Kontrolle unbrauchbar.
+#
+# Im Repository liegt ohnehin praktisch alles als LF; diese Datei aendert also nicht den
+# Bestand, sondern nur, was beim Auschecken daraus wird.
+* text=auto eol=lf
+
+# Binaerdateien nie anfassen.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.woff binary
+*.woff2 binary

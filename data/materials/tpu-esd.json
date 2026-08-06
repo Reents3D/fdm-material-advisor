@@ -548,11 +548,17 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "src_price_tpu_esd_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise TPU-ESD",
+        "url": "https://www.3djake.de/filament/esd-antistatisch",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr TPU medium ESD Schwarz, 0,5 kg, 64,99 €",
+          "en": "1 offer: Extrudr TPU medium ESD Schwarz, 0.5 kg, 64.99 €"
+        }
       },
       {
         "id": "src_price_tpu_esd_extrudr",
@@ -568,17 +574,11 @@
         }
       },
       {
-        "id": "src_price_tpu_esd_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise TPU-ESD",
-        "url": "https://www.3djake.de/filament/esd-antistatisch",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr TPU medium ESD Schwarz, 0,5 kg, 64,99 €",
-          "en": "1 offer: Extrudr TPU medium ESD Schwarz, 0.5 kg, 64.99 €"
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

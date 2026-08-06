@@ -887,11 +887,30 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "src_flame_addnorth_petg_v0",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north PETG Flame Retardant V0",
+        "title": "add:north PETG Flame Retardant V0 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_PETGv0_oY3Rem.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       },
       {
         "id": "src_price_petg_3djake",
@@ -904,19 +923,6 @@
         "note": {
           "de": "7 Angebote: eSUN PETG Black, 1 kg, 15,99 € · Polymaker PETG Black, 1 kg, 19,99 € · Bambu Lab PETG Basic Black, 1 kg, 22,99 € · Fiberlogy Easy PETG Black, 0,85 kg, 19,99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24,99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29,99 € · Extrudr PETG Schwarz, 1,1 kg, 39,49 €",
           "en": "7 offers: eSUN PETG Black, 1 kg, 15.99 € · Polymaker PETG Black, 1 kg, 19.99 € · Bambu Lab PETG Basic Black, 1 kg, 22.99 € · Fiberlogy Easy PETG Black, 0.85 kg, 19.99 € · 3DJAKE easyPETG Schwarz, 1 kg, 24.99 € · Extrudr XPETG Matt Schwarz, 1 kg, 29.99 € · Extrudr PETG Schwarz, 1.1 kg, 39.49 €"
-        }
-      },
-      {
-        "id": "src_price_petg_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PETG",
-        "url": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "5 Angebote: Fiberlogy Easy PETG Refill, 0,85 kg, 15,47 € · Fiberlogy Easy PETG, 2,5 kg, 54,37 € · Fiberlogy Easy PETG, 0,85 kg, 19,56 € · Fiberlogy Matte PETG, 2,5 kg, 73,31 € · Fiberlogy Matte PETG, 0,85 kg, 27,68 €",
-          "en": "5 offers: Fiberlogy Easy PETG Refill, 0.85 kg, 15.47 € · Fiberlogy Easy PETG, 2.5 kg, 54.37 € · Fiberlogy Easy PETG, 0.85 kg, 19.56 € · Fiberlogy Matte PETG, 2.5 kg, 73.31 € · Fiberlogy Matte PETG, 0.85 kg, 27.68 €"
         }
       },
       {
@@ -933,15 +939,16 @@
         }
       },
       {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "id": "src_price_petg_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PETG",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PET-G/145",
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "5 Angebote: Fiberlogy Easy PETG Refill, 0,85 kg, 15,47 € · Fiberlogy Easy PETG, 2,5 kg, 54,37 € · Fiberlogy Easy PETG, 0,85 kg, 19,56 € · Fiberlogy Matte PETG, 2,5 kg, 73,31 € · Fiberlogy Matte PETG, 0,85 kg, 27,68 €",
+          "en": "5 offers: Fiberlogy Easy PETG Refill, 0.85 kg, 15.47 € · Fiberlogy Easy PETG, 2.5 kg, 54.37 € · Fiberlogy Easy PETG, 0.85 kg, 19.56 € · Fiberlogy Matte PETG, 2.5 kg, 73.31 € · Fiberlogy Matte PETG, 0.85 kg, 27.68 €"
         }
       },
       {
@@ -959,18 +966,11 @@
         }
       },
       {
-        "id": "src_flame_addnorth_petg_v0",
-        "type": "manufacturer-tds",
-        "publisher": "add:north 3D filaments AB",
-        "productName": "add:north PETG Flame Retardant V0",
-        "title": "add:north PETG Flame Retardant V0 — Technical Data Sheet",
-        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/TDS_PETGv0_oY3Rem.pdf",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

@@ -930,11 +930,16 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       },
       {
         "id": "src_price_pla_3djake",
@@ -947,19 +952,6 @@
         "note": {
           "de": "7 Angebote: eSUN PLA-Basic Black, 1 kg, 12,49 € · Elegoo PLA Schwarz, 1 kg, 12,99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14,99 € · eSUN PLA+ Black, 1 kg, 18,99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19,99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25,99 € · Bambu Lab PLA Basic Black, 1 kg, 25,99 €",
           "en": "7 offers: eSUN PLA-Basic Black, 1 kg, 12.49 € · Elegoo PLA Schwarz, 1 kg, 12.99 € · Polymaker PolyTerra PLA Charcoal Black, 1 kg, 14.99 € · eSUN PLA+ Black, 1 kg, 18.99 € · 3DJAKE ecoPLA Schwarz, 1 kg, 19.99 € · Extrudr PLA NX2 Matt Weiß, 1 kg, 25.99 € · Bambu Lab PLA Basic Black, 1 kg, 25.99 €"
-        }
-      },
-      {
-        "id": "src_price_pla_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PLA",
-        "url": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "6 Angebote: Fiberlogy Easy PLA Refill, 0,85 kg, 15,47 € · Fiberlogy Matte PLA, 0,85 kg, 16,18 € · Fiberlogy HS PLA Clear, 0,85 kg, 16,46 € · Fiberlogy Easy PLA, 2,5 kg, 54,37 € · Fiberlogy Easy PLA, 0,85 kg, 19,56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0,5 kg, 51,78 €",
-          "en": "6 offers: Fiberlogy Easy PLA Refill, 0.85 kg, 15.47 € · Fiberlogy Matte PLA, 0.85 kg, 16.18 € · Fiberlogy HS PLA Clear, 0.85 kg, 16.46 € · Fiberlogy Easy PLA, 2.5 kg, 54.37 € · Fiberlogy Easy PLA, 0.85 kg, 19.56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0.5 kg, 51.78 €"
         }
       },
       {
@@ -976,15 +968,16 @@
         }
       },
       {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "id": "src_price_pla_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PLA",
+        "url": "https://fiberlogy.com/en_US/c/Easy-PLA/138",
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "6 Angebote: Fiberlogy Easy PLA Refill, 0,85 kg, 15,47 € · Fiberlogy Matte PLA, 0,85 kg, 16,18 € · Fiberlogy HS PLA Clear, 0,85 kg, 16,46 € · Fiberlogy Easy PLA, 2,5 kg, 54,37 € · Fiberlogy Easy PLA, 0,85 kg, 19,56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0,5 kg, 51,78 €",
+          "en": "6 offers: Fiberlogy Easy PLA Refill, 0.85 kg, 15.47 € · Fiberlogy Matte PLA, 0.85 kg, 16.18 € · Fiberlogy HS PLA Clear, 0.85 kg, 16.46 € · Fiberlogy Easy PLA, 2.5 kg, 54.37 € · Fiberlogy Easy PLA, 0.85 kg, 19.56 € · Fiberlogy Filament Easy PLA CMYK 1_75mm 4 x 0_5kg, 0.5 kg, 51.78 €"
         }
       },
       {
@@ -1000,6 +993,13 @@
           "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
           "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

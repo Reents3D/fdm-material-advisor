@@ -542,6 +542,20 @@
     "dataCompleteness": null,
     "sources": [
       {
+        "id": "src_flame_formfutura_luvocom_paht_kk_fr",
+        "type": "manufacturer-tds",
+        "publisher": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
+        "productName": "LUVOCOM 3F PAHT KK 50056 BK FR",
+        "title": "LUVOCOM 3F PAHT KK 50056 BK FR — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256575?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
         "id": "src_m4p_tds",
         "type": "manufacturer-tds",
         "publisher": "Material 4 Print GmbH & Co. KG",
@@ -561,20 +575,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_flame_formfutura_luvocom_paht_kk_fr",
-        "type": "manufacturer-tds",
-        "publisher": "LUVOCOM 3F (Lehvoss Group, vertrieben durch FormFutura)",
-        "productName": "LUVOCOM 3F PAHT KK 50056 BK FR",
-        "title": "LUVOCOM 3F PAHT KK 50056 BK FR — Technical Data Sheet",
-        "url": "https://www.formfutura.com/web/content/256575?download=true",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
-        }
       }
     ],
     "openQuestions": [

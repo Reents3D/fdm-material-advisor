@@ -67,7 +67,8 @@
     "import:alzament": "node scripts/import/alzament.mjs",
     "check:lineage": "node scripts/check-lineage.ts",
     "derive:lineage": "node scripts/derive-lineage.ts",
-    "derive:all": "npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:anisotropy && npm run derive:price && npm run derive:lineage && npm run import:ofd-spools && npm run import:ofd-processing && npm run apply:field",
+    "normalize:sources": "node scripts/normalize-sources.mjs",
+    "derive:all": "npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:anisotropy && npm run derive:price && npm run derive:lineage && npm run import:ofd-spools && npm run import:ofd-processing && npm run apply:field && npm run normalize:sources",
     "derive:anisotropy": "node scripts/derive-anisotropy.mjs"
   },
   "dependencies": {

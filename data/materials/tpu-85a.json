@@ -565,11 +565,17 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "src_price_tpu_85a_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise TPU 85A",
+        "url": "https://www.3djake.de/filament/flexibel-tpu",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 €",
+          "en": "1 offer: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 €"
+        }
       },
       {
         "id": "src_price_tpu_85a_extrudr",
@@ -585,17 +591,11 @@
         }
       },
       {
-        "id": "src_price_tpu_85a_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise TPU 85A",
-        "url": "https://www.3djake.de/filament/flexibel-tpu",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 €",
-          "en": "1 offer: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 €"
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

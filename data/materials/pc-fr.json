@@ -589,13 +589,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
         "id": "src_price_pc_fr_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -633,6 +626,13 @@
           "de": "1 Angebot: 3DXTech Firewire FR-ABS Schwarz, 0,75 kg, 79,90 €",
           "en": "1 offer: 3DXTech Firewire FR-ABS Schwarz, 0.75 kg, 79.90 €"
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

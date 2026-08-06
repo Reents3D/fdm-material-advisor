@@ -604,11 +604,16 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       },
       {
         "id": "src_price_pa12_cf_3djake",
@@ -621,19 +626,6 @@
         "note": {
           "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
           "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
-        }
-      },
-      {
-        "id": "src_price_pa12_cf_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PA12-CF",
-        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "3 Angebote: Fiberlogy Nylon PA12CF15, 2,5 kg, 290,03 € · Fiberlogy Nylon PA12CF15, 0,5 kg, 58,79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117,59 €",
-          "en": "3 offers: Fiberlogy Nylon PA12CF15, 2.5 kg, 290.03 € · Fiberlogy Nylon PA12CF15, 0.5 kg, 58.79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117.59 €"
         }
       },
       {
@@ -650,15 +642,16 @@
         }
       },
       {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "id": "src_price_pa12_cf_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PA12-CF",
+        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12-CF/153",
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "3 Angebote: Fiberlogy Nylon PA12CF15, 2,5 kg, 290,03 € · Fiberlogy Nylon PA12CF15, 0,5 kg, 58,79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117,59 €",
+          "en": "3 offers: Fiberlogy Nylon PA12CF15, 2.5 kg, 290.03 € · Fiberlogy Nylon PA12CF15, 0.5 kg, 58.79 € · Fiberlogy Nylon PA12CF15, 1 kg, 117.59 €"
         }
       },
       {
@@ -674,6 +667,13 @@
           "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
           "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [
