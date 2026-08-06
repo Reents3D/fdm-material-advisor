@@ -459,7 +459,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 4,
+      "value": 5,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -514,18 +514,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 79.99,
+      "value": 107.99,
       "min": 27.99,
-      "max": 117.98,
+      "max": 119.93,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 13 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
-        "src_price_esd_petg_3djake"
+        "src_price_esd_petg_3djake",
+        "src_price_esd_petg_material4print"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (eSUN, Polymaker, Fiberlogy) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 3 brands (eSUN, Polymaker, Fiberlogy) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 4 Marken (eSUN, Polymaker, M4P, Fiberlogy) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 13 list prices from 4 brands (eSUN, Polymaker, M4P, Fiberlogy) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -562,13 +563,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
         "id": "src_price_esd_petg_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -580,6 +574,26 @@
           "de": "3 Angebote: eSUN PETG-ESD Black, 1 kg, 27,99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79,99 € · Fiberlogy PETG ESD Schwarz, 0,5 kg, 58,99 €",
           "en": "3 offers: eSUN PETG-ESD Black, 1 kg, 27.99 € · Polymaker Fiberon PETG-ESD Black, 1 kg, 79.99 € · Fiberlogy PETG ESD Schwarz, 0.5 kg, 58.99 €"
         }
+      },
+      {
+        "id": "src_price_esd_petg_material4print",
+        "type": "retailer-listing",
+        "publisher": "Material4Print",
+        "title": "Material4Print — Listenpreise ESD-PETG",
+        "url": "https://www.material4print.de/collections/filament/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "10 Angebote: M4P ESD PETG — 1.75 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PETG — 2.85 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PETG — 1.75 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PETG — 2.85 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PETG — 1.75 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PETG — 2.85 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PETG Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PETG Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PETG — 1.75 mm / 0.75 Kg, 0,75 kg, 89,95 € · M4P ESD PETG — 2.85 mm / 0.75 Kg, 0,75 kg, 89,95 €",
+          "en": "10 offers: M4P ESD PETG — 1.75 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PETG — 2.85 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PETG — 1.75 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PETG — 2.85 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PETG — 1.75 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PETG — 2.85 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PETG Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PETG Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PETG — 1.75 mm / 0.75 Kg, 0.75 kg, 89.95 € · M4P ESD PETG — 2.85 mm / 0.75 Kg, 0.75 kg, 89.95 €"
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

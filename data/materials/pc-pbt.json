@@ -520,7 +520,7 @@
       "min": 71.39,
       "max": 71.99,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 3 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pc_pbt_extrudr",
         "src_price_pc_pbt_3djake"
@@ -553,26 +553,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pc_pbt_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PC-PBT",
-        "url": "https://extrudr.com/de/de/products/durapro-pc-pbt/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg, 53,54 €",
-          "en": "1 offer: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg, 53.54 €"
-        }
-      },
-      {
         "id": "src_price_pc_pbt_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -584,6 +564,26 @@
           "de": "2 Angebote: Extrudr DuraPro PC/PBT Black, 0,75 kg, 53,99 € · Extrudr DuraPro PC/PBT White, 0,75 kg, 53,99 €",
           "en": "2 offers: Extrudr DuraPro PC/PBT Black, 0.75 kg, 53.99 € · Extrudr DuraPro PC/PBT White, 0.75 kg, 53.99 €"
         }
+      },
+      {
+        "id": "src_price_pc_pbt_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PC-PBT",
+        "url": "https://extrudr.com/de/de/products/durapro-pc-pbt/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg, 53,54 €",
+          "en": "1 offer: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg, 53.54 €"
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

@@ -513,7 +513,7 @@
       "min": 46.27,
       "max": 46.65,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_58d_extrudr",
         "src_price_tpu_58d_3djake"
@@ -546,26 +546,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_tpu_58d_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise TPU 58D",
-        "url": "https://extrudr.com/de/de/products/flex-hard/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0,75 kg, 34,70 €",
-          "en": "1 offer: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0.75 kg, 34.70 €"
-        }
-      },
-      {
         "id": "src_price_tpu_58d_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -577,6 +557,26 @@
           "de": "1 Angebot: Extrudr TPU hard Schwarz (D58), 0,75 kg, 34,99 €",
           "en": "1 offer: Extrudr TPU hard Schwarz (D58), 0.75 kg, 34.99 €"
         }
+      },
+      {
+        "id": "src_price_tpu_58d_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise TPU 58D",
+        "url": "https://extrudr.com/de/de/products/flex-hard/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0,75 kg, 34,70 €",
+          "en": "1 offer: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0.75 kg, 34.70 €"
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

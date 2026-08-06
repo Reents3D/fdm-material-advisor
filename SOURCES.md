@@ -313,15 +313,35 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
 
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 
-- Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`) — **Stand 2026-08-05: das
-  Ziel ist weit verfehlt, und zwar messbar.** Kein einziger Werkstoff erreicht fünf
-  Händler; das Maximum sind vier, und das bei einem einzigen Typ:
+- Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`) — **das Ziel ist weiter
+  verfehlt, aber der Abstand ist kleiner geworden.** Mit der Aufnahme von Material4Print
+  am 2026-08-06:
 
   | Händler je Werkstoff | 0 | 1 | 2 | 3 | 4 | ≥ 5 |
   |---|---|---|---|---|---|---|
-  | Werkstoffe | 9 | **14** | 8 | 10 | 1 | **0** |
+  | Stand 2026-08-05 | 9 | 14 | 8 | 10 | 1 | **0** |
+  | **Stand 2026-08-06** | 12 | **5** | **16** | 8 | 1 | **0** |
 
-  Vierzehn Werkstoffe hängen an einem einzigen Shop. Die Preiskonfidenz bildet das
+  Werkstoffe mit mindestens zwei Händlern: 19 → **25**. Preiskonfidenz `medium` 11 → **16**,
+  `low` 22 → **14**.
+
+  **Wie der Shop ausgewählt wurde.** Naheliegend wäre ein großer Filamentshop gewesen;
+  geprüft wurde dasfilament.de, und der führt praktisch nur PLA und PETG — also die beiden
+  Werkstoffe mit der ohnehin besten Abdeckung. Der Zugewinn wäre null gewesen. Umgekehrt
+  gefragt — *welche Marke liefert die dünnen Werkstoffe?* — stand Material4Print mit neun
+  an der Spitze: ESD-PLA, ESD-PETG, ESD-ABS, PAHT, PAHT-CF15, PET-CF15, PMMA, ABS-PC und
+  Tough PLA. Gelesen wird Shopifys dokumentierter `products.json`-Endpunkt: ein Aufruf
+  statt 124, und die Spulengröße steht sauber im Variantentitel.
+
+  **Fiberlogy ist im selben Zug weggefallen.** Am 2026-08-02 lieferte der Shop noch
+  Preise; vier Tage später antworten alle 22 Kategorieadressen mit 404, und die
+  Nachfolgeseite nennt nur noch „Where to Buy", „Distributor" und „Reseller" — der
+  Direktverkauf ist eingestellt. Der Leser wurde deshalb nicht repariert, sondern
+  stillgelegt: Ein Preis, dessen Quelladresse mit 404 antwortet, ist von niemandem mehr
+  nachprüfbar. Fünf Werkstoffe (`abs-gf`, `hips`, `pctg-gf`, `pla-cf`, `pp`) verlieren
+  damit ihre einzige Preisquelle und fallen auf eine Schätzung zurück.
+
+  Fünf Werkstoffe hängen weiterhin an einem einzigen Shop. Die Preiskonfidenz bildet das
   inzwischen ab (11 × `medium`, 22 × `low`, 8 geschätzt, 1 ohne Preis), und seit
   2026-08-05 nennt auch die kurze Bedingungszeile die Händlerzahl statt nur der
   Angebotszahl — bei `pc` stand dort „Median aus 8 Händlerangeboten", und alle acht kamen

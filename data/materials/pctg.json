@@ -472,7 +472,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 1,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -549,20 +549,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 33.32,
-      "min": 24.56,
+      "value": 34.65,
+      "min": 30.4,
       "max": 37.49,
       "unit": "€/kg",
-      "conditions": "Median aus 6 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
-        "src_price_pctg_fiberlogy",
         "src_price_pctg_3djake",
         "src_price_pctg_extrudr"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 6 Listenpreise von 2 Marken (Fiberlogy, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 6 list prices from 2 brands (Fiberlogy, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 2 Marken (Extrudr, Fiberlogy) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 5 list prices from 2 brands (Extrudr, Fiberlogy) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -607,6 +606,32 @@
         }
       },
       {
+        "id": "src_price_pctg_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PCTG",
+        "url": "https://www.3djake.de/extrudr",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Extrudr PCTG transparent, 2,5 kg, 75,99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31,99 € · Fiberlogy PCTG Rot, 0,75 kg, 25,99 € · Extrudr PCTG anthrazit, 0,8 kg, 29,99 €",
+          "en": "4 offers: Extrudr PCTG transparent, 2.5 kg, 75.99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31.99 € · Fiberlogy PCTG Rot, 0.75 kg, 25.99 € · Extrudr PCTG anthrazit, 0.8 kg, 29.99 €"
+        }
+      },
+      {
+        "id": "src_price_pctg_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PCTG",
+        "url": "https://extrudr.com/de/de/products/pctg/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg, 29,74 €",
+          "en": "1 offer: Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg, 29.74 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -626,45 +651,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pctg_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PCTG",
-        "url": "https://fiberlogy.com/en_US/c/PCTG/155",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Fiberlogy PCTG, 0,75 kg, 18,42 €",
-          "en": "1 offer: Fiberlogy PCTG, 0.75 kg, 18.42 €"
-        }
-      },
-      {
-        "id": "src_price_pctg_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PCTG",
-        "url": "https://www.3djake.de/extrudr",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Extrudr PCTG transparent, 2,5 kg, 75,99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31,99 € · Fiberlogy PCTG Rot, 0,75 kg, 25,99 € · Extrudr PCTG anthrazit, 0,8 kg, 29,99 €",
-          "en": "4 offers: Extrudr PCTG transparent, 2.5 kg, 75.99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31.99 € · Fiberlogy PCTG Rot, 0.75 kg, 25.99 € · Extrudr PCTG anthrazit, 0.8 kg, 29.99 €"
-        }
-      },
-      {
-        "id": "src_price_pctg_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PCTG",
-        "url": "https://extrudr.com/de/de/products/pctg/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg, 29,74 €",
-          "en": "1 offer: Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg, 29.74 €"
-        }
       }
     ],
     "openQuestions": [

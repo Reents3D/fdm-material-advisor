@@ -859,7 +859,7 @@
       "min": 29.99,
       "max": 59.99,
       "unit": "€/kg",
-      "conditions": "Median aus 8 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 8 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_pc_3djake"
       ],
@@ -902,6 +902,19 @@
         }
       },
       {
+        "id": "src_price_pc_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PC",
+        "url": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "8 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
+          "en": "8 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -921,19 +934,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pc_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PC",
-        "url": "https://www.3djake.de/filament/pc-polycarbonat",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "8 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
-          "en": "8 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
-        }
       }
     ],
     "openQuestions": [

@@ -879,7 +879,7 @@
       "min": 49.99,
       "max": 95.98,
       "unit": "€/kg",
-      "conditions": "Median aus 7 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 7 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa6_cf_3djake",
         "src_price_pa6_cf_extrudr",
@@ -933,6 +933,45 @@
         }
       },
       {
+        "id": "src_price_pa6_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PA6-CF",
+        "url": "https://www.3djake.de/filament/nylon",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "5 Angebote: SUNLU PA6-CF Black, 1 kg, 49,99 € · eSUN PA-CF Black, 1 kg, 53,99 € · Bambu Lab PA6-CF Black, 1 kg, 82,99 € · Polymaker Fiberon PA6-CF20 Black, 0,5 kg, 44,99 € · FormFutura STYX PA6-CF15 Black, 0,5 kg, 47,99 €",
+          "en": "5 offers: SUNLU PA6-CF Black, 1 kg, 49.99 € · eSUN PA-CF Black, 1 kg, 53.99 € · Bambu Lab PA6-CF Black, 1 kg, 82.99 € · Polymaker Fiberon PA6-CF20 Black, 0.5 kg, 44.99 € · FormFutura STYX PA6-CF15 Black, 0.5 kg, 47.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa6_cf_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PA6-CF",
+        "url": "https://extrudr.com/de/de/products/durapro-pa6-cf/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
+          "en": "1 offer: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
+        }
+      },
+      {
+        "id": "src_price_pa6_cf_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise PA6-CF",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg, 59,90 €",
+          "en": "1 offer: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg, 59.90 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -952,45 +991,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pa6_cf_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PA6-CF",
-        "url": "https://www.3djake.de/filament/nylon",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "5 Angebote: SUNLU PA6-CF Black, 1 kg, 49,99 € · eSUN PA-CF Black, 1 kg, 53,99 € · Bambu Lab PA6-CF Black, 1 kg, 82,99 € · Polymaker Fiberon PA6-CF20 Black, 0,5 kg, 44,99 € · FormFutura STYX PA6-CF15 Black, 0,5 kg, 47,99 €",
-          "en": "5 offers: SUNLU PA6-CF Black, 1 kg, 49.99 € · eSUN PA-CF Black, 1 kg, 53.99 € · Bambu Lab PA6-CF Black, 1 kg, 82.99 € · Polymaker Fiberon PA6-CF20 Black, 0.5 kg, 44.99 € · FormFutura STYX PA6-CF15 Black, 0.5 kg, 47.99 €"
-        }
-      },
-      {
-        "id": "src_price_pa6_cf_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PA6-CF",
-        "url": "https://extrudr.com/de/de/products/durapro-pa6-cf/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
-          "en": "1 offer: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
-        }
-      },
-      {
-        "id": "src_price_pa6_cf_filamentworld",
-        "type": "retailer-listing",
-        "publisher": "Filamentworld",
-        "title": "Filamentworld — Listenpreise PA6-CF",
-        "url": "https://www.filamentworld.de/shop/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg, 59,90 €",
-          "en": "1 offer: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg, 59.90 €"
-        }
       }
     ],
     "openQuestions": [

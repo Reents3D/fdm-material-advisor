@@ -555,7 +555,7 @@
       "min": 35.99,
       "max": 106.53,
       "unit": "€/kg",
-      "conditions": "Median aus 4 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 4 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pc_fr_3djake",
         "src_price_pc_fr_extrudr",
@@ -589,13 +589,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
         "id": "src_price_pc_fr_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -614,7 +607,7 @@
         "publisher": "Extrudr",
         "title": "Extrudr — Listenpreise PC-FR",
         "url": "https://extrudr.com/de/de/products/durapro-pc-fr-v0/",
-        "retrievedAt": "2026-08-02",
+        "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
           "de": "1 Angebot: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg, 49,58 €",
@@ -633,6 +626,13 @@
           "de": "1 Angebot: 3DXTech Firewire FR-ABS Schwarz, 0,75 kg, 79,90 €",
           "en": "1 offer: 3DXTech Firewire FR-ABS Schwarz, 0.75 kg, 79.90 €"
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

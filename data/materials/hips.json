@@ -611,16 +611,16 @@
       }
     },
     "pricePerKg": {
-      "value": 32.27,
+      "value": 28.5,
+      "min": 22,
+      "max": 35,
       "unit": "€/kg",
-      "conditions": "Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02 — keine Spanne ableitbar",
-      "source": [
-        "src_price_hips_fiberlogy"
-      ],
-      "confidence": "low",
+      "conditions": "1-kg-Spule, europäischer Fachhandel, geschätzt, Stand 2026-08-06",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
       "note": {
-        "de": "Erhoben, nicht geschätzt — aber auf einem einzigen Angebot: Fiberlogy HIPS, 0,85 kg für 27,43 €. Eine Spanne lässt sich daraus nicht ableiten, deshalb steht keine da. Ein echter Preis ist trotzdem mehr wert als eine Schätzung: Die Erhebung hat gezeigt, dass die Schätzungen hier systematisch zu hoch lagen.",
-        "en": "Surveyed, not estimated — but on a single offer: Fiberlogy HIPS, 0.85 kg for 27.43 €. No range can be derived from that, so none is given. A real price still beats an estimate: the survey showed the estimates here ran systematically high."
+        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-06 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
+        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-06 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
       }
     },
     "spoolSizes": [
@@ -687,19 +687,6 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
-        }
-      },
-      {
-        "id": "src_price_hips_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise HIPS",
-        "url": "https://fiberlogy.com/en_US/c/HIPS/193",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Fiberlogy HIPS, 0,85 kg, 27,43 €",
-          "en": "1 offer: Fiberlogy HIPS, 0.85 kg, 27.43 €"
         }
       }
     ]
