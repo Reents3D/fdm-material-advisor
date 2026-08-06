@@ -116,9 +116,13 @@
       "unit": "kJ/m²",
       "testStandard": "ASTM D256",
       "orientation": "Z",
-      "conditions": "gekerbt, gedruckt",
+      "conditions": "gekerbt, gedruckt — höher als der X-Y-Wert (34,3), was bei FDM erklärungsbedürftig ist",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low",
+      "note": {
+        "de": "Quer zur Schicht steht hier mehr als längs, und das ist bei FDM zunächst unplausibel: Die Schichtgrenze ist die schwächste Ebene. Die übrigen Größen desselben Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 14 gegen 11, Bruchdehnung 700 gegen 480, Biegefestigkeit 7,8 gegen 6,8), ein bloßer Zahlendreher ist also nicht belegt. Bei einem Werkstoff dieser Weichheit — Shore D 53, 700 % Bruchdehnung — bricht die gekerbte Izod-Probe häufig nicht durch, sondern klappt um; der Messwert beschreibt dann aufgenommene Verformungsarbeit statt Bruchenergie, und eine Probe, die entlang der Schichtgrenzen nachgibt, kann dabei mehr aufnehmen als eine, die als Block widersteht. Ob das hier zutrifft, sagt das Blatt nicht — es nennt keinen Bruchtyp. Der Wert bleibt deshalb stehen und trägt `low`.",
+        "en": "Across the layers more is reported than along them, and in FDM that is implausible at first sight: the layer boundary is the weakest plane. The other quantities on the same sheet behave as expected (tensile 14 against 11, elongation 700 against 480, flexural 7.8 against 6.8), so a mere transposition is not established. In a material this soft — Shore D 53, 700 % elongation — the notched Izod specimen frequently does not break through but hinges; the value then describes absorbed deformation work rather than fracture energy, and a specimen that yields along the layer boundaries can absorb more than one resisting as a block. Whether that applies here the sheet does not say — it states no break type. The value therefore stands and carries `low`."
+      }
     },
     "hardnessShoreD": {
       "value": 53,

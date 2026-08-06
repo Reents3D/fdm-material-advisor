@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**41 Werkstofftypen · 168 Produkte von 12 Marken · 2.820 belegte Einzelaussagen ·
+**41 Werkstofftypen · 239 Produkte von 16 Marken · 2.894 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
@@ -34,17 +34,18 @@ FDM-Bauteil ist der gedruckte Wert der ehrliche.
 
 Ein FDM-Bauteil ist senkrecht zur Schicht schwächer als in der Ebene. Wie viel schwächer,
 steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-Wert
-überhaupt angibt — bei 13 von 41 Werkstofftypen:
+überhaupt angibt — bei 18 von 41 Werkstofftypen:
 
 | Material | Zug X-Y | Zug Z | **bleibt in Z** |
 |---|---:|---:|---:|
-| PC | 62 MPa | 56 MPa | **90 %** |
+| TPU 85A | 12,0 MPa | 10,5 MPa | **88 %** |
 | PLA | 35 MPa | 31 MPa | **89 %** |
 | ABS | 33 MPa | 28 MPa | **85 %** |
-| PETG-CF | 48 MPa | 38 MPa | **79 %** |
 | PETG | 51 MPa | 35 MPa | **69 %** |
+| PETG-CF | 48 MPa | 38 MPa | **64 %** |
+| PLA-CF | 31 MPa | 15 MPa | **48 %** |
 | PA6-CF | 102 MPa | 48 MPa | **47 %** |
-| PET-CF | 74 MPa | 35 MPa | **47 %** |
+| **PA6-GF** | **75 MPa** | **27 MPa** | **36 %** |
 | PPS-CF | 87 MPa | 24 MPa | **28 %** |
 
 Die faserverstärkten Hochleistungswerkstoffe verlieren senkrecht zur Schicht **die Hälfte
@@ -52,7 +53,13 @@ bis fast drei Viertel** ihrer Festigkeit. Bei der Schlagzähigkeit ist der Einbr
 drastischer. Wer PPS-CF wegen der 87 MPa wählt und das Bauteil falsch orientiert, bekommt
 24 — weniger als ein ABS.
 
-Dass nur 13 von 41 Typen hier stehen, ist selbst ein Befund: **28 Hersteller nennen den
+Die beiden Enden der Tabelle zeigen denselben Mechanismus von zwei Seiten. Fasern richten
+sich in Extrusionsrichtung aus und tragen quer dazu nichts bei — zwischen den Schichten
+hält nur die Matrix, weshalb PA6-GF auf 36 % fällt. Ein weiches TPU verschweißt dagegen
+gut, weil die Schmelze länger fließfähig bleibt und die Grenzfläche nicht als
+Sprödbruchebene wirkt; es hält 88 %.
+
+Dass nur 18 von 41 Typen hier stehen, ist selbst ein Befund: **23 Hersteller nennen den
 Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 
 ### 3. Sie füllen jede Zelle, auch ohne Quelle
@@ -60,14 +67,14 @@ Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 Eine vollständig gefüllte Tabelle sieht professionell aus. Sie ist meist geraten.
 
 Hier trägt jeder Wert eine Konfidenzstufe, und geschätzte Werte sind in der Oberfläche
-sichtbar markiert. Über die gesamte Datenbank, 2.820 Einzelaussagen:
+sichtbar markiert. Über die gesamte Datenbank, 2.894 Einzelaussagen:
 
 | Konfidenz | Anteil | bedeutet |
 |---|---:|---|
 | `high` | 2 % | Prüfbericht oder Normkonformitätserklärung |
-| `medium` | 23 % | Herstellerdatenblatt mit Prüfnorm |
-| `low` | 7 % | Datenblatt ohne Norm, oder eine einzige Quelle |
-| `estimated` | 69 % | begründete Ableitung, kein Messwert |
+| `medium` | 22 % | Herstellerdatenblatt mit Prüfnorm |
+| `low` | 8 % | Datenblatt ohne Norm, eine einzige Quelle, oder eine Messung, die mehrere Marken teilen |
+| `estimated` | 68 % | begründete Ableitung, kein Messwert |
 
 **Zwei Drittel sind Schätzungen.** Diese Zahl steht im Werkzeug auf jeder Ergebniskarte,
 nicht im Kleingedruckten. Und sie kostet: Der Eignungswert wird mit der Datenabdeckung
@@ -252,7 +259,7 @@ npm run ci         # alles, wie in der Pipeline
 ```
 
 **Die CI blockt einen Wert mit `confidence: high` oder `medium` ohne echte Quelle.**
-Das ist Absicht. 17 Plausibilitätsregeln (R0–R16) prüfen außerdem, dass Z nie über X-Y
+Das ist Absicht. 18 Plausibilitätsregeln (R0–R17) prüfen außerdem, dass Z nie über X-Y
 liegt, die HDT unterhalb Tg plus Toleranz bleibt, das Bett unter der Düse, jede
 Quellenkennung auflösbar ist, jede Bewertungsskala registriert und jeder i18n-Text in
 beiden Sprachen vorliegt. Die jüngste (R16) fragt etwas Physikalisches: Ist die
