@@ -532,7 +532,7 @@
       "min": 52.87,
       "max": 53.32,
       "unit": "€/kg",
-      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 2 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_85a_extrudr",
         "src_price_tpu_85a_3djake"
@@ -565,26 +565,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_tpu_85a_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise TPU 85A",
-        "url": "https://extrudr.com/de/de/products/flex-semisoft/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
-          "en": "1 offer: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
-        }
-      },
-      {
         "id": "src_price_tpu_85a_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -596,6 +576,26 @@
           "de": "1 Angebot: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 €",
           "en": "1 offer: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 €"
         }
+      },
+      {
+        "id": "src_price_tpu_85a_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise TPU 85A",
+        "url": "https://extrudr.com/de/de/products/flex-semisoft/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
+          "en": "1 offer: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

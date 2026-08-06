@@ -135,6 +135,29 @@ const SHOPS = [
       return out;
     },
   },
+  /**
+   * Fiberlogy — STILLGELEGT am 2026-08-05, weil der Shop nicht mehr existiert.
+   *
+   * Am 2026-08-02 lieferte `https://fiberlogy.com/en_US/c/<Kategorie>/<id>` noch
+   * Produktkacheln mit Preisen. Vier Tage spaeter antworten alle 22 Adressen mit 404.
+   * Die neue Seite `/en/filaments/` enthaelt KEINE einzige Preisangabe und verweist
+   * stattdessen auf "Where to Buy", "Distributor" und "Reseller": Fiberlogy hat den
+   * Direktverkauf eingestellt und vertreibt ueber Haendler.
+   *
+   * Das ist keine kaputte Adresse, sondern eine Marktentscheidung - und deshalb wird der
+   * Leser nicht repariert, sondern abgeschaltet. Die alten Angebote fallen mit dem
+   * naechsten Lauf aus `data/prices.json`, und das ist richtig so: Ein Preis, dessen
+   * Quelladresse mit 404 antwortet, ist von niemandem mehr nachpruefbar. Genau das
+   * verlangt dieses Projekt an jeder anderen Stelle auch.
+   *
+   * Der Preis dafuer ist bezifferbar: Fuenf Werkstoffe (abs-gf, hips, pctg-gf, pla-cf,
+   * pp) hatten bei Fiberlogy ihre EINZIGE Preisquelle und stehen danach ohne. Die
+   * Bestandsuntergrenze `materialsWithPrice` faengt das ab und ist mit Begruendung
+   * nachgezogen.
+   *
+   * Wer Fiberlogy zurueckholen will, findet die Preise kuenftig bei deren Haendlern -
+   * das ist ein neuer Shop-Eintrag, kein reparierter.
+   */
   {
     id: "fiberlogy",
     name: "Fiberlogy",
@@ -142,6 +165,8 @@ const SHOPS = [
     url: "https://fiberlogy.com/",
     robots: "erlaubt mit Crawl-delay: 1 und Request-rate: 1/1s, geprüft 2026-08-02",
     brand: "Fiberlogy",
+    retiredAt: "2026-08-05",
+    retiredBecause: "Direktverkauf eingestellt — alle 22 Kategorieadressen antworten mit 404, die Nachfolgeseite nennt nur noch Händler und keine Preise",
     async collect(ctx) {
       const out = [];
       for (const [cat, mid] of FIBERLOGY_CATEGORIES) {
@@ -164,6 +189,86 @@ const SHOPS = [
         }
       }
       ctx.log(`${FIBERLOGY_CATEGORIES.length} Kategorieseiten gelesen`);
+      return out;
+    },
+  },
+
+  /**
+   * Material4Print — aufgenommen am 2026-08-05, und zwar gezielt.
+   *
+   * WARUM AUSGERECHNET DIESER SHOP
+   * Die Erhebung hatte 23 Werkstoffe mit hoechstens EINEM Haendler, viele davon ohne
+   * jeden Preis. Naheliegend waere gewesen, einen grossen Filamentshop dazuzunehmen -
+   * geprueft wurde dasfilament.de, und der fuehrt praktisch nur PLA und PETG, also genau
+   * die beiden Werkstoffe mit der besten Abdeckung. Der Zugewinn waere null gewesen.
+   *
+   * Umgekehrt gefragt - welche MARKE liefert die duennen Werkstoffe? - stand
+   * Material4Print mit neun an der Spitze. Der Shop fuehrt ESD-PLA, ESD-PETG, ESD-ABS,
+   * PAHT, PAHT-CF15, PET-CF15, PMMA, ABS-PC und Tough PLA: lauter Typen, fuer die es
+   * bisher einen oder gar keinen Preis gab.
+   *
+   * WARUM DER products.json-ENDPUNKT UND NICHT DIE SEITE
+   * Shopify veroeffentlicht unter `/collections/<name>/products.json` eine dokumentierte,
+   * oeffentliche Produktliste - fuer Maschinen gedacht, nicht aus dem Markup gekratzt.
+   * Ein Aufruf statt 124, und die Spulengroesse steht sauber im Variantentitel
+   * ("1.75 mm / 0.75 Kg") statt in einer Adresse, die man raten muss.
+   *
+   * Die robots.txt sperrt Warenkorb, Kasse, Konto und gefilterte Sammelseiten - der
+   * Produktendpunkt steht in keiner Disallow-Zeile. Geprueft am 2026-08-05.
+   *
+   * ACHTUNG BEIM GEWICHT: Das Feld `grams` der Variante ist das VERSANDgewicht samt
+   * Spule (1.100 g bei einer 0,75-kg-Rolle). Massgeblich ist die Zahl im Titel.
+   */
+  {
+    id: "material4print",
+    name: "Material4Print",
+    country: "DE",
+    url: "https://www.material4print.de/",
+    robots: "Allow: / — gesperrt sind Warenkorb, Kasse, Konto und gefilterte Sammelseiten; der Produktendpunkt nicht. Geprüft 2026-08-05",
+    brand: "M4P",
+    async collect(ctx) {
+      const out = [];
+      const url = "https://www.material4print.de/collections/filament/products.json?limit=250";
+      const raw = await ctx.get(url); ctx.counted();
+      let list;
+      try { list = JSON.parse(raw).products ?? []; } catch { ctx.skip(`${url}: kein JSON`); return out; }
+
+      /* Reihenfolge wie oben: Spezifischeres zuerst, sonst faengt /pla/ das "Tough PLA"
+         und /pet/ das "PET-CF15" ab. */
+      const MAP = [
+        [/^paht[- ]?cf/i, "paht-cf"],
+        [/^paht/i, "paht"],
+        [/^pet[- ]?cf/i, "pet-cf"],
+        [/^petg/i, "petg"],
+        [/^abs[- ]?pc/i, "abs-pc"],
+        [/^esd[- ]?pla/i, "esd-pla"],
+        [/^esd[- ]?petg/i, "esd-petg"],
+        [/^esd[- ]?abs/i, "esd-abs"],
+        [/^tough[- ]?pla/i, "pla-tough"],
+        [/^pmma/i, "pmma"],
+        [/^tpu\s*95/i, "tpu-95a"],
+        [/^tpu\s*98/i, "tpu-98a"],
+        [/^abs/i, "abs"],
+        [/^asa/i, "asa"],
+        [/^pla/i, "pla"],
+      ];
+
+      for (const p of list) {
+        const hit = MAP.find(([re]) => re.test(p.title));
+        if (!hit) continue;
+        for (const v of p.variants ?? []) {
+          if (v.available === false) continue;
+          /* Spulengewicht aus dem Variantentitel, NICHT aus `grams` - siehe oben. */
+          const kg = /([0-9]+(?:[.,][0-9]+)?)\s*kg/i.exec(String(v.title));
+          const price = Number(v.price);
+          if (!kg || !Number.isFinite(price) || price <= 0) continue;
+          out.push({
+            mid: hit[1], product: `${p.title} — ${v.title}`,
+            spoolKg: Number(kg[1].replace(",", ".")), priceEur: price, url,
+          });
+        }
+      }
+      ctx.log(`${list.length} Produkte gelesen, ${out.length} Angebote zugeordnet`);
       return out;
     },
   },
@@ -223,6 +328,12 @@ for (const [mid, list] of Object.entries(survey.offers)) {
 let fetched = 0, added = 0;
 const skipped = [];
 for (const shop of SHOPS) {
+  /* Stillgelegte Shops werden nicht abgerufen, aber auch nicht geloescht: Der Eintrag
+     samt Begruendung bleibt stehen, damit niemand den Leser als vergessen repariert. */
+  if (shop.retiredAt) {
+    console.log(`${shop.name}: stillgelegt am ${shop.retiredAt} — ${shop.retiredBecause}`);
+    continue;
+  }
   process.stdout.write(`${shop.name}: `);
   const ctx = {
     get,

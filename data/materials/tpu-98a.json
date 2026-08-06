@@ -511,19 +511,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 46.65,
-      "min": 46.27,
-      "max": 52.87,
+      "value": 46.66,
+      "min": 33.27,
+      "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 40 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
+        "src_price_tpu_98a_material4print",
         "src_price_tpu_98a_extrudr",
         "src_price_tpu_98a_3djake"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 1 Marken (Extrudr) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 1 brands (Extrudr) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 40 Listenpreise von 2 Marken (M4P, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 40 list prices from 2 brands (M4P, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -548,26 +549,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_tpu_98a_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise TPU 98A",
-        "url": "https://extrudr.com/de/de/products/flex-medium/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0,75 kg, 34,70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
-          "en": "2 offers: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0.75 kg, 34.70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
-        }
-      },
-      {
         "id": "src_price_tpu_98a_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -579,6 +560,39 @@
           "de": "1 Angebot: Extrudr TPU medium Schwarz (A98), 0,75 kg, 34,99 €",
           "en": "1 offer: Extrudr TPU medium Schwarz (A98), 0.75 kg, 34.99 €"
         }
+      },
+      {
+        "id": "src_price_tpu_98a_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise TPU 98A",
+        "url": "https://extrudr.com/de/de/products/flex-medium/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0,75 kg, 34,70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
+          "en": "2 offers: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0.75 kg, 34.70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+        }
+      },
+      {
+        "id": "src_price_tpu_98a_material4print",
+        "type": "retailer-listing",
+        "publisher": "Material4Print",
+        "title": "Material4Print — Listenpreise TPU 98A",
+        "url": "https://www.material4print.de/collections/filament/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "37 Angebote: M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg, 24,95 € · M4P TPU 98A Gipsy-Color — 2.85 mm / 0.75 Kg, 0,75 kg, 24,95 € · M4P TPU 98A Transparent — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Transparent — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Reinrot — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Reinrot — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Transparent — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Transparent — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Reinrot — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Reinrot — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Transparent — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Transparent — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Reinrot — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Reinrot — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Transparent — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Transparent — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Reinrot — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Reinrot — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Sample Transparent — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 € · M4P TPU 98A Sample Signalweiß — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 € · M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 €",
+          "en": "37 offers: M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg, 24.95 € · M4P TPU 98A Gipsy-Color — 2.85 mm / 0.75 Kg, 0.75 kg, 24.95 € · M4P TPU 98A Transparent — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Transparent — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Reinrot — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Reinrot — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Transparent — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Transparent — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Reinrot — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Reinrot — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Transparent — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Transparent — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Reinrot — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Reinrot — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Transparent — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Transparent — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Reinrot — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Reinrot — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Sample Transparent — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 € · M4P TPU 98A Sample Signalweiß — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 € · M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 €"
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

@@ -520,7 +520,7 @@
       "min": 39.2,
       "max": 61.97,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_greentec_3djake",
         "src_price_greentec_extrudr"
@@ -553,13 +553,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
         "id": "src_price_greentec_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -578,12 +571,19 @@
         "publisher": "Extrudr",
         "title": "Extrudr — Listenpreise GreenTEC",
         "url": "https://extrudr.com/de/de/products/greentec/",
-        "retrievedAt": "2026-08-02",
+        "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
           "de": "3 Angebote: Extrudr GreenTEC black 1.75 mm 1.1 kg, 1,1 kg, 55,54 € · Extrudr GreenTEC Pro black 1.75 mm 0.8 kg, 0,8 kg, 44,61 € · Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0,8 kg, 49,58 €",
           "en": "3 offers: Extrudr GreenTEC black 1.75 mm 1.1 kg, 1.1 kg, 55.54 € · Extrudr GreenTEC Pro black 1.75 mm 0.8 kg, 0.8 kg, 44.61 € · Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0.8 kg, 49.58 €"
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

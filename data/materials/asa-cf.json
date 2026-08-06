@@ -727,7 +727,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 2,
+      "value": 3,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -812,7 +812,7 @@
       "min": 29.99,
       "max": 99.87,
       "unit": "€/kg",
-      "conditions": "Median aus 6 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 6 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_asa_cf_3djake",
         "src_price_asa_cf_extrudr",
@@ -863,6 +863,45 @@
         }
       },
       {
+        "id": "src_price_asa_cf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ASA-CF",
+        "url": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: The Filament ASA CF Grey, 1 kg, 29,99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36,99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg, 19,99 €",
+          "en": "3 offers: The Filament ASA CF Grey, 1 kg, 29.99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36.99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg, 19.99 €"
+        }
+      },
+      {
+        "id": "src_price_asa_cf_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise ASA-CF",
+        "url": "https://extrudr.com/de/de/products/durapro-asa-cf/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg, 49,58 €",
+          "en": "1 offer: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg, 49.58 €"
+        }
+      },
+      {
+        "id": "src_price_asa_cf_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise ASA-CF",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg, 49,90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg, 74,90 €",
+          "en": "2 offers: Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg, 49.90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg, 74.90 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -882,45 +921,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_asa_cf_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise ASA-CF",
-        "url": "https://www.3djake.de/filament/asa",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "3 Angebote: The Filament ASA CF Grey, 1 kg, 29,99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36,99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg, 19,99 €",
-          "en": "3 offers: The Filament ASA CF Grey, 1 kg, 29.99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36.99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg, 19.99 €"
-        }
-      },
-      {
-        "id": "src_price_asa_cf_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise ASA-CF",
-        "url": "https://extrudr.com/de/de/products/durapro-asa-cf/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg, 49,58 €",
-          "en": "1 offer: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg, 49.58 €"
-        }
-      },
-      {
-        "id": "src_price_asa_cf_filamentworld",
-        "type": "retailer-listing",
-        "publisher": "Filamentworld",
-        "title": "Filamentworld — Listenpreise ASA-CF",
-        "url": "https://www.filamentworld.de/shop/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg, 49,90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg, 74,90 €",
-          "en": "2 offers: Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg, 49.90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg, 74.90 €"
-        }
       }
     ],
     "openQuestions": [

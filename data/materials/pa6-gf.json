@@ -580,7 +580,7 @@
       "min": 39.99,
       "max": 119.87,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 5 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa6_gf_3djake",
         "src_price_pa6_gf_extrudr",
@@ -635,6 +635,45 @@
         }
       },
       {
+        "id": "src_price_pa6_gf_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PA6-GF",
+        "url": "https://www.3djake.de/filament/hochleistungsfilament",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: SUNLU PA6-GF Black, 1 kg, 39,99 € · Bambu Lab PA6-GF White, 1 kg, 62,99 € · Polymaker Fiberon PA6-GF25 Grey, 0,5 kg, 34,99 €",
+          "en": "3 offers: SUNLU PA6-GF Black, 1 kg, 39.99 € · Bambu Lab PA6-GF White, 1 kg, 62.99 € · Polymaker Fiberon PA6-GF25 Grey, 0.5 kg, 34.99 €"
+        }
+      },
+      {
+        "id": "src_price_pa6_gf_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise PA6-GF",
+        "url": "https://extrudr.com/de/de/products/durapro-pa6-gf/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
+          "en": "1 offer: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
+        }
+      },
+      {
+        "id": "src_price_pa6_gf_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise PA6-GF",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg, 89,90 €",
+          "en": "1 offer: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg, 89.90 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -654,45 +693,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pa6_gf_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PA6-GF",
-        "url": "https://www.3djake.de/filament/hochleistungsfilament",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "3 Angebote: SUNLU PA6-GF Black, 1 kg, 39,99 € · Bambu Lab PA6-GF White, 1 kg, 62,99 € · Polymaker Fiberon PA6-GF25 Grey, 0,5 kg, 34,99 €",
-          "en": "3 offers: SUNLU PA6-GF Black, 1 kg, 39.99 € · Bambu Lab PA6-GF White, 1 kg, 62.99 € · Polymaker Fiberon PA6-GF25 Grey, 0.5 kg, 34.99 €"
-        }
-      },
-      {
-        "id": "src_price_pa6_gf_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise PA6-GF",
-        "url": "https://extrudr.com/de/de/products/durapro-pa6-gf/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
-          "en": "1 offer: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
-        }
-      },
-      {
-        "id": "src_price_pa6_gf_filamentworld",
-        "type": "retailer-listing",
-        "publisher": "Filamentworld",
-        "title": "Filamentworld — Listenpreise PA6-GF",
-        "url": "https://www.filamentworld.de/shop/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg, 89,90 €",
-          "en": "1 offer: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg, 89.90 €"
-        }
       }
     ],
     "openQuestions": [

@@ -65,7 +65,14 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Preis, weil die Ableitung im OFD-Marktbestand keine Entsprechung findet - PPA wird dort
    als Werkstoffklasse noch nicht gefuehrt. Der Fall steht als offene Frage
    `oq_ppa_cf_price` am Datensatz; die Untergrenze bleibt deshalb bewusst unter der Zahl
-   der Werkstoffe. */
+   der Werkstoffe.
+
+   `openQuestions` ist am 2026-08-06 von 75 auf 74 GESUNKEN, und das ist eine Aufloesung
+   und kein Verlust: `pet-cf` hatte die Frage `oq_price_survey`, weil nur ein Haendler
+   einen Preis fuehrte. Mit der Aufnahme von Material4Print sind es zwei, und die Frage
+   ist beantwortet. Genau dafuer sieht der Kopf dieses Tests vor, dass eine gerissene
+   Untergrenze mit Begruendung nachgezogen wird - eine Zahl, die nur steigen darf, waere
+   ein Test gegen das Aufraeumen. */
 const FLOOR = {
   materials: 42,
   products: 240,
@@ -76,7 +83,7 @@ const FLOOR = {
   chemicalRatings: 882,
   materialsWithPrice: 41,
   anisotropyFactors: 19,
-  openQuestions: 75,
+  openQuestions: 74,
 };
 
 const actual = {

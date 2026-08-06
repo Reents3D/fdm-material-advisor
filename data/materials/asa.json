@@ -824,21 +824,21 @@
       }
     },
     "pricePerKg": {
-      "value": 34.35,
+      "value": 32.98,
       "min": 21.99,
-      "max": 46.25,
+      "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 13 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-02",
+      "conditions": "Median aus 87 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_asa_3djake",
-        "src_price_asa_fiberlogy",
+        "src_price_asa_material4print",
         "src_price_asa_extrudr",
         "src_price_asa_filamentworld"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 8 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 13 list prices from 8 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 87 Listenpreise von 9 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 87 list prices from 9 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -907,6 +907,58 @@
         }
       },
       {
+        "id": "src_price_asa_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ASA",
+        "url": "https://www.3djake.de/filament/asa",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
+          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+        }
+      },
+      {
+        "id": "src_price_asa_extrudr",
+        "type": "retailer-listing",
+        "publisher": "Extrudr",
+        "title": "Extrudr — Listenpreise ASA",
+        "url": "https://extrudr.com/de/de/products/durapro-asa/",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
+          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
+        }
+      },
+      {
+        "id": "src_price_asa_filamentworld",
+        "type": "retailer-listing",
+        "publisher": "Filamentworld",
+        "title": "Filamentworld — Listenpreise ASA",
+        "url": "https://www.filamentworld.de/shop/",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
+          "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
+        }
+      },
+      {
+        "id": "src_price_asa_material4print",
+        "type": "retailer-listing",
+        "publisher": "Material4Print",
+        "title": "Material4Print — Listenpreise ASA",
+        "url": "https://www.material4print.de/collections/filament/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "78 Angebote: M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Eisengrau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Eisengrau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalweiss — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalweiss — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Staubgrau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Staubgrau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Natur — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Natur — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalblau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalblau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Reinrot — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Reinrot — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Graualuminium — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Graualuminium — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Tiefschwarz — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Tiefschwarz — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Eisengrau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Eisengrau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalweiss — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalweiss — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Staubgrau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Staubgrau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Natur — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Natur — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalblau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalblau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Reinrot — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Reinrot — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Graualuminium — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Graualuminium — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Eisengrau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Eisengrau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalweiss — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalweiss — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Staubgrau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Staubgrau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Natur — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Natur — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalblau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalblau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Reinrot — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Reinrot — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Graualuminium — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Graualuminium — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Tiefschwarz — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Tiefschwarz — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Eisengrau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Eisengrau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalweiss — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalweiss — 2.85 mm / 0,75 Kg, 0,75 kg, 25,95 € · M4P ASA Staubgrau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Staubgrau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Natur — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Natur — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalblau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalblau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Reinrot — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Reinrot — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Graualuminium — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Graualuminium — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Signalweiss — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Signalweiss — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Natur — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 €",
+          "en": "78 offers: M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Eisengrau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Eisengrau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalweiss — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalweiss — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Staubgrau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Staubgrau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Natur — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Natur — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalblau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalblau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Reinrot — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Reinrot — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Graualuminium — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Graualuminium — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Tiefschwarz — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Tiefschwarz — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Eisengrau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Eisengrau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalweiss — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalweiss — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Staubgrau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Staubgrau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Natur — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Natur — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalblau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalblau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Reinrot — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Reinrot — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Graualuminium — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Graualuminium — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Eisengrau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Eisengrau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalweiss — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalweiss — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Staubgrau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Staubgrau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Natur — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Natur — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalblau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalblau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Reinrot — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Reinrot — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Graualuminium — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Graualuminium — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Tiefschwarz — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Tiefschwarz — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Eisengrau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Eisengrau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalweiss — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalweiss — 2.85 mm / 0,75 Kg, 0.75 kg, 25.95 € · M4P ASA Staubgrau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Staubgrau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Natur — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Natur — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalblau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalblau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Reinrot — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Reinrot — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Graualuminium — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Graualuminium — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Signalweiss — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Signalweiss — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Natur — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -926,58 +978,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_asa_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise ASA",
-        "url": "https://www.3djake.de/filament/asa",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
-          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
-        }
-      },
-      {
-        "id": "src_price_asa_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise ASA",
-        "url": "https://fiberlogy.com/en_US/c/ASA/162",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
-          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
-        }
-      },
-      {
-        "id": "src_price_asa_extrudr",
-        "type": "retailer-listing",
-        "publisher": "Extrudr",
-        "title": "Extrudr — Listenpreise ASA",
-        "url": "https://extrudr.com/de/de/products/durapro-asa/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
-          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
-        }
-      },
-      {
-        "id": "src_price_asa_filamentworld",
-        "type": "retailer-listing",
-        "publisher": "Filamentworld",
-        "title": "Filamentworld — Listenpreise ASA",
-        "url": "https://www.filamentworld.de/shop/",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
-          "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
-        }
       }
     ],
     "openQuestions": [
