@@ -234,10 +234,23 @@ for (const f of files) {
     source: "estimate_reasoning", confidence: "estimated", note: INDEX_NOTE,
   };
 
-  /* Die blockierende offene Frage nach der Preiserhebung ist beantwortet, sobald fuenf
-     Angebote vorliegen. Bei duennerer Lage bleibt sie stehen - mit dem Stand dran. */
+  /* Die offene Frage nach der Preiserhebung ist beantwortet, sobald fuenf Angebote von
+     mindestens zwei Anbietern vorliegen. Bei duennerer Lage steht sie - mit dem Stand dran.
+
+     SIE WIRD HIER AUCH ANGELEGT, nicht nur gepflegt. Bis 2026-08-06 aktualisierte diese
+     Stelle nur eine Frage, die jemand von Hand geschrieben hatte. Das Ergebnis war ein
+     stilles Loch: 16 von 17 Werkstoffen mit duenner Preislage trugen KEINEN Vorbehalt,
+     weil ihn nie jemand angelegt hatte - darunter `ppa-cf`, dessen Preis auf einem
+     einzigen Angebot steht. Mit ADR-040 wiegt das schwerer als vorher: Das Scoring
+     daempft duenne Preisbelege inzwischen, und wo gedaempft wird, muss auch stehen,
+     warum. Ein Vorbehalt, den es nur gibt, wenn ihn jemand von Hand notiert hat, ist
+     keine Buchfuehrung, sondern Zufall. */
   const oq = m.governance.openQuestions ?? [];
-  const idx = oq.findIndex((x) => /Preiserhebung/i.test(x.question?.de ?? ""));
+  let idx = oq.findIndex((x) => /Preiserhebung/i.test(x.question?.de ?? ""));
+  if (idx < 0 && p.confidence !== "medium") {
+    oq.push({ id: "oq_price_survey", question: t("", ""), blocking: false, affectsFields: ["commercial.priceIndex"] });
+    idx = oq.length - 1;
+  }
   if (idx >= 0) {
     if (p.confidence === "medium") oq.splice(idx, 1);
     else {
@@ -249,7 +262,10 @@ for (const f of files) {
         `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
         `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
     }
-    if (!oq.length) delete m.governance.openQuestions;
+    /* `oq` kann eine frisch angelegte Liste sein - dann haengt sie noch nicht am
+       Datensatz und ein `push` oben waere spurlos verpufft. */
+    if (oq.length) m.governance.openQuestions = oq;
+    else delete m.governance.openQuestions;
   }
 
   writeFileSync(file, `${JSON.stringify(m, null, 2)}\n`);

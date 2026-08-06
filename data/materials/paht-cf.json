@@ -533,15 +533,15 @@
       "min": 43.99,
       "max": 119,
       "unit": "€/kg",
-      "conditions": "Median aus 12 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 13 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_paht_cf_3djake",
         "src_price_paht_cf_material4print"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 12 Listenpreise von 3 Marken (Elegoo, M4P, Bambu Lab) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 12 list prices from 3 brands (Elegoo, M4P, Bambu Lab) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 3 Marken (Elegoo, M4P, Bambu Lab) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 13 list prices from 3 brands (Elegoo, M4P, Bambu Lab) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -586,8 +586,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 € · Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 €",
-          "en": "2 offers: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 € · Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 €"
+          "de": "3 Angebote: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 € · Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 € · Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0,5 kg, 53,99 €",
+          "en": "3 offers: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 € · Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 € · Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0.5 kg, 53.99 €"
         }
       },
       {

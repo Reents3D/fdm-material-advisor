@@ -855,18 +855,18 @@
       }
     },
     "pricePerKg": {
-      "value": 41.49,
+      "value": 42.99,
       "min": 29.99,
       "max": 59.99,
       "unit": "€/kg",
-      "conditions": "Median aus 8 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 13 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
       "source": [
         "src_price_pc_3djake"
       ],
       "confidence": "low",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 8 Listenpreise von 6 Marken (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 8 list prices from 6 brands (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 13 Listenpreise von 6 Marken (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 13 list prices from 6 brands (Elegoo, Polymaker, eSUN, Spectrum, Bambu Lab, FormFutura) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -910,8 +910,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "8 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
-          "en": "8 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
+          "de": "13 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Spectrum Spectrum PC 275 Lime Green, 1,75 mm / 1000 g, 1 kg, 39,99 € · Spectrum Spectrum PC 275 Lion Orange, 1,75 mm / 1000 g, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC White, Spule, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC Black, Spule, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC Clear Black, Spule, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
+          "en": "13 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Spectrum Spectrum PC 275 Lime Green, 1,75 mm / 1000 g, 1 kg, 39.99 € · Spectrum Spectrum PC 275 Lion Orange, 1,75 mm / 1000 g, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC White, Spule, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC Black, Spule, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC Clear Black, Spule, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
         }
       },
       {
@@ -959,6 +959,17 @@
         "affectsFields": [
           "thermal.hdtA",
           "thermal.hdtB"
+        ]
+      },
+      {
+        "id": "oq_price_survey",
+        "question": {
+          "de": "Preiserhebung vertiefen: Bisher 13 Angebote von 1 Anbieter (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 13 offers from 1 retailer (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "commercial.priceIndex"
         ]
       }
     ]

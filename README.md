@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**42 Werkstofftypen · 240 Produkte von 16 Marken · 2.983 belegte Einzelaussagen ·
+**42 Werkstofftypen · 240 Produkte von 16 Marken · 2.984 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
@@ -68,12 +68,12 @@ Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 Eine vollständig gefüllte Tabelle sieht professionell aus. Sie ist meist geraten.
 
 Hier trägt jeder Wert eine Konfidenzstufe, und geschätzte Werte sind in der Oberfläche
-sichtbar markiert. Über die gesamte Datenbank, 2.983 Einzelaussagen:
+sichtbar markiert. Über die gesamte Datenbank, 2.984 Einzelaussagen:
 
 | Konfidenz | Anteil | bedeutet |
 |---|---:|---|
 | `high` | 2 % | Prüfbericht oder Normkonformitätserklärung |
-| `medium` | 22 % | Herstellerdatenblatt mit Prüfnorm |
+| `medium` | 23 % | Herstellerdatenblatt mit Prüfnorm |
 | `low` | 8 % | Datenblatt ohne Norm, eine einzige Quelle, oder eine Messung, die mehrere Marken teilen |
 | `estimated` | 68 % | begründete Ableitung, kein Messwert |
 

@@ -483,7 +483,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 5,
+      "value": 4,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -560,20 +560,20 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 106.68,
+      "value": 85,
       "min": 78.4,
       "max": 118.98,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 6 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_pa12_cf_3djake",
         "src_price_pa12_cf_fillamentum",
         "src_price_pa12_cf_extrudr"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 3 Marken (Fiberlogy, Fillamentum, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 3 list prices from 3 brands (Fiberlogy, Fillamentum, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 6 Listenpreise von 4 Marken (Fiberlogy, Spectrum, Extrudr, Fillamentum) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 6 list prices from 4 brands (Fiberlogy, Spectrum, Extrudr, Fillamentum) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -624,8 +624,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 €",
-          "en": "1 offer: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 €"
+          "de": "4 Angebote: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 € · Fiberlogy Fiberlogy Nylon PA12+CF, 2,85 mm / 2500 g, 2,5 kg, 195,99 € · Spectrum Spectrum PA12 CF15 Carbon Black, 1,75 mm / 1000 g, 1 kg, 84,99 € · Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg, 169,99 €",
+          "en": "4 offers: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 € · Fiberlogy Fiberlogy Nylon PA12+CF, 2,85 mm / 2500 g, 2.5 kg, 195.99 € · Spectrum Spectrum PA12 CF15 Carbon Black, 1,75 mm / 1000 g, 1 kg, 84.99 € · Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg, 169.99 €"
         }
       },
       {

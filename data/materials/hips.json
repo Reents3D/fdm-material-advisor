@@ -611,18 +611,19 @@
       }
     },
     "pricePerKg": {
-      "value": 37.11,
-      "min": 34.36,
-      "max": 37.11,
+      "value": 35.74,
+      "min": 23.99,
+      "max": 38.65,
       "unit": "€/kg",
-      "conditions": "Median aus 5 Angeboten EINES Händlers (fillamentum), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 14 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
+        "src_price_hips_3djake",
         "src_price_hips_fillamentum"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 5 Listenpreise von 1 Marken (Fillamentum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 5 list prices from 1 brands (Fillamentum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 14 Listenpreise von 4 Marken (Spectrum, Fiberlogy, Fillamentum, FormFutura) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 14 list prices from 4 brands (Spectrum, Fiberlogy, Fillamentum, FormFutura) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -663,6 +664,19 @@
         "note": {
           "de": "Einziges Datenblatt für diesen Werkstofftyp.",
           "en": "Only datasheet for this material type."
+        }
+      },
+      {
+        "id": "src_price_hips_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise HIPS",
+        "url": "https://www.3djake.de/spectrum/hips-x-gypsum-white",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "9 Angebote: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23,99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0,85 kg, 26,99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg, 28,99 €",
+          "en": "9 offers: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23.99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0.85 kg, 26.99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg, 28.99 €"
         }
       },
       {

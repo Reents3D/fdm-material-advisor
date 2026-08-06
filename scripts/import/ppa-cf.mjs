@@ -339,14 +339,17 @@ const material = {
       ),
       affectsFields: ["mechanics.tensileStrengthXy", "mechanics.tensileModulusXy", "mechanics.flexuralStrengthXy"],
       blocking: false,
-    }, {
-      id: "oq_ppa_cf_price",
-      question: t(
-        "Für diesen Werkstoff liegt kein Preis je Kilogramm vor — er ist der einzige der 42 Typen ohne. Die Preisableitung findet keine Entsprechung im OFD-Marktbestand, weil PPA dort als Werkstoffklasse noch nicht geführt wird. Folge: In der Ansicht „Festigkeit gegen Preis“ fehlt der Werkstoff, und die Kompromissanalyse kann seinen wirtschaftlichen Preis nicht beziffern. Zu erheben über Händlerlistungen, wie in SOURCES.md §5 für alle Typen vorgesehen. Zu beachten ist dabei die Spulengröße von 0,75 kg statt der üblichen 1 kg — wer den Spulenpreis für den Kilopreis hält, rechnet ein Drittel zu günstig.",
-        "No price per kilogram is available for this material — it is the only one of the 42 types without. The price derivation finds no counterpart in the OFD market inventory because PPA is not yet carried there as a material class. Consequence: the material is missing from the “strength against price” view, and the trade-off analysis cannot quantify its economic price. To be collected from retailer listings, as foreseen in SOURCES.md §5 for all types. Note the spool size of 0.75 kg rather than the usual 1 kg — anyone taking the spool price for the kilo price calculates a third too cheap.",
-      ),
-      affectsFields: ["commercial.pricePerKg"],
-      blocking: false,
+      /* Hier stand bis 2026-08-06 `oq_ppa_cf_price`: "Für diesen Werkstoff liegt kein
+         Preis je Kilogramm vor — er ist der einzige der 42 Typen ohne." Das stimmt nicht
+         mehr. Mit der Aufnahme von 3DJAKE steht ein Angebot da (207,99 €/kg), und die
+         Warnung der alten Frage - "wer den Spulenpreis für den Kilopreis hält, rechnet
+         ein Drittel zu günstig" - hat die Erhebung befolgt: gelesen wurden 750 g, nicht
+         eine Spule.
+
+         Dass die Preislage duenn bleibt, steht seit demselben Tag automatisch dran:
+         `derive-price.mjs` legt `oq_price_survey` inzwischen selbst an, statt nur eine
+         von Hand geschriebene Frage zu pflegen. Eine zweite, handgeschriebene Frage
+         daneben waere Doppelbuchfuehrung - und die faellt irgendwann auseinander. */
     }],
   },
 };

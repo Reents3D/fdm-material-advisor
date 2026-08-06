@@ -692,7 +692,7 @@
   },
   "commercial": {
     "priceIndex": {
-      "value": 3,
+      "value": 2,
       "scale": "priceIndex",
       "derivedFrom": [
         "commercial.pricePerKg"
@@ -751,16 +751,18 @@
       }
     },
     "pricePerKg": {
-      "value": 57.5,
-      "min": 45,
-      "max": 70,
+      "value": 53.32,
+      "min": 53.32,
+      "max": 53.32,
       "unit": "€/kg",
-      "conditions": "1-kg-Spule, europäischer Fachhandel, geschätzt, Stand 2026-08-06",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
+      "conditions": "Median aus 3 Angeboten EINES Händlers (3djake), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "source": [
+        "src_price_asa_aero_3djake"
+      ],
+      "confidence": "low",
       "note": {
-        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-06 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
-        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-06 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
+        "de": "Erhoben, nicht geschätzt: 3 Listenpreise von 1 Marken (Spectrum) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 3 list prices from 1 brands (Spectrum) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     }
   },
@@ -798,6 +800,19 @@
         }
       },
       {
+        "id": "src_price_asa_aero_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise ASA Aero",
+        "url": "https://www.3djake.de/spectrum/lw-asa-ultrafoam-natural",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "3 Angebote: Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0,75 kg, 39,99 € · Spectrum Spectrum LW-ASA UltraFoam Pure White, 1,75 mm / 750 g, 0,75 kg, 39,99 € · Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0,75 kg, 39,99 €",
+          "en": "3 offers: Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0.75 kg, 39.99 € · Spectrum Spectrum LW-ASA UltraFoam Pure White, 1,75 mm / 750 g, 0.75 kg, 39.99 € · Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0.75 kg, 39.99 €"
+        }
+      },
+      {
         "id": "estimate_reasoning",
         "type": "estimate",
         "publisher": "FDM-Materialberater",
@@ -809,10 +824,10 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 0 Angebote von 0 Anbietern (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin bleibt die Schätzung stehen.",
-          "en": "Deepen the price survey: 0 offers from 0 retailers (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the estimate stands."
+          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 1 Anbieter (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin trägt der Median mit niedriger Konfidenz.",
+          "en": "Deepen the price survey: 3 offers from 1 retailer (2026-08-06). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then the median carries at low confidence."
         },
-        "blocking": true,
+        "blocking": false,
         "affectsFields": [
           "commercial.priceIndex"
         ]

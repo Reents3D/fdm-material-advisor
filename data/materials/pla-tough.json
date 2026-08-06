@@ -592,18 +592,19 @@
       "confidence": "estimated"
     },
     "pricePerKg": {
-      "value": 27.48,
+      "value": 26.99,
       "min": 9.27,
       "max": 79,
       "unit": "€/kg",
-      "conditions": "Median aus 60 Angeboten EINES Händlers (material4print), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — eine Preisliste, kein Marktvergleich",
+      "conditions": "Median aus 66 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
-        "src_price_pla_tough_material4print"
+        "src_price_pla_tough_material4print",
+        "src_price_pla_tough_3djake"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 60 Listenpreise von 1 Marken (M4P) über 1 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 60 list prices from 1 brands (M4P) across 1 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 66 Listenpreise von 3 Marken (M4P, Spectrum, Bambu Lab) über 2 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 66 list prices from 3 brands (M4P, Spectrum, Bambu Lab) across 2 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -646,6 +647,19 @@
         "note": {
           "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
           "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
+      },
+      {
+        "id": "src_price_pla_tough_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PLA-Tough",
+        "url": "https://www.3djake.de/spectrum/pla-tough-polar-white",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "6 Angebote: Spectrum Spectrum PLA Tough Polar White, 1,75 mm, 1 kg, 23,92 € · Spectrum Spectrum PLA Tough Dark Grey, 1,75 mm, 1 kg, 23,92 € · Bambu Lab Bambu Lab PLA Tough+ Orange, Spule, 1 kg, 26,99 € · Bambu Lab Bambu Lab PLA Tough+ White, Spule, 1 kg, 26,99 € · Bambu Lab Bambu Lab PLA Tough+ Gray, Spule, 1 kg, 26,99 € · Spectrum Spectrum PLA Tough Deep Black, 1,75 mm, 1 kg, 29,99 €",
+          "en": "6 offers: Spectrum Spectrum PLA Tough Polar White, 1,75 mm, 1 kg, 23.92 € · Spectrum Spectrum PLA Tough Dark Grey, 1,75 mm, 1 kg, 23.92 € · Bambu Lab Bambu Lab PLA Tough+ Orange, Spule, 1 kg, 26.99 € · Bambu Lab Bambu Lab PLA Tough+ White, Spule, 1 kg, 26.99 € · Bambu Lab Bambu Lab PLA Tough+ Gray, Spule, 1 kg, 26.99 € · Spectrum Spectrum PLA Tough Deep Black, 1,75 mm, 1 kg, 29.99 €"
         }
       },
       {
