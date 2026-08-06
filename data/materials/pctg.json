@@ -614,8 +614,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote: Extrudr PCTG transparent, 2,5 kg, 75,99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31,99 € · Fiberlogy PCTG Rot, 0,75 kg, 25,99 € · Extrudr PCTG anthrazit, 0,8 kg, 29,99 €",
-          "en": "4 offers: Extrudr PCTG transparent, 2.5 kg, 75.99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31.99 € · Fiberlogy PCTG Rot, 0.75 kg, 25.99 € · Extrudr PCTG anthrazit, 0.8 kg, 29.99 €"
+          "de": "4 Angebote von 2 Marken (Extrudr, Fiberlogy). Günstigstes Extrudr PCTG transparent, 2,5 kg für 75,99 € (30,40 €/kg); teuerstes Extrudr PCTG anthrazit, 0,8 kg für 29,99 € (37,49 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "4 offers from 2 brands (Extrudr, Fiberlogy). Cheapest Extrudr PCTG transparent, 2.5 kg at 75.99 € (30.40 €/kg); dearest Extrudr PCTG anthrazit, 0.8 kg at 29.99 € (37.49 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -627,8 +627,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg, 29,74 €",
-          "en": "1 offer: Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg, 29.74 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg für 29,74 € (37,17 €/kg); teuerstes Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg für 29,74 € (37,17 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg at 29.74 € (37.17 €/kg); dearest Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg at 29.74 € (37.17 €/kg). The full list is in data/prices.json."
         }
       },
       {

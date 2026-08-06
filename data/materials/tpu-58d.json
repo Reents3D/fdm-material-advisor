@@ -554,8 +554,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote: Extrudr TPU hard Schwarz (D58), 0,75 kg, 34,99 € · Extrudr Extrudr TPU hard Transparent, 1,75 mm / 750 g, 0,75 kg, 34,99 € · Extrudr Extrudr TPU hard Weiß, 1,75 mm / 750 g, 0,75 kg, 34,99 € · Extrudr Extrudr TPU hard Schwarz, 1,75 mm / 750 g, 0,75 kg, 34,99 €",
-          "en": "4 offers: Extrudr TPU hard Schwarz (D58), 0.75 kg, 34.99 € · Extrudr Extrudr TPU hard Transparent, 1,75 mm / 750 g, 0.75 kg, 34.99 € · Extrudr Extrudr TPU hard Weiß, 1,75 mm / 750 g, 0.75 kg, 34.99 € · Extrudr Extrudr TPU hard Schwarz, 1,75 mm / 750 g, 0.75 kg, 34.99 €"
+          "de": "4 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU hard Schwarz (D58), 0,75 kg für 34,99 € (46,65 €/kg); teuerstes Extrudr Extrudr TPU hard Schwarz, 1,75 mm / 750 g, 0,75 kg für 34,99 € (46,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "4 offers from 1 brand (Extrudr). Cheapest Extrudr TPU hard Schwarz (D58), 0.75 kg at 34.99 € (46.65 €/kg); dearest Extrudr Extrudr TPU hard Schwarz, 1,75 mm / 750 g, 0.75 kg at 34.99 € (46.65 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -567,8 +567,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0,75 kg, 34,70 €",
-          "en": "1 offer: Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0.75 kg, 34.70 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0,75 kg für 34,70 € (46,27 €/kg); teuerstes Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0,75 kg für 34,70 € (46,27 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0.75 kg at 34.70 € (46.27 €/kg); dearest Extrudr FLEX Hard black 1.75 mm 0.75 kg, 0.75 kg at 34.70 € (46.27 €/kg). The full list is in data/prices.json."
         }
       },
       {

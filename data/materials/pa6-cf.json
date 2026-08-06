@@ -941,8 +941,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: SUNLU PA6-CF Black, 1 kg, 49,99 € · eSUN PA-CF Black, 1 kg, 53,99 € · Bambu Lab PA6-CF Black, 1 kg, 82,99 € · Polymaker Fiberon PA6-CF20 Black, 0,5 kg, 44,99 € · FormFutura STYX PA6-CF15 Black, 0,5 kg, 47,99 €",
-          "en": "5 offers: SUNLU PA6-CF Black, 1 kg, 49.99 € · eSUN PA-CF Black, 1 kg, 53.99 € · Bambu Lab PA6-CF Black, 1 kg, 82.99 € · Polymaker Fiberon PA6-CF20 Black, 0.5 kg, 44.99 € · FormFutura STYX PA6-CF15 Black, 0.5 kg, 47.99 €"
+          "de": "5 Angebote von 5 Marken (Bambu Lab, FormFutura, Polymaker, SUNLU, eSUN). Günstigstes SUNLU PA6-CF Black, 1 kg für 49,99 € (49,99 €/kg); teuerstes FormFutura STYX PA6-CF15 Black, 0,5 kg für 47,99 € (95,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 5 brands (Bambu Lab, FormFutura, Polymaker, SUNLU, eSUN). Cheapest SUNLU PA6-CF Black, 1 kg at 49.99 € (49.99 €/kg); dearest FormFutura STYX PA6-CF15 Black, 0.5 kg at 47.99 € (95.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -954,8 +954,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
-          "en": "1 offer: Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg); teuerstes Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg); dearest Extrudr DuraPro PA6 CF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -967,8 +967,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg, 59,90 €",
-          "en": "1 offer: 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg, 59.90 €"
+          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg für 59,90 € (79,87 €/kg); teuerstes 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0,75 kg für 59,90 € (79,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg at 59.90 € (79.87 €/kg); dearest 3DXTech CarbonX Carbon-Nylon (PA6+CF) Schwarz, 0.75 kg at 59.90 € (79.87 €/kg). The full list is in data/prices.json."
         }
       },
       {

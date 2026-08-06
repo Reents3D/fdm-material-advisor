@@ -556,8 +556,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr TPU medium ESD Schwarz, 0,5 kg, 64,99 € · Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg, 64,99 €",
-          "en": "2 offers: Extrudr TPU medium ESD Schwarz, 0.5 kg, 64.99 € · Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg, 64.99 €"
+          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU medium ESD Schwarz, 0,5 kg für 64,99 € (129,98 €/kg); teuerstes Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg für 64,99 € (129,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr TPU medium ESD Schwarz, 0.5 kg at 64.99 € (129.98 €/kg); dearest Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg at 64.99 € (129.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -569,8 +569,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg, 64,45 €",
-          "en": "1 offer: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg, 64.45 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg); teuerstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg); dearest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg). The full list is in data/prices.json."
         }
       },
       {

@@ -1295,8 +1295,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: 3DJAKE easyPETG CF Schwarz, 1 kg, 32,99 € · Bambu Lab Bambu Lab PETG-CF Black, Spule, 1 kg, 35,99 € · Bambu Lab Bambu Lab PETG-CF Brick Red, Spule, 1 kg, 35,99 € · Extrudr XPETG CF Carbon, 0,8 kg, 49,99 € · Extrudr Extrudr XPETG CF Carbon, 1,75 mm / 800 g, 0,8 kg, 49,99 € · Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0,5 kg, 32,99 €",
-          "en": "6 offers: 3DJAKE easyPETG CF Schwarz, 1 kg, 32.99 € · Bambu Lab Bambu Lab PETG-CF Black, Spule, 1 kg, 35.99 € · Bambu Lab Bambu Lab PETG-CF Brick Red, Spule, 1 kg, 35.99 € · Extrudr XPETG CF Carbon, 0.8 kg, 49.99 € · Extrudr Extrudr XPETG CF Carbon, 1,75 mm / 800 g, 0.8 kg, 49.99 € · Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0.5 kg, 32.99 €"
+          "de": "6 Angebote von 4 Marken (3DJAKE, Bambu Lab, Extrudr, Spectrum). Günstigstes 3DJAKE easyPETG CF Schwarz, 1 kg für 32,99 € (32,99 €/kg); teuerstes Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0,5 kg für 32,99 € (65,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "6 offers from 4 brands (3DJAKE, Bambu Lab, Extrudr, Spectrum). Cheapest 3DJAKE easyPETG CF Schwarz, 1 kg at 32.99 € (32.99 €/kg); dearest Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0.5 kg at 32.99 € (65.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -1308,8 +1308,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg, 49,58 €",
-          "en": "1 offer: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg, 49.58 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg für 49,58 € (61,97 €/kg); teuerstes Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg für 49,58 € (61,97 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg at 49.58 € (61.97 €/kg); dearest Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg at 49.58 € (61.97 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -1321,8 +1321,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg, 53,49 €",
-          "en": "1 offer: Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg, 53.49 €"
+          "de": "1 Angebot von 1 Marke (Fillamentum). Günstigstes Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg für 53,49 € (71,32 €/kg); teuerstes Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg für 53,49 € (71,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Fillamentum). Cheapest Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg at 53.49 € (71.32 €/kg); dearest Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg at 53.49 € (71.32 €/kg). The full list is in data/prices.json."
         }
       },
       {

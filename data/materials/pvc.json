@@ -597,8 +597,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg, 42,00 €",
-          "en": "3 offers: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg, 42.00 €"
+          "de": "3 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg); teuerstes Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Fillamentum). Cheapest Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg); dearest Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg). The full list is in data/prices.json."
         }
       },
       {

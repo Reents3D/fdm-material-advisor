@@ -675,8 +675,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "9 Angebote: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23,99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0,85 kg, 26,99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg, 28,99 €",
-          "en": "9 offers: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23.99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0.85 kg, 26.99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg, 28.99 €"
+          "de": "9 Angebote von 3 Marken (Fiberlogy, FormFutura, Spectrum). Günstigstes Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg für 23,99 € (23,99 €/kg); teuerstes FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg für 28,99 € (38,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "9 offers from 3 brands (Fiberlogy, FormFutura, Spectrum). Cheapest Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg at 23.99 € (23.99 €/kg); dearest FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg at 28.99 € (38.65 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -688,8 +688,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg, 25,77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg, 27,83 €",
-          "en": "5 offers: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg, 25.77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg, 27.83 €"
+          "de": "5 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg für 25,77 € (34,36 €/kg); teuerstes Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg für 27,83 € (37,11 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 1 brand (Fillamentum). Cheapest Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg at 25.77 € (34.36 €/kg); dearest Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg at 27.83 € (37.11 €/kg). The full list is in data/prices.json."
         }
       },
       {

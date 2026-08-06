@@ -650,8 +650,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0,5 kg, 29,99 € · Fiberlogy Fiberlogy PCTG+GF10 Black, 1,75 mm, 0,75 kg, 46,99 € · Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0,75 kg, 46,99 €",
-          "en": "3 offers: Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0.5 kg, 29.99 € · Fiberlogy Fiberlogy PCTG+GF10 Black, 1,75 mm, 0.75 kg, 46.99 € · Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0.75 kg, 46.99 €"
+          "de": "3 Angebote von 2 Marken (Fiberlogy, Spectrum). Günstigstes Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0,5 kg für 29,99 € (59,98 €/kg); teuerstes Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0,75 kg für 46,99 € (62,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 2 brands (Fiberlogy, Spectrum). Cheapest Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0.5 kg at 29.99 € (59.98 €/kg); dearest Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0.75 kg at 46.99 € (62.65 €/kg). The full list is in data/prices.json."
         }
       },
       {

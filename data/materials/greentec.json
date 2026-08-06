@@ -561,8 +561,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr Green-TEC PRO Natur, 10 kg, 391,99 € · Extrudr Green-TEC PRO Schwarz, 0,8 kg, 44,99 €",
-          "en": "2 offers: Extrudr Green-TEC PRO Natur, 10 kg, 391.99 € · Extrudr Green-TEC PRO Schwarz, 0.8 kg, 44.99 €"
+          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr Green-TEC PRO Natur, 10 kg für 391,99 € (39,20 €/kg); teuerstes Extrudr Green-TEC PRO Schwarz, 0,8 kg für 44,99 € (56,24 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr Green-TEC PRO Natur, 10 kg at 391.99 € (39.20 €/kg); dearest Extrudr Green-TEC PRO Schwarz, 0.8 kg at 44.99 € (56.24 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -574,8 +574,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Extrudr GreenTEC black 1.75 mm 1.1 kg, 1,1 kg, 55,54 € · Extrudr GreenTEC Pro black 1.75 mm 0.8 kg, 0,8 kg, 44,61 € · Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0,8 kg, 49,58 €",
-          "en": "3 offers: Extrudr GreenTEC black 1.75 mm 1.1 kg, 1.1 kg, 55.54 € · Extrudr GreenTEC Pro black 1.75 mm 0.8 kg, 0.8 kg, 44.61 € · Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0.8 kg, 49.58 €"
+          "de": "3 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr GreenTEC black 1.75 mm 1.1 kg, 1,1 kg für 55,54 € (50,49 €/kg); teuerstes Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0,8 kg für 49,58 € (61,97 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Extrudr). Cheapest Extrudr GreenTEC black 1.75 mm 1.1 kg, 1.1 kg at 55.54 € (50.49 €/kg); dearest Extrudr GreenTEC Pro CF black 1.75 mm 0.8 kg, 0.8 kg at 49.58 € (61.97 €/kg). The full list is in data/prices.json."
         }
       },
       {

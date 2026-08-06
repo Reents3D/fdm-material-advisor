@@ -573,8 +573,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote: Extrudr TPU semi-soft Schwarz (A85), 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Transparent, 1,75 mm, 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Weiß, 1,75 mm, 0,75 kg, 39,99 € · Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0,75 kg, 39,99 €",
-          "en": "4 offers: Extrudr TPU semi-soft Schwarz (A85), 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Transparent, 1,75 mm, 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Weiß, 1,75 mm, 0.75 kg, 39.99 € · Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0.75 kg, 39.99 €"
+          "de": "4 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU semi-soft Schwarz (A85), 0,75 kg für 39,99 € (53,32 €/kg); teuerstes Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0,75 kg für 39,99 € (53,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "4 offers from 1 brand (Extrudr). Cheapest Extrudr TPU semi-soft Schwarz (A85), 0.75 kg at 39.99 € (53.32 €/kg); dearest Extrudr Extrudr TPU semi-soft Schwarz, 1,75 mm, 0.75 kg at 39.99 € (53.32 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -586,8 +586,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
-          "en": "1 offer: Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg für 39,65 € (52,87 €/kg); teuerstes Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0,75 kg für 39,65 € (52,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg at 39.65 € (52.87 €/kg); dearest Extrudr FLEX Semisoft black 1.75 mm 0.75 kg, 0.75 kg at 39.65 € (52.87 €/kg). The full list is in data/prices.json."
         }
       },
       {

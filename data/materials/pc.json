@@ -910,8 +910,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "13 Angebote: Elegoo PC Black, 1 kg, 29,99 € · Polymaker PolyLite PC Transparent, 1 kg, 34,99 € · eSUN PC-HT White, 1 kg, 34,99 € · Spectrum PC 275 Traffic White, 1 kg, 39,99 € · Spectrum Spectrum PC 275 Lime Green, 1,75 mm / 1000 g, 1 kg, 39,99 € · Spectrum Spectrum PC 275 Lion Orange, 1,75 mm / 1000 g, 1 kg, 39,99 € · Bambu Lab PC Black, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC White, Spule, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC Black, Spule, 1 kg, 42,99 € · Bambu Lab Bambu Lab PC Clear Black, Spule, 1 kg, 42,99 € · FormFutura Kratos PC Traffic Black, 0,75 kg, 39,99 € · eSUN PC Clear, 0,5 kg, 27,99 € · Polymaker Polymax PC Schwarz, 0,75 kg, 44,99 €",
-          "en": "13 offers: Elegoo PC Black, 1 kg, 29.99 € · Polymaker PolyLite PC Transparent, 1 kg, 34.99 € · eSUN PC-HT White, 1 kg, 34.99 € · Spectrum PC 275 Traffic White, 1 kg, 39.99 € · Spectrum Spectrum PC 275 Lime Green, 1,75 mm / 1000 g, 1 kg, 39.99 € · Spectrum Spectrum PC 275 Lion Orange, 1,75 mm / 1000 g, 1 kg, 39.99 € · Bambu Lab PC Black, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC White, Spule, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC Black, Spule, 1 kg, 42.99 € · Bambu Lab Bambu Lab PC Clear Black, Spule, 1 kg, 42.99 € · FormFutura Kratos PC Traffic Black, 0.75 kg, 39.99 € · eSUN PC Clear, 0.5 kg, 27.99 € · Polymaker Polymax PC Schwarz, 0.75 kg, 44.99 €"
+          "de": "13 Angebote von 6 Marken (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Günstigstes Elegoo PC Black, 1 kg für 29,99 € (29,99 €/kg); teuerstes Polymaker Polymax PC Schwarz, 0,75 kg für 44,99 € (59,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "13 offers from 6 brands (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Cheapest Elegoo PC Black, 1 kg at 29.99 € (29.99 €/kg); dearest Polymaker Polymax PC Schwarz, 0.75 kg at 44.99 € (59.99 €/kg). The full list is in data/prices.json."
         }
       },
       {

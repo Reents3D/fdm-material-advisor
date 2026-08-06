@@ -661,8 +661,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0,6 kg, 43,99 €",
-          "en": "1 offer: Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0.6 kg, 43.99 €"
+          "de": "1 Angebot von 1 Marke (Fillamentum). Günstigstes Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0,6 kg für 43,99 € (73,32 €/kg); teuerstes Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0,6 kg für 43,99 € (73,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Fillamentum). Cheapest Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0.6 kg at 43.99 € (73.32 €/kg); dearest Fillamentum Polypropylene PP 2320 — 1.75 mm / Black, 0.6 kg at 43.99 € (73.32 €/kg). The full list is in data/prices.json."
         }
       },
       {

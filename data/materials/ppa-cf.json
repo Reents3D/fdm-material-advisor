@@ -929,8 +929,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg, 155,99 €",
-          "en": "1 offer: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg, 155.99 €"
+          "de": "1 Angebot von 1 Marke (Bambu Lab). Günstigstes Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 € (207,99 €/kg); teuerstes Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 € (207,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Bambu Lab). Cheapest Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg at 155.99 € (207.99 €/kg); dearest Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg at 155.99 € (207.99 €/kg). The full list is in data/prices.json."
         }
       },
       {

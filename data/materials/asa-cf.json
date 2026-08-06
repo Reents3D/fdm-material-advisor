@@ -871,8 +871,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: The Filament ASA CF Grey, 1 kg, 29,99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36,99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg, 19,99 €",
-          "en": "3 offers: The Filament ASA CF Grey, 1 kg, 29.99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36.99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg, 19.99 €"
+          "de": "3 Angebote von 3 Marken (3DJAKE, Polymaker, The Filament). Günstigstes The Filament ASA CF Grey, 1 kg für 29,99 € (29,99 €/kg); teuerstes Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg für 19,99 € (39,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 3 brands (3DJAKE, Polymaker, The Filament). Cheapest The Filament ASA CF Grey, 1 kg at 29.99 € (29.99 €/kg); dearest Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg at 19.99 € (39.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -884,8 +884,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg, 49,58 €",
-          "en": "1 offer: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg, 49.58 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg für 49,58 € (66,11 €/kg); teuerstes Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg für 49,58 € (66,11 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg at 49.58 € (66.11 €/kg); dearest Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg at 49.58 € (66.11 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -897,8 +897,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg, 49,90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg, 74,90 €",
-          "en": "2 offers: Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg, 49.90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg, 74.90 €"
+          "de": "2 Angebote von 2 Marken (3DXTech, Extrudr). Günstigstes Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg für 49,90 € (66,53 €/kg); teuerstes 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg für 74,90 € (99,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 2 brands (3DXTech, Extrudr). Cheapest Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg at 49.90 € (66.53 €/kg); dearest 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg at 74.90 € (99.87 €/kg). The full list is in data/prices.json."
         }
       },
       {

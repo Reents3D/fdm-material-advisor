@@ -617,8 +617,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0,8 kg, 64,99 € · Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0,8 kg, 64,99 €",
-          "en": "2 offers: Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0.8 kg, 64.99 € · Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0.8 kg, 64.99 €"
+          "de": "2 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0,8 kg für 64,99 € (81,24 €/kg); teuerstes Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0,8 kg für 64,99 € (81,24 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Spectrum). Cheapest Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0.8 kg at 64.99 € (81.24 €/kg); dearest Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0.8 kg at 64.99 € (81.24 €/kg). The full list is in data/prices.json."
         }
       },
       {

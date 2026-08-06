@@ -586,8 +586,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43,99 € · Bambu Lab PAHT-CF Black, 0,5 kg, 53,99 € · Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0,5 kg, 53,99 €",
-          "en": "3 offers: Elegoo PAHT-CF Carbon Fiber Black, 1 kg, 43.99 € · Bambu Lab PAHT-CF Black, 0.5 kg, 53.99 € · Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0.5 kg, 53.99 €"
+          "de": "3 Angebote von 2 Marken (Bambu Lab, Elegoo). Günstigstes Elegoo PAHT-CF Carbon Fiber Black, 1 kg für 43,99 € (43,99 €/kg); teuerstes Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0,5 kg für 53,99 € (107,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 2 brands (Bambu Lab, Elegoo). Cheapest Elegoo PAHT-CF Carbon Fiber Black, 1 kg at 43.99 € (43.99 €/kg); dearest Bambu Lab Bambu Lab PAHT-CF Black, 500 g / Spule, 0.5 kg at 53.99 € (107.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -599,8 +599,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "10 Angebote: M4P PAHT-CF15 — 1.75 mm / 4.5 Kg, 4,5 kg, 455,95 € · M4P PAHT-CF15 — 2.85 mm / 4.5 Kg, 4,5 kg, 455,95 € · M4P PAHT-CF15 — 1.75 mm / 8 Kg, 8 kg, 810,95 € · M4P PAHT-CF15 — 2.85 mm / 8 Kg, 8 kg, 810,95 € · M4P PAHT-CF15 — 1.75 mm / 2 Kg, 2 kg, 202,95 € · M4P PAHT-CF15 — 2.85 mm / 2 Kg, 2 kg, 202,95 € · M4P PAHT-CF15 — 1.75 mm / 0.75 Kg, 0,75 kg, 79,95 € · M4P PAHT-CF15 — 2.85 mm / 0.75 Kg, 0,75 kg, 79,95 € · M4P PAHT-CF15 Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P PAHT-CF15 Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 €",
-          "en": "10 offers: M4P PAHT-CF15 — 1.75 mm / 4.5 Kg, 4.5 kg, 455.95 € · M4P PAHT-CF15 — 2.85 mm / 4.5 Kg, 4.5 kg, 455.95 € · M4P PAHT-CF15 — 1.75 mm / 8 Kg, 8 kg, 810.95 € · M4P PAHT-CF15 — 2.85 mm / 8 Kg, 8 kg, 810.95 € · M4P PAHT-CF15 — 1.75 mm / 2 Kg, 2 kg, 202.95 € · M4P PAHT-CF15 — 2.85 mm / 2 Kg, 2 kg, 202.95 € · M4P PAHT-CF15 — 1.75 mm / 0.75 Kg, 0.75 kg, 79.95 € · M4P PAHT-CF15 — 2.85 mm / 0.75 Kg, 0.75 kg, 79.95 € · M4P PAHT-CF15 Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P PAHT-CF15 Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 €"
+          "de": "10 Angebote von 1 Marke (M4P). Günstigstes M4P PAHT-CF15 — 1.75 mm / 4.5 Kg, 4,5 kg für 455,95 € (101,32 €/kg); teuerstes M4P PAHT-CF15 Sample — 2.85 mm / 0.05 Kg, 0,05 kg für 5,95 € (119,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "10 offers from 1 brand (M4P). Cheapest M4P PAHT-CF15 — 1.75 mm / 4.5 Kg, 4.5 kg at 455.95 € (101.32 €/kg); dearest M4P PAHT-CF15 Sample — 2.85 mm / 0.05 Kg, 0.05 kg at 5.95 € (119.00 €/kg). The full list is in data/prices.json."
         }
       },
       {

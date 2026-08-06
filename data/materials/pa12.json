@@ -607,8 +607,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0,75 kg, 46,99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0,75 kg, 51,99 € · eSUN PA12 White, 1 kg, 69,99 €",
-          "en": "6 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0.75 kg, 46.99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0.75 kg, 51.99 € · eSUN PA12 White, 1 kg, 69.99 €"
+          "de": "6 Angebote von 2 Marken (Fiberlogy, eSUN). Günstigstes Fiberlogy Nylon PA12 Natural, 1 kg für 60,99 € (60,99 €/kg); teuerstes eSUN PA12 White, 1 kg für 69,99 € (69,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "6 offers from 2 brands (Fiberlogy, eSUN). Cheapest Fiberlogy Nylon PA12 Natural, 1 kg at 60.99 € (60.99 €/kg); dearest eSUN PA12 White, 1 kg at 69.99 € (69.99 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -620,8 +620,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg, 54,53 €",
-          "en": "1 offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg, 54.53 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg für 54,53 € (77,90 €/kg); teuerstes Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg für 54,53 € (77,90 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg at 54.53 € (77.90 €/kg); dearest Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg at 54.53 € (77.90 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -633,8 +633,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0,6 kg, 81,00 €",
-          "en": "6 offers: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0.6 kg, 81.00 €"
+          "de": "6 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0,75 kg für 52,01 € (69,35 €/kg); teuerstes Fillamentum Nylon AF80 Aramid — 2.85 mm, 0,6 kg für 81,00 € (135,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "6 offers from 1 brand (Fillamentum). Cheapest Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0.75 kg at 52.01 € (69.35 €/kg); dearest Fillamentum Nylon AF80 Aramid — 2.85 mm, 0.6 kg at 81.00 € (135.00 €/kg). The full list is in data/prices.json."
         }
       },
       {

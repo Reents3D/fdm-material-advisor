@@ -624,8 +624,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote: Fiberlogy Nylon PA12+CF, 2,5 kg, 195,99 € · Fiberlogy Fiberlogy Nylon PA12+CF, 2,85 mm / 2500 g, 2,5 kg, 195,99 € · Spectrum Spectrum PA12 CF15 Carbon Black, 1,75 mm / 1000 g, 1 kg, 84,99 € · Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg, 169,99 €",
-          "en": "4 offers: Fiberlogy Nylon PA12+CF, 2.5 kg, 195.99 € · Fiberlogy Fiberlogy Nylon PA12+CF, 2,85 mm / 2500 g, 2.5 kg, 195.99 € · Spectrum Spectrum PA12 CF15 Carbon Black, 1,75 mm / 1000 g, 1 kg, 84.99 € · Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg, 169.99 €"
+          "de": "4 Angebote von 3 Marken (Extrudr, Fiberlogy, Spectrum). Günstigstes Fiberlogy Nylon PA12+CF, 2,5 kg für 195,99 € (78,40 €/kg); teuerstes Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg für 169,99 € (85,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "4 offers from 3 brands (Extrudr, Fiberlogy, Spectrum). Cheapest Fiberlogy Nylon PA12+CF, 2.5 kg at 195.99 € (78.40 €/kg); dearest Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg at 169.99 € (85.00 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -637,8 +637,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg, 59,49 €",
-          "en": "1 offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg, 59.49 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg für 59,49 € (118,98 €/kg); teuerstes Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg für 59,49 € (118,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg at 59.49 € (118.98 €/kg); dearest Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg at 59.49 € (118.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -650,8 +650,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg, 64,01 €",
-          "en": "1 offer: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg, 64.01 €"
+          "de": "1 Angebot von 1 Marke (Fillamentum). Günstigstes Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg für 64,01 € (106,68 €/kg); teuerstes Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg für 64,01 € (106,68 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Fillamentum). Cheapest Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg at 64.01 € (106.68 €/kg); dearest Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg at 64.01 € (106.68 €/kg). The full list is in data/prices.json."
         }
       },
       {

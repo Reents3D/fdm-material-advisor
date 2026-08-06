@@ -808,8 +808,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0,75 kg, 39,99 € · Spectrum Spectrum LW-ASA UltraFoam Pure White, 1,75 mm / 750 g, 0,75 kg, 39,99 € · Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0,75 kg, 39,99 €",
-          "en": "3 offers: Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0.75 kg, 39.99 € · Spectrum Spectrum LW-ASA UltraFoam Pure White, 1,75 mm / 750 g, 0.75 kg, 39.99 € · Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0.75 kg, 39.99 €"
+          "de": "3 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0,75 kg für 39,99 € (53,32 €/kg); teuerstes Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0,75 kg für 39,99 € (53,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Spectrum). Cheapest Spectrum Spectrum LW-ASA UltraFoam Natural, 1,75 mm / 750 g, 0.75 kg at 39.99 € (53.32 €/kg); dearest Spectrum Spectrum LW-ASA UltraFoam Bloody Red, 1,75 mm / 750 g, 0.75 kg at 39.99 € (53.32 €/kg). The full list is in data/prices.json."
         }
       },
       {

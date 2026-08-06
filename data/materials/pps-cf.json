@@ -651,8 +651,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Polymaker Fiberon PPS-CF10 Black, 3 kg, 404,99 € · Bambu Lab Bambu Lab PPS-CF Black, Spule, 0,75 kg, 133,99 €",
-          "en": "2 offers: Polymaker Fiberon PPS-CF10 Black, 3 kg, 404.99 € · Bambu Lab Bambu Lab PPS-CF Black, Spule, 0.75 kg, 133.99 €"
+          "de": "2 Angebote von 2 Marken (Bambu Lab, Polymaker). Günstigstes Polymaker Fiberon PPS-CF10 Black, 3 kg für 404,99 € (135,00 €/kg); teuerstes Bambu Lab Bambu Lab PPS-CF Black, Spule, 0,75 kg für 133,99 € (178,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 2 brands (Bambu Lab, Polymaker). Cheapest Polymaker Fiberon PPS-CF10 Black, 3 kg at 404.99 € (135.00 €/kg); dearest Bambu Lab Bambu Lab PPS-CF Black, Spule, 0.75 kg at 133.99 € (178.65 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -664,8 +664,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Bambu Lab PPS-CF, 0,75 kg, 133,99 €",
-          "en": "1 offer: Bambu Lab PPS-CF, 0.75 kg, 133.99 €"
+          "de": "1 Angebot von 1 Marke (Bambu Lab). Günstigstes Bambu Lab PPS-CF, 0,75 kg für 133,99 € (178,65 €/kg); teuerstes Bambu Lab PPS-CF, 0,75 kg für 133,99 € (178,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Bambu Lab). Cheapest Bambu Lab PPS-CF, 0.75 kg at 133.99 € (178.65 €/kg); dearest Bambu Lab PPS-CF, 0.75 kg at 133.99 € (178.65 €/kg). The full list is in data/prices.json."
         }
       },
       {

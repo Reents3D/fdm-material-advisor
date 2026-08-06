@@ -673,8 +673,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0,5 kg, 34,99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0,75 kg, 69,99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg, 69,99 €",
-          "en": "5 offers: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0.5 kg, 34.99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0.75 kg, 69.99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg, 69.99 €"
+          "de": "5 Angebote von 2 Marken (FormFutura, Spectrum). Günstigstes FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg für 34,99 € (69,98 €/kg); teuerstes Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg für 69,99 € (93,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 2 brands (FormFutura, Spectrum). Cheapest FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg at 34.99 € (69.98 €/kg); dearest Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg at 69.99 € (93.32 €/kg). The full list is in data/prices.json."
         }
       },
       {

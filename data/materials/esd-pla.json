@@ -571,8 +571,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Spectrum PLA ESD Light Grey, 0,5 kg, 44,99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89,99 € · Spectrum PLA ESD Traffic Black, 0,5 kg, 49,99 €",
-          "en": "3 offers: Spectrum PLA ESD Light Grey, 0.5 kg, 44.99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89.99 € · Spectrum PLA ESD Traffic Black, 0.5 kg, 49.99 €"
+          "de": "3 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum PLA ESD Light Grey, 0,5 kg für 44,99 € (89,98 €/kg); teuerstes Spectrum PLA ESD Traffic Black, 0,5 kg für 49,99 € (99,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Spectrum). Cheapest Spectrum PLA ESD Light Grey, 0.5 kg at 44.99 € (89.98 €/kg); dearest Spectrum PLA ESD Traffic Black, 0.5 kg at 49.99 € (99.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -584,8 +584,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "10 Angebote: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0,75 kg, 89,95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg, 89,95 €",
-          "en": "10 offers: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0.75 kg, 89.95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg, 89.95 €"
+          "de": "10 Angebote von 1 Marke (M4P). Günstigstes M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg für 215,95 € (107,98 €/kg); teuerstes M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg für 89,95 € (119,93 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "10 offers from 1 brand (M4P). Cheapest M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg at 215.95 € (107.98 €/kg); dearest M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg at 89.95 € (119.93 €/kg). The full list is in data/prices.json."
         }
       },
       {

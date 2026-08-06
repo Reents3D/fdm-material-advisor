@@ -561,8 +561,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Extrudr DuraPro PC/PBT Black, 0,75 kg, 53,99 € · Extrudr DuraPro PC/PBT White, 0,75 kg, 53,99 € · Extrudr Extrudr DuraPro PC/PBT White, 1,75 mm / 750 g, 0,75 kg, 53,99 €",
-          "en": "3 offers: Extrudr DuraPro PC/PBT Black, 0.75 kg, 53.99 € · Extrudr DuraPro PC/PBT White, 0.75 kg, 53.99 € · Extrudr Extrudr DuraPro PC/PBT White, 1,75 mm / 750 g, 0.75 kg, 53.99 €"
+          "de": "3 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PC/PBT Black, 0,75 kg für 53,99 € (71,99 €/kg); teuerstes Extrudr Extrudr DuraPro PC/PBT White, 1,75 mm / 750 g, 0,75 kg für 53,99 € (71,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Extrudr). Cheapest Extrudr DuraPro PC/PBT Black, 0.75 kg at 53.99 € (71.99 €/kg); dearest Extrudr Extrudr DuraPro PC/PBT White, 1,75 mm / 750 g, 0.75 kg at 53.99 € (71.99 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -574,8 +574,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg, 53,54 €",
-          "en": "1 offer: Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg, 53.54 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg für 53,54 € (71,39 €/kg); teuerstes Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0,75 kg für 53,54 € (71,39 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg at 53.54 € (71.39 €/kg); dearest Extrudr DuraPro PC/PBT black 1.75 mm 0.75 kg, 0.75 kg at 53.54 € (71.39 €/kg). The full list is in data/prices.json."
         }
       },
       {

@@ -663,8 +663,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Bambu Lab Bambu Lab ABS-GF Black, Spule, 1 kg, 31,99 € · Bambu Lab Bambu Lab ABS-GF White, Spule, 1 kg, 31,99 € · Bambu Lab Bambu Lab ABS-GF Gray, Spule, 1 kg, 31,99 €",
-          "en": "3 offers: Bambu Lab Bambu Lab ABS-GF Black, Spule, 1 kg, 31.99 € · Bambu Lab Bambu Lab ABS-GF White, Spule, 1 kg, 31.99 € · Bambu Lab Bambu Lab ABS-GF Gray, Spule, 1 kg, 31.99 €"
+          "de": "3 Angebote von 1 Marke (Bambu Lab). Günstigstes Bambu Lab Bambu Lab ABS-GF Black, Spule, 1 kg für 31,99 € (31,99 €/kg); teuerstes Bambu Lab Bambu Lab ABS-GF Gray, Spule, 1 kg für 31,99 € (31,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Bambu Lab). Cheapest Bambu Lab Bambu Lab ABS-GF Black, Spule, 1 kg at 31.99 € (31.99 €/kg); dearest Bambu Lab Bambu Lab ABS-GF Gray, Spule, 1 kg at 31.99 € (31.99 €/kg). The full list is in data/prices.json."
         }
       },
       {

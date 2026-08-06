@@ -643,8 +643,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: SUNLU PA6-GF Black, 1 kg, 39,99 € · Bambu Lab PA6-GF White, 1 kg, 62,99 € · Polymaker Fiberon PA6-GF25 Grey, 0,5 kg, 34,99 €",
-          "en": "3 offers: SUNLU PA6-GF Black, 1 kg, 39.99 € · Bambu Lab PA6-GF White, 1 kg, 62.99 € · Polymaker Fiberon PA6-GF25 Grey, 0.5 kg, 34.99 €"
+          "de": "3 Angebote von 3 Marken (Bambu Lab, Polymaker, SUNLU). Günstigstes SUNLU PA6-GF Black, 1 kg für 39,99 € (39,99 €/kg); teuerstes Polymaker Fiberon PA6-GF25 Grey, 0,5 kg für 34,99 € (69,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 3 brands (Bambu Lab, Polymaker, SUNLU). Cheapest SUNLU PA6-GF Black, 1 kg at 39.99 € (39.99 €/kg); dearest Polymaker Fiberon PA6-GF25 Grey, 0.5 kg at 34.99 € (69.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -656,8 +656,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
-          "en": "1 offer: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg); teuerstes Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg); dearest Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -669,8 +669,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg, 89,90 €",
-          "en": "1 offer: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg, 89.90 €"
+          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg für 89,90 € (119,87 €/kg); teuerstes 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg für 89,90 € (119,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg at 89.90 € (119.87 €/kg); dearest 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg at 89.90 € (119.87 €/kg). The full list is in data/prices.json."
         }
       },
       {
