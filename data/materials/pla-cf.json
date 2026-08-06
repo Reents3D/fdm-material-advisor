@@ -694,15 +694,16 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
+        "id": "src_price_pla_cf_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PLA-CF",
+        "url": "https://fiberlogy.com/en_US/c/PLA-CF/143",
         "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "estimated",
+        "confidenceCeiling": "medium",
         "note": {
-          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
-          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+          "de": "1 Angebot: Fiberlogy PLACF, 0,85 kg, 40,71 €",
+          "en": "1 offer: Fiberlogy PLACF, 0.85 kg, 40.71 €"
         }
       },
       {
@@ -720,16 +721,15 @@
         }
       },
       {
-        "id": "src_price_pla_cf_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PLA-CF",
-        "url": "https://fiberlogy.com/en_US/c/PLA-CF/143",
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
         "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
+        "confidenceCeiling": "estimated",
         "note": {
-          "de": "1 Angebot: Fiberlogy PLACF, 0,85 kg, 40,71 €",
-          "en": "1 offer: Fiberlogy PLACF, 0.85 kg, 40.71 €"
+          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
+          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
         }
       }
     ]

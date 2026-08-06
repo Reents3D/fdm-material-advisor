@@ -881,11 +881,30 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "src_flame_formfutura_apollox_fr",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ApolloX Flame Retardant",
+        "title": "ApolloX Flame Retardant — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256472?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+        }
       },
       {
         "id": "src_price_asa_3djake",
@@ -898,19 +917,6 @@
         "note": {
           "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
           "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
-        }
-      },
-      {
-        "id": "src_price_asa_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise ASA",
-        "url": "https://fiberlogy.com/en_US/c/ASA/162",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
-          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
         }
       },
       {
@@ -927,6 +933,19 @@
         }
       },
       {
+        "id": "src_price_asa_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise ASA",
+        "url": "https://fiberlogy.com/en_US/c/ASA/162",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "4 Angebote: Fiberlogy ASA, 0,75 kg, 21,78 € · Fiberlogy ASA, 2,5 kg, 99,63 € · Fiberlogy Matte ASA, 2,5 kg, 113,16 € · Fiberlogy Matte ASA, 0,75 kg, 34,69 €",
+          "en": "4 offers: Fiberlogy ASA, 0.75 kg, 21.78 € · Fiberlogy ASA, 2.5 kg, 99.63 € · Fiberlogy Matte ASA, 2.5 kg, 113.16 € · Fiberlogy Matte ASA, 0.75 kg, 34.69 €"
+        }
+      },
+      {
         "id": "src_price_asa_filamentworld",
         "type": "retailer-listing",
         "publisher": "Filamentworld",
@@ -937,18 +956,6 @@
         "note": {
           "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
           "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
-        }
-      },
-      {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
         }
       },
       {
@@ -966,18 +973,11 @@
         }
       },
       {
-        "id": "src_flame_formfutura_apollox_fr",
-        "type": "manufacturer-tds",
-        "publisher": "FormFutura BV",
-        "productName": "ApolloX Flame Retardant",
-        "title": "ApolloX Flame Retardant — Technical Data Sheet",
-        "url": "https://www.formfutura.com/web/content/256472?download=true",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

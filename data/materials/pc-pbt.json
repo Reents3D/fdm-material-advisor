@@ -553,11 +553,17 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
+        "id": "src_price_pc_pbt_3djake",
+        "type": "retailer-listing",
+        "publisher": "3DJAKE",
+        "title": "3DJAKE — Listenpreise PC-PBT",
+        "url": "https://www.3djake.de/filament/pc-polycarbonat",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Extrudr DuraPro PC/PBT Black, 0,75 kg, 53,99 € · Extrudr DuraPro PC/PBT White, 0,75 kg, 53,99 €",
+          "en": "2 offers: Extrudr DuraPro PC/PBT Black, 0.75 kg, 53.99 € · Extrudr DuraPro PC/PBT White, 0.75 kg, 53.99 €"
+        }
       },
       {
         "id": "src_price_pc_pbt_extrudr",
@@ -573,17 +579,11 @@
         }
       },
       {
-        "id": "src_price_pc_pbt_3djake",
-        "type": "retailer-listing",
-        "publisher": "3DJAKE",
-        "title": "3DJAKE — Listenpreise PC-PBT",
-        "url": "https://www.3djake.de/filament/pc-polycarbonat",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Extrudr DuraPro PC/PBT Black, 0,75 kg, 53,99 € · Extrudr DuraPro PC/PBT White, 0,75 kg, 53,99 €",
-          "en": "2 offers: Extrudr DuraPro PC/PBT Black, 0.75 kg, 53.99 € · Extrudr DuraPro PC/PBT White, 0.75 kg, 53.99 €"
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

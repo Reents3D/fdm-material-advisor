@@ -538,6 +538,20 @@
     "dataCompleteness": null,
     "sources": [
       {
+        "id": "src_flame_formfutura_abspro_fr",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "ABSpro Flame Retardant",
+        "title": "ABSpro Flame Retardant — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/254655?download=true",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
         "id": "src_m4p_tds",
         "type": "manufacturer-tds",
         "publisher": "Material 4 Print GmbH & Co. KG",
@@ -550,13 +564,6 @@
           "de": "Materialdatenblatt vom 2021-04-12, Datei Data_Sheet_M4P_ABS-PC.pdf. Der Hersteller erklärt die Werte ausdrücklich als Rohstoffkennwerte. Die Datenblattseite blockt automatisierte Abrufe; das Dokument wurde manuell bezogen.",
           "en": "Material data sheet dated 2021-04-12, file Data_Sheet_M4P_ABS-PC.pdf. The manufacturer explicitly declares the values as raw-material data. The datasheet page blocks automated retrieval; the document was obtained manually."
         }
-      },
-      {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
       },
       {
         "id": "src_price_abs_pc_3djake",
@@ -572,18 +579,11 @@
         }
       },
       {
-        "id": "src_flame_formfutura_abspro_fr",
-        "type": "manufacturer-tds",
-        "publisher": "FormFutura BV",
-        "productName": "ABSpro Flame Retardant",
-        "title": "ABSpro Flame Retardant — Technical Data Sheet",
-        "url": "https://www.formfutura.com/web/content/254655?download=true",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
-        "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
-        }
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

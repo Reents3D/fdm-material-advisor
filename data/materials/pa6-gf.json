@@ -623,24 +623,15 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_ofd",
-        "type": "community",
-        "publisher": "Open Filament Collective",
-        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
-        "documentVersion": "2026.07.31",
-        "url": "https://api.openfilamentdatabase.org/api/v1/",
-        "retrievedAt": "2026-08-04",
-        "confidenceCeiling": "low",
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
         }
       },
       {
@@ -683,16 +674,25 @@
         }
       },
       {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
+        "id": "src_ofd",
+        "type": "community",
+        "publisher": "Open Filament Collective",
+        "title": "Open Filament Database — Marktbestand an Filamenten, Spulengrößen und Druckparametern",
+        "documentVersion": "2026.07.31",
+        "url": "https://api.openfilamentdatabase.org/api/v1/",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "low",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [

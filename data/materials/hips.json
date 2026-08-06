@@ -664,18 +664,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "estimated",
-        "note": {
-          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
-          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
-        }
-      },
-      {
         "id": "src_price_hips_fiberlogy",
         "type": "retailer-listing",
         "publisher": "Fiberlogy",
@@ -700,6 +688,18 @@
         "note": {
           "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
           "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+        }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Eigene Einschätzung aus Polymerklasse und Werkstattpraxis",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "estimated",
+        "note": {
+          "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
+          "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
         }
       }
     ]

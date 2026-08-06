@@ -599,26 +599,6 @@
         }
       },
       {
-        "id": "estimate_reasoning",
-        "type": "estimate",
-        "publisher": "FDM-Materialberater",
-        "title": "Fachliche Ableitung ohne Primärquelle",
-        "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_price_pa12_fiberlogy",
-        "type": "retailer-listing",
-        "publisher": "Fiberlogy",
-        "title": "Fiberlogy — Listenpreise PA12",
-        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12/196",
-        "retrievedAt": "2026-08-02",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "2 Angebote: Fiberlogy Nylon PA12, 0,75 kg, 33,58 € · Fiberlogy Nylon PA12, 2,5 kg, 173,43 €",
-          "en": "2 offers: Fiberlogy Nylon PA12, 0.75 kg, 33.58 € · Fiberlogy Nylon PA12, 2.5 kg, 173.43 €"
-        }
-      },
-      {
         "id": "src_price_pa12_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -645,6 +625,19 @@
         }
       },
       {
+        "id": "src_price_pa12_fiberlogy",
+        "type": "retailer-listing",
+        "publisher": "Fiberlogy",
+        "title": "Fiberlogy — Listenpreise PA12",
+        "url": "https://fiberlogy.com/en_US/c/Nylon-PA12/196",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "2 Angebote: Fiberlogy Nylon PA12, 0,75 kg, 33,58 € · Fiberlogy Nylon PA12, 2,5 kg, 173,43 €",
+          "en": "2 offers: Fiberlogy Nylon PA12, 0.75 kg, 33.58 € · Fiberlogy Nylon PA12, 2.5 kg, 173.43 €"
+        }
+      },
+      {
         "id": "src_ofd",
         "type": "community",
         "publisher": "Open Filament Collective",
@@ -657,6 +650,13 @@
           "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
           "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
         }
+      },
+      {
+        "id": "estimate_reasoning",
+        "type": "estimate",
+        "publisher": "FDM-Materialberater",
+        "title": "Fachliche Ableitung ohne Primärquelle",
+        "confidenceCeiling": "estimated"
       }
     ],
     "openQuestions": [
