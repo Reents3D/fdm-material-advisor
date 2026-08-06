@@ -1,0 +1,128 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "anycubic-tpu",
+  "materialId": "tpu-95a",
+  "brand": "Anycubic",
+  "manufacturer": "Shenzhen Anycubic Technology Co., Ltd.",
+  "productName": "Anycubic TPU",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Das Blatt erklärt ausdrücklich: „All data are based on printed test samples. ‚(X-Y)‘ and ‚(Z)‘ indicate different testing orientations.“ Damit sind Prüfkörpertyp und Orientierung deklariert — die Werte sind mit Bambu Lab und Ultrafuse vergleichbar, nicht mit Blättern, die den Prüfkörper offenlassen.\n\nDrucktempo, Trocknung und Lüfterdrehzahl stehen auf dem Blatt, sind hier aber NICHT übernommen: Die Tabelle „Recommended Printing Parameters“ verschachtelt sich beim Textauszug, sodass Werte in fremden Zeilen landen. Düsen- und Betttemperatur sind davon nicht betroffen und stehen sauber getrennt.",
+    "en": "The sheet states explicitly: “All data are based on printed test samples. ‘(X-Y)’ and ‘(Z)’ indicate different testing orientations.” Specimen type and orientation are therefore declared — the values are comparable with Bambu Lab and Ultrafuse, not with sheets that leave the specimen open.\n\nPrint speed, drying and fan speed appear on the sheet but are NOT imported here: the “Recommended Printing Parameters” table interleaves during text extraction, so values land in the wrong rows. Nozzle and bed temperature are unaffected and read cleanly."
+  },
+  "features": {
+    "de": "Der erste TPU-Z-Wert im Bestand: 18,5 gegen 34,4 MPa, Faktor 0,54. Dass ein Elastomer mit 697 % Bruchdehnung in Z überhaupt auf die Hälfte einbricht, ist die nützlichere Nachricht — Dehnbarkeit und Schichthaftung sind zwei verschiedene Dinge. Die Härte steht nicht in der Tabelle, sondern im Fließtext: „an average hardness of 95A“.",
+    "en": "The first TPU Z value in the dataset: 18.5 against 34.4 MPa, factor 0.54. That an elastomer with 697 % elongation at break drops to half in Z is the more useful news — stretchability and layer adhesion are two different things. The hardness is not in the table but in the prose: “an average hardness of 95A”."
+  },
+  "properties": {
+    "density": {
+      "value": 1.23,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 34.4,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 18.5,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 50.2,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 697,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 4.26,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 87.6,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 145.1,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 52,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 215,
+      "unit": "°C",
+      "min": 195,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 55,
+      "unit": "°C",
+      "min": 50,
+      "max": 60,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "datasheet": {
+    "title": "Anycubic TPU — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_TPU_V3.0.pdf?v=1757560611",
+    "version": "3.0",
+    "retrievedAt": "2026-08-06"
+  },
+  "governance": {
+    "lastReviewed": "2026-08-06",
+    "reviewedBy": "Claude Code (Datenblattimport)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Shenzhen Anycubic Technology Co., Ltd.",
+        "title": "Anycubic TPU — Technical Data Sheet",
+        "documentVersion": "3.0",
+        "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_TPU_V3.0.pdf?v=1757560611",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

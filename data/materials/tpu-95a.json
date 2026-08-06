@@ -103,24 +103,6 @@
       "orientation": "Z",
       "conditions": "Datenblattangabe > 500 %; hier als Untergrenze erfasst"
     },
-    "anisotropyFactorTensile": {
-      "value": 0.78,
-      "unit": "-",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "min": 0.75,
-      "max": 0.82,
-      "orientation": "Z",
-      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
-      "derivedFrom": [
-        "mechanics.tensileStrengthZ",
-        "mechanics.tensileStrengthXy"
-      ],
-      "note": {
-        "de": "Senkrecht zur Schicht bleiben 78 % der Zugfestigkeit erhalten (23.2 von 29.6 MPa).",
-        "en": "Perpendicular to the layers 78 % of the tensile strength remains (23.2 of 29.6 MPa)."
-      }
-    },
     "toughness": {
       "value": 5,
       "scale": "toughness",
@@ -811,6 +793,17 @@
           "mechanics",
           "thermal"
         ]
+      },
+      {
+        "id": "oq_anisotropy_conflict",
+        "question": {
+          "de": "Der Anisotropiefaktor lässt sich aus 4 Produktblättern ableiten, und sie widersprechen sich um den Faktor 1.63: 0.54 (Anycubic Anycubic TPU, 18.5/34.4 MPa) · 0.82 (Bambu Lab Bambu TPU 95A HF, 22.3/27.3 MPa) · 0.78 (Bambu Lab Bambu TPU 95A, 23.2/29.6 MPa) · 0.5 (Bambu Lab Bambu TPU for AMS, 11.2/22.4 MPa). Beide Blätter rechnen quellenrein, der Unterschied liegt also am Werkstoff oder an der Prüfung — nicht an der Rechnung. Solange nicht geklärt ist, welches Blatt den hier geführten Typ beschreibt, bleibt der Faktor leer; ein Mittelwert wäre eine erfundene Zahl.",
+          "en": "The anisotropy factor can be derived from 4 product sheets, and they contradict each other by a factor of 1.63: 0.54 (Anycubic Anycubic TPU, 18.5/34.4 MPa) · 0.82 (Bambu Lab Bambu TPU 95A HF, 22.3/27.3 MPa) · 0.78 (Bambu Lab Bambu TPU 95A, 23.2/29.6 MPa) · 0.5 (Bambu Lab Bambu TPU for AMS, 11.2/22.4 MPa). Both sheets calculate source-pure, so the difference lies in the material or the testing — not in the arithmetic. Until it is clear which sheet describes the type held here, the factor stays empty; an average would be an invented figure."
+        },
+        "affectsFields": [
+          "mechanics.anisotropyFactorTensile"
+        ],
+        "blocking": false
       }
     ]
   }

@@ -86,18 +86,33 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
    durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
    eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
-   Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen. */
+   Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen.
+
+   `anisotropyFactors` FAELLT am 2026-08-06 von 19 auf 16, und das ist der wichtigste
+   Rueckgang, den diese Liste je verzeichnet hat. Der Anycubic-Import brachte neun neue
+   Blaetter mit Z-Werten und machte damit sichtbar, dass `derive-anisotropy.mjs` seinen
+   Widerspruchstest nur EINMAL laufen liess - beim ersten Blatt. Drei Werkstoffe trugen
+   deshalb eine Zahl, der ihre eigenen Belege widersprechen:
+
+     pla       0,89 gefuehrt   20 Blaetter, Spanne 0,32-0,89
+     pet-cf    0,47 gefuehrt    2 Blaetter, Spanne 0,20-0,47
+     tpu-95a   0,78 gefuehrt    4 Blaetter, Spanne 0,50-0,82
+
+   In allen drei Faellen war der gefuehrte Wert der guenstigste der Spanne. Die Zahlen
+   sind entfernt und durch offene Fragen mit allen Belegen ersetzt; `materialFacts` sinkt
+   dadurch um dieselben drei auf 3.045. Ein Bestand, der um drei falsche Zahlen aermer
+   ist, ist reicher - deshalb steht die Untergrenze jetzt bei 16 und nicht bei 19. */
 const FLOOR = {
   materials: 43,
-  products: 241,
-  brands: 16,
-  datasheets: 219,
-  materialFacts: 3048,
-  productValues: 2016,
+  products: 250,
+  brands: 17,
+  datasheets: 228,
+  materialFacts: 3045,
+  productValues: 2110,
   chemicalRatings: 903,
   materialsWithPrice: 42,
-  anisotropyFactors: 19,
-  openQuestions: 94,
+  anisotropyFactors: 16,
+  openQuestions: 97,
 };
 
 const actual = {

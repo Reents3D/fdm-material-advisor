@@ -158,24 +158,6 @@
       "testStandard": "ISO 179 / GB/T 1043",
       "orientation": "Z"
     },
-    "anisotropyFactorTensile": {
-      "value": 0.89,
-      "unit": "-",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "min": 0.72,
-      "max": 1.1,
-      "orientation": "Z",
-      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
-      "derivedFrom": [
-        "mechanics.tensileStrengthZ",
-        "mechanics.tensileStrengthXy"
-      ],
-      "note": {
-        "de": "Senkrecht zur Schicht bleiben 89 % der Zugfestigkeit erhalten (31 von 35 MPa).",
-        "en": "Perpendicular to the layers 89 % of the tensile strength remains (31 of 35 MPa)."
-      }
-    },
     "anisotropyFactorImpact": {
       "value": 1.75,
       "unit": "-",
@@ -1040,6 +1022,17 @@
           "mechanics.charpyUnnotchedZ",
           "mechanics.anisotropyFactorImpact"
         ]
+      },
+      {
+        "id": "oq_anisotropy_conflict",
+        "question": {
+          "de": "Der Anisotropiefaktor lässt sich aus 20 Produktblättern ableiten, und sie widersprechen sich um den Faktor 2.74: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). Beide Blätter rechnen quellenrein, der Unterschied liegt also am Werkstoff oder an der Prüfung — nicht an der Rechnung. Solange nicht geklärt ist, welches Blatt den hier geführten Typ beschreibt, bleibt der Faktor leer; ein Mittelwert wäre eine erfundene Zahl.",
+          "en": "The anisotropy factor can be derived from 20 product sheets, and they contradict each other by a factor of 2.74: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). Both sheets calculate source-pure, so the difference lies in the material or the testing — not in the arithmetic. Until it is clear which sheet describes the type held here, the factor stays empty; an average would be an invented figure."
+        },
+        "affectsFields": [
+          "mechanics.anisotropyFactorTensile"
+        ],
+        "blocking": false
       }
     ]
   }
