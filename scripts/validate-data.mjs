@@ -319,6 +319,55 @@ if (existsSync(PRODDIR)) {
   }
 }
 
+/* --------------------------------------------- R17, ebenfalls auf der Produktebene
+
+   QUER ZUR SCHICHT IST NICHTS BESSER ALS LAENGS.
+
+   Die Schichtgrenze ist bei FDM die schwaechste Ebene: Dort haelt nur, was beim Drucken
+   verschweisst ist, waehrend laengs der ganze Strang traegt. Jede mechanische Groesse
+   muss in Z deshalb unter dem X-Y-Wert liegen. Steht sie darueber, stimmt das Blatt
+   nicht - meist ein vertauschtes Zahlenpaar.
+
+   WARUM DAS NICHT SCHON R12 ERLEDIGT
+   R12 prueft genau eine Groesse (ungekerbte Schlagzaehigkeit) und nur auf der
+   WERKSTOFFebene. Beim Bambu-Import fiel auf, dass PLA Glow denselben Fehler auf der
+   Produktebene traegt, wo ihn niemand pruefte: 19,8 kJ/m² in Z gegen 8,8 in X-Y. Diese
+   Regel deckt acht Groessenpaare ab und sieht auf beiden Ebenen nach.
+
+   NUR GEGEN DIESELBE PRUEFNORM - dieselbe Lehre wie bei R16. Ein ISO-Wert gegen einen
+   ASTM-Wert gestellt ergibt eine Aussage ueber die Normen, nicht ueber den Werkstoff.
+
+   WARN, NICHT ERROR: Der Befund liegt im fremden Blatt. */
+
+const ZPAIRS = [
+  ["charpyUnnotchedXy", "charpyUnnotchedZ", "ungekerbte Schlagzähigkeit"],
+  ["charpyNotchedXy", "charpyNotchedZ", "gekerbte Schlagzähigkeit"],
+  ["izodNotchedXy", "izodNotchedZ", "Izod-Kerbschlagzähigkeit"],
+  ["tensileStrengthXy", "tensileStrengthZ", "Zugfestigkeit"],
+  ["flexuralStrengthXy", "flexuralStrengthZ", "Biegefestigkeit"],
+  ["tensileModulusXy", "tensileModulusZ", "Zug-E-Modul"],
+  ["flexuralModulusXy", "flexuralModulusZ", "Biegemodul"],
+  ["elongationAtBreakXy", "elongationAtBreakZ", "Bruchdehnung"],
+];
+
+if (existsSync(PRODDIR)) {
+  for (const f of readdirSync(PRODDIR).filter((x) => x.endsWith(".json"))) {
+    const p = JSON.parse(readFileSync(path.join(PRODDIR, f), "utf8"));
+    for (const [kx, kz, label] of ZPAIRS) {
+      const x = p.properties?.[kx], z = p.properties?.[kz];
+      if (typeof x?.value !== "number" || typeof z?.value !== "number") continue;
+      if (!x.testStandard || x.testStandard !== z.testStandard) continue;
+      if (z.value <= x.value) continue;
+      /* Wer den Befund schon am Wert benannt hat, bekommt eine mildere Meldung - der
+         Fall ist gesehen, nicht uebersehen. Erkennbar an `low` auf dem Z-Wert. */
+      const ack = z.confidence === "low" || z.confidence === "estimated";
+      report("warn", p.id, "R17-z-exceeds-xy",
+        `${label}: Z ${z.value} > X-Y ${x.value} ${x.unit ?? ""}`.trim() +
+        (ack ? " (am Datensatz benannt)" : " — quer zur Schicht kann nichts fester sein als längs"));
+    }
+  }
+}
+
 /* -------------------------------------------------------------------- report */
 
 const errors = findings.filter((f) => f.sev === "error");

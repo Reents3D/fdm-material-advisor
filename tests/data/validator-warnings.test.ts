@@ -24,11 +24,13 @@ import path from "node:path";
 const ROOT = path.resolve(__dirname, "../..");
 
 /* Stand 2026-08-05. Untergrenze, kein Ziel: Wer einen Befund aufklaert, zieht die Zahl
-   nach. Die vier sind:
+   nach. Die sieben sind:
      R4  pc            HDT-A ueber HDT-B im Blatt
-     R12 pa6-cf, pla   Schlagzaehigkeit in Z groesser als in X-Y
-     R16 extrudr-durapro-abs-cf   CF-Variante ohne Steifigkeitsgewinn */
-const KNOWN_WARNINGS = 4;
+     R12 pa6-cf, pla   Schlagzaehigkeit in Z groesser als in X-Y (Werkstoffebene)
+     R16 extrudr-durapro-abs-cf   CF-Variante ohne Steifigkeitsgewinn
+     R17 bambu-pla-glow, bambu-pla-translucent, fillamentum-obc-905
+         dasselbe auf der Produktebene, alle drei am Datensatz benannt */
+const KNOWN_WARNINGS = 7;
 
 const out = execFileSync("node", [path.join(ROOT, "scripts/validate-data.mjs")], {
   cwd: ROOT, encoding: "utf8",
@@ -43,6 +45,21 @@ describe("Plausibilitaetspruefer", () => {
     const m = out.match(/Warnungen: (\d+)/);
     expect(m, "Schlusszeile des Pruefers nicht gefunden").not.toBeNull();
     expect(Number(m![1])).toBeLessThanOrEqual(KNOWN_WARNINGS);
+  });
+
+  it("haelt die drei Z-ueber-X-Y-Faelle der Produktebene fest", () => {
+    /* R17 ist die Verallgemeinerung von R12: acht Groessenpaare statt einem, und auf
+       BEIDEN Ebenen. Gefunden hat sie ausser den zwei bekannten Bambu-Faellen einen
+       dritten - Fillamentum OBC 905 mit 43,1 gegen 34,3 kJ/m² Izod. Der ist nicht
+       zwingend falsch: Bei Shore D 53 und 700 % Bruchdehnung bricht die gekerbte Probe
+       oft nicht durch, und dann misst man Verformungs- statt Bruchenergie. Genau
+       deshalb steht er als Befund da und nicht als Korrektur. */
+    for (const id of ["bambu-pla-glow", "bambu-pla-translucent", "fillamentum-obc-905"]) {
+      expect(out).toContain(`${id} [R17-z-exceeds-xy]`);
+    }
+    /* Alle drei sind am Datensatz benannt - wer die Kennzeichnung entfernt, faellt hier
+       auf, weil der Zusatz aus der Meldung verschwindet. */
+    expect(out.match(/R17-z-exceeds-xy.*am Datensatz benannt/g)).toHaveLength(3);
   });
 
   it("haelt den CF-Befund bei Extrudr fest", () => {
