@@ -1959,6 +1959,37 @@ schon `medium` verdient. `derive-price.mjs` vergibt die Stufe nach Breite, und d
 Messung oben stützt das — aber sie kann es nicht prüfen, weil in der Historie kein Fall
 vorkommt, in dem eine breite Erhebung später korrigiert wurde.
 
+### Nachtrag 2026-08-06: die Kalibrierung hat einen Fehler in der Stufe gefunden
+
+Nach der Aufnahme von 3DJAKE ist die Stichprobe von 35 auf 41 und von 15 auf 22 Paare
+gewachsen. Die Verlässlichkeit dünner Erhebungen sprang von 0,74 auf **0,79** — und der
+Sprung kam nicht daher, dass dünne Preise besser geworden wären.
+
+Drei der neuen Übergänge (`greentec`, `tpu-58d`, `tpu-85a`) führten auf ein `medium`, das
+**ausschließlich auf Extrudr-Angeboten** stand: einmal bei Extrudr selbst, einmal bei
+3DJAKE. Alle drei bewegten den Preis um **0,0 %**, während Übergänge mit echtem
+Markenwechsel im Median um 15 % sprangen. Das ist keine Bestätigung, sondern eine
+Tautologie — dieselbe Herstellerliste, zweimal gelesen.
+
+Zwei Konsequenzen:
+
+**`derive-price.mjs` verlangt für `medium` jetzt auch zwei Marken.** Die bestehende Regel
+sagte „fünf Preise aus demselben Shop sind eine Preisliste, kein Markt". Derselbe Satz
+gilt eine Ebene höher: Zwei Shops, die dasselbe Produkt desselben Herstellers listen,
+vergleichen keine Preise. Die drei Werkstoffe fallen auf `low` zurück und tragen ihren
+Vorbehalt wieder.
+
+**Das Messskript zählt solche Übergänge nicht mehr mit.** Der Filter bleibt nötig, obwohl
+die Stufe repariert ist: Die Historie behält die alten Übergänge, und eine Kalibrierung,
+die sich aus ihren eigenen Fehlklassifikationen speist, wäre im Kreis gerechnet.
+
+Nach dem Filter: `estimated` **0,65** (n = 41), `low` **0,77** (n = 19). Beide Werte sind
+in `reliability.ts` nachgezogen; keine Rangfolge ändert sich dadurch.
+
+Der eigentliche Wert dieses Nachtrags liegt aber nicht in den zwei Nachkommastellen. Die
+Kalibrierung war als Messung *für* das Scoring gebaut und hat als Nebenwirkung einen
+Fehler in der **Datenstufe** gefunden — an einer Null, die zu glatt war, um echt zu sein.
+
 ---
 
 ## Vorgemerkte ADRs

@@ -48,16 +48,27 @@ import type { Confidence } from "./types";
 export const NEUTRAL = 0.5;
 
 /**
- * Gemessen am 2026-08-06 mit `npm run measure:price-reliability`:
+ * Gemessen mit `npm run measure:price-reliability`. Stand 2026-08-06, nach der Aufnahme
+ * von 3DJAKE - die Stichprobe ist von 35 auf 41 und von 15 auf 19 Paare gewachsen:
  *
- *   Schaetzung     n = 35   Rangfehler 11,4 %   Versatz -5,7 %   -> 0,66
- *   ein Haendler   n = 15   Rangfehler  8,5 %   Versatz +6,6 %   -> 0,74
+ *                  vorher                          jetzt
+ *   Schaetzung     n = 35  Fehler 11,4 %  -> 0,66  n = 41  Fehler 11,6 %  -> 0,65
+ *   ein Haendler   n = 15  Fehler  8,5 %  -> 0,74  n = 19  Fehler  7,5 %  -> 0,77
+ *
+ * Die Schaetzungen bleiben, wo sie waren; die duennen Erhebungen sind etwas besser als
+ * gedacht. Beide Verschiebungen sind klein und aendern keine einzige Rangfolge - sie
+ * stehen hier, weil eine Kalibrierung, die man nicht nachzieht, still veraltet.
+ *
+ * NICHT UEBERNOMMEN: die 0,79, die derselbe Lauf ohne Markenfilter ausgab. Drei
+ * Uebergaenge fuehrten auf ein `medium`, das ausschliesslich auf Extrudr-Angeboten stand -
+ * einmal bei Extrudr, einmal bei 3DJAKE. Sie bewegten den Preis um 0,0 %, weil es
+ * dieselbe Herstellerliste war. Eine Null aus einer Tautologie ist keine Bestaetigung.
  *
  * `high` und `medium` stehen nicht drin und bekommen damit den vollen Score - ein
  * Datenblattwert und eine breite Erhebung sind das, woran hier gemessen wird.
  */
 export const RELIABILITY: Readonly<Record<string, Partial<Record<Confidence, number>>>> = {
-  price: { estimated: 0.66, low: 0.74 },
+  price: { estimated: 0.65, low: 0.77 },
 };
 
 /** Verlaesslichkeit dieser Kombination, oder `null`, wenn sie nie gemessen wurde. */

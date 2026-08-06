@@ -325,7 +325,7 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   | **mit 3DJAKE** | **2** | 12 | **16** | **7** | **4** | **1** |
 
   Werkstoffe mit mindestens zwei Händlern: 19 → 25 → **28**. Preiskonfidenz `medium`
-  11 → 16 → **25**, geschätzt 8 → **2**. **`asa` erreicht als erster Werkstoff die
+  11 → 16 → **22**, geschätzt 8 → **2**. **`asa` erreicht als erster Werkstoff die
   geforderten fünf Händler**, und mit `ppa-cf` hat zum ersten Mal **jeder der 42 Typen
   einen Preis**.
 
@@ -428,6 +428,15 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   steht in der längeren Titelfassung der Produktkacheln: „Bambu Lab ABS-GF Black, Spule
   **(1.000 g)**". Mit dem JSON-LD-Namen als Anker sind es 0 von 72. An zehn Seiten
   gegengeprüft: fünf tragen die Zahl im Namen, fünf in der Klammer, keine in beiden.
+
+  **Zwei Händler mit derselben Herstellerliste sind kein Marktvergleich.** Direkt nach der
+  Aufnahme erreichten `greentec`, `tpu-58d` und `tpu-85a` die Stufe `medium` — fünf
+  Angebote, zwei Händler, aber **alle fünf von Extrudr**, einmal bei Extrudr selbst und
+  einmal bei 3DJAKE. Aufgefallen ist es an der Kalibrierung: Alle drei bewegten den Preis
+  beim Übergang um **0,0 %**, während Übergänge mit echtem Markenwechsel im Median 15 %
+  sprangen. Seit 2026-08-06 verlangt `derive-price.mjs` für `medium` deshalb auch zwei
+  Marken; die drei stehen wieder auf `low`. Preiskonfidenz danach: `medium` 22, `low` 18,
+  geschätzt 2.
 
   **Was 3DJAKE nicht ist: ein neuer Anbieter für alles.** Der Shop stand schon mit 87
   handerhobenen Angeboten im Bestand. Neu sind 64 maschinell gelesene, und `derive-price`

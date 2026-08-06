@@ -710,7 +710,7 @@
       "min": 17.99,
       "max": 70.58,
       "unit": "€/kg",
-      "conditions": "Median aus 7 Angeboten über 2 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 7 Angeboten über 2 Händler und 6 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_95a_3djake",
         "src_price_tpu_95a_fillamentum"

@@ -515,7 +515,7 @@
       "min": 33.27,
       "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 56 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 56 Angeboten über 4 Händler und 3 Marken, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_tpu_98a_material4print",
         "src_price_tpu_98a_extrudr",

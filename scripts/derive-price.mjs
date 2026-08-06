@@ -82,6 +82,23 @@ const MIN_OFFERS_MEDIUM = 5;
  * der Erhebung verwechseln.
  */
 const MIN_RETAILERS_MEDIUM = 2;
+/**
+ * Fuenf Angebote EINER MARKE sind auch dann keine Marktspanne, wenn zwei Shops sie
+ * fuehren.
+ *
+ * Sichtbar geworden am 2026-08-06, einen Tag nach der Haendlerregel oben: `tpu-58d` und
+ * `tpu-85a` erreichten `medium` mit fuenf Angeboten aus zwei Shops - und alle fuenf waren
+ * Extrudr, einmal bei Extrudr selbst und einmal bei 3DJAKE. Zwei Haendler, die dasselbe
+ * Produkt desselben Herstellers listen, vergleichen keine Preise, sie geben dieselbe
+ * Listenpreisempfehlung zweimal wieder.
+ *
+ * Der Beleg steckt in der Kalibrierung von ADR-040: Beide Werkstoffe bewegten sich beim
+ * Uebergang von `low` auf `medium` um 0,0 % - waehrend die Uebergaenge mit echtem
+ * Markenwechsel im Median um 15 % sprangen. Eine Null, die aus derselben Preisliste
+ * kommt, ist keine Bestaetigung, sondern eine Tautologie; sie hat die gemessene
+ * Verlaesslichkeit schwach belegter Preise kuenstlich nach oben gezogen.
+ */
+const MIN_BRANDS_MEDIUM = 2;
 
 /* Konservative Marktspannen fuer die Werkstoffe, zu denen die Erhebung (noch) zu duenn
    ist. Sie richten sich nach den MARKEN, die den Werkstoff hier tragen - nicht nach dem
@@ -130,9 +147,12 @@ function priceFor(id) {
       ? { min: Math.min(...pk), max: Math.max(...pk) }
       : {};
     const retailers = new Set(offers.map((o) => o.retailer)).size;
-    const broad = offers.length >= MIN_OFFERS_MEDIUM && retailers >= MIN_RETAILERS_MEDIUM;
+    const brands = new Set(offers.map((o) => o.brand)).size;
+    const broad = offers.length >= MIN_OFFERS_MEDIUM
+      && retailers >= MIN_RETAILERS_MEDIUM
+      && brands >= MIN_BRANDS_MEDIUM;
     return {
-      surveyed: true, offers, retailers, value: median(pk), ...range,
+      surveyed: true, offers, retailers, brands, value: median(pk), ...range,
       confidence: broad ? "medium" : "low",
     };
   }
@@ -209,7 +229,11 @@ for (const f of files) {
         ? `Ein einzelnes Händlerangebot, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED} — keine Spanne ableitbar`
         : byRetailer.size === 1
           ? `Median aus ${p.offers.length} Angeboten EINES Händlers (${[...byRetailer.keys()][0]}), auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED} — eine Preisliste, kein Marktvergleich`
-          : `Median aus ${p.offers.length} Angeboten über ${byRetailer.size} Händler, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED}`,
+          /* Zwei Shops, eine Marke: dieselbe Herstellerliste zweimal. Die Zeile muss das
+             sagen, sonst liest sich "über 2 Händler" wie Marktbreite. */
+          : brands.length === 1
+            ? `Median aus ${p.offers.length} Angeboten über ${byRetailer.size} Händler, aber alle von EINER Marke (${brands[0]}), auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED} — zwei Shops mit derselben Herstellerliste sind kein Marktvergleich`
+            : `Median aus ${p.offers.length} Angeboten über ${byRetailer.size} Händler und ${brands.length} Marken, auf €/kg normiert, inkl. MwSt., Stand ${SURVEYED}`,
       source: srcIds, confidence: p.confidence,
       note: t(
         p.offers.length === 1
@@ -259,8 +283,8 @@ for (const f of files) {
          sie nicht vollstaendig, aber sie nehmen ihr die Sprengkraft. */
       oq[idx].blocking = p.offers.length === 0;
       oq[idx].question = t(
-        `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern — fünf Preise aus demselben Shop sind eine Preisliste, kein Markt. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
-        `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers — five prices from one shop are a price list, not a market. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
+        `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} und ${p.brands ?? 0} Marke${p.brands === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
+        `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} and ${p.brands ?? 0} brand${p.brands === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
     }
     /* `oq` kann eine frisch angelegte Liste sein - dann haengt sie noch nicht am
        Datensatz und ein `push` oben waere spurlos verpufft. */

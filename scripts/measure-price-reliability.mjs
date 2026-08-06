@@ -46,6 +46,17 @@ const sh = (cmd) => execSync(cmd, { encoding: "utf8", maxBuffer: 1 << 28 });
 /** Erwarteter Abstand zweier unabhaengiger Raenge auf [0,1]. */
 const RANDOM_DISTANCE = 1 / 3;
 
+/**
+ * Wie viele MARKEN tragen diesen Preis? Die Zahl steht nur in der ausfuehrlichen Notiz
+ * ("... N Listenpreise von M Marken (...) ueber K Haendler"), nicht als eigenes Feld -
+ * die Datensaetze aelterer Commits haetten es sowieso nicht. Ein einzelnes Angebot
+ * bekommt keine solche Notiz und zaehlt als eine Marke.
+ */
+function brandCount(price) {
+  const m = /von (\d+) Marken/.exec(price?.note?.de ?? "");
+  return m ? Number(m[1]) : 1;
+}
+
 /* ---------- Uebergaenge aus der Historie sammeln ---------- */
 
 const files = sh("git ls-files data/materials").trim().split("\n").filter(Boolean);
@@ -70,9 +81,22 @@ for (const file of files) {
     if (prev?.confidence === "estimated" && now.confidence !== "estimated") {
       transitions.estimated.push([prev.value, now.value]);
     }
-    /* ein Haendler -> mehrere Haendler. `derive-price.mjs` vergibt `medium` erst, wenn
-       die Erhebung breit ist; `low` heisst dort "erhoben, aber duenn". */
-    if (prev?.confidence === "low" && now.confidence === "medium") {
+    /* duenn -> breit. `derive-price.mjs` vergibt `medium` erst, wenn die Erhebung breit
+       ist; `low` heisst dort "erhoben, aber duenn".
+
+       NUR MIT ECHTEM MARKENWECHSEL. Zwei Uebergaenge in der Historie - `tpu-58d` und
+       `tpu-85a` - fuehrten auf ein `medium`, das ausschliesslich auf Extrudr-Angeboten
+       stand: einmal bei Extrudr selbst, einmal bei 3DJAKE. Beide bewegten den Preis um
+       0,0 %, und das ist keine Bestaetigung, sondern eine Tautologie - dieselbe
+       Herstellerliste, zweimal gelesen. Solche Paare haben die gemessene
+       Verlaesslichkeit schwach belegter Preise von 0,74 auf 0,79 gehoben, ohne dass ein
+       einziger unabhaengiger Preis dazugekommen waere.
+
+       Seit 2026-08-06 verlangt `derive-price.mjs` fuer `medium` ohnehin zwei Marken.
+       Der Filter hier bleibt trotzdem noetig: Die Historie behaelt die alten Uebergaenge,
+       und eine Kalibrierung, die sich aus ihren eigenen Fehlklassifikationen speist,
+       waere im Kreis gerechnet. Die Markenzahl steht in der ausfuehrlichen Notiz. */
+    if (prev?.confidence === "low" && now.confidence === "medium" && brandCount(price) >= 2) {
       transitions.low.push([prev.value, now.value]);
     }
     prev = now;
