@@ -320,10 +320,27 @@ water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
   | Händler je Werkstoff | 0 | 1 | 2 | 3 | 4 | ≥ 5 |
   |---|---|---|---|---|---|---|
   | Stand 2026-08-05 | 9 | 14 | 8 | 10 | 1 | **0** |
-  | **Stand 2026-08-06** | 12 | **5** | **16** | 8 | 1 | **0** |
+  | mit Material4Print | 12 | 5 | 16 | 8 | 1 | **0** |
+  | **mit Fillamentum** | 12 | **5** | **16** | 5 | 3 | **1** |
 
   Werkstoffe mit mindestens zwei Händlern: 19 → **25**. Preiskonfidenz `medium` 11 → **16**,
-  `low` 22 → **14**.
+  `low` 22 → **14**. **`asa` erreicht als erster Werkstoff die geforderten fünf Händler.**
+
+  **Fillamentum (aufgenommen 2026-08-06)** stand mit acht dünnen Werkstoffen an zweiter
+  Stelle. Verkauft wird nicht auf `fillamentum.com` — die Herstellerseite nennt nur
+  Distributoren —, sondern unter `shop.fillamentum.com`: ein eigener Host, dessen
+  robots.txt deshalb separat geprüft wurde. Welcher Shop-Titel zu welchem Werkstofftyp
+  gehört, ist aus den 21 vorhandenen Fillamentum-Produktdatensätzen abgeschrieben und
+  nicht neu entschieden.
+
+  **Was dabei NICHT gelang, und warum es so bleibt:** `hips`, `pp`, `pvc` und `pvdf` sind
+  bei Fillamentum im Angebot, bekommen aber trotzdem keinen Preis. Ihre Varianten nennen
+  als einzige Option den Durchmesser („1.75 mm"), kein Spulengewicht; das Feld `grams`
+  steht bei 1000, und ob das netto oder brutto ist, sagt der Endpunkt nicht — bei
+  Material4Print war dieselbe Art Zahl das Bruttogewicht samt Spule. Ein geratenes Gewicht
+  ergibt einen falschen Kilopreis, und ein falscher Preis ist schlechter als keiner. Die
+  Angebote werden deshalb verworfen. `hips` bleibt damit ohne Preisquelle, seit Fiberlogy
+  weggefallen ist.
 
   **Wie der Shop ausgewählt wurde.** Naheliegend wäre ein großer Filamentshop gewesen;
   geprüft wurde dasfilament.de, und der führt praktisch nur PLA und PETG — also die beiden

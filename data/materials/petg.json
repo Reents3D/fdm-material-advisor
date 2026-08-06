@@ -831,20 +831,21 @@
       }
     },
     "pricePerKg": {
-      "value": 27.48,
+      "value": 26.66,
       "min": 9.27,
       "max": 79,
       "unit": "€/kg",
-      "conditions": "Median aus 161 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 167 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_petg_material4print",
         "src_price_petg_3djake",
+        "src_price_petg_fillamentum",
         "src_price_petg_extrudr"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 161 Listenpreise von 7 Marken (M4P, eSUN, Polymaker, Bambu Lab, Fiberlogy, 3DJAKE, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 161 list prices from 7 brands (M4P, eSUN, Polymaker, Bambu Lab, Fiberlogy, 3DJAKE, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 167 Listenpreise von 8 Marken (M4P, eSUN, Polymaker, Bambu Lab, Fillamentum, Fiberlogy, 3DJAKE, Extrudr) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 167 list prices from 8 brands (M4P, eSUN, Polymaker, Bambu Lab, Fillamentum, Fiberlogy, 3DJAKE, Extrudr) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -936,6 +937,19 @@
         "note": {
           "de": "3 Angebote: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29,74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1,1 kg, 38,68 €",
           "en": "3 offers: Extrudr XPETG MATT black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr XPETG REC black 1.75 mm 1 kg, 1 kg, 29.74 € · Extrudr PETG black 1.75 mm 1.1 kg, 1.1 kg, 38.68 €"
+        }
+      },
+      {
+        "id": "src_price_petg_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise PETG",
+        "url": "https://shop.fillamentum.com/collections/3d-print-materials/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "6 Angebote: Fillamentum rePETG Loopfill \"Traffic Black\" — 1.75 mm / 1 Kg, 1 kg, 22,99 € · Fillamentum rePETG Loopfill \"Traffic White\" — 1.75 mm / 1 Kg, 1 kg, 22,99 € · Fillamentum rePETG Loopfill \"Sky Blue\" — 1.75 mm / 1 Kg, 1 kg, 22,99 € · Fillamentum rePETG Loopfill \"Luminous Yellow\" — 1.75 mm / 1 Kg, 1 kg, 22,99 € · Fillamentum rePETG Loopfill \"Traffic Red\" — 1.75 mm / 1 Kg, 1 kg, 22,99 € · Fillamentum rePETG Loopfill \"Custom Color\" — 1.75 mm / 1 Kg, 1 kg, 22,99 €",
+          "en": "6 offers: Fillamentum rePETG Loopfill \"Traffic Black\" — 1.75 mm / 1 Kg, 1 kg, 22.99 € · Fillamentum rePETG Loopfill \"Traffic White\" — 1.75 mm / 1 Kg, 1 kg, 22.99 € · Fillamentum rePETG Loopfill \"Sky Blue\" — 1.75 mm / 1 Kg, 1 kg, 22.99 € · Fillamentum rePETG Loopfill \"Luminous Yellow\" — 1.75 mm / 1 Kg, 1 kg, 22.99 € · Fillamentum rePETG Loopfill \"Traffic Red\" — 1.75 mm / 1 Kg, 1 kg, 22.99 € · Fillamentum rePETG Loopfill \"Custom Color\" — 1.75 mm / 1 Kg, 1 kg, 22.99 €"
         }
       },
       {

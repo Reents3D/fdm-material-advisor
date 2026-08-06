@@ -809,16 +809,17 @@
       "min": 9.27,
       "max": 79,
       "unit": "€/kg",
-      "conditions": "Median aus 83 Angeboten über 3 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 91 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_abs_material4print",
         "src_price_abs_3djake",
+        "src_price_abs_fillamentum",
         "src_price_abs_extrudr"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 83 Listenpreise von 5 Marken (M4P, Polymaker, 3DJAKE, Bambu Lab, Extrudr) über 3 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 83 list prices from 5 brands (M4P, Polymaker, 3DJAKE, Bambu Lab, Extrudr) across 3 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 91 Listenpreise von 6 Marken (M4P, Polymaker, 3DJAKE, Bambu Lab, Fillamentum, Extrudr) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 91 list prices from 6 brands (M4P, Polymaker, 3DJAKE, Bambu Lab, Fillamentum, Extrudr) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -894,6 +895,19 @@
         "note": {
           "de": "1 Angebot: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0,75 kg, 24,78 €",
           "en": "1 offer: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0.75 kg, 24.78 €"
+        }
+      },
+      {
+        "id": "src_price_abs_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise ABS",
+        "url": "https://shop.fillamentum.com/collections/3d-print-materials/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "8 Angebote: Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0,75 kg, 22,02 €",
+          "en": "8 offers: Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0.75 kg, 22.02 €"
         }
       },
       {

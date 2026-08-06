@@ -828,17 +828,18 @@
       "min": 21.99,
       "max": 99,
       "unit": "€/kg",
-      "conditions": "Median aus 87 Angeboten über 4 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
+      "conditions": "Median aus 100 Angeboten über 5 Händler, auf €/kg normiert, inkl. MwSt., Stand 2026-08-06",
       "source": [
         "src_price_asa_3djake",
+        "src_price_asa_fillamentum",
         "src_price_asa_material4print",
         "src_price_asa_extrudr",
         "src_price_asa_filamentworld"
       ],
       "confidence": "medium",
       "note": {
-        "de": "Erhoben, nicht geschätzt: 87 Listenpreise von 9 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 4 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
-        "en": "Surveyed, not estimated: 87 list prices from 9 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 4 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
+        "de": "Erhoben, nicht geschätzt: 100 Listenpreise von 10 Marken (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fillamentum, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) über 5 Händler, jeweils auf €/kg normiert — die Spulengröße ist dabei die eigentliche Falle, Spezialfilamente kommen auf 0,5- und 0,75-kg-Spulen. Geführt ist der Median, die Spanne ist das günstigste bis teuerste gefundene Angebot. Kein Einkaufspreis und kein Angebot; Preise ändern sich täglich.",
+        "en": "Surveyed, not estimated: 100 list prices from 10 brands (SUNLU, AzureFilm, 3DJAKE, Polymaker, Fillamentum, M4P, Fiberlogy, Extrudr, 3DXTech, FormFutura) across 5 retailer(s), each normalised to €/kg — spool size is the real trap here, specialty filaments ship on 0.5 and 0.75 kg spools. The carried value is the median, the range is the cheapest to the most expensive offer found. Not a purchase price and not an offer; prices change daily."
       }
     },
     "spoolSizes": [
@@ -943,6 +944,19 @@
         "note": {
           "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
           "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
+        }
+      },
+      {
+        "id": "src_price_asa_fillamentum",
+        "type": "retailer-listing",
+        "publisher": "Fillamentum",
+        "title": "Fillamentum — Listenpreise ASA",
+        "url": "https://shop.fillamentum.com/collections/3d-print-materials/products.json?limit=250",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "13 Angebote: Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Natural\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0,75 kg, 26,80 €",
+          "en": "13 offers: Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Natural\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0.75 kg, 26.80 €"
         }
       },
       {

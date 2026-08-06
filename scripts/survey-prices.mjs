@@ -272,7 +272,104 @@ const SHOPS = [
       return out;
     },
   },
+
+  /**
+   * Fillamentum — aufgenommen am 2026-08-06, nach derselben Frage wie Material4Print:
+   * wer liefert die Werkstoffe, fuer die noch kein Preis steht?
+   *
+   * Fillamentum stand mit acht duennen Typen an zweiter Stelle - und deckt darunter drei
+   * ab, die es sonst nirgends gibt: `pvc` (Vinyl 303), `pvdf` (Fluorodur) und `pp`
+   * (PP 2320). Dazu `hips`, das durch die Fiberlogy-Stilllegung seine EINZIGE Preisquelle
+   * verloren hatte.
+   *
+   * ZWEI HOSTS, ZWEI robots.txt
+   * `fillamentum.com` ist die Herstellerseite und nennt keine Preise ("Distributor").
+   * Verkauft wird unter `shop.fillamentum.com` - ein eigener Host, und deshalb wurde
+   * dessen robots.txt SEPARAT geprueft. Sie sperrt gefilterte und sortierte Sammelseiten
+   * sowie Empfehlungen; der Produktendpunkt steht in keiner Disallow-Zeile. Geprueft am
+   * 2026-08-06.
+   *
+   * DIE ZUORDNUNG IST BELEGT, NICHT GERATEN
+   * Welcher Shop-Titel zu welchem Werkstofftyp gehoert, steht bereits im Bestand: 21
+   * Fillamentum-Produkte tragen ihre `materialId` aus dem Datenblattimport. Die Tabelle
+   * unten ist daraus abgeschrieben - kein zweites Mal entschieden, kein Widerspruch
+   * moeglich.
+   *
+   * GEWICHT IN GRAMM UND IN KILO
+   * Die Variantentitel mischen beides ("1 Kg", "750 g", "2.5 Kg"), und manche nennen nur
+   * den Durchmesser ("1.75 mm") oder gar nichts ("Default Title"). Ohne Gewicht kein
+   * Preis - eine Zahl ohne Bezugsgroesse ist keine Information, sondern eine Falle.
+   */
+  {
+    id: "fillamentum",
+    name: "Fillamentum",
+    country: "CZ",
+    url: "https://shop.fillamentum.com/",
+    robots: "gesperrt sind gefilterte/sortierte Sammelseiten und Empfehlungen; der Produktendpunkt nicht. Eigener Host, separat geprüft 2026-08-06",
+    brand: "Fillamentum",
+    async collect(ctx) {
+      const out = [];
+      const url = "https://shop.fillamentum.com/collections/3d-print-materials/products.json?limit=250";
+      const raw = await ctx.get(url); ctx.counted();
+      let list;
+      try { list = JSON.parse(raw).products ?? []; } catch { ctx.skip(`${url}: kein JSON`); return out; }
+
+      /* Abgeschrieben aus den 21 Fillamentum-Produktdatensaetzen. Spezifischeres zuerst:
+         "CPE CF112" vor "CPE", "Nylon CF15" vor "Nylon", "TPU 92A" vor "TPU". */
+      const MAP = [
+        [/CPE\s*CF112/i, "petg-cf"],
+        [/CPE\s*HG100/i, "petg"],
+        [/rePETG|^PETG/i, "petg"],
+        [/Nylon\s*CF15/i, "pa12-cf"],
+        [/Nylon\s*(FX256|AF80)/i, "pa12"],
+        [/Flexfill\s*PEBA/i, "peba"],
+        [/Flexfill\s*TPU\s*92A/i, "tpu-95a"],
+        [/Flexfill\s*TPU\s*98A/i, "tpu-98a"],
+        [/PC\/ABS/i, "abs-pc"],
+        [/ABS\s*Extrafill/i, "abs"],
+        [/ASA\s*Extrafill/i, "asa"],
+        [/HIPS\s*Extrafill/i, "hips"],
+        [/OBC\s*905/i, "obc"],
+        [/PP\s*2320/i, "pp"],
+        [/Vinyl\s*303/i, "pvc"],
+        [/Fluorodur/i, "pvdf"],
+        [/NonOilen|Timberfill|PLA\s*(Crystal\s*Clear|Extrafill)/i, "pla"],
+      ];
+
+      for (const p of list) {
+        const hit = MAP.find(([re]) => re.test(p.title));
+        if (!hit) continue;
+        for (const v of p.variants ?? []) {
+          if (v.available === false) continue;
+          const kg = spoolKgFromTitle(String(v.title));
+          const price = Number(v.price);
+          if (!kg || !Number.isFinite(price) || price <= 0) continue;
+          out.push({
+            mid: hit[1], product: `${p.title.split("|")[0].trim()} — ${v.title}`,
+            spoolKg: kg, priceEur: price, url,
+          });
+        }
+      }
+      ctx.log(`${list.length} Produkte gelesen, ${out.length} Angebote zugeordnet`);
+      return out;
+    },
+  },
 ];
+
+/**
+ * Spulengewicht aus einem Shopify-Variantentitel.
+ *
+ * Die Titel mischen Kilo und Gramm ("1 Kg", "750 g", "2.5 Kg") und enthalten manchmal gar
+ * kein Gewicht ("1.75 mm", "Default Title"). Wer keins findet, bekommt `null` - und der
+ * Aufrufer verwirft das Angebot, statt zu raten.
+ */
+function spoolKgFromTitle(title) {
+  const kg = /([0-9]+(?:[.,][0-9]+)?)\s*kg\b/i.exec(title);
+  if (kg) return Number(kg[1].replace(",", "."));
+  const g = /([0-9]{2,4})\s*g\b/i.exec(title);
+  if (g) return Number(g[1]) / 1000;
+  return null;
+}
 
 /* ------------------------------------------------------------------ Werkzeug */
 
