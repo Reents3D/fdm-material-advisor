@@ -2,10 +2,12 @@
 
 **Stand:** 2026-08-05 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** Rückfragen in Abschnitt 5 klären (Portfolio, XXL-Grenzen, Preise) — sowie die
-zwei offenen Entscheidungen aus dem FormFutura-Import: Werkstofftypen für PEEK/PEI/PCL/BVOH und
-Variantentypen `pctg-cf` und `pc-cf`. Danach die übrigen OFD-Fundstellen (Alzament 13,
-Anycubic 12, Bambu 40) und die Marken ganz ohne Blattlink (Polymaker 71, 3DXTech 61)
+**Nächster Schritt:** `ppa-cf` als Werkstofftyp anlegen — der einzige der elf Kandidaten aus
+Abschnitt 5a, der noch aussteht und ein neuer Typ wäre (PEEK, PEI, PVA, BVOH und die vier
+Support-Sorten sind entschieden und fallen weg). Dazu die Rückfragen in Abschnitt 5
+(Portfolio, XXL-Grenzen, Preise) und die Variantentypen `pctg-cf` und `pc-cf`. Danach die
+übrigen OFD-Fundstellen (Anycubic 12, Bambu 7 mit offener Typfrage) und die Marken ganz
+ohne Blattlink (Polymaker 71, 3DXTech 61)
 
 ---
 
@@ -390,15 +392,20 @@ PA6-CF (technisch anspruchsvoll), PET-CF (Verwechslungsgefahr auflösen).
 
 ---
 
-## 5a. Elf Werkstofftyp-Kandidaten — Entscheidungsvorlage
+## 5a. Elf Werkstofftyp-Kandidaten — Vorlage und Entscheidungen
 
-Aus dem FormFutura- und dem Bambu-Import liegen elf Datenblattgruppen vor, für die es
-noch keinen Werkstofftyp gibt. Ein Typ kostet **rund 92 belegte Aussagen, davon 49
-Schätzungen und 18 Bewertungsskalen** — das ist redaktionelle Arbeit, keine Übertragung,
-und deshalb steht sie hier statt in einem Importer.
+Aus dem FormFutura- und dem Bambu-Import lagen elf Datenblattgruppen vor, für die es
+keinen Werkstofftyp gibt. Ein Typ kostet **rund 92 belegte Aussagen, davon 49 Schätzungen
+und 18 Bewertungsskalen** — das ist redaktionelle Arbeit, keine Übertragung, und deshalb
+steht sie hier statt in einem Importer.
 
-Diese Vorlage nennt je Kandidat, was an Daten vorliegt und was der Typ dem Werkzeug
-bringt. Entschieden ist nichts.
+**Stand 2026-08-05: acht der elf sind entschieden, alle drei Entscheidungen sind
+Absagen.** Sechs Stützmaterialien fallen weg, weil sie nicht gebraucht werden; PEEK und
+PEI, weil sie eine Maschinenklasse voraussetzen, die dieses Werkzeug nicht adressiert. Die
+Begründungen stehen unten bei den Kandidaten, das daraus folgende Aufnahmekriterium am
+Ende des Abschnitts.
+
+Offen bleiben `ppa-cf`, PCL und TPU 90A.
 
 ### Das Ergebnis kehrt die Erwartung um
 
@@ -410,12 +417,10 @@ klingen unscheinbar und tragen die besten.
 |---|---|---|---|---|
 | **PPA-CF** | 1 (Bambu) | gedruckt | ja | vollständig, 17 Kennwerte |
 | **TPU 90A** | 1 (Bambu) | gedruckt | ja | vollständig, 17 Kennwerte |
-| PEEK | 2 (LUVOCOM) | **spritzgegossen** | nein | vollständig, aber MPTS ISO 3167 A |
-| PEI | 2 (LUVOCOM/Ultem) | **spritzgegossen** | nein | vollständig, aber MPTS ISO 3167 A |
+| ~~PEEK~~ | 2 (LUVOCOM) | spritzgegossen | nein | *entschieden: außerhalb des Rahmens* |
+| ~~PEI~~ | 2 (LUVOCOM/Ultem) | spritzgegossen | nein | *entschieden: außerhalb des Rahmens* |
 | PCL | 1 (FormFutura) | nicht deklariert | nein | 9 Kennwerte, eine Quelle |
-| PVA | 1 (Bambu) | gedruckt | — | **Mechanik durchweg „N/A"** |
-| Support ABS/PLA/PLA-PETG/PA-PET | 4 (Bambu) | gedruckt | — | **Mechanik durchweg „N/A"** |
-| BVOH | 1 (FormFutura) | nicht deklariert | — | **Mechanik durchweg „–"** |
+| ~~PVA · BVOH · 4× Support~~ | 6 | — | — | *entschieden: wird nicht gebraucht* |
 
 ### Die Kandidaten im Einzelnen
 
@@ -433,17 +438,33 @@ nach derselben Norm. Ein eigener Typ dafür trennt nichts, sondern verlängert d
 *Empfehlung: als Produkt unter `tpu-85a` führen und den Härteunterschied in `features`
 benennen.*
 
-**PEEK und PEI — reiche Daten, falsche Prüfkörper.** Beide Blattgruppen nennen ISO-Normen
+**PEEK und PEI — ENTSCHIEDEN: außerhalb des Rahmens.** Beide Blattgruppen nennen ISO-Normen
 durchgehend und liefern vollständige Tabellen (PEEK: 97 MPa Zug, 145 MPa Biegung, 3,8 GPa
 Modul; PEI: 105 MPa Zug, HDT-A 200 °C, Dauergebrauchstemperatur 170 °C nach IEC 60216).
 Sie tragen aber alle den Vermerk **„MPTS ISO 3167 A"** — Vielzweckprobekörper,
 spritzgegossen. Genau gegen diese Zahlen ist dieses Werkzeug gebaut: Der Startseitentext
 begründet die Existenz des Projekts damit, dass PLA anderswo mit 60 MPa steht und hier mit
-35, weil dort gegossen und hier gedruckt wird. Zwei Hochleistungswerkstoffe mit
-`specimenType: moulded` aufzunehmen wäre nicht falsch — das Feld ist dafür da —, aber sie
-würden in jeder Rangliste oben stehen, ohne dass ein gedrucktes Bauteil diese Werte je
-erreicht. *Wenn, dann nur mit sichtbarer Kennzeichnung und dem ausdrücklichen Hinweis,
-dass FDM-Werte fehlen.*
+35, weil dort gegossen und hier gedruckt wird.
+
+**Riko am 2026-08-05: Es sollen nur Werkstoffe in den Bestand, die auf marktüblichen
+Geräten realistisch fertigbar sind — nicht solche, die eine Industriemaschine der obersten
+Klasse voraussetzen.** Die Blätter belegen, dass PEEK und PEI genau das tun:
+
+| | Düse laut Blatt | Bett |
+|---|---|---|
+| LUVOCOM 3F PEEK 9581 | **370–420 °C** | > 120 °C |
+| LUVOCOM 3F PEI 50236 | **400–450 °C** | > 120 °C |
+| höchster Wert im heutigen Bestand (`pps-cf`) | 340 °C | — |
+
+Der Abstand ist kein Feinheitsunterschied: 400 °C Düse und ein Bett über 120 °C bedeuten
+Hochtemperatur-Hotend, aktiv beheizte Kammer und eine Maschinenklasse, die mit dem, was
+dieses Werkzeug adressiert, nichts mehr zu tun hat. Ein Werkstoff, den der Leser nicht
+drucken kann, ist in einer Empfehlung kein Gewinn, sondern eine Sackgasse — und er stünde
+wegen seiner Kennwerte in jeder Rangliste oben.
+
+Beide Gründe zeigen in dieselbe Richtung, und sie verstärken sich: Die Zahlen sind
+spritzgegossen **und** die Maschine ist unerreichbar. Die vier Blätter bleiben
+unimportiert.
 
 **PCL — dünn und auffällig.** Neun Kennwerte aus einer Quelle, Prüfkörper nicht
 deklariert. Und die Zahlen passen nicht zueinander: 45 MPa Zugfestigkeit bei 350 MPa
@@ -451,31 +472,57 @@ E-Modul und Shore D 46 beschreibt einen Werkstoff, der zugleich sehr fest und se
 wäre. Polycaprolacton liegt in der Literatur eher bei 16 MPa. *Vor einer Typentscheidung
 gehört das Blatt gegen eine zweite Quelle geprüft.*
 
-**PVA, BVOH und die vier Support-Materialien — eine Kategorie, keine Kennwerte.** Bei allen
-sechs steht die gesamte Mechanik auf „N/A" beziehungsweise „–". Vorhanden sind Dichte,
-Schmelztemperatur und — aufschlussreich — eine Wassersättigung von 6,25 % bei Bambu PVA.
+**PVA, BVOH und die vier Support-Materialien — ~~eine Kategorie, keine Kennwerte~~
+ENTSCHIEDEN: wird nicht gebraucht.** Bei allen sechs steht die gesamte Mechanik auf „N/A"
+beziehungsweise „–"; vorhanden sind Dichte, Schmelztemperatur und eine Wassersättigung von
+6,25 % bei Bambu PVA. Mein Vorschlag war ein gemeinsamer Typ `pva`, weil der Bestand als
+Stützmaterial bislang nur HIPS kennt und HIPS sich in Limonen löst, nicht in Wasser.
 
-Das ist kein Mangel der Blätter, sondern der Natur der Sache: Ein Material, das nach dem
-Druck weggelöst wird, braucht keine Zugfestigkeit. Ihr Wert liegt woanders. Der Bestand
-kennt als Stützmaterial bislang **nur HIPS**, und HIPS löst sich in Limonen, nicht in
-Wasser. Wer eine Innengeometrie aus PETG oder PA drucken will, findet im Werkzeug derzeit
-keine Antwort auf die Frage, womit er stützt.
+**Riko am 2026-08-05: wird nicht benötigt.** Damit bleiben die sechs Blätter unimportiert
+und die Kategorie „wasserlösliches Stützmaterial" bewusst leer. Das ist ab jetzt eine
+dokumentierte Auslassung und kein Versehen: Wer im Werkzeug sucht, womit er eine
+Innengeometrie aus PETG oder PA stützt, findet keine Antwort — und soll sie hier auch
+nicht finden. Ein Materialberater für tragende Bauteile ist kein Katalog für
+Verbrauchsmaterial, und ein Werkstoff ohne einen einzigen mechanischen Kennwert wäre in
+jeder Vergleichsansicht dieses Werkzeugs eine leere Zeile.
 
-*Vorschlag: EIN Typ `pva` statt sechs.* Die vier Bambu-Support-Sorten und BVOH sind
-Produkte darunter, nicht eigene Werkstoffe — sie unterscheiden sich in der Verträglichkeit
-mit dem Bauteilmaterial, nicht im Polymer. Der Typ trüge dann bewusst kaum Mechanik und
-stattdessen die Angaben, die zählen: Löslichkeit, Verträglichkeit, Trocknungsbedarf.
+Wenn die Entscheidung später kippt, liegen die sieben Blätter in `data/_sources/`
+(vier Bambu-Support-Sorten und PVA unter `bambu-tds2/`, BVOH unter `formfutura-tds/`) und
+diese Vorlage nennt die Datenlage.
 
-### Wenn du eine Reihenfolge willst
+### Was von den elf übrig bleibt
 
-1. **`pva`** — schließt eine Kategorielücke, sechs Blätter unter einem Typ, geringe
-   redaktionelle Last, weil die Bewertungsskalen für ein Stützmaterial größtenteils
-   entfallen oder trivial sind
-2. **`ppa-cf`** — der größte fachliche Zugewinn, aber nur eine Quelle
-3. **PEEK/PEI** — nur mit `moulded`-Kennzeichnung, und erst wenn geklärt ist, wie die
-   Oberfläche das ausweist
-4. **PCL** — erst nach einer zweiten Quelle
-5. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
+1. **`ppa-cf`** — der größte fachliche Zugewinn, aber nur eine Quelle. Jetzt an erster
+   Stelle
+2. **PCL** — erst nach einer zweiten Quelle
+3. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
+4. ~~`pva`, BVOH, 4× Support~~ — entschieden: wird nicht gebraucht (2026-08-05)
+5. ~~PEEK, PEI~~ — entschieden: außerhalb des Rahmens (2026-08-05)
+
+Von elf Kandidaten bleiben damit drei, und nur einer davon ist ein neuer Typ.
+
+### Das daraus folgende Aufnahmekriterium
+
+Rikos Entscheidung zu PEEK und PEI ist allgemeiner als diese beiden Fälle. Formuliert als
+Regel für künftige Kandidaten, und bewusst **ohne Maschinennamen** — dieselbe
+Zurückhaltung wie beim Bauraum (siehe Phase 5, „ausdrücklich nicht hinterlegt ist der
+Bauraum irgendeiner konkreten Maschine"):
+
+> Ein Werkstoff kommt nur in den Bestand, wenn er auf marktüblichem Gerät realistisch
+> fertigbar ist. Als Anhaltspunkte gelten **Düse bis etwa 350 °C, Bett bis etwa 120 °C und
+> keine aktiv beheizte Hochtemperaturkammer**. Wer darüber hinausgeht, braucht eine
+> Maschinenklasse, die dieses Werkzeug nicht adressiert.
+
+Die Schwellen sind nicht gegriffen, sondern der Rand des heutigen Bestands: Die höchste
+Düsentemperatur trägt `pps-cf` mit 340 °C, die höchste Betttemperatur 120 °C (`abs-pc`,
+`pps-cf`, `pvdf`), die höchste Kammerangabe 53 °C. Kein einziger vorhandener Werkstoff
+fällt durch das Kriterium — es beschreibt also, was ohnehin gilt, und macht es nur
+entscheidbar.
+
+**Was das Kriterium NICHT ist:** ein Urteil über den Werkstoff. PEEK ist ein
+hervorragendes Material; es ist nur keines für den Leser dieses Werkzeugs. Sollte sich der
+Markt ändern — Hochtemperatur-Hotends sind in den letzten Jahren deutlich billiger
+geworden —, gehört die Schwelle nachgezogen und nicht die Entscheidung verteidigt.
 
 ---
 
