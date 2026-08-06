@@ -4,6 +4,7 @@
  */
 
 import { byId, MATERIALS } from "../data/materials";
+import { useMaterialNotes, withNotes } from "../data/material-notes";
 import { dataCompleteness, confidenceProfile } from "../engine";
 import type { ChemicalResistance, Quantity, Rating, Flag, Material } from "../engine/types";
 import { SITE, trackedUrl } from "../config/site";
@@ -31,7 +32,13 @@ export function Detail({ id, t, lang, navigate, state, update }: {
   navigate: (p: string, n?: Partial<AppState>) => void;
   state: AppState; update: (n: Partial<AppState>) => void;
 }) {
-  const m = byId(id);
+  /* Die Notiztexte liegen in einem nachgeladenen Buendel (siehe data/material-notes.ts).
+     Der Aufruf steht VOR dem fruehen Return, weil ein Hook nicht hinter einer Bedingung
+     stehen darf - React zaehlt Hooks je Render, nicht je Pfad. */
+  const notes = useMaterialNotes();
+  const core = byId(id);
+  const m = core ? withNotes(core, notes) : undefined;
+
   if (!m) {
     return (
       <div>

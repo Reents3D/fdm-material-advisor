@@ -1799,6 +1799,63 @@ Zurückhaltung ist keine Höflichkeit: Eine Behauptung über Abschreiben wäre e
 
 ---
 
+## ADR-039 — Nicht nach Ansicht teilen, sondern nach Art der Aussage
+
+**Status:** akzeptiert · **Datum:** 2026-08-05
+
+### Kontext
+
+Mit `ppa-cf` als 42. Werkstofftyp stand der Erstaufruf bei **305,5 von 320 kB** — 95 % des
+Budgets aus ADR-036. Ein Typ kostet rund 10 kB, es blieben also anderthalb. Die
+Datenbank soll aber weiter wachsen; das war ein Baustopp mit Ansage.
+
+ADR-036 hatte die **Produktdaten** aus dem Erstaufruf gelöst, und zwar nach Ansicht:
+Herstelleransicht und Matrix laden sie nach, weil nur sie sie lesen. Für die
+Werkstoffdaten geht das nicht — die Engine rechnet mit ihnen, und sie rechnet auf jeder
+Route. Was gebraucht wird, bevor das erste Bild steht, kann man nicht nachladen.
+
+### Entscheidung
+
+**Der Schnitt läuft nicht durch die Ansichten, sondern durch die Daten.** Eine
+Werkstoffdatei enthält zwei Sorten von Aussagen, und nur eine davon rechnet:
+
+| | Anteil an den Rohdaten | wer liest sie |
+|---|---|---|
+| Zahlen, Skalen, Konfidenzen, Prüfnormen | 52 % | die Engine, auf jeder Route |
+| `note` und `question` — zweisprachige Prosa | **48 %** | vier Ansichten, alle angesteuert |
+
+`scripts/build-data-chunks.mjs` erzeugt daraus zwei Dateien mit **gleicher
+Verschachtelung**: den Kern und einen Notizbaum, der an jeder Stelle nur die Notiz trägt.
+Das Zusammenführen ist dadurch ein Tiefen-Merge und kein Geflecht aus Pfadzeichenketten,
+das bei jeder Schemaänderung nachgezogen werden müsste. Die Ansichten lesen danach wieder
+`v.note` wie vorher — sie merken von der Trennung nichts.
+
+| | vorher | nachher |
+|---|---|---|
+| Erstaufruf | 305,5 kB (95 %) | **197,6 kB (62 %)** |
+
+### Konsequenzen
+
+**Kanonisch bleibt `data/materials/*.json`.** Die beiden erzeugten Dateien stehen nicht im
+Git; die npm-Hooks `prebuild`, `pretest`, `pretypecheck` und `predev` legen sie an. Wer
+das Repo frisch klont und einen Editor öffnet, sieht bis zum ersten `npm run`-Aufruf einen
+fehlenden Import — der Preis dafür, den Bestand nicht doppelt im Git zu halten.
+
+**Notizen erscheinen Sekundenbruchteile später als die Zahlen.** Das ist kein
+Fehlerzustand, sondern ein kurzer: Werte, Normen und Konfidenzen stehen sofort, die
+Erläuterung wächst nach. Ein Ladebalken dafür wäre unruhiger als das Nachwachsen selbst.
+
+**Zusammengeführt wird als Kopie, nicht durch Mutation.** Naheliegend wäre, die Notizen
+nach dem Laden in die vorhandenen Objekte zu schreiben. Das wäre billiger und würde die
+Immutabilitätsregel des Projekts brechen: Ein geteiltes Objekt, das sich später ändert,
+macht jeden `useMemo` über den Werkstoffen unzuverlässig.
+
+**Was hier nicht gelöst ist:** Der Gesamtbudget-Anteil bleibt bei 90 %, weil die Notizen
+ja weiterhin ausgeliefert werden — nur später. Wer das Gesamtbudget entlasten will, muss
+an die Menge, nicht an die Verteilung.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

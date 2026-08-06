@@ -14,6 +14,7 @@ import { Button, Card, Chip, ConfidenceMark, cx, fmt, text } from "../components
 import { tableToCsv, toCsv } from "../lib/csv";
 import { downloadText, exportFilename } from "../lib/download";
 import { overviewColumns, productRows, valueRows } from "../lib/exports";
+import { loadMaterialNotes, withNotes } from "../data/material-notes";
 import type { Lang } from "../i18n";
 
 type T = (k: string, p?: Record<string, string | number>) => string;
@@ -170,9 +171,13 @@ export function Matrix({ t, lang, navigate }: { t: T; lang: Lang; navigate: (p: 
             {t("ui.export.overview")}
             <span className="muted font-normal"> · {MATERIALS.length} {lang === "de" ? "Zeilen" : "rows"}</span>
           </Button>
+          {/* Der Kennwert-Export traegt je Zeile die Begruendung mit - und die liegt seit
+              der Buendelteilung im nachgeladenen Notizbuendel. Geladen wird sie hier im
+              Klick-Handler und nicht beim Oeffnen der Ansicht: Die Matrix selbst zeigt
+              keine Notizen, wer sie nur ansieht, soll die 105 kB nicht bezahlen. */}
           <Button variant="outline"
-            onClick={() => downloadText(exportFilename("kennwerte"),
-              toCsv(valueRows(MATERIALS, lang), "excel-de"))}>
+            onClick={() => { void loadMaterialNotes().then((n) => downloadText(exportFilename("kennwerte"),
+              toCsv(valueRows(MATERIALS.map((m) => withNotes(m, n)), lang), "excel-de"))); }}>
             {t("ui.export.values")}
           </Button>
           <Button variant="outline"

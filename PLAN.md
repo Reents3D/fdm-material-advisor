@@ -525,17 +525,21 @@ hervorragendes Material; es ist nur keines für den Leser dieses Werkzeugs. Soll
 Markt ändern — Hochtemperatur-Hotends sind in den letzten Jahren deutlich billiger
 geworden —, gehört die Schwelle nachgezogen und nicht die Entscheidung verteidigt.
 
-### Eine harte Grenze, die beim Bau von `ppa-cf` sichtbar wurde
+### ~~Eine harte Grenze, die beim Bau von `ppa-cf` sichtbar wurde~~ — erledigt
 
-Ein Werkstofftyp kostet **rund 10 kB gzip im Erstaufruf-Bündel**. Mit `ppa-cf` als 42.
-Typ steht der Erstaufruf bei 305,5 von 320 kB, also bei 95 % des Budgets — es bleiben
-etwa **anderthalb weitere Typen**, dann ist Schluss.
+Ein Werkstofftyp kostete **rund 10 kB gzip im Erstaufruf-Bündel**. Mit `ppa-cf` als 42.
+Typ stand der Erstaufruf bei 305,5 von 320 kB, also bei 95 % — es blieben etwa anderthalb
+weitere Typen.
 
-Das ist keine Warnung vor dem nächsten Typ, sondern die Ansage, dass davor eine
-Entscheidung fällig wird. Naheliegend wäre, die Werkstoffdaten wie die Produktdaten in
-einen nachgeladenen Teil zu verschieben (ADR-036 hat das für die Produkte bereits
-gemacht: `products-*.js` ist heute 143 kB gzip und wird erst bei Bedarf geladen). Solange
-das nicht passiert ist, gilt: **vor dem nächsten Werkstofftyp erst das Bündel aufteilen.**
+**Aufgeteilt am 2026-08-05 (ADR-039).** Nicht nach Ansicht wie bei den Produkten, sondern
+nach *Art der Aussage*: `scripts/build-data-chunks.mjs` trennt Zahlen von Prosa. Die
+Notiztexte machen 48 % der Rohdaten aus, und die Engine liest keine davon.
+
+| | vorher | nachher |
+|---|---|---|
+| Erstaufruf | 305,5 kB (95 %) | **197,6 kB (62 %)** |
+
+Damit ist wieder Platz für gut ein Dutzend Werkstofftypen statt für anderthalb.
 
 ---
 

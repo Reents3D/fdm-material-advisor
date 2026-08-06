@@ -11,3 +11,7 @@ coverage/
 # data/_sources/README.md. Begründung: DECISIONS.md, ADR-034.
 data/_sources/*
 !data/_sources/README.md
+
+# Erzeugt von scripts/build-data-chunks.mjs (npm-Hooks prebuild/pretest/pretypecheck).
+# Kanonisch ist data/materials/*.json; diese beiden sind Ableitungen wie das CSV im dist.
+src/data/generated/
