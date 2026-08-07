@@ -19,14 +19,18 @@ export interface Criterion {
   unit?: string;
   /** Dotted path for the evidence link in the UI. */
   evidence?: string;
-  extract: (m: Material) => { value: number | null; confidence: Confidence | null };
+  extract: (m: Material) => { value: number | null; confidence: Confidence | null; min?: number; max?: number };
 }
 
+/* `min`/`max` kommen seit ADR-042 mit: Sie sind die beobachtete Spanne ueber die
+   Hersteller und sagen, wie weit der Median ueberhaupt traegt. Die Bewertung liest sie
+   (siehe `spanCredit` in scoring.ts), deshalb reicht der Wert allein hier nicht mehr. */
 const q = (m: Material, group: keyof Material, field: string) => {
   const g = m[group] as Record<string, Quantity | undefined> | undefined;
   const node = g?.[field];
   if (!node || typeof node !== "object" || !("unit" in node)) return { value: null, confidence: null };
-  return { value: (node as Quantity).value, confidence: (node as Quantity).confidence };
+  const n = node as Quantity;
+  return { value: n.value, confidence: n.confidence, min: n.min, max: n.max };
 };
 
 const r = (m: Material, group: keyof Material, field: string) => {

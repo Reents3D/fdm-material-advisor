@@ -358,6 +358,8 @@ const de: Dict = {
   "risk.flameViaProduct":
     "{required} nur über eine bestimmte Type: {product}. Die Werkstofffamilie als solche ist nicht klassifiziert — wer irgendeine Type davon bestellt, verfehlt die Anforderung.",
   "risk.estimatedShare": "{pct} % dieser Bewertung beruhen auf Schätzungen, nicht auf Messwerten.",
+  "risk.wideSpread":
+    "Der geführte Wert ({value} {unit}) ist der Median über alle Herstellerblätter dieses Typs — die reichen von {min} bis {max} {unit}. Ein Teil dieser Spanne liegt unter dem Mittelfeld: Der Vorteil zählt hier deshalb nur anteilig, und welche Rezeptur Sie kaufen, entscheidet mehr als die Wahl des Werkstofftyps.",
   "risk.thinEvidence.price.low":
     "Der Preis ({value} €/kg) steht bei einem einzigen Händler. Wo später ein zweiter dazukam, lag der erste Fund im Mittel 14 % zu günstig — als Vorteil zählt er deshalb nur gedämpft.",
   "risk.thinEvidence.price.estimated":
@@ -722,6 +724,8 @@ const en: Dict = {
   "risk.flameViaProduct":
     "{required} only via a specific grade: {product}. The material family as such is not classified — ordering just any grade of it misses the requirement.",
   "risk.estimatedShare": "{pct} % of this assessment rests on estimates, not measurements.",
+  "risk.wideSpread":
+    "The recorded figure ({value} {unit}) is the median across every manufacturer datasheet of this type — they range from {min} to {max} {unit}. Part of that range sits below the mid-field, so the advantage counts only in proportion here: which formulation you buy matters more than the choice of material type.",
   "risk.thinEvidence.price.low":
     "The price ({value} €/kg) comes from a single retailer. Where a second one was added later, the first find averaged 14 % too cheap — so it counts only in muted form as an advantage.",
   "risk.thinEvidence.price.estimated":

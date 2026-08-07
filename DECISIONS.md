@@ -2206,6 +2206,89 @@ steht in einer Funktion, die nur bei Direktaufruf startet.
 
 ---
 
+## ADR-043 — Ein Wert darf so viel Vorsprung behaupten, wie seine Spanne deckt
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `src/engine/reliability.ts`
+(`spanCredit`), `src/engine/scoring.ts`, `src/engine/explain.ts`, `tests/engine/reliability.test.ts`
+
+### Woraus das folgt
+
+ADR-042 hat jedem zusammengefassten Kennwert die Spanne über die Herstellerblätter gegeben.
+Damit steht schwarz auf weiss, was vorher niemand sehen konnte:
+
+| | Median | Spanne |
+|---|---:|---|
+| PLA Zugfestigkeit | 45,8 MPa | 23–63 |
+| ABS Zugfestigkeit | 44,0 MPa | 33–59 |
+
+Diese beiden Werkstoffe liegen **nicht auseinander**. Die Rangfolge behauptete es trotzdem,
+weil sie nur den Median sah. Das ist dieselbe Art stiller Übertreibung, gegen die ADR-040
+angetreten ist — nur an einer anderen Stelle: Dort ging es um schwache Belege, hier um
+Belege, die sich uneinig sind.
+
+### Die Regel
+
+Ein Wert darf so viel Vorsprung behaupten, wie sein **plausibler Bereich** überhaupt im
+Vorsprung liegt. In Rangpunkten desselben Feldes ausgedrückt:
+
+```
+Anteil = (Rang(max) − 0,5) / (Rang(max) − Rang(min))
+Score  = 0,5 + Anteil · (Score − 0,5)
+```
+
+Liegt die Spanne ganz über dem Mittelfeld, bleibt der Vorsprung unangetastet. Reicht sie
+zur Hälfte darunter, zählt er zur Hälfte. Liegt der Median nur knapp über dem Mittelfeld
+und die Spanne fast ganz darunter, bleibt vom Vorsprung nichts.
+
+**Hier ist nichts kalibriert.** Anders als bei ADR-040 musste keine Konstante gemessen
+werden: Die Spanne IST die Messung, und der Anteil oberhalb des Mittelfeldes ist eine
+Division. Wo keine Spanne steht — Bewertungsskalen, Einzelblätter, alles vor ADR-042 —
+greift die Regel nicht. Keine Spanne ist keine Aussage über Streuung, sondern deren
+Abwesenheit.
+
+**Einseitig wie ADR-040.** Eine Anhebung schlecht belegter schlechter Werte wäre der
+Freifahrtschein, den ADR-006 für fehlende Daten ausschliesst.
+
+### Der Preis ist ausgenommen — und der Grund ist nicht Bequemlichkeit
+
+Eine Messspanne sagt: *„Die Blätter sind sich uneinig, wo der Wert liegt."* Eine
+**Preisspanne** sagt etwas anderes: *„So teuer war das billigste und das teuerste Angebot,
+das wir gefunden haben."* Das ist Marktstreuung, keine Unsicherheit über den Wert — und sie
+ist beeinflussbar, indem man woanders kauft.
+
+Aufgefallen ist der Unterschied nicht beim Nachdenken, sondern an einem Test: Bei
+„Funktionsprototyp, schnell und günstig" schob die Stauchung **PLA-Tough vor PLA**. PLA
+kostet im Median 23,93 €/kg, PLA-Tough 26,99 — aber PLAs Angebote reichen bis 106,53 €/kg
+(Sonderfarben, Kleinspulen), die von PLA-Tough nur bis 79. Die breitere Angebotspalette
+liess den günstigeren Werkstoff schlechter dastehen. Das ist nicht bloss ein schiefes
+Ergebnis, es ist die falsche Frage.
+
+Für den Preis bleibt es deshalb bei ADR-040, wo der Abschlag an der eigenen Historie
+gemessen ist und die Frage beantwortet, die dort zählt: Wie sehr verschiebt sich ein Preis
+noch, wenn man weiter sucht?
+
+### Wie weit sie greift
+
+**33 von 630 bewerteten Kriterien** — gut fünf Prozent. Das ist die Grössenordnung, die
+eine solche Regel haben muss: Träfe sie fast alles, wäre sie keine Korrektur, sondern eine
+flächendeckende Abwertung, und die Rangfolge bliebe dieselbe, nur gestaucht. Ein Test hält
+die Spanne 10 bis 15 % fest, in beide Richtungen.
+
+### Der Nutzer erfährt es
+
+`risk.wideSpread` steht in der Ergebniskarte, auch wenn das Kriterium daneben als Stärke
+ausgewiesen ist — beides stimmt gleichzeitig:
+
+> Der geführte Wert (23,5 %) ist der Median über alle Herstellerblätter dieses Typs — die
+> reichen von 5 bis 150 %. Ein Teil dieser Spanne liegt unter dem Mittelfeld: Der Vorteil
+> zählt hier deshalb nur anteilig, und welche Rezeptur Sie kaufen, entscheidet mehr als die
+> Wahl des Werkstofftyps.
+
+Der letzte Halbsatz ist der eigentliche Ertrag der ganzen Übung. Ein Materialberater, der
+nur den Typ empfiehlt, beantwortet die halbe Frage.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

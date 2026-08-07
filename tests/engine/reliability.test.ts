@@ -12,7 +12,7 @@ import { MATERIALS } from "../../src/data/materials";
 import { select } from "../../src/engine";
 import { buildNormalisation, scoreMaterial } from "../../src/engine/scoring";
 import { CRITERIA, DEFAULT_WEIGHTS } from "../../src/engine/criteria";
-import { NEUTRAL, RELIABILITY, creditable, reliabilityOf } from "../../src/engine/reliability";
+import { NEUTRAL, RELIABILITY, creditable, reliabilityOf, spanCredit } from "../../src/engine/reliability";
 import { translate } from "../../src/i18n";
 import type { Confidence } from "../../src/engine/types";
 
@@ -123,5 +123,58 @@ describe("Was die Regel bewusst NICHT tut", () => {
     expect(obc.score!).toBeLessThan(NEUTRAL);
     expect(pp.discounted).toBeUndefined();
     expect(obc.discounted).toBeUndefined();
+  });
+});
+
+describe("Spannen-Stutzung (ADR-042)", () => {
+  it("lässt einen Vorsprung stehen, dessen Spanne ganz oberhalb liegt", () => {
+    // Spanne 0,6-0,9 in Rangpunkten: alles über dem Mittelfeld, nichts zu stutzen.
+    expect(spanCredit("strength", 0.8, 0.6, 0.9)).toEqual({ score: 0.8, widelySpread: false });
+  });
+
+  it("stutzt anteilig, wenn die Spanne unter das Mittelfeld reicht", () => {
+    /* Spanne 0,3-0,7: zwei Fünftel davon liegen über dem Mittelfeld. Von den 0,25
+       Vorsprung bleiben 0,10 — der Wert behauptet nur, was seine Blätter decken. */
+    const r = spanCredit("strength", 0.75, 0.3, 0.7);
+    expect(r.widelySpread).toBe(true);
+    expect(r.score).toBeCloseTo(0.5 + 0.5 * 0.25, 10);
+  });
+
+  it("nimmt den Vorsprung ganz, wenn die Spanne kaum über das Mittelfeld reicht", () => {
+    const r = spanCredit("strength", 0.9, 0.1, 0.5);
+    expect(r.score).toBe(NEUTRAL);
+  });
+
+  it("rührt Werte unter dem Mittelfeld nicht an", () => {
+    // Einseitig wie ADR-040: Eine breite Spanne darf einen schlechten Wert nicht heben.
+    expect(spanCredit("strength", 0.2, 0.1, 0.9)).toEqual({ score: 0.2, widelySpread: false });
+  });
+
+  it("lässt den Preis aus", () => {
+    /* Die Preisspanne ist Marktstreuung, keine Messunsicherheit — sie sagt, was das
+       billigste und das teuerste Angebot kostete, nicht wie sicher der Wert ist. */
+    expect(spanCredit("price", 0.9, 0.1, 0.6)).toEqual({ score: 0.9, widelySpread: false });
+  });
+
+  it("greift ohne Spanne nicht", () => {
+    expect(spanCredit("strength", 0.9, null, null)).toEqual({ score: 0.9, widelySpread: false });
+  });
+
+  it("markiert im echten Datenbestand nur einen kleinen Teil der Bewertungen", () => {
+    /* Die Gegenprobe zur Regel selbst: Träfe sie fast alles, wäre sie kein Korrektiv,
+       sondern eine flächendeckende Abwertung — und die Rangfolge bliebe dieselbe, nur
+       gestaucht. Sie darf auch nicht ins Leere greifen. */
+    const table = buildNormalisation(MATERIALS);
+    const weights = Object.fromEntries(CRITERIA.map((c) => [c.id, 1]));
+    let trimmed = 0, scored = 0;
+    for (const m of MATERIALS) {
+      for (const c of scoreMaterial(m, { weights }, table).criteria) {
+        if (c.score === null) continue;
+        scored++;
+        if (c.widelySpread) trimmed++;
+      }
+    }
+    expect(trimmed).toBeGreaterThan(10);
+    expect(trimmed / scored).toBeLessThan(0.15);
   });
 });

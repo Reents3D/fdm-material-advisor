@@ -200,6 +200,11 @@ export interface CriterionScore {
    * soll die Differenz erklaeren koennen und nicht an der Zahl zweifeln.
    */
   discounted?: true;
+  /** Die beobachtete Spanne reicht unter das Mittelfeld — der Vorsprung ist gestutzt (ADR-042). */
+  widelySpread?: true;
+  /** Die beobachtete Spanne über die Herstellerblätter, sofern der Kennwert eine trägt. */
+  spanMin?: number;
+  spanMax?: number;
 }
 
 export type ExplanationType = "strength" | "weakness" | "risk" | "hint" | "gap";
