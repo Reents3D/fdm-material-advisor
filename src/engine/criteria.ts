@@ -60,6 +60,21 @@ const invert = (p: { value: number | null; confidence: Confidence | null }) => (
   confidence: p.confidence,
 });
 
+/* `xxl` STAND HIER BIS 2026-08-07 und wurde entfernt, nicht ausgeblendet.
+   Riko dazu: "An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum,
+   dass der Nutzer sieht, welches Material von der Beschaffenheit sinn macht. Ob es dann
+   fertigbar ist in dem Modell haengt vom Modell und vielen anderen Faktoren ab."
+
+   Das Kriterium las `commercial.xxl.maxSensibleEdgeMm` - eine Zahl, die aus Verzugsneigung
+   und Kammerbedarf ABGELEITET war. Als Bewertungskriterium hat sie damit zweimal dasselbe
+   gewertet: einmal als `lowWarping`, einmal als Kantenlaenge in Millimetern. Und sie hat
+   eine Fertigungsaussage in eine Werkstoffbewertung geschmuggelt: 95 % der Grossmodelle
+   werden ohnehin segmentiert, und ein Druck am Stueck laesst sich ueber
+   Schrumpfkompensation fahren. Was der Werkstoff dazu beitraegt, ist seine Verzugsneigung -
+   und die steht als `lowWarping` weiterhin drin.
+
+   Die Zahl selbst bleibt am Datensatz stehen. Sie traegt seit 2026-08-07 belegte
+   Werkstatterfahrung und ist als Einordnung wertvoll - nur eben nicht als Rangkriterium. */
 export const CRITERIA: Criterion[] = [
   {
     id: "strength",
@@ -144,18 +159,6 @@ export const CRITERIA: Criterion[] = [
     extract: (m) => invert(r(m, "processing", "warpingTendency")),
   },
   {
-    id: "xxl",
-    group: "process",
-    higherIsBetter: true,
-    unit: "mm",
-    evidence: "commercial.xxl.maxSensibleEdgeMm",
-    extract: (m) => {
-      const xxl = (m.commercial as { xxl?: { maxSensibleEdgeMm?: Quantity } } | undefined)?.xxl?.maxSensibleEdgeMm;
-      if (!xxl) return { value: null, confidence: null };
-      return { value: xxl.value, confidence: xxl.confidence };
-    },
-  },
-  {
     id: "surface",
     group: "optics",
     higherIsBetter: true,
@@ -221,7 +224,7 @@ export const criterionById = (id: string) => CRITERIA.find((c) => c.id === id);
 /** Sensible starting weights. The wizard overrides these per use case. */
 export const DEFAULT_WEIGHTS: Record<string, number> = {
   strength: 3, stiffness: 2, layerAdhesion: 2, toughness: 2, temperature: 3,
-  outdoor: 1, chemical: 1, printability: 3, lowWarping: 2, xxl: 1,
+  outdoor: 1, chemical: 1, printability: 3, lowWarping: 2,
   /* Wirtschaftlichkeit stand hier bis 2026-08-02 auf 3 und damit gleichauf mit
      Festigkeit und Temperatur. In einem Werkstoffberater entscheidet der Materialpreis
      aber nicht, was passt - nur, welches von den passenden man nimmt. */

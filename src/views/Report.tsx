@@ -72,8 +72,6 @@ function requirementLines(state: AppState, t: T): { label: string; value: string
         : (de ? "dauerhaft belastet" : "permanently loaded"));
   add(de ? "Bewitterung" : "Outdoor exposure",
     req.outdoorYears !== undefined ? (de ? `${req.outdoorYears} Jahre im Freien` : `${req.outdoorYears} years outdoors`) : undefined);
-  add(de ? "Grösste Kantenlänge" : "Largest edge",
-    req.maxEdgeMm !== undefined ? `${req.maxEdgeMm} mm` : undefined);
   add(de ? "Mindestzugfestigkeit X-Y" : "Minimum tensile strength X-Y",
     req.minTensileStrengthMPa !== undefined ? `${req.minTensileStrengthMPa} MPa` : undefined);
   add(de ? "Kleinste Wandstärke" : "Minimum wall thickness",

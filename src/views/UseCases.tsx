@@ -25,7 +25,6 @@ function summarise(u: UseCase, de: boolean): { key: string; label: string }[] {
   if (r.serviceTemperatureC != null) add("serviceTemperatureC", `${r.serviceTemperatureC} °C ${de ? "dauerhaft" : "continuous"}`);
   if (r.outdoorYears != null) add("outdoorYears", `${r.outdoorYears} ${de ? "Jahre draußen" : "years outdoors"}`);
   if (r.minTensileStrengthMPa != null) add("minTensileStrengthMPa", `≥ ${r.minTensileStrengthMPa} MPa`);
-  if (r.maxEdgeMm != null) add("maxEdgeMm", `${r.maxEdgeMm} mm ${de ? "Kante" : "edge"}`);
   if (r.flameClass) add("flameClass", `UL94 ${r.flameClass}`);
   if (r.esd) add("esd", de ? "ESD-tauglich" : "ESD capable");
   if (r.foodContact) add("foodContact", de ? "lebensmittelkonform" : "food contact");

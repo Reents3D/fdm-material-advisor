@@ -41,7 +41,6 @@ export function useCaseParams(u: UseCase, lang: string): string {
 
   set("temp", r.serviceTemperatureC);
   set("years", r.outdoorYears);
-  set("edge", r.maxEdgeMm);
   set("minStrength", r.minTensileStrengthMPa);
   set("flame", r.flameClass);
   for (const [key, val] of [["chamber", r.chamberAvailable], ["nozzle", r.hardenedNozzleAvailable],

@@ -339,7 +339,7 @@ const LABELS: Record<string, [string, string]> = {
   priceIndex: ["Preisniveau (abgeleitet)", "Price level (derived)"],
   availability: ["Verfügbarkeit", "Availability"],
   smallSeriesSuitability: ["Kleinserientauglichkeit", "Small-series suitability"],
-  maxSensibleEdgeMm: ["Kante ohne Sonderaufwand", "Edge without special effort"],
+  maxSensibleEdgeMm: ["Grossformat: bewährte Kantenlänge", "Large format: proven edge length"],
   maxSpoolWeightKg: ["Größte Spule am Markt", "Largest spool on the market"],
   largeSpoolShare: ["Angebote ab 2 kg", "Offers from 2 kg"],
   infillWarningXxl: ["100 % Füllung im XXL-Format kritisch", "100 % infill critical at XXL scale"],

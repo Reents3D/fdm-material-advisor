@@ -179,7 +179,6 @@ const de: Dict = {
   "wiz.chip.temp": "Bis {n} °C",
   "wiz.chip.strength": "Ab {n} MPa",
   "wiz.chip.flexible": "Flexibel",
-  "wiz.chip.edge": "Kante {n} mm",
   "wiz.chip.qty": "{n} Stück",
   "wiz.chip.noChamber": "Ohne Kammer",
   "wiz.chip.noNozzle": "Ohne gehärtete Düse",
@@ -216,7 +215,6 @@ const de: Dict = {
   "wiz.3.load.high": "Hoch — tragend, dauerbelastet",
   "wiz.3.flexible": "Das Bauteil muss flexibel sein (Dichtung, Dämpfer)",
   "wiz.4.title": "Wie gross und wie viele?",
-  "wiz.4.edge": "Längste Kante",
   "wiz.4.quantity": "Stückzahl",
   "wiz.5.title": "Optik und Nachbearbeitung",
   "wiz.5.painted": "Wird lackiert",
@@ -323,11 +321,6 @@ const de: Dict = {
     "Brandschutz nur geschätzt: {actual} ist aus der Polymerklasse abgeleitet, nicht aus einem Prüfzeugnis. Für eine Brandschutzanforderung zählt nur eine belegte Klassifizierung.",
   "constraint.esd.pass": "ESD-tauglich ({actual}).",
   "constraint.esd.fail": "Nicht ESD-tauglich ({actual}).",
-  "constraint.size.pass": "Bauteilgrösse unkritisch: ohne besonderen Aufwand bis etwa {actual} mm, gefordert {required} mm.",
-  "constraint.size.effort":
-    "Ab etwa {actual} mm aufwendig — gefordert sind {required} mm. Das ist keine Fertigungsgrenze: Mit beheizter Kammer, Brim und Segmentierung ist diese Größe erreichbar. Rechnen Sie mit höherem Prozessaufwand.",
-  "constraint.size.fail": "Zu gross: sinnvoll bis etwa {actual} mm, gefordert {required} mm.",
-  "constraint.size.unknown": "Keine XXL-Einschätzung hinterlegt.",
   "constraint.flexible.pass": "Passende Werkstoffklasse.",
   "constraint.flexible.fail": "Nicht flexibel — kein Elastomer.",
   "constraint.rigid.fail": "Elastomer — für starre Bauteile ungeeignet.",
@@ -347,8 +340,6 @@ const de: Dict = {
     "Knapp bei {required} °C: Unsere konservative Dauereinsatzempfehlung liegt bei {actual} °C, der gemessene Datenblattwert bei {documented} °C. Unbelastet trägt das, unter Dauerlast nicht — Last prüfen.",
   "risk.temperatureLoaded":
     "Warm UND belastet bei {required} °C: konservativ {actual} °C, gemessen {documented} °C. Das Bauteil kriecht — mehr Wandstärke, mehr Füllung oder ein grösserer Querschnitt senken die Spannung und damit die Verformung. Der Werkstoff wird davon nicht wärmefester.",
-  "risk.sizeEffort":
-    "Ab etwa {actual} mm aufwendig, gefordert sind {required} mm: Brim, beheizte Kammer oder Segmentierung einplanen. Keine Fertigungsgrenze.",
   "risk.chemicalLimited": "Kontakt mit {chemical} nur zeitweise, nicht dauerhaft.",
   "risk.anisotropy": "Anisotropie: senkrecht zur Schicht bleiben nur {pct} % der Festigkeit — {lost} % gehen verloren.",
   "risk.impactAnisotropy": "Schlagzähigkeit bricht in Z auf {pct} % ein. Bauteil orientieren.",
@@ -549,7 +540,6 @@ const en: Dict = {
   "wiz.chip.temp": "Up to {n} °C",
   "wiz.chip.strength": "From {n} MPa",
   "wiz.chip.flexible": "Flexible",
-  "wiz.chip.edge": "Edge {n} mm",
   "wiz.chip.qty": "{n} pieces",
   "wiz.chip.noChamber": "No chamber",
   "wiz.chip.noNozzle": "No hardened nozzle",
@@ -586,7 +576,6 @@ const en: Dict = {
   "wiz.3.load.high": "High — load bearing, sustained",
   "wiz.3.flexible": "The part must be flexible (seal, damper)",
   "wiz.4.title": "How big and how many?",
-  "wiz.4.edge": "Longest edge",
   "wiz.4.quantity": "Quantity",
   "wiz.5.title": "Appearance and finishing",
   "wiz.5.painted": "Will be painted",
@@ -690,11 +679,6 @@ const en: Dict = {
     "Fire class only estimated: {actual} is derived from the polymer class, not from a test certificate. For a fire safety requirement only a documented classification counts.",
   "constraint.esd.pass": "ESD capable ({actual}).",
   "constraint.esd.fail": "Not ESD capable ({actual}).",
-  "constraint.size.pass": "Part size uncritical: to about {actual} mm without special effort, {required} mm required.",
-  "constraint.size.effort":
-    "Demanding from about {actual} mm — {required} mm required. This is not a manufacturing limit: with a heated chamber, a brim and segmentation this size is reachable. Expect higher process effort.",
-  "constraint.size.fail": "Too large: sensible to about {actual} mm, {required} mm required.",
-  "constraint.size.unknown": "No XXL assessment on record.",
   "constraint.flexible.pass": "Suitable material class.",
   "constraint.flexible.fail": "Not flexible — not an elastomer.",
   "constraint.rigid.fail": "Elastomer — unsuitable for rigid parts.",
@@ -713,8 +697,6 @@ const en: Dict = {
     "Tight at {required} °C: our conservative continuous-service recommendation is {actual} °C, the measured datasheet value {documented} °C. Fine unloaded, not under sustained load — check the load.",
   "risk.temperatureLoaded":
     "Warm AND loaded at {required} °C: conservative {actual} °C, measured {documented} °C. The part will creep — more wall, more infill or a larger section lower the stress and with it the deformation. The material does not become more heat resistant from it.",
-  "risk.sizeEffort":
-    "Demanding from about {actual} mm, {required} mm required: plan for a brim, a heated chamber or segmentation. Not a manufacturing limit.",
   "risk.chemicalLimited": "Contact with {chemical} intermittently only, not permanently.",
   "risk.anisotropy": "Anisotropy: only {pct} % of the strength remains perpendicular to the layers — {lost} % is lost.",
   "risk.impactAnisotropy": "Impact strength drops to {pct} % in Z. Orient the part.",

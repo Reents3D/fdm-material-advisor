@@ -314,14 +314,12 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
      Ausdruecklich NICHT hinterlegt ist der Bauraum irgendeiner konkreten Maschine.
      Dieses Werkzeug ist herstellerneutral (ADR-004); der Maschinenpark seines
      Herausgebers ist kein Massstab fuer die Werkstoffwahl anderer. */
-  if (req.maxEdgeMm != null) {
-    const xxl = (m.commercial as { xxl?: { maxSensibleEdgeMm?: Quantity } } | undefined)?.xxl?.maxSensibleEdgeMm;
-    const v = xxl?.value ?? null;
-    const p = { required: req.maxEdgeMm, actual: v ?? 0 };
-    if (v === null) unknown("partSize", "constraint.size.unknown", p, "commercial.xxl.maxSensibleEdgeMm");
-    else if (v >= req.maxEdgeMm) pass("partSize", "constraint.size.pass", p, "commercial.xxl.maxSensibleEdgeMm");
-    else pass("partSize", "constraint.size.effort", p, "commercial.xxl.maxSensibleEdgeMm");
-  }
+  /* Die Bauteilgroesse ist hier BEWUSST keine Anforderung mehr (2026-08-07). Sie fragte
+     nach der Kantenlaenge und stufte Werkstoffe daran ab - eine Fertigungsaussage, keine
+     Werkstoffaussage. Ob ein Modell an einem Stueck druckbar ist, entscheiden Geometrie,
+     Segmentierung und Schrumpfkompensation, nicht die Werkstoffwahl. Was der Werkstoff
+     beitraegt, ist seine Verzugsneigung; die steht als Kriterium `lowWarping` weiterhin in
+     der Bewertung. Siehe criteria.ts zum selben Datum. */
 
   /* --- flexible / rigid ---------------------------------------------------- */
   if (req.flexible != null) {

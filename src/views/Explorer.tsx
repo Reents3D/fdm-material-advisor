@@ -83,7 +83,10 @@ const AXES: Axis[] = [
 
   { id: "price", group: G_COM, label: ["Materialpreis", "Material price"], unit: "€/kg", lowerIsBetter: true, path: "commercial.pricePerKg" },
   { id: "avail", group: G_COM, label: ["Verfügbarkeit", "Availability"], unit: "1–5", path: "commercial.availability" },
-  { id: "xxl", group: G_COM, label: ["Sinnvolle XXL-Kante", "Sensible XXL edge"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
+  /* Bleibt als Achse, obwohl die Kantenlaenge seit 2026-08-07 kein Bewertungskriterium
+     mehr ist: Hier traegt sie niemanden vor oder zurueck, sie laesst sich nur auftragen.
+     Die Beschriftung sagt deshalb, was sie ist - Werkstatterfahrung, keine Maschinengrenze. */
+  { id: "xxl", group: G_COM, label: ["Grossformat-Erfahrung (Kante)", "Large-format experience (edge)"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
   { id: "bio", group: G_COM, label: ["Biobasierter Anteil", "Bio-based content"], unit: "%", path: "sustainability.bioBasedContent" },
 ];
 

@@ -2332,6 +2332,64 @@ nur den Typ empfiehlt, beantwortet die halbe Frage.
 
 ---
 
+## ADR-044 — Die Bauteilgrösse ist keine Werkstofffrage
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `criteria.ts`, `constraints.ts`,
+`completeness.ts`, `Wizard.tsx`, `explain.ts`, i18n, `tests/engine/scenarios.test.ts`
+
+### Die Entscheidung
+
+> „An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum, dass der
+> Nutzer sieht, welches Material von der Beschaffenheit sinn macht. Ob es dann fertigbar ist
+> in dem Modell hängt vom Modell und vielen anderen Faktoren ab."
+> „Grossmodelle werden in 95 % segmentiert. Drucke in einem Stück können kompensiert werden
+> durch Schrumpfungskompensationen." — Riko, 2026-08-07
+
+Die Frage nach der grössten Kantenlänge ist aus dem Assistenten entfernt, `xxl` ist kein
+Bewertungskriterium mehr, und `partSize` ist keine Anforderung mehr.
+
+### Warum das mehr ist als eine Streichung
+
+**Es war eine Doppelzählung.** `commercial.xxl.maxSensibleEdgeMm` wurde von
+`derive-xxl-effort.mjs` aus **Verzugsneigung und Kammerbedarf abgeleitet**. Als
+Bewertungskriterium hat es damit zweimal dasselbe gewertet: einmal als `lowWarping`, einmal
+in Millimetern. Ein Werkstoff mit hoher Verzugsneigung verlor Punkte auf beiden Achsen für
+denselben Sachverhalt.
+
+**Es war eine Fertigungsaussage im Gewand einer Werkstoffaussage.** Ob ein Modell an einem
+Stück druckbar ist, entscheiden Geometrie, Segmentierung, Schrumpfkompensation, Bauraum und
+Erfahrung — nicht die Werkstoffwahl. Ein Werkzeug, das nach der Kantenlänge fragt und daran
+Werkstoffe abstuft, gibt vor, das Modell zu kennen. Es kennt es nicht.
+
+**Die Information ist nicht verloren, sie steht an der richtigen Stelle.** Was der Werkstoff
+zur Grossformatfrage beiträgt, ist seine **Verzugsneigung** — und die ist als `lowWarping`
+weiterhin ein Kriterium mit Gewicht 2. Ein Test hält ausdrücklich fest, dass sie es bleibt:
+Ohne ihn hiesse „Grösse spielt keine Rolle" womöglich, dass grossformatiges Drucken gar
+nicht mehr in die Bewertung eingeht.
+
+### Was bleibt
+
+`commercial.xxl.maxSensibleEdgeMm` bleibt **am Datensatz** — es trägt seit demselben Tag
+belegte Werkstatterfahrung (PLA, PETG, ABS, ASA über einen Meter; CF-Typen bis 800 × 800
+ohne Befund) und ist als Einordnung wertvoll. Es heisst jetzt „Grossformat: bewährte
+Kantenlänge" statt „Kante ohne Sonderaufwand" — der alte Name las sich wie eine Grenze, der
+neue sagt, was es ist. Im Ashby-Diagramm bleibt es als Achse: Dort trägt es niemanden vor
+oder zurück, es lässt sich nur auftragen.
+
+Ebenso bleibt `commercial.xxl.infillWarningXxl`: Dass 100 % Füllung im Grossformat bei PETG,
+ASA und ABS zu Verzug führt, ist eine Werkstoffaussage — sie beschreibt, wie sich das
+Material unter Eigenspannung verhält, nicht wie man eine Maschine bedient.
+
+### Die Ironie, die dazugehört
+
+Dieselbe Sitzung hatte die XXL-Werte drei Stunden vorher erst mühsam von Schätzung auf
+belegte Werkstatterfahrung gehoben — ABS von 550 auf 1.800 mm. Diese Arbeit ist nicht
+umsonst: Die Zahlen sind jetzt richtig UND stehen an der Stelle, an der sie hingehören.
+Erst durch die Korrektur wurde sichtbar, wie weit eine abgeleitete Fertigungsgrösse danebenliegen
+kann — und das war das eigentliche Argument dafür, sie aus der Bewertung zu nehmen.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

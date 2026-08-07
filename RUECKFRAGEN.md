@@ -55,6 +55,16 @@ Anwendungscode gelesen und ist ersatzlos entfernt — aus dem Schema, aus sieben
 Importskripten und aus den Daten. Eine Angabe, die bei allen gleich ist, unterscheidet
 nichts.
 
+### Nachtrag am selben Tag: die Kantenlänge ist aus der Bewertung raus
+
+> „An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum, dass der
+> Nutzer sieht, welches Material von der Beschaffenheit sinn macht."
+
+Damit ist `xxl` kein Bewertungskriterium mehr und die Frage nach der Kantenlänge aus dem
+Assistenten entfernt (**ADR-044**). Die belegten Werte bleiben am Datensatz als Einordnung —
+die Arbeit oben war nicht umsonst, sie steht nur nicht mehr in der Rangfolge. Was der
+Werkstoff zur Grossformatfrage beiträgt, ist seine Verzugsneigung, und die zählt weiter.
+
 ### Was dabei offen geblieben ist
 
 | Frage | Stand |

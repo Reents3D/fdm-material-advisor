@@ -131,9 +131,6 @@ export function buildExplanations(
     if (v.key === "constraint.temperature.tightLoaded") {
       out.push({ type: "risk", key: "risk.temperatureLoaded", params: { ...v.params }, evidence: v.evidence });
     }
-    if (v.key === "constraint.size.effort") {
-      out.push({ type: "risk", key: "risk.sizeEffort", params: { ...v.params }, evidence: v.evidence });
-    }
     /* Wer die Brandschutzklasse nur ueber eine bestimmte Type erfuellt, MUSS das auf der
        Karte lesen. "PETG erfuellt V-0" ohne den Zusatz "aber nur diese eine Type" ist
        die gefaehrlichste Verkuerzung, die dieses Werkzeug produzieren koennte. */

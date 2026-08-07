@@ -160,7 +160,6 @@ export interface Requirements {
   /** Part must be ESD-safe (dissipative or conductive). */
   esd?: boolean;
   /** Largest part edge in mm. */
-  maxEdgeMm?: number;
   /** Part must be flexible (elastomer). */
   flexible?: boolean;
   /** Minimum tensile strength in the XY plane, MPa. */

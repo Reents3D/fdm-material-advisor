@@ -38,7 +38,6 @@ import { select } from "../engine";
 import { CRITERIA, DEFAULT_WEIGHTS } from "../engine/criteria";
 import { USECASES, useCaseParams } from "../data/usecases";
 import { Button, Card, Toggle, cx, text } from "../components/ui";
-import { SITE } from "../config/site";
 import { CHEMICALS, CHEMICAL_CATEGORIES, chemicalById, chemicalCoverage, isThinData, MATERIAL_COUNT } from "../data/chemicals";
 /* Anforderungsliste und Schwerpunkte liegen seit 2026-08-02 gemeinsam in lib/requirements.ts -
    die Ergebnisseite zeigt dieselbe Aufstellung, und zwei Fassungen waeren zwei Wahrheiten. */
@@ -53,7 +52,7 @@ type Req = AppState["req"];
 const STEPS: { key: string; owns: (keyof Req)[]; ownsWeights?: string[] }[] = [
   { key: "env", owns: ["outdoorYears", "serviceTemperatureC", "thermalLoad"] },
   { key: "load", owns: ["minTensileStrengthMPa", "flexible"] },
-  { key: "part", owns: ["maxEdgeMm", "quantity", "chamberAvailable", "hardenedNozzleAvailable", "annealingOvenAvailable"] },
+  { key: "part", owns: ["quantity", "chamberAvailable", "hardenedNozzleAvailable", "annealingOvenAvailable"] },
   { key: "look", owns: [], ownsWeights: ["paintability", "surface"] },
   { key: "rules", owns: ["foodContact", "flameClass", "esd", "chemicals"] },
   { key: "weights", owns: [] },
@@ -279,12 +278,8 @@ export function Wizard({ step: rawStep, state, t, navigate, update }: Props) {
         {/* ------------------------------------------------ 3 Bauteil und Fertigung */}
         {step === 3 && (
           <Step title={t("wiz.part.title")}>
-            <Toggle checked={req.maxEdgeMm !== undefined} onChange={(v) => set({ maxEdgeMm: v ? 500 : undefined })}
-              label={t("wiz.4.edge")} />
-            {req.maxEdgeMm !== undefined && (
-              <Slider label={t("wiz.4.edge")} min={50} max={SITE.maxEdgeMm} step={50} unit="mm"
-                value={req.maxEdgeMm} onChange={(v) => set({ maxEdgeMm: v })} />
-            )}
+            {/* Die Frage nach der Kantenlaenge stand hier bis 2026-08-07. Sie stufte
+                Werkstoffe an einer Fertigungsaussage ab - siehe engine/criteria.ts. */}
             <Toggle checked={req.quantity !== undefined} onChange={(v) => set({ quantity: v ? 10 : undefined })}
               label={t("wiz.4.quantity")} />
             {req.quantity !== undefined && (

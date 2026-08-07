@@ -10,7 +10,7 @@ import { describe, expect, it } from "vitest";
 import { MATERIALS, byId } from "../../src/data/materials";
 import { select, whyNot, dataCompleteness, confidenceProfile, serviceCeiling, evaluateConstraints, constraintReserve } from "../../src/engine";
 import { buildNormalisation, percentileRank, scoreMaterial } from "../../src/engine/scoring";
-import { DEFAULT_WEIGHTS } from "../../src/engine/criteria";
+import { CRITERIA, DEFAULT_WEIGHTS } from "../../src/engine/criteria";
 import { translate } from "../../src/i18n";
 import { compare, dominated } from "../../src/engine/tradeoffs";
 
@@ -170,7 +170,7 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
     // "-6 % Reserve" auf einem bestandenen Constraint - derselbe Widerspruch wie
     // seinerzeit die "-100 % Reserve" auf fehlenden Daten.
     for (const m of MATERIALS) {
-      for (const v of evaluateConstraints(m, { serviceTemperatureC: 50, maxEdgeMm: 1800 })) {
+      for (const v of evaluateConstraints(m, { serviceTemperatureC: 50 })) {
         const reserve = constraintReserve(v);
         if (reserve !== null) expect(reserve, `${m.id}/${v.constraintId}`).toBeGreaterThanOrEqual(0);
       }
@@ -419,46 +419,44 @@ describe("Szenario: keine beheizte Kammer verfügbar", () => {
   });
 });
 
-describe("Szenario: sehr grosses Bauteil (1.800 mm Kante)", () => {
-  /* Diese beiden Tests haben bis 2026-08-02 das Gegenteil geprueft: dass eine zu kleine
-     hinterlegte Kantenlaenge einen Werkstoff AUSSCHLIESST. Die Werkstatt hat das
-     widerlegt - PETG laeuft dort einteilig ueber zwei Meter, ABS auf 2,4 m Betten. Die
-     Kantenlaenge ist keine Werkstoffeigenschaft: Begrenzt wird die Groesse vom Bauraum
-     und vom Verfahren. Alle 38 hinterlegten Werte waren ausserdem Schaetzungen ohne eine
-     einzige Messung dahinter. Sie stufen jetzt ab und warnen, sie streichen nicht. */
+describe("Die Bauteilgrösse ist keine Werkstofffrage", () => {
+  /* HIER STANDEN BIS 2026-08-07 DREI TESTS, die prüften, dass eine zu kleine hinterlegte
+     Kantenlänge einen Werkstoff nicht ausschliesst, sondern abstuft. Sie sind weg, weil die
+     Frage selbst weg ist. Riko dazu:
 
-  it("die Bauteilgrösse schliesst niemanden mehr aus", () => {
-    const r = select(MATERIALS, { maxEdgeMm: 1800, weights: { ...W, xxl: 5 } });
-    expect(r.ranked.length).toBeGreaterThan(0);
-    for (const rej of r.rejected) {
-      expect(rej.failed.map((f) => f.constraintId), rej.material.id).not.toContain("partSize");
+       "An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum, dass
+        der Nutzer sieht, welches Material von der Beschaffenheit sinn macht. Ob es dann
+        fertigbar ist in dem Modell hängt vom Modell und vielen anderen Faktoren ab."
+       "Großmodelle werden in 95 % segmentiert. Drucke in einem Stück können kompensiert
+        werden durch Schrumpfungskompensationen."
+
+     Die Kantenlänge war ausserdem aus Verzugsneigung und Kammerbedarf ABGELEITET. Als
+     Bewertungskriterium hat sie damit zweimal dasselbe gewertet — einmal als `lowWarping`,
+     einmal in Millimetern.
+
+     Was bleibt, prüft dieser Test: dass die Frage nicht zurückkommt. */
+
+  it("es gibt kein Grössen-Constraint mehr", () => {
+    for (const m of MATERIALS.slice(0, 5)) {
+      const ids = evaluateConstraints(m, { serviceTemperatureC: 60 }).map((c) => c.constraintId);
+      expect(ids).not.toContain("partSize");
     }
   });
 
-  it("wer unter der Schwelle liegt, bekommt den Aufwandshinweis statt eines Ausschlusses", () => {
-    const r = select(MATERIALS, { maxEdgeMm: 1800 });
-    const surviving = ids(r.ranked);
-    // PC lag mit 400 mm weit unter der Anforderung und flog frueher raus.
-    expect(surviving).toContain("pla");
-    expect(surviving).toContain("pc");
-
-    const sizeVerdict = (id: string) =>
-      evaluateConstraints(byId(id)!, { maxEdgeMm: 1800 }).find((c) => c.constraintId === "partSize")!;
-
-    const pc = sizeVerdict("pc");
-    expect(pc.passed).toBe(true);
-    expect(pc.key).toBe("constraint.size.effort");
-
-    // PLA liegt mit 2400 mm darueber und bekommt keinen Hinweis.
-    expect(sizeVerdict("pla").key).toBe("constraint.size.pass");
+  it("kein Bewertungskriterium liest die Kantenlänge", () => {
+    expect(CRITERIA.map((c) => c.id)).not.toContain("xxl");
+    expect(CRITERIA.map((c) => c.evidence)).not.toContain("commercial.xxl.maxSensibleEdgeMm");
   });
 
-  it("die Grösse wirkt weiter über die Gewichtung, nicht über den Filter", () => {
-    // Wenn XXL-Eignung hoch gewichtet wird, muss ein Werkstoff mit grosser Schwelle
-    // vor einem mit kleiner liegen - sonst waere die Information ganz verloren.
-    const r = select(MATERIALS, { maxEdgeMm: 1800, weights: { xxl: 5 } });
-    const rank = (id: string) => ids(r.ranked).indexOf(id);
-    expect(rank("pla")).toBeLessThan(rank("pc"));
+  it("die Verzugsneigung trägt die Frage weiter — sie ist die Werkstoffeigenschaft dahinter", () => {
+    /* Ohne diesen Test hiesse "Grösse spielt keine Rolle" womöglich, dass grossformatiges
+       Drucken gar nicht mehr in die Bewertung eingeht. Es geht ein — nur an der Stelle, an
+       der es eine Werkstoffaussage ist. */
+    const warp = CRITERIA.find((c) => c.id === "lowWarping");
+    expect(warp, "lowWarping fehlt — dann ist die Verzugsinformation ganz verloren").toBeDefined();
+    const pla = warp!.extract(byId("pla")!).value;
+    const abs = warp!.extract(byId("abs")!).value;
+    expect(pla, "PLA verzieht sich weniger als ABS").toBeGreaterThan(abs!);
   });
 });
 
