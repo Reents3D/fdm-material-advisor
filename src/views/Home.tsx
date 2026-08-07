@@ -21,12 +21,35 @@ const countFacts = () => {
   return { facts, sources: sources.size };
 };
 
+/* Diese beiden Zahlen standen bis 2026-08-07 als Text auf der Startseite: „PLA mit 35 MPa"
+   und „zwischen 47 % und 90 %". Beide waren zu dem Zeitpunkt falsch — der Abgleich gegen
+   die Produktblätter (ADR-042) hatte PLA auf 45,8 MPa gehoben, und der schwächste
+   Anisotropiefaktor lag längst bei 28 %. Eine Startseite, die mit Zahlen wirbt, die im
+   eigenen Datenblatt anders stehen, beschädigt genau das Vertrauen, für das dieses Werkzeug
+   gebaut ist. Sie werden deshalb gerechnet und nicht mehr geschrieben. */
+/** Deutsches Dezimalkomma — 45.8 liest sich hier sonst wie ein Tippfehler. */
+const fmtDe = (n: number | null) => (n === null ? "—" : String(n).replace(".", ","));
+
+const headline = () => {
+  const pla = MATERIALS.find((m) => m.id === "pla")?.mechanics?.tensileStrengthXy;
+  const factors = MATERIALS
+    .map((m) => m.mechanics?.anisotropyFactorTensile?.value)
+    .filter((v): v is number => typeof v === "number");
+  return {
+    plaStrength: pla?.value ?? null,
+    anisotropyLo: factors.length ? Math.round(Math.min(...factors) * 100) : null,
+    anisotropyHi: factors.length ? Math.round(Math.max(...factors) * 100) : null,
+    anisotropyCount: factors.length,
+  };
+};
+
 export function Home({ t, lang, navigate }: {
   t: (k: string, p?: Record<string, string | number>) => string;
   lang: Lang;
   navigate: (path: string) => void;
 }) {
   const { facts, sources } = countFacts();
+  const claims = headline();
 
   const entries: { path: string; key: string; primary?: boolean }[] = [
     { path: "wizard/1", key: "wizard", primary: true },
@@ -102,14 +125,14 @@ export function Home({ t, lang, navigate }: {
             {
               h: lang === "de" ? "Gedruckte Prüfkörper statt Rohstoffdaten" : "Printed specimens, not resin data",
               p: lang === "de"
-                ? "PLA steht hier mit 35 MPa, nicht mit den 60 MPa aus Granulat-Datenblättern. Der gedruckte Wert ist der, den Ihr Bauteil hat."
-                : "PLA is listed at 35 MPa here, not the 60 MPa from resin datasheets. The printed value is the one your part has.",
+                ? `PLA steht hier mit ${fmtDe(claims.plaStrength)} MPa — dem Median aus allen Herstellerblättern, die wir kennen, nicht mit einer einzelnen Zahl aus einem Granulat-Datenblatt.`
+                : `PLA is listed at ${claims.plaStrength} MPa here — the median across every manufacturer datasheet we hold, not a single figure from a resin data sheet.`,
             },
             {
               h: lang === "de" ? "Anisotropie wird ausgewiesen" : "Anisotropy is reported",
               p: lang === "de"
-                ? "Für jeden Werkstoff steht dabei, wie viel Festigkeit senkrecht zur Schicht übrig bleibt — zwischen 47 % und 90 %."
-                : "For every material we state how much strength remains perpendicular to the layers — between 47 % and 90 %.",
+                ? `Bei ${claims.anisotropyCount} Werkstoffen steht dabei, wie viel Festigkeit senkrecht zur Schicht übrig bleibt — zwischen ${claims.anisotropyLo} % und ${claims.anisotropyHi} %.`
+                : `For ${claims.anisotropyCount} materials we state how much strength remains perpendicular to the layers — between ${claims.anisotropyLo} % and ${claims.anisotropyHi} %.`,
             },
             {
               h: lang === "de" ? "Geschätzte Werte sind markiert" : "Estimated values are marked",

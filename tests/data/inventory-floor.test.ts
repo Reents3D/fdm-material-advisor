@@ -83,6 +83,16 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    von EINER Marke stammen (Extrudr, gefuehrt von Extrudr und von 3DJAKE) - und tragen
    damit ihren Vorbehalt wieder.
 
+   Am 2026-08-07 SINKT sie von 97 auf 93, und auch das ist Buchfuehrung: Der Abgleich der
+   Werkstoffwerte gegen die Produktblaetter (ADR-042) hat 16-mal `oq_second_source`
+   beantwortet - die Frage lautete woertlich "der gesamte Kennwertsatz beruht auf einem
+   einzigen Datenblatt", und bei `petg` lagen siebzehn im selben Repository. Entfernt wird
+   sie erst, wenn DREI Felder auf je drei Blaettern stehen; ein einzelnes breit belegtes
+   Feld macht aus einem Ein-Blatt-Datensatz keinen mehrfach belegten. Dazu kamen 12 neue
+   `oq_spread_*`: Werkstofftypen, deren Blaetter um mehr als eine Groessenordnung
+   auseinanderliegen und die deshalb vermutlich zwei Rezepturen unter einem Namen fuehren.
+   97 - 16 + 12 = 93.
+
    Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
    durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
    eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
@@ -120,7 +130,7 @@ const FLOOR = {
   chemicalRatings: 903,
   materialsWithPrice: 42,
   anisotropyFactors: 21,
-  openQuestions: 97,
+  openQuestions: 93,
 };
 
 const actual = {

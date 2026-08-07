@@ -29,16 +29,13 @@
       "value": 1.05,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": [
-        "src_tds",
-        "src_ofd"
-      ],
-      "confidence": "low",
-      "min": 1.04,
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "min": 1.05,
       "max": 1.05,
       "note": {
-        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.05 g/cm³ (Fillamentum) bis 1.05 g/cm³ (Fillamentum). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 1.05 g/cm³ (Fillamentum) to 1.05 g/cm³ (Fillamentum). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
       }
     },
     "tensileStrengthXy": {
@@ -69,9 +66,15 @@
       "value": 40,
       "unit": "MPa",
       "testStandard": "ISO 178",
-      "orientation": "n/a",
-      "source": "src_tds",
-      "confidence": "low"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 38 MPa (Nebula Filaments) bis 50 MPa (FormFutura). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 38 MPa (Nebula Filaments) to 50 MPa (FormFutura). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 38,
+      "max": 50
     },
     "flexuralModulusXy": {
       "value": 2100,
@@ -716,6 +719,17 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       }
     ]

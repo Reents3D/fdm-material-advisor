@@ -112,6 +112,17 @@
         "de": "Das Blatt nennt 100 bis 140 °C, abhängig von Medium, Temperatur und Dauer. Übernommen ist die untere Grenze.",
         "en": "The sheet names 100 to 140 °C depending on medium, temperature and duration. The lower bound is imported."
       }
+    },
+    "glassTransition": {
+      "value": -34,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: add:north. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: add:north. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -646,6 +657,17 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       }
     ]

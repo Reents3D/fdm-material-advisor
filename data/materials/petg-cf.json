@@ -57,32 +57,34 @@
   "mechanics": {
     "density": {
       "value": 1.27,
-      "min": 1.25,
-      "max": 1.28,
+      "min": 1.16,
+      "max": 1.32,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": [
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 1.16 g/cm³ (Fillamentum) bis 1.32 g/cm³ (add:north). Prüfkörper: 2 von 7 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (4), ISO 527 (1), Norm im Blatt nicht genannt (1). Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 7 manufacturer datasheets, range 1.16 g/cm³ (Fillamentum) to 1.32 g/cm³ (add:north). Specimens: 2 of 7 printed, remainder undeclared. Mixed test standards: ISO 1183 (4), ISO 527 (1), Norm im Blatt nicht genannt (1). The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 48,
-      "min": 40,
-      "max": 63,
+      "value": 52,
+      "min": 44,
+      "max": 59,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "XY",
       "conditions": "100 % Infill; Spanne umfasst ungetemperte und getemperte Prüfkörper sowie unterschiedliche Faseranteile",
-      "source": [
-        "src_bambu_petgcf_tds_v2",
-        "src_flashforge_petgcf10_tds"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Redaktionell aggregiert. Die beiden Primärquellen liegen weit auseinander: Flashforge (10 % CF, ausdrücklich NICHT getempert) meldet 40-43 MPa, Bambu Lab (Faseranteil nicht deklariert, Prüfkörper vorbehandelt) meldet 59 +/- 4 MPa. Für ein normal gedrucktes Bauteil ist das untere Drittel der Spanne die realistische Erwartung.",
-        "en": "Editorially aggregated. The two primary sources differ widely: Flashforge (10 % CF, explicitly NOT annealed) reports 40-43 MPa, Bambu Lab (fibre content undeclared, specimens pre-treated) reports 59 +/- 4 MPa. For a normally printed part the lower third of the range is the realistic expectation."
+        "de": "Median aus 7 Herstellerblättern, Spanne 44 MPa (FormFutura) bis 59 MPa (Bambu Lab). Prüfkörper: 2 von 7 gedruckt, Rest undeklariert.",
+        "en": "Median of 7 manufacturer datasheets, range 44 MPa (FormFutura) to 59 MPa (Bambu Lab). Specimens: 2 of 7 printed, remainder undeclared."
       }
     },
     "tensileStrengthZ": {
@@ -101,8 +103,8 @@
     },
     "tensileModulusXy": {
       "value": 2400,
-      "min": 2100,
-      "max": 2690,
+      "min": 2200,
+      "max": 5120,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "XY",
@@ -112,8 +114,8 @@
       ],
       "confidence": "high",
       "note": {
-        "de": "Beide Quellen stimmen gut überein (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Die Steifigkeit ist der eigentliche Gewinn der Faserverstärkung - nicht die Festigkeit.",
-        "en": "Both sources agree well (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Stiffness is the actual gain from fibre reinforcement - not strength."
+        "de": "Median aus 6 Herstellerblättern, Spanne 2200 MPa (Fillamentum) bis 5120 MPa (add:north). Prüfkörper: 2 von 6 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 6 manufacturer datasheets, range 2200 MPa (Fillamentum) to 5120 MPa (add:north). Specimens: 2 of 6 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
       }
     },
     "tensileModulusZ": {
@@ -126,17 +128,18 @@
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 9,
-      "min": 7.5,
-      "max": 11,
+      "value": 8,
+      "min": 4.9,
+      "max": 9.4,
       "unit": "%",
       "testStandard": "ISO 527",
       "orientation": "XY",
-      "source": [
-        "src_bambu_petgcf_tds_v2",
-        "src_flashforge_petgcf10_tds"
-      ],
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 4.9 % (FormFutura) bis 9.4 % (Extrudr). Prüfkörper: 1 von 5 gedruckt, Rest undeklariert.",
+        "en": "Median of 5 manufacturer datasheets, range 4.9 % (FormFutura) to 9.4 % (Extrudr). Specimens: 1 of 5 printed, remainder undeclared."
+      }
     },
     "elongationAtBreakZ": {
       "value": 4.7,
@@ -149,8 +152,8 @@
     },
     "flexuralStrengthXy": {
       "value": 82,
-      "min": 75,
-      "max": 87,
+      "min": 82,
+      "max": 89,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "orientation": "XY",
@@ -158,7 +161,11 @@
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 83 MPa (Bambu Lab) bis 89 MPa (add:north). Prüfkörper: 2 von 3 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 3 manufacturer datasheets, range 83 MPa (Bambu Lab) to 89 MPa (add:north). Specimens: 2 of 3 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
+      }
     },
     "flexuralStrengthZ": {
       "value": 62,
@@ -170,13 +177,19 @@
       "confidence": "medium"
     },
     "flexuralModulusXy": {
-      "value": 2890,
-      "tolerance": 130,
+      "value": 3632,
       "unit": "MPa",
-      "testStandard": "ISO 178 / GB/T 9341",
+      "testStandard": "ISO 178",
       "orientation": "XY",
-      "source": "src_bambu_petgcf_tds_v2",
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 2890 MPa (Bambu Lab) bis 4930 MPa (add:north). Prüfkörper: 2 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (3), ISO 527 (1).",
+        "en": "Median of 4 manufacturer datasheets, range 2890 MPa (Bambu Lab) to 4930 MPa (add:north). Specimens: 2 of 4 printed, remainder undeclared. Mixed test standards: ISO 178 (3), ISO 527 (1)."
+      },
+      "min": 2890,
+      "max": 4930,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
       "value": 1680,
@@ -306,6 +319,17 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "hardnessShoreD": {
+      "value": 77,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ISO 7619"
     }
   },
   "thermal": {
@@ -318,18 +342,18 @@
     },
     "hdtB": {
       "value": 72,
-      "min": 70,
-      "max": 74,
+      "min": 69,
+      "max": 82,
       "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
+      "testStandard": "ISO 75",
       "source": [
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
       "confidence": "high",
       "note": {
-        "de": "Zwei unabhängige Hersteller, gleiche Norm, 70 bzw. 74 °C. Das ist der belastbarste Temperaturwert dieses Datensatzes - und er zeigt: Kohlenstofffaser bringt bei PETG praktisch KEINEN Temperaturgewinn. Wer Wärmeformbeständigkeit braucht, ist hier falsch.",
-        "en": "Two independent manufacturers, same standard, 70 and 74 °C. This is the most reliable temperature value in this record - and it shows that carbon fibre delivers essentially NO temperature gain in PETG. Anyone needing heat resistance is in the wrong place."
+        "de": "Median aus 3 Herstellerblättern, Spanne 69 °C (Extrudr) bis 82 °C (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 3 manufacturer datasheets, range 69 °C (Extrudr) to 82 °C (add:north). Specimens: 1 of 3 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
       }
     },
     "vicatB50": {
@@ -1349,6 +1373,17 @@
           "de": "Sammel-ID für alle Werte, die aus Werkstoffkunde und Verfahrenswissen abgeleitet und NICHT belegt sind. In der UI zwingend als Schätzung zu kennzeichnen.",
           "en": "Collective ID for all values derived from materials science and process knowledge and NOT substantiated. Must be flagged as an estimate in the UI."
         }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -1421,6 +1456,17 @@
         "affectsFields": [
           "compliance.esd.classification",
           "compliance.esd.surfaceResistivity"
+        ]
+      },
+      {
+        "id": "oq_spread_charpyunnotchedxy",
+        "question": {
+          "de": "charpyUnnotchedXy: Die 3 Blätter dieses Werkstofftyps liegen um Faktor 30.26 auseinander (3.5 kJ/m² (Alzament) bis 106 kJ/m² (Fillamentum)), und schon das mittlere Viertel um Faktor 30.26. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
+          "en": "charpyUnnotchedXy: the 3 datasheets of this material type span a factor of 30.26 (3.5 kJ/m² (Alzament) to 106 kJ/m² (Fillamentum)), and the middle quartile alone by a factor of 30.26. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.charpyUnnotchedXy"
         ]
       }
     ]

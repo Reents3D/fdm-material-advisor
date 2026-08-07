@@ -47,10 +47,16 @@
     "tensileStrengthXy": {
       "value": 60.4,
       "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 54.5 MPa (Fillamentum) bis 120 MPa (Fiberlogy). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 54.5 MPa (Fillamentum) to 120 MPa (Fiberlogy). Specimens: 0 of 3 printed, remainder undeclared."
+      },
+      "min": 54.5,
+      "max": 120
     },
     "tensileModulusXy": {
       "value": 2820,
@@ -91,6 +97,45 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyUnnotchedXy": {
+      "value": 80.6,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 75 kJ/m² (Fiberlogy) bis 86.2 kJ/m² (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 75 kJ/m² (Fiberlogy) to 86.2 kJ/m² (Fillamentum). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 75,
+      "max": 86.2,
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 12,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 9 kJ/m² (Extrudr) bis 15 kJ/m² (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 9 kJ/m² (Extrudr) to 15 kJ/m² (Fiberlogy). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 9,
+      "max": 15,
+      "testStandard": "ISO 179"
+    },
+    "hardnessShoreD": {
+      "value": 75,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ISO 7619"
     }
   },
   "thermal": {
@@ -128,6 +173,19 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "meltingTemperature": {
+      "value": 169,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 160 °C (Fillamentum) bis 178 °C (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 160 °C (Fillamentum) to 178 °C (Fiberlogy). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "min": 160,
+      "max": 178,
+      "testStandard": "ISO 3146"
     }
   },
   "processing": {
@@ -674,6 +732,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -689,15 +758,25 @@
         ]
       },
       {
-        "id": "oq_second_source",
+        "id": "oq_spread_tensilemodulusxy",
         "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
+          "de": "tensileModulusXy: Die 3 Blätter dieses Werkstofftyps liegen um Faktor 14.6 auseinander (500 MPa (Fillamentum) bis 7300 MPa (Fiberlogy)), und schon das mittlere Viertel um Faktor 14.6. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
+          "en": "tensileModulusXy: the 3 datasheets of this material type span a factor of 14.6 (500 MPa (Fillamentum) to 7300 MPa (Fiberlogy)), and the middle quartile alone by a factor of 14.6. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
         },
         "blocking": false,
         "affectsFields": [
-          "mechanics",
-          "thermal"
+          "mechanics.tensileModulusXy"
+        ]
+      },
+      {
+        "id": "oq_spread_elongationatbreakxy",
+        "question": {
+          "de": "elongationAtBreakXy: Die 3 Blätter dieses Werkstofftyps liegen um Faktor 20.6 auseinander (5 % (Fiberlogy) bis 103 % (Fillamentum)), und schon das mittlere Viertel um Faktor 20.6. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
+          "en": "elongationAtBreakXy: the 3 datasheets of this material type span a factor of 20.6 (5 % (Fiberlogy) to 103 % (Fillamentum)), and the middle quartile alone by a factor of 20.6. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.elongationAtBreakXy"
         ]
       }
     ]

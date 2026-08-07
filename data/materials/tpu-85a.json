@@ -95,6 +95,80 @@
         "de": "Senkrecht zur Schicht bleiben 88 % der Zugfestigkeit erhalten (10.5 von 12 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu TPU 85A — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
         "en": "Perpendicular to the layers 88 % of the tensile strength remains (10.5 of 12 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu TPU 85A — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
       }
+    },
+    "tensileModulusXy": {
+      "value": 24.4,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 6.8 MPa (Bambu Lab) bis 42 MPa (Extrudr). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 6.8 MPa (Bambu Lab) to 42 MPa (Extrudr). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 6.8,
+      "max": 42,
+      "testStandard": "ISO 527"
+    },
+    "charpyUnnotchedXy": {
+      "value": 124,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "tensileStrengthZ": {
+      "value": 10.5,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "tensileModulusZ": {
+      "value": 5.2,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "elongationAtBreakZ": {
+      "value": 350,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "charpyUnnotchedZ": {
+      "value": 88.5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -116,6 +190,27 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": -34,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Extrudr. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Extrudr. Specimens: 0 of 1 printed, remainder undeclared."
+      }
+    },
+    "meltingTemperature": {
+      "value": 177,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -596,6 +691,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [

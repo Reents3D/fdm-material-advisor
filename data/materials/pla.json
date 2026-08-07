@@ -33,130 +33,189 @@
     "density": {
       "value": 1.24,
       "unit": "g/cm³",
-      "source": [
-        "src_bambu_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
       "testStandard": "ISO 1183",
-      "min": 1.22,
-      "max": 1.26,
+      "min": 1.15,
+      "max": 1.45,
       "note": {
-        "de": "Spanne: Marktkorridor über 817 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 817 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 59 Herstellerblättern, Spanne 1.15 g/cm³ (add:north) bis 1.45 g/cm³ (Extrudr). Prüfkörper: 22 von 59 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (32), ASTM D792 (13), ISO 527 (5), ISO 2781 (3), GB/T 1033 (1). Nicht mitgezählt: 1× Spritzguss, 10× zifferngleich weitergereicht.",
+        "en": "Median of 59 manufacturer datasheets, range 1.15 g/cm³ (add:north) to 1.45 g/cm³ (Extrudr). Specimens: 22 of 59 printed, remainder undeclared. Mixed test standards: ISO 1183 (32), ASTM D792 (13), ISO 527 (5), ISO 2781 (3), GB/T 1033 (1). Not counted: 1× moulded, 10× passed on digit-identical."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 35,
+      "value": 45.8,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 4,
-      "testStandard": "ISO 527 / GB/T 1040",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
       "orientation": "XY",
       "note": {
-        "de": "35 MPa wirken niedrig gegenüber den 50-60 MPa aus Rohstoff-Datenblättern. Der Unterschied ist die Prüfmethode: Bambu prüft GEDRUCKTE Körper, Rohstoffhersteller spritzgegossene. Für FDM ist der gedruckte Wert der ehrliche.",
-        "en": "35 MPa looks low against the 50-60 MPa in resin datasheets. The difference is the test method: Bambu tests PRINTED specimens, resin producers injection-moulded ones. For FDM the printed value is the honest one."
-      }
+        "de": "Median aus 61 Herstellerblättern, Spanne 23 MPa (Anycubic) bis 63 MPa (Alzament). Prüfkörper: 24 von 61 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (46), ASTM D882 (7), ASTM D638 (5), GB/T 1040 (1). Nicht mitgezählt: 1× Spritzguss, 10× zifferngleich weitergereicht.",
+        "en": "Median of 61 manufacturer datasheets, range 23 MPa (Anycubic) to 63 MPa (Alzament). Specimens: 24 of 61 printed, remainder undeclared. Mixed test standards: ISO 527 (46), ASTM D882 (7), ASTM D638 (5), GB/T 1040 (1). Not counted: 1× moulded, 10× passed on digit-identical."
+      },
+      "min": 23,
+      "max": 63,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthZ": {
-      "value": 31,
+      "value": 25.5,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 3,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "Z"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 20 Herstellerblättern, Spanne 12 MPa (Anycubic) bis 39 MPa (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 20 manufacturer datasheets, range 12 MPa (Anycubic) to 39 MPa (Bambu Lab). Specimens: all printed."
+      },
+      "min": 12,
+      "max": 39
     },
     "tensileModulusXy": {
-      "value": 2580,
-      "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 220,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
-    },
-    "tensileModulusZ": {
-      "value": 2060,
-      "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 170,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "Z"
-    },
-    "elongationAtBreakXy": {
-      "value": 12.2,
-      "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.8,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
-    },
-    "elongationAtBreakZ": {
-      "value": 7.5,
-      "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.3,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "Z"
-    },
-    "flexuralStrengthXy": {
-      "value": 76,
-      "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 5,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
-    },
-    "flexuralStrengthZ": {
-      "value": 59,
-      "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 6,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "Z"
-    },
-    "flexuralModulusXy": {
       "value": 2750,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 160,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 50 Herstellerblättern, Spanne 1540 MPa (Bambu Lab) bis 4780 MPa (SUNLU). Prüfkörper: 23 von 50 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (41), ASTM D638 (5), ASTM D882 (3). Nicht mitgezählt: 1× Spritzguss, 10× zifferngleich weitergereicht.",
+        "en": "Median of 50 manufacturer datasheets, range 1540 MPa (Bambu Lab) to 4780 MPa (SUNLU). Specimens: 23 of 50 printed, remainder undeclared. Mixed test standards: ISO 527 (41), ASTM D638 (5), ASTM D882 (3). Not counted: 1× moulded, 10× passed on digit-identical."
+      },
+      "min": 1540,
+      "max": 4780,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "tensileModulusZ": {
+      "value": 1770,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 1250 MPa (Bambu Lab) bis 2550 MPa (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 5 manufacturer datasheets, range 1250 MPa (Bambu Lab) to 2550 MPa (Bambu Lab). Specimens: all printed."
+      },
+      "min": 1250,
+      "max": 2550
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 43 Herstellerblättern, Spanne 2 % (add:north) bis 28 % (Anycubic). Prüfkörper: 14 von 43 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (33), ASTM D882 (3), ASTM D638 (3), GB/T 1040 (1), ASTM D256 (1). Nicht mitgezählt: 8× zifferngleich weitergereicht.",
+        "en": "Median of 43 manufacturer datasheets, range 2 % (add:north) to 28 % (Anycubic). Specimens: 14 of 43 printed, remainder undeclared. Mixed test standards: ISO 527 (33), ASTM D882 (3), ASTM D638 (3), GB/T 1040 (1), ASTM D256 (1). Not counted: 8× passed on digit-identical."
+      },
+      "min": 2,
+      "max": 28,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "elongationAtBreakZ": {
+      "value": 4.5,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 1.7 % (Bambu Lab) bis 9.6 % (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 5 manufacturer datasheets, range 1.7 % (Bambu Lab) to 9.6 % (Bambu Lab). Specimens: all printed."
+      },
+      "min": 1.7,
+      "max": 9.6
+    },
+    "flexuralStrengthXy": {
+      "value": 75,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 41 Herstellerblättern, Spanne 30.1 MPa (Extrudr) bis 120 MPa (add:north). Prüfkörper: 23 von 41 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (27), ASTM D790 (10), GB/T 9341 (2). Nicht mitgezählt: 8× zifferngleich weitergereicht.",
+        "en": "Median of 41 manufacturer datasheets, range 30.1 MPa (Extrudr) to 120 MPa (add:north). Specimens: 23 of 41 printed, remainder undeclared. Mixed test standards: ISO 178 (27), ASTM D790 (10), GB/T 9341 (2). Not counted: 8× passed on digit-identical."
+      },
+      "min": 30.1,
+      "max": 120,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "flexuralStrengthZ": {
+      "value": 42,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 178",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 21 MPa (Bambu Lab) bis 59 MPa (Alzament). Prüfkörper: alle gedruckt.",
+        "en": "Median of 5 manufacturer datasheets, range 21 MPa (Bambu Lab) to 59 MPa (Alzament). Specimens: all printed."
+      },
+      "min": 21,
+      "max": 59
+    },
+    "flexuralModulusXy": {
+      "value": 2669,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 40 Herstellerblättern, Spanne 1800 MPa (Extrudr) bis 5100 MPa (3DJAKE). Prüfkörper: 23 von 40 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (28), ASTM D790 (5), ISO 527 (2), GB/T 9341 (2). Nicht mitgezählt: 1× Spritzguss, 8× zifferngleich weitergereicht.",
+        "en": "Median of 40 manufacturer datasheets, range 1800 MPa (Extrudr) to 5100 MPa (3DJAKE). Specimens: 23 of 40 printed, remainder undeclared. Mixed test standards: ISO 178 (28), ASTM D790 (5), ISO 527 (2), GB/T 9341 (2). Not counted: 1× moulded, 8× passed on digit-identical."
+      },
+      "min": 1800,
+      "max": 5100,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
-      "value": 2370,
+      "value": 2230,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 150,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "Z"
+      "testStandard": "ISO 178",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 1840 MPa (Bambu Lab) bis 2650 MPa (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 5 manufacturer datasheets, range 1840 MPa (Bambu Lab) to 2650 MPa (Bambu Lab). Specimens: all printed."
+      },
+      "min": 1840,
+      "max": 2650
     },
     "charpyUnnotchedXy": {
-      "value": 7.9,
+      "value": 13,
       "unit": "kJ/m²",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.2,
-      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 29 Herstellerblättern, Spanne 2.6 kJ/m² (3DJAKE) bis 28 kJ/m² (Anycubic). Prüfkörper: 22 von 29 gedruckt, Rest undeklariert.",
+        "en": "Median of 29 manufacturer datasheets, range 2.6 kJ/m² (3DJAKE) to 28 kJ/m² (Anycubic). Specimens: 22 of 29 printed, remainder undeclared."
+      },
+      "min": 2.6,
+      "max": 28
     },
     "charpyUnnotchedZ": {
-      "value": 13.8,
+      "value": 7.05,
       "unit": "kJ/m²",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 0.9,
-      "testStandard": "ISO 179 / GB/T 1043",
-      "orientation": "Z"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 179",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 4.6 kJ/m² (Bambu Lab) bis 19.8 kJ/m² (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 4 manufacturer datasheets, range 4.6 kJ/m² (Bambu Lab) to 19.8 kJ/m² (Bambu Lab). Specimens: all printed."
+      },
+      "min": 4.6,
+      "max": 19.8
     },
     "anisotropyFactorImpact": {
       "value": 1.75,
@@ -208,55 +267,134 @@
         "de": "Senkrecht zur Schicht bleiben im Median 72 % der Zugfestigkeit erhalten — die Blätter reichen aber von 32 bis 89 %, also um den Faktor 2.74 auseinander: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). Bei dieser Zahl von Blättern bildet die Streuung überwiegend echte Produktunterschiede ab, nicht Messunsicherheit. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
         "en": "Perpendicular to the layers a median of 72 % of the tensile strength remains — but the sheets range from 32 to 89 %, a factor of 2.74 apart: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). At this number of sheets the spread mostly reflects genuine product differences rather than measurement uncertainty. Anyone using a specific product should read its sheet rather than this median."
       }
+    },
+    "charpyNotchedXy": {
+      "value": 4.7,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 8 Herstellerblättern, Spanne 0.3 kJ/m² (Extrudr) bis 43 kJ/m² (3DJAKE). Prüfkörper: 1 von 8 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 179 (6), ASTM D256 (2).",
+        "en": "Median of 8 manufacturer datasheets, range 0.3 kJ/m² (Extrudr) to 43 kJ/m² (3DJAKE). Specimens: 1 of 8 printed, remainder undeclared. Mixed test standards: ISO 179 (6), ASTM D256 (2)."
+      },
+      "orientation": "XY",
+      "min": 0.3,
+      "max": 43,
+      "testStandard": "ISO 179",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "izodNotchedXy": {
+      "value": 7.45,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 3 kJ/m² (Alzament) bis 19.8 kJ/m² (SUNLU). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: GB/T 1843 (2), ISO 180 (2). Nicht mitgezählt: 6× andere Einheit.",
+        "en": "Median of 4 manufacturer datasheets, range 3 kJ/m² (Alzament) to 19.8 kJ/m² (SUNLU). Specimens: 0 of 4 printed, remainder undeclared. Mixed test standards: GB/T 1843 (2), ISO 180 (2). Not counted: 6× different unit."
+      },
+      "orientation": "XY",
+      "min": 3,
+      "max": 19.8,
+      "testStandard": "GB/T 1843",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "hardnessShoreD": {
+      "value": 74,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 71 Shore D (Fillamentum) bis 77 Shore D (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 868 (1), ISO 7619 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 71 Shore D (Fillamentum) to 77 Shore D (Fillamentum). Specimens: 0 of 2 printed, remainder undeclared. Mixed test standards: ISO 868 (1), ISO 7619 (1)."
+      },
+      "min": 71,
+      "max": 77,
+      "testStandard": "ISO 868",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     }
   },
   "thermal": {
     "hdtA": {
       "value": 54,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 1.8 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 15 Herstellerblättern, Spanne 50 °C (Bambu Lab) bis 66 °C (Spectrum). Prüfkörper: 12 von 15 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (13), ASTM E2092 (2).",
+        "en": "Median of 15 manufacturer datasheets, range 50 °C (Bambu Lab) to 66 °C (Spectrum). Specimens: 12 of 15 printed, remainder undeclared. Mixed test standards: ISO 75 (13), ASTM E2092 (2)."
+      },
+      "min": 50,
+      "max": 66,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "hdtB": {
-      "value": 57,
+      "value": 55,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "testStandard": "ISO 75, 0.45 MPa"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 38 Herstellerblättern, Spanne 50 °C (Anycubic) bis 119 °C (Fillamentum). Prüfkörper: 17 von 38 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (28), ASTM E2092 (4), ASTM D648 (3), GB/T 1634 (2), im Blatt als ASTM E2092 angegeben (siehe Befund) (1). Nicht mitgezählt: 1× Spritzguss, 9× zifferngleich weitergereicht.",
+        "en": "Median of 38 manufacturer datasheets, range 50 °C (Anycubic) to 119 °C (Fillamentum). Specimens: 17 of 38 printed, remainder undeclared. Mixed test standards: ISO 75 (28), ASTM E2092 (4), ASTM D648 (3), GB/T 1634 (2), im Blatt als ASTM E2092 angegeben (siehe Befund) (1). Not counted: 1× moulded, 9× passed on digit-identical."
+      },
+      "min": 50,
+      "max": 119,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "vicatB50": {
-      "value": 57,
+      "value": 58.5,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "low",
-      "testStandard": "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)"
+      "testStandard": "ISO 306",
+      "note": {
+        "de": "Median aus 6 Herstellerblättern, Spanne 54 °C (SUNLU) bis 150 °C (Fillamentum). Prüfkörper: 1 von 6 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 306 (3), ASTM D1525 (3).",
+        "en": "Median of 6 manufacturer datasheets, range 54 °C (SUNLU) to 150 °C (Fillamentum). Specimens: 1 of 6 printed, remainder undeclared. Mixed test standards: ISO 306 (3), ASTM D1525 (3)."
+      },
+      "min": 54,
+      "max": 150,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "glassTransition": {
-      "value": 60,
+      "value": 57.5,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "DSC, 10 °C/min"
+      "testStandard": "DSC",
+      "note": {
+        "de": "Median aus 32 Herstellerblättern, Spanne 52 °C (Bambu Lab) bis 67.2 °C (SUNLU). Prüfkörper: 14 von 32 gedruckt, Rest undeklariert. Prüfnormen gemischt: DSC (24), ASTM D3418 (5), ASTM D7426 (3). Nicht mitgezählt: 9× zifferngleich weitergereicht.",
+        "en": "Median of 32 manufacturer datasheets, range 52 °C (Bambu Lab) to 67.2 °C (SUNLU). Specimens: 14 of 32 printed, remainder undeclared. Mixed test standards: DSC (24), ASTM D3418 (5), ASTM D7426 (3). Not counted: 9× passed on digit-identical."
+      },
+      "min": 52,
+      "max": 67.2,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "meltingTemperature": {
       "value": 160,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "DSC, 10 °C/min"
+      "testStandard": "ISO 11357",
+      "note": {
+        "de": "Median aus 16 Herstellerblättern, Spanne 152 °C (Bambu Lab) bis 173 °C (Nebula Filaments). Prüfkörper: 9 von 16 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 11357 (5), DSC (4), ASTM D7426 (3), ASTM D3418 (2), ISO 3146 (1). Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 16 manufacturer datasheets, range 152 °C (Bambu Lab) to 173 °C (Nebula Filaments). Specimens: 9 of 16 printed, remainder undeclared. Mixed test standards: ISO 11357 (5), DSC (4), ASTM D7426 (3), ASTM D3418 (2), ISO 3146 (1). Not counted: 1× passed on digit-identical."
+      },
+      "min": 152,
+      "max": 173,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 40,
+      "value": 35,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated",
-      "min": 30,
-      "max": 45,
+      "min": 25,
+      "max": 40,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 54 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 57 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 57 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 54 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 57 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 57 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 50 °C (niedrigster Blattwert; geführt ist der Median 54 °C) abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 55 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 55 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 50 °C (lowest datasheet figure; the median 54 °C is what the record carries) less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 55 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 55 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     },
     "annealing": {
@@ -1014,21 +1152,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      },
       {
         "id": "oq_impact_inverted",
         "question": {
@@ -1051,6 +1188,39 @@
           "mechanics.anisotropyFactorTensile"
         ],
         "blocking": false
+      },
+      {
+        "id": "oq_spread_elongationatbreakxy",
+        "question": {
+          "de": "elongationAtBreakXy: Die 43 Blätter dieses Werkstofftyps liegen um Faktor 14 auseinander (2 % (add:north) bis 28 % (Anycubic)). Der Median trägt, das mittlere Viertel liegt um Faktor 2.61 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
+          "en": "elongationAtBreakXy: the 43 datasheets of this material type span a factor of 14 (2 % (add:north) to 28 % (Anycubic)). The median holds — the middle quartile sits within a factor of 2.61 — but the range is part of the answer and is recorded at the value."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.elongationAtBreakXy"
+        ]
+      },
+      {
+        "id": "oq_spread_charpyunnotchedxy",
+        "question": {
+          "de": "charpyUnnotchedXy: Die 29 Blätter dieses Werkstofftyps liegen um Faktor 10.77 auseinander (2.6 kJ/m² (3DJAKE) bis 28 kJ/m² (Anycubic)). Der Median trägt, das mittlere Viertel liegt um Faktor 2.89 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
+          "en": "charpyUnnotchedXy: the 29 datasheets of this material type span a factor of 10.77 (2.6 kJ/m² (3DJAKE) to 28 kJ/m² (Anycubic)). The median holds — the middle quartile sits within a factor of 2.89 — but the range is part of the answer and is recorded at the value."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.charpyUnnotchedXy"
+        ]
+      },
+      {
+        "id": "oq_spread_charpynotchedxy",
+        "question": {
+          "de": "charpyNotchedXy: Die 8 Blätter dieses Werkstofftyps liegen um Faktor 143 auseinander (0.3 kJ/m² (Extrudr) bis 43 kJ/m² (3DJAKE)). Der Median trägt, das mittlere Viertel liegt um Faktor 2.04 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
+          "en": "charpyNotchedXy: the 8 datasheets of this material type span a factor of 143 (0.3 kJ/m² (Extrudr) to 43 kJ/m² (3DJAKE)). The median holds — the middle quartile sits within a factor of 2.04 — but the range is part of the answer and is recorded at the value."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.charpyNotchedXy"
+        ]
       }
     ]
   }

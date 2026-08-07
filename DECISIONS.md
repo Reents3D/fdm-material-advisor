@@ -2079,6 +2079,133 @@ Grenze wieder nahe ist.
 
 ---
 
+## ADR-042 — Der Werkstoffwert ist der Median seiner Blätter, nicht das zuerst importierte
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `scripts/derive-mechanics.mjs`,
+`scripts/derive-service-temperature.mjs`, `tests/data/type-median.test.ts`, alle 43 Datensätze
+
+### Der Befund
+
+Von 288 Kennwerten auf der Werkstoffebene trugen **199 die Quelle `src_bambu_tds`**. Nicht
+weil Bambu Lab besser misst, sondern weil Bambu zuerst importiert wurde: Jedes Importskript
+schrieb den Werkstoffwert aus dem Blatt, das gerade auf dem Tisch lag, und das nächste liess
+ihn stehen. Die 254 Produktdatenblätter, die seither dazukamen, sind auf der Werkstoffebene
+nie angekommen.
+
+Was das im Betrieb hiess, zeigt PETG am deutlichsten:
+
+| | |
+|---|---|
+| Bruchdehnung, geführter Wert | **9,5 %** (Bambu PETG Basic, `medium`) |
+| 17 Blätter im selben Repository | 5 bis 150 %, Median **23,5 %** |
+
+Wer im Assistenten „zäh" gewichtete, bekam PETG mit der Bruchdehnung EINES Herstellers
+bewertet, während das Werkzeug siebzehn kannte. Dieselbe Stelle trug eine offene Frage:
+*„Zweite unabhängige Herstellerquelle ergänzen — derzeit beruht der gesamte Kennwertsatz auf
+einem einzigen Datenblatt."* Die zweite Quelle lag die ganze Zeit im Repository. Solche
+Fragen standen bei 16 Werkstoffen.
+
+### Die Entscheidung
+
+Ein Werkstofftyp ist keine Rezeptur, sondern eine **Familie von Rezepturen**. Sein Kennwert
+ist deshalb der **Median** der vergleichbaren Blätter, und seine eigentliche Aussage ist die
+**Spanne**. `min`/`max` waren im Schema von Anfang an als „realistische Spanne ÜBER
+HERSTELLER HINWEG" beschrieben — benutzt hat sie bis dahin nur der Preis.
+
+**Was nicht zusammen gemittelt wird**
+
+| Ausschluss | Grund |
+|---|---|
+| Spritzguss zu gedruckt | beantwortet nicht die Frage, für die dieses Werkzeug gebaut ist |
+| ISO 37 zu ISO 527 | Elastomer-Zugprüfung mit Hantelkörper, andere Geometrie — betrifft TPU |
+| fremde Einheit | Izod in J/m und Charpy in kJ/m² trennt die Prüfkörperdicke, die kein Blatt nennt |
+| abgeschriebene Zahlen | `sharedLineage` (ADR-038): drei Blätter mit demselben Zifferblock sind ein Beleg, nicht drei |
+
+Der letzte Punkt ist keine Feinheit. Ohne ihn zöge jede weitergereichte Herstellertabelle den
+Median zu sich: Bei `pa6-cf` standen zwei der vier HDT-Werte auf derselben Compoundtabelle
+(Spectrum und FormFutura, beide 65 °C) und hätten den Median um 20 K verschoben.
+
+**Wann es keinen Median gibt.** Nicht die Gesamtspanne entscheidet das, sondern ob die MITTE
+zusammenhält. Bruchdehnung und Schlagzähigkeit streuen innerhalb einer Polymerfamilie zu
+Recht um eine Grössenordnung — PLA von 2 bis 28 % ist Rezepturvielfalt, kein Fehler. Läuft
+dagegen schon das mittlere Viertel um mehr als Faktor 4 auseinander (unter sechs Blättern:
+eine ganze Grössenordnung), steht dort keine Zahl, sondern eine offene Frage. Das traf
+sechsmal zu, am deutlichsten bei `tpu-95a`: fünf Blätter nennen E-Moduln von 9,2 bis
+1.190 MPa — Faktor 129. Unter dieser ID stehen zwei verschiedene Werkstoffe.
+
+**Was bestehen bleibt.** Ein Wert mit Konfidenz `high` wird NICHT ersetzt; er stammt aus
+einer Messung mit ausgewiesener Streuung und beiden Orientierungen. Er bekommt die Spanne
+dazu — die Zahl bleibt, der Kontext kommt hinzu. Und `high` wird nie NEU vergeben: Der Median
+über Marken ist eine Aussage über den Typ, keine Messung. Das Ceiling von
+`src_type_datasheets` steht deshalb auf `medium`.
+
+### Was der Lauf gegen sich selbst prüft
+
+R2 (Z nie über X-Y), R3 (HDT-A nie weit über Tg), R4 (HDT-A nie über HDT-B) und R10
+(Anisotropie quellenrein) sind Aussagen über EINEN Datensatz. Ein Median je Feld kann sie
+brechen, weil die Felder aus unterschiedlichen Blättersätzen stammen. Jede Schreibung wird
+deshalb probegerechnet und im Konfliktfall verworfen — mit Meldung. Drei Fälle sind so
+stehen geblieben, darunter `petg tensileModulusXy`, dessen Median unter den bereits
+geführten Z-Modul gerutscht wäre.
+
+Verglichen wird dabei gegen den ZUSTAND VORHER, nicht gegen Null: Ein Datensatz, der mit
+einer dokumentierten Datenblatt-Anomalie lebt, darf daran nicht jede andere Schreibung
+scheitern lassen. Der erste Entwurf tat genau das und verwarf bei `pc` die Dichte wegen
+einer HDT-Auffälligkeit.
+
+### Die Nachwirkung, die fast durchgerutscht wäre
+
+Notizen zitieren Nachbarwerte. Wandert der Nachbar, wird die Notiz still falsch — und sie
+bleibt schemakonform, plausibel und belegt. Der Lauf meldet solche Stellen deshalb (15 waren
+es), und für die grösste Gruppe gibt es einen eigenen Schritt:
+
+`thermal.recommendedMaxServiceTemperature` ist der einzige Temperaturwert, den nicht ein
+Hersteller nennt, sondern dieses Projekt verantwortet. Seine Notiz nennt die Rechnung offen
+(„HDT-A 84 °C abzüglich 15 K"). Dabei fiel auf, dass die Rechnung nie ganz aufging: 84 − 15
+= 69, geführt waren 70. Bei allen sieben Werkstoffen ist der Wert **auf fünf gerundet** —
+sinnvoll, aber nirgends dokumentiert. Jetzt steht es in `derive-service-temperature.mjs`.
+
+**Und die Grenze steht auf dem NIEDRIGSTEN Blatt, nicht auf dem Median.** Der erste Versuch
+setzte einfach den neuen Medianwert ein; PETG stieg damit von 55 auf 65 °C, weil der Median
+seiner zehn Glasübergänge bei 75 °C liegt. Diese zehn zerfallen aber in zwei Gruppen — 65,5
+bis 70 bei Bambu, Sunlu und add:north V0, dann 80 bei Fiberlogy, Nebula und add:north. Die
+75 ist der Punkt DAZWISCHEN, den kein Blatt misst. Eine Empfehlung, die ausdrücklich
+„konservativ" heisst, darauf zu stellen, ist ein Widerspruch in sich. Gefangen hat das ein
+bestehender Test, nicht die Überlegung.
+
+### Was sich messbar geändert hat
+
+| | |
+|---|---|
+| Felder geschrieben | 243 — davon **131 Lücken geschlossen**, 108 ersetzt, 4 nur um die Spanne ergänzt |
+| Belegte Aussagen | 3.051 → **3.182** |
+| Verweigert (Mitte läuft auseinander) | 6, jede mit offener Frage |
+| Verworfen (hätte eine Regel gebrochen) | 3, jede gemeldet |
+| Beantwortete `oq_second_source` | 16 |
+| Neue `oq_spread_*` | 12 |
+
+Die grössten Korrekturen: `pa6-cf` E-Modul 4.430 → 9.000 MPa, `pa6-cf` HDT-A 164 → 105 °C
+(Bambus 164 gilt für getemperte Prüfkörper), `petg` Bruchdehnung 9,5 → 23,5 %, `pla`
+Zugfestigkeit 35 → 45,8 MPa. Die Dauergebrauchsempfehlung von `pa6-cf` fiel von 150 auf
+50 °C — 150 °C stand für ein dauerhaft belastetes PA6-Bauteil ohnehin nie zur Debatte.
+
+### Was daran unbequem ist
+
+Viele Werte sind von `medium` auf `low` gefallen, obwohl jetzt mehr Blätter dahinterstehen.
+Das ist Absicht: Die Konfidenz beschreibt, wie sehr man sich auf DIE ZAHL verlassen kann,
+und bei einer Spanne von Faktor 2,7 kann man das eben nicht. Wer die Zahl braucht, findet
+danebem die Spanne; wer ein bestimmtes Produkt einsetzt, liest dessen Blatt.
+
+### Warum ein Test und nicht nur ein Skript
+
+Eine Ableitung, die nur beim Ausführen stimmt, ist keine. `tests/data/type-median.test.ts`
+rechnet sie mit derselben Funktion nach, die sie schreibt — neun Prüfungen, die anschlagen,
+sobald jemand einen Wert von Hand ändert, ein Blatt nachträgt oder ein Importskript einen
+Werkstoff neu schreibt. Dafür ist `derive-mechanics.mjs` importierbar geworden: Der Hauptlauf
+steht in einer Funktion, die nur bei Direktaufruf startet.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

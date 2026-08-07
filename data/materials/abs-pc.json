@@ -26,35 +26,63 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.13,
+      "value": 1.08,
       "unit": "g/cm³",
-      "testStandard": "ASTM D792",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 1183",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.05 g/cm³ (FormFutura) bis 1.17 g/cm³ (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (3), ASTM D792 (1). Nicht mitgezählt: 1× Spritzguss, 1× zifferngleich weitergereicht.",
+        "en": "Median of 4 manufacturer datasheets, range 1.05 g/cm³ (FormFutura) to 1.17 g/cm³ (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 1183 (3), ASTM D792 (1). Not counted: 1× moulded, 1× passed on digit-identical."
+      },
+      "min": 1.05,
+      "max": 1.17,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 54,
+      "value": 43.55,
       "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 40 MPa (SUNLU) bis 60 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss, 1× zifferngleich weitergereicht.",
+        "en": "Median of 4 manufacturer datasheets, range 40 MPa (SUNLU) to 60 MPa (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded, 1× passed on digit-identical."
+      },
+      "min": 40,
+      "max": 60,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "elongationAtBreakXy": {
-      "value": 4.4,
+      "value": 9,
       "unit": "%",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 7 % (Fillamentum) bis 50 % (Spectrum). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss.",
+        "en": "Median of 4 manufacturer datasheets, range 7 % (Fillamentum) to 50 % (Spectrum). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded."
+      },
+      "min": 7,
+      "max": 50,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusXy": {
-      "value": 2400,
+      "value": 2300,
       "unit": "MPa",
       "testStandard": "ISO 178",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2452 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (2), ASTM D790 (1). Nicht mitgezählt: 1× Spritzguss.",
+        "en": "Median of 3 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2452 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 178 (2), ASTM D790 (1). Not counted: 1× moulded."
+      },
+      "min": 2000,
+      "max": 2452,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "toughness": {
       "value": 3,
@@ -67,6 +95,72 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "tensileModulusXy": {
+      "value": 2425,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2850 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 2 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2850 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 2000,
+      "max": 2850,
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthXy": {
+      "value": 71.3,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 68 MPa (Fillamentum) bis 110 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (3), ASTM D790 (1). Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 4 manufacturer datasheets, range 68 MPa (Fillamentum) to 110 MPa (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 178 (3), ASTM D790 (1). Not counted: 1× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 68,
+      "max": 110,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "charpyNotchedXy": {
+      "value": 53,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 55,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 35 kJ/m² (FormFutura) bis 70 kJ/m² (SUNLU). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 35 kJ/m² (FormFutura) to 70 kJ/m² (SUNLU). Specimens: 1 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 35,
+      "max": 70,
+      "testStandard": "ISO 180"
+    },
+    "hardnessShoreD": {
+      "value": 80,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: SUNLU. Specimens: all printed."
+      },
+      "testStandard": "ISO 868"
     }
   },
   "thermal": {
@@ -94,6 +188,19 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
         "en": "Our own conservative recommendation with margin to the softening limit."
       }
+    },
+    "vicatB50": {
+      "value": 109,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 104 °C (Spectrum) bis 113 °C (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 104 °C (Spectrum) to 113 °C (Fillamentum). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "min": 104,
+      "max": 113,
+      "testStandard": "ISO 306"
     }
   },
   "processing": {
@@ -598,6 +705,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -610,18 +728,6 @@
         "blocking": false,
         "affectsFields": [
           "mechanics"
-        ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
         ]
       }
     ]

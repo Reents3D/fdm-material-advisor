@@ -32,41 +32,56 @@
       "value": 1.21,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": [
-        "src_extrudr_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "min": 1.04,
-      "max": 1.3,
+      "min": 1.14,
+      "max": 1.34,
       "note": {
-        "de": "Spanne: Marktkorridor über 13 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 13 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.14 g/cm³ (Bambu Lab) bis 1.34 g/cm³ (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 1.14 g/cm³ (Bambu Lab) to 1.34 g/cm³ (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
       }
     },
     "tensileStrengthXy": {
-      "value": 55,
-      "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "tensileModulusXy": {
-      "value": 2400,
+      "value": 75,
       "unit": "MPa",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 55 MPa (Extrudr) bis 80 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 55 MPa (Extrudr) to 80 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 55,
+      "max": 80
+    },
+    "tensileModulusXy": {
+      "value": 2850,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 2400 MPa (Extrudr) bis 5500 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 2400 MPa (Extrudr) to 5500 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 2400,
+      "max": 5500
     },
     "elongationAtBreakXy": {
       "value": 3.8,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 3.5 % (FormFutura) bis 3.9 % (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 3.5 % (FormFutura) to 3.9 % (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 3.5,
+      "max": 3.9
     },
     "izodNotchedXy": {
       "value": 5.2,
@@ -115,6 +130,134 @@
         "de": "Senkrecht zur Schicht bleiben 36 % der Zugfestigkeit erhalten (27 von 75 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PA6-GF — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
         "en": "Perpendicular to the layers 36 % of the tensile strength remains (27 of 75 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PA6-GF — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 123,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 120 MPa (Bambu Lab) bis 125 MPa (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 120 MPa (Bambu Lab) to 125 MPa (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 120,
+      "max": 125,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 4085,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 3670 MPa (Bambu Lab) bis 4500 MPa (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 3670 MPa (Bambu Lab) to 4500 MPa (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 3670,
+      "max": 4500,
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 16.1,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 7.2 kJ/m² (Bambu Lab) bis 25 kJ/m² (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 7.2 kJ/m² (Bambu Lab) to 25 kJ/m² (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 7.2,
+      "max": 25,
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 11,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 4 kJ/m² (FormFutura) bis 18 kJ/m² (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 4 kJ/m² (FormFutura) to 18 kJ/m² (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 4,
+      "max": 18,
+      "testStandard": "ISO 179"
+    },
+    "tensileStrengthZ": {
+      "value": 27,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "tensileModulusZ": {
+      "value": 1950,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "elongationAtBreakZ": {
+      "value": 2.3,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthZ": {
+      "value": 51,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusZ": {
+      "value": 2300,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedZ": {
+      "value": 4.1,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -144,6 +287,28 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": 67,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
+    },
+    "meltingTemperature": {
+      "value": 219,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -693,6 +858,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -705,18 +881,6 @@
         "blocking": false,
         "affectsFields": [
           "mechanics"
-        ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
         ]
       }
     ]

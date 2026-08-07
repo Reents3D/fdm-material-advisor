@@ -29,44 +29,60 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.01,
+      "value": 1.1,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
-      "source": [
-        "src_extrudr_tds",
-        "src_ofd"
-      ],
+      "testStandard": "ISO 527",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "min": 1.01,
-      "max": 1.18,
+      "min": 0.99,
+      "max": 1.3,
       "note": {
-        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 7 Herstellerblättern, Spanne 0.99 g/cm³ (Fillamentum) bis 1.3 g/cm³ (add:north). Prüfkörper: 0 von 7 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (4), ISO 1183 (2).",
+        "en": "Median of 7 manufacturer datasheets, range 0.99 g/cm³ (Fillamentum) to 1.3 g/cm³ (add:north). Specimens: 0 of 7 printed, remainder undeclared. Mixed test standards: ISO 527 (4), ISO 1183 (2)."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 43,
-      "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "tensileModulusXy": {
-      "value": 1440,
+      "value": 50,
       "unit": "MPa",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 43 MPa (Extrudr) bis 58 MPa (add:north). Prüfkörper: 0 von 7 gedruckt, Rest undeklariert.",
+        "en": "Median of 7 manufacturer datasheets, range 43 MPa (Extrudr) to 58 MPa (add:north). Specimens: 0 of 7 printed, remainder undeclared."
+      },
+      "min": 43,
+      "max": 58
+    },
+    "tensileModulusXy": {
+      "value": 1460,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 510 MPa (Fillamentum) bis 1720 MPa (add:north). Prüfkörper: 0 von 7 gedruckt, Rest undeklariert.",
+        "en": "Median of 7 manufacturer datasheets, range 510 MPa (Fillamentum) to 1720 MPa (add:north). Specimens: 0 of 7 printed, remainder undeclared."
+      },
+      "min": 510,
+      "max": 1720
     },
     "elongationAtBreakXy": {
-      "value": 50,
+      "value": 46,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 5.8 % (Fillamentum) bis 50 % (Extrudr). Prüfkörper: 0 von 7 gedruckt, Rest undeklariert.",
+        "en": "Median of 7 manufacturer datasheets, range 5.8 % (Fillamentum) to 50 % (Extrudr). Specimens: 0 of 7 printed, remainder undeclared."
+      },
+      "min": 5.8,
+      "max": 50
     },
     "toughness": {
       "value": 5,
@@ -91,6 +107,58 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "flexuralStrengthXy": {
+      "value": 59.25,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 52 MPa (add:north) bis 81 MPa (add:north). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert.",
+        "en": "Median of 4 manufacturer datasheets, range 52 MPa (add:north) to 81 MPa (add:north). Specimens: 0 of 4 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 52,
+      "max": 81,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 1981,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1425 MPa (add:north) bis 3650 MPa (add:north). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert.",
+        "en": "Median of 4 manufacturer datasheets, range 1425 MPa (add:north) to 3650 MPa (add:north). Specimens: 0 of 4 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 1425,
+      "max": 3650,
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 53.2,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 11,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Extrudr. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Extrudr. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -103,12 +171,18 @@
       "confidence": "medium"
     },
     "hdtB": {
-      "value": 135,
+      "value": 120,
       "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
+      "testStandard": "ISO 75",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 105 °C (add:north) bis 145 °C (add:north). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert.",
+        "en": "Median of 4 manufacturer datasheets, range 105 °C (add:north) to 145 °C (add:north). Specimens: 0 of 4 printed, remainder undeclared."
+      },
+      "min": 105,
+      "max": 145
     },
     "vicatB50": {
       "value": 142,
@@ -128,6 +202,19 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": 51,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 51 °C (add:north) bis 51 °C (add:north). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 51 °C (add:north) to 51 °C (add:north). Specimens: 0 of 3 printed, remainder undeclared."
+      },
+      "min": 51,
+      "max": 51,
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -657,6 +744,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -669,18 +767,6 @@
         "blocking": false,
         "affectsFields": [
           "mechanics"
-        ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
         ]
       }
     ]

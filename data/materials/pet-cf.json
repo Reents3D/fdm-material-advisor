@@ -220,6 +220,30 @@
         "de": "Senkrecht zur Schicht bleiben im Median 34 % der Zugfestigkeit erhalten — die Blätter reichen aber von 20 bis 47 %, also um den Faktor 2.39 auseinander: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
         "en": "Perpendicular to the layers a median of 34 % of the tensile strength remains — but the sheets range from 20 to 47 %, a factor of 2.39 apart: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here. Anyone using a specific product should read its sheet rather than this median."
       }
+    },
+    "charpyNotchedXy": {
+      "value": 5.4,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 5.7,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 180"
     }
   },
   "thermal": {
@@ -977,6 +1001,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [

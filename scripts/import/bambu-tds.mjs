@@ -556,8 +556,16 @@ function buildMaterial(id, d, m) {
   if (d.hdtB != null) thermal.hdtB = q(d.hdtB, "°C", { std: "ISO 75, 0.45 MPa", source: SRC, confidence: d.hdtInverted ? "low" : "medium" });
   if (d.hdtInverted) {
     const n = t(
-      "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-      "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence.");
+      "Widerspruch IM BLATT: Bambu meldet die HDT bei 1,8 MPa (117 °C) höher als die eigene bei "
+      + "0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind "
+      + "vertauscht oder an verschiedenen Chargen gemessen. Beide hier mit niedriger Konfidenz geführt. "
+      + "Der Abgleich mit den übrigen Blättern (ADR-042) kann die HDT-B auf mehrere Quellen stellen und "
+      + "die Reihenfolge damit heilen - der Widerspruch dieses Blattes bleibt davon unberührt.",
+      "Contradiction WITHIN THE SHEET: Bambu reports HDT at 1.8 MPa (117 °C) above its own at "
+      + "0.45 MPa (112 °C). A higher load must give a lower temperature - the two are swapped or "
+      + "measured on different batches. Both are carried here with low confidence. Reconciliation with "
+      + "the remaining sheets (ADR-042) may put HDT-B on several sources and heal the ordering - the "
+      + "contradiction in this sheet is untouched by that.");
     thermal.hdtA.note = n; thermal.hdtB.note = n;
   }
   if (d.vicat != null) thermal.vicatB50 = q(d.vicat, "°C", { std: "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)", source: SRC, confidence: "low" });
@@ -789,8 +797,10 @@ function buildMaterial(id, d, m) {
       blocking: false, affectsFields: ["mechanics", "thermal"] },
   ];
   if (d.hdtInverted) oq.push({ id: "oq_hdt_inverted", question: t(
-      "Bambu meldet HDT bei 1,8 MPa höher als bei 0,45 MPa. Beim Hersteller klären oder durch eine zweite Quelle ersetzen.",
-      "Bambu reports HDT at 1.8 MPa higher than at 0.45 MPa. Clarify with the manufacturer or replace with a second source."),
+      "Bambu meldet HDT bei 1,8 MPa höher als bei 0,45 MPa. Eine zweite Quelle für die HDT-A beschaffen "
+      + "oder beim Hersteller klären - der Abgleich nach ADR-042 kann nur die HDT-B breiter stellen.",
+      "Bambu reports HDT at 1.8 MPa higher than at 0.45 MPa. Obtain a second source for HDT-A or clarify "
+      + "with the manufacturer - the reconciliation per ADR-042 can only broaden HDT-B."),
     blocking: false, affectsFields: ["thermal.hdtA", "thermal.hdtB"] });
   if (d.imXY && d.imZ && d.imZ[0] > d.imXY[0]) oq.push({ id: "oq_impact_inverted", question: t(
       "Das Datenblatt weist in Z eine höhere Schlagzähigkeit aus als in X-Y. Kerbzustand der Z-Prüfkörper klären.",

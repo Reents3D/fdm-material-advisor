@@ -90,6 +90,30 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "tensileModulusXy": {
+      "value": 100,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Spectrum. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Spectrum. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthXy": {
+      "value": 5,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Spectrum. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Spectrum. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
     }
   },
   "thermal": {
@@ -631,6 +655,17 @@
         "note": {
           "de": "Skalenwerte und konservative Dauergebrauchstemperaturen. Ausdrücklich als Schätzung gekennzeichnet.",
           "en": "Scale values and conservative continuous service temperatures. Explicitly flagged as estimates."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       }
     ]

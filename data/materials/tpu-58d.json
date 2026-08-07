@@ -76,6 +76,20 @@
       "scale": "fatigueResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "tensileModulusXy": {
+      "value": 37.5,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 35 MPa (Extrudr) bis 40 MPa (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 35 MPa (Extrudr) to 40 MPa (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 35,
+      "max": 40,
+      "testStandard": "ISO 527"
     }
   },
   "thermal": {
@@ -97,6 +111,18 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": -24,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne -24 °C (Extrudr) bis -24 °C (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range -24 °C (Extrudr) to -24 °C (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "min": -24,
+      "max": -24
     }
   },
   "processing": {
@@ -577,6 +603,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [

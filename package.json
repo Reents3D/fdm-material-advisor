@@ -75,10 +75,13 @@
     "check:lineage": "node scripts/check-lineage.ts",
     "derive:lineage": "node scripts/derive-lineage.ts",
     "normalize:sources": "node scripts/normalize-sources.mjs",
-    "derive:all": "npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:anisotropy && npm run derive:price && npm run derive:lineage && npm run import:ofd-spools && npm run import:ofd-processing && npm run apply:field && npm run normalize:sources",
+    "derive:all": "npm run derive:mechanics && npm run derive:service-temp && npm run derive:chemicals && npm run derive:xxl && npm run derive:flame && npm run derive:anisotropy && npm run derive:price && npm run derive:lineage && npm run import:ofd-spools && npm run import:ofd-processing && npm run apply:field && npm run normalize:sources",
     "derive:anisotropy": "node scripts/derive-anisotropy.mjs",
     "import:formfutura-types": "node scripts/import/formfutura-types.mjs",
-    "import:anycubic": "node scripts/import/anycubic.mjs"
+    "import:anycubic": "node scripts/import/anycubic.mjs",
+    "derive:mechanics": "node scripts/derive-mechanics.mjs",
+    "derive:service-temp": "node scripts/derive-service-temperature.mjs",
+    "report:coverage": "node scripts/coverage-report.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -31,18 +31,16 @@
     "density": {
       "value": 1.2,
       "unit": "g/cm³",
-      "source": [
-        "src_bambu_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 1183",
-      "min": 1.1,
-      "max": 1.2,
+      "testStandard": "ISO 527",
+      "min": 1.2,
+      "max": 1.3,
       "note": {
-        "de": "Spanne: Marktkorridor über 34 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 34 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (Bambu Lab) bis 1.3 g/cm³ (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (1), ISO 1183 (1), ASTM D792 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 1.2 g/cm³ (Bambu Lab) to 1.3 g/cm³ (add:north). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 527 (1), ISO 1183 (1), ASTM D792 (1)."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
       "value": 62,
@@ -230,15 +228,18 @@
       }
     },
     "hdtB": {
-      "value": 112,
+      "value": 139,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "low",
-      "testStandard": "ISO 75, 0.45 MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "testStandard": "ISO 75",
       "note": {
-        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
-      }
+        "de": "Median aus 3 Herstellerblättern, Spanne 112 °C (Bambu Lab) bis 185 °C (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (2), ASTM D648 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 112 °C (Bambu Lab) to 185 °C (add:north). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 75 (2), ASTM D648 (1)."
+      },
+      "min": 112,
+      "max": 185,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "vicatB50": {
       "value": 119,
@@ -274,8 +275,8 @@
       "max": 140,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: Glasübergang 145 °C abzüglich 12 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 112 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 112 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: glass transition 145 °C less 12 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 112 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 112 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: Glasübergang 145 °C abzüglich 12 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 139 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 139 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: glass transition 145 °C less 12 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 139 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 139 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     },
     "annealing": {
@@ -934,21 +935,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      },
       {
         "id": "oq_hdt_inverted",
         "question": {

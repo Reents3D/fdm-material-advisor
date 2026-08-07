@@ -140,19 +140,24 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
   it("die konservative Schätzung warnt, der Datenblattwert entscheidet", () => {
     /* Der Befund aus der Werkstatt: Der Anwendungsfall "Messebau-Grossteil" fordert
        50 °C und schloss damit PLA aus - auf Basis einer GESCHAETZTEN
-       Dauergebrauchstemperatur von 40 °C. Gemessen sind bei PLA aber HDT-B 57 °C.
+       Dauergebrauchstemperatur. Gemessen sind bei PLA aber 55 °C HDT-B.
        Fuer ein unbelastetes Messemodell traegt das. Seither gilt: Nur ein belegter
-       Wert darf ausschliessen, die Schaetzung warnt. */
+       Wert darf ausschliessen, die Schaetzung warnt.
+
+       Die Zahlen sind am 2026-08-07 gewandert (HDT-B 57 -> 55, Schaetzung 40 -> 35), weil
+       der Werkstoffwert seither der Median von 43 Blaettern ist statt Bambus Einzelwert
+       (ADR-042) und die konservative Empfehlung auf dem NIEDRIGSTEN Blatt steht. Der Fall,
+       den dieser Test haelt, ist derselbe geblieben: 50 °C liegt zwischen beiden Zahlen. */
     const pla = byId("pla")!;
     expect(pla.thermal!.recommendedMaxServiceTemperature!.confidence).toBe("estimated");
     expect(pla.thermal!.hdtB!.confidence).not.toBe("estimated");
 
-    // 50 °C: Schaetzung (40) reisst, Datenblatt (57) traegt -> drin, mit Warnung.
+    // 50 °C: Schaetzung (35) reisst, Datenblatt (55) traegt -> drin, mit Warnung.
     const tight = evaluateConstraints(pla, { serviceTemperatureC: 50 })
       .find((c) => c.constraintId === "serviceTemperature")!;
     expect(tight.passed).toBe(true);
     expect(tight.key).toBe("constraint.temperature.tight");
-    expect(tight.params.documented).toBe(57);
+    expect(tight.params.documented).toBe(55);
 
     // 90 °C: auch das Datenblatt reisst -> weiterhin Ausschluss.
     const hard = evaluateConstraints(pla, { serviceTemperatureC: 90 })
@@ -192,7 +197,7 @@ describe("Die Temperaturgrenze folgt der Last, nicht dem Polymer", () => {
     const v = tempVerdict(petg(), { serviceTemperatureC: 60, thermalLoad: "none" });
     expect(v.passed).toBe(true);
     expect(v.key).toBe("constraint.temperature.passUnloaded");
-    expect(v.params.documented).toBe(71); // HDT-B aus dem Datenblatt
+    expect(v.params.documented).toBe(69.5); // HDT-B, Median aus 12 Blaettern (ADR-042)
   });
 
   it("unter Dauerlast bleibt der Vorbehalt — und nennt den konstruktiven Ausweg", () => {
@@ -677,7 +682,13 @@ describe("Scoring", () => {
   });
 
   it("fehlende Daten werden NICHT als 0 gewertet", () => {
-    const tpu = byId("tpu-95a")!;
+    /* Stand bis 2026-08-07 auf `tpu-95a`. Der bekam beim Abgleich gegen die Produktblaetter
+       eine HDT-B aus drei Blaettern (ADR-042) und taugt seither nicht mehr als Beispiel fuer
+       eine Luecke - der Test wurde gruen, weil die Daten besser wurden, nicht weil die Regel
+       noch geprueft wurde. `tpu-98a` fuehrt weiterhin keinen einzigen Temperaturkennwert;
+       kein Hersteller veroeffentlicht fuer ein Shore-98A-Elastomer eine Formbestaendigkeit. */
+    const tpu = byId("tpu-98a")!;
+    expect(tpu.thermal?.hdtA?.value ?? tpu.thermal?.hdtB?.value ?? null).toBeNull();
     const s = scoreMaterial(tpu, { weights: { temperature: 5 } }, table);
     expect(s.criteria.find((c) => c.criterionId === "temperature")!.score).toBeNull();
     expect(s.dataGaps).toContain("temperature");

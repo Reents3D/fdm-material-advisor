@@ -123,6 +123,48 @@
         "de": "Gute Gleit- und Verschleisseigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
         "en": "Good sliding and wear properties even without lubrication — the classic use for bearing bushes and gears."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 105,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 98 MPa (SUNLU) bis 112 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 98 MPa (SUNLU) to 112 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 98,
+      "max": 112,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "flexuralModulusXy": {
+      "value": 2575,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 2350 MPa (SUNLU) bis 2800 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 2350 MPa (SUNLU) to 2800 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 2350,
+      "max": 2800,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "charpyNotchedXy": {
+      "value": 6.8,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -178,6 +220,17 @@
         "de": "Konservativ angesetzt und bewusst nicht an der HDT-B orientiert. Oberhalb des Glasübergangs kriecht das Material unter Dauerlast.",
         "en": "Set conservatively and deliberately not oriented on HDT-B. Above the glass transition the material creeps under sustained load."
       }
+    },
+    "vicatB50": {
+      "value": 135,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: SUNLU. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ASTM D1525"
     }
   },
   "processing": {
@@ -700,6 +753,17 @@
         "note": {
           "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
           "en": "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       }
     ],

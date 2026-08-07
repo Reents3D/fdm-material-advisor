@@ -32,29 +32,31 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.09,
+      "value": 1.18,
       "unit": "g/cm³",
-      "source": [
-        "src_bambu_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
       "testStandard": "ISO 1183",
-      "min": 1.06,
+      "min": 1.09,
       "max": 1.24,
       "note": {
-        "de": "Spanne: Marktkorridor über 26 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 26 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Median aus 5 Herstellerblättern, Spanne 1.09 g/cm³ (Bambu Lab) bis 1.24 g/cm³ (AzureFilm). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 1.09 g/cm³ (Bambu Lab) to 1.24 g/cm³ (AzureFilm). Specimens: 2 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
       }
     },
     "tensileStrengthXy": {
-      "value": 102,
+      "value": 120,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 7,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 60 MPa (Extrudr) bis 170 MPa (SUNLU). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 60 MPa (Extrudr) to 170 MPa (SUNLU). Specimens: 2 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 60,
+      "max": 170
     },
     "tensileStrengthZ": {
       "value": 48,
@@ -66,13 +68,18 @@
       "orientation": "Z"
     },
     "tensileModulusXy": {
-      "value": 4430,
+      "value": 9000,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 310,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 4430 MPa (Bambu Lab) bis 11500 MPa (AzureFilm). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 4430 MPa (Bambu Lab) to 11500 MPa (AzureFilm). Specimens: 1 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 4430,
+      "max": 11500
     },
     "tensileModulusZ": {
       "value": 2170,
@@ -84,13 +91,18 @@
       "orientation": "Z"
     },
     "elongationAtBreakXy": {
-      "value": 5.8,
+      "value": 4,
       "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.6,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 2 % (AzureFilm) bis 10 % (SUNLU). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 2 % (AzureFilm) to 10 % (SUNLU). Specimens: 2 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 2,
+      "max": 10
     },
     "elongationAtBreakZ": {
       "value": 3.7,
@@ -102,13 +114,18 @@
       "orientation": "Z"
     },
     "flexuralStrengthXy": {
-      "value": 151,
+      "value": 180,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 8,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 151 MPa (Bambu Lab) bis 245 MPa (SUNLU). Prüfkörper: 2 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 151 MPa (Bambu Lab) to 245 MPa (SUNLU). Specimens: 2 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 151,
+      "max": 245
     },
     "flexuralStrengthZ": {
       "value": 80,
@@ -120,13 +137,18 @@
       "orientation": "Z"
     },
     "flexuralModulusXy": {
-      "value": 5460,
+      "value": 8000,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 280,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 5460 MPa (Bambu Lab) bis 11000 MPa (SUNLU). Prüfkörper: 2 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 5460 MPa (Bambu Lab) to 11000 MPa (SUNLU). Specimens: 2 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 5460,
+      "max": 11000
     },
     "flexuralModulusZ": {
       "value": 2240,
@@ -138,13 +160,18 @@
       "orientation": "Z"
     },
     "charpyUnnotchedXy": {
-      "value": 13.4,
+      "value": 35,
       "unit": "kJ/m²",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.7,
-      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 13.4 kJ/m² (Bambu Lab) bis 60 kJ/m² (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 13.4 kJ/m² (Bambu Lab) to 60 kJ/m² (FormFutura). Specimens: 1 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 13.4,
+      "max": 60
     },
     "charpyUnnotchedZ": {
       "value": 15.5,
@@ -217,22 +244,73 @@
       "scale": "fatigueResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyNotchedXy": {
+      "value": 10,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 4 kJ/m² (FormFutura) bis 16 kJ/m² (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 2 manufacturer datasheets, range 4 kJ/m² (FormFutura) to 16 kJ/m² (Extrudr). Specimens: 0 of 2 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 4,
+      "max": 16,
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 7.35,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 5 kJ/m² (Extrudr) bis 9.7 kJ/m² (SUNLU). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 5 kJ/m² (Extrudr) to 9.7 kJ/m² (SUNLU). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 5,
+      "max": 9.7,
+      "testStandard": "ISO 180"
+    },
+    "hardnessShoreD": {
+      "value": 84,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: SUNLU. Specimens: all printed."
+      },
+      "testStandard": "ISO 868"
     }
   },
   "thermal": {
     "hdtA": {
-      "value": 164,
+      "value": 105,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "testStandard": "ISO 75, 1.8 MPa"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 65 °C (FormFutura) bis 164 °C (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 65 °C (FormFutura) to 164 °C (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 65,
+      "max": 164
     },
     "hdtB": {
-      "value": 186,
+      "value": 180,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "testStandard": "ISO 75, 0.45 MPa"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 90 °C (AzureFilm) bis 209 °C (SUNLU). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert.",
+        "en": "Median of 5 manufacturer datasheets, range 90 °C (AzureFilm) to 209 °C (SUNLU). Specimens: 2 of 5 printed, remainder undeclared."
+      },
+      "min": 90,
+      "max": 209
     },
     "glassTransition": {
       "value": 68,
@@ -249,16 +327,16 @@
       "testStandard": "DSC, 10 °C/min"
     },
     "recommendedMaxServiceTemperature": {
-      "value": 150,
+      "value": 50,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated",
-      "min": 140,
-      "max": 155,
+      "min": 40,
+      "max": 55,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 164 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 186 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 186 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 164 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 186 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 186 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 65 °C (niedrigster Blattwert; geführt ist der Median 105 °C) abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 180 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 180 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 65 °C (lowest datasheet figure; the median 105 °C is what the record carries) less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 180 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 180 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     },
     "annealing": {
@@ -991,21 +1069,20 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      },
       {
         "id": "oq_impact_inverted",
         "question": {

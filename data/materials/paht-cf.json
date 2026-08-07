@@ -97,6 +97,155 @@
         "de": "Senkrecht zur Schicht bleiben im Median 45 % der Zugfestigkeit erhalten — die Blätter reichen aber von 18 bis 73 %, also um den Faktor 4.12 auseinander: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
         "en": "Perpendicular to the layers a median of 45 % of the tensile strength remains — but the sheets range from 18 to 73 %, a factor of 4.12 apart: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here. Anyone using a specific product should read its sheet rather than this median."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 150,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 140 MPa (Bambu Lab) bis 161 MPa (Ultrafuse). Prüfkörper: alle gedruckt.",
+        "en": "Median of 2 manufacturer datasheets, range 140 MPa (Bambu Lab) to 161 MPa (Ultrafuse). Specimens: all printed."
+      },
+      "orientation": "XY",
+      "min": 140,
+      "max": 161,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 6189,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 4120 MPa (Bambu Lab) bis 8258 MPa (Ultrafuse). Prüfkörper: alle gedruckt.",
+        "en": "Median of 2 manufacturer datasheets, range 4120 MPa (Bambu Lab) to 8258 MPa (Ultrafuse). Specimens: all printed."
+      },
+      "orientation": "XY",
+      "min": 4120,
+      "max": 8258,
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 20.6,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt. Nicht mitgezählt: 3× Spritzguss.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed. Not counted: 3× moulded."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 4.8,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 4.9,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 180"
+    },
+    "tensileStrengthZ": {
+      "value": 41.1,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 18.2 MPa (Ultrafuse) bis 64 MPa (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 2 manufacturer datasheets, range 18.2 MPa (Ultrafuse) to 64 MPa (Bambu Lab). Specimens: all printed."
+      },
+      "orientation": "Z",
+      "min": 18.2,
+      "max": 64,
+      "testStandard": "ISO 527"
+    },
+    "tensileModulusZ": {
+      "value": 3532,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.5,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthZ": {
+      "value": 50.8,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusZ": {
+      "value": 2715,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedZ": {
+      "value": 2.9,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 179"
+    },
+    "hardnessShoreD": {
+      "value": 72,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "testStandard": "ISO 7619"
     }
   },
   "thermal": {
@@ -117,6 +266,55 @@
         "de": "Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe im ganzen Bestand.",
         "en": "Stated by the manufacturer with a time base — the most robust form of this figure in the entire database."
       }
+    },
+    "hdtB": {
+      "value": 170,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 145 °C (Ultrafuse) bis 194 °C (Bambu Lab). Prüfkörper: alle gedruckt.",
+        "en": "Median of 2 manufacturer datasheets, range 145 °C (Ultrafuse) to 194 °C (Bambu Lab). Specimens: all printed."
+      },
+      "min": 145,
+      "max": 194,
+      "testStandard": "ISO 75"
+    },
+    "vicatB50": {
+      "value": 205,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "testStandard": "ISO 306"
+    },
+    "glassTransition": {
+      "value": 70,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 70 °C (Bambu Lab) bis 70 °C (Bambu Lab). Prüfkörper: alle gedruckt. Prüfnormen gemischt: DSC (1), ISO 11357 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 70 °C (Bambu Lab) to 70 °C (Bambu Lab). Specimens: all printed. Mixed test standards: DSC (1), ISO 11357 (1)."
+      },
+      "min": 70,
+      "max": 70,
+      "testStandard": "DSC",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "meltingTemperature": {
+      "value": 234,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "testStandard": "ISO 11357"
     }
   },
   "processing": {
@@ -627,6 +825,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [

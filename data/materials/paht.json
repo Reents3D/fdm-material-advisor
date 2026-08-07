@@ -26,35 +26,59 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.15,
+      "value": 1.25,
       "unit": "g/cm³",
-      "testStandard": "ASTM D792",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 1183",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (LUVOCOM 3F) bis 1.49 g/cm³ (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Median of 3 manufacturer datasheets, range 1.2 g/cm³ (LUVOCOM 3F) to 1.49 g/cm³ (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "min": 1.2,
+      "max": 1.49
     },
     "tensileStrengthXy": {
-      "value": 85,
+      "value": 81.5,
       "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 55 MPa (LUVOCOM 3F) bis 85 MPa (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Median of 4 manufacturer datasheets, range 55 MPa (LUVOCOM 3F) to 85 MPa (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "min": 55,
+      "max": 85
     },
     "tensileModulusXy": {
       "value": 3400,
       "unit": "MPa",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 3400 MPa (LUVOCOM 3F) bis 6000 MPa (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Median of 4 manufacturer datasheets, range 3400 MPa (LUVOCOM 3F) to 6000 MPa (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "min": 3400,
+      "max": 6000
     },
     "elongationAtBreakXy": {
       "value": 3.6,
       "unit": "%",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.2 % (LUVOCOM 3F) bis 4.4 % (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Median of 4 manufacturer datasheets, range 1.2 % (LUVOCOM 3F) to 4.4 % (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "min": 1.2,
+      "max": 4.4
     },
     "toughness": {
       "value": 4,
@@ -79,15 +103,33 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyUnnotchedXy": {
+      "value": 90,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: LUVOCOM 3F. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: LUVOCOM 3F. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
     "hdtA": {
       "value": 90,
       "unit": "°C",
-      "testStandard": "ISO 75, 1.8 MPa",
-      "source": "src_m4p_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 75",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 90 °C (LUVOCOM 3F) bis 90 °C (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Median of 4 manufacturer datasheets, range 90 °C (LUVOCOM 3F) to 90 °C (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "min": 90,
+      "max": 90
     },
     "recommendedMaxServiceTemperature": {
       "value": 120,
@@ -590,6 +632,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
@@ -602,18 +655,6 @@
         "blocking": false,
         "affectsFields": [
           "mechanics"
-        ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
         ]
       },
       {

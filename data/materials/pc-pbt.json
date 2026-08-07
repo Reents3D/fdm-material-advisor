@@ -79,6 +79,48 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "flexuralStrengthXy": {
+      "value": 82.5,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 80 MPa (Extrudr) bis 85 MPa (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 80 MPa (Extrudr) to 85 MPa (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 80,
+      "max": 85,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 2750,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 2150 MPa (Extrudr) bis 3350 MPa (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 2150 MPa (Extrudr) to 3350 MPa (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 2150,
+      "max": 3350,
+      "testStandard": "ISO 178"
+    },
+    "charpyNotchedXy": {
+      "value": 62.5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 60 kJ/m² (Extrudr) bis 65 kJ/m² (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 60 kJ/m² (Extrudr) to 65 kJ/m² (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 60,
+      "max": 65,
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -584,6 +626,17 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
       }
     ],
     "openQuestions": [
