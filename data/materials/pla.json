@@ -190,6 +190,24 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.72,
+      "min": 0.32,
+      "max": 0.89,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Median aus 20 Produktblättern, Spanne 0.32 bis 0.89 — jeder Operand aus je EINEM Blatt",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben im Median 72 % der Zugfestigkeit erhalten — die Blätter reichen aber von 32 bis 89 %, also um den Faktor 2.74 auseinander: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). Bei dieser Zahl von Blättern bildet die Streuung überwiegend echte Produktunterschiede ab, nicht Messunsicherheit. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
+        "en": "Perpendicular to the layers a median of 72 % of the tensile strength remains — but the sheets range from 32 to 89 %, a factor of 2.74 apart: 0.89 (Alzament PLA Basic, 31/35 MPa) · 0.49 (Anycubic Anycubic PLA High Speed, 22.1/45 MPa) · 0.52 (Anycubic Anycubic PLA Matte, 12/23 MPa) · 0.53 (Anycubic Anycubic PLA+, 23.8/45 MPa) · 0.32 (Anycubic Anycubic PLA Silk, 12/37 MPa) · 0.58 (Anycubic Anycubic PLA, 28/48 MPa) · 0.54 (Bambu Lab Bambu PLA Aero, 14/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic Gradient, 32/36 MPa) · 0.68 (Bambu Lab Bambu PLA-CF, 26/38 MPa) · 0.81 (Bambu Lab Bambu PLA Galaxy, 21/26 MPa) · 0.81 (Bambu Lab Bambu PLA Glow, 26/32 MPa) · 0.86 (Bambu Lab Bambu PLA Marble, 36/42 MPa) · 0.78 (Bambu Lab Bambu PLA Matte, 25/32 MPa) · 0.85 (Bambu Lab Bambu PLA Metal, 39/46 MPa) · 0.67 (Bambu Lab Bambu PLA Silk Dual Color, 18/27 MPa) · 0.76 (Bambu Lab Bambu PLA Silk, 25/33 MPa) · 0.82 (Bambu Lab Bambu PLA Sparkle, 32/39 MPa) · 0.52 (Bambu Lab Bambu PLA Translucent, 28.9/55.4 MPa) · 0.58 (Bambu Lab Bambu PLA Wood, 15/26 MPa) · 0.89 (Bambu Lab Bambu PLA Basic, 31/35 MPa). At this number of sheets the spread mostly reflects genuine product differences rather than measurement uncertainty. Anyone using a specific product should read its sheet rather than this median."
+      }
     }
   },
   "thermal": {

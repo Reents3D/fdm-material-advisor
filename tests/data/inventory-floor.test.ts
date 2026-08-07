@@ -98,20 +98,28 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
      pet-cf    0,47 gefuehrt    2 Blaetter, Spanne 0,20-0,47
      tpu-95a   0,78 gefuehrt    4 Blaetter, Spanne 0,50-0,82
 
-   In allen drei Faellen war der gefuehrte Wert der guenstigste der Spanne. Die Zahlen
-   sind entfernt und durch offene Fragen mit allen Belegen ersetzt; `materialFacts` sinkt
-   dadurch um dieselben drei auf 3.045. Ein Bestand, der um drei falsche Zahlen aermer
-   ist, ist reicher - deshalb steht die Untergrenze jetzt bei 16 und nicht bei 19. */
+   In allen drei Faellen war der gefuehrte Wert der guenstigste der Spanne.
+
+   Zunaechst wurden die Zahlen ENTFERNT. Auf Rikos Entscheidung vom selben Tag steht dort
+   jetzt der MEDIAN mit der beobachteten Spanne als min/max - dasselbe Vorgehen wie beim
+   Preis. Damit steigt die Zahl auf 20: `paht-cf` bekommt zum ersten Mal einen Wert, weil
+   auch sein Widerspruch jetzt zusammengefasst statt verschwiegen wird.
+
+     pla 0,72 (0,32-0,89) · tpu-95a 0,66 (0,50-0,82) · paht-cf 0,45 (0,18-0,73)
+     pet-cf 0,34 (0,20-0,47)
+
+   Bei den beiden Paaren mit nur ZWEI Blaettern sagt die Notiz ausdruecklich, dass der
+   Median dort schlicht deren Mitte ist - eine Zahl, die keine Quelle gemessen hat. */
 const FLOOR = {
   materials: 43,
   products: 253,
   brands: 17,
   datasheets: 231,
-  materialFacts: 3045,
+  materialFacts: 3049,
   productValues: 2135,
   chemicalRatings: 903,
   materialsWithPrice: 42,
-  anisotropyFactors: 16,
+  anisotropyFactors: 20,
   openQuestions: 97,
 };
 

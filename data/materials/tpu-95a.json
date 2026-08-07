@@ -138,6 +138,24 @@
       "unit": "Shore D",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.66,
+      "min": 0.5,
+      "max": 0.82,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Median aus 4 Produktblättern, Spanne 0.5 bis 0.82 — jeder Operand aus je EINEM Blatt",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben im Median 66 % der Zugfestigkeit erhalten — die Blätter reichen aber von 50 bis 82 %, also um den Faktor 1.63 auseinander: 0.54 (Anycubic Anycubic TPU, 18.5/34.4 MPa) · 0.82 (Bambu Lab Bambu TPU 95A HF, 22.3/27.3 MPa) · 0.78 (Bambu Lab Bambu TPU 95A, 23.2/29.6 MPa) · 0.5 (Bambu Lab Bambu TPU for AMS, 11.2/22.4 MPa). Bei dieser Zahl von Blättern bildet die Streuung überwiegend echte Produktunterschiede ab, nicht Messunsicherheit. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
+        "en": "Perpendicular to the layers a median of 66 % of the tensile strength remains — but the sheets range from 50 to 82 %, a factor of 1.63 apart: 0.54 (Anycubic Anycubic TPU, 18.5/34.4 MPa) · 0.82 (Bambu Lab Bambu TPU 95A HF, 22.3/27.3 MPa) · 0.78 (Bambu Lab Bambu TPU 95A, 23.2/29.6 MPa) · 0.5 (Bambu Lab Bambu TPU for AMS, 11.2/22.4 MPa). At this number of sheets the spread mostly reflects genuine product differences rather than measurement uncertainty. Anyone using a specific product should read its sheet rather than this median."
+      }
     }
   },
   "thermal": {

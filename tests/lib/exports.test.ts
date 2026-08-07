@@ -63,11 +63,19 @@ describe("Übersicht", () => {
     expect(lines).toHaveLength(MATERIALS.length + 1);
   });
 
-  it("führt den Portfolio-Status als letzte Spalte und kennzeichnet ihn", () => {
-    // ADR-004: er darf nicht wie eine Werkstoffeigenschaft aussehen.
-    const last = cols[cols.length - 1];
-    expect(last.header).toContain("Portfolio");
-    expect(last.header).toContain("nicht bewertungsrelevant");
+  it("zeigt den Portfolio-Status NIRGENDS — auch nicht gekennzeichnet", () => {
+    /* Bis 2026-08-06 stand er hier als letzte Spalte mit dem Zusatz „nicht
+       bewertungsrelevant". Das war fachlich korrekt und trotzdem falsch: Ein
+       Materialberater, der bei manchen Werkstoffen „aus unserem Programm" schreibt, wird
+       als Werbung gelesen — der Zusatz ändert daran nichts, er entschuldigt sich nur.
+
+       Auf Rikos Entscheidung entfernt. Dieser Test hält das fest, weil die Spalte sonst
+       beim nächsten Ausbau der Übersicht unbemerkt zurückkäme; das FELD liegt weiterhin
+       im Datenmodell, und `portfolio-neutrality.test.ts` prüft weiter, dass es nicht ins
+       Scoring gerät. */
+    for (const c of cols) {
+      expect(c.header, "Portfolio-Spalte ist zurück").not.toMatch(/Portfolio|portfolio/);
+    }
   });
 });
 

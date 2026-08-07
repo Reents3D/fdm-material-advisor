@@ -115,20 +115,47 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json")).sort()) {
        Diagramm steht und in der Erlaeuterung als Staerke erscheint, wird gelesen; eine
        offene Frage daneben aendert daran nichts. Wer beides stehen laesst, hat den
        Widerspruch dokumentiert und trotzdem behauptet. */
-    const removed = m.mechanics?.anisotropyFactorTensile?.value ?? null;
-    if (removed !== null) { delete m.mechanics.anisotropyFactorTensile; dropped.push(`${m.id} (${removed})`); }
+    /* MEDIAN UND SPANNE STATT LEERE (Entscheidung 2026-08-06).
+       Die erste Fassung entfernte den Wert und liess nur die offene Frage stehen. Das war
+       fuer `pet-cf` richtig - zwei Blaetter, die sich um Faktor 2,4 widersprechen, sagen
+       nichts -, fuer `pla` aber nicht: Dort liegen ZWANZIG Blaetter vor, und die Streuung
+       von 0,32 bis 0,89 ist zum grossen Teil echt. Silk-PLA haftet nachweislich schlechter
+       als Basic-PLA; das sind verschiedene Produkte unter einem Typnamen. "Kein Wert" ist
+       dann auch nicht die Wahrheit, sondern nur die bequemere Halbwahrheit.
+
+       Gefuehrt wird deshalb der MEDIAN mit der beobachteten Spanne als `min`/`max` - genau
+       das Vorgehen, das `derive-price.mjs` beim Preis seit jeher faehrt. Ein Median ueber
+       belegte Werte ist keine erfundene Zahl, sondern eine Zusammenfassung; erfunden waere
+       er nur ohne die Spanne daneben. Die offene Frage bleibt trotzdem stehen und nennt
+       jeden einzelnen Beleg. */
+    const sorted = [...cands].map((c) => c.factor).sort((a, b) => a - b);
+    const mid = sorted.length % 2
+      ? sorted[(sorted.length - 1) / 2]
+      : (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2;
+    const before = m.mechanics?.anisotropyFactorTensile?.value ?? null;
+    m.mechanics ??= {};
+    m.mechanics.anisotropyFactorTensile = {
+      value: round(mid), min: round(lo), max: round(hi), unit: "-", orientation: "Z",
+      source: "estimate_reasoning", confidence: "estimated",
+      derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
+      conditions: `Median aus ${cands.length} Produktblättern, Spanne ${round(lo)} bis ${round(hi)} — jeder Operand aus je EINEM Blatt`,
+      note: t(
+        `Senkrecht zur Schicht bleiben im Median ${Math.round(mid * 100)} % der Zugfestigkeit erhalten — die Blätter reichen aber von ${Math.round(lo * 100)} bis ${Math.round(hi * 100)} %, also um den Faktor ${round(hi / lo)} auseinander: ${list}.${cands.length === 2 ? " ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert." : " Bei dieser Zahl von Blättern bildet die Streuung überwiegend echte Produktunterschiede ab, nicht Messunsicherheit."} Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.`,
+        `Perpendicular to the layers a median of ${Math.round(mid * 100)} % of the tensile strength remains — but the sheets range from ${Math.round(lo * 100)} to ${Math.round(hi * 100)} %, a factor of ${round(hi / lo)} apart: ${list}.${cands.length === 2 ? " NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here." : " At this number of sheets the spread mostly reflects genuine product differences rather than measurement uncertainty."} Anyone using a specific product should read its sheet rather than this median.`),
+    };
+    if (before !== null && before !== round(mid)) dropped.push(`${m.id} ${before} → ${round(mid)}`);
     if (!m.governance.openQuestions.some((q) => q.id === qid)) {
       m.governance.openQuestions.push({
         id: qid,
         question: t(
-          `Der Anisotropiefaktor lässt sich aus ${cands.length} Produktblättern ableiten, und sie widersprechen sich um den Faktor ${round(hi / lo)}: ${list}. Beide Blätter rechnen quellenrein, der Unterschied liegt also am Werkstoff oder an der Prüfung — nicht an der Rechnung. Solange nicht geklärt ist, welches Blatt den hier geführten Typ beschreibt, bleibt der Faktor leer; ein Mittelwert wäre eine erfundene Zahl.`,
-          `The anisotropy factor can be derived from ${cands.length} product sheets, and they contradict each other by a factor of ${round(hi / lo)}: ${list}. Both sheets calculate source-pure, so the difference lies in the material or the testing — not in the arithmetic. Until it is clear which sheet describes the type held here, the factor stays empty; an average would be an invented figure.`,
+          `Der Anisotropiefaktor stammt aus ${cands.length} Produktblättern, die um den Faktor ${round(hi / lo)} auseinanderliegen: ${list}. Geführt ist der Median mit der Spanne daneben. Zu klären ist, ob die Streuung echte Produktunterschiede abbildet — bei PLA spricht alles dafür, weil Silk- und Matt-Typen nachweislich schlechter haften — oder ob einzelne Blätter unter anderen Bedingungen geprüft haben. Im zweiten Fall gehören die abweichenden Blätter aussortiert statt gemittelt.`,
+          `The anisotropy factor comes from ${cands.length} product sheets that lie a factor of ${round(hi / lo)} apart: ${list}. The median is carried with the range alongside. To be clarified is whether the spread reflects genuine product differences — for PLA everything points that way, since silk and matte grades demonstrably bond worse — or whether individual sheets tested under different conditions. In the latter case the outlying sheets belong excluded rather than averaged.`,
         ),
         affectsFields: ["mechanics.anisotropyFactorTensile"],
         blocking: false,
       });
       conflicts++;
-      rows.push([m.id, "KONFLIKT", `${round(lo)}–${round(hi)}`, `${cands.length} Blätter, Faktor ${round(hi / lo)}`]);
+      rows.push([m.id, `${round(mid)} (Median)`, `${round(lo)}–${round(hi)}`, `${cands.length} Blätter, Faktor ${round(hi / lo)}`]);
     }
     /* Auch dann schreiben, wenn die Frage schon stand: Der Wert kann trotzdem gerade
        eben entfernt worden sein. */
@@ -167,7 +194,7 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json")).sort()) {
 }
 
 if (dropped.length) {
-  console.log(`  ENTFERNT, weil die Belege sich widersprechen (${dropped.length}): ${dropped.join(" · ")}`);
+  console.log(`  AUF DEN MEDIAN GEZOGEN (${dropped.length}): ${dropped.join(" · ")}`);
   console.log("  Die Zahl stand aus dem ersten Blatt und wurde nie wieder geprueft.\n");
 }
 console.log(`${written} Anisotropiefaktoren aus Produktblaettern abgeleitet, ${conflicts} Widerspruch als offene Frage erfasst.\n`);

@@ -105,15 +105,14 @@ export function overviewColumns(lang: string): Column<Material>[] {
     },
     { header: pick(lang, "Quellen", "Sources"), cell: (m) => m.governance.sources.length },
     { header: pick(lang, "Zuletzt geprüft", "Last reviewed"), cell: (m) => m.governance.lastReviewed },
-    {
-      // ADR-004: der Portfolio-Status fliesst nirgends in die Bewertung ein. Er steht
-      // hier als letzte Spalte und trägt den Hinweis im Kopf, damit auch beim Sortieren
-      // in Excel klar bleibt, dass er keine Eigenschaft des Werkstoffs ist.
-      header: pick(lang, "Reents3D-Portfolio (nicht bewertungsrelevant)",
-        "Reents3D portfolio (not part of scoring)"),
-      cell: (m) => ((m.commercial as Record<string, Choice | undefined> | undefined)
-        ?.reentsPortfolioStatus?.value ?? null),
-    },
+    /* Hier stand bis 2026-08-06 eine Spalte „Reents3D-Portfolio". Sie ist auf Rikos
+       Entscheidung entfernt: Ein Materialberater, der bei manchen Werkstoffen „aus
+       unserem Programm" schreibt, wird als Werbung gelesen — auch wenn die Rechnung
+       sauber ist, und sie ist es (ADR-004, `portfolio-neutrality.test.ts`).
+
+       Das FELD bleibt im Datenmodell, damit die Neutralitätsgarantie prüfbar bleibt und
+       die Entscheidung umkehrbar ist. Angezeigt wird es nirgends mehr — dies war die
+       einzige Stelle. */
   ];
 }
 

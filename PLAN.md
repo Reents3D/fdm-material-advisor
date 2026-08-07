@@ -503,12 +503,12 @@ diese Vorlage nennt die Datenlage.
 1. ~~`ppa-cf`~~ — **gebaut am 2026-08-05.** 42. Werkstofftyp, 66 belegte Aussagen, davon
    24 Bewertungsskalen. Zwei offene Fragen stehen am Datensatz: die fehlende zweite Quelle
    und der fehlende Preis
-2. **PCL** — erst nach einer zweiten Quelle
+2. ~~**PCL**~~ — **entschieden 2026-08-06: bleibt draussen.** Niedrigtemperatur-Werkstoff fuer Modellbau und Medizintechnik, kein Konstruktionsmaterial fuer die Zielgruppe. Das einzige Blatt trug ohnehin unstimmige Zahlen (45 MPa bei 350 MPa Modul; Literatur nennt rund 16 MPa)
 3. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
 4. ~~`pva`, BVOH, 4× Support~~ — entschieden: wird nicht gebraucht (2026-08-05)
 5. ~~PEEK, PEI~~ — entschieden: außerhalb des Rahmens (2026-08-05)
 
-Von elf Kandidaten bleiben damit drei, und nur einer davon ist ein neuer Typ.
+Von elf Kandidaten bleibt damit **keiner**:  und  sind gebaut, , PCL, PEEK, PEI, PVA, BVOH und die vier Support-Sorten sind abgelehnt, TPU 90A laeuft als Produkt.
 
 ### Die zwei Variantentypen aus dem FormFutura-Import — entschieden am 2026-08-06
 

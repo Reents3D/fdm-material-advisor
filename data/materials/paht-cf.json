@@ -79,6 +79,24 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.45,
+      "min": 0.18,
+      "max": 0.73,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Median aus 2 Produktblättern, Spanne 0.18 bis 0.73 — jeder Operand aus je EINEM Blatt",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben im Median 45 % der Zugfestigkeit erhalten — die Blätter reichen aber von 18 bis 73 %, also um den Faktor 4.12 auseinander: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
+        "en": "Perpendicular to the layers a median of 45 % of the tensile strength remains — but the sheets range from 18 to 73 %, a factor of 4.12 apart: 0.73 (Bambu Lab Bambu PAHT-CF, 64/88 MPa) · 0.18 (Ultrafuse Ultrafuse PAHT CF15, 18.2/103.2 MPa). NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here. Anyone using a specific product should read its sheet rather than this median."
+      }
     }
   },
   "thermal": {
