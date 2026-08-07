@@ -408,6 +408,23 @@
         "value": "not-classified",
         "source": "estimate_reasoning",
         "confidence": "estimated"
+      },
+      "ul94ViaProduct": {
+        "value": "V-0",
+        "products": [
+          {
+            "id": "addnorth-adamant-s1",
+            "name": "add:north Adamant S1",
+            "brand": "add:north",
+            "thicknessMm": 1.5
+          }
+        ],
+        "source": "src_flame_addnorth_adamant_s1",
+        "confidence": "low",
+        "note": {
+          "de": "PVDF als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: add:north Adamant S1. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "PVDF as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: add:north Adamant S1. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+        }
       }
     },
     "printEmissions": {
@@ -592,6 +609,20 @@
       }
     ],
     "sources": [
+      {
+        "id": "src_flame_addnorth_adamant_s1",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Adamant S1",
+        "title": "add:north Adamant S1 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AdamantS1_TDS_nH7jU9.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
       {
         "id": "src_tds",
         "type": "manufacturer-tds",

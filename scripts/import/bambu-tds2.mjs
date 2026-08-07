@@ -83,6 +83,29 @@ const IMPACT_INVERTED = (z, xy) => ({
 
 const P = [
   {
+    /* Nachgetragen am 2026-08-07. Der Grund ist eine Luecke, nicht die Vollstaendigkeit:
+       `abs-gf` trug als einziger gefuellter Typ KEINEN Anisotropiefaktor, weil kein
+       einziges Produktblatt dazu Z-Werte fuehrte. Dieses tut es - 29 gegen 36 MPa. */
+    id: "bambu-abs-gf", material: "abs-gf", name: "Bambu ABS-GF",
+    file: "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_ABS-GF_Technical_Data_Sheet.pdf",
+    nozzle: [240, 280], bed: [80, 100],
+    props: table({
+      dens: 1.08, mfp: 202, water: 0.53,
+      exy: [3160, 170], ez: [2250, 130], sxy: [36, 3], sz: [29, 3],
+      elxy: [6.3, 1.2], elz: [2.3, 0.8],
+      bmxy: [2860, 130], bmz: [1970, 110], bsxy: [68, 4], bsz: [46, 3],
+      ixy: [14.5, 1.5], iz: [5.3, 1.4],
+    }),
+    features: t(
+      "Schliesst die letzte Anisotropieluecke unter den gefüllten Typen: 29 MPa quer zur Schicht gegen 36 MPa längs, also 81 % — der mit Abstand beste Wert aller faserverstärkten Werkstoffe im Bestand. Zum Vergleich: Bambus eigenes PA6-GF kommt auf 36 %. Der Grund liegt beim Grundpolymer, nicht bei der Faser: ABS verschweisst Schichten thermisch, Polyamid erstarrt zu schnell dafür. Bezahlt wird es mit der Schlagzähigkeit, die quer von 14,5 auf 5,3 kJ/m² einbricht — Faktor knapp drei, während die Zugfestigkeit kaum nachgibt.",
+      "Closes the last anisotropy gap among the filled types: 29 MPa across the layers against 36 MPa along, i.e. 81 % — by far the best figure of all fibre-reinforced materials in the dataset. For comparison: Bambu's own PA6-GF reaches 36 %. The reason lies with the base polymer, not the fibre: ABS fuses layers thermally, polyamide solidifies too fast for that. It is paid for in impact strength, which drops across from 14.5 to 5.3 kJ/m² — a factor of nearly three, while tensile strength barely gives way.",
+    ),
+    anomaly: t(
+      "Alle Werte gelten für GETEMPERTE Prüfkörper: „All the specimens were annealed and dried at 80 °C for 12 h before testing.“ Wer ungetempert druckt, bekommt sie nicht. Das Blatt nennt für gedruckte Teile 80 bis 90 °C über 6 bis 12 Stunden und warnt ausdrücklich vor Verzug beim Tempern.",
+      "All values apply to ANNEALED specimens: “All the specimens were annealed and dried at 80 °C for 12 h before testing.” Printing without annealing will not reach them. The sheet states 80 to 90 °C over 6 to 12 hours for printed parts and explicitly warns of warping during annealing.",
+    ),
+  },
+  {
     id: "bambu-pa6-gf", material: "pa6-gf", name: "Bambu PA6-GF",
     file: "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_PA6-GF_Technical_Data_Sheet.pdf",
     nozzle: [260, 290], bed: [80, 100],

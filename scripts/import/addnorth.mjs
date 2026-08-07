@@ -67,6 +67,51 @@ const ISO527_NOTE = t(
   "All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`.");
 
 const P = [
+  /* ---------------------------------------------------------------------------
+     Adamant S1 (PVDF), nachgetragen am 2026-08-07 aus der OFD-Arbeitsliste.
+
+     DREI VON FUENF MECHANIKWERTEN STEHEN ZIFFERNGLEICH IM E-PLA-BLATT DESSELBEN HAUSES
+
+       Kennwert                Adamant S1 (PVDF)   add:north E-PLA
+       Zugfestigkeit Bruch     58 MPa              58 MPa      <- gleich
+       Zug-E-Modul            387 MPa            2.870 MPa
+       Bruchdehnung            > 50 %                 8 %
+       Biegefestigkeit        120 MPa              120 MPa     <- gleich
+       Biege-E-Modul        3.155 MPa            3.155 MPa     <- gleich
+
+     PVDF und PLA sind chemisch nichts miteinander zu tun habende Polymere. Das ist keine
+     geteilte Messung wie bei Spectrum und FormFutura (ADR-038), sondern eine VORLAGE, die
+     nicht fertig ueberschrieben wurde: Dichte, Zug-E-Modul, Bruchdehnung und der ganze
+     Thermoblock sind ersetzt, drei Zeilen sind stehen geblieben.
+
+     Der Beleg dafuer steht im Blatt selbst: Ein Zug-E-Modul von 387 MPa neben einem
+     Biege-E-Modul von 3.155 MPa ist Faktor acht. Bei jedem Thermoplast liegen die beiden
+     innerhalb von etwa zwanzig Prozent beieinander; acht ist keine Streuung, sondern zwei
+     verschiedene Werkstoffe in einer Tabelle. Ebenso steht die Biegefestigkeit mit 120 MPa
+     beim Doppelten der Zugfestigkeit.
+
+     UEBERNOMMEN sind deshalb nur die Werte, die erkennbar zu PVDF gehoeren und sich
+     gegenseitig stuetzen: Dichte 1,8 g/cm³ (Literatur 1,78), Glasuebergang -34 °C (der
+     Wert von PVDF), Bruchdehnung ueber 50 % und Zug-E-Modul 387 MPa - beide passen zu
+     einer WEICHEN PVDF-Type, was das "S" im Namen nahelegt. Dazu die Dauergebrauchs-
+     temperatur von 120 °C und die Brandschutzklasse V-0 bei 1,5 mm nach IEC 60695-11.
+
+     NICHT UEBERNOMMEN: 58 MPa, 120 MPa und 3.155 MPa. */
+  { id: "addnorth-adamant-s1", material: "pvdf", name: "add:north Adamant S1",
+    file: "AdamantS1_TDS_nH7jU9",
+    props: {
+      density: q(1.8, "g/cm³", { std: "ISO 1183", conditions: "im Blatt faelschlich als ISO 527 bezeichnet", confidence: "low" }),
+      tensileModulusXy: q(387, "MPa", { std: "ISO 527", conditions: "weiche Type; das Blatt nennt daneben einen Biege-E-Modul von 3.155 MPa, der aus dem PLA-Blatt desselben Hauses stammt", confidence: "low" }),
+      elongationAtBreakXy: q(50, "%", { std: "ISO 527", conditions: "das Blatt nennt „> 50 %“, gefuehrt ist die Untergrenze" }),
+      glassTransition: q(-34, "°C", { std: "DSC", confidence: "low", conditions: "derselbe Wert steht im Koltron-G1-Blatt desselben Hauses, dessen Grundpolymer unbekannt ist — für PVDF ist er literaturrichtig (−35 bis −40 °C), das Zusammentreffen bleibt trotzdem stehen" }),
+      continuousServiceTemperature: q(120, "°C"),
+    },
+    ul94: { value: "V-0", thicknessMm: 1.5, strong: true },
+    features: t("Der zweite PVDF-Beleg im Bestand neben Fillamentum Fluorodur — und der erste mit einer belegten Brandschutzklasse: V-0 bei 1,5 mm nach IEC 60695-11. Dazu ein Glasübergang von −34 °C und 120 °C Dauergebrauch, also die Spanne, für die man PVDF überhaupt wählt. Die mechanischen Werte deuten auf eine weiche Type: 387 MPa Zug-E-Modul bei über 50 % Bruchdehnung ist eher Dichtung als Konstruktionsteil.",
+                "The second PVDF source in the dataset alongside Fillamentum Fluorodur — and the first with a substantiated flame rating: V-0 at 1.5 mm to IEC 60695-11. Plus a glass transition of −34 °C and 120 °C continuous service, which is the span PVDF is chosen for at all. The mechanical figures suggest a soft grade: 387 MPa tensile modulus at over 50 % elongation at break is sealing rather than structural."),
+    anomaly: t("Drei von fünf Mechanikwerten stehen zifferngleich im E-PLA-Blatt desselben Herstellers: Zugfestigkeit 58 MPa, Biegefestigkeit 120 MPa, Biege-E-Modul 3.155 MPa. PVDF und PLA haben chemisch nichts miteinander zu tun — das ist keine geteilte Messung, sondern eine Vorlage, die nicht fertig überschrieben wurde. Der Beleg steht im Blatt selbst: 387 MPa Zug-E-Modul neben 3.155 MPa Biege-E-Modul ist Faktor acht, und bei jedem Thermoplast liegen die beiden innerhalb von etwa zwanzig Prozent. Die drei Werte sind NICHT übernommen; übernommen ist nur, was zu PVDF gehört und sich gegenseitig stützt.",
+               "Three of five mechanical values appear digit for digit in the same manufacturer's E-PLA sheet: tensile strength 58 MPa, flexural strength 120 MPa, flexural modulus 3,155 MPa. PVDF and PLA are chemically unrelated — this is not a shared measurement but a template that was not fully overwritten. The evidence is in the sheet itself: 387 MPa tensile modulus next to 3,155 MPa flexural modulus is a factor of eight, and for any thermoplastic the two lie within about twenty percent. The three values are NOT imported; only what belongs to PVDF and supports itself is.") },
+
   { id: "addnorth-e-pla", material: "pla", name: "add:north E-PLA",
     file: "epla_tds_rev21_XTkw2P",
     props: {
@@ -301,11 +346,20 @@ for (const p of P) {
     properties: p.props,
     ...(p.ul94 ? {
       compliance: {
+        /* Die Dicke entscheidet ueber die Belastbarkeit einer UL94-Angabe: Dieselbe
+           Rezeptur kann bei 1,5 mm V-0 und bei 0,8 mm nur V-2 erreichen. Blaetter, die
+           sie nennen, bekommen sie deshalb ins Feld und eine andere Notiz - vorher
+           standen beide Faelle unter demselben Text "nennt keine Materialdicke", auch
+           das Adamant-S1-Blatt, das sie sehr wohl nennt. */
         ul94: {
-          value: p.ul94.value, testStandard: "UL 94",
+          value: p.ul94.value, testStandard: p.ul94.thicknessMm ? "IEC 60695-11" : "UL 94",
+          ...(p.ul94.thicknessMm ? { thicknessMm: p.ul94.thicknessMm } : {}),
           source: "src_tds", confidence: "low",
-          note: t("Das Blatt nennt die Klasse V-0 und dazu, dass weder halogenbasierte Flammschutzmittel noch roter Phosphor enthalten sind. Es nennt aber keine Materialdicke, keine Prüfstelle und keine Zeugnisnummer. Ohne Dickenangabe ist eine UL94-Klasse nicht übertragbar — dieselbe Rezeptur kann bei 1,5 mm V-0 und bei 0,8 mm nur V-2 erreichen.",
-                  "The sheet names class V-0 and adds that neither halogen-based flame retardants nor red phosphorus are contained. It names no material thickness, no test house and no certificate number, however. Without a thickness a UL94 class is not transferable — the same formulation can reach V-0 at 1.5 mm and only V-2 at 0.8 mm."),
+          note: p.ul94.thicknessMm
+            ? t(`Das Blatt nennt die Klasse ${p.ul94.value} MIT Materialdicke (${String(p.ul94.thicknessMm).replace(".", ",")} mm) und der Prüfnorm IEC 60695-11. Damit ist die Angabe übertragbar — anders als bei den übrigen add:north-Blättern, die eine Klasse ohne Dicke nennen. Was weiterhin fehlt, ist die Prüfstelle und eine Zeugnisnummer: Eine Herstellerangabe ist kein Prüfzeugnis.`,
+                `The sheet names class ${p.ul94.value} WITH a material thickness (${p.ul94.thicknessMm} mm) and the test standard IEC 60695-11. That makes the statement transferable — unlike the other add:north sheets, which name a class without a thickness. What is still missing is the test house and a certificate number: a manufacturer statement is not a test certificate.`)
+            : t("Das Blatt nennt die Klasse V-0 und dazu, dass weder halogenbasierte Flammschutzmittel noch roter Phosphor enthalten sind. Es nennt aber keine Materialdicke, keine Prüfstelle und keine Zeugnisnummer. Ohne Dickenangabe ist eine UL94-Klasse nicht übertragbar — dieselbe Rezeptur kann bei 1,5 mm V-0 und bei 0,8 mm nur V-2 erreichen.",
+                    "The sheet names class V-0 and adds that neither halogen-based flame retardants nor red phosphorus are contained. It names no material thickness, no test house and no certificate number, however. Without a thickness a UL94 class is not transferable — the same formulation can reach V-0 at 1.5 mm and only V-2 at 0.8 mm."),
         },
       },
     } : {}),

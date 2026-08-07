@@ -112,14 +112,14 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Median dort schlicht deren Mitte ist - eine Zahl, die keine Quelle gemessen hat. */
 const FLOOR = {
   materials: 43,
-  products: 253,
+  products: 254,
   brands: 17,
-  datasheets: 231,
-  materialFacts: 3049,
-  productValues: 2135,
+  datasheets: 232,
+  materialFacts: 3051,
+  productValues: 2147,
   chemicalRatings: 903,
   materialsWithPrice: 42,
-  anisotropyFactors: 20,
+  anisotropyFactors: 21,
   openQuestions: 97,
 };
 
