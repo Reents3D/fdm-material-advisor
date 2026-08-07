@@ -1992,6 +1992,93 @@ Fehler in der **Datenstufe** gefunden — an einer Null, die zu glatt war, um ec
 
 ---
 
+## ADR-041 — Zweisprachige Texte einmal ausliefern, nicht hundertfach
+
+**Status:** akzeptiert · **Datum:** 2026-08-06
+
+### Kontext
+
+Nach dem Anycubic-Import stand das **Gesamtbudget bei 97 %** (482,9 von 500 kB gzip). Der
+Erstaufruf war komfortabel (63 %), aber jeder weitere Import hätte die Gesamtgrenze
+gerissen — und die gilt für alles, was ein Besucher irgendwann lädt.
+
+ADR-039 hatte den Erstaufruf durch **Verteilung** entlastet und dabei selbst festgehalten:
+
+> Der Gesamtbudget-Anteil bleibt bei 90 %, weil die Notizen ja weiterhin ausgeliefert
+> werden — nur später. Wer das Gesamtbudget entlasten will, muss an die **Menge**, nicht
+> an die Verteilung.
+
+### Die Messung
+
+| | Blöcke | Größe |
+|---|---|---|
+| `{de, en}`-Textblöcke im Bestand | 2.580 | 1.423 kB |
+| davon **verschieden** | 950 | 672 kB |
+| **wörtliche Wiederholung** | | **752 kB (53 %)** |
+
+Der Spitzenreiter ist eine einzige Chemikaliennotiz — *„Aus der Polymerklasse abgeleitet,
+nicht gemessen…"* —, die **746-mal** dasteht und dabei 364 kB belegt. Sie hängt an jeder
+abgeleiteten Beständigkeitsbewertung, und davon gibt es 903.
+
+**Warum gzip das nicht erledigt.** Der naheliegende Einwand ist, dass ein Kompressor genau
+dafür da ist. Er tut es auch — aber nur innerhalb seines Suchfensters von 32 kB. Zwei
+identische Absätze, die im Bündel 400 kB auseinanderliegen, werden zweimal voll kodiert.
+
+### Entscheidung
+
+`scripts/build-data-chunks.mjs` sammelt jeden `{de, en}`-Block in eine **Tabelle je Bündel**
+und ersetzt ihn im Baum durch `{ $: <index> }`. `src/data/intern.ts` löst das beim Laden
+auf.
+
+**Erkannt wird ein Textblock an seiner Form**, nicht an seinem Feldnamen: `de` und `en` als
+Zeichenketten, höchstens ein weiterer Schlüssel. Eine Liste der Felder, die i18n-Texte
+tragen — `note`, `question`, `abstract`, `positioning`, `features`, `specimenNote`,
+`partLevelWarning`, … — wäre bei der nächsten Schemaänderung still unvollständig.
+
+**`{ $: n }` statt einer nackten Zahl.** Kürzer wäre die Zahl, aber nicht unterscheidbar:
+`value: 12` und `note: 12` sähen gleich aus. Ein Objekt mit genau einem Schlüssel `$` ist
+selbstbeschreibend und kostet nach der Kompression nichts.
+
+**Die Produktdaten bekommen dabei erstmals ein erzeugtes Bündel.** Bisher zog Vite die 250
+Einzeldateien per `import.meta.glob` ins Bündel — das funktionierte, ließ sich aber nicht
+internieren, und mit 1.103 kB roh sind die Produkte der größte Brocken überhaupt.
+
+### Das Ergebnis
+
+| | vorher | nachher |
+|---|---|---|
+| Erstaufruf | 200,4 kB (63 %) | **195,1 kB (61 %)** |
+| Produktbündel | 163,0 kB | **117,7 kB** |
+| Notizbündel | 96,6 kB | **59,0 kB** |
+| **Gesamt** | **469,6 kB (94 %)** | **381,4 kB (76 %)** |
+
+88 kB gzip, und damit wieder Platz für etwa ein Dutzend weitere Werkstofftypen oder
+mehrere hundert Produkte.
+
+### Konsequenzen
+
+**Die Textobjekte werden geteilt.** Alle 746 Stellen zeigen nach dem Auflösen auf dasselbe
+Objekt aus der Tabelle. Das ist der Sinn der Sache und unbedenklich, solange niemand sie
+verändert — was die Immutabilitätsregel des Projekts ohnehin verlangt.
+
+**Verlustfreiheit ist geprüft, nicht angenommen.** `tests/data/bundle-lossless.test.ts`
+führt Kern und Notizen wieder zusammen und vergleicht schlüsselunabhängig gegen
+`data/materials/*.json` und `data/products/*.json`. Ein dritter Test prüft, dass die
+Tabelle überhaupt **genutzt** wird: Griffe die Erkennung eines Tages ins Leere, bliebe
+alles korrekt — nur die Ersparnis wäre still weg.
+
+**Vorher war ein billigerer Schritt fällig.** Fünf Quellennotizen listeten jedes einzelne
+Angebot auf; bei `pla` waren das 182 Positionen in einer Notiz. Das allein waren 13 kB
+gzip. Eine Aufzählung von 182 Farbvarianten desselben Filaments ist kein Text, sondern ein
+Rohdatenauszug — vollständig steht die Liste weiterhin in `data/prices.json`.
+
+**Was hier nicht gelöst ist:** Die 950 verschiedenen Texte bleiben in voller Länge im
+Bündel, auch die englischen für deutsche Leser. Eine Sprachtrennung wäre der nächste
+Hebel — sie kostet aber einen zweiten Ladeweg beim Sprachwechsel und lohnt erst, wenn die
+Grenze wieder nahe ist.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

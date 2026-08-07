@@ -17,9 +17,10 @@
  */
 
 import type { Material } from "../engine/types";
+import { expand, type I18nBlock } from "./intern";
 import core from "./generated/materials.json";
 
-export const MATERIALS: Material[] = (core as unknown as Material[])
+export const MATERIALS: Material[] = expand<Material[]>(core as unknown as { t: I18nBlock[]; d: unknown })
   .slice()
   .sort((a, b) => a.id.localeCompare(b.id));
 
