@@ -641,6 +641,17 @@
           "mechanics",
           "thermal"
         ]
+      },
+      {
+        "id": "oq_biobased",
+        "question": {
+          "de": "Bioanteil nach ISO 16620-2 beschaffen. Die Familie PLA erlaubt keine Ableitung aus der Herkunft allein — hier entscheidet die Rezeptur, nicht das Grundpolymer.",
+          "en": "Obtain the bio-based content per ISO 16620-2. The family PLA does not allow a derivation from origin alone — the formulation decides here, not the base polymer."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "sustainability.bioBasedContent"
+        ]
       }
     ]
   }

@@ -667,5 +667,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Terephthalsäure, Ethylenglykol und CHDM — sämtlich petrochemisch. Der geführte PETG-Typ steht seit jeher bei 0 %; die ESD-Variante erbt das, weil Leitruss ebenfalls nicht biobasiert ist. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Terephthalsäure, Ethylenglykol und CHDM — sämtlich petrochemisch. Der geführte PETG-Typ steht seit jeher bei 0 %; die ESD-Variante erbt das, weil Leitruss ebenfalls nicht biobasiert ist. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }
