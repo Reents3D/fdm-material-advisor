@@ -51,7 +51,12 @@
       "testStandard": "ISO 527, GB/T 1040",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "low",
+      "disputed": true,
+      "note": {
+        "de": "1.190 MPa Zug-E-Modul steht neben 22,4 MPa Zugfestigkeit auf demselben Blatt. Ein linear gerechnetes Bauteil risse damit bei 1,9 % Dehnung — ein Elastomer mit Shore 95A dehnt sich um mehrere hundert Prozent. Bambus eigenes TPU-95A-Blatt nennt 9,2 MPa, das HF-Blatt 9,8. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+        "en": "1,190 MPa tensile modulus sits next to 22.4 MPa tensile strength on the same sheet. A part computed linearly would break at 1.9 % strain — a Shore 95A elastomer stretches several hundred percent. Bambu's own TPU 95A sheet states 9.2 MPa, the HF sheet 9.8. The value stays on record but is not aggregated."
+      }
     },
     "charpyUnnotchedXy": {
       "value": 124.3,

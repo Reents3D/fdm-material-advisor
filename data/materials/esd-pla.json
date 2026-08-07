@@ -86,6 +86,17 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
         "en": "Our own conservative recommendation with margin to the softening limit."
       }
+    },
+    "hdtB": {
+      "value": 67.5,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Material4Print. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Material4Print. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "testStandard": "ASTM D648"
     }
   },
   "processing": {
@@ -497,15 +508,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -551,6 +553,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -571,8 +584,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Spectrum PLA ESD Light Grey, 0,5 kg, 44,99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89,99 € · Spectrum PLA ESD Traffic Black, 0,5 kg, 49,99 €",
-          "en": "3 offers: Spectrum PLA ESD Light Grey, 0.5 kg, 44.99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89.99 € · Spectrum PLA ESD Traffic Black, 0.5 kg, 49.99 €"
+          "de": "3 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum PLA ESD Light Grey, 0,5 kg für 44,99 € (89,98 €/kg); teuerstes Spectrum PLA ESD Traffic Black, 0,5 kg für 49,99 € (99,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Spectrum). Cheapest Spectrum PLA ESD Light Grey, 0.5 kg at 44.99 € (89.98 €/kg); dearest Spectrum PLA ESD Traffic Black, 0.5 kg at 49.99 € (99.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -584,8 +597,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "10 Angebote: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0,75 kg, 89,95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg, 89,95 €",
-          "en": "10 offers: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0.75 kg, 89.95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg, 89.95 €"
+          "de": "10 Angebote von 1 Marke (M4P). Günstigstes M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg für 215,95 € (107,98 €/kg); teuerstes M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg für 89,95 € (119,93 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "10 offers from 1 brand (M4P). Cheapest M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg at 215.95 € (107.98 €/kg); dearest M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg at 89.95 € (119.93 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -618,6 +631,17 @@
         "affectsFields": [
           "mechanics",
           "thermal"
+        ]
+      },
+      {
+        "id": "oq_biobased",
+        "question": {
+          "de": "Bioanteil nach ISO 16620-2 beschaffen. Die Familie PLA erlaubt keine Ableitung aus der Herkunft allein — hier entscheidet die Rezeptur, nicht das Grundpolymer.",
+          "en": "Obtain the bio-based content per ISO 16620-2. The family PLA does not allow a derivation from origin alone — the formulation decides here, not the base polymer."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "sustainability.bioBasedContent"
         ]
       }
     ]

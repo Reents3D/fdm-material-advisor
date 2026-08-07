@@ -99,6 +99,18 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "izodNotchedXy": {
+      "value": 5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ASTM D256"
     }
   },
   "thermal": {
@@ -112,6 +124,17 @@
         "de": "Das Blatt nennt 100 bis 140 °C, abhängig von Medium, Temperatur und Dauer. Übernommen ist die untere Grenze.",
         "en": "The sheet names 100 to 140 °C depending on medium, temperature and duration. The lower bound is imported."
       }
+    },
+    "glassTransition": {
+      "value": -34,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: add:north. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: add:north. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -408,6 +431,23 @@
         "value": "not-classified",
         "source": "estimate_reasoning",
         "confidence": "estimated"
+      },
+      "ul94ViaProduct": {
+        "value": "V-0",
+        "products": [
+          {
+            "id": "addnorth-adamant-s1",
+            "name": "add:north Adamant S1",
+            "brand": "add:north",
+            "thicknessMm": 1.5
+          }
+        ],
+        "source": "src_flame_addnorth_adamant_s1",
+        "confidence": "low",
+        "note": {
+          "de": "PVDF als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: add:north Adamant S1. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "PVDF as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: add:north Adamant S1. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+        }
       }
     },
     "printEmissions": {
@@ -528,15 +568,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -593,6 +624,20 @@
     ],
     "sources": [
       {
+        "id": "src_flame_addnorth_adamant_s1",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Adamant S1",
+        "title": "add:north Adamant S1 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AdamantS1_TDS_nH7jU9.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+        }
+      },
+      {
         "id": "src_tds",
         "type": "manufacturer-tds",
         "publisher": "Fillamentum Manufacturing Czech s.r.o.",
@@ -603,6 +648,17 @@
         "note": {
           "de": "Einziges Datenblatt für diesen Werkstofftyp.",
           "en": "Only datasheet for this material type."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       },
       {

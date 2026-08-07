@@ -164,24 +164,6 @@
       "testStandard": "ISO 179 / GB/T 1043",
       "orientation": "Z"
     },
-    "anisotropyFactorTensile": {
-      "value": 0.47,
-      "unit": "-",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "min": 0.38,
-      "max": 0.59,
-      "orientation": "Z",
-      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
-      "derivedFrom": [
-        "mechanics.tensileStrengthZ",
-        "mechanics.tensileStrengthXy"
-      ],
-      "note": {
-        "de": "Senkrecht zur Schicht bleiben 47 % der Zugfestigkeit erhalten (35 von 74 MPa).",
-        "en": "Perpendicular to the layers 47 % of the tensile strength remains (35 of 74 MPa)."
-      }
-    },
     "anisotropyFactorImpact": {
       "value": 0.52,
       "unit": "-",
@@ -220,6 +202,48 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.34,
+      "min": 0.2,
+      "max": 0.47,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Median aus 2 Produktblättern, Spanne 0.2 bis 0.47 — jeder Operand aus je EINEM Blatt",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben im Median 34 % der Zugfestigkeit erhalten — die Blätter reichen aber von 20 bis 47 %, also um den Faktor 2.39 auseinander: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert. Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.",
+        "en": "Perpendicular to the layers a median of 34 % of the tensile strength remains — but the sheets range from 20 to 47 %, a factor of 2.39 apart: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here. Anyone using a specific product should read its sheet rather than this median."
+      }
+    },
+    "charpyNotchedXy": {
+      "value": 5.4,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 5.7,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Ultrafuse. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Ultrafuse. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 180"
     }
   },
   "thermal": {
@@ -832,17 +856,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
+          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
         }
       },
       "maxSpoolWeightKg": {
@@ -920,15 +935,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -940,8 +966,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Polymaker Fiberon PET-CF17 Black, 0,5 kg, 24,99 €",
-          "en": "1 offer: Polymaker Fiberon PET-CF17 Black, 0.5 kg, 24.99 €"
+          "de": "1 Angebot von 1 Marke (Polymaker). Günstigstes Polymaker Fiberon PET-CF17 Black, 0,5 kg für 24,99 € (49,98 €/kg); teuerstes Polymaker Fiberon PET-CF17 Black, 0,5 kg für 24,99 € (49,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Polymaker). Cheapest Polymaker Fiberon PET-CF17 Black, 0.5 kg at 24.99 € (49.98 €/kg); dearest Polymaker Fiberon PET-CF17 Black, 0.5 kg at 24.99 € (49.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -953,8 +979,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "10 Angebote: M4P PET-CF15 — 1.75 mm / 2 Kg, 2 kg, 151,95 € · M4P PET-CF15 — 2.85 mm / 2 Kg, 2 kg, 151,95 € · M4P PET-CF15 — 1.75 mm / 4.5 Kg, 4,5 kg, 341,95 € · M4P PET-CF15 — 1.75 mm / 8 Kg, 8 kg, 607,95 € · M4P PET-CF15 — 2.85 mm / 4.5 Kg, 4,5 kg, 341,95 € · M4P PET-CF15 — 2.85 mm / 8 Kg, 8 kg, 607,95 € · M4P PET-CF15 — 1.75 mm / 0.75 Kg, 0,75 kg, 59,95 € · M4P PET-CF15 — 2.85 mm / 0.75 Kg, 0,75 kg, 59,95 € · M4P PET-CF15 Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P PET-CF15 Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 €",
-          "en": "10 offers: M4P PET-CF15 — 1.75 mm / 2 Kg, 2 kg, 151.95 € · M4P PET-CF15 — 2.85 mm / 2 Kg, 2 kg, 151.95 € · M4P PET-CF15 — 1.75 mm / 4.5 Kg, 4.5 kg, 341.95 € · M4P PET-CF15 — 1.75 mm / 8 Kg, 8 kg, 607.95 € · M4P PET-CF15 — 2.85 mm / 4.5 Kg, 4.5 kg, 341.95 € · M4P PET-CF15 — 2.85 mm / 8 Kg, 8 kg, 607.95 € · M4P PET-CF15 — 1.75 mm / 0.75 Kg, 0.75 kg, 59.95 € · M4P PET-CF15 — 2.85 mm / 0.75 Kg, 0.75 kg, 59.95 € · M4P PET-CF15 Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P PET-CF15 Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 €"
+          "de": "10 Angebote von 1 Marke (M4P). Günstigstes M4P PET-CF15 — 1.75 mm / 2 Kg, 2 kg für 151,95 € (75,97 €/kg); teuerstes M4P PET-CF15 Sample — 2.85 mm / 0.05 Kg, 0,05 kg für 5,95 € (119,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "10 offers from 1 brand (M4P). Cheapest M4P PET-CF15 — 1.75 mm / 2 Kg, 2 kg at 151.95 € (75.97 €/kg); dearest M4P PET-CF15 Sample — 2.85 mm / 0.05 Kg, 0.05 kg at 5.95 € (119.00 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -991,6 +1017,17 @@
           "mechanics",
           "thermal"
         ]
+      },
+      {
+        "id": "oq_anisotropy_conflict",
+        "question": {
+          "de": "Der Anisotropiefaktor lässt sich aus 2 Produktblättern ableiten, und sie widersprechen sich um den Faktor 2.39: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). Beide Blätter rechnen quellenrein, der Unterschied liegt also am Werkstoff oder an der Prüfung — nicht an der Rechnung. Solange nicht geklärt ist, welches Blatt den hier geführten Typ beschreibt, bleibt der Faktor leer; ein Mittelwert wäre eine erfundene Zahl.",
+          "en": "The anisotropy factor can be derived from 2 product sheets, and they contradict each other by a factor of 2.39: 0.47 (Bambu Lab Bambu PET-CF, 35/74 MPa) · 0.2 (Ultrafuse Ultrafuse PET CF15, 12.5/63.2 MPa). Both sheets calculate source-pure, so the difference lies in the material or the testing — not in the arithmetic. Until it is clear which sheet describes the type held here, the factor stays empty; an average would be an invented figure."
+        },
+        "affectsFields": [
+          "mechanics.anisotropyFactorTensile"
+        ],
+        "blocking": false
       }
     ]
   }

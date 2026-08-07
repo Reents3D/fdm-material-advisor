@@ -125,6 +125,12 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           maxSensibleEdgeMm: (m.commercial as { xxl?: { maxSensibleEdgeMm?: unknown } })?.xxl?.maxSensibleEdgeMm,
           maxSpoolWeightKg: (m.commercial as { xxl?: { maxSpoolWeightKg?: unknown } })?.xxl?.maxSpoolWeightKg,
           largeSpoolShare: (m.commercial as { xxl?: { largeSpoolShare?: unknown } })?.xxl?.largeSpoolShare,
+          /* Werkstatterfahrung: Bei diesen Werkstoffen wird 100 % Fuellung im Grossformat
+             zum Problem. Der Hinweis steht neben der Kantenlaenge, weil er nur dort gilt -
+             im normalen Format ist mehr Fuellung unbedenklich. Ein Feld, das niemand
+             anzeigt, ist eine Karteileiche; genau deshalb ist `segmentationRecommended`
+             am selben Tag geflogen. */
+          infillWarningXxl: (m.commercial as { xxl?: { infillWarningXxl?: unknown } })?.xxl?.infillWarningXxl,
         }}
         lang={lang} t={t} lab={false} />
 
@@ -333,9 +339,10 @@ const LABELS: Record<string, [string, string]> = {
   priceIndex: ["Preisniveau (abgeleitet)", "Price level (derived)"],
   availability: ["Verfügbarkeit", "Availability"],
   smallSeriesSuitability: ["Kleinserientauglichkeit", "Small-series suitability"],
-  maxSensibleEdgeMm: ["Kante ohne Sonderaufwand", "Edge without special effort"],
+  maxSensibleEdgeMm: ["Grossformat: bewährte Kantenlänge", "Large format: proven edge length"],
   maxSpoolWeightKg: ["Größte Spule am Markt", "Largest spool on the market"],
   largeSpoolShare: ["Angebote ab 2 kg", "Offers from 2 kg"],
+  infillWarningXxl: ["100 % Füllung im XXL-Format kritisch", "100 % infill critical at XXL scale"],
   bioBasedContent: ["Biobasierter Anteil", "Bio-based content"],
 
   density: ["Dichte", "Density"],

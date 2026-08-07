@@ -350,9 +350,83 @@ const ZPAIRS = [
   ["elongationAtBreakXy", "elongationAtBreakZ", "Bruchdehnung"],
 ];
 
+/* ------------------------------------------ R18, Produkt- und Werkstoffebene
+
+   CHARPY IST NICHT IZOD, UND GEKERBT IST NICHT UNGEKERBT.
+
+   Die Schlagzaehigkeit ist die einzige Groesse im Datensatz, bei der VIER verschiedene
+   Pruefungen unter aehnlichen Namen laufen: Charpy nach ISO 179 (Pendel trifft die
+   liegende Probe mittig), Izod nach ISO 180 und ASTM D256 (Probe steht eingespannt),
+   jeweils gekerbt und ungekerbt. Die Zahlen unterscheiden sich um ein Vielfaches, und
+   zwar systematisch - ungekerbt liegt oft fuenf- bis zehnmal ueber gekerbt.
+
+   WAS DAS AUFGEDECKT HAT
+   Acht Produktblaetter fuehrten ASTM-D256- und ISO-180-Werte im FELD `charpyNotchedXy`.
+   ASTM D256 IST Izod - das ist keine Auslegungsfrage, sondern steht im Titel der Norm.
+   Auffallen konnte es niemandem, weil beide Felder dieselbe Einheit tragen und der Wert
+   fuer sich plausibel aussieht. Bemerkt wurde es erst, als der Blaetterabgleich nach
+   ADR-042 fuer `asa-cf` eine Spanne von Faktor 18 meldete: 9 kJ/m² (ISO 179/1eA),
+   100 kJ/m² (ASTM D256) und 5,4 kJ/m² (ISO 179/1eU) standen nebeneinander im selben
+   Feld. Das war keine Rezepturvielfalt, das waren drei verschiedene Pruefungen.
+
+   Die acht Werte sind seither im Izod-Feld. Diese Regel haelt fest, dass es so bleibt.
+
+   WARN, NICHT ERROR: Manche Blaetter nennen ihre Norm gar nicht, andere nur mit
+   Bedingungen ("23 °C"). Das ist eine Luecke im fremden Blatt, kein Fehler im Datensatz -
+   die Regel meldet nur, wenn eine Norm DA ist und zur falschen Familie gehoert. */
+
+const IMPACT_FAMILY = {
+  charpyUnnotchedXy: "charpy", charpyNotchedXy: "charpy",
+  charpyUnnotchedZ: "charpy", charpyNotchedZ: "charpy", charpyUnnotchedXz: "charpy",
+  izodNotchedXy: "izod", izodUnnotchedXy: "izod", izodNotchedZ: "izod",
+};
+const FAMILY_RE = {
+  charpy: /ISO\s*179|GB\/T\s*1043/i,
+  izod: /ISO\s*180|ASTM\s*D\s*256|GB\/T\s*1843/i,
+};
+/** Die Kerbart steht im Suffix der Norm: 1eU ungekerbt, 1eA/1eB/1eC gekerbt. */
+const NOTCH_STATED = (std) => (/1eU|\bungekerbt\b|unnotched/i.test(std) ? "unnotched"
+  : /1e[ABC]\b|1A\b|\bgekerbt\b|notched/i.test(std) ? "notched" : null);
+
+/* Eine bestrittene Zahl ohne Begruendung waere schlimmer als gar keine Kennzeichnung:
+   Sie verschwindet aus jeder Zusammenfassung, und niemand kann nachlesen warum. */
+function checkDisputed(id, props) {
+  for (const [field, v] of Object.entries(props ?? {})) {
+    if (v?.disputed !== true) continue;
+    if (!v.note?.de?.trim()) {
+      report("error", id, "R19-disputed-unexplained", `${field}: disputed ohne Begründung in note`);
+      continue;
+    }
+    report("warn", id, "R19-disputed",
+      `${field} = ${v.value} ${v.unit ?? ""} steht im Blatt, wird aber nicht mitgerechnet`.trim());
+  }
+}
+
+function checkImpact(id, props) {
+  for (const [field, family] of Object.entries(IMPACT_FAMILY)) {
+    const v = props?.[field];
+    if (!v?.testStandard || v.value == null) continue;
+    if (!FAMILY_RE[family].test(v.testStandard)) {
+      /* Nur melden, wenn ueberhaupt eine Norm dasteht - "23 °C" ist keine. */
+      if (!/ISO|ASTM|GB\/T|DIN|EN\b/i.test(v.testStandard)) continue;
+      report("warn", id, "R18-impact-family",
+        `${field} zitiert "${v.testStandard}" — das ist nicht ${family === "charpy" ? "Charpy" : "Izod"}`);
+      continue;
+    }
+    const stated = NOTCH_STATED(v.testStandard);
+    const wanted = /Unnotched/i.test(field) ? "unnotched" : "notched";
+    if (stated && stated !== wanted) {
+      report("warn", id, "R18-impact-notch",
+        `${field} zitiert "${v.testStandard}" — die Norm nennt die andere Kerbart`);
+    }
+  }
+}
+
 if (existsSync(PRODDIR)) {
   for (const f of readdirSync(PRODDIR).filter((x) => x.endsWith(".json"))) {
     const p = JSON.parse(readFileSync(path.join(PRODDIR, f), "utf8"));
+    checkImpact(p.id, p.properties);
+    checkDisputed(p.id, p.properties);
     for (const [kx, kz, label] of ZPAIRS) {
       const x = p.properties?.[kx], z = p.properties?.[kz];
       if (typeof x?.value !== "number" || typeof z?.value !== "number") continue;

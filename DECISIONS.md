@@ -1992,6 +1992,404 @@ Fehler in der **Datenstufe** gefunden — an einer Null, die zu glatt war, um ec
 
 ---
 
+## ADR-041 — Zweisprachige Texte einmal ausliefern, nicht hundertfach
+
+**Status:** akzeptiert · **Datum:** 2026-08-06
+
+### Kontext
+
+Nach dem Anycubic-Import stand das **Gesamtbudget bei 97 %** (482,9 von 500 kB gzip). Der
+Erstaufruf war komfortabel (63 %), aber jeder weitere Import hätte die Gesamtgrenze
+gerissen — und die gilt für alles, was ein Besucher irgendwann lädt.
+
+ADR-039 hatte den Erstaufruf durch **Verteilung** entlastet und dabei selbst festgehalten:
+
+> Der Gesamtbudget-Anteil bleibt bei 90 %, weil die Notizen ja weiterhin ausgeliefert
+> werden — nur später. Wer das Gesamtbudget entlasten will, muss an die **Menge**, nicht
+> an die Verteilung.
+
+### Die Messung
+
+| | Blöcke | Größe |
+|---|---|---|
+| `{de, en}`-Textblöcke im Bestand | 2.580 | 1.423 kB |
+| davon **verschieden** | 950 | 672 kB |
+| **wörtliche Wiederholung** | | **752 kB (53 %)** |
+
+Der Spitzenreiter ist eine einzige Chemikaliennotiz — *„Aus der Polymerklasse abgeleitet,
+nicht gemessen…"* —, die **746-mal** dasteht und dabei 364 kB belegt. Sie hängt an jeder
+abgeleiteten Beständigkeitsbewertung, und davon gibt es 903.
+
+**Warum gzip das nicht erledigt.** Der naheliegende Einwand ist, dass ein Kompressor genau
+dafür da ist. Er tut es auch — aber nur innerhalb seines Suchfensters von 32 kB. Zwei
+identische Absätze, die im Bündel 400 kB auseinanderliegen, werden zweimal voll kodiert.
+
+### Entscheidung
+
+`scripts/build-data-chunks.mjs` sammelt jeden `{de, en}`-Block in eine **Tabelle je Bündel**
+und ersetzt ihn im Baum durch `{ $: <index> }`. `src/data/intern.ts` löst das beim Laden
+auf.
+
+**Erkannt wird ein Textblock an seiner Form**, nicht an seinem Feldnamen: `de` und `en` als
+Zeichenketten, höchstens ein weiterer Schlüssel. Eine Liste der Felder, die i18n-Texte
+tragen — `note`, `question`, `abstract`, `positioning`, `features`, `specimenNote`,
+`partLevelWarning`, … — wäre bei der nächsten Schemaänderung still unvollständig.
+
+**`{ $: n }` statt einer nackten Zahl.** Kürzer wäre die Zahl, aber nicht unterscheidbar:
+`value: 12` und `note: 12` sähen gleich aus. Ein Objekt mit genau einem Schlüssel `$` ist
+selbstbeschreibend und kostet nach der Kompression nichts.
+
+**Die Produktdaten bekommen dabei erstmals ein erzeugtes Bündel.** Bisher zog Vite die 250
+Einzeldateien per `import.meta.glob` ins Bündel — das funktionierte, ließ sich aber nicht
+internieren, und mit 1.103 kB roh sind die Produkte der größte Brocken überhaupt.
+
+### Das Ergebnis
+
+| | vorher | nachher |
+|---|---|---|
+| Erstaufruf | 200,4 kB (63 %) | **195,1 kB (61 %)** |
+| Produktbündel | 163,0 kB | **117,7 kB** |
+| Notizbündel | 96,6 kB | **59,0 kB** |
+| **Gesamt** | **469,6 kB (94 %)** | **381,4 kB (76 %)** |
+
+88 kB gzip, und damit wieder Platz für etwa ein Dutzend weitere Werkstofftypen oder
+mehrere hundert Produkte.
+
+### Konsequenzen
+
+**Die Textobjekte werden geteilt.** Alle 746 Stellen zeigen nach dem Auflösen auf dasselbe
+Objekt aus der Tabelle. Das ist der Sinn der Sache und unbedenklich, solange niemand sie
+verändert — was die Immutabilitätsregel des Projekts ohnehin verlangt.
+
+**Verlustfreiheit ist geprüft, nicht angenommen.** `tests/data/bundle-lossless.test.ts`
+führt Kern und Notizen wieder zusammen und vergleicht schlüsselunabhängig gegen
+`data/materials/*.json` und `data/products/*.json`. Ein dritter Test prüft, dass die
+Tabelle überhaupt **genutzt** wird: Griffe die Erkennung eines Tages ins Leere, bliebe
+alles korrekt — nur die Ersparnis wäre still weg.
+
+**Vorher war ein billigerer Schritt fällig.** Fünf Quellennotizen listeten jedes einzelne
+Angebot auf; bei `pla` waren das 182 Positionen in einer Notiz. Das allein waren 13 kB
+gzip. Eine Aufzählung von 182 Farbvarianten desselben Filaments ist kein Text, sondern ein
+Rohdatenauszug — vollständig steht die Liste weiterhin in `data/prices.json`.
+
+**Was hier nicht gelöst ist:** Die 950 verschiedenen Texte bleiben in voller Länge im
+Bündel, auch die englischen für deutsche Leser. Eine Sprachtrennung wäre der nächste
+Hebel — sie kostet aber einen zweiten Ladeweg beim Sprachwechsel und lohnt erst, wenn die
+Grenze wieder nahe ist.
+
+---
+
+## ADR-042 — Der Werkstoffwert ist der Median seiner Blätter, nicht das zuerst importierte
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `scripts/derive-mechanics.mjs`,
+`scripts/derive-service-temperature.mjs`, `tests/data/type-median.test.ts`, alle 43 Datensätze
+
+### Der Befund
+
+Von 288 Kennwerten auf der Werkstoffebene trugen **199 die Quelle `src_bambu_tds`**. Nicht
+weil Bambu Lab besser misst, sondern weil Bambu zuerst importiert wurde: Jedes Importskript
+schrieb den Werkstoffwert aus dem Blatt, das gerade auf dem Tisch lag, und das nächste liess
+ihn stehen. Die 254 Produktdatenblätter, die seither dazukamen, sind auf der Werkstoffebene
+nie angekommen.
+
+Was das im Betrieb hiess, zeigt PETG am deutlichsten:
+
+| | |
+|---|---|
+| Bruchdehnung, geführter Wert | **9,5 %** (Bambu PETG Basic, `medium`) |
+| 17 Blätter im selben Repository | 5 bis 150 %, Median **23,5 %** |
+
+Wer im Assistenten „zäh" gewichtete, bekam PETG mit der Bruchdehnung EINES Herstellers
+bewertet, während das Werkzeug siebzehn kannte. Dieselbe Stelle trug eine offene Frage:
+*„Zweite unabhängige Herstellerquelle ergänzen — derzeit beruht der gesamte Kennwertsatz auf
+einem einzigen Datenblatt."* Die zweite Quelle lag die ganze Zeit im Repository. Solche
+Fragen standen bei 16 Werkstoffen.
+
+### Die Entscheidung
+
+Ein Werkstofftyp ist keine Rezeptur, sondern eine **Familie von Rezepturen**. Sein Kennwert
+ist deshalb der **Median** der vergleichbaren Blätter, und seine eigentliche Aussage ist die
+**Spanne**. `min`/`max` waren im Schema von Anfang an als „realistische Spanne ÜBER
+HERSTELLER HINWEG" beschrieben — benutzt hat sie bis dahin nur der Preis.
+
+**Was nicht zusammen gemittelt wird**
+
+| Ausschluss | Grund |
+|---|---|
+| Spritzguss zu gedruckt | beantwortet nicht die Frage, für die dieses Werkzeug gebaut ist |
+| ISO 37 zu ISO 527 | Elastomer-Zugprüfung mit Hantelkörper, andere Geometrie — betrifft TPU |
+| fremde Einheit | Izod in J/m und Charpy in kJ/m² trennt die Prüfkörperdicke, die kein Blatt nennt |
+| abgeschriebene Zahlen | `sharedLineage` (ADR-038): drei Blätter mit demselben Zifferblock sind ein Beleg, nicht drei |
+
+Der letzte Punkt ist keine Feinheit. Ohne ihn zöge jede weitergereichte Herstellertabelle den
+Median zu sich: Bei `pa6-cf` standen zwei der vier HDT-Werte auf derselben Compoundtabelle
+(Spectrum und FormFutura, beide 65 °C) und hätten den Median um 20 K verschoben.
+
+**Wann es keinen Median gibt.** Nicht die Gesamtspanne entscheidet das, sondern ob die MITTE
+zusammenhält. Bruchdehnung und Schlagzähigkeit streuen innerhalb einer Polymerfamilie zu
+Recht um eine Grössenordnung — PLA von 2 bis 28 % ist Rezepturvielfalt, kein Fehler. Läuft
+dagegen schon das mittlere Viertel um mehr als Faktor 4 auseinander (unter sechs Blättern:
+eine ganze Grössenordnung), steht dort keine Zahl, sondern eine offene Frage. Das traf
+sechsmal zu, am deutlichsten bei `tpu-95a`: fünf Blätter nennen E-Moduln von 9,2 bis
+1.190 MPa — Faktor 129. Unter dieser ID stehen zwei verschiedene Werkstoffe.
+
+**Was bestehen bleibt.** Ein Wert mit Konfidenz `high` wird NICHT ersetzt; er stammt aus
+einer Messung mit ausgewiesener Streuung und beiden Orientierungen. Er bekommt die Spanne
+dazu — die Zahl bleibt, der Kontext kommt hinzu. Und `high` wird nie NEU vergeben: Der Median
+über Marken ist eine Aussage über den Typ, keine Messung. Das Ceiling von
+`src_type_datasheets` steht deshalb auf `medium`.
+
+### Was der Lauf gegen sich selbst prüft
+
+R2 (Z nie über X-Y), R3 (HDT-A nie weit über Tg), R4 (HDT-A nie über HDT-B) und R10
+(Anisotropie quellenrein) sind Aussagen über EINEN Datensatz. Ein Median je Feld kann sie
+brechen, weil die Felder aus unterschiedlichen Blättersätzen stammen. Jede Schreibung wird
+deshalb probegerechnet und im Konfliktfall verworfen — mit Meldung. Drei Fälle sind so
+stehen geblieben, darunter `petg tensileModulusXy`, dessen Median unter den bereits
+geführten Z-Modul gerutscht wäre.
+
+Verglichen wird dabei gegen den ZUSTAND VORHER, nicht gegen Null: Ein Datensatz, der mit
+einer dokumentierten Datenblatt-Anomalie lebt, darf daran nicht jede andere Schreibung
+scheitern lassen. Der erste Entwurf tat genau das und verwarf bei `pc` die Dichte wegen
+einer HDT-Auffälligkeit.
+
+### Die Nachwirkung, die fast durchgerutscht wäre
+
+Notizen zitieren Nachbarwerte. Wandert der Nachbar, wird die Notiz still falsch — und sie
+bleibt schemakonform, plausibel und belegt. Der Lauf meldet solche Stellen deshalb (15 waren
+es), und für die grösste Gruppe gibt es einen eigenen Schritt:
+
+`thermal.recommendedMaxServiceTemperature` ist der einzige Temperaturwert, den nicht ein
+Hersteller nennt, sondern dieses Projekt verantwortet. Seine Notiz nennt die Rechnung offen
+(„HDT-A 84 °C abzüglich 15 K"). Dabei fiel auf, dass die Rechnung nie ganz aufging: 84 − 15
+= 69, geführt waren 70. Bei allen sieben Werkstoffen ist der Wert **auf fünf gerundet** —
+sinnvoll, aber nirgends dokumentiert. Jetzt steht es in `derive-service-temperature.mjs`.
+
+**Und die Grenze steht auf dem NIEDRIGSTEN Blatt, nicht auf dem Median.** Der erste Versuch
+setzte einfach den neuen Medianwert ein; PETG stieg damit von 55 auf 65 °C, weil der Median
+seiner zehn Glasübergänge bei 75 °C liegt. Diese zehn zerfallen aber in zwei Gruppen — 65,5
+bis 70 bei Bambu, Sunlu und add:north V0, dann 80 bei Fiberlogy, Nebula und add:north. Die
+75 ist der Punkt DAZWISCHEN, den kein Blatt misst. Eine Empfehlung, die ausdrücklich
+„konservativ" heisst, darauf zu stellen, ist ein Widerspruch in sich. Gefangen hat das ein
+bestehender Test, nicht die Überlegung.
+
+### Was sich messbar geändert hat
+
+| | |
+|---|---|
+| Felder geschrieben | 243 — davon **131 Lücken geschlossen**, 108 ersetzt, 4 nur um die Spanne ergänzt |
+| Belegte Aussagen | 3.051 → **3.182** |
+| Verweigert (Mitte läuft auseinander) | 6, jede mit offener Frage |
+| Verworfen (hätte eine Regel gebrochen) | 3, jede gemeldet |
+| Beantwortete `oq_second_source` | 16 |
+| Neue `oq_spread_*` | 12 |
+
+Die grössten Korrekturen: `pa6-cf` E-Modul 4.430 → 9.000 MPa, `pa6-cf` HDT-A 164 → 105 °C
+(Bambus 164 gilt für getemperte Prüfkörper), `petg` Bruchdehnung 9,5 → 23,5 %, `pla`
+Zugfestigkeit 35 → 45,8 MPa. Die Dauergebrauchsempfehlung von `pa6-cf` fiel von 150 auf
+50 °C — 150 °C stand für ein dauerhaft belastetes PA6-Bauteil ohnehin nie zur Debatte.
+
+### Was daran unbequem ist
+
+Viele Werte sind von `medium` auf `low` gefallen, obwohl jetzt mehr Blätter dahinterstehen.
+Das ist Absicht: Die Konfidenz beschreibt, wie sehr man sich auf DIE ZAHL verlassen kann,
+und bei einer Spanne von Faktor 2,7 kann man das eben nicht. Wer die Zahl braucht, findet
+danebem die Spanne; wer ein bestimmtes Produkt einsetzt, liest dessen Blatt.
+
+### Warum ein Test und nicht nur ein Skript
+
+Eine Ableitung, die nur beim Ausführen stimmt, ist keine. `tests/data/type-median.test.ts`
+rechnet sie mit derselben Funktion nach, die sie schreibt — neun Prüfungen, die anschlagen,
+sobald jemand einen Wert von Hand ändert, ein Blatt nachträgt oder ein Importskript einen
+Werkstoff neu schreibt. Dafür ist `derive-mechanics.mjs` importierbar geworden: Der Hauptlauf
+steht in einer Funktion, die nur bei Direktaufruf startet.
+
+---
+
+### Nachtrag 2026-08-07 — was der Abgleich nebenbei ans Licht gebracht hat
+
+Der Blätterabgleich war als Datenpflege gedacht. Er hat sich als **Messinstrument**
+erwiesen: Jede Spanne, die er meldet, ist eine Behauptung über die Datenlage — und wo sie
+absurd ausfällt, liegt der Fehler nicht in der Vielfalt, sondern im Bestand.
+
+**Charpy ist nicht Izod.** Für `asa-cf` meldete der Lauf eine Spanne von Faktor 18 bei der
+gekerbten Schlagzähigkeit. Dahinter standen drei verschiedene Prüfungen in EINEM Feld:
+9 kJ/m² nach ISO 179/1eA, 100 kJ/m² nach **ASTM D256** und 5,4 kJ/m² nach ISO 179/**1eU**.
+ASTM D256 ist Izod — das steht im Titel der Norm. Acht Blätter führten Izod-Werte im
+Charpy-Feld; sie sind jetzt dort, wo sie hingehören. Auffallen konnte es vorher niemandem:
+Beide Felder tragen dieselbe Einheit, und jeder Wert sieht für sich plausibel aus. Erst der
+Vergleich machte den Unterschied sichtbar. **Regel R18** hält fest, dass diese Klasse
+künftig auffällt.
+
+**Sechs FormFutura-Blätter zitieren in der gekerbten Zeile die ungekerbte Norm** — dieselbe,
+die eine Zeile darüber steht. Das Original bestätigt es: „Charpy notched … ISO 179/1eU".
+Der Fehler liegt im Blatt, nicht im Import. Die Werte bleiben (sie sind die einzige Angabe,
+die es gibt), tragen aber keine Norm mehr und `low` — dieselbe Behandlung wie AthenaX CF10.
+
+**`disputed`: eine Zahl darf im Datensatz stehen und trotzdem nicht mitzählen.** Sieben
+Werte widersprechen ihrem eigenen Umfeld so deutlich, dass ein Median sie nicht verkraften
+würde:
+
+| | |
+|---|---|
+| Extrudr DuraPro ABS / ABS-CF | 220 kJ/m² gekerbte Izod — zehnmal der ungekerbte Wert desselben Polymers, und exakt der Lehrbuchwert für ABS in **J/m** |
+| Extrudr DuraPro ASA / ASA-CF | 140 und 100 kJ/m², derselbe Befund |
+| Extrudr PLA Basic / Basic CF | 0,3 kJ/m² — zehnmal UNTER dem niedrigsten anderen PLA-Blatt; hier passt keine Umrechnung |
+| Bambu TPU for AMS | 1.190 MPa E-Modul neben 22,4 MPa Zugfestigkeit auf demselben Blatt eines Shore-95A-Elastomers |
+
+Das neue Schemafeld `disputed` heisst nicht „falsch" und nicht „gelöscht", sondern: *steht
+im Blatt, wird aber nicht mitgerechnet.* Der Wert bleibt sichtbar, sein Befund steht in der
+Notiz daneben, **R19** meldet ihn bei jedem Lauf, und ein Test prüft, dass er in keinem Pool
+auftaucht. Ohne Begründung in der Notiz ist `disputed` ein Fehler, kein Vermerk — sonst
+verschwände eine Zahl aus jeder Zusammenfassung, und niemand könnte nachlesen warum.
+
+Wirkung: Von acht verweigerten Kennwerten blieben **vier**, und `tpu-95a` hat wieder einen
+E-Modul (30 MPa, Spanne 9,2–50,2) statt gar keinem. Der Lauf räumt seither auch seine
+eigenen erledigten `oq_spread_*`-Fragen weg — sieben davon waren mit dem Umzug beantwortet.
+
+---
+
+## ADR-043 — Ein Wert darf so viel Vorsprung behaupten, wie seine Spanne deckt
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `src/engine/reliability.ts`
+(`spanCredit`), `src/engine/scoring.ts`, `src/engine/explain.ts`, `tests/engine/reliability.test.ts`
+
+### Woraus das folgt
+
+ADR-042 hat jedem zusammengefassten Kennwert die Spanne über die Herstellerblätter gegeben.
+Damit steht schwarz auf weiss, was vorher niemand sehen konnte:
+
+| | Median | Spanne |
+|---|---:|---|
+| PLA Zugfestigkeit | 45,8 MPa | 23–63 |
+| ABS Zugfestigkeit | 44,0 MPa | 33–59 |
+
+Diese beiden Werkstoffe liegen **nicht auseinander**. Die Rangfolge behauptete es trotzdem,
+weil sie nur den Median sah. Das ist dieselbe Art stiller Übertreibung, gegen die ADR-040
+angetreten ist — nur an einer anderen Stelle: Dort ging es um schwache Belege, hier um
+Belege, die sich uneinig sind.
+
+### Die Regel
+
+Ein Wert darf so viel Vorsprung behaupten, wie sein **plausibler Bereich** überhaupt im
+Vorsprung liegt. In Rangpunkten desselben Feldes ausgedrückt:
+
+```
+Anteil = (Rang(max) − 0,5) / (Rang(max) − Rang(min))
+Score  = 0,5 + Anteil · (Score − 0,5)
+```
+
+Liegt die Spanne ganz über dem Mittelfeld, bleibt der Vorsprung unangetastet. Reicht sie
+zur Hälfte darunter, zählt er zur Hälfte. Liegt der Median nur knapp über dem Mittelfeld
+und die Spanne fast ganz darunter, bleibt vom Vorsprung nichts.
+
+**Hier ist nichts kalibriert.** Anders als bei ADR-040 musste keine Konstante gemessen
+werden: Die Spanne IST die Messung, und der Anteil oberhalb des Mittelfeldes ist eine
+Division. Wo keine Spanne steht — Bewertungsskalen, Einzelblätter, alles vor ADR-042 —
+greift die Regel nicht. Keine Spanne ist keine Aussage über Streuung, sondern deren
+Abwesenheit.
+
+**Einseitig wie ADR-040.** Eine Anhebung schlecht belegter schlechter Werte wäre der
+Freifahrtschein, den ADR-006 für fehlende Daten ausschliesst.
+
+### Der Preis ist ausgenommen — und der Grund ist nicht Bequemlichkeit
+
+Eine Messspanne sagt: *„Die Blätter sind sich uneinig, wo der Wert liegt."* Eine
+**Preisspanne** sagt etwas anderes: *„So teuer war das billigste und das teuerste Angebot,
+das wir gefunden haben."* Das ist Marktstreuung, keine Unsicherheit über den Wert — und sie
+ist beeinflussbar, indem man woanders kauft.
+
+Aufgefallen ist der Unterschied nicht beim Nachdenken, sondern an einem Test: Bei
+„Funktionsprototyp, schnell und günstig" schob die Stauchung **PLA-Tough vor PLA**. PLA
+kostet im Median 23,93 €/kg, PLA-Tough 26,99 — aber PLAs Angebote reichen bis 106,53 €/kg
+(Sonderfarben, Kleinspulen), die von PLA-Tough nur bis 79. Die breitere Angebotspalette
+liess den günstigeren Werkstoff schlechter dastehen. Das ist nicht bloss ein schiefes
+Ergebnis, es ist die falsche Frage.
+
+Für den Preis bleibt es deshalb bei ADR-040, wo der Abschlag an der eigenen Historie
+gemessen ist und die Frage beantwortet, die dort zählt: Wie sehr verschiebt sich ein Preis
+noch, wenn man weiter sucht?
+
+### Wie weit sie greift
+
+**33 von 630 bewerteten Kriterien** — gut fünf Prozent. Das ist die Grössenordnung, die
+eine solche Regel haben muss: Träfe sie fast alles, wäre sie keine Korrektur, sondern eine
+flächendeckende Abwertung, und die Rangfolge bliebe dieselbe, nur gestaucht. Ein Test hält
+die Spanne 10 bis 15 % fest, in beide Richtungen.
+
+### Der Nutzer erfährt es
+
+`risk.wideSpread` steht in der Ergebniskarte, auch wenn das Kriterium daneben als Stärke
+ausgewiesen ist — beides stimmt gleichzeitig:
+
+> Der geführte Wert (23,5 %) ist der Median über alle Herstellerblätter dieses Typs — die
+> reichen von 5 bis 150 %. Ein Teil dieser Spanne liegt unter dem Mittelfeld: Der Vorteil
+> zählt hier deshalb nur anteilig, und welche Rezeptur Sie kaufen, entscheidet mehr als die
+> Wahl des Werkstofftyps.
+
+Der letzte Halbsatz ist der eigentliche Ertrag der ganzen Übung. Ein Materialberater, der
+nur den Typ empfiehlt, beantwortet die halbe Frage.
+
+---
+
+## ADR-044 — Die Bauteilgrösse ist keine Werkstofffrage
+
+**Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `criteria.ts`, `constraints.ts`,
+`completeness.ts`, `Wizard.tsx`, `explain.ts`, i18n, `tests/engine/scenarios.test.ts`
+
+### Die Entscheidung
+
+> „An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum, dass der
+> Nutzer sieht, welches Material von der Beschaffenheit sinn macht. Ob es dann fertigbar ist
+> in dem Modell hängt vom Modell und vielen anderen Faktoren ab."
+> „Grossmodelle werden in 95 % segmentiert. Drucke in einem Stück können kompensiert werden
+> durch Schrumpfungskompensationen." — Riko, 2026-08-07
+
+Die Frage nach der grössten Kantenlänge ist aus dem Assistenten entfernt, `xxl` ist kein
+Bewertungskriterium mehr, und `partSize` ist keine Anforderung mehr.
+
+### Warum das mehr ist als eine Streichung
+
+**Es war eine Doppelzählung.** `commercial.xxl.maxSensibleEdgeMm` wurde von
+`derive-xxl-effort.mjs` aus **Verzugsneigung und Kammerbedarf abgeleitet**. Als
+Bewertungskriterium hat es damit zweimal dasselbe gewertet: einmal als `lowWarping`, einmal
+in Millimetern. Ein Werkstoff mit hoher Verzugsneigung verlor Punkte auf beiden Achsen für
+denselben Sachverhalt.
+
+**Es war eine Fertigungsaussage im Gewand einer Werkstoffaussage.** Ob ein Modell an einem
+Stück druckbar ist, entscheiden Geometrie, Segmentierung, Schrumpfkompensation, Bauraum und
+Erfahrung — nicht die Werkstoffwahl. Ein Werkzeug, das nach der Kantenlänge fragt und daran
+Werkstoffe abstuft, gibt vor, das Modell zu kennen. Es kennt es nicht.
+
+**Die Information ist nicht verloren, sie steht an der richtigen Stelle.** Was der Werkstoff
+zur Grossformatfrage beiträgt, ist seine **Verzugsneigung** — und die ist als `lowWarping`
+weiterhin ein Kriterium mit Gewicht 2. Ein Test hält ausdrücklich fest, dass sie es bleibt:
+Ohne ihn hiesse „Grösse spielt keine Rolle" womöglich, dass grossformatiges Drucken gar
+nicht mehr in die Bewertung eingeht.
+
+### Was bleibt
+
+`commercial.xxl.maxSensibleEdgeMm` bleibt **am Datensatz** — es trägt seit demselben Tag
+belegte Werkstatterfahrung (PLA, PETG, ABS, ASA über einen Meter; CF-Typen bis 800 × 800
+ohne Befund) und ist als Einordnung wertvoll. Es heisst jetzt „Grossformat: bewährte
+Kantenlänge" statt „Kante ohne Sonderaufwand" — der alte Name las sich wie eine Grenze, der
+neue sagt, was es ist. Im Ashby-Diagramm bleibt es als Achse: Dort trägt es niemanden vor
+oder zurück, es lässt sich nur auftragen.
+
+Ebenso bleibt `commercial.xxl.infillWarningXxl`: Dass 100 % Füllung im Grossformat bei PETG,
+ASA und ABS zu Verzug führt, ist eine Werkstoffaussage — sie beschreibt, wie sich das
+Material unter Eigenspannung verhält, nicht wie man eine Maschine bedient.
+
+### Die Ironie, die dazugehört
+
+Dieselbe Sitzung hatte die XXL-Werte drei Stunden vorher erst mühsam von Schätzung auf
+belegte Werkstatterfahrung gehoben — ABS von 550 auf 1.800 mm. Diese Arbeit ist nicht
+umsonst: Die Zahlen sind jetzt richtig UND stehen an der Stelle, an der sie hingehören.
+Erst durch die Korrektur wurde sichtbar, wie weit eine abgeleitete Fertigungsgrösse danebenliegen
+kann — und das war das eigentliche Argument dafür, sie aus der Bewertung zu nehmen.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

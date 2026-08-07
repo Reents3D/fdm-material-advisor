@@ -57,32 +57,34 @@
   "mechanics": {
     "density": {
       "value": 1.27,
-      "min": 1.25,
-      "max": 1.28,
+      "min": 1.16,
+      "max": 1.32,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": [
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 1.16 g/cm³ (Fillamentum) bis 1.32 g/cm³ (add:north). Prüfkörper: 2 von 7 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (4), ISO 527 (1), Norm im Blatt nicht genannt (1). Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 7 manufacturer datasheets, range 1.16 g/cm³ (Fillamentum) to 1.32 g/cm³ (add:north). Specimens: 2 of 7 printed, remainder undeclared. Mixed test standards: ISO 1183 (4), ISO 527 (1), Norm im Blatt nicht genannt (1). The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 48,
-      "min": 40,
-      "max": 63,
+      "value": 52,
+      "min": 44,
+      "max": 59,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "XY",
       "conditions": "100 % Infill; Spanne umfasst ungetemperte und getemperte Prüfkörper sowie unterschiedliche Faseranteile",
-      "source": [
-        "src_bambu_petgcf_tds_v2",
-        "src_flashforge_petgcf10_tds"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Redaktionell aggregiert. Die beiden Primärquellen liegen weit auseinander: Flashforge (10 % CF, ausdrücklich NICHT getempert) meldet 40-43 MPa, Bambu Lab (Faseranteil nicht deklariert, Prüfkörper vorbehandelt) meldet 59 +/- 4 MPa. Für ein normal gedrucktes Bauteil ist das untere Drittel der Spanne die realistische Erwartung.",
-        "en": "Editorially aggregated. The two primary sources differ widely: Flashforge (10 % CF, explicitly NOT annealed) reports 40-43 MPa, Bambu Lab (fibre content undeclared, specimens pre-treated) reports 59 +/- 4 MPa. For a normally printed part the lower third of the range is the realistic expectation."
+        "de": "Median aus 7 Herstellerblättern, Spanne 44 MPa (FormFutura) bis 59 MPa (Bambu Lab). Prüfkörper: 2 von 7 gedruckt, Rest undeklariert.",
+        "en": "Median of 7 manufacturer datasheets, range 44 MPa (FormFutura) to 59 MPa (Bambu Lab). Specimens: 2 of 7 printed, remainder undeclared."
       }
     },
     "tensileStrengthZ": {
@@ -101,8 +103,8 @@
     },
     "tensileModulusXy": {
       "value": 2400,
-      "min": 2100,
-      "max": 2690,
+      "min": 2200,
+      "max": 5120,
       "unit": "MPa",
       "testStandard": "ISO 527",
       "orientation": "XY",
@@ -112,8 +114,8 @@
       ],
       "confidence": "high",
       "note": {
-        "de": "Beide Quellen stimmen gut überein (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Die Steifigkeit ist der eigentliche Gewinn der Faserverstärkung - nicht die Festigkeit.",
-        "en": "Both sources agree well (Flashforge 2100-2400 MPa, Bambu 2460 +/- 230 MPa). Stiffness is the actual gain from fibre reinforcement - not strength."
+        "de": "Median aus 6 Herstellerblättern, Spanne 2200 MPa (Fillamentum) bis 5120 MPa (add:north). Prüfkörper: 2 von 6 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 6 manufacturer datasheets, range 2200 MPa (Fillamentum) to 5120 MPa (add:north). Specimens: 2 of 6 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
       }
     },
     "tensileModulusZ": {
@@ -126,17 +128,18 @@
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 9,
-      "min": 7.5,
-      "max": 11,
+      "value": 8,
+      "min": 4.9,
+      "max": 9.4,
       "unit": "%",
       "testStandard": "ISO 527",
       "orientation": "XY",
-      "source": [
-        "src_bambu_petgcf_tds_v2",
-        "src_flashforge_petgcf10_tds"
-      ],
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 4.9 % (FormFutura) bis 9.4 % (Extrudr). Prüfkörper: 1 von 5 gedruckt, Rest undeklariert.",
+        "en": "Median of 5 manufacturer datasheets, range 4.9 % (FormFutura) to 9.4 % (Extrudr). Specimens: 1 of 5 printed, remainder undeclared."
+      }
     },
     "elongationAtBreakZ": {
       "value": 4.7,
@@ -149,8 +152,8 @@
     },
     "flexuralStrengthXy": {
       "value": 82,
-      "min": 75,
-      "max": 87,
+      "min": 82,
+      "max": 89,
       "unit": "MPa",
       "testStandard": "ISO 178",
       "orientation": "XY",
@@ -158,7 +161,11 @@
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 83 MPa (Bambu Lab) bis 89 MPa (add:north). Prüfkörper: 2 von 3 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 3 manufacturer datasheets, range 83 MPa (Bambu Lab) to 89 MPa (add:north). Specimens: 2 of 3 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
+      }
     },
     "flexuralStrengthZ": {
       "value": 62,
@@ -170,13 +177,19 @@
       "confidence": "medium"
     },
     "flexuralModulusXy": {
-      "value": 2890,
-      "tolerance": 130,
+      "value": 3632,
       "unit": "MPa",
-      "testStandard": "ISO 178 / GB/T 9341",
+      "testStandard": "ISO 178",
       "orientation": "XY",
-      "source": "src_bambu_petgcf_tds_v2",
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 2890 MPa (Bambu Lab) bis 4930 MPa (add:north). Prüfkörper: 2 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (3), ISO 527 (1).",
+        "en": "Median of 4 manufacturer datasheets, range 2890 MPa (Bambu Lab) to 4930 MPa (add:north). Specimens: 2 of 4 printed, remainder undeclared. Mixed test standards: ISO 178 (3), ISO 527 (1)."
+      },
+      "min": 2890,
+      "max": 4930,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
       "value": 1680,
@@ -205,8 +218,8 @@
       "source": "src_bambu_petgcf_tds_v2",
       "confidence": "low",
       "note": {
-        "de": "Widerspruch offen: Flashforge meldet für PETG-CF10 nur 3-3,5 kJ/m² gekerbt nach ISO 180 (Izod). Der Faktor 5 zwischen beiden Angaben lässt sich mit Faseranteil und Vorbehandlung allein kaum erklären. Bis zur Klärung nicht für Auslegung verwenden - siehe oq_impact_conflict.",
-        "en": "Unresolved conflict: Flashforge reports only 3-3.5 kJ/m² notched per ISO 180 (Izod) for PETG-CF10. A factor of 5 between the two figures is hard to explain by fibre content and pre-treatment alone. Do not use for design until clarified - see oq_impact_conflict."
+        "de": "Bambu steht mit 15,7 kJ/m² allein. Vier andere Blätter desselben Werkstofftyps nennen gekerbt 1,7 bis 5,4 kJ/m² (Extrudr 1,7 · Flashforge 3–3,5 · FormFutura 4,6 · FormFutura CarbonFil 5,4). Deutlicher noch die Kerbempfindlichkeit: Bambu verliert vom ungekerbten zum gekerbten Wert nur 62 % (41,2 → 15,7), Extrudr 97 % (67 → 1,7). Ein faserverstärktes PETG verhält sich wie Extrudrs Zahl, nicht wie Bambus. Für die Auslegung ist der untere Bereich anzunehmen — siehe oq_impact_conflict.",
+        "en": "Bambu stands alone at 15.7 kJ/m². Four other sheets of the same material type state 1.7 to 5.4 kJ/m² notched (Extrudr 1.7 · Flashforge 3–3.5 · FormFutura 4.6 · FormFutura CarbonFil 5.4). The notch sensitivity is starker still: Bambu loses only 62 % going from unnotched to notched (41.2 → 15.7), Extrudr 97 % (67 → 1.7). A fibre-reinforced PETG behaves like Extrudr's figure, not Bambu's. Assume the lower range for design — see oq_impact_conflict."
       }
     },
     "charpyUnnotchedZ": {
@@ -306,6 +319,17 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "hardnessShoreD": {
+      "value": 77,
+      "unit": "Shore D",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ISO 7619"
     }
   },
   "thermal": {
@@ -318,18 +342,18 @@
     },
     "hdtB": {
       "value": 72,
-      "min": 70,
-      "max": 74,
+      "min": 69,
+      "max": 82,
       "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
+      "testStandard": "ISO 75",
       "source": [
         "src_bambu_petgcf_tds_v2",
         "src_flashforge_petgcf10_tds"
       ],
       "confidence": "high",
       "note": {
-        "de": "Zwei unabhängige Hersteller, gleiche Norm, 70 bzw. 74 °C. Das ist der belastbarste Temperaturwert dieses Datensatzes - und er zeigt: Kohlenstofffaser bringt bei PETG praktisch KEINEN Temperaturgewinn. Wer Wärmeformbeständigkeit braucht, ist hier falsch.",
-        "en": "Two independent manufacturers, same standard, 70 and 74 °C. This is the most reliable temperature value in this record - and it shows that carbon fibre delivers essentially NO temperature gain in PETG. Anyone needing heat resistance is in the wrong place."
+        "de": "Median aus 3 Herstellerblättern, Spanne 69 °C (Extrudr) bis 82 °C (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Der geführte Wert stammt aus einer Einzelmessung mit ausgewiesener Streuung und bleibt stehen; hier steht nur die Spanne, in der er liegt.",
+        "en": "Median of 3 manufacturer datasheets, range 69 °C (Extrudr) to 82 °C (add:north). Specimens: 1 of 3 printed, remainder undeclared. The recorded value comes from a single measurement with stated scatter and remains; only the range it sits in is added here."
       }
     },
     "vicatB50": {
@@ -1168,17 +1192,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
+          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
         }
       },
       "joiningRecommendation": {
@@ -1261,6 +1276,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_prusament_petgcf_product",
         "type": "manufacturer-website",
         "publisher": "Prusa Polymers",
@@ -1278,12 +1304,12 @@
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -1295,8 +1321,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: 3DJAKE easyPETG CF Schwarz, 1 kg, 32,99 € · Bambu Lab Bambu Lab PETG-CF Black, Spule, 1 kg, 35,99 € · Bambu Lab Bambu Lab PETG-CF Brick Red, Spule, 1 kg, 35,99 € · Extrudr XPETG CF Carbon, 0,8 kg, 49,99 € · Extrudr Extrudr XPETG CF Carbon, 1,75 mm / 800 g, 0,8 kg, 49,99 € · Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0,5 kg, 32,99 €",
-          "en": "6 offers: 3DJAKE easyPETG CF Schwarz, 1 kg, 32.99 € · Bambu Lab Bambu Lab PETG-CF Black, Spule, 1 kg, 35.99 € · Bambu Lab Bambu Lab PETG-CF Brick Red, Spule, 1 kg, 35.99 € · Extrudr XPETG CF Carbon, 0.8 kg, 49.99 € · Extrudr Extrudr XPETG CF Carbon, 1,75 mm / 800 g, 0.8 kg, 49.99 € · Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0.5 kg, 32.99 €"
+          "de": "6 Angebote von 4 Marken (3DJAKE, Bambu Lab, Extrudr, Spectrum). Günstigstes 3DJAKE easyPETG CF Schwarz, 1 kg für 32,99 € (32,99 €/kg); teuerstes Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0,5 kg für 32,99 € (65,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "6 offers from 4 brands (3DJAKE, Bambu Lab, Extrudr, Spectrum). Cheapest 3DJAKE easyPETG CF Schwarz, 1 kg at 32.99 € (32.99 €/kg); dearest Spectrum Spectrum Carbon PETG, 1,75 mm / 500 g, 0.5 kg at 32.99 € (65.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -1308,8 +1334,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg, 49,58 €",
-          "en": "1 offer: Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg, 49.58 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg für 49,58 € (61,97 €/kg); teuerstes Extrudr XPETG CF black 1.75 mm 0.8 kg, 0,8 kg für 49,58 € (61,97 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg at 49.58 € (61.97 €/kg); dearest Extrudr XPETG CF black 1.75 mm 0.8 kg, 0.8 kg at 49.58 € (61.97 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -1321,8 +1347,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg, 53,49 €",
-          "en": "1 offer: Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg, 53.49 €"
+          "de": "1 Angebot von 1 Marke (Fillamentum). Günstigstes Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg für 53,49 € (71,32 €/kg); teuerstes Fillamentum CPE CF112 Carbon — 1.75 mm, 0,75 kg für 53,49 € (71,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Fillamentum). Cheapest Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg at 53.49 € (71.32 €/kg); dearest Fillamentum CPE CF112 Carbon — 1.75 mm, 0.75 kg at 53.49 € (71.32 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -1355,10 +1381,10 @@
       {
         "id": "oq_impact_conflict",
         "question": {
-          "de": "Warum meldet Bambu 15,7 kJ/m² gekerbt (ISO 179), Flashforge aber nur 3-3,5 kJ/m² gekerbt (ISO 180)? Faktor 5 ist mit Faseranteil und Vorbehandlung allein nicht erklärbar. Dritte Quelle nötig.",
-          "en": "Why does Bambu report 15.7 kJ/m² notched (ISO 179) while Flashforge reports only 3-3.5 kJ/m² notched (ISO 180)? A factor of 5 cannot be explained by fibre content and pre-treatment alone. A third source is needed."
+          "de": "TEILWEISE BEANTWORTET (2026-08-07). Die Frage lautete: Warum meldet Bambu 15,7 kJ/m² gekerbt, Flashforge aber nur 3–3,5? Nötig sei eine dritte Quelle. Sie liegt jetzt vor, und zwar dreifach: Extrudr 1,7 · FormFutura 4,6 · FormFutura CarbonFil 5,4 kJ/m². Alle drei stützen Flashforge. Ein Teil des Abstands ist Methode — ISO 179 ist Charpy, ISO 180 ist Izod, und das ist nicht dieselbe Prüfung (Regel R18). Der Rest ist es nicht: Bambus Kerbempfindlichkeit (62 % Verlust) passt zu keinem anderen Blatt (Extrudr 97 %). Offen bleibt, ob Bambu anders kerbt, anders vorbehandelt oder eine zähere Rezeptur führt. Für die Auslegung ist die Frage entschieden: unterer Bereich.",
+          "en": "PARTLY ANSWERED (2026-08-07). The question was: why does Bambu report 15.7 kJ/m² notched while Flashforge reports only 3–3.5? A third source was needed. Three now exist: Extrudr 1.7 · FormFutura 4.6 · FormFutura CarbonFil 5.4 kJ/m². All three support Flashforge. Part of the gap is method — ISO 179 is Charpy, ISO 180 is Izod, and they are not the same test (rule R18). The rest is not: Bambu's notch sensitivity (62 % loss) matches no other sheet (Extrudr 97 %). It remains open whether Bambu notches differently, pre-treats differently or runs a tougher formulation. For design the question is settled: assume the lower range."
         },
-        "blocking": true,
+        "blocking": false,
         "affectsFields": [
           "mechanics.charpyNotchedXy",
           "mechanics.izodNotchedXy",
@@ -1421,6 +1447,17 @@
         "affectsFields": [
           "compliance.esd.classification",
           "compliance.esd.surfaceResistivity"
+        ]
+      },
+      {
+        "id": "oq_spread_charpyunnotchedxy",
+        "question": {
+          "de": "charpyUnnotchedXy: Die 3 Blätter dieses Werkstofftyps liegen um Faktor 30.26 auseinander (3.5 kJ/m² (Alzament) bis 106 kJ/m² (Fillamentum)), und schon das mittlere Viertel um Faktor 30.26. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
+          "en": "charpyUnnotchedXy: the 3 datasheets of this material type span a factor of 30.26 (3.5 kJ/m² (Alzament) to 106 kJ/m² (Fillamentum)), and the middle quartile alone by a factor of 30.26. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "mechanics.charpyUnnotchedXy"
         ]
       }
     ]

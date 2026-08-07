@@ -10,7 +10,7 @@ import { describe, expect, it } from "vitest";
 import { MATERIALS, byId } from "../../src/data/materials";
 import { select, whyNot, dataCompleteness, confidenceProfile, serviceCeiling, evaluateConstraints, constraintReserve } from "../../src/engine";
 import { buildNormalisation, percentileRank, scoreMaterial } from "../../src/engine/scoring";
-import { DEFAULT_WEIGHTS } from "../../src/engine/criteria";
+import { CRITERIA, DEFAULT_WEIGHTS } from "../../src/engine/criteria";
 import { translate } from "../../src/i18n";
 import { compare, dominated } from "../../src/engine/tradeoffs";
 
@@ -140,19 +140,24 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
   it("die konservative Schätzung warnt, der Datenblattwert entscheidet", () => {
     /* Der Befund aus der Werkstatt: Der Anwendungsfall "Messebau-Grossteil" fordert
        50 °C und schloss damit PLA aus - auf Basis einer GESCHAETZTEN
-       Dauergebrauchstemperatur von 40 °C. Gemessen sind bei PLA aber HDT-B 57 °C.
+       Dauergebrauchstemperatur. Gemessen sind bei PLA aber 55 °C HDT-B.
        Fuer ein unbelastetes Messemodell traegt das. Seither gilt: Nur ein belegter
-       Wert darf ausschliessen, die Schaetzung warnt. */
+       Wert darf ausschliessen, die Schaetzung warnt.
+
+       Die Zahlen sind am 2026-08-07 gewandert (HDT-B 57 -> 55, Schaetzung 40 -> 35), weil
+       der Werkstoffwert seither der Median von 43 Blaettern ist statt Bambus Einzelwert
+       (ADR-042) und die konservative Empfehlung auf dem NIEDRIGSTEN Blatt steht. Der Fall,
+       den dieser Test haelt, ist derselbe geblieben: 50 °C liegt zwischen beiden Zahlen. */
     const pla = byId("pla")!;
     expect(pla.thermal!.recommendedMaxServiceTemperature!.confidence).toBe("estimated");
     expect(pla.thermal!.hdtB!.confidence).not.toBe("estimated");
 
-    // 50 °C: Schaetzung (40) reisst, Datenblatt (57) traegt -> drin, mit Warnung.
+    // 50 °C: Schaetzung (35) reisst, Datenblatt (55) traegt -> drin, mit Warnung.
     const tight = evaluateConstraints(pla, { serviceTemperatureC: 50 })
       .find((c) => c.constraintId === "serviceTemperature")!;
     expect(tight.passed).toBe(true);
     expect(tight.key).toBe("constraint.temperature.tight");
-    expect(tight.params.documented).toBe(57);
+    expect(tight.params.documented).toBe(55);
 
     // 90 °C: auch das Datenblatt reisst -> weiterhin Ausschluss.
     const hard = evaluateConstraints(pla, { serviceTemperatureC: 90 })
@@ -165,7 +170,7 @@ describe("Szenario: 90 °C Dauertemperatur", () => {
     // "-6 % Reserve" auf einem bestandenen Constraint - derselbe Widerspruch wie
     // seinerzeit die "-100 % Reserve" auf fehlenden Daten.
     for (const m of MATERIALS) {
-      for (const v of evaluateConstraints(m, { serviceTemperatureC: 50, maxEdgeMm: 1800 })) {
+      for (const v of evaluateConstraints(m, { serviceTemperatureC: 50 })) {
         const reserve = constraintReserve(v);
         if (reserve !== null) expect(reserve, `${m.id}/${v.constraintId}`).toBeGreaterThanOrEqual(0);
       }
@@ -192,7 +197,7 @@ describe("Die Temperaturgrenze folgt der Last, nicht dem Polymer", () => {
     const v = tempVerdict(petg(), { serviceTemperatureC: 60, thermalLoad: "none" });
     expect(v.passed).toBe(true);
     expect(v.key).toBe("constraint.temperature.passUnloaded");
-    expect(v.params.documented).toBe(71); // HDT-B aus dem Datenblatt
+    expect(v.params.documented).toBe(69.5); // HDT-B, Median aus 12 Blaettern (ADR-042)
   });
 
   it("unter Dauerlast bleibt der Vorbehalt — und nennt den konstruktiven Ausweg", () => {
@@ -414,46 +419,44 @@ describe("Szenario: keine beheizte Kammer verfügbar", () => {
   });
 });
 
-describe("Szenario: sehr grosses Bauteil (1.800 mm Kante)", () => {
-  /* Diese beiden Tests haben bis 2026-08-02 das Gegenteil geprueft: dass eine zu kleine
-     hinterlegte Kantenlaenge einen Werkstoff AUSSCHLIESST. Die Werkstatt hat das
-     widerlegt - PETG laeuft dort einteilig ueber zwei Meter, ABS auf 2,4 m Betten. Die
-     Kantenlaenge ist keine Werkstoffeigenschaft: Begrenzt wird die Groesse vom Bauraum
-     und vom Verfahren. Alle 38 hinterlegten Werte waren ausserdem Schaetzungen ohne eine
-     einzige Messung dahinter. Sie stufen jetzt ab und warnen, sie streichen nicht. */
+describe("Die Bauteilgrösse ist keine Werkstofffrage", () => {
+  /* HIER STANDEN BIS 2026-08-07 DREI TESTS, die prüften, dass eine zu kleine hinterlegte
+     Kantenlänge einen Werkstoff nicht ausschliesst, sondern abstuft. Sie sind weg, weil die
+     Frage selbst weg ist. Riko dazu:
 
-  it("die Bauteilgrösse schliesst niemanden mehr aus", () => {
-    const r = select(MATERIALS, { maxEdgeMm: 1800, weights: { ...W, xxl: 5 } });
-    expect(r.ranked.length).toBeGreaterThan(0);
-    for (const rej of r.rejected) {
-      expect(rej.failed.map((f) => f.constraintId), rej.material.id).not.toContain("partSize");
+       "An sich ist die Fertigbarkeit auf X Metern und Co irrelevant. Es geht darum, dass
+        der Nutzer sieht, welches Material von der Beschaffenheit sinn macht. Ob es dann
+        fertigbar ist in dem Modell hängt vom Modell und vielen anderen Faktoren ab."
+       "Großmodelle werden in 95 % segmentiert. Drucke in einem Stück können kompensiert
+        werden durch Schrumpfungskompensationen."
+
+     Die Kantenlänge war ausserdem aus Verzugsneigung und Kammerbedarf ABGELEITET. Als
+     Bewertungskriterium hat sie damit zweimal dasselbe gewertet — einmal als `lowWarping`,
+     einmal in Millimetern.
+
+     Was bleibt, prüft dieser Test: dass die Frage nicht zurückkommt. */
+
+  it("es gibt kein Grössen-Constraint mehr", () => {
+    for (const m of MATERIALS.slice(0, 5)) {
+      const ids = evaluateConstraints(m, { serviceTemperatureC: 60 }).map((c) => c.constraintId);
+      expect(ids).not.toContain("partSize");
     }
   });
 
-  it("wer unter der Schwelle liegt, bekommt den Aufwandshinweis statt eines Ausschlusses", () => {
-    const r = select(MATERIALS, { maxEdgeMm: 1800 });
-    const surviving = ids(r.ranked);
-    // PC lag mit 400 mm weit unter der Anforderung und flog frueher raus.
-    expect(surviving).toContain("pla");
-    expect(surviving).toContain("pc");
-
-    const sizeVerdict = (id: string) =>
-      evaluateConstraints(byId(id)!, { maxEdgeMm: 1800 }).find((c) => c.constraintId === "partSize")!;
-
-    const pc = sizeVerdict("pc");
-    expect(pc.passed).toBe(true);
-    expect(pc.key).toBe("constraint.size.effort");
-
-    // PLA liegt mit 2400 mm darueber und bekommt keinen Hinweis.
-    expect(sizeVerdict("pla").key).toBe("constraint.size.pass");
+  it("kein Bewertungskriterium liest die Kantenlänge", () => {
+    expect(CRITERIA.map((c) => c.id)).not.toContain("xxl");
+    expect(CRITERIA.map((c) => c.evidence)).not.toContain("commercial.xxl.maxSensibleEdgeMm");
   });
 
-  it("die Grösse wirkt weiter über die Gewichtung, nicht über den Filter", () => {
-    // Wenn XXL-Eignung hoch gewichtet wird, muss ein Werkstoff mit grosser Schwelle
-    // vor einem mit kleiner liegen - sonst waere die Information ganz verloren.
-    const r = select(MATERIALS, { maxEdgeMm: 1800, weights: { xxl: 5 } });
-    const rank = (id: string) => ids(r.ranked).indexOf(id);
-    expect(rank("pla")).toBeLessThan(rank("pc"));
+  it("die Verzugsneigung trägt die Frage weiter — sie ist die Werkstoffeigenschaft dahinter", () => {
+    /* Ohne diesen Test hiesse "Grösse spielt keine Rolle" womöglich, dass grossformatiges
+       Drucken gar nicht mehr in die Bewertung eingeht. Es geht ein — nur an der Stelle, an
+       der es eine Werkstoffaussage ist. */
+    const warp = CRITERIA.find((c) => c.id === "lowWarping");
+    expect(warp, "lowWarping fehlt — dann ist die Verzugsinformation ganz verloren").toBeDefined();
+    const pla = warp!.extract(byId("pla")!).value;
+    const abs = warp!.extract(byId("abs")!).value;
+    expect(pla, "PLA verzieht sich weniger als ABS").toBeGreaterThan(abs!);
   });
 });
 
@@ -677,7 +680,13 @@ describe("Scoring", () => {
   });
 
   it("fehlende Daten werden NICHT als 0 gewertet", () => {
-    const tpu = byId("tpu-95a")!;
+    /* Stand bis 2026-08-07 auf `tpu-95a`. Der bekam beim Abgleich gegen die Produktblaetter
+       eine HDT-B aus drei Blaettern (ADR-042) und taugt seither nicht mehr als Beispiel fuer
+       eine Luecke - der Test wurde gruen, weil die Daten besser wurden, nicht weil die Regel
+       noch geprueft wurde. `tpu-98a` fuehrt weiterhin keinen einzigen Temperaturkennwert;
+       kein Hersteller veroeffentlicht fuer ein Shore-98A-Elastomer eine Formbestaendigkeit. */
+    const tpu = byId("tpu-98a")!;
+    expect(tpu.thermal?.hdtA?.value ?? tpu.thermal?.hdtB?.value ?? null).toBeNull();
     const s = scoreMaterial(tpu, { weights: { temperature: 5 } }, table);
     expect(s.criteria.find((c) => c.criterionId === "temperature")!.score).toBeNull();
     expect(s.dataGaps).toContain("temperature");

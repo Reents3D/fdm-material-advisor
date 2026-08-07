@@ -58,7 +58,7 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 4.7,
       "unit": "kJ/m²",
       "testStandard": "ISO 180",

@@ -80,6 +80,66 @@
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
+    "flexuralStrengthXy": {
+      "value": 90,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 1890,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 55,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 8.4,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "tensileStrengthZ": {
+      "value": 21,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
     "anisotropyFactorTensile": {
       "value": 0.35,
       "unit": "-",
@@ -132,6 +192,17 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": 145,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -531,17 +602,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff wird bisher nur auf den Engineering-Druckern gefahren, nicht im Großformat — es gibt also keine eigene Erfahrung, gegen die sich die Schätzung prüfen ließe.",
+          "en": "Estimated, not established. This material is so far run only on the engineering printers, not at large format — so there is no own experience against which the estimate could be checked."
         }
       }
     },
@@ -589,6 +651,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_pc_fr_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -597,8 +670,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: Spectrum PC/ABS FR V0 Black, 1 kg, 35,99 € · Bambu Lab PC FR Black, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR White, Spule, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR Gray, Spule, 1 kg, 56,99 € · Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg, 56,99 €",
-          "en": "5 offers: Spectrum PC/ABS FR V0 Black, 1 kg, 35.99 € · Bambu Lab PC FR Black, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR White, Spule, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR Gray, Spule, 1 kg, 56.99 € · Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg, 56.99 €"
+          "de": "5 Angebote von 2 Marken (Bambu Lab, Spectrum). Günstigstes Spectrum PC/ABS FR V0 Black, 1 kg für 35,99 € (35,99 €/kg); teuerstes Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg für 56,99 € (56,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 2 brands (Bambu Lab, Spectrum). Cheapest Spectrum PC/ABS FR V0 Black, 1 kg at 35.99 € (35.99 €/kg); dearest Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg at 56.99 € (56.99 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -610,8 +683,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg, 49,58 €",
-          "en": "1 offer: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg, 49.58 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg für 49,58 € (49,58 €/kg); teuerstes Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg für 49,58 € (49,58 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg at 49.58 € (49.58 €/kg); dearest Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg at 49.58 € (49.58 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -623,8 +696,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: 3DXTech Firewire FR-ABS Schwarz, 0,75 kg, 79,90 €",
-          "en": "1 offer: 3DXTech Firewire FR-ABS Schwarz, 0.75 kg, 79.90 €"
+          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech Firewire FR-ABS Schwarz, 0,75 kg für 79,90 € (106,53 €/kg); teuerstes 3DXTech Firewire FR-ABS Schwarz, 0,75 kg für 79,90 € (106,53 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech Firewire FR-ABS Schwarz, 0.75 kg at 79.90 € (106.53 €/kg); dearest 3DXTech Firewire FR-ABS Schwarz, 0.75 kg at 79.90 € (106.53 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -660,5 +733,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

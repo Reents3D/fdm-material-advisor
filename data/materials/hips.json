@@ -29,16 +29,13 @@
       "value": 1.05,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": [
-        "src_tds",
-        "src_ofd"
-      ],
-      "confidence": "low",
-      "min": 1.04,
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "min": 1.05,
       "max": 1.05,
       "note": {
-        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.05 g/cm³ (Fillamentum) bis 1.05 g/cm³ (Fillamentum). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 1.05 g/cm³ (Fillamentum) to 1.05 g/cm³ (Fillamentum). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
       }
     },
     "tensileStrengthXy": {
@@ -69,9 +66,15 @@
       "value": 40,
       "unit": "MPa",
       "testStandard": "ISO 178",
-      "orientation": "n/a",
-      "source": "src_tds",
-      "confidence": "low"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 38 MPa (Nebula Filaments) bis 50 MPa (FormFutura). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 38 MPa (Nebula Filaments) to 50 MPa (FormFutura). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 38,
+      "max": 50
     },
     "flexuralModulusXy": {
       "value": 2100,
@@ -569,15 +572,6 @@
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
       },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
-      },
       "maxSpoolWeightKg": {
         "value": 9,
         "unit": "kg",
@@ -667,6 +661,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_hips_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -675,8 +680,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "9 Angebote: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23,99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23,99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0,85 kg, 26,99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0,85 kg, 26,99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0,75 kg, 28,99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg, 28,99 €",
-          "en": "9 offers: Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Bahama Yellow, 1,75 mm / 1000 g, 1 kg, 23.99 € · Spectrum Spectrum HIPS-X Dragon Red, 1,75 mm / 1000 g, 1 kg, 23.99 € · Fiberlogy Fiberlogy HIPS Black, 1,75 mm / 850 g, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Graphite, 1,75 mm, 0.85 kg, 26.99 € · Fiberlogy Fiberlogy HIPS Natural, 1,75 mm, 0.85 kg, 26.99 € · FormFutura FormFutura EasyFil™ HIPS Black, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS White, 1,75 mm / 750 g, 0.75 kg, 28.99 € · FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg, 28.99 €"
+          "de": "9 Angebote von 3 Marken (Fiberlogy, FormFutura, Spectrum). Günstigstes Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg für 23,99 € (23,99 €/kg); teuerstes FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg für 28,99 € (38,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "9 offers from 3 brands (Fiberlogy, FormFutura, Spectrum). Cheapest Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg at 23.99 € (23.99 €/kg); dearest FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg at 28.99 € (38.65 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -688,8 +693,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg, 25,77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0,75 kg, 27,83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg, 27,83 €",
-          "en": "5 offers: Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg, 25.77 € · Fillamentum HIPS Extrafill \"Traffic Black\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Metallic Grey\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 1.75 mm, 0.75 kg, 27.83 € · Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg, 27.83 €"
+          "de": "5 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg für 25,77 € (34,36 €/kg); teuerstes Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg für 27,83 € (37,11 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 1 brand (Fillamentum). Cheapest Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg at 25.77 € (34.36 €/kg); dearest Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg at 27.83 € (37.11 €/kg). The full list is in data/prices.json."
         }
       },
       {

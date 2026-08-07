@@ -1,0 +1,150 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "anycubic-pla-high-speed",
+  "materialId": "pla",
+  "brand": "Anycubic",
+  "manufacturer": "Shenzhen Anycubic Technology Co., Ltd.",
+  "productName": "Anycubic PLA High Speed",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Das Blatt erklärt ausdrücklich: „All data are based on printed test samples. ‚(X-Y)‘ and ‚(Z)‘ indicate different testing orientations.“ Damit sind Prüfkörpertyp und Orientierung deklariert — die Werte sind mit Bambu Lab und Ultrafuse vergleichbar, nicht mit Blättern, die den Prüfkörper offenlassen.\n\nDrucktempo, Trocknung und Lüfterdrehzahl stehen auf dem Blatt, sind hier aber NICHT übernommen: Die Tabelle „Recommended Printing Parameters“ verschachtelt sich beim Textauszug, sodass Werte in fremden Zeilen landen. Düsen- und Betttemperatur sind davon nicht betroffen und stehen sauber getrennt.",
+    "en": "The sheet states explicitly: “All data are based on printed test samples. ‘(X-Y)’ and ‘(Z)’ indicate different testing orientations.” Specimen type and orientation are therefore declared — the values are comparable with Bambu Lab and Ultrafuse, not with sheets that leave the specimen open.\n\nPrint speed, drying and fan speed appear on the sheet but are NOT imported here: the “Recommended Printing Parameters” table interleaves during text extraction, so values land in the wrong rows. Nozzle and bed temperature are unaffected and read cleanly."
+  },
+  "features": {
+    "de": "Schnelldruck-PLA mit Faktor 0,49 — sieben Punkte unter dem Standard-PLA desselben Hauses. Die Schichthaftung ist der Preis der Geschwindigkeit, und dieses Blatt beziffert ihn, statt ihn zu verschweigen.",
+    "en": "High-speed PLA at factor 0.49 — seven points below the same house's standard PLA. Layer adhesion is the price of speed, and this sheet quantifies it instead of leaving it unsaid."
+  },
+  "properties": {
+    "density": {
+      "value": 1.19,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 45,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 5",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 22.1,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "conditions": "± 0,6",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2750,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 260",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 9,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 82,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "± 8",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 3905,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "± 300",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 21,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "conditions": "± 1; im Blatt als „Izod“ bezeichnet, Norm ist Charpy",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransitionTemperature": {
+      "value": 55.1,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 157,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 52,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 225,
+      "unit": "°C",
+      "min": 190,
+      "max": 260,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "min": 55,
+      "max": 65,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "datasheet": {
+    "title": "Anycubic PLA High Speed — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_PLA_HS_V3.0.pdf?v=1757558773",
+    "version": "3.0",
+    "retrievedAt": "2026-08-06"
+  },
+  "governance": {
+    "lastReviewed": "2026-08-06",
+    "reviewedBy": "Claude Code (Datenblattimport)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Shenzhen Anycubic Technology Co., Ltd.",
+        "title": "Anycubic PLA High Speed — Technical Data Sheet",
+        "documentVersion": "3.0",
+        "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_PLA_HS_V3.0.pdf?v=1757558773",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

@@ -141,7 +141,6 @@ export function stateFromParams(params: URLSearchParams): AppState {
 
   req.serviceTemperatureC = n("temp");
   req.outdoorYears = n("years");
-  req.maxEdgeMm = n("edge");
   req.quantity = n("qty");
   req.minTensileStrengthMPa = n("minStrength");
   req.minWallThicknessMm = n("wall");
@@ -206,7 +205,7 @@ function paramsFromState(s: AppState, base: URLSearchParams): URLSearchParams {
   const set = (k: string, v: unknown) => { if (v !== undefined && v !== null && v !== "") p.set(k, String(v)); };
   const { req } = s;
   set("temp", req.serviceTemperatureC); set("years", req.outdoorYears);
-  set("edge", req.maxEdgeMm); set("qty", req.quantity);
+  set("qty", req.quantity);
   set("minStrength", req.minTensileStrengthMPa); set("wall", req.minWallThicknessMm); set("ra", req.surfaceRaUm);
   for (const [key, val] of [["chamber", req.chamberAvailable], ["nozzle", req.hardenedNozzleAvailable], ["oven", req.annealingOvenAvailable],
     ["food", req.foodContact], ["esd", req.esd], ["watertight", req.requiresWatertight],

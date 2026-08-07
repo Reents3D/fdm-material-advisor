@@ -51,12 +51,17 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 100,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low",
+      "disputed": true,
+      "note": {
+        "de": "Wie beim Schwesterblatt ABS: Der Wert liegt zehnfach über den übrigen ASA-Blättern (10 bis 18 kJ/m²) und entspricht dem Lehrbuchwert für ASA in J/m. Einheitenfehler; der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+        "en": "As on the ABS sister sheet: the figure is ten times the other ASA sheets (10 to 18 kJ/m²) and matches the textbook value for ASA in J/m. Unit error; the value stays on record but is not aggregated."
+      }
     },
     "hdtB": {
       "value": 96,

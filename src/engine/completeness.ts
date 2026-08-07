@@ -20,7 +20,10 @@ const CORE_FIELDS: [string, number][] = [
   ["processing.hygroscopy", 2], ["processing.warpingTendency", 2], ["processing.abrasiveness", 2],
   ["durability.uvResistance", 2], ["durability.chemicalResistance", 2],
   ["compliance.foodContact.status", 2], ["compliance.flameRetardancy.ul94", 2],
-  ["commercial.availability", 2], ["commercial.xxl.maxSensibleEdgeMm", 2],
+  /* `commercial.xxl.maxSensibleEdgeMm` stand hier bis 2026-08-07. Die Vollstaendigkeit
+     misst, wieviel von der ENTSCHEIDUNG belegt ist - seit die Kantenlaenge kein
+     Bewertungskriterium mehr ist, gehoert sie nicht mehr dazu. */
+  ["commercial.availability", 2],
   ["finishing.paintAdhesion", 2], ["finishing.surfaceQuality", 2],
 ];
 

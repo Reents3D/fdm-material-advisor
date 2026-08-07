@@ -330,7 +330,6 @@ for (const T of TYPES) {
           value: T.commercial.xxl, unit: "mm", min: T.commercial.xxlMin, max: T.commercial.xxlMax,
           source: "estimate_reasoning", confidence: "estimated", note: XXL_NOTE,
         },
-        segmentationRecommended: { value: true, source: "estimate_reasoning", confidence: "estimated" },
       },
       reentsPortfolioStatus: {
         value: "unknown", source: "estimate_reasoning", confidence: "estimated", note: PORTFOLIO_NOTE,

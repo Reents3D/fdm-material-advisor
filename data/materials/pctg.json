@@ -31,17 +31,29 @@
     "density": {
       "value": 1.23,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ASTM D792",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.23 g/cm³ (3DJAKE) bis 1.23 g/cm³ (3DJAKE). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 1.23 g/cm³ (3DJAKE) to 1.23 g/cm³ (3DJAKE). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "min": 1.23,
+      "max": 1.23
     },
     "tensileStrengthXy": {
       "value": 43,
       "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 43 MPa (Extrudr) bis 44 MPa (3DJAKE). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 43 MPa (Extrudr) to 44 MPa (3DJAKE). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "min": 43,
+      "max": 44
     },
     "tensileModulusXy": {
       "value": 1650,
@@ -52,20 +64,32 @@
       "confidence": "medium"
     },
     "elongationAtBreakXy": {
-      "value": 215,
+      "value": 220,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 215 % (Extrudr) bis 220 % (3DJAKE). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 215 % (Extrudr) to 220 % (3DJAKE). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "min": 215,
+      "max": 220
     },
     "izodNotchedXy": {
-      "value": 94,
+      "value": 93,
       "unit": "kJ/m²",
-      "testStandard": "ISO 180/A",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 180",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 92 kJ/m² (Fiberlogy) bis 94 kJ/m² (Extrudr). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 92 kJ/m² (Fiberlogy) to 94 kJ/m² (Extrudr). Specimens: 0 of 3 printed, remainder undeclared."
+      },
+      "min": 92,
+      "max": 94
     },
     "toughness": {
       "value": 5,
@@ -78,16 +102,50 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "flexuralStrengthXy": {
+      "value": 60,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 60 MPa (3DJAKE) bis 62 MPa (Extrudr). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 60 MPa (3DJAKE) to 62 MPa (Extrudr). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 60,
+      "max": 62,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 1600,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 1600 MPa (3DJAKE) bis 1650 MPa (Extrudr). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 1600 MPa (3DJAKE) to 1650 MPa (Extrudr). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 1600,
+      "max": 1650,
+      "testStandard": "ISO 178"
     }
   },
   "thermal": {
     "hdtB": {
       "value": 76,
       "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
+      "testStandard": "ISO 75",
       "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 76 °C (3DJAKE) bis 76 °C (3DJAKE). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 3 manufacturer datasheets, range 76 °C (3DJAKE) to 76 °C (3DJAKE). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "min": 76,
+      "max": 76
     },
     "vicatB50": {
       "value": 88,
@@ -107,6 +165,19 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "hdtA": {
+      "value": 64,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 64 °C (3DJAKE) bis 64 °C (3DJAKE). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 2 manufacturer datasheets, range 64 °C (3DJAKE) to 64 °C (3DJAKE). Specimens: 0 of 2 printed, remainder undeclared. Not counted: 2× passed on digit-identical."
+      },
+      "min": 64,
+      "max": 64,
+      "testStandard": "ISO 75"
     }
   },
   "processing": {
@@ -511,15 +582,6 @@
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
       },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
-      },
       "maxSpoolWeightKg": {
         "value": 8,
         "unit": "kg",
@@ -540,6 +602,15 @@
         "note": {
           "de": "Marktbeobachtung über 13 Produkte und 165 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
           "en": "Market observation across 13 products and 165 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
+      },
+      "infillWarningXxl": {
+        "value": true,
+        "source": "field_experience_reents",
+        "confidence": "medium",
+        "note": {
+          "de": "Aus der eigenen Fertigung: 100 % gefüllte Bauteile sind im XXL-Format problematisch. Die inneren Spannungen werden extrem hoch, das Bauteil kann sich verziehen und schrumpft stärker. Das ist die Umkehrung der sonst richtigen Faustregel „mehr Füllung, mehr Sicherheit“: Für die Temperaturgrenze unter Dauerlast senkt mehr Füllung die Spannung im Querschnitt, für die Maßhaltigkeit eines Großteils erhöht sie den Verzug. Beides gilt gleichzeitig und zieht in verschiedene Richtungen.",
+          "en": "From own production: 100 % infill is problematic at XXL scale. Internal stresses become extreme, the part can warp and shrinks more. This inverts the otherwise sound rule of thumb \"more infill, more safety\": for the service temperature under sustained load more infill lowers the stress in the section, for the dimensional accuracy of a large part it raises distortion. Both hold at once and pull in opposite directions."
         }
       }
     },
@@ -594,15 +665,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -614,8 +696,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote: Extrudr PCTG transparent, 2,5 kg, 75,99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31,99 € · Fiberlogy PCTG Rot, 0,75 kg, 25,99 € · Extrudr PCTG anthrazit, 0,8 kg, 29,99 €",
-          "en": "4 offers: Extrudr PCTG transparent, 2.5 kg, 75.99 € · Fiberlogy PCTG Pure Transparent, 1 kg, 31.99 € · Fiberlogy PCTG Rot, 0.75 kg, 25.99 € · Extrudr PCTG anthrazit, 0.8 kg, 29.99 €"
+          "de": "4 Angebote von 2 Marken (Extrudr, Fiberlogy). Günstigstes Extrudr PCTG transparent, 2,5 kg für 75,99 € (30,40 €/kg); teuerstes Extrudr PCTG anthrazit, 0,8 kg für 29,99 € (37,49 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "4 offers from 2 brands (Extrudr, Fiberlogy). Cheapest Extrudr PCTG transparent, 2.5 kg at 75.99 € (30.40 €/kg); dearest Extrudr PCTG anthrazit, 0.8 kg at 29.99 € (37.49 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -627,8 +709,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg, 29,74 €",
-          "en": "1 offer: Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg, 29.74 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg für 29,74 € (37,17 €/kg); teuerstes Extrudr PCTG black 1.75 mm 0.8 kg, 0,8 kg für 29,74 € (37,17 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg at 29.74 € (37.17 €/kg); dearest Extrudr PCTG black 1.75 mm 0.8 kg, 0.8 kg at 29.74 € (37.17 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -664,19 +746,19 @@
         "affectsFields": [
           "mechanics"
         ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Terephthalsäure und Ethylenglykol; biobasiertes MEG existiert, ist bei diesen Typen aber nicht deklariert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Terephthalsäure und Ethylenglykol; biobasiertes MEG existiert, ist bei diesen Typen aber nicht deklariert. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

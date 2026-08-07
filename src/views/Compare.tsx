@@ -157,9 +157,16 @@ export function Compare({ state, t, update, navigate }: {
                             const v = nodeAt(m, d);
                             return (
                               <td key={m.id} className="py-1.5 px-3">
+                                {/* Die Spanne stand hier bis 2026-08-07 aus: Sie machte die
+                                    Tabelle breit und trug bei einer einzigen Quelle nichts
+                                    bei. Seit dem Abgleich gegen die Produktblätter (ADR-042)
+                                    ist sie die eigentliche Auskunft — PETG bricht zwischen
+                                    5 und 150 % Dehnung, je nach Rezeptur. Ein Vergleich, der
+                                    nur den Median zeigt, suggeriert eine Trennschärfe, die
+                                    die Datenlage nicht hergibt. */}
                                 {!v ? <span className="muted">–</span>
                                   : d.kind === "rating" ? <RatingBar r={v as Rating} lang={lang} />
-                                  : <Value q={v as Quantity} lang={lang} showRange={false} />}
+                                  : <Value q={v as Quantity} lang={lang} />}
                               </td>
                             );
                           })}

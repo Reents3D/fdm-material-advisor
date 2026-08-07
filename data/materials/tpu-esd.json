@@ -494,15 +494,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.\n\nAusnahme von der Herleitung: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.\n\nException to the derivation: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -556,8 +547,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr TPU medium ESD Schwarz, 0,5 kg, 64,99 € · Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg, 64,99 €",
-          "en": "2 offers: Extrudr TPU medium ESD Schwarz, 0.5 kg, 64.99 € · Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg, 64.99 €"
+          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU medium ESD Schwarz, 0,5 kg für 64,99 € (129,98 €/kg); teuerstes Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg für 64,99 € (129,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr TPU medium ESD Schwarz, 0.5 kg at 64.99 € (129.98 €/kg); dearest Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg at 64.99 € (129.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -569,8 +560,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg, 64,45 €",
-          "en": "1 offer: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg, 64.45 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg); teuerstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg); dearest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -617,5 +608,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

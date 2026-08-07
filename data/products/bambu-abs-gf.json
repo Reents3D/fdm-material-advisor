@@ -2,20 +2,24 @@
   "$schema": "../../schema/product.schema.json",
   "schemaVersion": "1.0.0",
   "id": "bambu-abs-gf",
-  "materialId": "abs",
+  "materialId": "abs-gf",
   "brand": "Bambu Lab",
   "manufacturer": "Bambu Lab",
   "productName": "Bambu ABS-GF",
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet. Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf diese Blätter; ausserhalb nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
-    "en": "Bambu Lab measures on PRINTED specimens and publishes both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs. Of 13 material types carrying a Z value, 12 rest on these sheets; outside them only Fillamentum (OBC 905) states both directions so far."
+    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Alle Werte gelten für GETEMPERTE Prüfkörper: „All the specimens were annealed and dried at 80 °C for 12 h before testing.“ Wer ungetempert druckt, bekommt sie nicht. Das Blatt nennt für gedruckte Teile 80 bis 90 °C über 6 bis 12 Stunden und warnt ausdrücklich vor Verzug beim Tempern.",
+    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: All values apply to ANNEALED specimens: “All the specimens were annealed and dried at 80 °C for 12 h before testing.” Printing without annealing will not reach them. The sheet states 80 to 90 °C over 6 to 12 hours for printed parts and explicitly warns of warping during annealing."
+  },
+  "features": {
+    "de": "Schliesst die letzte Anisotropieluecke unter den gefüllten Typen: 29 MPa quer zur Schicht gegen 36 MPa längs, also 81 % — der mit Abstand beste Wert aller faserverstärkten Werkstoffe im Bestand. Zum Vergleich: Bambus eigenes PA6-GF kommt auf 36 %. Der Grund liegt beim Grundpolymer, nicht bei der Faser: ABS verschweisst Schichten thermisch, Polyamid erstarrt zu schnell dafür. Bezahlt wird es mit der Schlagzähigkeit, die quer von 14,5 auf 5,3 kJ/m² einbricht — Faktor knapp drei, während die Zugfestigkeit kaum nachgibt.",
+    "en": "Closes the last anisotropy gap among the filled types: 29 MPa across the layers against 36 MPa along, i.e. 81 % — by far the best figure of all fibre-reinforced materials in the dataset. For comparison: Bambu's own PA6-GF reaches 36 %. The reason lies with the base polymer, not the fibre: ABS fuses layers thermally, polyamide solidifies too fast for that. It is paid for in impact strength, which drops across from 14.5 to 5.3 kJ/m² — a factor of nearly three, while tensile strength barely gives way."
   },
   "datasheet": {
     "title": "Bambu ABS-GF — Technical Data Sheet",
-    "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_ABS-GF_Technical_Data_Sheet.pdf",
-    "retrievedAt": "2026-08-01"
+    "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_ABS-GF_Technical_Data_Sheet.pdf",
+    "retrievedAt": "2026-08-05"
   },
   "productUrl": "https://eu.store.bambulab.com/collections/all",
   "properties": {
@@ -24,95 +28,153 @@
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
-    "tensileStrengthXy": {
-      "value": 36,
-      "unit": "MPa",
-      "tolerance": 3,
-      "testStandard": "ISO 527, GB/T 1040",
-      "orientation": "XY",
+    "meltingTemperature": {
+      "value": 202,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "10 °C/min",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
-    "tensileStrengthZ": {
-      "value": 29,
-      "unit": "MPa",
-      "tolerance": 3,
-      "testStandard": "ISO 527, GB/T 1040",
-      "orientation": "Z",
+    "waterAbsorption": {
+      "value": 0.53,
+      "unit": "%",
+      "conditions": "25 °C, 55 % rF, gesättigt",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
     "tensileModulusXy": {
       "value": 3160,
       "unit": "MPa",
       "tolerance": 170,
-      "testStandard": "ISO 527, GB/T 1040",
+      "testStandard": "ISO 527 / GB/T 1040",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
+    },
+    "tensileModulusZ": {
+      "value": 2250,
+      "unit": "MPa",
+      "tolerance": 130,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 36,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 29,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 6.3,
+      "unit": "%",
+      "tolerance": 1.2,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakZ": {
+      "value": 2.3,
+      "unit": "%",
+      "tolerance": 0.8,
+      "testStandard": "ISO 527 / GB/T 1040",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
     },
     "flexuralModulusXy": {
       "value": 2860,
       "unit": "MPa",
       "tolerance": 130,
-      "testStandard": "ISO 178, GB/T 9341",
+      "testStandard": "ISO 178 / GB/T 9341",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
+    },
+    "flexuralModulusZ": {
+      "value": 1970,
+      "unit": "MPa",
+      "tolerance": 110,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
     },
     "flexuralStrengthXy": {
       "value": 68,
       "unit": "MPa",
       "tolerance": 4,
-      "testStandard": "ISO 178, GB/T 9341",
+      "testStandard": "ISO 178 / GB/T 9341",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
-    "hdtA": {
-      "value": 88,
-      "unit": "°C",
-      "testStandard": "ISO 75, 1.8 MPa",
+    "flexuralStrengthZ": {
+      "value": 46,
+      "unit": "MPa",
+      "tolerance": 3,
+      "testStandard": "ISO 178 / GB/T 9341",
+      "orientation": "Z",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
-    "hdtB": {
-      "value": 99,
-      "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
+    "charpyUnnotchedXy": {
+      "value": 14.5,
+      "unit": "kJ/m²",
+      "tolerance": 1.5,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "XY",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
+    },
+    "charpyUnnotchedZ": {
+      "value": 5.3,
+      "unit": "kJ/m²",
+      "tolerance": 1.4,
+      "testStandard": "ISO 179 / GB/T 1043",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
     },
     "nozzleTemperature": {
       "value": 260,
       "unit": "°C",
       "min": 240,
       "max": 280,
+      "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     },
     "bedTemperature": {
       "value": 90,
       "unit": "°C",
       "min": 80,
       "max": 100,
+      "conditions": "Herstellerempfehlung",
       "source": "src_tds",
-      "confidence": "high"
-    },
-    "chamberTemperature": {
-      "value": 52.5,
-      "unit": "°C",
-      "min": 45,
-      "max": 60,
-      "source": "src_tds",
-      "confidence": "high"
+      "confidence": "medium"
     }
   },
   "governance": {
-    "lastReviewed": "2026-08-01",
-    "reviewedBy": "Claude Code (maschineller Import aus dem Herstellerdatenblatt)",
+    "lastReviewed": "2026-08-05",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
     "sources": [
       {
         "id": "src_tds",
@@ -120,8 +182,8 @@
         "publisher": "Bambu Lab",
         "productName": "Bambu ABS-GF",
         "title": "Bambu ABS-GF — Technical Data Sheet",
-        "url": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_ABS-GF_Technical_Data_Sheet.pdf",
-        "retrievedAt": "2026-08-01",
+        "url": "https://cdn.shopify.com/s/files/1/0574/3116/2995/files/Bambu_ABS-GF_Technical_Data_Sheet.pdf",
+        "retrievedAt": "2026-08-05",
         "confidenceCeiling": "high",
         "note": {
           "de": "Herstellerdatenblatt mit gedruckten Prüfkörpern, beiden Orientierungen und Streuungsangaben. Nachzuprüfen am verlinkten Originaldokument.",

@@ -1,0 +1,150 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "anycubic-pla-matte",
+  "materialId": "pla",
+  "brand": "Anycubic",
+  "manufacturer": "Shenzhen Anycubic Technology Co., Ltd.",
+  "productName": "Anycubic PLA Matte",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Das Blatt erklärt ausdrücklich: „All data are based on printed test samples. ‚(X-Y)‘ and ‚(Z)‘ indicate different testing orientations.“ Damit sind Prüfkörpertyp und Orientierung deklariert — die Werte sind mit Bambu Lab und Ultrafuse vergleichbar, nicht mit Blättern, die den Prüfkörper offenlassen.\n\nDrucktempo, Trocknung und Lüfterdrehzahl stehen auf dem Blatt, sind hier aber NICHT übernommen: Die Tabelle „Recommended Printing Parameters“ verschachtelt sich beim Textauszug, sodass Werte in fremden Zeilen landen. Düsen- und Betttemperatur sind davon nicht betroffen und stehen sauber getrennt.",
+    "en": "The sheet states explicitly: “All data are based on printed test samples. ‘(X-Y)’ and ‘(Z)’ indicate different testing orientations.” Specimen type and orientation are therefore declared — the values are comparable with Bambu Lab and Ultrafuse, not with sheets that leave the specimen open.\n\nPrint speed, drying and fan speed appear on the sheet but are NOT imported here: the “Recommended Printing Parameters” table interleaves during text extraction, so values land in the wrong rows. Nozzle and bed temperature are unaffected and read cleanly."
+  },
+  "features": {
+    "de": "Die Mattierung kostet die Hälfte der Festigkeit: 23 MPa gegen 48 beim Standard-PLA desselben Hauses, bei einer Dichte von 1,31 statt 1,24. Beides zeigt denselben Grund — ein hoher mineralischer Füllanteil. Dafür steigt die Bruchdehnung von 8 auf 28 %.",
+    "en": "The matting costs half the strength: 23 MPa against 48 for the same house's standard PLA, at a density of 1.31 instead of 1.24. Both point to the same cause — a high mineral filler content. In return, elongation at break rises from 8 to 28 %."
+  },
+  "properties": {
+    "density": {
+      "value": 1.31,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 23,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 2",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 12,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "conditions": "± 1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2000,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 64",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 28,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "conditions": "± 3",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 40,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "± 1",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 2200,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "conditions": "± 100",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 24,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "conditions": "± 0,18; im Blatt als „Izod“ bezeichnet, Norm ist Charpy",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransitionTemperature": {
+      "value": 64,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "meltingTemperature": {
+      "value": 162.6,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtB": {
+      "value": 57.4,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 0,45 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 210,
+      "unit": "°C",
+      "min": 190,
+      "max": 230,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 60,
+      "unit": "°C",
+      "min": 55,
+      "max": 65,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "datasheet": {
+    "title": "Anycubic PLA Matte — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_PLA_Matte_V3.0.pdf?v=1757562867",
+    "version": "3.0",
+    "retrievedAt": "2026-08-06"
+  },
+  "governance": {
+    "lastReviewed": "2026-08-06",
+    "reviewedBy": "Claude Code (Datenblattimport)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Shenzhen Anycubic Technology Co., Ltd.",
+        "title": "Anycubic PLA Matte — Technical Data Sheet",
+        "documentVersion": "3.0",
+        "url": "https://cdn.shopify.com/s/files/1/0685/7578/9245/files/ANYCUBIC_TDS_PLA_Matte_V3.0.pdf?v=1757562867",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

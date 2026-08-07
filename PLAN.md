@@ -1,13 +1,54 @@
 # PLAN.md — FDM-Materialberater
 
-**Stand:** 2026-08-05 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
+**Stand:** 2026-08-07 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** `ppa-cf` als Werkstofftyp anlegen — der einzige der elf Kandidaten aus
-Abschnitt 5a, der noch aussteht und ein neuer Typ wäre (PEEK, PEI, PVA, BVOH und die vier
-Support-Sorten sind entschieden und fallen weg). Dazu die Rückfragen in Abschnitt 5
-(Portfolio, XXL-Grenzen, Preise) und die Variantentypen `pctg-cf` und `pc-cf`. Danach die
-übrigen OFD-Fundstellen (Anycubic 12, Bambu 7 mit offener Typfrage) und die Marken ganz
-ohne Blattlink (Polymaker 71, 3DXTech 61)
+**Nächster Schritt:** Die vier verbliebenen `oq_spread_*`-Fälle und die Marken ganz ohne
+Blattlink (Polymaker 71, 3DXTech 61, PrimaCreator 59). **[RUECKFRAGEN.md](RUECKFRAGEN.md)
+ist leer** — die XXL-Grenzen sind beantwortet und eingearbeitet.
+
+**Die XXL-Werte sind belegt statt geschätzt.** ABS stand bei 550 mm und ASA bei 700 —
+abgeleitet aus ihrer Verzugsneigung, also aus dem, was ein Bauteil OHNE Gegenmassnahmen
+tut. Tatsächlich laufen beide zuverlässig über einen Meter; die Ableitung lag um Faktor
+zwei daneben, und zwar systematisch. `segmentationRecommended` ist ersatzlos entfernt
+(„ein Materialberater ist kein Fertigungsberater"), dafür trägt die Datenbank jetzt einen
+Befund, den keine Frage erwartet hatte: 100 % Füllung ist im Grossformat bei PETG, ASA und
+ABS problematisch — die Umkehrung der sonst richtigen Faustregel.
+
+## Was seit dem letzten Stand passiert ist
+
+**Der grösste Einzelbefund des Projekts ist behoben.** 199 von 288 Werkstoffkennwerten
+trugen die Quelle `src_bambu_tds` — nicht weil Bambu besser misst, sondern weil Bambu zuerst
+importiert wurde. Die 254 Produktdatenblätter waren auf der Werkstoffebene nie angekommen.
+PETG stand mit Bambus Bruchdehnung von 9,5 %, während 17 Blätter im selben Repository 5 bis
+150 % sagten.
+
+Der Abgleich (**ADR-042**) hat 131 Lücken geschlossen, 132 Werte ersetzt und jedem Kennwert
+die Spanne über die Hersteller gegeben. Sechzehn offene Fragen „nur ein Datenblatt" waren
+damit beantwortet.
+
+**Die Spanne ist dann zur Regel geworden (ADR-043).** PLA trägt 45,8 MPa (23–63), ABS
+44,0 (33–59) — diese beiden liegen nicht auseinander, und die Rangfolge behauptete es
+trotzdem. Ein Vorsprung zählt jetzt nur so weit, wie die Spanne ihn deckt. Das trifft 33 von
+630 bewerteten Kriterien; der Preis ist ausgenommen, weil eine Preisspanne Marktstreuung
+misst und keine Unsicherheit.
+
+**Der Abgleich hat sich als Messinstrument erwiesen.** Wo er absurde Spannen meldete, lag
+der Fehler nicht in der Vielfalt:
+
+| Befund | Folge |
+|---|---|
+| Acht Blätter führten Izod-Werte (ASTM D256, ISO 180) im Charpy-Feld | umgezogen · Regel **R18** |
+| Sechs FormFutura-Blätter zitieren in der gekerbten Zeile die ungekerbte Norm | Norm entfernt, `low` — der Fehler steht im Blatt |
+| Sieben Zahlen widersprechen ihrem eigenen Umfeld um eine Grössenordnung | neues Feld `disputed` · Regel **R19** |
+
+`disputed` heisst: steht im Blatt, wird nicht mitgerechnet. In der Herstellertabelle
+erscheint die Zahl durchgestrichen mit ihrer Begründung daneben.
+
+**Zwei Zahlen auf der Startseite waren falsch** („PLA mit 35 MPa", „zwischen 47 % und 90 %").
+Sie werden jetzt gerechnet statt geschrieben.
+
+**Offene Entscheidungen stehen gesammelt in [RUECKFRAGEN.md](RUECKFRAGEN.md)**, nach
+Wirkung sortiert. Alles andere ist selbst entschieden und am Ort der Wirkung begründet.
 
 ---
 
@@ -495,12 +536,49 @@ diese Vorlage nennt die Datenlage.
 1. ~~`ppa-cf`~~ — **gebaut am 2026-08-05.** 42. Werkstofftyp, 66 belegte Aussagen, davon
    24 Bewertungsskalen. Zwei offene Fragen stehen am Datensatz: die fehlende zweite Quelle
    und der fehlende Preis
-2. **PCL** — erst nach einer zweiten Quelle
+2. ~~**PCL**~~ — **entschieden 2026-08-06: bleibt draussen.** Niedrigtemperatur-Werkstoff fuer Modellbau und Medizintechnik, kein Konstruktionsmaterial fuer die Zielgruppe. Das einzige Blatt trug ohnehin unstimmige Zahlen (45 MPa bei 350 MPa Modul; Literatur nennt rund 16 MPa)
 3. **TPU 90A** — als Produkt unter `tpu-85a`, kein eigener Typ
 4. ~~`pva`, BVOH, 4× Support~~ — entschieden: wird nicht gebraucht (2026-08-05)
 5. ~~PEEK, PEI~~ — entschieden: außerhalb des Rahmens (2026-08-05)
 
-Von elf Kandidaten bleiben damit drei, und nur einer davon ist ein neuer Typ.
+Von elf Kandidaten bleibt damit **keiner**:  und  sind gebaut, , PCL, PEEK, PEI, PVA, BVOH und die vier Support-Sorten sind abgelehnt, TPU 90A laeuft als Produkt.
+
+### Die zwei Variantentypen aus dem FormFutura-Import — entschieden am 2026-08-06
+
+Zwei Blätter lagen seit dem 2026-08-04 ausgewertet im Arbeitsplatz, weil es keinen
+passenden Typ gab. Beide sind gegen ihr **ungefülltes Schwesterblatt** gehalten worden —
+dieselbe Prüfung, die R16 seit dem Alzament-Import automatisch macht. Das Ergebnis fällt
+gegensätzlich aus, und genau deshalb war die Prüfung nötig.
+
+| | AthenaX CF10 → `pctg-cf` | Kratos PC CF10 → `pc-cf` |
+|---|---|---|
+| Dichte | 1,23 → **1,28** | 1,20 → 1,22 |
+| Zugfestigkeit | 44 → **70 MPa** (+59 %) | 61,8 → 76 MPa |
+| Bruchdehnung | 220 % → **5 %** | > 100 % → **> 100 %** |
+| Biege-E-Modul | *nicht auf dem Blatt* | 24.000 → **24.000 kg/cm²** |
+| Biegefestigkeit | *nicht auf dem Blatt* | 920 → **920 kg/cm²** |
+| Schlagzähigkeit | 93 → **4 kJ/m²** | 70 → **70 kgcm/cm** |
+| **Urteil** | **angelegt** | **abgelehnt** |
+
+Bei AthenaX CF10 bewegt sich jeder Wert in die Richtung, die eine Kohlefaserfüllung
+erzwingt. Die Bruchdehnung von 220 auf 5 Prozent ist der Beleg: Das lässt sich nicht
+abschreiben. Zusätzlich stimmt die Eigenwerbung des Blattes („59 % higher tensile
+strength") auf den Prozentpunkt mit seinen eigenen Zahlen.
+
+Bei Kratos PC CF10 sind **vier von acht** Kennwerten zifferngleich mit dem ungefüllten
+Blatt — und zwar genau die vier, die eine Faserfüllung am stärksten verändern müsste. Eine
+Bruchdehnung über 100 % ist bei 10 % Kohlefaser physikalisch ausgeschlossen; ein
+Biege-E-Modul, das sich durch die Füllung um kein Prozent bewegt, ebenfalls.
+
+**`pc-cf` wird deshalb nicht angelegt** — nicht weil der Werkstoff uninteressant wäre,
+sondern weil die einzige Quelle ihn nicht belegt. Ein Typ, dessen Kennwerte aus dem
+ungefüllten Nachbarn stammen, wäre schlimmer als keiner: Er sähe aus wie Wissen. Kommt
+eine zweite Quelle, ist die Entscheidung in zehn Minuten umgedreht.
+
+**Was `pctg-cf` fehlt und am Datensatz steht:** kein E-Modul (das Blatt nennt keinen —
+ausgerechnet die Zahl, die eine Füllung am deutlichsten zeigt), keine zweite Quelle, und
+kein Preis, weil ihn nur FormFutura führt und deren robots.txt Anthropics Agenten sperrt.
+Drei offene Fragen, eine davon blockierend.
 
 ### Das daraus folgende Aufnahmekriterium
 

@@ -130,6 +130,66 @@
         "de": "Senkrecht zur Schicht bleiben 48 % der Zugfestigkeit erhalten (15.1 von 31.2 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Alzament PLA-CF — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
         "en": "Perpendicular to the layers 48 % of the tensile strength remains (15.1 of 31.2 MPa). Both operands come from ONE datasheet, that of Alzament PLA-CF — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 51.7,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Alzament. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Alzament. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 3381,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Alzament. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Alzament. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
+    },
+    "tensileStrengthZ": {
+      "value": 15.1,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Alzament. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Alzament. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "tensileModulusZ": {
+      "value": 2213,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Alzament. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Alzament. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "elongationAtBreakZ": {
+      "value": 0.9,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Alzament. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Alzament. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
     }
   },
   "thermal": {
@@ -596,17 +656,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
+          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
         }
       },
       "maxSpoolWeightKg": {
@@ -707,6 +758,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_pla_cf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -715,8 +777,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Bambu Lab Bambu Lab PLA-CF Black, Spule, 1 kg, 29,99 € · Bambu Lab Bambu Lab PLA-CF Lava Gray, Spule, 1 kg, 29,99 € · Bambu Lab Bambu Lab PLA-CF Burgundy Red, Spule, 1 kg, 29,99 €",
-          "en": "3 offers: Bambu Lab Bambu Lab PLA-CF Black, Spule, 1 kg, 29.99 € · Bambu Lab Bambu Lab PLA-CF Lava Gray, Spule, 1 kg, 29.99 € · Bambu Lab Bambu Lab PLA-CF Burgundy Red, Spule, 1 kg, 29.99 €"
+          "de": "3 Angebote von 1 Marke (Bambu Lab). Günstigstes Bambu Lab Bambu Lab PLA-CF Black, Spule, 1 kg für 29,99 € (29,99 €/kg); teuerstes Bambu Lab Bambu Lab PLA-CF Burgundy Red, Spule, 1 kg für 29,99 € (29,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Bambu Lab). Cheapest Bambu Lab Bambu Lab PLA-CF Black, Spule, 1 kg at 29.99 € (29.99 €/kg); dearest Bambu Lab Bambu Lab PLA-CF Burgundy Red, Spule, 1 kg at 29.99 € (29.99 €/kg). The full list is in data/prices.json."
         }
       },
       {

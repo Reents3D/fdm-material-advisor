@@ -1,0 +1,137 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "anycubic-asa",
+  "materialId": "asa",
+  "brand": "Anycubic",
+  "manufacturer": "Shenzhen Anycubic Technology Co., Ltd.",
+  "productName": "Anycubic ASA",
+  "origin": "China",
+  "specimenType": "printed",
+  "specimenNote": {
+    "de": "Das Blatt erklärt ausdrücklich: „All data are based on printed test samples. ‚(X-Y)‘ and ‚(Z)‘ indicate different testing orientations.“ Damit sind Prüfkörpertyp und Orientierung deklariert — die Werte sind mit Bambu Lab und Ultrafuse vergleichbar, nicht mit Blättern, die den Prüfkörper offenlassen.\n\nDrucktempo, Trocknung und Lüfterdrehzahl stehen auf dem Blatt, sind hier aber NICHT übernommen: Die Tabelle „Recommended Printing Parameters“ verschachtelt sich beim Textauszug, sodass Werte in fremden Zeilen landen. Düsen- und Betttemperatur sind davon nicht betroffen und stehen sauber getrennt.",
+    "en": "The sheet states explicitly: “All data are based on printed test samples. ‘(X-Y)’ and ‘(Z)’ indicate different testing orientations.” Specimen type and orientation are therefore declared — the values are comparable with Bambu Lab and Ultrafuse, not with sheets that leave the specimen open.\n\nPrint speed, drying and fan speed appear on the sheet but are NOT imported here: the “Recommended Printing Parameters” table interleaves during text extraction, so values land in the wrong rows. Nozzle and bed temperature are unaffected and read cleanly."
+  },
+  "features": {
+    "de": "HDT-A 90 °C bei 41 MPa Zugfestigkeit — beides über dem ABS desselben Hauses (85 °C, 34 MPa). Der Biege-E-Modul liegt dagegen mit 1.845 MPa deutlich darunter (2.200): Dieses ASA ist fester und wärmefester, aber weicher.",
+    "en": "HDT-A 90 °C at 41 MPa tensile strength — both above the same house's ABS (85 °C, 34 MPa). The flexural modulus, by contrast, sits clearly below it at 1,845 MPa (2,200): this ASA is stronger and more heat resistant, but softer."
+  },
+  "properties": {
+    "density": {
+      "value": 1.07,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183, 23 °C",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 41,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthZ": {
+      "value": 24,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 2220,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 15,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 62,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 1845,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 36,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "conditions": "im Blatt als „Izod“ bezeichnet, Norm ist Charpy",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "glassTransitionTemperature": {
+      "value": 103,
+      "unit": "°C",
+      "testStandard": "ISO 11357-1, 10 K/min",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 90,
+      "unit": "°C",
+      "testStandard": "ISO 75-2, 1,8 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "nozzleTemperature": {
+      "value": 265,
+      "unit": "°C",
+      "min": 255,
+      "max": 275,
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "bedTemperature": {
+      "value": 90,
+      "unit": "°C",
+      "min": 80,
+      "max": 100,
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "datasheet": {
+    "title": "Anycubic ASA — Technical Data Sheet",
+    "url": "https://cdn.shopify.com/s/files/1/0245/5519/2380/files/ANYCUBIC_TDS_ASA_V3.0.pdf?v=1758535865",
+    "version": "3.0",
+    "retrievedAt": "2026-08-06"
+  },
+  "governance": {
+    "lastReviewed": "2026-08-06",
+    "reviewedBy": "Claude Code (Datenblattimport)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Shenzhen Anycubic Technology Co., Ltd.",
+        "title": "Anycubic ASA — Technical Data Sheet",
+        "documentVersion": "3.0",
+        "url": "https://cdn.shopify.com/s/files/1/0245/5519/2380/files/ANYCUBIC_TDS_ASA_V3.0.pdf?v=1758535865",
+        "retrievedAt": "2026-08-06",
+        "confidenceCeiling": "medium"
+      }
+    ]
+  }
+}

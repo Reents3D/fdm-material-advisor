@@ -123,6 +123,48 @@
         "de": "Gute Gleit- und Verschleisseigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
         "en": "Good sliding and wear properties even without lubrication — the classic use for bearing bushes and gears."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 105,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 98 MPa (SUNLU) bis 112 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 98 MPa (SUNLU) to 112 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 98,
+      "max": 112,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "flexuralModulusXy": {
+      "value": 2575,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 2350 MPa (SUNLU) bis 2800 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 2350 MPa (SUNLU) to 2800 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 2350,
+      "max": 2800,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "charpyNotchedXy": {
+      "value": 6.8,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -178,6 +220,17 @@
         "de": "Konservativ angesetzt und bewusst nicht an der HDT-B orientiert. Oberhalb des Glasübergangs kriecht das Material unter Dauerlast.",
         "en": "Set conservatively and deliberately not oriented on HDT-B. Above the glass transition the material creeps under sustained load."
       }
+    },
+    "vicatB50": {
+      "value": 135,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: SUNLU. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ASTM D1525"
     }
   },
   "processing": {
@@ -590,17 +643,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff wird bisher nur auf den Engineering-Druckern gefahren, nicht im Großformat — es gibt also keine eigene Erfahrung, gegen die sich die Schätzung prüfen ließe.",
+          "en": "Estimated, not established. This material is so far run only on the engineering printers, not at large format — so there is no own experience against which the estimate could be checked."
         }
       },
       "maxSpoolWeightKg": {
@@ -665,6 +709,17 @@
     "dataCompleteness": null,
     "sources": [
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_pa6_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -673,8 +728,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0,5 kg, 34,99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0,75 kg, 69,99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg, 69,99 €",
-          "en": "5 offers: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0.5 kg, 34.99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0.75 kg, 69.99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg, 69.99 €"
+          "de": "5 Angebote von 2 Marken (FormFutura, Spectrum). Günstigstes FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg für 34,99 € (69,98 €/kg); teuerstes Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg für 69,99 € (93,32 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "5 offers from 2 brands (FormFutura, Spectrum). Cheapest FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg at 34.99 € (69.98 €/kg); dearest Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg at 69.99 € (93.32 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -729,5 +784,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

@@ -28,20 +28,33 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.05,
+      "value": 1.07,
       "unit": "g/cm³",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 1183"
+      "testStandard": "ISO 1183",
+      "note": {
+        "de": "Median aus 14 Herstellerblättern, Spanne 1.05 g/cm³ (Alzament) bis 1.18 g/cm³ (Extrudr). Prüfkörper: 4 von 14 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (7), ASTM D792 (6). Nicht mitgezählt: 1× Spritzguss, 2× zifferngleich weitergereicht.",
+        "en": "Median of 14 manufacturer datasheets, range 1.05 g/cm³ (Alzament) to 1.18 g/cm³ (Extrudr). Specimens: 4 of 14 printed, remainder undeclared. Mixed test standards: ISO 1183 (7), ASTM D792 (6). Not counted: 1× moulded, 2× passed on digit-identical."
+      },
+      "min": 1.05,
+      "max": 1.18,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 37,
+      "value": 42.55,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 3,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 12 Herstellerblättern, Spanne 37 MPa (Alzament) bis 63 MPa (Extrudr). Prüfkörper: 4 von 12 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (6), ASTM D638 (6). Nicht mitgezählt: 1× Spritzguss, 3× zifferngleich weitergereicht.",
+        "en": "Median of 12 manufacturer datasheets, range 37 MPa (Alzament) to 63 MPa (Extrudr). Specimens: 4 of 12 printed, remainder undeclared. Mixed test standards: ISO 527 (6), ASTM D638 (6). Not counted: 1× moulded, 3× passed on digit-identical."
+      },
+      "min": 37,
+      "max": 63,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthZ": {
       "value": 31,
@@ -53,13 +66,19 @@
       "orientation": "Z"
     },
     "tensileModulusXy": {
-      "value": 2450,
+      "value": 2140,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 270,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 10 Herstellerblättern, Spanne 1600 MPa (Prusament) bis 2450 MPa (Alzament). Prüfkörper: 4 von 10 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (5), ASTM D638 (5). Nicht mitgezählt: 3× zifferngleich weitergereicht.",
+        "en": "Median of 10 manufacturer datasheets, range 1600 MPa (Prusament) to 2450 MPa (Alzament). Specimens: 4 of 10 printed, remainder undeclared. Mixed test standards: ISO 527 (5), ASTM D638 (5). Not counted: 3× passed on digit-identical."
+      },
+      "min": 1600,
+      "max": 2450,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileModulusZ": {
       "value": 2120,
@@ -71,13 +90,19 @@
       "orientation": "Z"
     },
     "elongationAtBreakXy": {
-      "value": 9.2,
+      "value": 15,
       "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.4,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ASTM D638",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 11 Herstellerblättern, Spanne 6 % (Fiberlogy) bis 55 % (Nebula Filaments). Prüfkörper: 3 von 11 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D638 (6), ISO 527 (5). Nicht mitgezählt: 1× Spritzguss, 3× zifferngleich weitergereicht.",
+        "en": "Median of 11 manufacturer datasheets, range 6 % (Fiberlogy) to 55 % (Nebula Filaments). Specimens: 3 of 11 printed, remainder undeclared. Mixed test standards: ASTM D638 (6), ISO 527 (5). Not counted: 1× moulded, 3× passed on digit-identical."
+      },
+      "min": 6,
+      "max": 55,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "elongationAtBreakZ": {
       "value": 4.6,
@@ -89,13 +114,19 @@
       "orientation": "Z"
     },
     "flexuralStrengthXy": {
-      "value": 65,
+      "value": 64.5,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 5,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 10 Herstellerblättern, Spanne 62 MPa (Anycubic) bis 100 MPa (Extrudr). Prüfkörper: 4 von 10 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D790 (6), ISO 178 (4). Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 10 manufacturer datasheets, range 62 MPa (Anycubic) to 100 MPa (Extrudr). Specimens: 4 of 10 printed, remainder undeclared. Mixed test standards: ASTM D790 (6), ISO 178 (4). Not counted: 2× passed on digit-identical."
+      },
+      "min": 62,
+      "max": 100,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralStrengthZ": {
       "value": 40,
@@ -107,13 +138,19 @@
       "orientation": "Z"
     },
     "flexuralModulusXy": {
-      "value": 1920,
+      "value": 2017,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 130,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 8 Herstellerblättern, Spanne 1814 MPa (Fillamentum) bis 3500 MPa (Extrudr). Prüfkörper: 3 von 8 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D790 (5), ISO 178 (3). Nicht mitgezählt: 1× Spritzguss, 2× zifferngleich weitergereicht.",
+        "en": "Median of 8 manufacturer datasheets, range 1814 MPa (Fillamentum) to 3500 MPa (Extrudr). Specimens: 3 of 8 printed, remainder undeclared. Mixed test standards: ASTM D790 (5), ISO 178 (3). Not counted: 1× moulded, 2× passed on digit-identical."
+      },
+      "min": 1814,
+      "max": 3500,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
       "value": 1650,
@@ -125,13 +162,18 @@
       "orientation": "Z"
     },
     "charpyUnnotchedXy": {
-      "value": 19.6,
+      "value": 25,
       "unit": "kJ/m²",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.8,
-      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 19.6 kJ/m² (Bambu Lab) bis 41 kJ/m² (Alzament). Prüfkörper: 4 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 19.6 kJ/m² (Bambu Lab) to 41 kJ/m² (Alzament). Specimens: 4 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "min": 19.6,
+      "max": 41
     },
     "charpyUnnotchedZ": {
       "value": 4.9,
@@ -192,29 +234,77 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyNotchedXy": {
+      "value": 12,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 7.5 kJ/m² (Fiberlogy) bis 19.6 kJ/m² (Alzament). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 7.5 kJ/m² (Fiberlogy) to 19.6 kJ/m² (Alzament). Specimens: 2 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+      },
+      "orientation": "XY",
+      "min": 7.5,
+      "max": 19.6,
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 14,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 10 kJ/m² (Extrudr) bis 18 kJ/m² (SUNLU). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× bestritten, 2× andere Einheit.",
+        "en": "Median of 2 manufacturer datasheets, range 10 kJ/m² (Extrudr) to 18 kJ/m² (SUNLU). Specimens: 0 of 2 printed, remainder undeclared. Not counted: 1× disputed, 2× different unit."
+      },
+      "orientation": "XY",
+      "min": 10,
+      "max": 18,
+      "testStandard": "ISO 180"
     }
   },
   "thermal": {
     "hdtA": {
-      "value": 92,
+      "value": 91,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 1.8 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 86 °C (Prusament) bis 95 °C (FormFutura). Prüfkörper: 3 von 4 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× Spritzguss, 1× zifferngleich weitergereicht.",
+        "en": "Median of 4 manufacturer datasheets, range 86 °C (Prusament) to 95 °C (FormFutura). Specimens: 3 of 4 printed, remainder undeclared. Not counted: 1× moulded, 1× passed on digit-identical."
+      },
+      "min": 86,
+      "max": 95
     },
     "hdtB": {
-      "value": 100,
+      "value": 96,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 0.45 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 86 °C (FormFutura) bis 100 °C (Bambu Lab). Prüfkörper: 2 von 7 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (4), ASTM D648 (3). Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 7 manufacturer datasheets, range 86 °C (FormFutura) to 100 °C (Bambu Lab). Specimens: 2 of 7 printed, remainder undeclared. Mixed test standards: ISO 75 (4), ASTM D648 (3). Not counted: 1× passed on digit-identical."
+      },
+      "min": 86,
+      "max": 100,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "vicatB50": {
-      "value": 106,
+      "value": 98,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "low",
-      "testStandard": "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "testStandard": "ISO 306",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 94 °C (Fillamentum) bis 105 °C (SUNLU). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 306 (2), ASTM D1525 (2).",
+        "en": "Median of 4 manufacturer datasheets, range 94 °C (Fillamentum) to 105 °C (SUNLU). Specimens: 0 of 4 printed, remainder undeclared. Mixed test standards: ISO 306 (2), ASTM D1525 (2)."
+      },
+      "min": 94,
+      "max": 105,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "meltingTemperature": {
       "value": 210,
@@ -228,17 +318,28 @@
       }
     },
     "recommendedMaxServiceTemperature": {
-      "value": 75,
+      "value": 70,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated",
-      "min": 65,
-      "max": 80,
+      "min": 60,
+      "max": 75,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 92 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 100 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 100 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 92 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 100 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 100 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 86 °C (niedrigster Blattwert; geführt ist der Median 91 °C) abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 96 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 96 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 86 °C (lowest datasheet figure; the median 91 °C is what the record carries) less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 96 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 96 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
+    },
+    "glassTransition": {
+      "value": 108,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: SUNLU. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ASTM D7426"
     }
   },
   "processing": {
@@ -769,27 +870,19 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 700,
+        "value": 1800,
         "unit": "mm",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
+        "source": "field_experience_reents",
+        "confidence": "medium",
         "derivedFrom": [
           "processing.warpingTendency",
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
+          "de": "Belegt: Über einen Meter Kantenlänge wird dieser Werkstoff in der eigenen Fertigung zuverlässig gefahren. Er schrumpft dabei geometrieabhängig stärker als PLA; die Maßhaltigkeit ist der begrenzende Faktor, nicht die Fertigbarkeit. Die 700 mm, die hier vorher standen, waren aus der Verzugsneigung abgeleitet — also aus dem, was ein Bauteil OHNE Gegenmaßnahmen tut. Mit Kammer, Brim und Erfahrung ist das die falsche Bezugsgröße. Die Zahl ist weiterhin eine Aufwandsschwelle und keine Maschinen­grenze; belegt ist der Bereich ab 1.000 mm, ein oberes Ende wurde nicht gefunden.",
+          "en": "Established: above one metre edge length this material runs reliably in our own production. It shrinks more than PLA depending on geometry; dimensional accuracy is the limiting factor, not manufacturability. The 700 mm previously recorded here were derived from warping tendency — that is, from what a part does WITHOUT countermeasures. With chamber, brim and experience that is the wrong reference. The figure remains an effort threshold, not a machine limit; what is established is the range above 1,000 mm, no upper end was found."
+        },
+        "min": 1000
       },
       "maxSpoolWeightKg": {
         "value": 9,
@@ -811,6 +904,15 @@
         "note": {
           "de": "Marktbeobachtung über 80 Produkte und 967 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
           "en": "Market observation across 80 products and 967 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
+      },
+      "infillWarningXxl": {
+        "value": true,
+        "source": "field_experience_reents",
+        "confidence": "medium",
+        "note": {
+          "de": "Aus der eigenen Fertigung: 100 % gefüllte Bauteile sind im XXL-Format problematisch. Die inneren Spannungen werden extrem hoch, das Bauteil kann sich verziehen und schrumpft stärker. Das ist die Umkehrung der sonst richtigen Faustregel „mehr Füllung, mehr Sicherheit“: Für die Temperaturgrenze unter Dauerlast senkt mehr Füllung die Spannung im Querschnitt, für die Maßhaltigkeit eines Großteils erhöht sie den Verzug. Beides gilt gleichzeitig und zieht in verschiedene Richtungen.",
+          "en": "From own production: 100 % infill is problematic at XXL scale. Internal stresses become extreme, the part can warp and shrinks more. This inverts the otherwise sound rule of thumb \"more infill, more safety\": for the service temperature under sustained load more infill lowers the stress in the section, for the dimensional accuracy of a large part it raises distortion. Both hold at once and pull in opposite directions."
         }
       }
     },
@@ -896,15 +998,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -916,8 +1029,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "7 Angebote: SUNLU ASA Grey, 1 kg, 21,99 € · AzureFilm ASA Schwarz, 1 kg, 22,99 € · 3DJAKE ASA Schwarz, 1 kg, 24,99 € · Polymaker ASA Army Green, 1 kg, 24,99 € · Fiberlogy ASA Matte Black, 1 kg, 33,99 € · Extrudr DuraPro ASA Anthrazit, 0,75 kg, 25,99 € · FormFutura ApolloX White, 0,75 kg, 34,49 €",
-          "en": "7 offers: SUNLU ASA Grey, 1 kg, 21.99 € · AzureFilm ASA Schwarz, 1 kg, 22.99 € · 3DJAKE ASA Schwarz, 1 kg, 24.99 € · Polymaker ASA Army Green, 1 kg, 24.99 € · Fiberlogy ASA Matte Black, 1 kg, 33.99 € · Extrudr DuraPro ASA Anthrazit, 0.75 kg, 25.99 € · FormFutura ApolloX White, 0.75 kg, 34.49 €"
+          "de": "7 Angebote von 7 Marken (3DJAKE, AzureFilm, Extrudr, Fiberlogy, FormFutura, Polymaker, SUNLU). Günstigstes SUNLU ASA Grey, 1 kg für 21,99 € (21,99 €/kg); teuerstes FormFutura ApolloX White, 0,75 kg für 34,49 € (45,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "7 offers from 7 brands (3DJAKE, AzureFilm, Extrudr, Fiberlogy, FormFutura, Polymaker, SUNLU). Cheapest SUNLU ASA Grey, 1 kg at 21.99 € (21.99 €/kg); dearest FormFutura ApolloX White, 0.75 kg at 34.49 € (45.99 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -929,8 +1042,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg, 25,76 €",
-          "en": "1 offer: Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg, 25.76 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg für 25,76 € (34,35 €/kg); teuerstes Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0,75 kg für 25,76 € (34,35 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg at 25.76 € (34.35 €/kg); dearest Extrudr DuraPro ASA black 1.75 mm 0.75 kg, 0.75 kg at 25.76 € (34.35 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -942,8 +1055,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39,90 €",
-          "en": "1 offer: 3DXTech 3DXMAX ASA Schwarz, 1 kg, 39.90 €"
+          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech 3DXMAX ASA Schwarz, 1 kg für 39,90 € (39,90 €/kg); teuerstes 3DXTech 3DXMAX ASA Schwarz, 1 kg für 39,90 € (39,90 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech 3DXMAX ASA Schwarz, 1 kg at 39.90 € (39.90 €/kg); dearest 3DXTech 3DXMAX ASA Schwarz, 1 kg at 39.90 € (39.90 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -955,8 +1068,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "13 Angebote: Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 2.5 Kg, 2,5 kg, 70,30 € · Fillamentum ASA Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 2.85 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Natural\" — 1.75 mm / 750 g, 0,75 kg, 26,80 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0,75 kg, 26,80 €",
-          "en": "13 offers: Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 2.5 Kg, 2.5 kg, 70.30 € · Fillamentum ASA Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Sky Blue\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Metallic Grey\" — 2.85 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Natural\" — 1.75 mm / 750 g, 0.75 kg, 26.80 € · Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0.75 kg, 26.80 €"
+          "de": "13 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2,5 kg für 70,30 € (28,12 €/kg); teuerstes Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0,75 kg für 26,80 € (35,73 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "13 offers from 1 brand (Fillamentum). Cheapest Fillamentum ASA Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2.5 kg at 70.30 € (28.12 €/kg); dearest Fillamentum ASA Extrafill \"Natural\" — 2.85 mm / 750 g, 0.75 kg at 26.80 € (35.73 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -968,8 +1081,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "78 Angebote: M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Eisengrau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Eisengrau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalweiss — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalweiss — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Staubgrau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Staubgrau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Natur — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Natur — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalblau — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Signalblau — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Reinrot — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Reinrot — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Graualuminium — 1.75 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Graualuminium — 2.85 mm / 8 Kg, 8 kg, 262,95 € · M4P ASA Tiefschwarz — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Tiefschwarz — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Eisengrau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Eisengrau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalweiss — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalweiss — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Staubgrau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Staubgrau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Natur — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Natur — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalblau — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Signalblau — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Reinrot — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Reinrot — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Graualuminium — 1.75 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Graualuminium — 2.85 mm / 4.5 Kg, 4,5 kg, 147,95 € · M4P ASA Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Eisengrau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Eisengrau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalweiss — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalweiss — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Staubgrau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Staubgrau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Natur — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Natur — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalblau — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Signalblau — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Reinrot — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Reinrot — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Graualuminium — 1.75 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Graualuminium — 2.85 mm / 2 Kg, 2 kg, 65,95 € · M4P ASA Tiefschwarz — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Tiefschwarz — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Eisengrau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Eisengrau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalweiss — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalweiss — 2.85 mm / 0,75 Kg, 0,75 kg, 25,95 € · M4P ASA Staubgrau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Staubgrau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Natur — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Natur — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Anthrazitsilber — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Anthrazitsilber — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalblau — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Signalblau — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Reinrot — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Reinrot — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Graualuminium — 1.75 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Graualuminium — 2.85 mm / 0.75 Kg, 0,75 kg, 25,95 € · M4P ASA Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Signalweiss — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Signalweiss — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Natur — 1.75 mm / 0.05 Kg, 0,05 kg, 4,95 € · M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0,05 kg, 4,95 €",
-          "en": "78 offers: M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Eisengrau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Eisengrau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalweiss — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalweiss — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Staubgrau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Staubgrau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Natur — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Natur — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalblau — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Signalblau — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Reinrot — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Reinrot — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Graualuminium — 1.75 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Graualuminium — 2.85 mm / 8 Kg, 8 kg, 262.95 € · M4P ASA Tiefschwarz — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Tiefschwarz — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Eisengrau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Eisengrau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalweiss — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalweiss — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Staubgrau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Staubgrau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Natur — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Natur — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalblau — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Signalblau — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Reinrot — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Reinrot — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Graualuminium — 1.75 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Graualuminium — 2.85 mm / 4.5 Kg, 4.5 kg, 147.95 € · M4P ASA Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Eisengrau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Eisengrau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalweiss — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalweiss — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Staubgrau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Staubgrau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Natur — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Natur — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalblau — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Signalblau — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Reinrot — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Reinrot — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Graualuminium — 1.75 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Graualuminium — 2.85 mm / 2 Kg, 2 kg, 65.95 € · M4P ASA Tiefschwarz — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Tiefschwarz — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Eisengrau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Eisengrau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalweiss — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalweiss — 2.85 mm / 0,75 Kg, 0.75 kg, 25.95 € · M4P ASA Staubgrau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Staubgrau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Natur — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Natur — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Anthrazitsilber — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Anthrazitsilber — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalblau — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Signalblau — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Reinrot — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Reinrot — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Graualuminium — 1.75 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Graualuminium — 2.85 mm / 0.75 Kg, 0.75 kg, 25.95 € · M4P ASA Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Signalweiss — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Signalweiss — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Natur — 1.75 mm / 0.05 Kg, 0.05 kg, 4.95 € · M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0.05 kg, 4.95 €"
+          "de": "78 Angebote von 1 Marke (M4P). Günstigstes M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg für 262,95 € (32,87 €/kg); teuerstes M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0,05 kg für 4,95 € (99,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "78 offers from 1 brand (M4P). Cheapest M4P ASA Tiefschwarz — 1.75 mm / 8 Kg, 8 kg at 262.95 € (32.87 €/kg); dearest M4P ASA Sample Natur — 2.85 mm / 0.05 Kg, 0.05 kg at 4.95 € (99.00 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -994,19 +1107,6 @@
         "confidenceCeiling": "estimated"
       }
     ],
-    "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      }
-    ]
+    "openQuestions": []
   }
 }

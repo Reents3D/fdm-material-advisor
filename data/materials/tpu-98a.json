@@ -32,8 +32,15 @@
       "value": 1.19,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.09 g/cm³ (Spectrum) bis 1.23 g/cm³ (Fillamentum). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (1), ISO 2781 (1).",
+        "en": "Median of 4 manufacturer datasheets, range 1.09 g/cm³ (Spectrum) to 1.23 g/cm³ (Fillamentum). Specimens: 0 of 4 printed, remainder undeclared. Mixed test standards: ISO 1183 (1), ISO 2781 (1)."
+      },
+      "min": 1.09,
+      "max": 1.23,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
       "value": 30,
@@ -46,10 +53,17 @@
     "elongationAtBreakXy": {
       "value": 475,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 318 % (Fillamentum) bis 510 % (Spectrum). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (1), DIN 53504 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 318 % (Fillamentum) to 510 % (Spectrum). Specimens: 0 of 3 printed, remainder undeclared. Mixed test standards: ISO 527 (1), DIN 53504 (1)."
+      },
+      "min": 318,
+      "max": 510,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "hardnessShoreD": {
       "value": 54,
@@ -78,6 +92,18 @@
       "scale": "fatigueResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "tensileModulusXy": {
+      "value": 40,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Extrudr. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Extrudr. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 527"
     }
   },
   "thermal": {
@@ -98,6 +124,16 @@
       "note": {
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
+      }
+    },
+    "glassTransition": {
+      "value": -30,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Extrudr. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: Extrudr. Specimens: 0 of 1 printed, remainder undeclared."
       }
     }
   },
@@ -494,15 +530,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.\n\nAusnahme von der Herleitung: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.\n\nException to the derivation: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -550,6 +577,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_tpu_98a_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -558,8 +596,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr TPU medium Schwarz (A98), 0,75 kg, 34,99 €",
-          "en": "1 offer: Extrudr TPU medium Schwarz (A98), 0.75 kg, 34.99 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr TPU medium Schwarz (A98), 0,75 kg für 34,99 € (46,65 €/kg); teuerstes Extrudr TPU medium Schwarz (A98), 0,75 kg für 34,99 € (46,65 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr TPU medium Schwarz (A98), 0.75 kg at 34.99 € (46.65 €/kg); dearest Extrudr TPU medium Schwarz (A98), 0.75 kg at 34.99 € (46.65 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -571,8 +609,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0,75 kg, 34,70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0,75 kg, 39,65 €",
-          "en": "2 offers: Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0.75 kg, 34.70 € · Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0.75 kg, 39.65 €"
+          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0,75 kg für 34,70 € (46,27 €/kg); teuerstes Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0,75 kg für 39,65 € (52,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr FLEX Medium black 1.75 mm 0.75 kg, 0.75 kg at 34.70 € (46.27 €/kg); dearest Extrudr FLEX Medium MATT black 1.75 mm 0.75 kg, 0.75 kg at 39.65 € (52.87 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -584,8 +622,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "16 Angebote: Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Traffic White\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Vertigo Grey\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Pistachio Green\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Metallic Grey\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Sky Blue\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 2.85 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 1.75 mm, 0,5 kg, 35,29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0,5 kg, 35,29 €",
-          "en": "16 offers: Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Traffic White\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Vertigo Grey\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Pistachio Green\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Metallic Grey\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Signal Red\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Sky Blue\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Natural\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Luminous Green\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Powder Beige\" — 2.85 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 1.75 mm, 0.5 kg, 35.29 € · Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0.5 kg, 35.29 €"
+          "de": "16 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0,5 kg für 35,29 € (70,58 €/kg); teuerstes Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0,5 kg für 35,29 € (70,58 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "16 offers from 1 brand (Fillamentum). Cheapest Fillamentum Flexfill TPU 98A \"Traffic Black\" — 2.85 mm, 0.5 kg at 35.29 € (70.58 €/kg); dearest Fillamentum Flexfill TPU 98A \"Blue Transparent\" — 2.85 mm, 0.5 kg at 35.29 € (70.58 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -597,8 +635,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "37 Angebote: M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg, 24,95 € · M4P TPU 98A Gipsy-Color — 2.85 mm / 0.75 Kg, 0,75 kg, 24,95 € · M4P TPU 98A Transparent — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Transparent — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Reinrot — 1.75 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Reinrot — 2.85 mm / 0.75 kg, 0,75 kg, 34,95 € · M4P TPU 98A Transparent — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Transparent — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Reinrot — 1.75 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Reinrot — 2.85 mm / 8 kg, 8 kg, 372,95 € · M4P TPU 98A Transparent — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Transparent — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Reinrot — 1.75 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Reinrot — 2.85 mm / 4.5 kg, 4,5 kg, 209,95 € · M4P TPU 98A Transparent — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Transparent — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Signalweiß — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Signalweiß — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Reinrot — 1.75 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Reinrot — 2.85 mm / 2 kg, 2 kg, 93,95 € · M4P TPU 98A Sample Transparent — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 € · M4P TPU 98A Sample Signalweiß — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 € · M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0,05 kg, 4,95 €",
-          "en": "37 offers: M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg, 24.95 € · M4P TPU 98A Gipsy-Color — 2.85 mm / 0.75 Kg, 0.75 kg, 24.95 € · M4P TPU 98A Transparent — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Transparent — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Reinrot — 1.75 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Reinrot — 2.85 mm / 0.75 kg, 0.75 kg, 34.95 € · M4P TPU 98A Transparent — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Transparent — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Reinrot — 1.75 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Reinrot — 2.85 mm / 8 kg, 8 kg, 372.95 € · M4P TPU 98A Transparent — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Transparent — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Reinrot — 1.75 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Reinrot — 2.85 mm / 4.5 kg, 4.5 kg, 209.95 € · M4P TPU 98A Transparent — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Transparent — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Tiefschwarz — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Tiefschwarz — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Signalweiß — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Signalweiß — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Reinrot — 1.75 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Reinrot — 2.85 mm / 2 kg, 2 kg, 93.95 € · M4P TPU 98A Sample Transparent — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 € · M4P TPU 98A Sample Signalweiß — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 € · M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0.05 kg, 4.95 €"
+          "de": "37 Angebote von 1 Marke (M4P). Günstigstes M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 24,95 € (33,27 €/kg); teuerstes M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0,05 kg für 4,95 € (99,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "37 offers from 1 brand (M4P). Cheapest M4P TPU 98A Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 24.95 € (33.27 €/kg); dearest M4P TPU 98A Sample Tiefschwarz — 1.75 mm / 0.05 kg, 0.05 kg at 4.95 € (99.00 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -634,5 +672,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

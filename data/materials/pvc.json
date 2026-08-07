@@ -509,15 +509,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -597,8 +588,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg, 42,00 €",
-          "en": "3 offers: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg, 42.00 €"
+          "de": "3 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg); teuerstes Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 1 brand (Fillamentum). Cheapest Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg); dearest Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg). The full list is in data/prices.json."
         }
       },
       {

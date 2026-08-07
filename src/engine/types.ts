@@ -25,6 +25,13 @@ export interface Quantity {
   source: SourceRef;
   confidence: Confidence;
   derivedFrom?: string[];
+  /**
+   * Nur auf der Produktebene: Diese Zahl widerspricht ihrem eigenen Umfeld so deutlich,
+   * dass sie in keine Zusammenfassung eingeht (ADR-042). Sie bleibt im Datensatz und in
+   * der Oberfläche — durchgestrichen und mit ihrem Befund daneben —, weil sie im Blatt
+   * steht. `note` ist dann Pflicht; Regel R19 erzwingt das.
+   */
+  disputed?: true;
   note?: I18nText;
 }
 
@@ -153,7 +160,6 @@ export interface Requirements {
   /** Part must be ESD-safe (dissipative or conductive). */
   esd?: boolean;
   /** Largest part edge in mm. */
-  maxEdgeMm?: number;
   /** Part must be flexible (elastomer). */
   flexible?: boolean;
   /** Minimum tensile strength in the XY plane, MPa. */
@@ -200,6 +206,11 @@ export interface CriterionScore {
    * soll die Differenz erklaeren koennen und nicht an der Zahl zweifeln.
    */
   discounted?: true;
+  /** Die beobachtete Spanne reicht unter das Mittelfeld — der Vorsprung ist gestutzt (ADR-042). */
+  widelySpread?: true;
+  /** Die beobachtete Spanne über die Herstellerblätter, sofern der Kennwert eine trägt. */
+  spanMin?: number;
+  spanMax?: number;
 }
 
 export type ExplanationType = "strength" | "weakness" | "risk" | "hint" | "gap";

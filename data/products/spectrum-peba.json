@@ -1,0 +1,108 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-peba",
+  "materialId": "peba",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PEBA",
+  "origin": "Polen",
+  "specimenType": "moulded",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Die Werte gelten laut Blatt für SPRITZGEGOSSENE Prüfkörper — das steht in jeder einzelnen mechanischen Zeile. Ein gedrucktes Bauteil erreicht sie in Z nicht; wie weit darunter, sagt das Blatt nicht.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The values apply to INJECTION MOULDED specimens per the sheet — it says so in every single mechanical row. A printed part will not reach them in Z; by how much, the sheet does not say."
+  },
+  "features": {
+    "de": "Das erste PEBA-Blatt im Bestand neben Fillamentum — und es sagt etwas, was die meisten verschweigen: Jede mechanische Zeile trägt den Zusatz „injection moulding“. Das sind Spritzgusswerte, keine gedruckten. Für ein Elastomer mit über 500 % Bruchdehnung ist der Unterschied erheblich, weil die Schichthaftung genau die Eigenschaft ist, die der Spritzguss nicht misst. Shore 92A bei 43 Shore D, Zugmodul 100 MPa: weicher als TPU 95A und deutlich rückstellfähiger.",
+    "en": "The first PEBA sheet in the dataset alongside Fillamentum — and it states what most leave out: every mechanical row carries the qualifier “injection moulding”. These are moulded values, not printed ones. For an elastomer with over 500 % elongation at break the difference matters, because layer adhesion is precisely the property moulding does not measure. Shore 92A at 43 Shore D, tensile modulus 100 MPa: softer than TPU 95A and markedly more resilient."
+  },
+  "datasheet": {
+    "title": "Spectrum PEBA — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2025/11/en_tds_spectrum_peba.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.02,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreD": {
+      "value": 43,
+      "unit": "Shore D",
+      "testStandard": "ISO 868",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hardnessShoreA": {
+      "value": 92,
+      "unit": "Shore A",
+      "testStandard": "ISO 868",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileModulusXy": {
+      "value": 100,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, Spritzguss",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 25,
+      "unit": "MPa",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, Spritzguss",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 500,
+      "unit": "%",
+      "testStandard": "ISO 527-1/-2",
+      "conditions": "23 °C, Spritzguss; das Blatt nennt „> 500 %“, geführt ist die Untergrenze",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralModulusXy": {
+      "value": 90,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, Spritzguss",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "flexuralStrengthXy": {
+      "value": 5,
+      "unit": "MPa",
+      "testStandard": "ISO 178",
+      "conditions": "23 °C, Spritzguss",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PEBA",
+        "title": "Spectrum PEBA — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2025/11/en_tds_spectrum_peba.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared."
+        }
+      }
+    ]
+  }
+}

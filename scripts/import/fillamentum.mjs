@@ -118,7 +118,7 @@ const P = [
       tensileModulusXy: q(2000, "MPa", { std: "ASTM D638" }),
       flexuralStrengthXy: q(50, "MPa", { std: "ASTM D790" }),
       flexuralModulusXy: q(1700, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min" }),
-      charpyNotchedXy: q(5, "kJ/m²", { std: "ASTM D256", conditions: "23 °C, gekerbt" }),
+      izodNotchedXy: q(5, "kJ/m²", { std: "ASTM D256", conditions: "23 °C, gekerbt" }),
       nozzleTemperature: q(260, "°C", { min: 250, max: 270 }),
       bedTemperature: q(105, "°C", { min: 100, max: 120 }),
       coolingFanPct: q(7, "%", { min: 0, max: 15 }),

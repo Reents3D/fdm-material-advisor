@@ -31,20 +31,33 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.02,
+      "value": 1.11,
       "unit": "g/cm³",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 1183"
+      "testStandard": "ISO 1183",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.02 g/cm³ (Bambu Lab) bis 1.14 g/cm³ (Extrudr). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (3), ASTM D792 (1).",
+        "en": "Median of 4 manufacturer datasheets, range 1.02 g/cm³ (Bambu Lab) to 1.14 g/cm³ (Extrudr). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 1183 (3), ASTM D792 (1)."
+      },
+      "min": 1.02,
+      "max": 1.14,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 34,
+      "value": 55.5,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 3,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 34 MPa (Bambu Lab) bis 79 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1).",
+        "en": "Median of 4 manufacturer datasheets, range 34 MPa (Bambu Lab) to 79 MPa (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1)."
+      },
+      "min": 34,
+      "max": 79,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthZ": {
       "value": 30,
@@ -58,11 +71,17 @@
     "tensileModulusXy": {
       "value": 4200,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 270,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 2500 MPa (Extrudr) bis 7580 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (2), ASTM D638 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 2500 MPa (Extrudr) to 7580 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 527 (2), ASTM D638 (1)."
+      },
+      "min": 2500,
+      "max": 7580,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileModulusZ": {
       "value": 2290,
@@ -74,13 +93,18 @@
       "orientation": "Z"
     },
     "elongationAtBreakXy": {
-      "value": 9.6,
+      "value": 8,
       "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1.4,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.8 % (FormFutura) bis 9.6 % (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 1.8 % (FormFutura) to 9.6 % (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 1.8,
+      "max": 9.6
     },
     "elongationAtBreakZ": {
       "value": 4.4,
@@ -92,13 +116,19 @@
       "orientation": "Z"
     },
     "flexuralStrengthXy": {
-      "value": 72,
+      "value": 78,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 5,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 72 MPa (Bambu Lab) bis 93 MPa (3DJAKE). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (2), ASTM D790 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 72 MPa (Bambu Lab) to 93 MPa (3DJAKE). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 178 (2), ASTM D790 (1)."
+      },
+      "min": 72,
+      "max": 93,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralStrengthZ": {
       "value": 33,
@@ -112,11 +142,17 @@
     "flexuralModulusXy": {
       "value": 3740,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 130,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 3100 MPa (3DJAKE) bis 4500 MPa (Extrudr). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (2), ASTM D790 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 3100 MPa (3DJAKE) to 4500 MPa (Extrudr). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 178 (2), ASTM D790 (1)."
+      },
+      "min": 3100,
+      "max": 4500,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
       "value": 1350,
@@ -171,22 +207,73 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyUnnotchedXy": {
+      "value": 16.8,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 9.5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: 3DJAKE. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× bestritten.",
+        "en": "Single datasheet: 3DJAKE. Specimens: 0 of 1 printed, remainder undeclared. Not counted: 1× disputed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 180"
+    },
+    "charpyNotchedXy": {
+      "value": 7.2,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 5.4 kJ/m² (FormFutura) bis 9 kJ/m² (3DJAKE). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 5.4 kJ/m² (FormFutura) to 9 kJ/m² (3DJAKE). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 5.4,
+      "max": 9,
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
     "hdtA": {
-      "value": 102,
+      "value": 95,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 1.8 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 93 °C (3DJAKE) bis 102 °C (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 93 °C (3DJAKE) to 102 °C (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 93,
+      "max": 102
     },
     "hdtB": {
-      "value": 110,
+      "value": 101,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 0.45 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 96 °C (Extrudr) bis 110 °C (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (2), ASTM D648 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 96 °C (Extrudr) to 110 °C (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 75 (2), ASTM D648 (1)."
+      },
+      "min": 96,
+      "max": 110,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "vicatB50": {
       "value": 108,
@@ -207,16 +294,16 @@
       }
     },
     "recommendedMaxServiceTemperature": {
-      "value": 85,
+      "value": 80,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated",
-      "min": 75,
-      "max": 90,
+      "min": 70,
+      "max": 85,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 102 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 110 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 110 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 102 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 110 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 110 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 93 °C (niedrigster Blattwert; geführt ist der Median 95 °C) abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 101 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 101 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 93 °C (lowest datasheet figure; the median 95 °C is what the record carries) less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 101 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 101 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     }
   },
@@ -762,17 +849,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
+          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
         }
       },
       "maxSpoolWeightKg": {
@@ -851,15 +929,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -871,8 +960,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: The Filament ASA CF Grey, 1 kg, 29,99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36,99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg, 19,99 €",
-          "en": "3 offers: The Filament ASA CF Grey, 1 kg, 29.99 € · 3DJAKE ASA CF Schwarz, 1 kg, 36.99 € · Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg, 19.99 €"
+          "de": "3 Angebote von 3 Marken (3DJAKE, Polymaker, The Filament). Günstigstes The Filament ASA CF Grey, 1 kg für 29,99 € (29,99 €/kg); teuerstes Polymaker Fiberon ASA-CF08 Navy Blue, 0,5 kg für 19,99 € (39,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 3 brands (3DJAKE, Polymaker, The Filament). Cheapest The Filament ASA CF Grey, 1 kg at 29.99 € (29.99 €/kg); dearest Polymaker Fiberon ASA-CF08 Navy Blue, 0.5 kg at 19.99 € (39.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -884,8 +973,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg, 49,58 €",
-          "en": "1 offer: Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg, 49.58 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg für 49,58 € (66,11 €/kg); teuerstes Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0,75 kg für 49,58 € (66,11 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg at 49.58 € (66.11 €/kg); dearest Extrudr DuraPro ASA CF black 1.75 mm 0.75 kg, 0.75 kg at 49.58 € (66.11 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -897,8 +986,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg, 49,90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg, 74,90 €",
-          "en": "2 offers: Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg, 49.90 € · 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg, 74.90 €"
+          "de": "2 Angebote von 2 Marken (3DXTech, Extrudr). Günstigstes Extrudr DuraPro Carbon-ASA Schwarz, 0,75 kg für 49,90 € (66,53 €/kg); teuerstes 3DXTech CarbonX Carbon-ASA Schwarz, 0,75 kg für 74,90 € (99,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 2 brands (3DXTech, Extrudr). Cheapest Extrudr DuraPro Carbon-ASA Schwarz, 0.75 kg at 49.90 € (66.53 €/kg); dearest 3DXTech CarbonX Carbon-ASA Schwarz, 0.75 kg at 74.90 € (99.87 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -924,18 +1013,6 @@
       }
     ],
     "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      },
       {
         "id": "oq_specimen_conditions",
         "question": {

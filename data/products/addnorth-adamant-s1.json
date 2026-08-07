@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "addnorth-adamant-s1",
+  "materialId": "pvdf",
+  "brand": "add:north",
+  "manufacturer": "add:north 3D filaments AB",
+  "productName": "add:north Adamant S1",
+  "origin": "Schweden",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.\n\nBefund zu diesem Datenblatt: Drei von fünf Mechanikwerten stehen zifferngleich im E-PLA-Blatt desselben Herstellers: Zugfestigkeit 58 MPa, Biegefestigkeit 120 MPa, Biege-E-Modul 3.155 MPa. PVDF und PLA haben chemisch nichts miteinander zu tun — das ist keine geteilte Messung, sondern eine Vorlage, die nicht fertig überschrieben wurde. Der Beleg steht im Blatt selbst: 387 MPa Zug-E-Modul neben 3.155 MPa Biege-E-Modul ist Faktor acht, und bei jedem Thermoplast liegen die beiden innerhalb von etwa zwanzig Prozent. Die drei Werte sind NICHT übernommen; übernommen ist nur, was zu PVDF gehört und sich gegenseitig stützt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`.\n\nFinding on this datasheet: Three of five mechanical values appear digit for digit in the same manufacturer's E-PLA sheet: tensile strength 58 MPa, flexural strength 120 MPa, flexural modulus 3,155 MPa. PVDF and PLA are chemically unrelated — this is not a shared measurement but a template that was not fully overwritten. The evidence is in the sheet itself: 387 MPa tensile modulus next to 3,155 MPa flexural modulus is a factor of eight, and for any thermoplastic the two lie within about twenty percent. The three values are NOT imported; only what belongs to PVDF and supports itself is."
+  },
+  "features": {
+    "de": "Der zweite PVDF-Beleg im Bestand neben Fillamentum Fluorodur — und der erste mit einer belegten Brandschutzklasse: V-0 bei 1,5 mm nach IEC 60695-11. Dazu ein Glasübergang von −34 °C und 120 °C Dauergebrauch, also die Spanne, für die man PVDF überhaupt wählt. Die mechanischen Werte deuten auf eine weiche Type: 387 MPa Zug-E-Modul bei über 50 % Bruchdehnung ist eher Dichtung als Konstruktionsteil.",
+    "en": "The second PVDF source in the dataset alongside Fillamentum Fluorodur — and the first with a substantiated flame rating: V-0 at 1.5 mm to IEC 60695-11. Plus a glass transition of −34 °C and 120 °C continuous service, which is the span PVDF is chosen for at all. The mechanical figures suggest a soft grade: 387 MPa tensile modulus at over 50 % elongation at break is sealing rather than structural."
+  },
+  "datasheet": {
+    "title": "add:north Adamant S1 — Technical Data Sheet",
+    "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AdamantS1_TDS_nH7jU9.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://addnorth.com/",
+  "properties": {
+    "density": {
+      "value": 1.8,
+      "unit": "g/cm³",
+      "testStandard": "ISO 1183",
+      "conditions": "im Blatt faelschlich als ISO 527 bezeichnet",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileModulusXy": {
+      "value": 387,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "weiche Type; das Blatt nennt daneben einen Biege-E-Modul von 3.155 MPa, der aus dem PLA-Blatt desselben Hauses stammt",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 50,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "conditions": "das Blatt nennt „> 50 %“, gefuehrt ist die Untergrenze",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "glassTransition": {
+      "value": -34,
+      "unit": "°C",
+      "testStandard": "DSC",
+      "conditions": "derselbe Wert steht im Koltron-G1-Blatt desselben Hauses, dessen Grundpolymer unbekannt ist — für PVDF ist er literaturrichtig (−35 bis −40 °C), das Zusammentreffen bleibt trotzdem stehen",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "continuousServiceTemperature": {
+      "value": 120,
+      "unit": "°C",
+      "source": "src_tds",
+      "confidence": "medium"
+    }
+  },
+  "compliance": {
+    "ul94": {
+      "value": "V-0",
+      "testStandard": "IEC 60695-11",
+      "thicknessMm": 1.5,
+      "source": "src_tds",
+      "confidence": "low",
+      "note": {
+        "de": "Das Blatt nennt die Klasse V-0 MIT Materialdicke (1,5 mm) und der Prüfnorm IEC 60695-11. Damit ist die Angabe übertragbar — anders als bei den übrigen add:north-Blättern, die eine Klasse ohne Dicke nennen. Was weiterhin fehlt, ist die Prüfstelle und eine Zeugnisnummer: Eine Herstellerangabe ist kein Prüfzeugnis.",
+        "en": "The sheet names class V-0 WITH a material thickness (1.5 mm) and the test standard IEC 60695-11. That makes the statement transferable — unlike the other add:north sheets, which name a class without a thickness. What is still missing is the test house and a certificate number: a manufacturer statement is not a test certificate."
+      }
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "add:north 3D filaments AB",
+        "productName": "add:north Adamant S1",
+        "title": "add:north Adamant S1 — Technical Data Sheet",
+        "url": "https://storage.googleapis.com/addnorth-com.appspot.com/imgix/assets/production/AdamantS1_TDS_nH7jU9.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert, Dichtenorm auf allen Blättern falsch.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared, density standard wrong on every sheet."
+        }
+      }
+    ]
+  }
+}

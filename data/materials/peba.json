@@ -90,6 +90,30 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "tensileModulusXy": {
+      "value": 100,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Spectrum. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Spectrum. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthXy": {
+      "value": 5,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Spectrum. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Spectrum. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 178"
     }
   },
   "thermal": {
@@ -529,15 +553,6 @@
           "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.\n\nAusnahme von der Herleitung: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis.",
           "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.\n\nException to the derivation: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."
         }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
       }
     },
     "reentsPortfolioStatus": {
@@ -609,6 +624,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_peba_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -617,8 +643,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote: Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0,8 kg, 64,99 € · Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0,8 kg, 64,99 €",
-          "en": "2 offers: Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0.8 kg, 64.99 € · Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0.8 kg, 64.99 €"
+          "de": "2 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0,8 kg für 64,99 € (81,24 €/kg); teuerstes Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0,8 kg für 64,99 € (81,24 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "2 offers from 1 brand (Spectrum). Cheapest Spectrum Spectrum PEBA Pure White, 1,75 mm / 800 g, 0.8 kg at 64.99 € (81.24 €/kg); dearest Spectrum Spectrum PEBA Forest Green, 1,75 mm / 800 g, 0.8 kg at 64.99 € (81.24 €/kg). The full list is in data/prices.json."
         }
       },
       {

@@ -29,45 +29,60 @@
     "density": {
       "value": 1.05,
       "unit": "g/cm³",
-      "source": [
-        "src_bambu_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
       "testStandard": "ISO 1183",
       "min": 1.04,
-      "max": 1.07,
+      "max": 1.12,
       "note": {
-        "de": "Spanne: Marktkorridor über 130 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 130 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 16 Herstellerblättern, Spanne 1.04 g/cm³ (Fillamentum) bis 1.12 g/cm³ (Fiberlogy). Prüfkörper: 2 von 16 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (9), ASTM D792 (7). Nicht mitgezählt: 1× Spritzguss, 6× zifferngleich weitergereicht.",
+        "en": "Median of 16 manufacturer datasheets, range 1.04 g/cm³ (Fillamentum) to 1.12 g/cm³ (Fiberlogy). Specimens: 2 of 16 printed, remainder undeclared. Mixed test standards: ISO 1183 (9), ASTM D792 (7). Not counted: 1× moulded, 6× passed on digit-identical."
+      },
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 33,
+      "value": 44,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 3,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 16 Herstellerblättern, Spanne 33 MPa (Alzament) bis 59 MPa (3DJAKE). Prüfkörper: 2 von 16 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (9), ASTM D638 (7). Nicht mitgezählt: 1× Spritzguss, 6× zifferngleich weitergereicht.",
+        "en": "Median of 16 manufacturer datasheets, range 33 MPa (Alzament) to 59 MPa (3DJAKE). Specimens: 2 of 16 printed, remainder undeclared. Mixed test standards: ISO 527 (9), ASTM D638 (7). Not counted: 1× moulded, 6× passed on digit-identical."
+      },
+      "min": 33,
+      "max": 59,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthZ": {
-      "value": 28,
+      "value": 25,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 2,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "Z"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
+      "orientation": "Z",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 22 MPa (Anycubic) bis 28 MPa (Alzament). Prüfkörper: alle gedruckt. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 2 manufacturer datasheets, range 22 MPa (Anycubic) to 28 MPa (Alzament). Specimens: all printed. Not counted: 1× passed on digit-identical."
+      },
+      "min": 22,
+      "max": 28
     },
     "tensileModulusXy": {
-      "value": 2200,
+      "value": 2235,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 190,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 10 Herstellerblättern, Spanne 2030 MPa (3DJAKE) bis 3500 MPa (Fiberlogy). Prüfkörper: 2 von 10 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (8), ASTM D638 (2). Nicht mitgezählt: 3× zifferngleich weitergereicht.",
+        "en": "Median of 10 manufacturer datasheets, range 2030 MPa (3DJAKE) to 3500 MPa (Fiberlogy). Specimens: 2 of 10 printed, remainder undeclared. Mixed test standards: ISO 527 (8), ASTM D638 (2). Not counted: 3× passed on digit-identical."
+      },
+      "min": 2030,
+      "max": 3500,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileModulusZ": {
       "value": 1960,
@@ -79,13 +94,19 @@
       "orientation": "Z"
     },
     "elongationAtBreakXy": {
-      "value": 10.5,
+      "value": 12,
       "unit": "%",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 1,
-      "testStandard": "ISO 527 / GB/T 1040",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ASTM D638",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 14 Herstellerblättern, Spanne 3.5 % (Fiberlogy) bis 34 % (3DJAKE). Prüfkörper: 2 von 14 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D638 (7), ISO 527 (7). Nicht mitgezählt: 1× Spritzguss, 6× zifferngleich weitergereicht.",
+        "en": "Median of 14 manufacturer datasheets, range 3.5 % (Fiberlogy) to 34 % (3DJAKE). Specimens: 2 of 14 printed, remainder undeclared. Mixed test standards: ASTM D638 (7), ISO 527 (7). Not counted: 1× moulded, 6× passed on digit-identical."
+      },
+      "min": 3.5,
+      "max": 34,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "elongationAtBreakZ": {
       "value": 4.7,
@@ -97,13 +118,19 @@
       "orientation": "Z"
     },
     "flexuralStrengthXy": {
-      "value": 62,
+      "value": 64,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 4,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ASTM D790",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 12 Herstellerblättern, Spanne 55 MPa (SUNLU) bis 85 MPa (3DJAKE). Prüfkörper: 2 von 12 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D790 (7), ISO 178 (5). Nicht mitgezählt: 6× zifferngleich weitergereicht.",
+        "en": "Median of 12 manufacturer datasheets, range 55 MPa (SUNLU) to 85 MPa (3DJAKE). Specimens: 2 of 12 printed, remainder undeclared. Mixed test standards: ASTM D790 (7), ISO 178 (5). Not counted: 6× passed on digit-identical."
+      },
+      "min": 55,
+      "max": 85,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralStrengthZ": {
       "value": 39,
@@ -115,13 +142,19 @@
       "orientation": "Z"
     },
     "flexuralModulusXy": {
-      "value": 1880,
+      "value": 2200,
       "unit": "MPa",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "tolerance": 110,
-      "testStandard": "ISO 178 / GB/T 9341",
-      "orientation": "XY"
+      "testStandard": "ISO 178",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 9 Herstellerblättern, Spanne 1829 MPa (SUNLU) bis 3080 MPa (3DJAKE). Prüfkörper: 2 von 9 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (6), ASTM D790 (3). Nicht mitgezählt: 1× Spritzguss, 6× zifferngleich weitergereicht.",
+        "en": "Median of 9 manufacturer datasheets, range 1829 MPa (SUNLU) to 3080 MPa (3DJAKE). Specimens: 2 of 9 printed, remainder undeclared. Mixed test standards: ISO 178 (6), ASTM D790 (3). Not counted: 1× moulded, 6× passed on digit-identical."
+      },
+      "min": 1829,
+      "max": 3080,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "flexuralModulusZ": {
       "value": 1590,
@@ -133,13 +166,18 @@
       "orientation": "Z"
     },
     "charpyUnnotchedXy": {
-      "value": 21.5,
+      "value": 39.3,
       "unit": "kJ/m²",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 2.2,
-      "testStandard": "ISO 179 / GB/T 1043 (ungekerbt)",
-      "orientation": "XY"
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 179",
+      "orientation": "XY",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 21.5 kJ/m² (Bambu Lab) bis 58 kJ/m² (3DJAKE). Prüfkörper: 3 von 5 gedruckt, Rest undeklariert.",
+        "en": "Median of 5 manufacturer datasheets, range 21.5 kJ/m² (Bambu Lab) to 58 kJ/m² (3DJAKE). Specimens: 3 of 5 printed, remainder undeclared."
+      },
+      "min": 21.5,
+      "max": 58
     },
     "charpyUnnotchedZ": {
       "value": 7.4,
@@ -200,29 +238,78 @@
       "scale": "notchSensitivity",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "charpyNotchedXy": {
+      "value": 21.5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 10 kJ/m² (Fiberlogy) bis 58 kJ/m² (FormFutura). Prüfkörper: 1 von 5 gedruckt, Rest undeklariert.",
+        "en": "Median of 5 manufacturer datasheets, range 10 kJ/m² (Fiberlogy) to 58 kJ/m² (FormFutura). Specimens: 1 of 5 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 10,
+      "max": 58,
+      "testStandard": "ISO 179"
+    },
+    "izodNotchedXy": {
+      "value": 16.5,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 14 kJ/m² (3DJAKE) bis 24 kJ/m² (Fillamentum). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Nicht mitgezählt: 2× bestritten, 2× andere Einheit.",
+        "en": "Median of 4 manufacturer datasheets, range 14 kJ/m² (3DJAKE) to 24 kJ/m² (Fillamentum). Specimens: 0 of 4 printed, remainder undeclared. Not counted: 2× disputed, 2× different unit."
+      },
+      "orientation": "XY",
+      "min": 14,
+      "max": 24,
+      "testStandard": "ISO 180"
     }
   },
   "thermal": {
     "hdtA": {
-      "value": 84,
+      "value": 81,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 1.8 MPa"
+      "testStandard": "ISO 75",
+      "note": {
+        "de": "Median aus 10 Herstellerblättern, Spanne 80 °C (Fiberlogy) bis 87 °C (3DJAKE). Prüfkörper: 2 von 10 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (5), ASTM D648 (5). Nicht mitgezählt: 1× Spritzguss, 2× zifferngleich weitergereicht.",
+        "en": "Median of 10 manufacturer datasheets, range 80 °C (Fiberlogy) to 87 °C (3DJAKE). Specimens: 2 of 10 printed, remainder undeclared. Mixed test standards: ISO 75 (5), ASTM D648 (5). Not counted: 1× moulded, 2× passed on digit-identical."
+      },
+      "min": 80,
+      "max": 87,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "hdtB": {
-      "value": 87,
+      "value": 85,
       "unit": "°C",
-      "source": "src_bambu_tds",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "testStandard": "ISO 75, 0.45 MPa"
+      "testStandard": "ASTM D648",
+      "note": {
+        "de": "Median aus 5 Herstellerblättern, Spanne 84 °C (SUNLU) bis 90 °C (Fiberlogy). Prüfkörper: 1 von 5 gedruckt, Rest undeklariert. Prüfnormen gemischt: ASTM D648 (2), ISO 75 (2). Nicht mitgezählt: 2× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 84 °C (SUNLU) to 90 °C (Fiberlogy). Specimens: 1 of 5 printed, remainder undeclared. Mixed test standards: ASTM D648 (2), ISO 75 (2). Not counted: 2× passed on digit-identical."
+      },
+      "min": 84,
+      "max": 90,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "vicatB50": {
-      "value": 94,
+      "value": 95,
       "unit": "°C",
-      "source": "src_bambu_tds",
-      "confidence": "low",
-      "testStandard": "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)"
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "testStandard": "ISO 306",
+      "note": {
+        "de": "Median aus 6 Herstellerblättern, Spanne 86 °C (SUNLU) bis 98 °C (3DJAKE). Prüfkörper: 0 von 6 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 306 (3), ASTM D1525 (1).",
+        "en": "Median of 6 manufacturer datasheets, range 86 °C (SUNLU) to 98 °C (3DJAKE). Specimens: 0 of 6 printed, remainder undeclared. Mixed test standards: ISO 306 (3), ASTM D1525 (1)."
+      },
+      "min": 86,
+      "max": 98,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "meltingTemperature": {
       "value": 200,
@@ -236,17 +323,28 @@
       }
     },
     "recommendedMaxServiceTemperature": {
-      "value": 70,
+      "value": 65,
       "unit": "°C",
       "source": "estimate_reasoning",
       "confidence": "estimated",
-      "min": 60,
-      "max": 75,
+      "min": 55,
+      "max": 70,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 84 °C abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 87 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 87 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 84 °C less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 87 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 87 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: HDT-A 80 °C (niedrigster Blattwert; geführt ist der Median 81 °C) abzüglich 15 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 85 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 85 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: HDT-A 80 °C (lowest datasheet figure; the median 81 °C is what the record carries) less 15 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 85 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 85 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
+    },
+    "glassTransition": {
+      "value": 109,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
+        "en": "Single datasheet: SUNLU. Specimens: 0 of 1 printed, remainder undeclared."
+      },
+      "testStandard": "ASTM D7426"
     }
   },
   "processing": {
@@ -750,27 +848,19 @@
     },
     "xxl": {
       "maxSensibleEdgeMm": {
-        "value": 550,
+        "value": 1800,
         "unit": "mm",
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
+        "source": "field_experience_reents",
+        "confidence": "medium",
         "derivedFrom": [
           "processing.warpingTendency",
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
-        }
+          "de": "Belegt: Über einen Meter Kantenlänge wird dieser Werkstoff in der eigenen Fertigung zuverlässig gefahren. Er schrumpft dabei geometrieabhängig stärker als PLA; die Maßhaltigkeit ist der begrenzende Faktor, nicht die Fertigbarkeit. Die 550 mm, die hier vorher standen, waren aus der Verzugsneigung abgeleitet — also aus dem, was ein Bauteil OHNE Gegenmaßnahmen tut. Mit Kammer, Brim und Erfahrung ist das die falsche Bezugsgröße. Die Zahl ist weiterhin eine Aufwandsschwelle und keine Maschinen­grenze; belegt ist der Bereich ab 1.000 mm, ein oberes Ende wurde nicht gefunden.",
+          "en": "Established: above one metre edge length this material runs reliably in our own production. It shrinks more than PLA depending on geometry; dimensional accuracy is the limiting factor, not manufacturability. The 550 mm previously recorded here were derived from warping tendency — that is, from what a part does WITHOUT countermeasures. With chamber, brim and experience that is the wrong reference. The figure remains an effort threshold, not a machine limit; what is established is the range above 1,000 mm, no upper end was found."
+        },
+        "min": 1000
       },
       "maxSpoolWeightKg": {
         "value": 9,
@@ -792,6 +882,15 @@
         "note": {
           "de": "Marktbeobachtung über 130 Produkte und 1649 Spulenangebote (Open Filament Database 2026.07.31). Anteil der Angebote ab 2 kg. Niedriger Anteil bei hohem Maximum heißt: Die Großspule existiert, hängt aber an wenigen Anbietern und meist einer Farbe.",
           "en": "Market observation across 130 products and 1649 spool offers (Open Filament Database 2026.07.31). Share of offers at 2 kg or above. A low share alongside a high maximum means the large spool exists but hangs on few suppliers and usually one colour."
+        }
+      },
+      "infillWarningXxl": {
+        "value": true,
+        "source": "field_experience_reents",
+        "confidence": "medium",
+        "note": {
+          "de": "Aus der eigenen Fertigung: 100 % gefüllte Bauteile sind im XXL-Format problematisch. Die inneren Spannungen werden extrem hoch, das Bauteil kann sich verziehen und schrumpft stärker. Das ist die Umkehrung der sonst richtigen Faustregel „mehr Füllung, mehr Sicherheit“: Für die Temperaturgrenze unter Dauerlast senkt mehr Füllung die Spannung im Querschnitt, für die Maßhaltigkeit eines Großteils erhöht sie den Verzug. Beides gilt gleichzeitig und zieht in verschiedene Richtungen.",
+          "en": "From own production: 100 % infill is problematic at XXL scale. Internal stresses become extreme, the part can warp and shrinks more. This inverts the otherwise sound rule of thumb \"more infill, more safety\": for the service temperature under sustained load more infill lowers the stress in the section, for the dimensional accuracy of a large part it raises distortion. Both hold at once and pull in opposite directions."
         }
       }
     },
@@ -860,15 +959,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -880,8 +990,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Polymaker ABS Grey, 1 kg, 19,99 € · 3DJAKE ABS Schwarz, 1 kg, 19,99 € · Bambu Lab ABS White, 1 kg, 22,99 €",
-          "en": "3 offers: Polymaker ABS Grey, 1 kg, 19.99 € · 3DJAKE ABS Schwarz, 1 kg, 19.99 € · Bambu Lab ABS White, 1 kg, 22.99 €"
+          "de": "3 Angebote von 3 Marken (3DJAKE, Bambu Lab, Polymaker). Günstigstes Polymaker ABS Grey, 1 kg für 19,99 € (19,99 €/kg); teuerstes Bambu Lab ABS White, 1 kg für 22,99 € (22,99 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 3 brands (3DJAKE, Bambu Lab, Polymaker). Cheapest Polymaker ABS Grey, 1 kg at 19.99 € (19.99 €/kg); dearest Bambu Lab ABS White, 1 kg at 22.99 € (22.99 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -893,8 +1003,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0,75 kg, 24,78 €",
-          "en": "1 offer: Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0.75 kg, 24.78 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0,75 kg für 24,78 € (33,04 €/kg); teuerstes Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0,75 kg für 24,78 € (33,04 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0.75 kg at 24.78 € (33.04 €/kg); dearest Extrudr DuraPro ABS black 1.75 mm 0.75 kg, 0.75 kg at 24.78 € (33.04 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -906,8 +1016,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "8 Angebote: Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2,5 kg, 57,53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0,75 kg, 22,02 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0,75 kg, 22,02 €",
-          "en": "8 offers: Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 2.5 Kg, 2.5 kg, 57.53 € · Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic Black\" — 2.85 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic White\" — 1.75 mm / 750 g, 0.75 kg, 22.02 € · Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0.75 kg, 22.02 €"
+          "de": "8 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2,5 kg für 57,53 € (23,01 €/kg); teuerstes Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0,75 kg für 22,02 € (29,36 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "8 offers from 1 brand (Fillamentum). Cheapest Fillamentum ABS Extrafill \"Traffic Black\" — 1.75 mm / 2.5 Kg, 2.5 kg at 57.53 € (23.01 €/kg); dearest Fillamentum ABS Extrafill \"Traffic White\" — 2.85 mm / 750 g, 0.75 kg at 22.02 € (29.36 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -919,8 +1029,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "79 Angebote: M4P ABS Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg, 6,95 € · M4P ABS Natur — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Natur — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Signalweiss — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Signalweiss — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Graualuminium — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Graualuminium — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Staubgrau — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Staubgrau — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Signalblau — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Signalblau — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Reinrot — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Reinrot — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Eisengrau — 1.75 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Eisengrau — 2.85 mm / 8 Kg, 8 kg, 209,95 € · M4P ABS Natur — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Natur — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Signalweiss — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Signalweiss — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Tiefschwarz — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Tiefschwarz — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Graualuminium — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Graualuminium — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Anthrazitsilber — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Anthrazitsilber — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Staubgrau — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Staubgrau — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Signalblau — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Signalblau — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Reinrot — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Reinrot — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Eisengrau — 1.75 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Eisengrau — 2.85 mm / 4.5 Kg, 4,5 kg, 119,95 € · M4P ABS Natur — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Natur — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Signalweiss — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Signalweiss — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Graualuminium — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Graualuminium — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Staubgrau — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Staubgrau — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Signalblau — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Signalblau — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Reinrot — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Reinrot — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Eisengrau — 1.75 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Eisengrau — 2.85 mm / 2 Kg, 2 kg, 54,95 € · M4P ABS Natur — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Natur — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Signalweiss — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Signalweiss — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Tiefschwarz — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Tiefschwarz — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Graualuminium — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Graualuminium — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Anthrazitsilber — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Anthrazitsilber — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Staubgrau — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Staubgrau — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Signalblau — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Signalblau — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Reinrot — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Reinrot — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Eisengrau — 1.75 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Eisengrau — 2.85 mm / 0.75 Kg, 0,75 kg, 21,95 € · M4P ABS Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0,05 kg, 3,95 € · M4P ABS Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0,05 kg, 3,95 € · M4P ABS Sample Signalweiss — 1.75 mm / 0.05 Kg, 0,05 kg, 3,95 € · M4P ABS Sample Signalweiss — 2.85 mm / 0.05 Kg, 0,05 kg, 3,95 € · M4P ABS Sample Natur — 1.75 mm / 0.05 Kg, 0,05 kg, 3,95 € · M4P ABS Sample Natur — 2.85 mm / 0.05 Kg, 0,05 kg, 3,95 €",
-          "en": "79 offers: M4P ABS Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg, 6.95 € · M4P ABS Natur — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Natur — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Signalweiss — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Signalweiss — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Tiefschwarz — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Tiefschwarz — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Graualuminium — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Graualuminium — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Anthrazitsilber — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Anthrazitsilber — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Staubgrau — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Staubgrau — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Signalblau — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Signalblau — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Reinrot — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Reinrot — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Eisengrau — 1.75 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Eisengrau — 2.85 mm / 8 Kg, 8 kg, 209.95 € · M4P ABS Natur — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Natur — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Signalweiss — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Signalweiss — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Tiefschwarz — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Tiefschwarz — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Graualuminium — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Graualuminium — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Anthrazitsilber — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Anthrazitsilber — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Staubgrau — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Staubgrau — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Signalblau — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Signalblau — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Reinrot — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Reinrot — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Eisengrau — 1.75 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Eisengrau — 2.85 mm / 4.5 Kg, 4.5 kg, 119.95 € · M4P ABS Natur — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Natur — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Signalweiss — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Signalweiss — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Tiefschwarz — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Tiefschwarz — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Graualuminium — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Graualuminium — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Anthrazitsilber — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Anthrazitsilber — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Staubgrau — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Staubgrau — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Signalblau — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Signalblau — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Reinrot — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Reinrot — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Eisengrau — 1.75 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Eisengrau — 2.85 mm / 2 Kg, 2 kg, 54.95 € · M4P ABS Natur — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Natur — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Signalweiss — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Signalweiss — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Tiefschwarz — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Tiefschwarz — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Graualuminium — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Graualuminium — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Anthrazitsilber — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Anthrazitsilber — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Staubgrau — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Staubgrau — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Signalblau — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Signalblau — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Reinrot — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Reinrot — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Eisengrau — 1.75 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Eisengrau — 2.85 mm / 0.75 Kg, 0.75 kg, 21.95 € · M4P ABS Sample Tiefschwarz — 1.75 mm / 0.05 Kg, 0.05 kg, 3.95 € · M4P ABS Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0.05 kg, 3.95 € · M4P ABS Sample Signalweiss — 1.75 mm / 0.05 Kg, 0.05 kg, 3.95 € · M4P ABS Sample Signalweiss — 2.85 mm / 0.05 Kg, 0.05 kg, 3.95 € · M4P ABS Sample Natur — 1.75 mm / 0.05 Kg, 0.05 kg, 3.95 € · M4P ABS Sample Natur — 2.85 mm / 0.05 Kg, 0.05 kg, 3.95 €"
+          "de": "79 Angebote von 1 Marke (M4P). Günstigstes M4P ABS Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 6,95 € (9,27 €/kg); teuerstes M4P ABS Sample Natur — 2.85 mm / 0.05 Kg, 0,05 kg für 3,95 € (79,00 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "79 offers from 1 brand (M4P). Cheapest M4P ABS Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 6.95 € (9.27 €/kg); dearest M4P ABS Sample Natur — 2.85 mm / 0.05 Kg, 0.05 kg at 3.95 € (79.00 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -945,19 +1055,6 @@
         "confidenceCeiling": "estimated"
       }
     ],
-    "openQuestions": [
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle ergänzen. Derzeit beruht der gesamte Kennwertsatz auf einem einzigen Datenblatt.",
-          "en": "Add a second independent manufacturer source. The entire property set currently rests on a single datasheet."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
-      }
-    ]
+    "openQuestions": []
   }
 }

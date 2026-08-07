@@ -35,11 +35,16 @@ export interface Product {
   governance: { lastReviewed: string; reviewedBy: string; sources: unknown[] };
 }
 
-const modules = import.meta.glob("../../data/products/*.json", { eager: true, import: "default" });
+/* Bis 2026-08-06 zog Vite die 250 Einzeldateien hier per `import.meta.glob` ins Buendel.
+   Das funktionierte, liess aber keine Textabelle zu (ADR-041) - und die Produktdaten sind
+   mit 1.103 kB roh der groesste Brocken im Auslieferungsumfang. Gelesen wird jetzt das von
+   `scripts/build-data-chunks.mjs` erzeugte Buendel; kanonisch bleibt `data/products/*.json`. */
+import { expand, type I18nBlock } from "./intern";
+import bundle from "./generated/products.json";
 
-export const PRODUCTS: Product[] = (Object.values(modules) as Product[]).sort(
-  (a, b) => a.materialId.localeCompare(b.materialId) || a.brand.localeCompare(b.brand),
-);
+export const PRODUCTS: Product[] = expand<Product[]>(bundle as unknown as { t: I18nBlock[]; d: unknown })
+  .slice()
+  .sort((a, b) => a.materialId.localeCompare(b.materialId) || a.brand.localeCompare(b.brand));
 
 /** materialId → Produkte, gedruckte Prüfkörper zuerst. */
 export function productsByMaterial(): Map<string, Product[]> {

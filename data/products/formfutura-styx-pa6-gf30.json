@@ -97,11 +97,10 @@
     "charpyNotchedXy": {
       "value": 4,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
-      "conditions": "23 °C, gekerbt",
+      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 180,

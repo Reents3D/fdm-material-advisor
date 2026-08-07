@@ -36,7 +36,12 @@ const t = (de, en) => ({ de, en });
 
 /* Dateiname -> Werkstofftyp. Alles, was hier fehlt, wird uebersprungen. */
 const MAP = {
-  ABS: "abs", "ABS-GF": "abs", ASA: "asa", ASA_Aero: "asa-aero",
+  /* `ABS-GF` zeigte bis 2026-08-07 auf `abs`. Das war richtig, solange es keinen eigenen
+     Typ gab - seit `bambu-tds2.mjs` `abs-gf` angelegt hat, ist es falsch, und ein Lauf
+     dieses Skripts hat den Produktdatensatz stillschweigend auf `abs` zurueckgezogen.
+     Gefangen hat es `type-median.test.ts`: Sechs abgeleitete Werte von `abs-gf` standen
+     ploetzlich ohne ein einziges Blatt dahinter. */
+  ABS: "abs", "ABS-GF": "abs-gf", ASA: "asa", ASA_Aero: "asa-aero",
   "PA6-CF": "pa6-cf", "PAHT-CF": "paht-cf", PC: "pc", PC_FR: "pc-fr",
   "PETG-CF": "petg-cf", PETG_Basic: "petg", PETG_HF: "petg",
   "PLA-CF": "pla", PLA_Aero: "pla", PLA_Basic: "pla", PLA_Basic_Gradient: "pla",
@@ -47,7 +52,14 @@ const MAP = {
 
 /* Produkte, die bereits aus scripts/import/bambu-tds.mjs stammen (Volltranskript,
    inklusive Werten, die dieser Parser nicht liest). Nicht ueberschreiben. */
-const KEEP_EXISTING = new Set(["ABS", "ASA", "ASA_Aero", "PA6-CF", "PC", "PETG_Basic", "PLA_Basic", "TPU_95A"]);
+const KEEP_EXISTING = new Set([
+  "ABS", "ASA", "ASA_Aero", "PA6-CF", "PC", "PETG_Basic", "PLA_Basic", "TPU_95A",
+  /* `ABS-GF` gehoert seit 2026-08-06 `bambu-tds2.mjs`, das aus demselben Blatt AUCH die
+     Z-Werte liest - dieser Parser liest nur X-Y. Ohne den Eintrag hier ueberschrieb ein
+     Lauf den reicheren Datensatz mit dem aermeren und nahm acht Kennwerte mit, darunter
+     alle vier Z-Groessen. Gefangen hat es `type-median.test.ts`. */
+  "ABS-GF",
+]);
 
 const NAMES = {
   "ABS-GF": "Bambu ABS-GF", "PAHT-CF": "Bambu PAHT-CF", PC_FR: "Bambu PC FR",
@@ -100,6 +112,92 @@ const q = (n, unit, o = {}) => n && ({
   source: "src_tds", confidence: "high",
 });
 
+/**
+ * Die Schlagzaehigkeitszeile der Bambu-Blaetter, beide Werte.
+ *
+ * DER FEHLER, DEN DAS BEHEBT
+ * Im PDF steht die Zeile dreispaltig, und der Textauszug zerlegt sie ueber DREI Zeilen:
+ *
+ *     41.2 ± 2.6 kJ/m²;                                      <- ungekerbt, ZEILE DAVOR
+ *     Impact Strength (X-Y)  ISO 179, GB/T 1043  15.7 ±1.6   <- Label + gekerbt
+ *     (notched)                                              <- die Kennzeichnung dazu
+ *
+ * Die allgemeine `row()`-Lesung nimmt die letzte Zelle der Label-Zeile - also den
+ * GEKERBTEN Wert - und legte ihn als `charpyUnnotchedXy` ab. Betroffen waren 22 Blaetter.
+ * Aufgefallen ist es an einer blockierenden offenen Frage: Bambus angeblich ungekerbte
+ * 15,7 kJ/m² fuer PETG-CF standen gegen 3 bis 3,5 von Flashforge, und der Faktor 5 war
+ * "mit Faseranteil und Vorbehandlung allein nicht erklaerbar" - richtig, denn es waren
+ * zwei verschiedene Kerbzustaende.
+ *
+ * DIE LESUNG
+ * Betrachtet wird ein Fenster von der Zeile davor bis zwei Zeilen danach. Der Wert, der
+ * mit "(notched)" zusammensteht, ist der gekerbte; der andere der ungekerbte. Steht nur
+ * einer da, wird er NICHT geraten - dann bleibt das Feld leer, und das ist besser als eine
+ * Zahl im falschen Feld.
+ */
+function impactPair(lines) {
+  const i = lines.findIndex((l) => /Impact Strength \(X-?Y\)/i.test(l));
+  if (i < 0) return {};
+  const win = lines.slice(Math.max(0, i - 2), i + 4);
+  const std = (lines[i].split("|").map((s) => s.trim()).filter(Boolean)[1]) || undefined;
+
+  /* Jede Zahl im Fenster mit der Information, ob auf ihrer Zeile "notched" steht.
+     Die Kennzeichnung kann auch allein auf der Folgezeile stehen - dann gehoert sie zur
+     letzten Zahl davor. */
+  const found = [];
+  for (const raw of win) {
+    /* Normbezeichnungen zuerst wegwerfen - "ISO 179" und "GB/T 1043" sind Zahlen, die
+       sonst als Messwerte gelesen wuerden. Ebenso die Richtungsangabe "(X-Y)". */
+    const line = raw
+      .replace(/[｜|]/g, " ")
+      .replace(/ISO\s*\d+[\w-]*/gi, " ")
+      .replace(/GB\/T\s*\d+/gi, " ")
+      .replace(/\(\s*[XYZ][-\s]*[XYZ]?\s*\)/gi, " ");
+    /* Bambu beschriftet nicht einheitlich: meist "(notched)", beim PC FR aber
+       "(Notched Impact Strength)" - und das ueber zwei Zeilen umgebrochen. Erkannt wird
+       deshalb das Wort in Klammern ODER eine oeffnende Klammer direkt davor. */
+    const marked = /[(（]\s*notched\b/i.test(line) || /\bnotched\s*[)）]/i.test(line);
+    /* Reine Kennzeichnungszeile: traegt "(notched)", aber keine eigene Zahl - sie gehoert
+       zum letzten Wert davor. Kommt vor als "(notched)", als `kJ/m²(notched)` und bei
+       PLA Marble mit einem verirrten Anfuehrungszeichen dahinter. */
+    const bare = line.replace(/kJ\/m.?/gi, "").replace(/[(（]?\s*notched[\w\s]*[)）]?/gi, "");
+    if (marked && !/\d/.test(bare)) {
+      if (found.length) found[found.length - 1].marked = true;
+      continue;
+    }
+    /* Fortsetzung einer Kennzeichnung ohne eigene Zahl ("Strength)") - ueberspringen,
+       damit sie die Zuordnung nicht verschiebt. */
+    if (!/\d/.test(line.replace(/kJ\/m.?/gi, ""))) continue;
+    /* NUR Zahlen, die zu dieser Groesse gehoeren. Das Fenster reicht zwei Zeilen nach oben,
+       weil der ungekerbte Wert dort stehen kann - dort steht aber auch die Biegefestigkeit
+       des vorigen Blocks. Eine Zeile mit einer FREMDEN Einheit wird deshalb verworfen; eine
+       Zeile ganz ohne Einheit bleibt drin, weil Bambu den Wert gelegentlich von seiner
+       Einheit trennt ("7.6 ± 0.9" auf der einen, "kJ/m²(notched)" auf der naechsten Zeile). */
+    /* Die Einheit steht IMMER hinter einer Zahl. Ohne diese Bedingung traf `MPa`
+       case-insensitiv das Wort "I-mpa-ct" in der Beschriftung und warf die Zeile weg,
+       auf der der gesuchte Wert steht. */
+    if (/\d\s*(MPa|GPa|°C|g\/cm³?|g\/10|Shore)/i.test(line)) continue;
+    for (const m of line.matchAll(/(-?\d+(?:\.\d+)?)\s*(?:±\s*(\d+(?:\.\d+)?))?/g)) {
+      const v = parseFloat(m[1]);
+      if (!Number.isFinite(v)) continue;
+      found.push({ v, tol: m[2] ? parseFloat(m[2]) : undefined, marked });
+    }
+  }
+
+  const notched = found.find((f) => f.marked) ?? null;
+  const unnotched = found.find((f) => !f.marked) ?? null;
+
+  /* Nennt das Blatt gar keinen gekerbten Wert, ist der eine Wert der ungekerbte - so bei
+     den TPU-Blaettern, wo die gekerbte Probe schlicht nicht bricht. Das ist kein Rateschritt:
+     Ohne "(notched)" irgendwo im Fenster gibt es nichts zu verwechseln. */
+  if (!notched) return unnotched ? { unnotched, std } : { std };
+
+  /* Mit Kennzeichnung MUSS der ungekerbte Wert darueber liegen - sonst ist die Zuordnung
+     falsch herum gelesen, und dann lieber nichts als das Falsche. */
+  if (!unnotched || unnotched.v <= notched.v) return { std };
+  return { unnotched, notched, std };
+}
+
 function parse(txt) {
   const lines = norm(txt).split("\n");
   const p = {};
@@ -111,7 +209,12 @@ function parse(txt) {
   put("tensileModulusXy", q(row(lines, /Young'?s Modulus \(X-?Y\)/i), "MPa", { orientation: "XY" }));
   put("flexuralModulusXy", q(row(lines, /Bending Modulus \(X-?Y\)/i), "MPa", { orientation: "XY" }));
   put("flexuralStrengthXy", q(row(lines, /Bending Strength \(X-?Y\)/i), "MPa", { orientation: "XY" }));
-  put("charpyUnnotchedXy", q(row(lines, /Impact Strength \(X-?Y\)/i), "kJ/m²", { orientation: "XY" }));
+  /* SCHLAGZAEHIGKEIT BRAUCHT EINE EIGENE LESUNG - siehe impactPair().
+     Bis 2026-08-07 stand hier dieselbe `row()`-Lesung wie ueberall, und sie hat ueber
+     22 Blaetter hinweg den GEKERBTEN Wert ins UNGEKERBTE Feld geschrieben. */
+  const imp = impactPair(lines);
+  put("charpyUnnotchedXy", q(imp.unnotched, "kJ/m²", { orientation: "XY", std: imp.std }));
+  put("charpyNotchedXy", q(imp.notched, "kJ/m²", { orientation: "XY", std: imp.std }));
   put("elongationAtBreakXy", q(row(lines, /Elongation at Break \(X-?Y\)/i), "%", { orientation: "XY" }));
   put("hdtA", q(row(lines, /Heat Deflection Temperature\|.*1\.8 ?MPa/i), "°C", { std: "ISO 75, 1.8 MPa" }));
   put("hdtB", q(row(lines, /Heat Deflection Temperature\|.*0\.45 ?MPa/i), "°C", { std: "ISO 75, 0.45 MPa" }));
@@ -124,6 +227,27 @@ function parse(txt) {
 }
 
 /* --------------------------------------------------------------- schreiben */
+
+/**
+ * Zahlen, die ihrem eigenen Umfeld so deutlich widersprechen, dass sie in keine
+ * Zusammenfassung eingehen duerfen (ADR-042). Sie bleiben im Datensatz und in der
+ * Oberflaeche - durchgestrichen und mit ihrem Befund daneben.
+ */
+const DISPUTED = {
+  TPU_for_AMS: {
+    field: "tensileModulusXy",
+    note: {
+      de: "1.190 MPa Zug-E-Modul steht neben 22,4 MPa Zugfestigkeit auf demselben Blatt. Ein "
+        + "linear gerechnetes Bauteil risse damit bei 1,9 % Dehnung — ein Elastomer mit Shore 95A "
+        + "dehnt sich um mehrere hundert Prozent. Bambus eigenes TPU-95A-Blatt nennt 9,2 MPa, das "
+        + "HF-Blatt 9,8. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+      en: "1,190 MPa tensile modulus sits next to 22.4 MPa tensile strength on the same sheet. A part "
+        + "computed linearly would break at 1.9 % strain — a Shore 95A elastomer stretches several "
+        + "hundred percent. Bambu's own TPU 95A sheet states 9.2 MPa, the HF sheet 9.8. The value "
+        + "stays on record but is not aggregated.",
+    },
+  },
+};
 
 mkdirSync(OUT, { recursive: true });
 const SPECIMEN_NOTE = t(
@@ -154,6 +278,14 @@ for (const file of sheets) {
 
   const props = parse(readFileSync(path.join(SRC, file), "utf8"));
   if (!Object.keys(props).length) { skipped.push(`${key} (nichts gelesen)`); continue; }
+
+  /* BESTRITTENE ZAHLEN, siehe ADR-042. Sie stehen im Blatt und werden nicht
+     mitgerechnet. Die Kennzeichnung gehoert hierher und nicht nur in die Datendatei -
+     sonst holt der naechste Lauf die Zahl ungekennzeichnet zurueck. */
+  const disputed = DISPUTED[key];
+  if (disputed && props[disputed.field]) {
+    props[disputed.field] = { ...props[disputed.field], disputed: true, confidence: "low", note: disputed.note };
+  }
 
   const url = `${CDN}/Bambu_${key}_Technical_Data_Sheet.pdf`;
   const name = NAMES[key] ?? `Bambu ${key.replace(/_/g, " ").trim()}`;
@@ -267,7 +399,7 @@ writeFileSync(path.join(ROOT, "data/materials/pps-cf.json"), JSON.stringify({
     xxl: { maxSensibleEdgeMm: mq(250, "mm", { min: 100, max: 400, source: "estimate_reasoning", confidence: "estimated",
         note: t("Kammerbedarf und extreme Verzugsneigung begrenzen die Bauteilgrösse stark.",
                 "Chamber requirement and extreme warping tendency limit part size severely.") }),
-      segmentationRecommended: fl(true) },
+      },
     reentsPortfolioStatus: ch("unknown"),
   },
   governance: {

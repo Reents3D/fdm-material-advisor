@@ -65,9 +65,11 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    Typ ohne Preis dastand - die Ableitung fand im OFD-Marktbestand keine Entsprechung,
    PPA wird dort als Werkstoffklasse nicht gefuehrt. Mit der Aufnahme von 3DJAKE steht
    ein Angebot da (207,99 €/kg aus einer 750-g-Spule), und die Untergrenze zieht auf 42
-   nach. Sie darf ab jetzt nicht mehr unter die Zahl der Werkstoffe fallen: Ein Werkstoff
-   ohne Preis verschwindet aus der Ansicht "Festigkeit gegen Preis", und das faellt
-   niemandem auf.
+   nach. Sie bleibt einen Tag spaeter bei 42, obwohl es inzwischen 43 Werkstoffe gibt:
+   `pctg-cf` hat keinen Preis, weil ihn nur FormFutura fuehrt - und FormFutura sperrt
+   Anthropics Agenten in seiner robots.txt, kann also nicht erhoben werden. Der Fall
+   steht seit demselben Tag als BLOCKIERENDE offene Frage am Datensatz; die Untergrenze
+   ist deshalb bewusst eine unter der Zahl der Werkstoffe.
 
    `openQuestions` ist am 2026-08-06 von 74 auf 88 GESTIEGEN, und das ist kein Zuwachs an
    Problemen, sondern an Buchfuehrung: `derive-price.mjs` legt den Vorbehalt
@@ -81,21 +83,62 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    von EINER Marke stammen (Extrudr, gefuehrt von Extrudr und von 3DJAKE) - und tragen
    damit ihren Vorbehalt wieder.
 
+   Am 2026-08-07 SINKT sie von 97 auf 93, und auch das ist Buchfuehrung: Der Abgleich der
+   Werkstoffwerte gegen die Produktblaetter (ADR-042) hat 16-mal `oq_second_source`
+   beantwortet - die Frage lautete woertlich "der gesamte Kennwertsatz beruht auf einem
+   einzigen Datenblatt", und bei `petg` lagen siebzehn im selben Repository. Entfernt wird
+   sie erst, wenn DREI Felder auf je drei Blaettern stehen; ein einzelnes breit belegtes
+   Feld macht aus einem Ein-Blatt-Datensatz keinen mehrfach belegten. Dazu kamen 12 neue
+   `oq_spread_*`: Werkstofftypen, deren Blaetter um mehr als eine Groessenordnung
+   auseinanderliegen und die deshalb vermutlich zwei Rezepturen unter einem Namen fuehren.
+   97 - 16 + 12 = 93.
+
+   Noch am selben Tag sinkt sie weiter auf 89, und der Grund ist der beste, den es dafuer
+   gibt: Vier der zwoelf `oq_spread_*` waren gar keine Rezepturvielfalt, sondern falsch
+   abgelegte Messwerte. Acht Blaetter fuehrten ASTM-D256- und ISO-180-Zahlen im FELD
+   `charpyNotchedXy` - ASTM D256 IST Izod, das steht im Titel der Norm. Nach dem Umzug ins
+   richtige Feld loesten sich vier Widersprueche auf, und der Ableitungslauf raeumt seine
+   eigenen erledigten Fragen jetzt weg, statt sie stehen zu lassen. Regel R18 haelt fest,
+   dass diese Klasse kuenftig auffaellt.
+
    Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
    durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
    eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
-   Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen. */
+   Zahl, die nur steigen darf, waere ein Test gegen das Aufraeumen.
+
+   `anisotropyFactors` FAELLT am 2026-08-06 von 19 auf 16, und das ist der wichtigste
+   Rueckgang, den diese Liste je verzeichnet hat. Der Anycubic-Import brachte neun neue
+   Blaetter mit Z-Werten und machte damit sichtbar, dass `derive-anisotropy.mjs` seinen
+   Widerspruchstest nur EINMAL laufen liess - beim ersten Blatt. Drei Werkstoffe trugen
+   deshalb eine Zahl, der ihre eigenen Belege widersprechen:
+
+     pla       0,89 gefuehrt   20 Blaetter, Spanne 0,32-0,89
+     pet-cf    0,47 gefuehrt    2 Blaetter, Spanne 0,20-0,47
+     tpu-95a   0,78 gefuehrt    4 Blaetter, Spanne 0,50-0,82
+
+   In allen drei Faellen war der gefuehrte Wert der guenstigste der Spanne.
+
+   Zunaechst wurden die Zahlen ENTFERNT. Auf Rikos Entscheidung vom selben Tag steht dort
+   jetzt der MEDIAN mit der beobachteten Spanne als min/max - dasselbe Vorgehen wie beim
+   Preis. Damit steigt die Zahl auf 20: `paht-cf` bekommt zum ersten Mal einen Wert, weil
+   auch sein Widerspruch jetzt zusammengefasst statt verschwiegen wird.
+
+     pla 0,72 (0,32-0,89) · tpu-95a 0,66 (0,50-0,82) · paht-cf 0,45 (0,18-0,73)
+     pet-cf 0,34 (0,20-0,47)
+
+   Bei den beiden Paaren mit nur ZWEI Blaettern sagt die Notiz ausdruecklich, dass der
+   Median dort schlicht deren Mitte ist - eine Zahl, die keine Quelle gemessen hat. */
 const FLOOR = {
-  materials: 42,
-  products: 240,
-  brands: 16,
-  datasheets: 218,
-  materialFacts: 2984,
-  productValues: 2008,
-  chemicalRatings: 882,
+  materials: 43,
+  products: 254,
+  brands: 17,
+  datasheets: 232,
+  materialFacts: 3051,
+  productValues: 2147,
+  chemicalRatings: 903,
   materialsWithPrice: 42,
-  anisotropyFactors: 19,
-  openQuestions: 91,
+  anisotropyFactors: 21,
+  openQuestions: 89,
 };
 
 const actual = {

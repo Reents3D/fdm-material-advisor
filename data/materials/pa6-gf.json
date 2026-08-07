@@ -32,41 +32,56 @@
       "value": 1.21,
       "unit": "g/cm³",
       "testStandard": "ISO 1183",
-      "source": [
-        "src_extrudr_tds",
-        "src_ofd"
-      ],
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "min": 1.04,
-      "max": 1.3,
       "note": {
-        "de": "Spanne: Marktkorridor über 13 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 13 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.14 g/cm³ (Bambu Lab) bis 1.34 g/cm³ (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 1.14 g/cm³ (Bambu Lab) to 1.34 g/cm³ (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 1.14,
+      "max": 1.34
     },
     "tensileStrengthXy": {
-      "value": 55,
-      "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "tensileModulusXy": {
-      "value": 2400,
+      "value": 75,
       "unit": "MPa",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 55 MPa (Extrudr) bis 80 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 55 MPa (Extrudr) to 80 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 55,
+      "max": 80
+    },
+    "tensileModulusXy": {
+      "value": 2850,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 2400 MPa (Extrudr) bis 5500 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 2400 MPa (Extrudr) to 5500 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 2400,
+      "max": 5500
     },
     "elongationAtBreakXy": {
       "value": 3.8,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 3.5 % (FormFutura) bis 3.9 % (Bambu Lab). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 3.5 % (FormFutura) to 3.9 % (Bambu Lab). Specimens: 1 of 3 printed, remainder undeclared."
+      },
+      "min": 3.5,
+      "max": 3.9
     },
     "izodNotchedXy": {
       "value": 5.2,
@@ -99,6 +114,134 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "flexuralStrengthXy": {
+      "value": 123,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 120 MPa (Bambu Lab) bis 125 MPa (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 120 MPa (Bambu Lab) to 125 MPa (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 120,
+      "max": 125,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 4085,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 3670 MPa (Bambu Lab) bis 4500 MPa (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 3670 MPa (Bambu Lab) to 4500 MPa (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 3670,
+      "max": 4500,
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 16.1,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 7.2 kJ/m² (Bambu Lab) bis 25 kJ/m² (FormFutura). Prüfkörper: 1 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 7.2 kJ/m² (Bambu Lab) to 25 kJ/m² (FormFutura). Specimens: 1 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 7.2,
+      "max": 25,
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 11,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 4 kJ/m² (FormFutura) bis 18 kJ/m² (Extrudr). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 4 kJ/m² (FormFutura) to 18 kJ/m² (Extrudr). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 4,
+      "max": 18,
+      "testStandard": "ISO 179"
+    },
+    "tensileStrengthZ": {
+      "value": 27,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "tensileModulusZ": {
+      "value": 1950,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "elongationAtBreakZ": {
+      "value": 2.3,
+      "unit": "%",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 527"
+    },
+    "flexuralStrengthZ": {
+      "value": 51,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusZ": {
+      "value": 2300,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedZ": {
+      "value": 4.1,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "Z",
+      "testStandard": "ISO 179"
     },
     "anisotropyFactorTensile": {
       "value": 0.36,
@@ -144,6 +287,28 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": 67,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
+    },
+    "meltingTemperature": {
+      "value": 219,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -534,17 +699,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil. Im echten Großformat wurde dieser Werkstoff noch nicht gefahren — bisher nur auf den Engineering-Druckern.",
+          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part. This material has not yet been run at true large format — so far only on the engineering printers."
         }
       },
       "maxSpoolWeightKg": {
@@ -623,15 +779,26 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — Lackierung und Fügung",
-        "retrievedAt": "2026-08-02",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -643,8 +810,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: SUNLU PA6-GF Black, 1 kg, 39,99 € · Bambu Lab PA6-GF White, 1 kg, 62,99 € · Polymaker Fiberon PA6-GF25 Grey, 0,5 kg, 34,99 €",
-          "en": "3 offers: SUNLU PA6-GF Black, 1 kg, 39.99 € · Bambu Lab PA6-GF White, 1 kg, 62.99 € · Polymaker Fiberon PA6-GF25 Grey, 0.5 kg, 34.99 €"
+          "de": "3 Angebote von 3 Marken (Bambu Lab, Polymaker, SUNLU). Günstigstes SUNLU PA6-GF Black, 1 kg für 39,99 € (39,99 €/kg); teuerstes Polymaker Fiberon PA6-GF25 Grey, 0,5 kg für 34,99 € (69,98 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "3 offers from 3 brands (Bambu Lab, Polymaker, SUNLU). Cheapest SUNLU PA6-GF Black, 1 kg at 39.99 € (39.99 €/kg); dearest Polymaker Fiberon PA6-GF25 Grey, 0.5 kg at 34.99 € (69.98 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -656,8 +823,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg, 49,56 €",
-          "en": "1 offer: Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg, 49.56 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg); teuerstes Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0,8 kg für 49,56 € (61,95 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg); dearest Extrudr DuraPro PA6 GF black 1.75 mm 0.8 kg, 0.8 kg at 49.56 € (61.95 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -669,8 +836,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg, 89,90 €",
-          "en": "1 offer: 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg, 89.90 €"
+          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg für 89,90 € (119,87 €/kg); teuerstes 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0,75 kg für 89,90 € (119,87 €/kg). Die vollständige Liste steht in data/prices.json.",
+          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg at 89.90 € (119.87 €/kg); dearest 3DXTech FibreX Glasfaser-Nylon (PA6-GF30) Schwarz, 0.75 kg at 89.90 € (119.87 €/kg). The full list is in data/prices.json."
         }
       },
       {
@@ -706,19 +873,19 @@
         "affectsFields": [
           "mechanics"
         ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+      }
+    }
   }
 }

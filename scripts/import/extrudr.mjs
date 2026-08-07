@@ -45,6 +45,48 @@ const RETRIEVED = "2026-08-01";
 const TDS = "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de";
 const WALL = "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft";
 
+
+/**
+ * BESTRITTENE ZAHLEN (ADR-042). Sie stehen im Blatt, widersprechen aber ihrem eigenen
+ * Umfeld so deutlich, dass sie in keine Zusammenfassung eingehen duerfen. Die
+ * Kennzeichnung gehoert HIERHER und nicht nur in die Datendatei - sonst holt der naechste
+ * Lauf die Zahl ungekennzeichnet zurueck.
+ */
+const DISPUTED = {
+  "extrudr-durapro-abs": { field: "izodNotchedXy", note: {
+    "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter im Bestand nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in J/m — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in J/m — the unit was lost in transcription. The value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-abs-cf": { field: "izodNotchedXy", note: {
+    "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter im Bestand nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in J/m — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in J/m — the unit was lost in transcription. The value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-asa": { field: "izodNotchedXy", note: {
+    "de": "Wie beim Schwesterblatt ABS: Der Wert liegt zehnfach über den übrigen ASA-Blättern (10 bis 18 kJ/m²) und entspricht dem Lehrbuchwert für ASA in J/m. Einheitenfehler; der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "As on the ABS sister sheet: the figure is ten times the other ASA sheets (10 to 18 kJ/m²) and matches the textbook value for ASA in J/m. Unit error; the value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-asa-cf": { field: "izodNotchedXy", note: {
+    "de": "Wie beim Schwesterblatt ABS: Der Wert liegt zehnfach über den übrigen ASA-Blättern (10 bis 18 kJ/m²) und entspricht dem Lehrbuchwert für ASA in J/m. Einheitenfehler; der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "As on the ABS sister sheet: the figure is ten times the other ASA sheets (10 to 18 kJ/m²) and matches the textbook value for ASA in J/m. Unit error; the value stays on record but is not aggregated."
+  } },
+  "extrudr-pla-basic": { field: "izodNotchedXy", note: {
+    "de": "0,3 kJ/m² liegt zehnfach UNTER dem niedrigsten anderen PLA-Blatt (3 kJ/m²) und ist für einen gekerbten Izod-Versuch kaum messbar. Welcher Fehler dahintersteckt, lässt sich ohne das Originalblatt nicht sagen — anders als bei ABS und ASA passt hier auch keine Einheitenumrechnung. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "0.3 kJ/m² is ten times BELOW the lowest other PLA sheet (3 kJ/m²) and barely measurable in a notched Izod test. Which error lies behind it cannot be said without the original sheet — unlike ABS and ASA, no unit conversion fits here either. The value stays on record but is not aggregated."
+  } },
+  "extrudr-pla-basic-cf": { field: "izodNotchedXy", note: {
+    "de": "0,3 kJ/m² liegt zehnfach UNTER dem niedrigsten anderen PLA-Blatt (3 kJ/m²) und ist für einen gekerbten Izod-Versuch kaum messbar. Welcher Fehler dahintersteckt, lässt sich ohne das Originalblatt nicht sagen — anders als bei ABS und ASA passt hier auch keine Einheitenumrechnung. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "0.3 kJ/m² is ten times BELOW the lowest other PLA sheet (3 kJ/m²) and barely measurable in a notched Izod test. Which error lies behind it cannot be said without the original sheet — unlike ABS and ASA, no unit conversion fits here either. The value stays on record but is not aggregated."
+  } },
+};
+
+/** Kennzeichnet den bestrittenen Wert eines Produktdatensatzes, falls es einen gibt. */
+function markDisputed(rec) {
+  const d = DISPUTED[rec.id];
+  if (!d || !rec.properties?.[d.field]) return rec;
+  rec.properties[d.field] = { ...rec.properties[d.field], disputed: true, confidence: "low", note: d.note };
+  return rec;
+}
+
 const t = (de, en) => ({ de, en });
 const q = (value, unit, o = {}) => ({
   value, unit,
@@ -83,7 +125,7 @@ const P = [
         note: t("ASTM D882 ist eine Prüfnorm für dünne Folien, nicht für Zugstäbe. Der Wert ist deshalb nur eingeschränkt mit ISO-527-Werten anderer Hersteller vergleichbar.",
                 "ASTM D882 is a test standard for thin films, not tensile bars. The value is therefore only of limited comparability with the ISO 527 values of other manufacturers.") }),
       elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (nominell)" }),
-      charpyNotchedXy: q(0.3, "kJ/m²", { std: "ASTM D256" }),
+      izodNotchedXy: q(0.3, "kJ/m²", { std: "ASTM D256" }),
       hdtB: q(55, "°C", { std: "ASTM E2092", conditions: WALL }),
       density: q(1.24, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }), bedTemperature: q(40, "°C", { min: 20, max: 60 }) },
@@ -93,7 +135,7 @@ const P = [
   { file: "pla-basic-cf", material: "pla", name: "Extrudr PLA Basic CF",
     props: { tensileStrengthXy: q(53, "MPa", { std: "ASTM D882", confidence: "low" }),
       elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (nominell)" }),
-      charpyNotchedXy: q(0.3, "kJ/m²", { std: "ASTM D256" }),
+      izodNotchedXy: q(0.3, "kJ/m²", { std: "ASTM D256" }),
       hdtB: q(55, "°C", { std: "ASTM E2092", conditions: WALL }),
       density: q(1.24, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }), bedTemperature: q(40, "°C", { min: 20, max: 60 }) },
@@ -169,7 +211,7 @@ const P = [
   { file: "petg", material: "petg", name: "Extrudr PETG",
     props: { tensileStrengthXy: q(61, "MPa", { std: "ISO 527" }), tensileModulusXy: q(3100, "MPa", { std: "ISO 527" }),
       elongationAtBreakXy: q(28, "%", { std: "ISO 527-2 (nominell)" }), flexuralStrengthXy: q(68, "MPa", { std: "ISO 178" }),
-      flexuralModulusXy: q(2100, "MPa", { std: "ISO 178" }), charpyNotchedXy: q(4.7, "kJ/m²", { std: "ISO 180" }),
+      flexuralModulusXy: q(2100, "MPa", { std: "ISO 178" }), izodNotchedXy: q(4.7, "kJ/m²", { std: "ISO 180" }),
       vicatA: q(78, "°C", { std: "ISO 306", conditions: WALL }), density: q(1.29, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(220, "°C", { min: 210, max: 230 }), bedTemperature: q(75, "°C", { min: 60, max: 90 }) },
     ul94: "V-2", ul94Thickness: 3.2,
@@ -213,7 +255,7 @@ const P = [
   { file: "durapro-abs", material: "abs", name: "Extrudr DuraPro ABS",
     props: { tensileStrengthXy: q(49, "MPa", { std: "ASTM D638" }), tensileModulusXy: q(2350, "MPa", { std: "ASTM D638" }),
       elongationAtBreakXy: q(10, "%", { std: "ASTM D638 (nominell)" }), flexuralStrengthXy: q(78, "MPa", { std: "ASTM D790" }),
-      flexuralModulusXy: q(2550, "MPa", { std: "ASTM D790" }), charpyNotchedXy: q(220, "kJ/m²", { std: "ASTM D256, 23 °C" }),
+      flexuralModulusXy: q(2550, "MPa", { std: "ASTM D790" }), izodNotchedXy: q(220, "kJ/m²", { std: "ASTM D256, 23 °C" }),
       hdtB: q(85, "°C", { std: "ASTM D648", conditions: WALL }), vicatA: q(92, "°C", { std: "ASTM D1525", conditions: WALL }),
       density: q(1.06, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(235, "°C", { min: 220, max: 250 }), bedTemperature: q(105, "°C", { min: 100, max: 110 }) },
@@ -222,7 +264,7 @@ const P = [
   { file: "durapro-abs-cf", material: "abs", name: "Extrudr DuraPro ABS CF",
     props: { tensileStrengthXy: q(49, "MPa", { std: "ASTM D638" }), tensileModulusXy: q(2350, "MPa", { std: "ASTM D638" }),
       elongationAtBreakXy: q(10, "%", { std: "ASTM D638 (nominell)" }), flexuralStrengthXy: q(78, "MPa", { std: "ASTM D790" }),
-      flexuralModulusXy: q(2550, "MPa", { std: "ASTM D790" }), charpyNotchedXy: q(220, "kJ/m²", { std: "ASTM D256, 23 °C" }),
+      flexuralModulusXy: q(2550, "MPa", { std: "ASTM D790" }), izodNotchedXy: q(220, "kJ/m²", { std: "ASTM D256, 23 °C" }),
       hdtB: q(85, "°C", { std: "ASTM D648", conditions: WALL }), density: q(1.06, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(235, "°C", { min: 220, max: 250 }), bedTemperature: q(105, "°C", { min: 100, max: 110 }) },
     ul94: "HB",
@@ -232,7 +274,7 @@ const P = [
   { file: "durapro-asa", material: "asa", name: "Extrudr DuraPro ASA",
     props: { tensileStrengthXy: q(62.2, "MPa", { tol: 3, std: "ASTM D638" }), tensileModulusXy: q(2200, "MPa", { std: "ASTM D638" }),
       elongationAtBreakXy: q(20, "%", { std: "ASTM D638 (nominell)" }), flexuralStrengthXy: q(78, "MPa", { std: "ASTM D790" }),
-      flexuralModulusXy: q(3500, "MPa", { tol: 200, std: "ASTM D790" }), charpyNotchedXy: q(140, "kJ/m²", { std: "ASTM D256, 23 °C" }),
+      flexuralModulusXy: q(3500, "MPa", { tol: 200, std: "ASTM D790" }), izodNotchedXy: q(140, "kJ/m²", { std: "ASTM D256, 23 °C" }),
       hdtB: q(96, "°C", { std: "ASTM D648", conditions: WALL }), vicatA: q(96, "°C", { std: "ASTM D1525", conditions: WALL }),
       density: q(1.05, "g/cm³", { std: "ASTM D792" }), nozzleTemperature: q(245, "°C", { min: 220, max: 270 }),
       bedTemperature: q(105, "°C", { min: 100, max: 110 }) },
@@ -258,7 +300,7 @@ const P = [
   { file: "durapro-asa-cf", material: "asa-cf", name: "Extrudr DuraPro ASA CF",
     props: { tensileStrengthXy: q(49, "MPa", { std: "ASTM D638" }), tensileModulusXy: q(2500, "MPa", { std: "ASTM D638" }),
       flexuralStrengthXy: q(78, "MPa", { std: "ASTM D790" }), flexuralModulusXy: q(4500, "MPa", { std: "ASTM D790" }),
-      charpyNotchedXy: q(100, "kJ/m²", { std: "ASTM D256, 23 °C" }),
+      izodNotchedXy: q(100, "kJ/m²", { std: "ASTM D256, 23 °C" }),
       hdtB: q(96, "°C", { std: "ASTM D648", conditions: WALL }), vicatA: q(101, "°C", { std: "ASTM D1525", conditions: WALL }),
       density: q(1.14, "g/cm³", { std: "ASTM D792" }),
       nozzleTemperature: q(250, "°C", { min: 240, max: 260 }), bedTemperature: q(110, "°C") },
@@ -655,7 +697,7 @@ for (const p of P) {
     properties: props,
     governance: { lastReviewed: RETRIEVED, reviewedBy: "Claude Code (Erstimport aus Herstellerdatenblatt)", sources: [{ ...src(p.name, p.file), id: "src_tds" }] },
   };
-  writeFileSync(path.join(outP, `${rec.id}.json`), JSON.stringify(rec, null, 2) + "\n");
+  writeFileSync(path.join(outP, `${rec.id}.json`), JSON.stringify(markDisputed(rec), null, 2) + "\n");
   np++;
   if (p.anomaly) na++;
 }
@@ -762,7 +804,6 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
       min: 200, max: m.chamber === "mandatory" ? 800 : 1800, source: "estimate_reasoning", confidence: "estimated",
       note: t("Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
               "Estimated from chamber requirement and warping tendency, not backed by our own production.") }),
-    segmentationRecommended: flag(true, { confidence: "estimated" }),
   };
   commercial.reentsPortfolioStatus = choice("unknown", { confidence: "estimated" });
 

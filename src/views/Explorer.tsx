@@ -35,15 +35,20 @@ interface Axis {
 }
 
 /** Pfadzugriff auf den lose typisierten Datensatz. Fehlt etwas, ist es null — nie 0. */
-function at(m: Material, path: string): { value: number | null; confidence?: string } | null {
+function at(m: Material, path: string):
+  { value: number | null; confidence?: string; min?: number; max?: number } | null {
   let cur: unknown = m;
   for (const seg of path.split(".")) {
     if (cur == null || typeof cur !== "object") return null;
     cur = (cur as Record<string, unknown>)[seg];
   }
   if (cur == null || typeof cur !== "object" || !("value" in (cur as object))) return null;
-  const q = cur as { value: unknown; confidence?: string };
-  return typeof q.value === "number" ? { value: q.value, confidence: q.confidence } : null;
+  const q = cur as { value: unknown; confidence?: string; min?: number; max?: number };
+  /* `min`/`max` sind die Spanne ueber die Herstellerblaetter (ADR-042), nicht die
+     Streuung einer Messung - die traegt `tolerance` und bleibt hier aussen vor. */
+  return typeof q.value === "number"
+    ? { value: q.value, confidence: q.confidence, min: q.min, max: q.max }
+    : null;
 }
 
 const G_MECH = "Mechanik", G_THERM = "Thermik", G_PROC = "Verarbeitung";
@@ -78,7 +83,10 @@ const AXES: Axis[] = [
 
   { id: "price", group: G_COM, label: ["Materialpreis", "Material price"], unit: "€/kg", lowerIsBetter: true, path: "commercial.pricePerKg" },
   { id: "avail", group: G_COM, label: ["Verfügbarkeit", "Availability"], unit: "1–5", path: "commercial.availability" },
-  { id: "xxl", group: G_COM, label: ["Sinnvolle XXL-Kante", "Sensible XXL edge"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
+  /* Bleibt als Achse, obwohl die Kantenlaenge seit 2026-08-07 kein Bewertungskriterium
+     mehr ist: Hier traegt sie niemanden vor oder zurueck, sie laesst sich nur auftragen.
+     Die Beschriftung sagt deshalb, was sie ist - Werkstatterfahrung, keine Maschinengrenze. */
+  { id: "xxl", group: G_COM, label: ["Grossformat-Erfahrung (Kante)", "Large-format experience (edge)"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
   { id: "bio", group: G_COM, label: ["Biobasierter Anteil", "Bio-based content"], unit: "%", path: "sustainability.bioBasedContent" },
 ];
 
@@ -119,6 +127,11 @@ export function Explorer({ t, lang, params, navigate }: {
      aber direkt aus `params` und gingen an der Grenze vorbei - dieselbe Fehlerklasse,
      nur an der Stelle, die beim ersten Mal uebersehen wurde. Mehr als alle Familien
      verstecken oder alle Werkstoffe anheften kann niemand wollen. */
+  /* Die Spannen stehen standardmaessig AN. Sie auszublenden ist der Sonderfall - wer
+     zwei Punkte vergleicht, soll zuerst sehen, ob sie sich ueberhaupt unterscheiden.
+     `axr=0` schaltet sie ab und bleibt im Link erhalten wie jede andere Einstellung. */
+  const spans = params.get("axr") !== "0";
+
   const hidden = new Set(idList(params.get("axf"), allFamilies.length));
   const pinned = new Set(idList(params.get("axp"), MATERIALS.length));
 
@@ -137,7 +150,10 @@ export function Explorer({ t, lang, params, navigate }: {
 
   /* Punkte und - genauso wichtig - die Ausgeschlossenen mit Begründung. */
   const { points, missing } = useMemo(() => {
-    const pts: { m: Material; x: number; y: number; s: number | null; est: boolean }[] = [];
+    const pts: {
+      m: Material; x: number; y: number; s: number | null; est: boolean;
+      xLo?: number; xHi?: number; yLo?: number; yHi?: number;
+    }[] = [];
     const miss: { m: Material; axes: string[] }[] = [];
     for (const m of visible) {
       const x = at(m, xa.path), y = at(m, ya.path);
@@ -149,6 +165,13 @@ export function Explorer({ t, lang, params, navigate }: {
       pts.push({
         m, x: x!.value!, y: y!.value!, s: s?.value ?? null,
         est: x!.confidence === "estimated" || y!.confidence === "estimated",
+        /* Seit ADR-042 tragen die zusammengefassten Kennwerte die Spanne ueber alle
+           Herstellerblaetter. Sie gehoert genau hierher: Ein Ashby-Diagramm aus lauter
+           Punkten behauptet, jeder Werkstoff sei EIN Punkt - und die haeufigste
+           Fehlentscheidung, die dieses Werkzeug verhindern soll, ist genau die.
+           PLA und ABS liegen bei der Zugfestigkeit als Punkte 1,8 MPa auseinander;
+           als Balken ueberdecken sie einander fast vollstaendig. */
+        xLo: x!.min, xHi: x!.max, yLo: y!.min, yHi: y!.max,
       });
     }
     return { points: pts, missing: miss };
@@ -163,8 +186,12 @@ export function Explorer({ t, lang, params, navigate }: {
     const pad = (hi - lo) * 0.08 || Math.abs(hi) * 0.1 || 1;
     return { lo: lo - pad, hi: hi + pad };
   };
-  const sx = scale(points.map((p) => p.x), xa);
-  const sy = scale(points.map((p) => p.y), ya);
+  /* Die Achse muss die BALKEN fassen, nicht nur die Punkte - sonst laufen Spannen aus
+     dem Diagramm heraus und der Werkstoff sieht schmaler aus, als er ist. */
+  const spread = (get: (p: (typeof points)[number]) => (number | undefined)[]) =>
+    spans ? points.flatMap((p) => get(p).filter((v): v is number => v != null)) : [];
+  const sx = scale([...points.map((p) => p.x), ...spread((p) => [p.xLo, p.xHi])], xa);
+  const sy = scale([...points.map((p) => p.y), ...spread((p) => [p.yLo, p.yHi])], ya);
   const frac = (v: number, s: { lo: number; hi: number }, a: Axis) =>
     a.log ? (Math.log(v) - Math.log(s.lo)) / (Math.log(s.hi) - Math.log(s.lo)) : (v - s.lo) / (s.hi - s.lo);
   const px = (v: number) => P.l + frac(v, sx, xa) * (W - P.l - P.r);
@@ -313,8 +340,23 @@ export function Explorer({ t, lang, params, navigate }: {
                 <title>
                   {p.m.identity.name} — {L(xa)} {fmt(p.x)} {xa.unit} · {L(ya)} {fmt(p.y)} {ya.unit}
                   {sa && p.s != null ? ` · ${L(sa)} ${fmt(p.s)} ${sa.unit}` : ""}
+                  {p.xLo != null && p.xHi != null && p.xHi > p.xLo
+                    ? ` · ${L(xa)} ${fmt(p.xLo)}–${fmt(p.xHi)} über die Hersteller` : ""}
+                  {p.yLo != null && p.yHi != null && p.yHi > p.yLo
+                    ? ` · ${L(ya)} ${fmt(p.yLo)}–${fmt(p.yHi)} über die Hersteller` : ""}
                   {p.est ? (de ? " · enthält eine Schätzung" : " · contains an estimate") : ""}
                 </title>
+                {/* Die Spanne zuerst, damit der Punkt darauf liegt und nicht darunter. */}
+                {spans && p.xLo != null && p.xHi != null && p.xHi > p.xLo && (
+                  <line x1={px(p.xLo)} y1={py(p.y)} x2={px(p.xHi)} y2={py(p.y)}
+                    stroke={colourOf(p.m.identity.family)} strokeWidth={on ? 2.5 : 1.5}
+                    strokeOpacity={on ? 0.9 : 0.45} strokeLinecap="round" />
+                )}
+                {spans && p.yLo != null && p.yHi != null && p.yHi > p.yLo && (
+                  <line x1={px(p.x)} y1={py(p.yLo)} x2={px(p.x)} y2={py(p.yHi)}
+                    stroke={colourOf(p.m.identity.family)} strokeWidth={on ? 2.5 : 1.5}
+                    strokeOpacity={on ? 0.9 : 0.45} strokeLinecap="round" />
+                )}
                 <circle cx={px(p.x)} cy={py(p.y)} r={r} fill={colourOf(p.m.identity.family)}
                   fillOpacity={on ? 0.95 : 0.6} stroke={on ? "#0C4251" : "#fff"} strokeWidth={on ? 2.5 : 1.5} />
                 {/* Gestrichelter Ring = mindestens eine Koordinate ist geschätzt. */}
@@ -335,6 +377,15 @@ export function Explorer({ t, lang, params, navigate }: {
         </svg>
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-xs">
+          <label className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+            <input type="checkbox" checked={spans} onChange={() => setParam("axr", spans ? "0" : null)}
+              className="accent-petrol-700" />
+            <svg width="22" height="16" aria-hidden="true">
+              <line x1="2" y1="8" x2="20" y2="8" stroke="#888" strokeWidth="1.5" strokeOpacity="0.5" strokeLinecap="round" />
+              <circle cx="11" cy="8" r="4" fill="#888" fillOpacity="0.6" stroke="#fff" strokeWidth="1.5" />
+            </svg>
+            {de ? "Spanne über die Hersteller" : "range across manufacturers"}
+          </label>
           <span className="inline-flex items-center gap-1.5">
             <svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="4" fill="#888" fillOpacity="0.6" stroke="#fff" strokeWidth="1.5" />
               <circle cx="8" cy="8" r="6.5" fill="none" strokeDasharray="2 3" stroke="#888" strokeWidth="1.2" /></svg>

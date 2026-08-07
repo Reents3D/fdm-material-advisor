@@ -72,6 +72,15 @@
       "confidence": "high"
     },
     "charpyUnnotchedXy": {
+      "value": 24,
+      "unit": "kJ/m²",
+      "tolerance": 2.5,
+      "testStandard": "ISO 179, GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
       "value": 9.5,
       "unit": "kJ/m²",
       "tolerance": 2.6,

@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "formfutura-athenax-cf10",
+  "materialId": "pctg-cf",
+  "brand": "FormFutura",
+  "manufacturer": "FormFutura BV",
+  "productName": "AthenaX CF10",
+  "origin": "Niederlande",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Zwei Beschriftungsfehler, beide auch im ungefüllten Schwesterblatt. Erstens tragen BEIDE Schlagzeilen die Norm ISO 179-1eU, also Charpy UNGEKERBT — eine davon ist aber als „Izod Notched“ beschriftet. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; die gekerbte Zahl steht deshalb ohne Norm und mit `low`. Zweitens nennt die Vicat-Zeile als Methode „DSC“, was keine Vicat-Norm ist. Kein Kennwert des Blattes ist zifferngleich mit dem ungefüllten AthenaX — anders als beim Kratos PC CF10 desselben Herstellers, das deshalb keinen Werkstofftyp bekommen hat.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Two labelling errors, both present in the unfilled sister sheet as well. First, BOTH impact rows carry the standard ISO 179-1eU, that is Charpy UNNOTCHED — yet one of them is labelled “Izod Notched”. A notched value cannot arise from an unnotched standard; the notched figure therefore carries no standard and `low`. Second, the Vicat row names “DSC” as the method, which is not a Vicat standard. No value on this sheet is digit-identical with unfilled AthenaX — unlike the same manufacturer's Kratos PC CF10, which for that reason received no material type."
+  },
+  "features": {
+    "de": "Das Blatt rechnet seinen eigenen Zugewinn vor — „59 % higher tensile strength than AthenaX“ —, und die Rechnung geht auf: 44 auf 70 MPa sind 59,1 %. Wichtiger als der Zugewinn ist der Preis dafür: 5 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX. Bemerkenswert ist die Verarbeitung: „No enclosure, or heated chamber needed“ — für einen faserverstärkten Werkstoff die Ausnahme.",
+    "en": "The sheet works out its own gain — “59 % higher tensile strength than AthenaX” — and the arithmetic holds: 44 to 70 MPa is 59.1 %. More important than the gain is what it costs: 5 % elongation at break against 220 % for unreinforced AthenaX. Processing is the remarkable part: “No enclosure, or heated chamber needed” — the exception among fibre-reinforced materials."
+  },
+  "datasheet": {
+    "title": "AthenaX CF10 — Technical Data Sheet",
+    "url": "https://www.formfutura.com/web/content/256481?download=true",
+    "version": "2024-10-07",
+    "retrievedAt": "2026-08-04"
+  },
+  "productUrl": "https://www.formfutura.com/",
+  "properties": {
+    "density": {
+      "value": 1.28,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "tensileStrengthXy": {
+      "value": 70,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "bei Streckgrenze",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "elongationAtBreakXy": {
+      "value": 5,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyUnnotchedXy": {
+      "value": 45,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eU",
+      "conditions": "ungekerbt, 23 °C",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "charpyNotchedXy": {
+      "value": 4,
+      "unit": "kJ/m²",
+      "conditions": "gekerbt, 23 °C; im Blatt als „Izod Notched“ mit der UNGEKERBTEN Norm ISO 179-1eU bezeichnet",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 78,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "0,455 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "hdtA": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75",
+      "conditions": "1,82 MPa",
+      "source": "src_tds",
+      "confidence": "medium"
+    },
+    "vicatB50": {
+      "value": 89,
+      "unit": "°C",
+      "testStandard": "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-04",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "FormFutura BV",
+        "productName": "AthenaX CF10",
+        "title": "AthenaX CF10 — Technical Data Sheet",
+        "url": "https://www.formfutura.com/web/content/256481?download=true",
+        "documentVersion": "2024-10-07",
+        "retrievedAt": "2026-08-04",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+        }
+      }
+    ]
+  }
+}

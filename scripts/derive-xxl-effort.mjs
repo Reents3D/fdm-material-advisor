@@ -99,13 +99,12 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
           `${NOTE.en}\n\nException to the derivation: ${ov[1]}`)
       : NOTE,
   };
-  // Segmentierung ist bei Grossteilen die Regel, nicht die Ausnahme - Messemodelle
-  // werden ohnehin geteilt, um Nachbearbeitung und Transport zu erleichtern.
-  m.commercial.xxl.segmentationRecommended = {
-    value: true, source: "estimate_reasoning", confidence: "estimated",
-    note: t("Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-            "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."),
-  };
+  /* `segmentationRecommended` stand hier bis 2026-08-07 und wurde fuer JEDEN Werkstoff auf
+     `true` gesetzt - eine Angabe, die bei allen 43 gleich ist, unterscheidet nichts und
+     hilft niemandem. Sie ist ersatzlos entfernt, nicht nur ausgeblendet. Riko dazu:
+     "Wir segmentieren, wenn es sinnvoll ist fuer die Auf- und Nachbereitung. Hat im
+     Materialberater eigentlich nichts zu suchen, da ein Materialberater kein
+     Fertigungsberater ist." Gelesen hat das Feld ohnehin keine Zeile Anwendungscode. */
 
   writeFileSync(p, `${JSON.stringify(m, null, 2)}\n`);
   if (before !== value) { changed++; moves.push([m.id, before, value, warp, chamber, !!ov]); }
