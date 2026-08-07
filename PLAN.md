@@ -10,6 +10,12 @@ OFD-Fundstellen (Anycubic 12, Add-North PVDF, Nebula 7) und die Marken ganz ohne
 **Erledigt seit dem letzten Stand:** `ppa-cf` (2026-08-05) und `pctg-cf` (2026-08-06) sind
 angelegt; `pc-cf` ist **abgelehnt**, weil sein einziges Blatt die Tabelle des ungefüllten
 Polymers trägt (Abschnitt 5a). Damit ist die Liste der Werkstofftyp-Kandidaten leer.
+Anycubic ist als 17. Marke aufgenommen, Spectrum um drei Blätter ergänzt. Das
+Auslieferungsbudget steht nach ADR-041 bei **77 % statt 97 %** — Platz für etwa ein Dutzend
+weitere Werkstofftypen.
+
+**Offene Entscheidungen stehen jetzt gesammelt in [RUECKFRAGEN.md](RUECKFRAGEN.md)**, nach
+Wirkung sortiert. Alles andere ist selbst entschieden und am Ort der Wirkung begründet.
 
 ---
 
