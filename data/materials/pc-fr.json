@@ -80,22 +80,6 @@
       "source": "estimate_reasoning",
       "confidence": "estimated"
     },
-    "anisotropyFactorTensile": {
-      "value": 0.35,
-      "unit": "-",
-      "orientation": "Z",
-      "source": "estimate_reasoning",
-      "confidence": "estimated",
-      "derivedFrom": [
-        "mechanics.tensileStrengthZ",
-        "mechanics.tensileStrengthXy"
-      ],
-      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu PC FR — nicht aus diesem Datensatz",
-      "note": {
-        "de": "Senkrecht zur Schicht bleiben 35 % der Zugfestigkeit erhalten (21 von 60 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PC FR — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
-        "en": "Perpendicular to the layers 35 % of the tensile strength remains (21 of 60 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PC FR — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
-      }
-    },
     "flexuralStrengthXy": {
       "value": 90,
       "unit": "MPa",
@@ -120,6 +104,30 @@
       "orientation": "XY",
       "testStandard": "ISO 178"
     },
+    "charpyUnnotchedXy": {
+      "value": 55,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 8.4,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Bambu Lab. Prüfkörper: alle gedruckt.",
+        "en": "Single datasheet: Bambu Lab. Specimens: all printed."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
     "tensileStrengthZ": {
       "value": 21,
       "unit": "MPa",
@@ -131,6 +139,22 @@
       },
       "orientation": "Z",
       "testStandard": "ISO 527"
+    },
+    "anisotropyFactorTensile": {
+      "value": 0.35,
+      "unit": "-",
+      "orientation": "Z",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "derivedFrom": [
+        "mechanics.tensileStrengthZ",
+        "mechanics.tensileStrengthXy"
+      ],
+      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu PC FR — nicht aus diesem Datensatz",
+      "note": {
+        "de": "Senkrecht zur Schicht bleiben 35 % der Zugfestigkeit erhalten (21 von 60 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PC FR — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
+        "en": "Perpendicular to the layers 35 % of the tensile strength remains (21 of 60 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PC FR — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
+      }
     }
   },
   "thermal": {
@@ -627,6 +651,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_pc_fr_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -671,17 +706,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_type_datasheets",
-        "type": "manufacturer-tds",
-        "publisher": "mehrere Hersteller",
-        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
-        }
       }
     ],
     "openQuestions": [

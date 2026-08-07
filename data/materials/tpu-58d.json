@@ -563,6 +563,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_tpu_58d_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -594,17 +605,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_type_datasheets",
-        "type": "manufacturer-tds",
-        "publisher": "mehrere Hersteller",
-        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
-        }
       }
     ],
     "openQuestions": [

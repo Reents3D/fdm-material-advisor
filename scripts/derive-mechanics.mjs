@@ -380,9 +380,15 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
       }
     }
 
-    /* Unter drei Blättern wird nur gefüllt, nie ersetzt. */
+    /* Unter drei Blättern wird nur gefüllt, nie ersetzt — ES SEI DENN, der Wert stammt aus
+       einem früheren Lauf dieses Skripts. Der behauptet in seiner eigenen Quellenangabe, der
+       Median seiner Blätter zu sein; schrumpft der Blätterbestand, weil ein Wert bestritten
+       oder ins richtige Feld verschoben wurde, muss er mitgehen. Sonst steht dort eine Zahl
+       mit der Provenienz „Median", die keiner mehr ist — und genau das hat der Test
+       `type-median.test.ts` bei `paht-cf` und `pla-tough` gefangen. */
     const isGap = !cur || cur.value == null;
-    if (!isGap && pl.n < MIN_AGGREGATE) continue;
+    const ours = cur?.source === SRC_ID;
+    if (!isGap && !ours && pl.n < MIN_AGGREGATE) continue;
     if (isGap && pl.n < 1) continue;
 
     const keepValue = !isGap && cur.confidence === "high";

@@ -125,12 +125,12 @@
     ],
     "sharedFields": [
       "bedTemperature",
-      "charpyNotchedXy",
       "density",
       "elongationAtBreakXy",
       "flexuralModulusXy",
       "flexuralStrengthXy",
       "hdtB",
+      "izodNotchedXy",
       "nozzleTemperature",
       "tensileModulusXy",
       "tensileStrengthXy"

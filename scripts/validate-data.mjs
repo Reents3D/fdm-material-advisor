@@ -385,8 +385,8 @@ const FAMILY_RE = {
   izod: /ISO\s*180|ASTM\s*D\s*256|GB\/T\s*1843/i,
 };
 /** Die Kerbart steht im Suffix der Norm: 1eU ungekerbt, 1eA/1eB/1eC gekerbt. */
-const NOTCH_STATED = (std) => (/1eU|ungekerbt|unnotched/i.test(std) ? "unnotched"
-  : /1e[ABC]|1A|gekerbt|notched/i.test(std) ? "notched" : null);
+const NOTCH_STATED = (std) => (/1eU|\bungekerbt\b|unnotched/i.test(std) ? "unnotched"
+  : /1e[ABC]\b|1A\b|\bgekerbt\b|notched/i.test(std) ? "notched" : null);
 
 /* Eine bestrittene Zahl ohne Begruendung waere schlimmer als gar keine Kennzeichnung:
    Sie verschwindet aus jeder Zusammenfassung, und niemand kann nachlesen warum. */
@@ -408,7 +408,7 @@ function checkImpact(id, props) {
     if (!v?.testStandard || v.value == null) continue;
     if (!FAMILY_RE[family].test(v.testStandard)) {
       /* Nur melden, wenn ueberhaupt eine Norm dasteht - "23 °C" ist keine. */
-      if (!/ISO|ASTM|GB\/T|DIN|EN/i.test(v.testStandard)) continue;
+      if (!/ISO|ASTM|GB\/T|DIN|EN\b/i.test(v.testStandard)) continue;
       report("warn", id, "R18-impact-family",
         `${field} zitiert "${v.testStandard}" — das ist nicht ${family === "charpy" ? "Charpy" : "Izod"}`);
       continue;

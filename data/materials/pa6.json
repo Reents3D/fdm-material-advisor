@@ -709,6 +709,17 @@
     "dataCompleteness": null,
     "sources": [
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
         "id": "src_price_pa6_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -744,17 +755,6 @@
         "note": {
           "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
           "en": "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."
-        }
-      },
-      {
-        "id": "src_type_datasheets",
-        "type": "manufacturer-tds",
-        "publisher": "mehrere Hersteller",
-        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
         }
       }
     ],

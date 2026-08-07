@@ -45,6 +45,48 @@ const RETRIEVED = "2026-08-01";
 const TDS = "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-de";
 const WALL = "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft";
 
+
+/**
+ * BESTRITTENE ZAHLEN (ADR-042). Sie stehen im Blatt, widersprechen aber ihrem eigenen
+ * Umfeld so deutlich, dass sie in keine Zusammenfassung eingehen duerfen. Die
+ * Kennzeichnung gehoert HIERHER und nicht nur in die Datendatei - sonst holt der naechste
+ * Lauf die Zahl ungekennzeichnet zurueck.
+ */
+const DISPUTED = {
+  "extrudr-durapro-abs": { field: "izodNotchedXy", note: {
+    "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter im Bestand nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in J/m — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in J/m — the unit was lost in transcription. The value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-abs-cf": { field: "izodNotchedXy", note: {
+    "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter im Bestand nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in J/m — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in J/m — the unit was lost in transcription. The value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-asa": { field: "izodNotchedXy", note: {
+    "de": "Wie beim Schwesterblatt ABS: Der Wert liegt zehnfach über den übrigen ASA-Blättern (10 bis 18 kJ/m²) und entspricht dem Lehrbuchwert für ASA in J/m. Einheitenfehler; der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "As on the ABS sister sheet: the figure is ten times the other ASA sheets (10 to 18 kJ/m²) and matches the textbook value for ASA in J/m. Unit error; the value stays on record but is not aggregated."
+  } },
+  "extrudr-durapro-asa-cf": { field: "izodNotchedXy", note: {
+    "de": "Wie beim Schwesterblatt ABS: Der Wert liegt zehnfach über den übrigen ASA-Blättern (10 bis 18 kJ/m²) und entspricht dem Lehrbuchwert für ASA in J/m. Einheitenfehler; der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "As on the ABS sister sheet: the figure is ten times the other ASA sheets (10 to 18 kJ/m²) and matches the textbook value for ASA in J/m. Unit error; the value stays on record but is not aggregated."
+  } },
+  "extrudr-pla-basic": { field: "izodNotchedXy", note: {
+    "de": "0,3 kJ/m² liegt zehnfach UNTER dem niedrigsten anderen PLA-Blatt (3 kJ/m²) und ist für einen gekerbten Izod-Versuch kaum messbar. Welcher Fehler dahintersteckt, lässt sich ohne das Originalblatt nicht sagen — anders als bei ABS und ASA passt hier auch keine Einheitenumrechnung. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "0.3 kJ/m² is ten times BELOW the lowest other PLA sheet (3 kJ/m²) and barely measurable in a notched Izod test. Which error lies behind it cannot be said without the original sheet — unlike ABS and ASA, no unit conversion fits here either. The value stays on record but is not aggregated."
+  } },
+  "extrudr-pla-basic-cf": { field: "izodNotchedXy", note: {
+    "de": "0,3 kJ/m² liegt zehnfach UNTER dem niedrigsten anderen PLA-Blatt (3 kJ/m²) und ist für einen gekerbten Izod-Versuch kaum messbar. Welcher Fehler dahintersteckt, lässt sich ohne das Originalblatt nicht sagen — anders als bei ABS und ASA passt hier auch keine Einheitenumrechnung. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+    "en": "0.3 kJ/m² is ten times BELOW the lowest other PLA sheet (3 kJ/m²) and barely measurable in a notched Izod test. Which error lies behind it cannot be said without the original sheet — unlike ABS and ASA, no unit conversion fits here either. The value stays on record but is not aggregated."
+  } },
+};
+
+/** Kennzeichnet den bestrittenen Wert eines Produktdatensatzes, falls es einen gibt. */
+function markDisputed(rec) {
+  const d = DISPUTED[rec.id];
+  if (!d || !rec.properties?.[d.field]) return rec;
+  rec.properties[d.field] = { ...rec.properties[d.field], disputed: true, confidence: "low", note: d.note };
+  return rec;
+}
+
 const t = (de, en) => ({ de, en });
 const q = (value, unit, o = {}) => ({
   value, unit,
@@ -655,7 +697,7 @@ for (const p of P) {
     properties: props,
     governance: { lastReviewed: RETRIEVED, reviewedBy: "Claude Code (Erstimport aus Herstellerdatenblatt)", sources: [{ ...src(p.name, p.file), id: "src_tds" }] },
   };
-  writeFileSync(path.join(outP, `${rec.id}.json`), JSON.stringify(rec, null, 2) + "\n");
+  writeFileSync(path.join(outP, `${rec.id}.json`), JSON.stringify(markDisputed(rec), null, 2) + "\n");
   np++;
   if (p.anomaly) na++;
 }

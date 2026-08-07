@@ -71,6 +71,24 @@
       "source": "src_tds",
       "confidence": "high"
     },
+    "charpyUnnotchedXy": {
+      "value": 55,
+      "unit": "kJ/m²",
+      "tolerance": 2.1,
+      "testStandard": "ISO 179, GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
+    "charpyNotchedXy": {
+      "value": 8.4,
+      "unit": "kJ/m²",
+      "tolerance": 1.3,
+      "testStandard": "ISO 179, GB/T 1043",
+      "orientation": "XY",
+      "source": "src_tds",
+      "confidence": "high"
+    },
     "hdtA": {
       "value": 108,
       "unit": "°C",

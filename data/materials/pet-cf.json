@@ -935,6 +935,29 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
+          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+        }
+      },
+      {
+        "id": "field_experience_reents",
+        "type": "field-experience",
+        "publisher": "Reents Technologies GmbH",
+        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
+        "retrievedAt": "2026-08-07",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
+        }
+      },
+      {
         "id": "src_price_pet_cf_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -980,29 +1003,6 @@
         "publisher": "FDM-Materialberater",
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated"
-      },
-      {
-        "id": "src_type_datasheets",
-        "type": "manufacturer-tds",
-        "publisher": "mehrere Hersteller",
-        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
-        }
-      },
-      {
-        "id": "field_experience_reents",
-        "type": "field-experience",
-        "publisher": "Reents Technologies GmbH",
-        "title": "Werkstatterfahrung Reents3D — XXL-Fertigung",
-        "retrievedAt": "2026-08-07",
-        "confidenceCeiling": "medium",
-        "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
-          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
-        }
       }
     ],
     "openQuestions": [
