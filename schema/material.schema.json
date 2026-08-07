@@ -1581,14 +1581,15 @@
               "description": "Anteil der am Markt gefuehrten Spulen mit mindestens 2 kg Fuellgewicht. Niedriger Anteil bedeutet Spulenwechsel im Dauerlauf, auch wenn eine Grossspule grundsaetzlich existiert.",
               "$ref": "#/$defs/qPct"
             },
-            "segmentationRecommended": {
-              "$ref": "#/$defs/flag"
-            },
             "joiningRecommendation": {
               "$ref": "#/$defs/i18nText"
             },
             "note": {
               "$ref": "#/$defs/i18nText"
+            },
+            "infillWarningXxl": {
+              "description": "Werkstatterfahrung: 100 % Fuellung ist bei diesem Werkstoff im Grossformat problematisch - die inneren Spannungen werden extrem hoch, das Bauteil verzieht sich und schrumpft staerker. Gilt NUR fuer XXL; im normalen Format ist mehr Fuellung unbedenklich.",
+              "$ref": "#/$defs/flag"
             }
           }
         },

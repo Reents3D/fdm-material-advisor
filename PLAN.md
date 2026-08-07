@@ -2,10 +2,17 @@
 
 **Stand:** 2026-08-07 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
-**Nächster Schritt:** Die **XXL-Grenzen** in [RUECKFRAGEN.md](RUECKFRAGEN.md) — die einzige
-offene Entscheidung, die auf Werkstattwissen wartet statt auf Arbeit. Danach die vier
-verbliebenen `oq_spread_*`-Fälle und die Marken ganz ohne Blattlink (Polymaker 71,
-3DXTech 61, PrimaCreator 59).
+**Nächster Schritt:** Die vier verbliebenen `oq_spread_*`-Fälle und die Marken ganz ohne
+Blattlink (Polymaker 71, 3DXTech 61, PrimaCreator 59). **[RUECKFRAGEN.md](RUECKFRAGEN.md)
+ist leer** — die XXL-Grenzen sind beantwortet und eingearbeitet.
+
+**Die XXL-Werte sind belegt statt geschätzt.** ABS stand bei 550 mm und ASA bei 700 —
+abgeleitet aus ihrer Verzugsneigung, also aus dem, was ein Bauteil OHNE Gegenmassnahmen
+tut. Tatsächlich laufen beide zuverlässig über einen Meter; die Ableitung lag um Faktor
+zwei daneben, und zwar systematisch. `segmentationRecommended` ist ersatzlos entfernt
+(„ein Materialberater ist kein Fertigungsberater"), dafür trägt die Datenbank jetzt einen
+Befund, den keine Frage erwartet hatte: 100 % Füllung ist im Grossformat bei PETG, ASA und
+ABS problematisch — die Umkehrung der sonst richtigen Faustregel.
 
 ## Was seit dem letzten Stand passiert ist
 

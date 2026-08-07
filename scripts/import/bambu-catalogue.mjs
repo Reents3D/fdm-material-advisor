@@ -267,7 +267,7 @@ writeFileSync(path.join(ROOT, "data/materials/pps-cf.json"), JSON.stringify({
     xxl: { maxSensibleEdgeMm: mq(250, "mm", { min: 100, max: 400, source: "estimate_reasoning", confidence: "estimated",
         note: t("Kammerbedarf und extreme Verzugsneigung begrenzen die Bauteilgrösse stark.",
                 "Chamber requirement and extreme warping tendency limit part size severely.") }),
-      segmentationRecommended: fl(true) },
+      },
     reentsPortfolioStatus: ch("unknown"),
   },
   governance: {

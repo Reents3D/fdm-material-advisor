@@ -471,7 +471,6 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
       min: 200, max: m.chamber === "mandatory" ? 800 : 1800, source: "estimate_reasoning", confidence: "estimated",
       note: t("Geschätzt aus Kammerbedarf und Verzugsneigung, nicht durch eigene Fertigung belegt.",
               "Estimated from chamber requirement and warping tendency, not backed by our own production.") }),
-    segmentationRecommended: flag(true, { confidence: "estimated" }),
   };
   commercial.reentsPortfolioStatus = choice("unknown", { confidence: "estimated" });
 

@@ -259,7 +259,6 @@ const record = {
           "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung — nicht durch eigene Fertigung belegt. Keine Fertigungsgrenze, sondern die Kantenlänge, ab der es aufwendig wird. Höher als bei den meisten faserverstärkten Typen, weil dieser ohne Kammer auskommt.",
           "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. Not a manufacturing limit but the edge length from which it becomes demanding. Higher than for most fibre-reinforced types because this one needs no chamber."),
       }),
-      segmentationRecommended: { value: true, source: "estimate_reasoning", confidence: "estimated" },
     },
     reentsPortfolioStatus: {
       value: "unknown", source: "estimate_reasoning", confidence: "estimated",

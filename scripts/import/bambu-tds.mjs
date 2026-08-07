@@ -764,7 +764,6 @@ function buildMaterial(id, d, m) {
         "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung - nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
         "Estimated from chamber requirement, warping tendency and layer adhesion - not backed by our own production. To be replaced by Reents3D shop-floor experience."),
     }),
-    segmentationRecommended: flag(m.xxl < 1500, { confidence: "estimated" }),
   };
   commercial.reentsPortfolioStatus = choice("unknown", {
     note: t("Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",

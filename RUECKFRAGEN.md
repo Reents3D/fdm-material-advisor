@@ -4,47 +4,67 @@ Diese Datei sammelt Entscheidungen, die **Riko** treffen muss, weil sie von Fert
 Portfolio- oder Marktwissen abhängen, das nicht in den Daten steht. Alles andere ist
 selbst entschieden und dokumentiert (siehe `DECISIONS.md`).
 
+**Stand 2026-08-07: nichts offen.** Die XXL-Grenzen sind beantwortet und eingearbeitet.
+
 ---
 
-## OFFEN — 1. XXL-Grenzen aus eigener Fertigung
+## ENTSCHIEDEN am 2026-08-07 — 1. XXL-Grenzen aus eigener Fertigung ✔ umgesetzt
 
-**Was das Feld ist.** Jeder Werkstoff trägt `commercial.xxl.maxSensibleEdgeMm` — laut
-seiner eigenen Notiz *„keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser
-Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung."* Alle 43 Werte sind
-**geschätzt**, abgeleitet aus Verzugsneigung und Kammerbedarf. Keiner ist durch ein
-tatsächlich gefertigtes Teil belegt.
+Die Antwort aus der Werkstatt hat die grösste Einzelkorrektur der Datenbank ausgelöst:
 
-Aktueller Stand, damit die Fragen konkret werden:
+> „Bei über einen Meter nutzen wir PLA, PETG, ABS und ASA zuverlässig. PLA ist am
+> stabilsten, was die Masshaltigkeit angeht, da ABS und ASA sowie PETG mehr schrumpfen je
+> nach Geometrie. CF Materialien haben wir bisher bis maximal 800 × 800 gefertigt, ohne
+> Probleme. PA, PC, PPS bisher nur auf den Engineering Druckern. 100 % gefüllte Bauteile
+> sind problematisch im XXL Segment aus PETG, ASA, ABS, da die Spannungen extrem hoch
+> werden und das Bauteil sich verziehen kann sowie stärker schrumpft."
 
-| Kante | Werkstoffe |
+| | vorher | jetzt |
+|---|---:|---:|
+| `abs` | 550 mm | **1.800 mm**, belegt ab 1.000 |
+| `asa` | 700 mm | **1.800 mm**, belegt ab 1.000 |
+| `petg`, `pla`, `pla-tough` | 1.800 / 2.400 | unverändert, jetzt belegt statt geschätzt |
+
+**Warum die Schätzung um Faktor zwei danebenlag.** Sie war aus der Verzugsneigung
+abgeleitet — also aus dem, was ein Bauteil OHNE Gegenmassnahmen tut. In einer Fertigung mit
+Kammer, Brim und geübtem Personal ist das die falsche Bezugsgrösse. ABS stand mit
+Verzugsneigung 5 von 5 ganz unten und läuft tatsächlich über einen Meter.
+
+**Was ausdrücklich NICHT eingetragen wurde.** „Bis 800 × 800 ohne Probleme" ist ein
+belegter unterer Rand, keine gefundene Grenze — dort war schlicht das grösste Teil. Die
+800 als Obergrenze einzutragen hiesse, eine nicht gemachte Erfahrung als Grenze auszugeben.
+Die 13 CF- und GF-Typen behalten deshalb ihre Schätzung und tragen nur den Vermerk, bis
+wohin sie belegt ist. Dasselbe gilt für PA, PC und PPS: „nur auf den Engineering Druckern"
+heisst keine XXL-Erfahrung, nicht „geht nicht".
+
+**Ein Befund, den keine Frage erwartet hatte:** 100 % Füllung ist im Grossformat bei PETG,
+ASA und ABS problematisch. Das ist die Umkehrung der sonst richtigen Faustregel — für die
+Temperaturgrenze unter Dauerlast senkt mehr Füllung die Spannung im Querschnitt, für die
+Masshaltigkeit eines Grossteils erhöht sie den Verzug. Beides gilt gleichzeitig und zieht in
+verschiedene Richtungen. Steht jetzt als `commercial.xxl.infillWarningXxl` an sieben
+Werkstoffen und wird auf dem Datenblatt angezeigt.
+
+### Segmentierung ist raus ✔ umgesetzt
+
+> „Wir segmentieren, wenn es sinnvoll ist für die Auf- und Nachbereitung. Hat im
+> Materialberater eigentlich nichts zu suchen, da ein Materialberater kein Fertigungsberater
+> ist."
+
+`segmentationRecommended` stand bei allen 43 Werkstoffen auf `true`, wurde von keiner Zeile
+Anwendungscode gelesen und ist ersatzlos entfernt — aus dem Schema, aus sieben
+Importskripten und aus den Daten. Eine Angabe, die bei allen gleich ist, unterscheidet
+nichts.
+
+### Was dabei offen geblieben ist
+
+| Frage | Stand |
 |---|---|
-| 2.400 mm | `pla`, `pla-tough`, `esd-pla` (Verzug 1, keine Kammer) |
-| 1.800 mm | die PETG- und PCTG-Familie, `pla-cf`, `greentec` (Verzug 2) |
-| 1.100–1.600 mm | `asa-cf`, `pet-cf`, `asa-aero`, `obc`, `hips`, `pmma`, `pvc` (Verzug 3) |
-| ≤ 900 mm | die PA-, PC- und PPS-Familie (Kammer erforderlich) |
+| Obergrenze für PLA/PETG/ABS/ASA | nicht gefunden — belegt ist „über einen Meter", das obere Ende wurde nie erreicht |
+| Obergrenze für CF/GF-Typen | offen; belegt nur bis 800 × 800, dort war das grösste Teil |
+| Werkstoffe, die für XXL grundsätzlich abgelehnt werden | keine genannt — PA, PC und PPS sind eine Maschinen-, keine Werkstofffrage |
 
-**Die fünf Fragen — jede in einem Satz beantwortbar:**
-
-1. **Welche Werkstoffe habt ihr tatsächlich über einen Meter Kantenlänge gefahren?**
-   Nur die Namen; die Zahlen kommen aus Frage 2.
-
-2. **Bei welcher Kantenlänge kippte es jeweils — und woran?** Verzug, Kammertemperatur,
-   Bauzeit, Nachbearbeitung oder Handling. Der Grund ist wichtiger als die Zahl, weil er
-   sagt, ob die Schwelle mit besserer Ausrüstung wandert.
-
-3. **Stimmt die Reihenfolge oben überhaupt?** Sie sagt: PLA doppelt so weit wie ASA-CF,
-   viermal so weit wie PA6-CF. Falls das aus der Werkstatt anders aussieht, ist nicht die
-   einzelne Zahl falsch, sondern die Ableitung aus Verzug und Kammer.
-
-4. **Ab wann segmentiert ihr grundsätzlich, unabhängig vom Werkstoff?** Das Feld
-   `segmentationRecommended` steht bei allen 43 auf `true`, was es wertlos macht. Eine
-   Kantenlänge, ab der ihr in der Praxis immer teilt, wäre die brauchbarere Angabe.
-
-5. **Gibt es Werkstoffe, die ihr für XXL grundsätzlich ablehnt** — nicht weil sie nicht
-   gingen, sondern weil sich der Aufwand nie lohnt?
-
-Fünf belegte Werte würden hier mehr ändern als fünfzig geschätzte: Es ist das einzige
-Kriterium, bei dem Reents3D einen Wissensvorsprung hat, den kein Datenblatt liefert.
+Keine davon blockiert etwas. Sie werden beantwortet, wenn ein grösseres Teil durch die
+Fertigung geht.
 
 ---
 
