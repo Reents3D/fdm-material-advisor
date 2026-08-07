@@ -25,6 +25,13 @@ export interface Quantity {
   source: SourceRef;
   confidence: Confidence;
   derivedFrom?: string[];
+  /**
+   * Nur auf der Produktebene: Diese Zahl widerspricht ihrem eigenen Umfeld so deutlich,
+   * dass sie in keine Zusammenfassung eingeht (ADR-042). Sie bleibt im Datensatz und in
+   * der Oberfläche — durchgestrichen und mit ihrem Befund daneben —, weil sie im Blatt
+   * steht. `note` ist dann Pflicht; Regel R19 erzwingt das.
+   */
+  disputed?: true;
   note?: I18nText;
 }
 

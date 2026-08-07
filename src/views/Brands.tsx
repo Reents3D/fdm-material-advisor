@@ -477,13 +477,29 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
                     <td key={p.id} className="py-2 px-3 align-top">
                       {v ? (
                         <>
-                          <span className={cx("tabular-nums font-medium", v.confidence === "low" && "estimated")}>
+                          {/* Eine bestrittene Zahl steht im Blatt und wird nicht mitgerechnet
+                              (ADR-042). Sie hier ungekennzeichnet zu zeigen wäre das Schlimmste
+                              von beidem: Der Leser hielte sie für belastbar, und die Notiz, die
+                              den Befund trägt, stünde nur in der Datei. */}
+                          <span className={cx("tabular-nums font-medium",
+                            v.confidence === "low" && "estimated",
+                            v.disputed && "line-through decoration-warn decoration-2 opacity-60")}>
                             {fmt(v.value)}
                           </span>
                           <span className="muted text-xs ml-0.5">{v.unit}</span>
                           {v.tolerance ? <span className="muted text-xs"> ±{fmt(v.tolerance)}</span> : null}
                           {v.min != null && v.max != null && v.min !== v.max && (
                             <span className="muted text-xs"> ({fmt(v.min)}–{fmt(v.max)})</span>
+                          )}
+                          {v.disputed && (
+                            <span className="block text-[11px] mt-0.5 font-medium text-warn">
+                              {lang === "de" ? "bestritten — nicht mitgerechnet" : "disputed — not aggregated"}
+                            </span>
+                          )}
+                          {v.note && (
+                            <span className="block text-[11px] mt-0.5 text-warn/90 max-w-[13rem] leading-snug">
+                              {v.note[lang]}
+                            </span>
                           )}
                           {v.testStandard && <span className="block text-[11px] muted mt-0.5">{v.testStandard}</span>}
                           {/* Nur abweichende Bedingungen — die Spaltenvorgabe steht im Kopf. */}
