@@ -104,11 +104,11 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    ist, ist reicher - deshalb steht die Untergrenze jetzt bei 16 und nicht bei 19. */
 const FLOOR = {
   materials: 43,
-  products: 250,
+  products: 253,
   brands: 17,
-  datasheets: 228,
+  datasheets: 231,
   materialFacts: 3045,
-  productValues: 2110,
+  productValues: 2135,
   chemicalRatings: 903,
   materialsWithPrice: 42,
   anisotropyFactors: 16,

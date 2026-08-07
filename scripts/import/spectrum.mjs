@@ -198,6 +198,76 @@ const P = [
     features: t("Das dritte PCTG-Blatt im Bestand mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
                 "The third PCTG sheet in the dataset with practically identical figures — 44/46 MPa, 220 % elongation at break, 1600 MPa flexural modulus, HDT 76/64 °C appear verbatim at 3DJAKE and Fiberlogy too. Three brands, one pellet grade. Such triple confirmations are rare and make the values more dependable than any single source.") },
 
+  /* ---------------------------------------------------------------------------
+     Nachgetragen am 2026-08-06. Beide Blaetter sind zweispaltig gesetzt und laufen
+     mit `pdftotext -layout` durcheinander - Werte landen in fremden Zeilen. Im
+     `-raw`-Modus kommen Beschriftung, Wert und Norm dagegen als drei ausgerichtete
+     Bloecke, und der Fliesstext bestaetigt die Zuordnung zweifach (bei PEBA nennt er
+     "Shore hardness 92A" und "density 1.02 g/cm³").
+
+     VIER WEITERE SPECTRUM-BLAETTER LIEGEN AUSGEWERTET, ABER NICHT IMPORTIERT:
+     PA6 Neat, PA12 CF15, LW-ASA UltraFoam und PLA ESD richten sich auch im
+     `-raw`-Modus nicht sauber aus - dort fallen Beschriftungen aus dem Raster, und die
+     Bloecke verschieben sich gegeneinander. Eine Zahl in der falschen Zeile ist kein
+     Wert, sondern ein Fehler mit Nachkommastellen; die vier bleiben liegen, bis sie
+     jemand von Hand gegenliest. Siehe RUECKFRAGEN.md. */
+  { id: "spectrum-peba", material: "peba", name: "Spectrum PEBA",
+    file: "2025/11/en_tds_spectrum_peba.pdf",
+    specimen: "moulded",
+    props: {
+      density: q(1.02, "g/cm³", { std: "ISO 1183" }),
+      hardnessShoreD: q(43, "Shore D", { std: "ISO 868" }),
+      hardnessShoreA: q(92, "Shore A", { std: "ISO 868" }),
+      tensileModulusXy: q(100, "MPa", { std: "ISO 527-1/-2", conditions: "23 °C, Spritzguss" }),
+      tensileStrengthXy: q(25, "MPa", { std: "ISO 527-1/-2", conditions: "23 °C, Spritzguss" }),
+      elongationAtBreakXy: q(500, "%", { std: "ISO 527-1/-2", conditions: "23 °C, Spritzguss; das Blatt nennt „> 500 %“, geführt ist die Untergrenze" }),
+      flexuralModulusXy: q(90, "MPa", { std: "ISO 178", conditions: "23 °C, Spritzguss" }),
+      flexuralStrengthXy: q(5, "MPa", { std: "ISO 178", conditions: "23 °C, Spritzguss" }),
+    },
+    features: t("Das erste PEBA-Blatt im Bestand neben Fillamentum — und es sagt etwas, was die meisten verschweigen: Jede mechanische Zeile trägt den Zusatz „injection moulding“. Das sind Spritzgusswerte, keine gedruckten. Für ein Elastomer mit über 500 % Bruchdehnung ist der Unterschied erheblich, weil die Schichthaftung genau die Eigenschaft ist, die der Spritzguss nicht misst. Shore 92A bei 43 Shore D, Zugmodul 100 MPa: weicher als TPU 95A und deutlich rückstellfähiger.",
+                "The first PEBA sheet in the dataset alongside Fillamentum — and it states what most leave out: every mechanical row carries the qualifier “injection moulding”. These are moulded values, not printed ones. For an elastomer with over 500 % elongation at break the difference matters, because layer adhesion is precisely the property moulding does not measure. Shore 92A at 43 Shore D, tensile modulus 100 MPa: softer than TPU 95A and markedly more resilient."),
+    anomaly: t("Die Werte gelten laut Blatt für SPRITZGEGOSSENE Prüfkörper — das steht in jeder einzelnen mechanischen Zeile. Ein gedrucktes Bauteil erreicht sie in Z nicht; wie weit darunter, sagt das Blatt nicht.",
+               "The values apply to INJECTION MOULDED specimens per the sheet — it says so in every single mechanical row. A printed part will not reach them in Z; by how much, the sheet does not say.") },
+
+  { id: "spectrum-pctg-gf10", material: "pctg-gf", name: "Spectrum PCTG GF10",
+    file: "2022/10/en_tds_spectrum_pctg_gf10.pdf",
+    props: {
+      density: q(1.31, "g/cm³", { std: "ASTM D792" }),
+      elongationAtBreakXy: q(8, "%", { std: "ISO 527" }),
+      tensileStrengthXy: q(55, "MPa", { std: "ISO 527", conditions: "Streckgrenze; Bruchspannung 25 MPa" }),
+      charpyUnnotchedXy: q(45, "kJ/m²", { std: "ISO 179-1eU", conditions: "ungekerbt, 23 °C; im Blatt als „Izod“ bezeichnet, die Norm ist Charpy" }),
+      hdtB: q(78, "°C", { std: "ISO 75, 0,455 MPa" }),
+      hdtA: q(68, "°C", { std: "ISO 75, 1,820 MPa" }),
+      vicatB50: q(77, "°C", { std: "ISO 306" }),
+    },
+    features: t("Acht von acht Kennwerten stehen zifferngleich im AthenaX-GF10-Blatt von FormFutura: 1,31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Zwei Marken, eine Messung — und beide tragen dieselbe Auffälligkeit, nämlich eine Vicat-Temperatur (77 °C) UNTER der HDT-B (78 °C), was normalerweise nicht vorkommt. Der Wert dieses Blattes liegt deshalb nicht in neuen Zahlen, sondern darin, dass es die Herkunft der alten sichtbar macht.",
+                "Eight of eight values appear digit for digit in FormFutura's AthenaX GF10 sheet: 1.31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Two brands, one measurement — and both carry the same oddity, a Vicat temperature (77 °C) BELOW the HDT-B (78 °C), which normally does not happen. The value of this sheet therefore lies not in new figures but in making the origin of the old ones visible."),
+    anomaly: t("Kein eigenständiger Beleg. Alle acht Kennwerte sind mit dem FormFutura-AthenaX-GF10-Blatt identisch, samt der Vicat-Anomalie. Beide Marken compoundieren erkennbar dasselbe Granulat und geben dessen Datenblatt weiter. Nach ADR-038 zählt das als EIN Beleg, nicht als zwei — die Konfidenz beider Seiten ist entsprechend gedeckelt.",
+               "Not an independent piece of evidence. All eight values are identical with FormFutura's AthenaX GF10 sheet, including the Vicat anomaly. Both brands evidently compound the same pellet grade and pass on its datasheet. Per ADR-038 that counts as ONE piece of evidence, not two — the confidence of both sides is capped accordingly.") },
+
+  /* HIPS-X lag seit dem ersten Spectrum-Import ausgewertet da und wurde uebersprungen -
+     damals gab es keinen `hips`-Werkstofftyp. Den gibt es seit dem Fiberlogy-Import;
+     die Auslassung war seither nur noch ein stehen gebliebener Satz in der Ausgabe. */
+  { id: "spectrum-hips-x", material: "hips", name: "Spectrum HIPS-X",
+    file: "2022/05/en_tds_spectrum_hipsx.pdf",
+    props: {
+      density: q(1.05, "g/cm³", { std: "ISO 1183" }),
+      tensileStrengthXy: q(16, "MPa", { std: "ISO 527-2/5", conditions: "Streckspannung; Bruchspannung ebenfalls 16 MPa" }),
+      elongationAtYieldXy: q(1.5, "%", { std: "ISO 527-2/5" }),
+      elongationAtBreakXy: q(50, "%", { std: "ISO 527-2/5" }),
+      flexuralModulusXy: q(2000, "MPa", { std: "ISO 178" }),
+      flexuralStrengthXy: q(50, "MPa", { std: "ISO 178" }),
+      charpyNotchedXy: q(7, "kJ/m²", { std: "ISO 179/2", conditions: "gekerbt, 23 °C" }),
+      izodNotchedXy: q(90, "J/m", { std: "ASTM D256", conditions: "gekerbt, 23 °C" }),
+      vicatB50: q(87, "°C", { std: "ISO 306/B50" }),
+      hdtB: q(88, "°C", { std: "ISO 75" }),
+      nozzleTemperature: q(237, "°C", { min: 230, max: 245 }),
+      bedTemperature: q(90, "°C", { min: 80, max: 100 }),
+    },
+    features: t("Ein Stützmaterial mit belastbaren Konstruktionswerten — das ist ungewöhnlich. HIPS-X ist in D-Limonen löslich und dafür gedacht, ABS-Überhänge zu tragen; das Blatt beziffert es trotzdem vollständig, inklusive Vicat 87 °C und HDT 88 °C. Wer HIPS als eigenständigen Werkstoff einsetzt, bekommt hier eine Grundlage: 16 MPa Zugfestigkeit bei 50 % Bruchdehnung und 2000 MPa Biegemodul, also weich und zäh statt fest.",
+                "A support material with usable engineering values — which is unusual. HIPS-X dissolves in D-limonene and is meant to carry ABS overhangs; the sheet nevertheless quantifies it fully, including Vicat 87 °C and HDT 88 °C. Anyone using HIPS as a material in its own right gets a basis here: 16 MPa tensile strength at 50 % elongation at break and 2,000 MPa flexural modulus — soft and tough rather than strong."),
+    ul94: { value: "HB", strong: false } },
+
   { id: "spectrum-pa6-cf15", material: "pa6-cf", name: "Spectrum PA6 Low Warp CF15",
     file: "2022/10/en_tds_spectrum_pa6_low_warp_cf15s.pdf",
     props: {
@@ -258,7 +328,7 @@ for (const p of P) {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
     id: p.id, materialId: p.material,
     brand: "Spectrum", manufacturer: "Spectrum Group", productName: p.name, origin: "Polen",
-    specimenType: p.printed ? "printed" : "undeclared",
+    specimenType: p.specimen ?? (p.printed ? "printed" : "undeclared"),
     specimenNote: t(parts.map((x) => x.de).join("\n\n"), parts.map((x) => x.en).join("\n\n")),
     ...(p.features ? { features: p.features } : {}),
     datasheet: { title: `${p.name} — Technical Data Sheet`, url, retrievedAt: RETRIEVED },
@@ -298,4 +368,5 @@ for (const p of P) {
 
 console.log(`${n} Spectrum-Produkte geschrieben (${na} mit Befund, ${nu} mit UL94-Angabe)`);
 console.log(`  2 Blaetter deklarieren gedruckte Pruefkoerper (PLA Pro, PLA Matt)`);
-console.log(`  HIPS-X ausgelassen: kein HIPS-Werkstofftyp in der Datenbank`);
+console.log("  PEBA, PCTG GF10 und HIPS-X am 2026-08-06 nachgetragen (siehe Kopf)");
+console.log("  4 weitere Blaetter liegen ausgewertet, aber unlesbar ausgerichtet - RUECKFRAGEN.md");

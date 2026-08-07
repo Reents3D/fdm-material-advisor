@@ -1,0 +1,116 @@
+{
+  "$schema": "../../schema/product.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "spectrum-pctg-gf10",
+  "materialId": "pctg-gf",
+  "brand": "Spectrum",
+  "manufacturer": "Spectrum Group",
+  "productName": "Spectrum PCTG GF10",
+  "origin": "Polen",
+  "specimenType": "undeclared",
+  "specimenNote": {
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass zwei andere Blätter desselben Herstellers (PLA Pro und PLA Matt) es ausdrücklich tun — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Kein eigenständiger Beleg. Alle acht Kennwerte sind mit dem FormFutura-AthenaX-GF10-Blatt identisch, samt der Vicat-Anomalie. Beide Marken compoundieren erkennbar dasselbe Granulat und geben dessen Datenblatt weiter. Nach ADR-038 zählt das als EIN Beleg, nicht als zwei — die Konfidenz beider Seiten ist entsprechend gedeckelt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: Not an independent piece of evidence. All eight values are identical with FormFutura's AthenaX GF10 sheet, including the Vicat anomaly. Both brands evidently compound the same pellet grade and pass on its datasheet. Per ADR-038 that counts as ONE piece of evidence, not two — the confidence of both sides is capped accordingly."
+  },
+  "features": {
+    "de": "Acht von acht Kennwerten stehen zifferngleich im AthenaX-GF10-Blatt von FormFutura: 1,31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Zwei Marken, eine Messung — und beide tragen dieselbe Auffälligkeit, nämlich eine Vicat-Temperatur (77 °C) UNTER der HDT-B (78 °C), was normalerweise nicht vorkommt. Der Wert dieses Blattes liegt deshalb nicht in neuen Zahlen, sondern darin, dass es die Herkunft der alten sichtbar macht.",
+    "en": "Eight of eight values appear digit for digit in FormFutura's AthenaX GF10 sheet: 1.31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Two brands, one measurement — and both carry the same oddity, a Vicat temperature (77 °C) BELOW the HDT-B (78 °C), which normally does not happen. The value of this sheet therefore lies not in new figures but in making the origin of the old ones visible."
+  },
+  "datasheet": {
+    "title": "Spectrum PCTG GF10 — Technical Data Sheet",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_pctg_gf10.pdf",
+    "retrievedAt": "2026-08-02"
+  },
+  "productUrl": "https://spectrumfilaments.com/en/",
+  "properties": {
+    "density": {
+      "value": 1.31,
+      "unit": "g/cm³",
+      "testStandard": "ASTM D792",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "elongationAtBreakXy": {
+      "value": 8,
+      "unit": "%",
+      "testStandard": "ISO 527",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "tensileStrengthXy": {
+      "value": 55,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "conditions": "Streckgrenze; Bruchspannung 25 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "charpyUnnotchedXy": {
+      "value": 45,
+      "unit": "kJ/m²",
+      "testStandard": "ISO 179-1eU",
+      "conditions": "ungekerbt, 23 °C; im Blatt als „Izod“ bezeichnet, die Norm ist Charpy",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtB": {
+      "value": 78,
+      "unit": "°C",
+      "testStandard": "ISO 75, 0,455 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "hdtA": {
+      "value": 68,
+      "unit": "°C",
+      "testStandard": "ISO 75, 1,820 MPa",
+      "source": "src_tds",
+      "confidence": "low"
+    },
+    "vicatB50": {
+      "value": 77,
+      "unit": "°C",
+      "testStandard": "ISO 306",
+      "source": "src_tds",
+      "confidence": "low"
+    }
+  },
+  "governance": {
+    "lastReviewed": "2026-08-02",
+    "reviewedBy": "Claude Code (Erstimport aus Herstellerdatenblatt)",
+    "sources": [
+      {
+        "id": "src_tds",
+        "type": "manufacturer-tds",
+        "publisher": "Spectrum Group",
+        "productName": "Spectrum PCTG GF10",
+        "title": "Spectrum PCTG GF10 — Technical Data Sheet",
+        "url": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_pctg_gf10.pdf",
+        "retrievedAt": "2026-08-02",
+        "confidenceCeiling": "low",
+        "note": {
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert.",
+          "en": "Manufacturer datasheet with text layer. Specimen not declared."
+        }
+      }
+    ]
+  },
+  "sharedLineage": {
+    "with": [
+      "formfutura-athenax-gf10"
+    ],
+    "sharedFields": [
+      "charpyUnnotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "hdtA",
+      "hdtB",
+      "tensileStrengthXy",
+      "vicatB50"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura AthenaX GF10. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
+      "en": "7 values in this record appear identically at: FormFutura AthenaX GF10. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+    }
+  }
+}

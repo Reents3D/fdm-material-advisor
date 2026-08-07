@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**43 Werkstofftypen · 250 Produkte von 17 Marken · 3.045 belegte Einzelaussagen ·
+**43 Werkstofftypen · 253 Produkte von 17 Marken · 3.045 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
