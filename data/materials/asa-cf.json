@@ -231,6 +231,20 @@
       },
       "orientation": "XY",
       "testStandard": "ISO 180"
+    },
+    "charpyNotchedXy": {
+      "value": 7.2,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 5.4 kJ/m² (FormFutura) bis 9 kJ/m² (3DJAKE). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
+        "en": "Median of 2 manufacturer datasheets, range 5.4 kJ/m² (FormFutura) to 9 kJ/m² (3DJAKE). Specimens: 0 of 2 printed, remainder undeclared."
+      },
+      "orientation": "XY",
+      "min": 5.4,
+      "max": 9,
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -1017,17 +1031,6 @@
         "blocking": false,
         "affectsFields": [
           "mechanics"
-        ]
-      },
-      {
-        "id": "oq_spread_charpynotchedxy",
-        "question": {
-          "de": "charpyNotchedXy: Die 3 Blätter dieses Werkstofftyps liegen um Faktor 18.52 auseinander (5.4 kJ/m² (FormFutura) bis 100 kJ/m² (Extrudr)), und schon das mittlere Viertel um Faktor 18.52. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
-          "en": "charpyNotchedXy: the 3 datasheets of this material type span a factor of 18.52 (5.4 kJ/m² (FormFutura) to 100 kJ/m² (Extrudr)), and the middle quartile alone by a factor of 18.52. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics.charpyNotchedXy"
         ]
       }
     ]

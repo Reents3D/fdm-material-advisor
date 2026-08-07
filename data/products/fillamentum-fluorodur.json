@@ -63,7 +63,7 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 5,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256",

@@ -115,6 +115,15 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const RETRIEVED = "2026-08-04";
 const BASE = "https://www.formfutura.com/web/content";
 
+/* Sechs FormFutura-Blaetter zitieren in der GEKERBTEN Zeile die ungekerbte Norm ISO
+   179/1eU - dieselbe, die eine Zeile darueber steht. Ein gekerbter Wert kann daraus
+   nicht entstehen; die Norm ist im Blatt uebernommen. Der Wert bleibt (er ist die
+   einzige Angabe, die es gibt), aber ohne Norm und mit `low` - dieselbe Behandlung,
+   die AthenaX CF10 seit dem ersten Import bekommen hat. Regel R18 haelt fest, dass
+   diese Klasse kuenftig auffaellt. */
+const COND_1EU =
+  "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.";
+
 const t = (de, en) => ({ de, en });
 
 const q = (value, unit, o = {}) => ({
@@ -281,7 +290,7 @@ const P = [
       tensileModulusXy: q(7580, "MPa", { std: "ISO 527", orientation: "XY" }),
       elongationAtBreakXy: q(1.8, "%", { std: "ISO 527", conditions: "23 °C, 50 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: ftlb(8, { std: "ISO 179/1eU", orientation: "XY" }),
-      charpyNotchedXy: ftlb(2.57, { std: "ISO 179/1eU", orientation: "XY" }),
+      charpyNotchedXy: ftlb(2.57, { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       vicatA: q(101.6, "°C", { std: "ISO 306" }),
       hdtB: q(100.5, "°C", { std: "ISO 75", conditions: "66 psi = 0,45 MPa" }),
       hdtA: q(95, "°C", { std: "ISO 75", conditions: "264 psi = 1,82 MPa" }),
@@ -300,7 +309,7 @@ const P = [
       elongationAtYieldXy: q(2.8, "%", { std: "ISO 527-1", orientation: "XY" }),
       elongationAtBreakXy: q(6, "%", { std: "ISO 527-1", orientation: "XY" }),
       charpyUnnotchedXy: q(25, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(7.5, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(7.5, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       vicatA: q(94, "°C", { std: "ISO 306" }),
       hdtB: q(89, "°C", { std: "ISO 75", conditions: "0,45 MPa — siehe Befund zur Reihenfolge", confidence: "low" }),
       hdtA: q(95, "°C", { std: "ISO 75", conditions: "1,81 MPa — siehe Befund zur Reihenfolge", confidence: "low" }),
@@ -372,7 +381,7 @@ const P = [
       elongationAtBreakXy: q(1.9, "%", { std: "ISO 527-1/-2", conditions: "23 °C, 50 mm/min", orientation: "XY" }),
       flexuralStrengthXy: q(112, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(2800, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
-      charpyNotchedXy: q(6.8, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(6.8, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       meltingTemperature: q(185, "°C", { std: "ISO 3146", conditions: "DSC, 10 °C/min", confidence: "low" }),
       hdtB: q(60, "°C", { std: "ISO 75-1/-2", conditions: "Last im Blatt nicht genannt", confidence: "low" }),
     },
@@ -392,7 +401,7 @@ const P = [
       flexuralStrengthXy: q(180, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(8000, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: q(60, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(4, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       hdtB: q(180, "°C", { std: "ISO 75", conditions: "0,45 MPa", confidence: "low" }),
       hdtA: q(65, "°C", { std: "ISO 75", conditions: "1,8 MPa", confidence: "low" }),
     },
@@ -412,7 +421,7 @@ const P = [
       flexuralStrengthXy: q(125, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(4500, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: q(25, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(4, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       hdtB: q(180, "°C", { std: "ISO 75", conditions: "0,45 MPa", confidence: "low" }),
       hdtA: q(65, "°C", { std: "ISO 75", conditions: "1,8 MPa", confidence: "low" }),
     },
@@ -771,7 +780,7 @@ const P = [
     id: "formfutura-carbonfil", material: "petg-cf", name: "CarbonFil", doc: 256493, date: "23-08-2024", scan: true,
     props: {
       density: q(1.32, "g/cm³", { std: "ISO 1183" }),
-      charpyNotchedXy: q(5.4, "kJ/m²", { std: "ISO 179-1eU", conditions: "Blattangabe „Charpy notched“; das Normsuffix eU bezeichnet den UNGEKERBTEN Versuch", orientation: "XY", confidence: "low" }),
+      charpyNotchedXy: q(5.4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       tensileStrengthXy: q(45, "MPa", { std: "ISO 527-1", conditions: "bei Bruch", orientation: "XY" }),
       elongationAtBreakXy: q(4.9, "%", { std: "ISO 527-1", orientation: "XY" }),
       flexuralModulusXy: q(4250, "MPa", { std: "im Blatt als ISO 527-1 angegeben; für die Biegung wäre ISO 178 einschlägig", orientation: "XY", confidence: "low" }),

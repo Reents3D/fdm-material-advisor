@@ -179,6 +179,20 @@ export function pool(prods, field) {
 
   const dropped = [];
 
+  /* Bestrittene Zahlen raus. `disputed` heisst: Die Zahl widerspricht ihrem eigenen
+     Umfeld so deutlich, dass sie nicht mitgerechnet werden darf - Extrudrs 220 kJ/m²
+     gekerbte Izod-Schlagzaehigkeit fuer ABS ist zehnmal der ungekerbte Wert, und
+     Bambus 1.190 MPa E-Modul steht neben 22,4 MPa Zugfestigkeit auf demselben Blatt
+     eines Shore-95A-Elastomers. Der Wert BLEIBT im Datensatz und in der Oberflaeche;
+     er zieht nur keinen Median mehr zu sich. Der Befund steht am Wert selbst. */
+  {
+    const sound = cand.filter((c) => c.n.disputed !== true);
+    if (sound.length && sound.length < cand.length) {
+      drop(dropped, cand.length - sound.length, "bestritten", "disputed");
+      cand = sound;
+    }
+  }
+
   /* Fremde Einheit raus - siehe UNIT. */
   const want = UNIT[field];
   if (want) {
@@ -310,7 +324,7 @@ const SOURCE = {
    Die Tests brauchen `pool()` und die Schwellen; sie duerfen dabei nicht 43 Datensaetze
    ueberschreiben. */
 function run() {
-let written = 0, filled = 0, replaced = 0, spanOnly = 0, refused = 0, blocked = 0;
+let written = 0, filled = 0, replaced = 0, spanOnly = 0, refused = 0, blocked = 0, retired = 0;
 const log = { fill: [], replace: [], refuse: [], block: [], stale: [] };
 
 for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
@@ -470,6 +484,21 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
     }
   }
 
+  /* Eine offene Frage, deren Anlass weg ist, ist keine offene Frage mehr - sie ist
+     Altlast. `oq_spread_*` gehoert dem Lauf, also raeumt der Lauf sie auch weg: Als
+     Extrudrs falsch abgelegte Izod-Werte ins richtige Feld wanderten, verschwanden vier
+     Widersprueche, deren Fragen sonst stehen geblieben waeren. */
+  if (m.governance?.openQuestions?.length) {
+    const live = new Set(questions.map((q) => q.id));
+    const before = m.governance.openQuestions.length;
+    m.governance.openQuestions = m.governance.openQuestions
+      .filter((q) => !q.id.startsWith("oq_spread_") || live.has(q.id));
+    if (m.governance.openQuestions.length !== before) {
+      touched = true;
+      retired += before - m.governance.openQuestions.length;
+    }
+  }
+
   if (questions.length) {
     m.governance ??= {};
     m.governance.openQuestions ??= [];
@@ -535,7 +564,7 @@ console.log(head("Notiz prüfen — sie zitiert einen Wert, der ersetzt wurde"))
 log.stale.forEach((s) => console.log("  " + s));
 console.log(
   `\n${written} Felder geschrieben: ${filled} Lücken, ${replaced} ersetzt, ${spanOnly} nur Spanne `
-  + `(Wert war \`high\`). ${refused} verweigert, ${blocked} verworfen.${DRY ? "  [--dry, nichts geschrieben]" : ""}`,
+  + `(Wert war \`high\`). ${refused} verweigert, ${blocked} verworfen, ${retired} erledigte Frage(n) entfernt.${DRY ? "  [--dry, nichts geschrieben]" : ""}`,
 );
 }
 

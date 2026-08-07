@@ -54,12 +54,17 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 220,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low",
+      "disputed": true,
+      "note": {
+        "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter im Bestand nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in **J/m** — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+        "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in **J/m** — the unit was lost in transcription. The value stays on record but is not aggregated."
+      }
     },
     "hdtB": {
       "value": 85,

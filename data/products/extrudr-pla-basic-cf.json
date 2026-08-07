@@ -33,12 +33,17 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 0.3,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low",
+      "disputed": true,
+      "note": {
+        "de": "0,3 kJ/m² liegt zehnfach UNTER dem niedrigsten anderen PLA-Blatt (3 kJ/m²) und ist für einen gekerbten Izod-Versuch kaum messbar. Welcher Fehler dahintersteckt, lässt sich ohne das Originalblatt nicht sagen — anders als bei ABS und ASA passt hier auch keine Einheitenumrechnung. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+        "en": "0.3 kJ/m² is ten times BELOW the lowest other PLA sheet (3 kJ/m²) and barely measurable in a notched Izod test. Which error lies behind it cannot be said without the original sheet — unlike ABS and ASA, no unit conversion fits here either. The value stays on record but is not aggregated."
+      }
     },
     "hdtB": {
       "value": 55,

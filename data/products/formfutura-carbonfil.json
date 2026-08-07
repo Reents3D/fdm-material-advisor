@@ -34,8 +34,7 @@
     "charpyNotchedXy": {
       "value": 5.4,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179-1eU",
-      "conditions": "Blattangabe „Charpy notched“; das Normsuffix eU bezeichnet den UNGEKERBTEN Versuch",
+      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.",
       "orientation": "XY",
       "source": "src_tds",
       "confidence": "low"

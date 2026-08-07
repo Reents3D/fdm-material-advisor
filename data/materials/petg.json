@@ -231,19 +231,18 @@
       "confidence": "estimated"
     },
     "charpyNotchedXy": {
-      "value": 3.85,
+      "value": 3,
       "unit": "kJ/m²",
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 3 kJ/m² (Fiberlogy) bis 6 kJ/m² (Prusament). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 179 (3), ISO 180 (1).",
-        "en": "Median of 4 manufacturer datasheets, range 3 kJ/m² (Fiberlogy) to 6 kJ/m² (Prusament). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 179 (3), ISO 180 (1)."
+        "de": "Median aus 3 Herstellerblättern, Spanne 3 kJ/m² (Fiberlogy) bis 6 kJ/m² (Prusament). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert.",
+        "en": "Median of 3 manufacturer datasheets, range 3 kJ/m² (Fiberlogy) to 6 kJ/m² (Prusament). Specimens: 1 of 3 printed, remainder undeclared."
       },
       "orientation": "XY",
       "min": 3,
       "max": 6,
-      "testStandard": "ISO 179",
-      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+      "testStandard": "ISO 179"
     },
     "izodNotchedXy": {
       "value": 4.7,
@@ -251,8 +250,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 5 Herstellerblättern, Spanne 1.7 kJ/m² (Extrudr) bis 7.2 kJ/m² (FormFutura). Prüfkörper: 0 von 5 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 180 (3), Norm im Blatt nicht genannt (1), ASTM D256 (1). Nicht mitgezählt: 1× andere Einheit.",
-        "en": "Median of 5 manufacturer datasheets, range 1.7 kJ/m² (Extrudr) to 7.2 kJ/m² (FormFutura). Specimens: 0 of 5 printed, remainder undeclared. Mixed test standards: ISO 180 (3), Norm im Blatt nicht genannt (1), ASTM D256 (1). Not counted: 1× different unit."
+        "de": "Median aus 6 Herstellerblättern, Spanne 1.7 kJ/m² (Extrudr) bis 7.2 kJ/m² (FormFutura). Prüfkörper: 0 von 6 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 180 (4), Norm im Blatt nicht genannt (1), ASTM D256 (1). Nicht mitgezählt: 1× andere Einheit.",
+        "en": "Median of 6 manufacturer datasheets, range 1.7 kJ/m² (Extrudr) to 7.2 kJ/m² (FormFutura). Specimens: 0 of 6 printed, remainder undeclared. Mixed test standards: ISO 180 (4), Norm im Blatt nicht genannt (1), ASTM D256 (1). Not counted: 1× different unit."
       },
       "orientation": "XY",
       "min": 1.7,

@@ -2206,6 +2206,49 @@ steht in einer Funktion, die nur bei Direktaufruf startet.
 
 ---
 
+### Nachtrag 2026-08-07 — was der Abgleich nebenbei ans Licht gebracht hat
+
+Der Blätterabgleich war als Datenpflege gedacht. Er hat sich als **Messinstrument**
+erwiesen: Jede Spanne, die er meldet, ist eine Behauptung über die Datenlage — und wo sie
+absurd ausfällt, liegt der Fehler nicht in der Vielfalt, sondern im Bestand.
+
+**Charpy ist nicht Izod.** Für `asa-cf` meldete der Lauf eine Spanne von Faktor 18 bei der
+gekerbten Schlagzähigkeit. Dahinter standen drei verschiedene Prüfungen in EINEM Feld:
+9 kJ/m² nach ISO 179/1eA, 100 kJ/m² nach **ASTM D256** und 5,4 kJ/m² nach ISO 179/**1eU**.
+ASTM D256 ist Izod — das steht im Titel der Norm. Acht Blätter führten Izod-Werte im
+Charpy-Feld; sie sind jetzt dort, wo sie hingehören. Auffallen konnte es vorher niemandem:
+Beide Felder tragen dieselbe Einheit, und jeder Wert sieht für sich plausibel aus. Erst der
+Vergleich machte den Unterschied sichtbar. **Regel R18** hält fest, dass diese Klasse
+künftig auffällt.
+
+**Sechs FormFutura-Blätter zitieren in der gekerbten Zeile die ungekerbte Norm** — dieselbe,
+die eine Zeile darüber steht. Das Original bestätigt es: „Charpy notched … ISO 179/1eU".
+Der Fehler liegt im Blatt, nicht im Import. Die Werte bleiben (sie sind die einzige Angabe,
+die es gibt), tragen aber keine Norm mehr und `low` — dieselbe Behandlung wie AthenaX CF10.
+
+**`disputed`: eine Zahl darf im Datensatz stehen und trotzdem nicht mitzählen.** Sieben
+Werte widersprechen ihrem eigenen Umfeld so deutlich, dass ein Median sie nicht verkraften
+würde:
+
+| | |
+|---|---|
+| Extrudr DuraPro ABS / ABS-CF | 220 kJ/m² gekerbte Izod — zehnmal der ungekerbte Wert desselben Polymers, und exakt der Lehrbuchwert für ABS in **J/m** |
+| Extrudr DuraPro ASA / ASA-CF | 140 und 100 kJ/m², derselbe Befund |
+| Extrudr PLA Basic / Basic CF | 0,3 kJ/m² — zehnmal UNTER dem niedrigsten anderen PLA-Blatt; hier passt keine Umrechnung |
+| Bambu TPU for AMS | 1.190 MPa E-Modul neben 22,4 MPa Zugfestigkeit auf demselben Blatt eines Shore-95A-Elastomers |
+
+Das neue Schemafeld `disputed` heisst nicht „falsch" und nicht „gelöscht", sondern: *steht
+im Blatt, wird aber nicht mitgerechnet.* Der Wert bleibt sichtbar, sein Befund steht in der
+Notiz daneben, **R19** meldet ihn bei jedem Lauf, und ein Test prüft, dass er in keinem Pool
+auftaucht. Ohne Begründung in der Notiz ist `disputed` ein Fehler, kein Vermerk — sonst
+verschwände eine Zahl aus jeder Zusammenfassung, und niemand könnte nachlesen warum.
+
+Wirkung: Von acht verweigerten Kennwerten blieben **vier**, und `tpu-95a` hat wieder einen
+E-Modul (30 MPa, Spanne 9,2–50,2) statt gar keinem. Der Lauf räumt seither auch seine
+eigenen erledigten `oq_spread_*`-Fragen weg — sieben davon waren mit dem Umzug beantwortet.
+
+---
+
 ## ADR-043 — Ein Wert darf so viel Vorsprung behaupten, wie seine Spanne deckt
 
 **Datum:** 2026-08-07 · **Status:** angenommen · **Betrifft:** `src/engine/reliability.ts`

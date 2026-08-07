@@ -93,6 +93,14 @@ const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
    auseinanderliegen und die deshalb vermutlich zwei Rezepturen unter einem Namen fuehren.
    97 - 16 + 12 = 93.
 
+   Noch am selben Tag sinkt sie weiter auf 89, und der Grund ist der beste, den es dafuer
+   gibt: Vier der zwoelf `oq_spread_*` waren gar keine Rezepturvielfalt, sondern falsch
+   abgelegte Messwerte. Acht Blaetter fuehrten ASTM-D256- und ISO-180-Zahlen im FELD
+   `charpyNotchedXy` - ASTM D256 IST Izod, das steht im Titel der Norm. Nach dem Umzug ins
+   richtige Feld loesten sich vier Widersprueche auf, und der Ableitungslauf raeumt seine
+   eigenen erledigten Fragen jetzt weg, statt sie stehen zu lassen. Regel R18 haelt fest,
+   dass diese Klasse kuenftig auffaellt.
+
    Dieselbe Zahl war am 2026-08-06 vorher schon einmal von 75 auf 74 gesunken, damals
    durch eine Aufloesung bei `pet-cf`. Genau dafuer sieht der Kopf dieses Tests vor, dass
    eine gerissene Untergrenze mit Begruendung nachgezogen wird - in beide Richtungen. Eine
@@ -130,7 +138,7 @@ const FLOOR = {
   chemicalRatings: 903,
   materialsWithPrice: 42,
   anisotropyFactors: 21,
-  openQuestions: 93,
+  openQuestions: 89,
 };
 
 const actual = {

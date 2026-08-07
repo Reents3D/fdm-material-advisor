@@ -73,17 +73,19 @@
       "max": 23.2
     },
     "tensileModulusXy": {
-      "value": 9.2,
+      "value": 30,
       "unit": "MPa",
-      "source": "src_bambu_tds",
-      "confidence": "medium",
-      "tolerance": 0.4,
-      "testStandard": "ISO 527 / GB/T 1040",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "testStandard": "ISO 527",
       "orientation": "XY",
       "note": {
-        "de": "Der E-Modul von 9,2 MPa liegt drei Größenordnungen unter allen anderen Werkstoffen im Feld. TPU gehört in keinen Steifigkeitsvergleich - es löst eine völlig andere Aufgabe.",
-        "en": "The 9.2 MPa modulus is three orders of magnitude below every other material here. TPU does not belong in a stiffness comparison - it solves an entirely different problem."
-      }
+        "de": "Median aus 4 Herstellerblättern, Spanne 9.2 MPa (Bambu Lab) bis 50.2 MPa (Anycubic). Prüfkörper: 3 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× bestritten, 1× ISO 37 (Elastomerprüfung).",
+        "en": "Median of 4 manufacturer datasheets, range 9.2 MPa (Bambu Lab) to 50.2 MPa (Anycubic). Specimens: 3 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× disputed, 1× ISO 37 (elastomer test)."
+      },
+      "min": 9.2,
+      "max": 50.2,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileModulusZ": {
       "value": 7.8,
@@ -894,17 +896,6 @@
           "mechanics.anisotropyFactorTensile"
         ],
         "blocking": false
-      },
-      {
-        "id": "oq_spread_tensilemodulusxy",
-        "question": {
-          "de": "tensileModulusXy: Die 5 Blätter dieses Werkstofftyps liegen um Faktor 129 auseinander (9.2 MPa (Bambu Lab) bis 1190 MPa (Bambu Lab)), und schon das mittlere Viertel um Faktor 129. Deshalb steht hier kein Wert: Unter dieser Werkstoff-ID stehen verschiedene Rezepturen. Prüfen, ob der Typ zu teilen ist.",
-          "en": "tensileModulusXy: the 5 datasheets of this material type span a factor of 129 (9.2 MPa (Bambu Lab) to 1190 MPa (Bambu Lab)), and the middle quartile alone by a factor of 129. Hence no value here: this material ID covers several formulations. Check whether the type should be split."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics.tensileModulusXy"
-        ]
       }
     ]
   }

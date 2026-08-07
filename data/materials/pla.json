@@ -269,19 +269,18 @@
       }
     },
     "charpyNotchedXy": {
-      "value": 4.7,
+      "value": 5,
       "unit": "kJ/m²",
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 8 Herstellerblättern, Spanne 0.3 kJ/m² (Extrudr) bis 43 kJ/m² (3DJAKE). Prüfkörper: 1 von 8 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 179 (6), ASTM D256 (2).",
-        "en": "Median of 8 manufacturer datasheets, range 0.3 kJ/m² (Extrudr) to 43 kJ/m² (3DJAKE). Specimens: 1 of 8 printed, remainder undeclared. Mixed test standards: ISO 179 (6), ASTM D256 (2)."
+        "de": "Median aus 6 Herstellerblättern, Spanne 3.5 kJ/m² (Spectrum) bis 43 kJ/m² (3DJAKE). Prüfkörper: 1 von 6 gedruckt, Rest undeklariert.",
+        "en": "Median of 6 manufacturer datasheets, range 3.5 kJ/m² (Spectrum) to 43 kJ/m² (3DJAKE). Specimens: 1 of 6 printed, remainder undeclared."
       },
       "orientation": "XY",
-      "min": 0.3,
+      "min": 3.5,
       "max": 43,
-      "testStandard": "ISO 179",
-      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+      "testStandard": "ISO 179"
     },
     "izodNotchedXy": {
       "value": 7.45,
@@ -289,8 +288,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 3 kJ/m² (Alzament) bis 19.8 kJ/m² (SUNLU). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: GB/T 1843 (2), ISO 180 (2). Nicht mitgezählt: 6× andere Einheit.",
-        "en": "Median of 4 manufacturer datasheets, range 3 kJ/m² (Alzament) to 19.8 kJ/m² (SUNLU). Specimens: 0 of 4 printed, remainder undeclared. Mixed test standards: GB/T 1843 (2), ISO 180 (2). Not counted: 6× different unit."
+        "de": "Median aus 4 Herstellerblättern, Spanne 3 kJ/m² (Alzament) bis 19.8 kJ/m² (SUNLU). Prüfkörper: 0 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: GB/T 1843 (2), ISO 180 (2). Nicht mitgezählt: 2× bestritten, 6× andere Einheit.",
+        "en": "Median of 4 manufacturer datasheets, range 3 kJ/m² (Alzament) to 19.8 kJ/m² (SUNLU). Specimens: 0 of 4 printed, remainder undeclared. Mixed test standards: GB/T 1843 (2), ISO 180 (2). Not counted: 2× disputed, 6× different unit."
       },
       "orientation": "XY",
       "min": 3,
@@ -1214,8 +1213,8 @@
       {
         "id": "oq_spread_charpynotchedxy",
         "question": {
-          "de": "charpyNotchedXy: Die 8 Blätter dieses Werkstofftyps liegen um Faktor 143 auseinander (0.3 kJ/m² (Extrudr) bis 43 kJ/m² (3DJAKE)). Der Median trägt, das mittlere Viertel liegt um Faktor 2.04 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
-          "en": "charpyNotchedXy: the 8 datasheets of this material type span a factor of 143 (0.3 kJ/m² (Extrudr) to 43 kJ/m² (3DJAKE)). The median holds — the middle quartile sits within a factor of 2.04 — but the range is part of the answer and is recorded at the value."
+          "de": "charpyNotchedXy: Die 6 Blätter dieses Werkstofftyps liegen um Faktor 12.29 auseinander (3.5 kJ/m² (Spectrum) bis 43 kJ/m² (3DJAKE)). Der Median trägt, das mittlere Viertel liegt um Faktor 1.43 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
+          "en": "charpyNotchedXy: the 6 datasheets of this material type span a factor of 12.29 (3.5 kJ/m² (Spectrum) to 43 kJ/m² (3DJAKE)). The median holds — the middle quartile sits within a factor of 1.43 — but the range is part of the answer and is recorded at the value."
         },
         "blocking": false,
         "affectsFields": [

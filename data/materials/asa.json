@@ -236,19 +236,18 @@
       "confidence": "estimated"
     },
     "charpyNotchedXy": {
-      "value": 15,
+      "value": 12,
       "unit": "kJ/m²",
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 6 Herstellerblättern, Spanne 7.5 kJ/m² (Fiberlogy) bis 140 kJ/m² (Extrudr). Prüfkörper: 2 von 6 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 179 (5), ASTM D256 (1). Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 6 manufacturer datasheets, range 7.5 kJ/m² (Fiberlogy) to 140 kJ/m² (Extrudr). Specimens: 2 of 6 printed, remainder undeclared. Mixed test standards: ISO 179 (5), ASTM D256 (1). Not counted: 1× passed on digit-identical."
+        "de": "Median aus 5 Herstellerblättern, Spanne 7.5 kJ/m² (Fiberlogy) bis 19.6 kJ/m² (Alzament). Prüfkörper: 2 von 5 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
+        "en": "Median of 5 manufacturer datasheets, range 7.5 kJ/m² (Fiberlogy) to 19.6 kJ/m² (Alzament). Specimens: 2 of 5 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
       },
       "orientation": "XY",
       "min": 7.5,
-      "max": 140,
-      "testStandard": "ISO 179",
-      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+      "max": 19.6,
+      "testStandard": "ISO 179"
     },
     "izodNotchedXy": {
       "value": 14,
@@ -1107,18 +1106,6 @@
         }
       }
     ],
-    "openQuestions": [
-      {
-        "id": "oq_spread_charpynotchedxy",
-        "question": {
-          "de": "charpyNotchedXy: Die 6 Blätter dieses Werkstofftyps liegen um Faktor 18.67 auseinander (7.5 kJ/m² (Fiberlogy) bis 140 kJ/m² (Extrudr)). Der Median trägt, das mittlere Viertel liegt um Faktor 1.97 zusammen — die Spanne gehört aber zur Antwort und ist am Wert vermerkt.",
-          "en": "charpyNotchedXy: the 6 datasheets of this material type span a factor of 18.67 (7.5 kJ/m² (Fiberlogy) to 140 kJ/m² (Extrudr)). The median holds — the middle quartile sits within a factor of 1.97 — but the range is part of the answer and is recorded at the value."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics.charpyNotchedXy"
-        ]
-      }
-    ]
+    "openQuestions": []
   }
 }

@@ -127,6 +127,30 @@ describe("Was nicht zusammen gemittelt wird", () => {
     expect(bad).toEqual([]);
   });
 
+  it("eine bestrittene Zahl zieht keinen Median zu sich", () => {
+    /* `disputed` heisst: Die Zahl widerspricht ihrem eigenen Umfeld so deutlich, dass sie
+       nicht mitgerechnet werden darf — Extrudrs 220 kJ/m² gekerbte Izod-Schlagzähigkeit
+       für ABS ist zehnmal der ungekerbte Wert desselben Polymers. Sie BLEIBT im Datensatz
+       und in der Oberfläche; sie darf nur in keinem Pool auftauchen. */
+    const bad: string[] = [];
+    let seen = 0;
+    for (const [id, prods] of byMaterial) {
+      for (const [, field] of FIELDS as [string, string][]) {
+        const pl = pool(prods, field);
+        if (!pl) continue;
+        for (const c of pl.cand as { p: { id: string }; n: { disputed?: boolean } }[]) {
+          if (c.n.disputed) bad.push(`${id} ${field}: ${c.p.id}`);
+        }
+      }
+      for (const p of prods as { properties?: Record<string, { disputed?: boolean }> }[]) {
+        seen += Object.values(p.properties ?? {}).filter((v) => v?.disputed).length;
+      }
+    }
+    expect(seen, "keine bestrittene Zahl im Bestand - der Test prüfte eine leere Menge")
+      .toBeGreaterThan(0);
+    expect(bad).toEqual([]);
+  });
+
   it("wo die Mitte auseinanderläuft, steht keine zusammengefasste Zahl", () => {
     /* Die Umkehrung der Regel: Ein Pool, dessen mittleres Viertel um mehr als Faktor 4
        streut (bzw. der unter sechs Blättern eine ganze Grössenordnung), beschreibt zwei
