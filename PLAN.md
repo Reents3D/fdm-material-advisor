@@ -3,22 +3,42 @@
 **Stand:** 2026-08-07 · **Phasen 0–3 live, Corporate Design umgesetzt** · Phase 4 (Datenausbau) läuft
 **Live:** https://reents3d.github.io/fdm-material-advisor/
 **Nächster Schritt:** Die **XXL-Grenzen** in [RUECKFRAGEN.md](RUECKFRAGEN.md) — die einzige
-offene Entscheidung, die auf Werkstattwissen wartet statt auf Arbeit. Danach die sechs
-`oq_spread_*`-Fälle, bei denen ein Werkstofftyp offenbar zwei Rezepturen führt, und die
-Marken ganz ohne Blattlink (Polymaker 71, 3DXTech 61, PrimaCreator 59).
+offene Entscheidung, die auf Werkstattwissen wartet statt auf Arbeit. Danach die vier
+verbliebenen `oq_spread_*`-Fälle und die Marken ganz ohne Blattlink (Polymaker 71,
+3DXTech 61, PrimaCreator 59).
 
-**Erledigt seit dem letzten Stand:** Der grösste Einzelbefund des Projekts ist behoben.
-**199 von 288 Werkstoffkennwerten trugen die Quelle `src_bambu_tds`** — nicht weil Bambu
-besser misst, sondern weil Bambu zuerst importiert wurde. Die 254 Produktdatenblätter waren
-auf der Werkstoffebene nie angekommen. PETG stand mit Bambus Bruchdehnung von 9,5 %, während
-17 Blätter im selben Repository 5 bis 150 % sagten. Der Abgleich (**ADR-042**) hat 131 Lücken
-geschlossen, 108 Werte ersetzt und jedem Kennwert die Spanne über die Hersteller gegeben —
-die bei diesen Werkstoffen die eigentliche Auskunft ist. Sechzehn offene Fragen „nur ein
-Datenblatt" waren damit beantwortet; zwölf neue kamen dazu, wo ein Typname zwei Rezepturen
-deckt. Neun Tests halten das Ergebnis fest, damit es nicht wieder auseinanderläuft.
+## Was seit dem letzten Stand passiert ist
 
-Nebenbei fielen zwei Zahlen auf der **Startseite** auf, die zu dem Zeitpunkt falsch waren
-(„PLA mit 35 MPa", „zwischen 47 % und 90 %"). Sie werden jetzt gerechnet statt geschrieben.
+**Der grösste Einzelbefund des Projekts ist behoben.** 199 von 288 Werkstoffkennwerten
+trugen die Quelle `src_bambu_tds` — nicht weil Bambu besser misst, sondern weil Bambu zuerst
+importiert wurde. Die 254 Produktdatenblätter waren auf der Werkstoffebene nie angekommen.
+PETG stand mit Bambus Bruchdehnung von 9,5 %, während 17 Blätter im selben Repository 5 bis
+150 % sagten.
+
+Der Abgleich (**ADR-042**) hat 131 Lücken geschlossen, 132 Werte ersetzt und jedem Kennwert
+die Spanne über die Hersteller gegeben. Sechzehn offene Fragen „nur ein Datenblatt" waren
+damit beantwortet.
+
+**Die Spanne ist dann zur Regel geworden (ADR-043).** PLA trägt 45,8 MPa (23–63), ABS
+44,0 (33–59) — diese beiden liegen nicht auseinander, und die Rangfolge behauptete es
+trotzdem. Ein Vorsprung zählt jetzt nur so weit, wie die Spanne ihn deckt. Das trifft 33 von
+630 bewerteten Kriterien; der Preis ist ausgenommen, weil eine Preisspanne Marktstreuung
+misst und keine Unsicherheit.
+
+**Der Abgleich hat sich als Messinstrument erwiesen.** Wo er absurde Spannen meldete, lag
+der Fehler nicht in der Vielfalt:
+
+| Befund | Folge |
+|---|---|
+| Acht Blätter führten Izod-Werte (ASTM D256, ISO 180) im Charpy-Feld | umgezogen · Regel **R18** |
+| Sechs FormFutura-Blätter zitieren in der gekerbten Zeile die ungekerbte Norm | Norm entfernt, `low` — der Fehler steht im Blatt |
+| Sieben Zahlen widersprechen ihrem eigenen Umfeld um eine Grössenordnung | neues Feld `disputed` · Regel **R19** |
+
+`disputed` heisst: steht im Blatt, wird nicht mitgerechnet. In der Herstellertabelle
+erscheint die Zahl durchgestrichen mit ihrer Begründung daneben.
+
+**Zwei Zahlen auf der Startseite waren falsch** („PLA mit 35 MPa", „zwischen 47 % und 90 %").
+Sie werden jetzt gerechnet statt geschrieben.
 
 **Offene Entscheidungen stehen gesammelt in [RUECKFRAGEN.md](RUECKFRAGEN.md)**, nach
 Wirkung sortiert. Alles andere ist selbst entschieden und am Ort der Wirkung begründet.

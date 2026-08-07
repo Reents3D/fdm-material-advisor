@@ -100,6 +100,12 @@ blockierenden offenen Frage am Datensatz.
 
 | Entscheidung | wo dokumentiert |
 |---|---|
+| Werkstoffwert = Median aller Blätter statt des zuerst importierten | ADR-042 |
+| Vorsprung nur so weit, wie die Spanne ihn deckt | ADR-043 |
+| Die konservative Temperaturgrenze steht auf dem NIEDRIGSTEN Blatt | `derive-service-temperature.mjs` |
+| Sieben Zahlen als `disputed` gekennzeichnet statt gelöscht oder korrigiert | ADR-042, Nachtrag · R19 |
+| Izod-Werte aus dem Charpy-Feld geholt (8 Blätter) | R18 |
+| Startseitenzahlen rechnen statt schreiben | `src/views/Home.tsx` |
 | Schwach belegte Preise dämpfen statt Schätzungen abzuwerten | ADR-040 |
 | `medium` verlangt zwei Marken, nicht nur zwei Händler | ADR-040, Nachtrag |
 | `pctg-cf` anlegen, `pc-cf` ablehnen | PLAN.md §5a |
