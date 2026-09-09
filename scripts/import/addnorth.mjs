@@ -51,7 +51,7 @@ const q = (value, unit, o = {}) => ({
 });
 
 /* Die Dichtenorm ist auf jedem Blatt falsch - einmal formuliert, ueberall angehaengt. */
-const DENSITY_STD = "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183";
+const DENSITY_STD = "im Blatt als ISO 527 angegeben (siehe Hinweis); richtig wäre ISO 1183";
 const DENSITY_NOTE = t(
   "Die Norm im Blatt ist falsch: ISO 527 prüft Zugeigenschaften, nicht die Dichte. Der Zahlenwert selbst ist plausibel und übernommen.",
   "The standard in the sheet is wrong: ISO 527 tests tensile properties, not density. The figure itself is plausible and has been imported.");
@@ -63,8 +63,8 @@ const UNDECLARED = t(
   "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.");
 
 const ISO527_NOTE = t(
-  "Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.",
-  "All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`.");
+  "Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben gelten deshalb als schwach belegt.",
+  "All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore count as weakly substantiated.");
 
 const P = [
   /* ---------------------------------------------------------------------------
@@ -107,7 +107,7 @@ const P = [
       continuousServiceTemperature: q(120, "°C"),
     },
     ul94: { value: "V-0", thicknessMm: 1.5, strong: true },
-    features: t("Der zweite PVDF-Beleg im Bestand neben Fillamentum Fluorodur — und der erste mit einer belegten Brandschutzklasse: V-0 bei 1,5 mm nach IEC 60695-11. Dazu ein Glasübergang von −34 °C und 120 °C Dauergebrauch, also die Spanne, für die man PVDF überhaupt wählt. Die mechanischen Werte deuten auf eine weiche Type: 387 MPa Zug-E-Modul bei über 50 % Bruchdehnung ist eher Dichtung als Konstruktionsteil.",
+    features: t("Der zweite PVDF-Beleg in der Datenbank neben Fillamentum Fluorodur — und der erste mit einer belegten Brandschutzklasse: V-0 bei 1,5 mm nach IEC 60695-11. Dazu ein Glasübergang von −34 °C und 120 °C Dauergebrauch, also die Spanne, für die man PVDF überhaupt wählt. Die mechanischen Werte deuten auf eine weiche Type: 387 MPa Zug-E-Modul bei über 50 % Bruchdehnung ist eher Dichtung als Konstruktionsteil.",
                 "The second PVDF source in the dataset alongside Fillamentum Fluorodur — and the first with a substantiated flame rating: V-0 at 1.5 mm to IEC 60695-11. Plus a glass transition of −34 °C and 120 °C continuous service, which is the span PVDF is chosen for at all. The mechanical figures suggest a soft grade: 387 MPa tensile modulus at over 50 % elongation at break is sealing rather than structural."),
     anomaly: t("Drei von fünf Mechanikwerten stehen zifferngleich im E-PLA-Blatt desselben Herstellers: Zugfestigkeit 58 MPa, Biegefestigkeit 120 MPa, Biege-E-Modul 3.155 MPa. PVDF und PLA haben chemisch nichts miteinander zu tun — das ist keine geteilte Messung, sondern eine Vorlage, die nicht fertig überschrieben wurde. Der Beleg steht im Blatt selbst: 387 MPa Zug-E-Modul neben 3.155 MPa Biege-E-Modul ist Faktor acht, und bei jedem Thermoplast liegen die beiden innerhalb von etwa zwanzig Prozent. Die drei Werte sind NICHT übernommen; übernommen ist nur, was zu PVDF gehört und sich gegenseitig stützt.",
                "Three of five mechanical values appear digit for digit in the same manufacturer's E-PLA sheet: tensile strength 58 MPa, flexural strength 120 MPa, flexural modulus 3,155 MPa. PVDF and PLA are chemically unrelated — this is not a shared measurement but a template that was not fully overwritten. The evidence is in the sheet itself: 387 MPa tensile modulus next to 3,155 MPa flexural modulus is a factor of eight, and for any thermoplastic the two lie within about twenty percent. The three values are NOT imported; only what belongs to PVDF and supports itself is.") },
@@ -152,7 +152,7 @@ const P = [
       glassTransition: q(60, "°C", { std: "DSC" }),
       hdtB: q(80, "°C", { std: "ISO 75", conditions: "0,45 MPa" }),
     },
-    features: t("Der steifste PLA-Werkstoff im Bestand: 4500 MPa Zug-E-Modul gegenüber 2870 MPa beim E-PLA desselben Herstellers. Die HDT-B von 80 °C liegt 25 K über gewöhnlichem PLA — das ist der Punkt, an dem „HT“ tatsächlich etwas bedeutet.",
+    features: t("Der steifste PLA-Werkstoff in der Datenbank: 4500 MPa Zug-E-Modul gegenüber 2870 MPa beim E-PLA desselben Herstellers. Die HDT-B von 80 °C liegt 25 K über gewöhnlichem PLA — das ist der Punkt, an dem „HT“ tatsächlich etwas bedeutet.",
                 "The stiffest PLA material in the dataset: 4500 MPa tensile modulus against 2870 MPa for the same manufacturer's E-PLA. The HDT-B of 80 °C sits 25 K above ordinary PLA — the point at which “HT” actually means something.") },
 
   { id: "addnorth-textura", material: "pla", name: "add:north Textura",
@@ -167,8 +167,8 @@ const P = [
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "DSC" }),
       hdtB: q(55, "°C", { std: "ISO 75", conditions: "0,45 MPa" }),
     },
-    anomaly: t("Biegefestigkeit 89 MPa und Biege-E-Modul 2645 MPa stehen zeichengleich auch im Blatt von Koltron G1 — einem elektrisch leitfähigen Werkstoff mit einem Glasübergang von −34 °C, der mit diesem matten Biowerkstoff nichts gemein hat. Dass zwei so verschiedene Produkte identische Biegewerte haben, spricht für eine übernommene Vorlage statt einer eigenen Messung. Beide Werte tragen deshalb `low`.",
-               "Flexural strength 89 MPa and flexural modulus 2645 MPa appear character-for-character in the Koltron G1 sheet as well — an electrically conductive material with a glass transition of −34 °C that has nothing in common with this matte biomaterial. That two such different products carry identical flexural values suggests a copied template rather than an own measurement. Both values therefore carry `low`.") },
+    anomaly: t("Biegefestigkeit 89 MPa und Biege-E-Modul 2645 MPa stehen zeichengleich auch im Blatt von Koltron G1 — einem elektrisch leitfähigen Werkstoff mit einem Glasübergang von −34 °C, der mit diesem matten Biowerkstoff nichts gemein hat. Dass zwei so verschiedene Produkte identische Biegewerte haben, spricht für eine übernommene Vorlage statt einer eigenen Messung. Beide Werte gelten deshalb als schwach belegt.",
+               "Flexural strength 89 MPa and flexural modulus 2645 MPa appear character-for-character in the Koltron G1 sheet as well — an electrically conductive material with a glass transition of −34 °C that has nothing in common with this matte biomaterial. That two such different products carry identical flexural values suggests a copied template rather than an own measurement. Both values therefore count as weakly substantiated.") },
 
   { id: "addnorth-pla-wood", material: "pla", name: "add:north PLA Wood",
     file: "TDS_plawood_X4tWT1",
@@ -180,7 +180,7 @@ const P = [
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "DSC" }),
       hdtB: q(55, "°C", { std: "ISO 75", conditions: "0,45 MPa" }),
     },
-    features: t("Das Blatt nennt die Zusammensetzung ausdrücklich: 40 % Holzfasern, 60 % biobasiertes PLA. Eine Mengenangabe zum Füllstoff findet sich sonst auf kaum einem Blatt im Bestand.",
+    features: t("Das Blatt nennt die Zusammensetzung ausdrücklich: 40 % Holzfasern, 60 % biobasiertes PLA. Eine Mengenangabe zum Füllstoff findet sich sonst auf kaum einem Blatt in der Datenbank.",
                 "The sheet states the composition explicitly: 40 % wood fibres, 60 % biobased PLA. A quantitative filler statement is found on hardly any other sheet in the dataset."),
     anomaly: t("Die Zeile „Flexural Strength ISO 178 MPa“ trägt den Wert 3008, die Zeile darunter für den Biege-E-Modul ist leer. Eine Biegefestigkeit von 3008 MPa gibt es bei keinem Thermoplast — der Modulwert ist offensichtlich eine Zeile nach oben gerutscht. Beide Zeilen sind deshalb nicht übernommen; es wäre geraten, welcher Wert wohin gehört.",
                "The line “Flexural Strength ISO 178 MPa” carries the value 3008, the line below it for flexural modulus is empty. No thermoplastic has a flexural strength of 3008 MPa — the modulus figure has evidently slipped up one row. Neither line is imported; assigning the value would be guesswork.") },
@@ -272,7 +272,7 @@ const P = [
       glassTransition: q(51, "°C", { std: "DSC" }),
       hdtB: q(145, "°C", { std: "ISO 75", conditions: "0,45 MPa" }),
     },
-    features: t("HDT-B 145 °C bei einem Glasübergang von 51 °C — das ist der grösste Abstand zwischen beiden Werten im ganzen Bestand und typisch für ein teilkristallines Polyamid: Oberhalb des Glasübergangs trägt die Kristallphase weiter. Wer nur auf den Glasübergang schaut, unterschätzt diesen Werkstoff um fast 100 K.",
+    features: t("HDT-B 145 °C bei einem Glasübergang von 51 °C — das ist der größte Abstand zwischen beiden Werten in der ganzen Datenbank und typisch für ein teilkristallines Polyamid: Oberhalb des Glasübergangs trägt die Kristallphase weiter. Wer nur auf den Glasübergang schaut, unterschätzt diesen Werkstoff um fast 100 K.",
                 "HDT-B 145 °C at a glass transition of 51 °C — the largest gap between the two figures in the whole dataset and typical of a semi-crystalline polyamide: above the glass transition the crystalline phase keeps carrying load. Anyone looking only at the glass transition underestimates this material by nearly 100 K."),
     anomaly: t("Der Biege-E-Modul von 3650 MPa liegt um den Faktor 2,5 ÜBER dem Zug-E-Modul von 1460 MPa. Beide messen dieselbe Steifigkeit und sollten bei einem homogenen Werkstoff nahe beieinander liegen. Beim Adura desselben Herstellers ist das Verhältnis umgekehrt (1425 gegen 1720). Einer der vier Werte dürfte nicht stimmen; welcher, lässt sich aus dem Blatt nicht entscheiden.",
                "The flexural modulus of 3650 MPa sits a factor of 2.5 ABOVE the tensile modulus of 1460 MPa. Both measure the same stiffness and should be close together in a homogeneous material. In the same manufacturer's Adura the ratio is inverted (1425 against 1720). One of the four figures is presumably wrong; which one cannot be decided from the sheets.") },
@@ -302,10 +302,10 @@ const P = [
       flexuralStrengthXy: q(66.5, "MPa", { min: 52, max: 81, std: "ISO 178", conditions: "Blattangabe als Spanne", confidence: "low" }),
       flexuralModulusXy: q(2537, "MPa", { min: 1425, max: 3650, std: "ISO 178", conditions: "Blattangabe als Spanne", confidence: "low" }),
     },
-    features: t("Der einzige Werkstoff im Bestand mit einem Neutronenabsorber als Füllstoff: Polyamid mit 25 Gewichtsprozent Borcarbid. Solche Compounds werden für Abschirmungen in der Kern- und Medizintechnik eingesetzt. Eine Angabe zur Abschirmwirkung macht das Blatt nicht.",
+    features: t("Der einzige Werkstoff in der Datenbank mit einem Neutronenabsorber als Füllstoff: Polyamid mit 25 Gewichtsprozent Borcarbid. Solche Compounds werden für Abschirmungen in der Kern- und Medizintechnik eingesetzt. Eine Angabe zur Abschirmwirkung macht das Blatt nicht.",
                 "The only material in the dataset with a neutron absorber as its filler: polyamide with 25 weight percent boron carbide. Such compounds are used for shielding in nuclear and medical technology. The sheet makes no statement about shielding performance."),
-    anomaly: t("Alle fünf mechanischen Kennwerte stehen als Spanne da — und jede dieser fünf Spannen ist exakt das Minimum und Maximum der Blätter von Adura und Adura X desselben Herstellers (50 gegen 58, 1460 gegen 1720, 25 gegen 46, 52 gegen 81, 1425 gegen 3650). Das Blatt enthält damit keine einzige eigene Messung, sondern die Hülle zweier anderer Produkte. Sämtliche Werte tragen `low`, und der geführte Wert ist jeweils die Mitte der Spanne. Zudem fehlen thermische Kennwerte vollständig — als einziges der fünfzehn add:north-Blätter.",
-               "All five mechanical values appear as ranges — and each of these five ranges is exactly the minimum and maximum of the same manufacturer's Adura and Adura X sheets (50 against 58, 1460 against 1720, 25 against 46, 52 against 81, 1425 against 3650). The sheet thus contains not a single measurement of its own, but the envelope of two other products. All values carry `low`, and the figure held is the midpoint of each range. Thermal values are moreover missing entirely — the only one of the fifteen add:north sheets where that is so.") },
+    anomaly: t("Alle fünf mechanischen Kennwerte stehen als Spanne da — und jede dieser fünf Spannen ist exakt das Minimum und Maximum der Blätter von Adura und Adura X desselben Herstellers (50 gegen 58, 1460 gegen 1720, 25 gegen 46, 52 gegen 81, 1425 gegen 3650). Das Blatt enthält damit keine einzige eigene Messung, sondern die Hülle zweier anderer Produkte. Sämtliche Werte gelten als schwach belegt, und der geführte Wert ist jeweils die Mitte der Spanne. Zudem fehlen thermische Kennwerte vollständig — als einziges der fünfzehn add:north-Blätter.",
+               "All five mechanical values appear as ranges — and each of these five ranges is exactly the minimum and maximum of the same manufacturer's Adura and Adura X sheets (50 against 58, 1460 against 1720, 25 against 46, 52 against 81, 1425 against 3650). The sheet thus contains not a single measurement of its own, but the envelope of two other products. All values count as weakly substantiated, and the figure held is the midpoint of each range. Thermal values are moreover missing entirely — the only one of the fifteen add:north sheets where that is so.") },
 
   { id: "addnorth-pc-blend-ht-lcf", material: "pc", name: "add:north PC Blend HT LCF",
     file: "TDS_pcblendhtlcf_utXzD2",
@@ -317,7 +317,7 @@ const P = [
       glassTransition: q(158, "°C", { std: "DSC" }),
       hdtB: q(185, "°C", { std: "ISO 75", conditions: "0,45 MPa" }),
     },
-    features: t("Der steifste und festeste Werkstoff des gesamten Bestands: 125 MPa Zugfestigkeit bei 9800 MPa Zug-E-Modul, dazu HDT-B 185 °C. Zum Vergleich liegt das nächstbeste kohlenstofffaserverstärkte Material bei rund 100 MPa. „LCF“ steht für Langfaser — die längere Faser überträgt mehr Last als die üblichen Kurzfasern und erklärt den Abstand. Das Blatt lässt Biegefestigkeit und Biege-E-Modul allerdings leer.",
+    features: t("Der steifste und festeste Werkstoff der gesamten Datenbank: 125 MPa Zugfestigkeit bei 9800 MPa Zug-E-Modul, dazu HDT-B 185 °C. Zum Vergleich liegt das nächstbeste kohlenstofffaserverstärkte Material bei rund 100 MPa. „LCF“ steht für Langfaser — die längere Faser überträgt mehr Last als die üblichen Kurzfasern und erklärt den Abstand. Das Blatt lässt Biegefestigkeit und Biege-E-Modul allerdings leer.",
                 "The stiffest and strongest material in the entire dataset: 125 MPa tensile strength at 9800 MPa tensile modulus, plus HDT-B 185 °C. For comparison, the next best carbon-fibre reinforced material sits at roughly 100 MPa. “LCF” stands for long carbon fibre — the longer fibre transfers more load than the usual short fibres and explains the gap. The sheet does, however, leave flexural strength and flexural modulus empty.") },
 ];
 
@@ -329,10 +329,10 @@ mkdirSync(out, { recursive: true });
 let n = 0, na = 0, nu = 0;
 for (const p of P) {
   const url = `${U}/${p.file}.pdf`;
-  const parts = [UNDECLARED, t(`Befund über alle Blätter dieses Herstellers: ${ISO527_NOTE.de}`,
-                               `Finding across all sheets from this manufacturer: ${ISO527_NOTE.en}`)];
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`,
-                              `Finding on this datasheet: ${p.anomaly.en}`));
+  const parts = [UNDECLARED, t(`Hinweis zu allen Blättern dieses Herstellers: ${ISO527_NOTE.de}`,
+                               `Note on all sheets from this manufacturer: ${ISO527_NOTE.en}`)];
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+                              `Note on this datasheet: ${p.anomaly.en}`));
   const rec = {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
     id: p.id, materialId: p.material,
@@ -381,6 +381,6 @@ for (const p of P) {
   if (p.ul94) nu++;
 }
 
-console.log(`${n} add:north-Produkte geschrieben (${na} mit eigenem Befund, ${nu} mit UL94-Angabe)`);
-console.log(`  Alle 14 tragen zusaetzlich den Befund zur falschen Dichtenorm.`);
+console.log(`${n} add:north-Produkte geschrieben (${na} mit eigenem Hinweis, ${nu} mit UL94-Angabe)`);
+console.log(`  Alle 14 tragen zusaetzlich den Hinweis zur falschen Dichtenorm.`);
 console.log(`  Koltron G1 ausgelassen: kein Grundpolymer genannt, Tg -34 °C passt zu keinem Typ.`);

@@ -16,7 +16,7 @@
       "Stützmaterial"
     ],
     "abstract": {
-      "de": "HIPS ist im FDM-Druck vor allem eines: das Stützmaterial, das sich in D-Limonen auflöst, während ABS und ASA unberührt bleiben. Als Konstruktionswerkstoff ist es gutmütig zu drucken, mit HDT-A 85 °C sogar wärmer belastbar als PLA, und dielektrisch sehr gut. Seine eigentliche Kennzahl steht im Kleingedruckten: Charpy ungekerbt bei 23 °C „kein Bruch“ — es zerbricht schlicht nicht. Gekerbt fällt derselbe Wert auf 17 kJ/m². Diese Spreizung ist die ehrlichste Kerbempfindlichkeitsangabe im ganzen Bestand.",
+      "de": "HIPS ist im FDM-Druck vor allem eines: das Stützmaterial, das sich in D-Limonen auflöst, während ABS und ASA unberührt bleiben. Als Konstruktionswerkstoff ist es gutmütig zu drucken, mit HDT-A 85 °C sogar wärmer belastbar als PLA, und dielektrisch sehr gut. Seine eigentliche Kennzahl steht im Kleingedruckten: Charpy ungekerbt bei 23 °C „kein Bruch“ — es zerbricht schlicht nicht. Gekerbt fällt derselbe Wert auf 17 kJ/m². Diese Spreizung ist die ehrlichste Kerbempfindlichkeitsangabe in der ganzen Datenbank.",
       "en": "In FDM printing HIPS is above all one thing: the support material that dissolves in D-limonene while ABS and ASA remain untouched. As a construction material it is forgiving to print, at HDT-A 85 °C it takes more heat than PLA, and it is dielectrically excellent. Its real figure hides in the fine print: Charpy unnotched at 23 °C reads “no break” — it simply does not fracture. Notched, the same figure drops to 17 kJ/m². That spread is the most honest notch-sensitivity statement in the whole dataset."
     },
     "positioning": {
@@ -34,8 +34,8 @@
       "min": 1.05,
       "max": 1.05,
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 1.05 g/cm³ (Fillamentum) bis 1.05 g/cm³ (Fillamentum). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 3 manufacturer datasheets, range 1.05 g/cm³ (Fillamentum) to 1.05 g/cm³ (Fillamentum). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.05 g/cm³ (Fillamentum) bis 1.05 g/cm³ (Fillamentum). Prüfkörper: 0 von 3 gedruckt, Rest ohne Angabe. Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 3 manufacturer datasheets, range 1.05 g/cm³ (Fillamentum) to 1.05 g/cm³ (Fillamentum). Specimens: 0 of 3 printed, remainder not stated. Not counted: 1× copied from another sheet."
       }
     },
     "tensileStrengthXy": {
@@ -70,8 +70,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 38 MPa (Nebula Filaments) bis 50 MPa (FormFutura). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 3 manufacturer datasheets, range 38 MPa (Nebula Filaments) to 50 MPa (FormFutura). Specimens: 0 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+        "de": "Median aus 3 Herstellerblättern, Spanne 38 MPa (Nebula Filaments) bis 50 MPa (FormFutura). Prüfkörper: 0 von 3 gedruckt, Rest ohne Angabe. Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 3 manufacturer datasheets, range 38 MPa (Nebula Filaments) to 50 MPa (FormFutura). Specimens: 0 of 3 printed, remainder not stated. Not counted: 1× copied from another sheet."
       },
       "min": 38,
       "max": 50
@@ -442,8 +442,8 @@
         "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -541,8 +541,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -568,8 +568,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included."
         }
       },
       "maxSpoolWeightKg": {
@@ -600,8 +600,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+        "en": "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."
       }
     },
     "pricePerKg": {
@@ -635,8 +635,8 @@
       {
         "id": "oq_hips_single_source",
         "question": {
-          "de": "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
-          "en": "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed."
+          "de": "Dieser Werkstofftyp beruht auf einem einzigen Herstellerdatenblatt. Eine Quelle kann keine Streuung zeigen, und gerade die Streuung zwischen Herstellern ist bei gut belegten Typen die eigentliche Information. Die Werte gelten deshalb bis zum zweiten Datenblatt als schwach belegt.",
+          "en": "This material type rests on a single manufacturer datasheet. One source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for well-covered types. Until a second sheet exists, the values count as weakly substantiated."
         },
         "blocking": false,
         "affectsFields": [
@@ -667,8 +667,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -680,8 +680,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "9 Angebote von 3 Marken (Fiberlogy, FormFutura, Spectrum). Günstigstes Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg für 23,99 € (23,99 €/kg); teuerstes FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg für 28,99 € (38,65 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "9 offers from 3 brands (Fiberlogy, FormFutura, Spectrum). Cheapest Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg at 23.99 € (23.99 €/kg); dearest FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg at 28.99 € (38.65 €/kg). The full list is in data/prices.json."
+          "de": "9 Angebote von 3 Marken (Fiberlogy, FormFutura, Spectrum). Günstigstes Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg für 23,99 € (23,99 €/kg); teuerstes FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0,75 kg für 28,99 € (38,65 €/kg).",
+          "en": "9 offers from 3 brands (Fiberlogy, FormFutura, Spectrum). Cheapest Spectrum Spectrum HIPS-X Gypsum White, 1,75 mm / 1000 g, 1 kg at 23.99 € (23.99 €/kg); dearest FormFutura FormFutura EasyFil™ HIPS Grey, 1,75 mm / 750 g, 0.75 kg at 28.99 € (38.65 €/kg)."
         }
       },
       {
@@ -693,8 +693,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg für 25,77 € (34,36 €/kg); teuerstes Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg für 27,83 € (37,11 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "5 offers from 1 brand (Fillamentum). Cheapest Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg at 25.77 € (34.36 €/kg); dearest Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg at 27.83 € (37.11 €/kg). The full list is in data/prices.json."
+          "de": "5 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0,75 kg für 25,77 € (34,36 €/kg); teuerstes Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0,75 kg für 27,83 € (37,11 €/kg).",
+          "en": "5 offers from 1 brand (Fillamentum). Cheapest Fillamentum HIPS Extrafill \"Natural\" — 1.75 mm, 0.75 kg at 25.77 € (34.36 €/kg); dearest Fillamentum HIPS Extrafill \"Signal Red\" — 2.85 mm, 0.75 kg at 27.83 € (37.11 €/kg)."
         }
       },
       {
@@ -707,8 +707,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {

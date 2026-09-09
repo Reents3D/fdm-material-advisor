@@ -26,8 +26,8 @@
       "en": "TPU-ESD is rubber-elastic TPU with genuine electrostatic protection: 0.7–0.9 MΩ surface resistance, classified ESD-C conductive. For grips, pads and handling parts in electronics manufacturing and automotive interiors. Limits: not a structural material, no meaningful heat resistance, prints slowly."
     },
     "positioning": {
-      "de": "Der Werkstoff, wenn es nachgeben UND ableiten muss.",
-      "en": "The material when it has to give way AND dissipate."
+      "de": "Der Werkstoff, wenn es nachgeben und ableiten muss.",
+      "en": "The material when it has to give way and dissipate."
     }
   },
   "mechanics": {
@@ -381,8 +381,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -464,8 +464,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -491,8 +491,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.\n\nAusnahme von der Herleitung: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.\n\nException to the derivation: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.\n\nAusnahme von der Herleitung: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included.\n\nException to the derivation: Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."
         }
       }
     },
@@ -506,7 +506,7 @@
       "min": 128.9,
       "max": 129.98,
       "unit": "€/kg",
-      "conditions": "Median aus 3 Angeboten über 2 Händler, aber alle von EINER Marke (Extrudr), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — zwei Shops mit derselben Herstellerliste sind kein Marktvergleich",
+      "conditions": "Median aus 3 Angeboten über 2 Händler, aber alle von einer Marke (Extrudr), auf €/kg normiert, inkl. MwSt., Stand 2026-08-06 — zwei Shops mit derselben Herstellerliste sind kein Marktvergleich",
       "source": [
         "src_price_tpu_esd_extrudr",
         "src_price_tpu_esd_3djake"
@@ -534,8 +534,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
         }
       },
       {
@@ -547,8 +547,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU medium ESD Schwarz, 0,5 kg für 64,99 € (129,98 €/kg); teuerstes Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg für 64,99 € (129,98 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr TPU medium ESD Schwarz, 0.5 kg at 64.99 € (129.98 €/kg); dearest Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg at 64.99 € (129.98 €/kg). The full list is in data/prices.json."
+          "de": "2 Angebote von 1 Marke (Extrudr). Günstigstes Extrudr TPU medium ESD Schwarz, 0,5 kg für 64,99 € (129,98 €/kg); teuerstes Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0,5 kg für 64,99 € (129,98 €/kg).",
+          "en": "2 offers from 1 brand (Extrudr). Cheapest Extrudr TPU medium ESD Schwarz, 0.5 kg at 64.99 € (129.98 €/kg); dearest Extrudr Extrudr TPU medium ESD Schwarz, 1,75 mm / 500 g, 0.5 kg at 64.99 € (129.98 €/kg)."
         }
       },
       {
@@ -560,8 +560,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg); teuerstes Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg); dearest Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Extrudr). Einziges Angebot: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0,5 kg für 64,45 € (128,90 €/kg).",
+          "en": "1 offer from 1 brand (Extrudr). Only offer: Extrudr FLEX Medium ESD black 1.75 mm 0.5 kg, 0.5 kg at 64.45 € (128.90 €/kg)."
         }
       },
       {
@@ -599,8 +599,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 2 Anbietern und 1 Marke (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 3 offers from 2 retailers and 1 brand (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 3 Angebote von 2 Anbietern und 1 Marke (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 3 offers from 2 retailers and 1 brand (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -616,8 +616,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: diisocyanate and polyol; bio-based polyols exist, but they are declared neither for these grades nor commonly on the market. The filler does not change that — carbon and glass fibre are not bio-based either. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

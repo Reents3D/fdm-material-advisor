@@ -125,8 +125,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe. Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder not stated. Not counted: 1× copied from another sheet."
       },
       "testStandard": "ISO 306"
     }
@@ -421,8 +421,8 @@
         "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -516,8 +516,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -543,8 +543,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
-          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht gemessen. Aus der eigenen Fertigung belegt ist bisher: bis 800 × 800 mm ohne Probleme. Das ist ein unterer Rand und keine Grenze; größere Teile wurden bisher schlicht nicht gefertigt.",
+          "en": "Estimated from warping tendency and chamber requirement, not measured. Established from own production so far: up to 800 × 800 mm without problems. That is a lower bound, not a limit; larger parts simply have not been made yet."
         }
       },
       "maxSpoolWeightKg": {
@@ -575,8 +575,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Fließt unter keinen Umständen in Filterung oder Bewertung ein (ADR-004).",
-        "en": "Never enters filtering or scoring under any circumstances (ADR-004)."
+        "de": "Der Portfolio-Status beeinflusst weder Filterung noch Bewertung.",
+        "en": "Portfolio status affects neither filtering nor assessment."
       }
     },
     "pricePerKg": {
@@ -620,8 +620,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 1 Anbieter und 2 Marken (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 3 offers from 1 retailer and 2 brands (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 3 Angebote von 1 Anbieter und 2 Marken (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 3 offers from 1 retailer and 2 brands (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -650,8 +650,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -663,8 +663,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote von 2 Marken (Fiberlogy, Spectrum). Günstigstes Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0,5 kg für 29,99 € (59,98 €/kg); teuerstes Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0,75 kg für 46,99 € (62,65 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "3 offers from 2 brands (Fiberlogy, Spectrum). Cheapest Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0.5 kg at 29.99 € (59.98 €/kg); dearest Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0.75 kg at 46.99 € (62.65 €/kg). The full list is in data/prices.json."
+          "de": "3 Angebote von 2 Marken (Fiberlogy, Spectrum). Günstigstes Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0,5 kg für 29,99 € (59,98 €/kg); teuerstes Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0,75 kg für 46,99 € (62,65 €/kg).",
+          "en": "3 offers from 2 brands (Fiberlogy, Spectrum). Cheapest Spectrum Spectrum PCTG GF10 Natural, 1,75 mm / 500 g, 0.5 kg at 29.99 € (59.98 €/kg); dearest Fiberlogy Fiberlogy PCTG+GF10 Natural, 1,75 mm, 0.75 kg at 46.99 € (62.65 €/kg)."
         }
       },
       {
@@ -677,8 +677,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {

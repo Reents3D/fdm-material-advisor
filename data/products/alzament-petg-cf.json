@@ -9,8 +9,8 @@
   "origin": "China (Handelsmarke Tschechien)",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Prüfkörper GEDRUCKT: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Die Dichte ist mit „1,32 g/cm³ at 79 °C“ angegeben. Bei 79 °C misst niemand eine Filamentdichte, und das PETG-Blatt derselben Reihe schreibt an derselben Stelle 23 °C — vermutlich ein vertippter Zahlendreher. Der Wert trägt deshalb `low`.",
-    "en": "Specimens PRINTED: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: The density is given as “1.32 g/cm³ at 79 °C”. Nobody measures filament density at 79 °C, and the PETG sheet of the same series writes 23 °C in the same place — presumably a typo. The value therefore carries `low`."
+    "de": "Prüfkörper gedruckt: Das Blatt weist Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nHinweis zu diesem Datenblatt: Die Dichte ist mit „1,32 g/cm³ at 79 °C“ angegeben. Bei 79 °C misst niemand eine Filamentdichte, und das PETG-Blatt derselben Reihe schreibt an derselben Stelle 23 °C — vermutlich ein vertippter Zahlendreher. Der Wert trägt deshalb LOW.",
+    "en": "Specimens printed: the sheet reports values separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nNote on this datasheet: The density is given as “1.32 g/cm³ at 79 °C”. Nobody measures filament density at 79 °C, and the PETG sheet of the same series writes 23 °C in the same place — presumably a typo. The value therefore counts as weakly substantiated."
   },
   "features": {
     "de": "Alzament ist die Eigenmarke des tschechischen Händlers Alza.cz. Als Hersteller nennt das Blatt Landu Innovations Technology Co., Ltd. in Shenzhen, als Prüfer Alza.cz selbst.",

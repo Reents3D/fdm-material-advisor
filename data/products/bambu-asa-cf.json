@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- UND Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
-    "en": "Bambu Lab tests PRINTED specimens and reports X-Y AND Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far."
+    "de": "Bambu Lab prueft gedruckte Koerper und weist X-Y- und Z-Werte aus. Dadurch lässt sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; außerhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+    "en": "Bambu Lab tests printed specimens and reports X-Y and Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far."
   },
   "datasheet": {
     "title": "Bambu Filament Technical Data Sheet - ASA-CF",
@@ -126,8 +126,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
-          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+          "de": "Prüfkörper sind gedruckt, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are printed, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
         }
       }
     ]

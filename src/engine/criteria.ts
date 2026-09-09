@@ -68,7 +68,7 @@ const invert = (p: { value: number | null; confidence: Confidence | null }) => (
    Das Kriterium las `commercial.xxl.maxSensibleEdgeMm` - eine Zahl, die aus Verzugsneigung
    und Kammerbedarf ABGELEITET war. Als Bewertungskriterium hat sie damit zweimal dasselbe
    gewertet: einmal als `lowWarping`, einmal als Kantenlaenge in Millimetern. Und sie hat
-   eine Fertigungsaussage in eine Werkstoffbewertung geschmuggelt: 95 % der Grossmodelle
+   eine Fertigungsaussage in eine Werkstoffbewertung geschmuggelt: 95 % der Großmodelle
    werden ohnehin segmentiert, und ein Druck am Stueck laesst sich ueber
    Schrumpfkompensation fahren. Was der Werkstoff dazu beitraegt, ist seine Verzugsneigung -
    und die steht als `lowWarping` weiterhin drin.

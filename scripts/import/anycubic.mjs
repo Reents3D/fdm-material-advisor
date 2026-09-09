@@ -174,7 +174,7 @@ const SHEETS = [
       nozzleTemperature: q(240, "°C", { min: 230, max: 250 }),
       bedTemperature: q(65, "°C", { min: 60, max: 70 }),
     },
-    features: t("52 MPa in X-Y gegen 31 MPa in Z, beide mit Streuungsangabe — eines der wenigen PETG-Blätter im Bestand, das die Z-Richtung überhaupt beziffert. Der Faktor 0,60 liegt über dem Bestandsmittel für PETG.",
+    features: t("52 MPa in X-Y gegen 31 MPa in Z, beide mit Streuungsangabe — eines der wenigen PETG-Blätter in der Datenbank, das die Z-Richtung überhaupt beziffert. Der Faktor 0,60 liegt über dem Bestandsmittel für PETG.",
                 "52 MPa in X-Y against 31 MPa in Z, both with stated scatter — one of the few PETG sheets in the dataset that quantifies the Z direction at all. The factor of 0.60 sits above the dataset average for PETG."),
   },
   {
@@ -279,7 +279,7 @@ const SHEETS = [
       nozzleTemperature: q(225, "°C", { min: 210, max: 240 }),
       bedTemperature: q(60, "°C", { min: 55, max: 65 }),
     },
-    features: t("Der schlechteste Anisotropiefaktor des Bestands aus einem gedruckten Prüfkörper: 0,32. In Z bleiben von 37 MPa noch 12 übrig — gemessen nach derselben Norm wie das Standard-PLA desselben Hauses, das auf 0,58 kommt. Die Glanzadditive kosten Schichthaftung, und das ist hier zum ersten Mal eine Datenblattzahl statt Werkstattwissen.",
+    features: t("Der schlechteste Anisotropiefaktor der Datenbank aus einem gedruckten Prüfkörper: 0,32. In Z bleiben von 37 MPa noch 12 übrig — gemessen nach derselben Norm wie das Standard-PLA desselben Hauses, das auf 0,58 kommt. Die Glanzadditive kosten Schichthaftung, und das ist hier zum ersten Mal eine Datenblattzahl statt Werkstattwissen.",
                 "The worst anisotropy factor in the dataset from a printed specimen: 0.32. In Z, 12 MPa remain of 37 — measured to the same standard as the same house's standard PLA, which reaches 0.58. The gloss additives cost layer adhesion, and here that is a datasheet figure for the first time rather than workshop lore."),
   },
   {
@@ -298,7 +298,7 @@ const SHEETS = [
       nozzleTemperature: q(215, "°C", { min: 195, max: 230 }),
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
-    features: t("Der erste TPU-Z-Wert im Bestand: 18,5 gegen 34,4 MPa, Faktor 0,54. Dass ein Elastomer mit 697 % Bruchdehnung in Z überhaupt auf die Hälfte einbricht, ist die nützlichere Nachricht — Dehnbarkeit und Schichthaftung sind zwei verschiedene Dinge. Die Härte steht nicht in der Tabelle, sondern im Fließtext: „an average hardness of 95A“.",
+    features: t("Der erste TPU-Z-Wert in der Datenbank: 18,5 gegen 34,4 MPa, Faktor 0,54. Dass ein Elastomer mit 697 % Bruchdehnung in Z überhaupt auf die Hälfte einbricht, ist die nützlichere Nachricht — Dehnbarkeit und Schichthaftung sind zwei verschiedene Dinge. Die Härte steht nicht in der Tabelle, sondern im Fließtext: „an average hardness of 95A“.",
                 "The first TPU Z value in the dataset: 18.5 against 34.4 MPa, factor 0.54. That an elastomer with 697 % elongation at break drops to half in Z is the more useful news — stretchability and layer adhesion are two different things. The hardness is not in the table but in the prose: “an average hardness of 95A”."),
   },
 ];
@@ -345,7 +345,7 @@ for (const s of SHEETS) {
 }
 
 const f = (s) => Math.round((s.props.tensileStrengthZ.value / s.props.tensileStrengthXy.value) * 100) / 100;
-console.log(`${SHEETS.length} Anycubic-Produkte importiert — Anycubic ist die 17. Marke im Bestand.`);
+console.log(`${SHEETS.length} Anycubic-Produkte importiert — Anycubic ist die 17. Marke in der Datenbank.`);
 console.log("  ALLE NEUN tragen einen Z-Wert, an gedruckten Pruefkoerpern, mit Pruefnorm.");
 console.log("  KEINEN neuen Anisotropiefaktor - alle neun Typen hatten schon einen.");
 console.log("  Die Faktoren aus diesen Blaettern:");

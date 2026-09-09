@@ -106,7 +106,7 @@ const material = {
       "Polyphthalamide is a semi-aromatic polyamide: benzene rings sit in the chain, stiffening it and restricting its mobility. That raises melting point and heat deflection markedly above the aliphatic polyamides while lowering moisture uptake — saturated water absorption is 1.30 % against 2.56 % for a glass-fibre reinforced PA6. Filled with carbon fibre this gives the strongest material in this database: 168 MPa in plane at 11,800 MPa stiffness.",
     ),
     positioning: t(
-      "Der Werkstoff für Bauteile, die heiß und tragend zugleich sind — Motorraum, Werkzeug, Vorrichtung. Zwei Dinge muss man wissen, bevor man ihn wählt. Erstens verliert er quer zur Schicht zwei Drittel seiner Festigkeit (57 statt 168 MPa); die Aufbaurichtung ist hier keine Feinheit, sondern die Auslegung. Zweitens hängt der gesamte Datensatz an einem einzigen Herstellerdatenblatt — es gibt im Bestand keine zweite Quelle, an der sich die Zahlen prüfen ließen.",
+      "Der Werkstoff für Bauteile, die heiß und tragend zugleich sind — Motorraum, Werkzeug, Vorrichtung. Zwei Dinge muss man wissen, bevor man ihn wählt. Erstens verliert er quer zur Schicht zwei Drittel seiner Festigkeit (57 statt 168 MPa); die Aufbaurichtung ist hier keine Feinheit, sondern die Auslegung. Zweitens hängt der gesamte Eintrag an einem einzigen Herstellerdatenblatt — es gibt in der Datenbank keine zweite Quelle, an der sich die Zahlen prüfen ließen.",
       "The material for parts that are hot and load-bearing at once — engine bay, tooling, fixtures. Two things must be known before choosing it. First, it loses two thirds of its strength across the layers (57 instead of 168 MPa); build direction here is not a detail but the design itself. Second, the entire record rests on a single manufacturer datasheet — there is no second source in the dataset against which the figures could be checked.",
     ),
   },
@@ -130,7 +130,7 @@ const material = {
     anisotropyFactorTensile: e(0.34, "-", {
       orientation: "Z",
       derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
-      conditions: "57 von 168 MPa, beide Operanden aus demselben Blatt und Prüfdurchgang",
+      conditions: "57 von 168 MPa, beide Zahlen aus demselben Blatt und Prüfdurchgang",
       note: t(
         "Quer zur Schicht bleiben 34 % der Zugfestigkeit erhalten. Das Biegemodul bestätigt die Größenordnung unabhängig: 3.240 von 9.860 MPa sind 33 %. Kurzfasern richten sich beim Extrudieren in Bahnrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält allein die Polyamid-Matrix. Der Wert liegt damit in derselben Liga wie PPS-CF (0,28) und PA6-GF (0,36) und ist eine Eigenschaft der Faserfüllung, nicht ein Mangel dieses Produkts.",
         "Across the layers 34 % of the tensile strength remains. The flexural modulus confirms the magnitude independently: 3,240 of 9,860 MPa is 33 %. Short fibres align in the extrusion direction and contribute nothing across it; between the layers only the polyamide matrix holds. The value therefore sits in the same league as PPS-CF (0.28) and PA6-GF (0.36) and is a property of the fibre filling, not a defect of this product.",
@@ -139,7 +139,7 @@ const material = {
     anisotropyFactorImpact: e(0.10, "-", {
       orientation: "Z",
       derivedFrom: ["mechanics.charpyUnnotchedZ", "mechanics.charpyUnnotchedXy"],
-      conditions: "4,3 von 41,7 kJ/m², beide Operanden aus demselben Blatt",
+      conditions: "4,3 von 41,7 kJ/m², beide Zahlen aus demselben Blatt",
       note: t(
         "Bei der Schlagzähigkeit bricht der Werkstoff quer zur Schicht auf ein Zehntel ein — deutlich drastischer als bei der Zugfestigkeit (0,34). Das ist der Regelfall bei faserverstärkten Typen: Eine Zugprüfung belastet die Schichtgrenze gleichmäßig, ein Schlag trifft sie als Kerbe.",
         "In impact the material collapses across the layers to one tenth — markedly more drastic than in tensile strength (0.34). That is the rule for fibre-reinforced grades: a tensile test loads the layer boundary evenly, an impact hits it as a notch.",
@@ -150,7 +150,7 @@ const material = {
       "3,2 % Bruchdehnung und 6,5 kJ/m² gekerbte Schlagzähigkeit beschreiben einen spröden Werkstoff. Die ungekerbten 41,7 kJ/m² täuschen darüber hinweg: Sobald eine Kerbe da ist — und eine Schichtgrenze ist eine —, bleibt ein Siebtel. Niedriger als PA6-CF (3), weil dessen Matrix zäher ist; die Aromatenringe im PPA versteifen und verspröden zugleich.",
         "3.2 % elongation at break and 6.5 kJ/m² notched impact describe a brittle material. The unnotched 41.7 kJ/m² are deceptive: once a notch is present — and a layer boundary is one — a seventh remains. Lower than PA6-CF (3) because that matrix is tougher; the aromatic rings in PPA stiffen and embrittle at once.")),
     creepTendency: r(1, "creepTendency", t(
-      "Die niedrigste Kriechneigung im Bestand. Teilaromatisches Polyamid mit 196 °C HDT-A und 40 % Faseranteil hält Dauerlast bei erhöhter Temperatur besser als jeder andere hier geführte Werkstoff — genau dafür wird PPA in der Serienfertigung eingesetzt.",
+      "Die niedrigste Kriechneigung in der Datenbank. Teilaromatisches Polyamid mit 196 °C HDT-A und 40 % Faseranteil hält Dauerlast bei erhöhter Temperatur besser als jeder andere hier geführte Werkstoff — genau dafür wird PPA in der Serienfertigung eingesetzt.",
         "The lowest creep tendency in the dataset. Semi-aromatic polyamide with 196 °C HDT-A and a high fibre content holds sustained load at elevated temperature better than any other material listed here — precisely what PPA is used for in series production.")),
     notchSensitivity: r(4, "notchSensitivity", t(
       "6,5 gegen 41,7 kJ/m² — die Kerbe kostet 84 % der Schlagzähigkeit. Scharfe Innenecken, Bohrungen ohne Radius und sichtbare Schichtabsätze sind bei diesem Werkstoff Konstruktionsfehler, keine Schönheitsfragen.",
@@ -190,7 +190,7 @@ const material = {
     chamberRequirement: {
       value: "mandatory", source: "src_bambu_tds", confidence: "medium",
       note: t(
-        "Das Blatt nennt 50 bis 80 °C Kammertemperatur — der höchste Wert im gesamten Bestand, bisher lagen 53 °C an der Spitze. Bei 258 °C Schmelzpunkt und teilkristalliner Erstarrung schrumpft der Werkstoff beim Abkühlen stark; ohne temperierte Kammer löst sich das Bauteil von der Platte oder delaminiert zwischen den Schichten. Für kleine Teile mag es notfalls gehen, für die Bauteilgrößen, um die es hier meist geht, nicht.",
+        "Das Blatt nennt 50 bis 80 °C Kammertemperatur — der höchste Wert in der gesamten Datenbank, bisher lagen 53 °C an der Spitze. Bei 258 °C Schmelzpunkt und teilkristalliner Erstarrung schrumpft der Werkstoff beim Abkühlen stark; ohne temperierte Kammer löst sich das Bauteil von der Platte oder delaminiert zwischen den Schichten. Für kleine Teile mag es notfalls gehen, für die Bauteilgrößen, um die es hier meist geht, nicht.",
         "The sheet states 50 to 80 °C chamber temperature — the highest value in the entire dataset, the previous maximum being 53 °C. At a melting point of 258 °C and semi-crystalline solidification the material shrinks strongly on cooling; without a tempered chamber the part detaches from the plate or delaminates between layers. For small parts it may work at a pinch, for the part sizes usually at issue here it does not.",
       ),
     },
@@ -208,7 +208,7 @@ const material = {
     minNozzleDiameter: q(0.4, "mm", { conditions: "Blatt nennt 0,4 / 0,6 (empfohlen) / 0,8 mm" }),
 
     printability: r(1, "printability", t(
-      "Die schwierigste Verarbeitung im Bestand. Acht bis zwölf Stunden Trocknung bei 100 bis 140 °C, Lagerung unter 20 % relativer Feuchte, beheizte Kammer, gehärtete Düse, Klebestift auf der Platte — jeder dieser Punkte ist eine eigene Fehlerquelle. Niedriger als PA6-CF (2), das ohne Trockenofen auskommt.",
+      "Die schwierigste Verarbeitung in der Datenbank. Acht bis zwölf Stunden Trocknung bei 100 bis 140 °C, Lagerung unter 20 % relativer Feuchte, beheizte Kammer, gehärtete Düse, Klebestift auf der Platte — jeder dieser Punkte ist eine eigene Fehlerquelle. Niedriger als PA6-CF (2), das ohne Trockenofen auskommt.",
         "The most difficult processing in the dataset. Eight to twelve hours of drying at 100 to 140 °C, storage below 20 % relative humidity, heated chamber, hardened nozzle, glue stick on the plate — each of these is a failure mode of its own. Lower than PA6-CF (2), which manages without a drying oven.")),
     warpingTendency: r(4, "warpingTendency", t(
       "Teilkristallin mit 258 °C Schmelzpunkt: Der Schrumpf beim Abkühlen ist erheblich. Die Faserfüllung dämpft ihn, die beheizte Kammer fängt den Rest ab — ohne sie ist der Wert praktisch 5.",
@@ -296,18 +296,18 @@ const material = {
 
   commercial: {
     priceIndex: r(5, "priceIndex", t(
-      "Die teuerste Type des Bestands. Das Blatt weist 0,75 kg je Spule aus statt der üblichen 1 kg — beim Preisvergleich je Kilogramm fällt das leicht unter den Tisch.",
+      "Die teuerste Type der Datenbank. Das Blatt weist 0,75 kg je Spule aus statt der üblichen 1 kg — beim Preisvergleich je Kilogramm fällt das leicht unter den Tisch.",
         "The most expensive grade in the dataset. The sheet states 0.75 kg per spool instead of the usual 1 kg — in a per-kilogram price comparison that is easily overlooked.")),
     availability: r(2, "availability", t(
-      "Ein Hersteller im Bestand. PPA-Filamente gibt es auch von anderen Anbietern, aber keines davon ist hier mit einem Datenblatt belegt.",
+      "Ein Hersteller in der Datenbank. PPA-Filamente gibt es auch von anderen Anbietern, aber keines davon ist hier mit einem Datenblatt belegt.",
         "One manufacturer in the dataset. PPA filaments exist from other suppliers too, but none of them is documented here with a datasheet.")),
     smallSeriesSuitability: r(2, "smallSeriesSuitability", t(
       "Trockenofen, beheizte Kammer und gehärtete Düse machen jeden Einzelauftrag zu einem Rüstvorgang. Für Kleinserien rechnet sich das erst, wenn die Anforderung den Werkstoff wirklich verlangt.",
         "Drying oven, heated chamber and hardened nozzle make every individual job a setup operation. For small series this pays off only when the requirement genuinely demands the material.")),
     reentsPortfolioStatus: {
       value: "unknown", source: "estimate_reasoning", confidence: "estimated",
-      note: t("Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-              "Not yet reconciled with the Reents3D material stock. Per ADR-004 this does NOT enter the scoring."),
+      note: t("Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+              "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."),
     },
     spoolSizes: ["0.75 kg"],
   },
@@ -324,8 +324,8 @@ const material = {
       documentVersion: "V1.0",
       url: SHEET, retrievedAt: RETRIEVED, confidenceCeiling: "medium",
       note: t(
-        "Prüfkörper GEDRUCKT (290 °C Düse, 110 °C Bett), Kennwerte getrennt nach X-Y und Z, Streuungsangaben durchgehend. Die Obergrenze steht dennoch auf `medium` und nicht auf `high`: Dieser Werkstofftyp hat im ganzen Bestand nur diese eine Quelle, es gibt also keinen zweiten Beleg, an dem sich die Zahlen prüfen ließen.",
-        "Specimens PRINTED (290 °C nozzle, 110 °C bed), values separated by X-Y and Z, scatter stated throughout. The ceiling nevertheless stands at `medium` and not `high`: this material type has only this one source in the entire dataset, so there is no second piece of evidence against which the figures could be checked.",
+        "Prüfkörper gedruckt (290 °C Düse, 110 °C Bett), Kennwerte getrennt nach X-Y und Z, Streuungsangaben durchgehend. Dennoch gelten die Werte nur als einfach belegt: Dieser Werkstofftyp hat in der ganzen Datenbank nur diese eine Quelle, es gibt also keinen zweiten Beleg, an dem sich die Zahlen prüfen ließen.",
+        "Specimens printed (290 °C nozzle, 110 °C bed), values separated by X-Y and Z, scatter stated throughout. The values nevertheless count as singly substantiated only: this material type has just this one source in the entire database, so there is no second piece of evidence against which the figures could be checked.",
       ),
     }, {
       id: "estimate_reasoning", type: "estimate", publisher: "FDM-Materialberater",
@@ -367,7 +367,7 @@ const product = {
     "Specimens PRINTED, and the sheet states the conditions in full: 290 °C nozzle, 110 °C bed. All mechanical values are reported separately for X-Y and Z.",
   ),
   features: t(
-    "Das einzige Produkt dieses Werkstofftyps im Bestand — der Typ und dieses Produkt sind derzeit dasselbe. Spulengröße 0,75 kg auf Karton, Spule bis 145 °C temperaturbeständig, was zum Trocknen im Ofen bei 100 bis 140 °C passt.",
+    "Das einzige Produkt dieses Werkstofftyps in der Datenbank — der Typ und dieses Produkt sind derzeit dasselbe. Spulengröße 0,75 kg auf Karton, Spule bis 145 °C temperaturbeständig, was zum Trocknen im Ofen bei 100 bis 140 °C passt.",
     "The only product of this material type in the dataset — the type and this product are currently the same thing. Spool size 0.75 kg on cardboard, spool temperature-resistant to 145 °C, which fits oven drying at 100 to 140 °C.",
   ),
   datasheet: { title: "Bambu PPA-CF — Technical Data Sheet", url: SHEET, retrievedAt: RETRIEVED },
@@ -432,9 +432,9 @@ walk(material);
 console.log("Werkstofftyp `ppa-cf` und Produkt `bambu-ppa-cf` geschrieben.\n");
 console.log(`  ${facts} belegte Aussagen, davon ${est} abgeleitet und ${scales} Bewertungsskalen.`);
 console.log("  Alle Messwerte stammen aus EINEM Blatt: Bambu PPA-CF V1.0.\n");
-console.log("  Zugfestigkeit  168 MPa in X-Y  -  der hoechste Wert des Bestands (bisher paht-cf mit 120)");
+console.log("  Zugfestigkeit  168 MPa in X-Y  -  der hoechste Wert der Datenbank (bisher paht-cf mit 120)");
 console.log("  Anisotropie    0,34            -  quer bleiben 57 MPa, das Biegemodul bestaetigt mit 0,33");
 console.log("  Schlagzaeh.    0,10            -  quer bricht der Werkstoff auf ein Zehntel ein");
-console.log("  Kammer         50-80 °C        -  neuer Hoechstwert im Bestand, bisher 53 °C\n");
+console.log("  Kammer         50-80 °C        -  neuer Hoechstwert in der Datenbank, bisher 53 °C\n");
 console.log("  Offene Frage `oq_ppa_cf_second_source`: Der ganze Typ haengt an einer Quelle.");
 console.log("  168 MPa sind aussergewoehnlich, und gerade aussergewoehnliche Zahlen gehoeren gegengelesen.");

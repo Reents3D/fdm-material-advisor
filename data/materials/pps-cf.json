@@ -489,8 +489,8 @@
         "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -559,8 +559,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -586,8 +586,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil. Im echten Großformat wurde dieser Werkstoff noch nicht gefahren — bisher nur auf den Engineering-Druckern.",
-          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part. This material has not yet been run at true large format — so far only on the engineering printers."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht gemessen. Aus der eigenen Fertigung belegt ist bisher: bis 800 × 800 mm ohne Probleme. Das ist ein unterer Rand und keine Grenze; größere Teile wurden bisher schlicht nicht gefertigt. Im echten Großformat lief dieser Werkstoff bisher nicht, nur auf den Engineering-Druckern.",
+          "en": "Estimated from warping tendency and chamber requirement, not measured. Established from own production so far: up to 800 × 800 mm without problems. That is a lower bound, not a limit; larger parts simply have not been made yet. This material has not yet been run at true large format, only on the engineering printers."
         }
       }
     },
@@ -629,8 +629,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Datenblatt mit gedruckten Prüfkörpern, beiden Orientierungen, Streuungen UND vollständig offengelegten Druckparametern der Prüfkörper.",
-          "en": "Datasheet with printed specimens, both orientations, scatter figures AND fully disclosed specimen print parameters."
+          "de": "Datenblatt mit gedruckten Prüfkörpern, beiden Orientierungen, Streuungen und vollständig offengelegten Druckparametern der Prüfkörper.",
+          "en": "Datasheet with printed specimens, both orientations, scatter figures and fully disclosed specimen print parameters."
         }
       },
       {
@@ -640,8 +640,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -652,8 +652,8 @@
         "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
-          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Sie zeigt, was in dieser Fertigung zuverlässig läuft: mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. It shows what runs reliably in this shop: with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -665,8 +665,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "2 Angebote von 2 Marken (Bambu Lab, Polymaker). Günstigstes Polymaker Fiberon PPS-CF10 Black, 3 kg für 404,99 € (135,00 €/kg); teuerstes Bambu Lab Bambu Lab PPS-CF Black, Spule, 0,75 kg für 133,99 € (178,65 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "2 offers from 2 brands (Bambu Lab, Polymaker). Cheapest Polymaker Fiberon PPS-CF10 Black, 3 kg at 404.99 € (135.00 €/kg); dearest Bambu Lab Bambu Lab PPS-CF Black, Spule, 0.75 kg at 133.99 € (178.65 €/kg). The full list is in data/prices.json."
+          "de": "2 Angebote von 2 Marken (Bambu Lab, Polymaker). Günstigstes Polymaker Fiberon PPS-CF10 Black, 3 kg für 404,99 € (135,00 €/kg); teuerstes Bambu Lab Bambu Lab PPS-CF Black, Spule, 0,75 kg für 133,99 € (178,65 €/kg).",
+          "en": "2 offers from 2 brands (Bambu Lab, Polymaker). Cheapest Polymaker Fiberon PPS-CF10 Black, 3 kg at 404.99 € (135.00 €/kg); dearest Bambu Lab Bambu Lab PPS-CF Black, Spule, 0.75 kg at 133.99 € (178.65 €/kg)."
         }
       },
       {
@@ -678,8 +678,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Bambu Lab). Günstigstes Bambu Lab PPS-CF, 0,75 kg für 133,99 € (178,65 €/kg); teuerstes Bambu Lab PPS-CF, 0,75 kg für 133,99 € (178,65 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Bambu Lab). Cheapest Bambu Lab PPS-CF, 0.75 kg at 133.99 € (178.65 €/kg); dearest Bambu Lab PPS-CF, 0.75 kg at 133.99 € (178.65 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Bambu Lab). Einziges Angebot: Bambu Lab PPS-CF, 0,75 kg für 133,99 € (178,65 €/kg).",
+          "en": "1 offer from 1 brand (Bambu Lab). Only offer: Bambu Lab PPS-CF, 0.75 kg at 133.99 € (178.65 €/kg)."
         }
       },
       {
@@ -706,8 +706,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 2 Anbietern und 2 Marken (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 3 offers from 2 retailers and 2 brands (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 3 Angebote von 2 Anbietern und 2 Marken (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 3 offers from 2 retailers and 2 brands (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -723,8 +723,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: p-Dichlorbenzol und Natriumsulfid, petrochemisch. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: p-Dichlorbenzol und Natriumsulfid, petrochemisch. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: p-Dichlorbenzol und Natriumsulfid, petrochemisch. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: p-dichlorobenzene and sodium sulphide, petrochemical. The filler does not change that — carbon and glass fibre are not bio-based either. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

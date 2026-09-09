@@ -187,8 +187,8 @@ export function Report({ result, state, t, navigate }: {
         {reqs.length === 0 ? (
           <p className="report-note">
             {de
-              ? "Es wurde keine Anforderung gesetzt. Die Reihenfolge beruht damit allein auf der Standardgewichtung — für eine belastbare Empfehlung sollte der Assistent durchlaufen werden."
-              : "No requirement was set. The ranking therefore rests on the default weighting alone — for a dependable recommendation, run the wizard."}
+              ? "Es wurde keine Anforderung gesetzt. Die Reihenfolge beruht damit allein auf der Standardgewichtung. Für eine belastbare Empfehlung sollte der Assistent durchlaufen werden."
+              : "No requirement was set. The ranking therefore rests on the default weighting alone. For a dependable recommendation, run the wizard."}
           </p>
         ) : (
           <dl className="report-dl">
@@ -241,8 +241,8 @@ export function Report({ result, state, t, navigate }: {
           </table>
           <p className="report-note">
             {de
-              ? "Aniso = Anteil der Zugfestigkeit, der senkrecht zur Schichtebene erhalten bleibt. „Eignung“ ist ein gewichteter Vergleichswert innerhalb dieser Auswahl, keine absolute Note."
-              : "Aniso = share of tensile strength retained perpendicular to the layer plane. “Fit” is a weighted comparison within this selection, not an absolute grade."}
+              ? "Aniso: Anteil der Zugfestigkeit, der senkrecht zur Schichtebene erhalten bleibt. „Eignung“ ist ein gewichteter Vergleichswert innerhalb dieser Auswahl, keine absolute Note."
+              : "Aniso: share of tensile strength retained perpendicular to the layer plane. “Fit” is a weighted comparison within this selection, not an absolute grade."}
           </p>
         </section>
       )}
@@ -330,20 +330,20 @@ export function Report({ result, state, t, navigate }: {
             <li>
               {de ? "Für diese gewichteten Kriterien liegen beim erstplatzierten Werkstoff keine Daten vor: " : "No data exists for these weighted criteria on the leading material: "}
               {leader.dataGaps.map((g) => t(`criterion.${g}.label`)).join(", ")}.{" "}
-              {de ? "Eine fehlende Angabe wird nirgends als Null gewertet." : "A missing value is never treated as zero."}
+              {de ? "Fehlende Angaben werden nicht als Null gewertet." : "Missing values are not treated as zero."}
             </li>
           )}
           {leader && leader.unverifiedConstraints.length > 0 && (
             <li className="warn">
               {de
-                ? "Der erstplatzierte Werkstoff erfüllt mindestens eine Anforderung nur deshalb, weil die zugehörige Angabe im Datenblatt fehlt — nicht, weil sie belegt erfüllt wäre."
-                : "The leading material passes at least one requirement only because the corresponding datasheet value is missing — not because it is demonstrably met."}
+                ? "Der erstplatzierte Werkstoff erfüllt mindestens eine Anforderung nur deshalb, weil die zugehörige Angabe im Datenblatt fehlt, nicht weil sie belegt erfüllt wäre."
+                : "The leading material passes at least one requirement only because the corresponding datasheet value is missing, not because it is demonstrably met."}
             </li>
           )}
           <li>
             {de
-              ? "Die Kennwerte stammen aus Herstellerdatenblättern. Werte an gedruckten Prüfkörpern und Rohstoffkennwerte aus dem Spritzguss sind nicht direkt vergleichbar; der Datensatz weist die Prüfkörperart je Produkt aus."
-              : "Values come from manufacturer datasheets. Values from printed specimens and raw-material values from injection moulding are not directly comparable; the dataset declares the specimen type per product."}
+              ? "Die Kennwerte stammen aus Herstellerdatenblättern. Werte an gedruckten Prüfkörpern und Rohstoffkennwerte aus dem Spritzguss sind nicht direkt vergleichbar; die Prüfkörperart ist je Produkt angegeben."
+              : "Values come from manufacturer datasheets. Values from printed specimens and raw-material values from injection moulding are not directly comparable; the specimen type is stated per product."}
           </li>
           <li>
             {de
@@ -389,8 +389,8 @@ export function Report({ result, state, t, navigate }: {
         </div>
         <p className="report-disclaimer">
           {de
-            ? "Richtwerte aus Herstellerangaben und Erfahrung. Sie ersetzen keine Bauteilqualifizierung. Reents Technologies GmbH ist 3D-Druck-Dienstleister und kein Materialhersteller — die Bewertung ist herstellerunabhängig und der Portfolio-Status fliesst nicht in sie ein."
-            : "Reference values from manufacturer data and experience. They do not replace part qualification. Reents Technologies GmbH is a 3D printing service provider, not a material manufacturer — the assessment is vendor-independent and portfolio status does not enter into it."}
+            ? "Richtwerte aus Herstellerangaben und Erfahrung. Sie ersetzen keine Bauteilqualifizierung. Reents Technologies GmbH ist 3D-Druck-Dienstleister und kein Materialhersteller; die Bewertung ist herstellerunabhängig, und der Portfolio-Status fließt nicht in sie ein."
+            : "Reference values from manufacturer data and experience. They do not replace part qualification. Reents Technologies GmbH is a 3D printing service provider, not a material manufacturer; the assessment is vendor-independent, and portfolio status does not enter into it."}
         </p>
       </footer>
     </div>

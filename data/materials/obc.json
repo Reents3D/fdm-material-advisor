@@ -15,11 +15,11 @@
       "Polyolefin-Elastomer"
     ],
     "abstract": {
-      "de": "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Bemerkenswert ist auch die Quellenlage: Von 13 Werkstofftypen mit Z-Kennwert ist OBC der einzige, dessen Blatt NICHT von Bambu Lab stammt — Fillamentum weist XY und Z an gedruckten Prüfkörpern aus.",
-      "en": "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its sourcing is notable too: of 13 material types carrying a Z value, OBC is the only one whose sheet does NOT come from Bambu Lab — Fillamentum states XY and Z on printed specimens."
+      "de": "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Bemerkenswert ist auch die Quellenlage: Von 13 Werkstofftypen mit Z-Kennwert ist OBC der einzige, dessen Blatt nicht von Bambu Lab stammt — Fillamentum weist XY und Z an gedruckten Prüfkörpern aus.",
+      "en": "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its sourcing is notable too: of 13 material types carrying a Z value, OBC is the only one whose sheet does not come from Bambu Lab — Fillamentum states XY and Z on printed specimens."
     },
     "positioning": {
-      "de": "Das leichteste Material im Bestand — und der einzige Z-Kennwert, der nicht von Bambu Lab stammt.",
+      "de": "Das leichteste Material in der Datenbank — und der einzige Z-Kennwert, der nicht von Bambu Lab stammt.",
       "en": "The lightest material in the dataset — and the only Z value not sourced from Bambu Lab."
     }
   },
@@ -94,8 +94,8 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "Das Blatt nennt denselben Versuch zweimal: 347 J/m und 34,3 kJ/m². Beide passen zueinander (347 ÷ 10,16 mm Restligament = 34,2). In Z passen sie NICHT: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Übernommen ist die kJ/m²-Angabe, weil das Schema diese Einheit führt.",
-        "en": "The sheet gives the same test twice: 347 J/m and 34.3 kJ/m². The two agree (347 ÷ 10.16 mm remaining ligament = 34.2). In Z they do NOT: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. The kJ/m² figure is imported because the schema carries that unit."
+        "de": "Das Blatt nennt denselben Versuch zweimal: 347 J/m und 34,3 kJ/m². Beide passen zueinander (347 ÷ 10,16 mm Restligament = 34,2). In Z passen sie nicht: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Übernommen ist die Angabe in kJ/m², der hier durchgängig verwendeten Einheit.",
+        "en": "The sheet gives the same test twice: 347 J/m and 34.3 kJ/m². The two agree (347 ÷ 10.16 mm remaining ligament = 34.2). In Z they do not: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. The kJ/m² figure is used, as that is the unit used throughout here."
       }
     },
     "hardnessShoreD": {
@@ -116,7 +116,7 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "Aus 352 J/m (Z) zu 347 J/m (XY) gerechnet, beide gekerbt nach ASTM D256 im selben Blatt. Der Wert liegt ÜBER 1, die stehend gedruckte Probe ist also schlagzäher als die liegende. Bei sprödharten Werkstoffen liegt dieser Faktor typisch zwischen 0,05 und 0,3 — die Schichtgrenze ist bei einem weichen Polyolefin schlicht nicht der Schwachpunkt.",
+        "de": "Aus 352 J/m (Z) zu 347 J/m (XY) gerechnet, beide gekerbt nach ASTM D256 im selben Blatt. Der Wert liegt über 1, die stehend gedruckte Probe ist also schlagzäher als die liegende. Bei sprödharten Werkstoffen liegt dieser Faktor typisch zwischen 0,05 und 0,3 — die Schichtgrenze ist bei einem weichen Polyolefin schlicht nicht der Schwachpunkt.",
         "en": "Calculated from 352 J/m (Z) against 347 J/m (XY), both notched to ASTM D256 in the same sheet. The value exceeds 1, so the upright-printed specimen is tougher than the flat one. For brittle-hard materials this factor typically sits between 0.05 and 0.3 — with a soft polyolefin the layer boundary simply is not the weak point. Note: computing instead from the same sheet’s kJ/m² figures (43.1 against 34.3) would give 1.26. The sheet is internally inconsistent; the lower value is imported."
       }
     },
@@ -132,7 +132,7 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "Aus 11 MPa (Z) zu 14 MPa (XY) gerechnet — beide Werte stehen im selben Blatt an gedruckten Prüfkörpern. 0,79 ist ein sehr hoher Wert; die meisten starren Werkstoffe liegen zwischen 0,3 und 0,6. Bei der Schlagzähigkeit liegt Z sogar ÜBER XY (352 gegen 347 J/m). Das ist für weiche Polyolefine plausibel, weil die Bindung zwischen den Schichten nicht der Schwachpunkt ist, den ein sprödes Polymer dort hat.",
+        "de": "Aus 11 MPa (Z) zu 14 MPa (XY) gerechnet — beide Werte stehen im selben Blatt an gedruckten Prüfkörpern. 0,79 ist ein sehr hoher Wert; die meisten starren Werkstoffe liegen zwischen 0,3 und 0,6. Bei der Schlagzähigkeit liegt Z sogar über XY (352 gegen 347 J/m). Das ist für weiche Polyolefine plausibel, weil die Bindung zwischen den Schichten nicht der Schwachpunkt ist, den ein sprödes Polymer dort hat.",
         "en": "Calculated from 11 MPa (Z) against 14 MPa (XY) — both values are in the same sheet on printed specimens. 0.79 is a very high figure; most rigid materials sit between 0.3 and 0.6. For impact strength Z even exceeds XY (352 against 347 J/m). That is plausible for soft polyolefins because the bond between layers is not the weak point it is in a brittle polymer."
       }
     },
@@ -494,8 +494,8 @@
         }
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -589,8 +589,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -616,8 +616,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included."
         }
       }
     },
@@ -626,8 +626,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+        "en": "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."
       }
     },
     "pricePerKg": {
@@ -639,8 +639,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom 2026-08-06 hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.",
-        "en": "Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of 2026-08-06 showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low."
+        "de": "Geschätzte Marktspanne, kein erhobener Preis: Bei der Erhebung vom 2026-08-06 wurde zu diesem Werkstoff kein Händlerangebot gefunden. Solche Schätzungen lagen bisher meist eher zu hoch als zu niedrig.",
+        "en": "Estimated market range, not a surveyed price: the survey of 2026-08-06 found no retail offer for this material. Such estimates have so far tended to run high rather than low."
       }
     }
   },
@@ -651,8 +651,8 @@
       {
         "id": "oq_obc_single_source",
         "question": {
-          "de": "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
-          "en": "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed."
+          "de": "Dieser Werkstofftyp beruht auf einem einzigen Herstellerdatenblatt. Eine Quelle kann keine Streuung zeigen, und gerade die Streuung zwischen Herstellern ist bei gut belegten Typen die eigentliche Information. Die Werte gelten deshalb bis zum zweiten Datenblatt als schwach belegt.",
+          "en": "This material type rests on a single manufacturer datasheet. One source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for well-covered types. Until a second sheet exists, the values count as weakly substantiated."
         },
         "blocking": false,
         "affectsFields": [
@@ -664,8 +664,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 0 Angebote von 0 Anbietern und 0 Marken (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin bleibt die Schätzung stehen.",
-          "en": "Deepen the price survey: 0 offers from 0 retailers and 0 brands (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the estimate stands."
+          "de": "Preisbasis noch schmal: bisher 0 Angebote von 0 Anbietern und 0 Marken (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis eine Schätzung.",
+          "en": "Price basis still thin: so far 0 offers from 0 retailers and 0 brands (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is an estimate."
         },
         "blocking": true,
         "affectsFields": [
@@ -694,8 +694,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {

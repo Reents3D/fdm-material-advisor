@@ -48,7 +48,7 @@
         "en": "Autoclave at 121 °C, steam cleaner, sterilisation"
       },
       "effect": {
-        "de": "Die Kombination aus Temperatur, Druck und Feuchte ist deutlich schärfer als heißes Wasser und schliesst fast alle Standardwerkstoffe aus.",
+        "de": "Die Kombination aus Temperatur, Druck und Feuchte ist deutlich schärfer als heißes Wasser und schließt fast alle Standardwerkstoffe aus.",
         "en": "The combination of temperature, pressure and moisture is far harsher than hot water and rules out almost every standard material."
       },
       "aggressiveness": 4,

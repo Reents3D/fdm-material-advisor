@@ -37,8 +37,8 @@
       "min": 1.2,
       "max": 1.3,
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (Bambu Lab) bis 1.3 g/cm³ (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (1), ISO 1183 (1), ASTM D792 (1).",
-        "en": "Median of 3 manufacturer datasheets, range 1.2 g/cm³ (Bambu Lab) to 1.3 g/cm³ (add:north). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 527 (1), ISO 1183 (1), ASTM D792 (1)."
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (Bambu Lab) bis 1.3 g/cm³ (add:north). Prüfkörper: 1 von 3 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 527 (1), ISO 1183 (1), ASTM D792 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 1.2 g/cm³ (Bambu Lab) to 1.3 g/cm³ (add:north). Specimens: 1 of 3 printed, remainder not stated. Mixed test standards: ISO 527 (1), ISO 1183 (1), ASTM D792 (1)."
       },
       "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
@@ -171,7 +171,7 @@
       "min": 0.84,
       "max": 0.97,
       "orientation": "Z",
-      "conditions": "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
+      "conditions": "Beide Zahlen aus demselben Datenblatt und Prüfdurchgang",
       "derivedFrom": [
         "mechanics.tensileStrengthZ",
         "mechanics.tensileStrengthXy"
@@ -223,8 +223,8 @@
       "confidence": "low",
       "testStandard": "ISO 75, 1.8 MPa",
       "note": {
-        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt über der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen; die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide gelten deshalb nur als schwach belegt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is above HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature; the values are swapped or were measured on different batches. Both therefore count as weakly substantiated only."
       }
     },
     "hdtB": {
@@ -234,8 +234,8 @@
       "confidence": "medium",
       "testStandard": "ISO 75",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 112 °C (Bambu Lab) bis 185 °C (add:north). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 75 (2), ASTM D648 (1).",
-        "en": "Median of 3 manufacturer datasheets, range 112 °C (Bambu Lab) to 185 °C (add:north). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 75 (2), ASTM D648 (1)."
+        "de": "Median aus 3 Herstellerblättern, Spanne 112 °C (Bambu Lab) bis 185 °C (add:north). Prüfkörper: 1 von 3 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 75 (2), ASTM D648 (1).",
+        "en": "Median of 3 manufacturer datasheets, range 112 °C (Bambu Lab) to 185 °C (add:north). Specimens: 1 of 3 printed, remainder not stated. Mixed test standards: ISO 75 (2), ASTM D648 (1)."
       },
       "min": 112,
       "max": 185,
@@ -275,8 +275,8 @@
       "max": 140,
       "conditions": "dauerhaft unter mechanischer Last, Luft",
       "note": {
-        "de": "Eigene konservative Empfehlung für ein DAUERHAFT BELASTETES Bauteil, nicht der Datenblattwert: Glasübergang 145 °C abzüglich 12 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 139 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 139 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
-        "en": "Our own conservative recommendation for a PERMANENTLY LOADED part, not the datasheet figure: glass transition 145 °C less 12 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 139 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 139 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
+        "de": "Eigene konservative Empfehlung für ein dauerhaft belastetes Bauteil, nicht der Datenblattwert: Glasübergang 145 °C abzüglich 12 K. Die Datenblätter nennen höhere Zahlen (Formbeständigkeit im Kurzversuch, hier HDT-B 139 °C) — die gelten für Minuten unter definierter Last, nicht für Dauerbetrieb. Ohne Dauerlast gibt es kein Kriechen; dann trägt der gemessene Wert (HDT-B 139 °C). Unter Last hängt die Grenze an der Spannung im Querschnitt: Mehr Wandstärke und mehr Füllung senken die Spannung und verschieben die brauchbare Temperatur nach oben — den Glasübergang verschieben sie nicht.",
+        "en": "Our own conservative recommendation for a permanently loaded part, not the datasheet figure: glass transition 145 °C less 12 K. The datasheets state higher numbers (short-term heat deflection, here HDT-B 139 °C) — those apply for minutes under a defined load, not for continuous service. Without sustained load there is no creep, and the measured value carries (HDT-B 139 °C). Under load the limit depends on the stress in the section: more wall and more infill lower the stress and shift the usable temperature up — they do not shift the glass transition."
       }
     },
     "annealing": {
@@ -657,8 +657,8 @@
         }
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
       }
     },
     "flameRetardancy": {
@@ -667,8 +667,8 @@
         "source": "src_bambu_tds",
         "confidence": "medium",
         "note": {
-          "de": "Das Datenblatt formuliert 'flammable and self-extinguishing in the air'. Das ist KEINE UL94-Einstufung.",
-          "en": "The datasheet states 'flammable and self-extinguishing in the air'. That is NOT a UL94 classification."
+          "de": "Das Datenblatt formuliert 'flammable and self-extinguishing in the air'. Das ist keine UL94-Einstufung.",
+          "en": "The datasheet states 'flammable and self-extinguishing in the air'. That is not a UL94 classification."
         }
       }
     },
@@ -783,8 +783,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -810,8 +810,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt. Dieser Werkstoff wird bisher nur auf den Engineering-Druckern gefahren, nicht im Großformat — es gibt also keine eigene Erfahrung, gegen die sich die Schätzung prüfen ließe.",
-          "en": "Estimated, not established. This material is so far run only on the engineering printers, not at large format — so there is no own experience against which the estimate could be checked."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff läuft bisher nur auf den Engineering-Druckern, nicht im Großformat; eigene Erfahrung, an der sich die Schätzung prüfen ließe, gibt es deshalb noch nicht.",
+          "en": "Estimated, not established. So far this material runs only on the engineering printers, not at large format, so there is no own experience yet against which the estimate could be checked."
         }
       },
       "maxSpoolWeightKg": {
@@ -842,8 +842,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+        "en": "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."
       }
     },
     "pricePerKg": {
@@ -889,8 +889,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
-          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+          "de": "Prüfkörper sind gedruckt, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are printed, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
         }
       },
       {
@@ -900,8 +900,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -913,8 +913,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "13 Angebote von 6 Marken (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Günstigstes Elegoo PC Black, 1 kg für 29,99 € (29,99 €/kg); teuerstes Polymaker Polymax PC Schwarz, 0,75 kg für 44,99 € (59,99 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "13 offers from 6 brands (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Cheapest Elegoo PC Black, 1 kg at 29.99 € (29.99 €/kg); dearest Polymaker Polymax PC Schwarz, 0.75 kg at 44.99 € (59.99 €/kg). The full list is in data/prices.json."
+          "de": "13 Angebote von 6 Marken (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Günstigstes Elegoo PC Black, 1 kg für 29,99 € (29,99 €/kg); teuerstes Polymaker Polymax PC Schwarz, 0,75 kg für 44,99 € (59,99 €/kg).",
+          "en": "13 offers from 6 brands (Bambu Lab, Elegoo, FormFutura, Polymaker, Spectrum, eSUN). Cheapest Elegoo PC Black, 1 kg at 29.99 € (29.99 €/kg); dearest Polymaker Polymax PC Schwarz, 0.75 kg at 44.99 € (59.99 €/kg)."
         }
       },
       {
@@ -927,8 +927,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {
@@ -955,8 +955,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 13 Angebote von 1 Anbieter und 6 Marken (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 13 offers from 1 retailer and 6 brands (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 13 Angebote von 1 Anbieter und 6 Marken (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 13 offers from 1 retailer and 6 brands (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [

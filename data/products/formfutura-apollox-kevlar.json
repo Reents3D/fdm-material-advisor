@@ -9,11 +9,11 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die HDT-Werte stehen in der falschen Reihenfolge: Das Blatt nennt bei 0,45 MPa 89 °C und bei 1,81 MPa 95 °C. Eine HÖHERE Last muss zu einer NIEDRIGEREN Temperatur führen — bei jedem Thermoplast, ausnahmslos. Einer der beiden Werte ist falsch zugeordnet oder falsch gemessen; welcher, lässt sich aus dem Blatt nicht entscheiden. Beide sind unverändert übernommen und tragen `low`. Sie zu vertauschen wäre geraten.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The HDT values stand in the wrong order: the sheet gives 89 °C at 0.45 MPa and 95 °C at 1.81 MPa. A HIGHER load must lead to a LOWER temperature — in every thermoplastic, without exception. One of the two values is mis-assigned or mis-measured; which one cannot be decided from the sheet. Both are imported unchanged and carry `low`. Swapping them would be guesswork."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die HDT-Werte stehen in der falschen Reihenfolge: Das Blatt nennt bei 0,45 MPa 89 °C und bei 1,81 MPa 95 °C. Eine höhere Last muss zu einer niedrigeren Temperatur führen — bei jedem Thermoplast, ausnahmslos. Einer der beiden Werte ist falsch zugeordnet oder falsch gemessen; welcher, lässt sich aus dem Blatt nicht entscheiden. Beide sind unverändert übernommen und gelten als schwach belegt. Sie zu vertauschen wäre geraten.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The HDT values stand in the wrong order: the sheet gives 89 °C at 0.45 MPa and 95 °C at 1.81 MPa. A higher load must lead to a lower temperature — in every thermoplastic, without exception. One of the two values is mis-assigned or mis-measured; which one cannot be decided from the sheet. Both are imported unchanged and count as weakly substantiated. Swapping them would be guesswork."
   },
   "features": {
-    "de": "Der einzige aramidverstärkte Werkstoff im Bestand: ASA mit 10 % Kevlar. Aramidfaser ist im Gegensatz zu Kohlenstoff- und Glasfaser nicht spröde, und das zeigt sich — 7,5 kJ/m² gekerbte Schlagzähigkeit bei 2200 MPa Steifigkeit. Zum Vergleich bricht ApolloX CF10 desselben Herstellers bei 1,8 % Dehnung, dieses hier bei 6 %.",
+    "de": "Der einzige aramidverstärkte Werkstoff in der Datenbank: ASA mit 10 % Kevlar. Aramidfaser ist im Gegensatz zu Kohlenstoff- und Glasfaser nicht spröde, und das zeigt sich — 7,5 kJ/m² gekerbte Schlagzähigkeit bei 2200 MPa Steifigkeit. Zum Vergleich bricht ApolloX CF10 desselben Herstellers bei 1,8 % Dehnung, dieses hier bei 6 %.",
     "en": "The only aramid-reinforced material in the dataset: ASA with 10 % Kevlar. Unlike carbon and glass fibre, aramid fibre is not brittle, and it shows — 7.5 kJ/m² notched impact at 2200 MPa stiffness. For comparison, the same manufacturer's ApolloX CF10 breaks at 1.8 % strain, this one at 6 %."
   },
   "datasheet": {
@@ -75,7 +75,7 @@
     "charpyNotchedXy": {
       "value": 7.5,
       "unit": "kJ/m²",
-      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.",
+      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die ungekerbte Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit LOW.",
       "orientation": "XY",
       "source": "src_tds",
       "confidence": "low"
@@ -91,7 +91,7 @@
       "value": 89,
       "unit": "°C",
       "testStandard": "ISO 75",
-      "conditions": "0,45 MPa — siehe Befund zur Reihenfolge",
+      "conditions": "0,45 MPa — siehe Hinweis zur Reihenfolge",
       "source": "src_tds",
       "confidence": "low"
     },
@@ -99,7 +99,7 @@
       "value": 95,
       "unit": "°C",
       "testStandard": "ISO 75",
-      "conditions": "1,81 MPa — siehe Befund zur Reihenfolge",
+      "conditions": "1,81 MPa — siehe Hinweis zur Reihenfolge",
       "source": "src_tds",
       "confidence": "low"
     }
@@ -118,8 +118,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]
@@ -138,8 +138,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy ASA+AF. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "7 values in this record appear identically at: Fiberlogy Fiberlogy ASA+AF. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "7 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Fiberlogy Fiberlogy ASA+AF. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "7 values on this datasheet appear digit for digit at Fiberlogy Fiberlogy ASA+AF as well. They are therefore not 2 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

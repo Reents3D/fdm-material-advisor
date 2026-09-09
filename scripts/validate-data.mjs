@@ -55,6 +55,23 @@ const isI18n = (n) => {
     Object.values(n).every((v) => typeof v === "string");
 };
 
+/* Muster, die in Anzeigetexten nichts verloren haben (R20, ADR-045). */
+const INTERNAL = [
+  [/ADR-\d+/, "ADR-Verweis"],
+  [/`/, "Backtick"],
+  [/\b(?:data|scripts|src)\/[\w./-]+/, "Dateipfad"],
+  [/\b(?:commercial|mechanics|thermal|processing|durability|governance|compliance)\.[a-zA-Z]+\b/, "Feldpfad"],
+  [/\boq_[a-z_]+/, "Fragen-ID"],
+  [/\bCeiling\b/, "Ceiling"],
+  [/\bScoring\b/, "Scoring"],
+  [/\bOperand/, "Operand"],
+  [/\bQuintil/, "Quintil"],
+];
+const DISPLAY_KEYS = new Set(["note", "question", "specimenNote", "features", "abstract", "positioning",
+  "partLevelWarning", "trademarkNotice", "primerRecommendation", "reason", "symptom", "cause", "remedy",
+  "joiningRecommendation", "anomaly", "conditions", "testStandard"]);
+
+
 /* ------------------------------------------------------------------ per file */
 
 if (!existsSync(DIR)) {
@@ -207,6 +224,14 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
   if (m.compliance?.foodContact?.status && !m.compliance?.foodContact?.partLevelWarning) {
     report("error", id, "R14-food-warning", "foodContact.status gesetzt, aber partLevelWarning fehlt");
   }
+
+  /* R20 Anzeigetexte erklären den Werkstoff, nicht die Methode (ADR-045).
+     Notizen, Fragen und Bedingungen landen ungefiltert in der Oberfläche. Was dort
+     steht, muss ein Leser ohne Kenntnis dieses Repositories verstehen: keine
+     ADR-Nummern, keine Feldpfade, keine Dateipfade, keine Konfidenz-Schlüssel in
+     Backticks. Als Fehler, nicht als Warnung - ein Importer, der solche Texte
+     wieder erzeugt, soll auffallen, bevor die Seite gebaut wird. */
+  checkDisplayText(id, m);
 
   /* R15 blocking open questions must name affected fields */
   for (const oqn of m.governance?.openQuestions ?? []) {
@@ -427,6 +452,7 @@ if (existsSync(PRODDIR)) {
     const p = JSON.parse(readFileSync(path.join(PRODDIR, f), "utf8"));
     checkImpact(p.id, p.properties);
     checkDisputed(p.id, p.properties);
+    checkDisplayText(p.id, p);
     for (const [kx, kz, label] of ZPAIRS) {
       const x = p.properties?.[kx], z = p.properties?.[kz];
       if (typeof x?.value !== "number" || typeof z?.value !== "number") continue;
@@ -440,6 +466,28 @@ if (existsSync(PRODDIR)) {
         (ack ? " (am Datensatz benannt)" : " — quer zur Schicht kann nichts fester sein als längs"));
     }
   }
+}
+
+/* ------------------------------------------------------------------ R20 */
+
+function checkDisplayText(id, root) {
+  const visit = (node, p) => {
+    if (Array.isArray(node)) { node.forEach((v, i) => visit(v, `${p}[${i}]`)); return; }
+    if (!node || typeof node !== "object") return;
+    for (const [k, v] of Object.entries(node)) {
+      const path = p ? `${p}.${k}` : k;
+      if (DISPLAY_KEYS.has(k)) {
+        const texts = typeof v === "string" ? [v] : isI18n(v) ? [v.de, v.en] : [];
+        for (const txt of texts) {
+          for (const [rx, what] of INTERNAL) {
+            if (rx.test(txt ?? "")) report("error", id, "R20-display-text", `${path}: ${what} im Anzeigetext`);
+          }
+        }
+        if (typeof v !== "string" && !isI18n(v)) visit(v, path);
+      } else visit(v, path);
+    }
+  };
+  visit(root, "");
 }
 
 /* -------------------------------------------------------------------- report */

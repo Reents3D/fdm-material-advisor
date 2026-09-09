@@ -2390,6 +2390,68 @@ kann — und das war das eigentliche Argument dafür, sie aus der Bewertung zu n
 
 ---
 
+## ADR-045 — Anzeigetexte erklären den Werkstoff, nicht die Methode
+
+**Datum:** 2026-09-09 · **Status:** angenommen · **Betrifft:** i18n, alle Ansichten, `note`/`question`/
+`conditions` in `data/**`, sämtliche Importer und Ableitungsskripte, `validate-data.mjs` (R20)
+
+### Die Entscheidung
+
+> „Es sind in den Anzeigetexten viele Informationen, die den Leser nichts angehen oder
+> irrelevant sind. Diese Infotexte müssen komplett entfernt werden — übergreifend über das
+> ganze Projekt." — Riko, 2026-09-09
+
+Jeder Text, den die Oberfläche zeigt, richtet sich an jemanden, der dieses Repository nicht
+kennt. Er sagt, **was für den Werkstoff gilt** und **worauf beim Einsatz zu achten ist**. Er
+sagt nicht, wie das Werkzeug zu seiner Zahl gekommen ist, welche Regel dabei griff, welche
+Kalibrierung dahintersteht oder wo im Repository etwas liegt.
+
+Konkret verschwinden aus den Anzeigetexten:
+
+- **ADR-Nummern und Regelkennungen** („siehe ADR-042", „Plausibilitätsregel R16").
+- **Feld- und Dateipfade** (`commercial.pricePerKg`, `data/prices.json`, `scripts/…`).
+- **Konfidenz-Schlüssel in Backticks** (`low`, `medium`, `estimated`, „Ceiling"). An ihre
+  Stelle tritt die Wortwahl der Oberfläche: *mehrfach belegt · einfach belegt · schwach
+  belegt · geschätzt*.
+- **Kalibrierungsbefunde** („lag der erste Fund im Mittel 14 % zu günstig", „bei 14 von 16
+  prüfbaren Werkstoffen zu hoch"). Sie gehören in die ADRs, wo sie einmal stehen.
+- **Interne Kennungen** offener Fragen (`oq_…`) und Eigenwörter des Projekts („Operand",
+  „Quintil", „Datensatz", „Bestand", „Befund").
+- **Betonung in Großbuchstaben** („NICHT", „EINEM", „GEDRUCKT"). Was wichtig ist, steht am
+  Satzanfang oder in einem eigenen Satz.
+
+Dazu kommt die Rechtschreibung: Die Texte verwenden das ß der deutschen Standardsprache
+(„groß", „draußen", „heißt"), nicht die Schweizer Schreibung.
+
+### Warum das nicht ADR-040 widerspricht
+
+ADR-040 verlangt, dass ein gestauchter Score **sichtbar** bleibt. Das bleibt er: Der Hinweis
+„Der Preis stammt von nur einem Händler und ist deshalb nur ein Anhaltspunkt" steht weiter
+auf der Karte. Weg ist nur die Begründung der Dämpfung mit der Messreihe. Der Leser braucht
+den Vorbehalt, nicht die Kalibrierung.
+
+Dasselbe gilt für ADR-042 und ADR-043: Die Spanne der Herstellerblätter wird weiter genannt
+(„die einzelnen Produkte reichen von 23 bis 63 MPa"), die Rechenregel dahinter nicht.
+
+### Wie das durchgesetzt wird
+
+Die Anzeigetexte werden von zwei Seiten erzeugt: von Hand in `src/i18n` und den Ansichten,
+und maschinell von rund dreißig Importern und Ableitungsskripten. Beide Seiten sind
+umgestellt; die Importer erzeugen jetzt dieselben Texte, die in `data/**` stehen. Damit ein
+künftiger Importer nicht still wieder Interna schreibt, prüft `validate-data.mjs` als
+**Regel R20** jedes Textfeld auf die oben genannten Muster und bricht den Bau bei einem
+Treffer ab.
+
+### Was bewusst bleibt
+
+Widersprüche im Herstellerblatt werden weiter benannt („Die HDT bei 1,8 MPa liegt über der
+bei 0,45 MPa; die Werte sind vertauscht oder an unterschiedlichen Chargen gemessen"). Das
+ist keine Methodik, sondern eine Information über die Quelle, die der Leser für seine
+Entscheidung braucht. Ebenso bleibt, **dass** ein Wert schwach belegt oder geschätzt ist;
+nur die Buchhaltung dahinter verschwindet.
+
+---
+
 ## Vorgemerkte ADRs
 
 | Nr. | Thema | Fällig in |

@@ -62,7 +62,7 @@ const P = [
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
       bedTemperature: q(50, "°C", { min: 40, max: 60 }),
     },
-    anomaly: t("Das Blatt nennt 160 % Bruchdehnung für PLA. PLA reisst bei etwa 3 bis 6 %; 160 % erreicht kein PLA-Formteil. Der Grund steht in der Methodenspalte: geprüft wurde nach ASTM D882, einer Norm für dünne FOLIEN. Gereckte Folie erreicht solche Werte, ein Zugstab nicht. Die Bruchdehnung wurde deshalb nicht übernommen; Zugfestigkeit und E-Modul stammen aus derselben Folienprüfung und tragen nur 'low'.",
+    anomaly: t("Das Blatt nennt 160 % Bruchdehnung für PLA. PLA reißt bei etwa 3 bis 6 %; 160 % erreicht kein PLA-Formteil. Der Grund steht in der Methodenspalte: geprüft wurde nach ASTM D882, einer Norm für dünne FOLIEN. Gereckte Folie erreicht solche Werte, ein Zugstab nicht. Die Bruchdehnung wurde deshalb nicht übernommen; Zugfestigkeit und E-Modul stammen aus derselben Folienprüfung und tragen nur 'low'.",
                "The sheet states 160 % elongation at break for PLA. PLA breaks at about 3 to 6 %; no PLA moulding reaches 160 %. The reason is in the method column: it was tested to ASTM D882, a standard for thin FILM. Drawn film reaches such values, a tensile bar does not. Elongation was therefore not imported; tensile strength and modulus come from the same film test and carry only 'low'.") },
 
   { id: "m4p-petg", material: "petg", name: "M4P PETG", file: "PETG", specimen: "moulded",
@@ -116,9 +116,9 @@ const P = [
       nozzleTemperature: q(217, "°C", { min: 205, max: 230 }),
       bedTemperature: q(52, "°C", { min: 40, max: 65 }),
     },
-    anomaly: t("Dieses Blatt widerspricht sich auf derselben Seite. An der Kennwerttabelle steht als Fussnote „3D printet part with 100% in-fill“, in der Fusszeile darunter der auf allen Material4Print-Blättern gleiche Satz „These data were taken from the raw material manufacturer“. Beides kann nicht zutreffen. Wir folgen der spezifischen Fussnote an der Tabelle und führen den Datensatz als gedruckten Prüfkörper — die Fusszeile erscheint unverändert auf allen 14 Blättern und ist damit erkennbar Standardtext.",
+    anomaly: t("Dieses Blatt widerspricht sich auf derselben Seite. An der Kennwerttabelle steht als Fußnote „3D printet part with 100% in-fill“, in der Fußzeile darunter der auf allen Material4Print-Blättern gleiche Satz „These data were taken from the raw material manufacturer“. Beides kann nicht zutreffen. Wir folgen der spezifischen Fußnote an der Tabelle und führen den Eintrag als gedruckten Prüfkörper — die Fußzeile erscheint unverändert auf allen 14 Blättern und ist damit erkennbar Standardtext.",
                "This sheet contradicts itself on the same page. The properties table carries the footnote “3D printet part with 100% in-fill”, while the page footer below states the sentence common to all Material4Print sheets, “These data were taken from the raw material manufacturer”. Both cannot hold. We follow the specific footnote on the table and record the dataset as a printed specimen — the footer appears unchanged on all 14 sheets and is therefore recognisably boilerplate."),
-    features: t("Der einzige Datensatz dieser Marke an einem gedruckten Bauteil — und einer der wenigen überhaupt mit Temper-Werten in Klammern: Schlagzähigkeit 160 auf 230 J/m, Wärmeformbeständigkeit 75 auf 85 °C nach 15 Minuten bei 110 °C.",
+    features: t("Der einzige Eintrag dieser Marke an einem gedruckten Bauteil — und einer der wenigen überhaupt mit Temper-Werten in Klammern: Schlagzähigkeit 160 auf 230 J/m, Wärmeformbeständigkeit 75 auf 85 °C nach 15 Minuten bei 110 °C.",
                 "The only dataset from this brand on a printed part — and one of the few anywhere with annealed values in brackets: impact 160 to 230 J/m, heat deflection 75 to 85 °C after 15 minutes at 110 °C.") },
 
   { id: "m4p-pmma", material: "pmma", name: "M4P PMMA", file: "PMMA", specimen: "moulded",
@@ -132,7 +132,7 @@ const P = [
       nozzleTemperature: q(255, "°C", { min: 240, max: 270 }),
       bedTemperature: q(100, "°C", { min: 90, max: 110 }),
     },
-    features: t("49 % Bruchdehnung sind für PMMA aussergewöhnlich — klassisches Acrylglas bricht bei 2 bis 5 %. Der Wert deutet auf ein schlagzähmodifiziertes Compound hin. Glasübergang 105 °C bei einem transparenzfähigen Werkstoff ist der eigentliche Grund, PMMA zu wählen.",
+    features: t("49 % Bruchdehnung sind für PMMA außergewöhnlich — klassisches Acrylglas bricht bei 2 bis 5 %. Der Wert deutet auf ein schlagzähmodifiziertes Compound hin. Glasübergang 105 °C bei einem transparenzfähigen Werkstoff ist der eigentliche Grund, PMMA zu wählen.",
                 "49 % elongation is exceptional for PMMA — classic acrylic breaks at 2 to 5 %. The value points to an impact-modified compound. A glass transition of 105 °C in a material capable of transparency is the actual reason to choose PMMA.") },
 
   { id: "m4p-abs-pc", material: "abs-pc", name: "M4P ABS-PC", file: "ABS-PC", specimen: "moulded",
@@ -172,7 +172,7 @@ const P = [
       nozzleTemperature: q(275, "°C", { min: 260, max: 290 }),
       bedTemperature: q(70, "°C", { min: 60, max: 80 }),
     },
-    features: t("Die seltenste Angabe im ganzen Bestand: eine Dauergebrauchstemperatur mit Zeitangabe. 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig bis 160 °C für maximal 200 Stunden. Im ungekerbten Schlagversuch kein Bruch. Oberflächenwiderstand über 10^12 Ohm, also isolierend.",
+    features: t("Die seltenste Angabe in der ganzen Datenbank: eine Dauergebrauchstemperatur mit Zeitangabe. 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig bis 160 °C für maximal 200 Stunden. Im ungekerbten Schlagversuch kein Bruch. Oberflächenwiderstand über 10^12 Ohm, also isolierend.",
                 "The rarest statement in the whole database: a continuous service temperature with a time base. 120 °C over 20,000 hours to IEC 60216, and up to 160 °C short-term for at most 200 hours. No break in the unnotched impact test. Surface resistance above 10^12 ohm, i.e. insulating.") },
 
   { id: "m4p-paht-cf", material: "paht-cf", name: "M4P PAHT-CF", file: "PAHT-CF", specimen: "moulded",
@@ -273,7 +273,7 @@ const NEW_MATERIALS = {
     aliases: ["Hochtemperatur-Polyamid", "PA HT", "PPA", "High Temperature Polyamide"],
     abstract: t("PAHT ist ein Hochtemperatur-Polyamid mit der seltensten Angabe überhaupt: einer Dauergebrauchstemperatur MIT Zeitbasis — 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig 160 °C für maximal 200 Stunden. 85 MPa Festigkeit, im ungekerbten Schlagversuch kein Bruch. Für dauerwarme Funktionsteile im Motorraum und in der Anlagentechnik. Grenzen: stark hygroskopisch, Kammer und Trocknung zwingend.",
                 "PAHT is a high-temperature polyamide with the rarest statement of all: a continuous service temperature WITH a time base — 120 °C over 20,000 hours to IEC 60216, and 160 °C short-term for at most 200 hours. 85 MPa strength, no break in the unnotched impact test. For permanently warm functional parts in engine bays and plant engineering. Limits: strongly hygroscopic, chamber and drying mandatory."),
-    positioning: t("Dauerwarm statt kurz heiss — der einzige Werkstoff hier mit belegter Lebensdauer.",
+    positioning: t("Dauerwarm statt kurz heiß — der einzige Werkstoff hier mit belegter Lebensdauer.",
                    "Permanently warm rather than briefly hot — the only material here with a documented service life."),
     tensile: 85, elong: 3.6, modulus: 3400, hdtA: 90, density: 1.15,
     nozzle: [260, 290], bed: [60, 80], chamber: "mandatory", dry: [100, 10],
@@ -350,7 +350,7 @@ const outM = path.join(ROOT, "data/materials");
 mkdirSync(outP, { recursive: true });
 
 const SPECIMEN_NOTE = t(
-  "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
+  "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit in der ganzen Datenbank — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
   "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible.");
 
 const src = (name, file) => ({
@@ -370,8 +370,8 @@ for (const p of P) {
     productName: p.name, origin: "Deutschland",
     specimenType: p.specimen,
     specimenNote: p.anomaly
-      ? t(`${SPECIMEN_NOTE.de}\n\nBefund zu diesem Datenblatt: ${p.anomaly.de}`,
-          `${SPECIMEN_NOTE.en}\n\nFinding on this datasheet: ${p.anomaly.en}`)
+      ? t(`${SPECIMEN_NOTE.de}\n\nHinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+          `${SPECIMEN_NOTE.en}\n\nNote on this datasheet: ${p.anomaly.en}`)
       : SPECIMEN_NOTE,
     ...(p.features ? { features: p.features } : {}),
     datasheet: { title: `${p.name} — Material Data Sheet`, url: DOCS, version: SHEET_DATE, retrievedAt: RETRIEVED },
@@ -387,7 +387,7 @@ for (const p of P) {
   np++;
   if (p.anomaly) na++;
 }
-console.log(`${np} Material4Print-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund)`);
+console.log(`${np} Material4Print-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Hinweis)`);
 
 let nm = 0;
 for (const [id, m] of Object.entries(NEW_MATERIALS)) {
@@ -407,7 +407,7 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
   if (m.tg) thermal.glassTransition = q(m.tg, "°C", { std: "ISO 11357", source: SRC_ID });
   thermal.recommendedMaxServiceTemperature = m.serviceTemp
     ? q(m.serviceTemp, "°C", { conditions: "20.000 h nach IEC 60216", source: SRC_ID, confidence: "medium",
-        note: t("Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe im ganzen Bestand.",
+        note: t("Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe in der ganzen Datenbank.",
                 "Stated by the manufacturer with a time base — the most robust form of this figure in the entire database.") })
     : q(Math.round(((m.hdtA ?? m.hdtB ?? 60) - 25) / 5) * 5, "°C", {
         conditions: "dauerhaft unter mechanischer Last, Luft", source: "estimate_reasoning", confidence: "estimated",
@@ -505,4 +505,4 @@ for (const [id, m] of Object.entries(NEW_MATERIALS)) {
   console.log(`  Werkstofftyp ${id}`);
   nm++;
 }
-console.log(`\n${np} Produkte, ${nm} neue Werkstofftypen, ${na} dokumentierte Befunde.`);
+console.log(`\n${np} Produkte, ${nm} neue Werkstofftypen, ${na} dokumentierte Auffälligkeiten.`);

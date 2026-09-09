@@ -13,8 +13,8 @@
     "en": "This sheet declares the specimen: printed, stating infill, orientation and annealing. The values are therefore comparable with those from Ultrafuse, Bambu Lab and Prusa Polymers — and not with the manufacturer's other sheets."
   },
   "features": {
-    "de": "Das aussagekräftigste PLA-Blatt im Bestand: Es nennt Infill, Bauorientierung UND Temperung der Prüfkörper („3D printed at 100% infill and annealed at 110°C/20 min, XY axis“) — und unterscheidet zusätzlich zwischen amorphem und teilkristallinem Zustand bei der Schlagzähigkeit (160 gegen 233 J/m). Die HDT von 75 bis 85 °C gilt entsprechend nur getempert; ungetempertes PLA liegt bei 55 °C.",
-    "en": "The most informative PLA sheet in the dataset: it states infill, build orientation AND annealing of the specimens (“3D printed at 100% infill and annealed at 110°C/20 min, XY axis”) — and additionally distinguishes amorphous from semi-crystalline state for impact strength (160 against 233 J/m). The HDT of 75 to 85 °C accordingly applies only after annealing; unannealed PLA sits at 55 °C."
+    "de": "Das aussagekräftigste PLA-Blatt in der Datenbank: Es nennt Infill, Bauorientierung und Temperung der Prüfkörper („3D printed at 100% infill and annealed at 110°C/20 min, XY axis“) — und unterscheidet zusätzlich zwischen amorphem und teilkristallinem Zustand bei der Schlagzähigkeit (160 gegen 233 J/m). Die HDT von 75 bis 85 °C gilt entsprechend nur getempert; ungetempertes PLA liegt bei 55 °C.",
+    "en": "The most informative PLA sheet in the dataset: it states infill, build orientation and annealing of the specimens (“3D printed at 100% infill and annealed at 110°C/20 min, XY axis”) — and additionally distinguishes amorphous from semi-crystalline state for impact strength (160 against 233 J/m). The HDT of 75 to 85 °C accordingly applies only after annealing; unannealed PLA sits at 55 °C."
   },
   "datasheet": {
     "title": "Spectrum PLA Pro — Technical Data Sheet",
@@ -129,8 +129,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "7 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Nebula Filaments PLA Tech 609 HD. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "7 values in this record appear identically at: Nebula Filaments PLA Tech 609 HD. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "7 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Nebula Filaments PLA Tech 609 HD. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "7 values on this datasheet appear digit for digit at Nebula Filaments PLA Tech 609 HD as well. They are therefore not 2 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

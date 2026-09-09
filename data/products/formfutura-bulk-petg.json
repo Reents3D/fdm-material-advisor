@@ -61,8 +61,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

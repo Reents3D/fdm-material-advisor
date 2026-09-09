@@ -40,8 +40,8 @@
       "min": 1.01,
       "max": 1.22,
       "note": {
-        "de": "Spanne: Marktkorridor über 28 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 28 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Spanne: Bandbreite am Markt über 28 Produkte (Open Filament Database, Stand 2026.07.31), ohne die äußersten 10 % nach oben und unten. Kein Messwert, sondern die Streuung der Herstellerangaben.",
+        "en": "Range: Market range across 28 products (Open Filament Database, version 2026.07.31), excluding the top and bottom 10 %. Not a measurement but the spread of manufacturer figures."
       }
     },
     "tensileStrengthXy": {
@@ -52,8 +52,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 54.5 MPa (Fillamentum) bis 120 MPa (Fiberlogy). Prüfkörper: 0 von 3 gedruckt, Rest undeklariert.",
-        "en": "Median of 3 manufacturer datasheets, range 54.5 MPa (Fillamentum) to 120 MPa (Fiberlogy). Specimens: 0 of 3 printed, remainder undeclared."
+        "de": "Median aus 3 Herstellerblättern, Spanne 54.5 MPa (Fillamentum) bis 120 MPa (Fiberlogy). Prüfkörper: 0 von 3 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 3 manufacturer datasheets, range 54.5 MPa (Fillamentum) to 120 MPa (Fiberlogy). Specimens: 0 of 3 printed, remainder not stated."
       },
       "min": 54.5,
       "max": 120
@@ -104,8 +104,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 2 Herstellerblättern, Spanne 75 kJ/m² (Fiberlogy) bis 86.2 kJ/m² (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
-        "en": "Median of 2 manufacturer datasheets, range 75 kJ/m² (Fiberlogy) to 86.2 kJ/m² (Fillamentum). Specimens: 0 of 2 printed, remainder undeclared."
+        "de": "Median aus 2 Herstellerblättern, Spanne 75 kJ/m² (Fiberlogy) bis 86.2 kJ/m² (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 2 manufacturer datasheets, range 75 kJ/m² (Fiberlogy) to 86.2 kJ/m² (Fillamentum). Specimens: 0 of 2 printed, remainder not stated."
       },
       "orientation": "XY",
       "min": 75,
@@ -118,8 +118,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 2 Herstellerblättern, Spanne 9 kJ/m² (Extrudr) bis 15 kJ/m² (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
-        "en": "Median of 2 manufacturer datasheets, range 9 kJ/m² (Extrudr) to 15 kJ/m² (Fiberlogy). Specimens: 0 of 2 printed, remainder undeclared."
+        "de": "Median aus 2 Herstellerblättern, Spanne 9 kJ/m² (Extrudr) bis 15 kJ/m² (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 2 manufacturer datasheets, range 9 kJ/m² (Extrudr) to 15 kJ/m² (Fiberlogy). Specimens: 0 of 2 printed, remainder not stated."
       },
       "orientation": "XY",
       "min": 9,
@@ -132,8 +132,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
-        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder not stated."
       },
       "testStandard": "ISO 7619"
     }
@@ -143,7 +143,7 @@
       "value": 58,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -151,7 +151,7 @@
       "value": 139,
       "unit": "°C",
       "testStandard": "ISO 75, 0.45 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -159,7 +159,7 @@
       "value": 145,
       "unit": "°C",
       "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -180,8 +180,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 2 Herstellerblättern, Spanne 160 °C (Fillamentum) bis 178 °C (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
-        "en": "Median of 2 manufacturer datasheets, range 160 °C (Fillamentum) to 178 °C (Fiberlogy). Specimens: 0 of 2 printed, remainder undeclared."
+        "de": "Median aus 2 Herstellerblättern, Spanne 160 °C (Fillamentum) bis 178 °C (Fiberlogy). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 2 manufacturer datasheets, range 160 °C (Fillamentum) to 178 °C (Fiberlogy). Specimens: 0 of 2 printed, remainder not stated."
       },
       "min": 160,
       "max": 178,
@@ -479,8 +479,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -549,8 +549,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -576,8 +576,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
-          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht gemessen. Aus der eigenen Fertigung belegt ist bisher: bis 800 × 800 mm ohne Probleme. Das ist ein unterer Rand und keine Grenze; größere Teile wurden bisher schlicht nicht gefertigt.",
+          "en": "Estimated from warping tendency and chamber requirement, not measured. Established from own production so far: up to 800 × 800 mm without problems. That is a lower bound, not a limit; larger parts simply have not been made yet."
         }
       },
       "maxSpoolWeightKg": {
@@ -648,8 +648,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
         }
       },
       {
@@ -659,8 +659,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -671,8 +671,8 @@
         "retrievedAt": "2026-08-07",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
-          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find different limits."
+          "de": "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), keine Versuchsreihe. Sie zeigt, was in dieser Fertigung zuverlässig läuft: mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
+          "en": "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × 1,800 mm), not a test series. It shows what runs reliably in this shop: with chamber, brim and practised staff. Another workshop may find different limits."
         }
       },
       {
@@ -684,8 +684,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "4 Angebote von 3 Marken (Extrudr, Fiberlogy, Spectrum). Günstigstes Fiberlogy Nylon PA12+CF, 2,5 kg für 195,99 € (78,40 €/kg); teuerstes Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg für 169,99 € (85,00 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "4 offers from 3 brands (Extrudr, Fiberlogy, Spectrum). Cheapest Fiberlogy Nylon PA12+CF, 2.5 kg at 195.99 € (78.40 €/kg); dearest Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg at 169.99 € (85.00 €/kg). The full list is in data/prices.json."
+          "de": "4 Angebote von 3 Marken (Extrudr, Fiberlogy, Spectrum). Günstigstes Fiberlogy Nylon PA12+CF, 2,5 kg für 195,99 € (78,40 €/kg); teuerstes Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg für 169,99 € (85,00 €/kg).",
+          "en": "4 offers from 3 brands (Extrudr, Fiberlogy, Spectrum). Cheapest Fiberlogy Nylon PA12+CF, 2.5 kg at 195.99 € (78.40 €/kg); dearest Extrudr Extrudr DuraPro PA12 CF Schwarz, 1,75 mm / 2000 g, 2 kg at 169.99 € (85.00 €/kg)."
         }
       },
       {
@@ -697,8 +697,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg für 59,49 € (118,98 €/kg); teuerstes Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg für 59,49 € (118,98 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg at 59.49 € (118.98 €/kg); dearest Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg at 59.49 € (118.98 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Extrudr). Einziges Angebot: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0,5 kg für 59,49 € (118,98 €/kg).",
+          "en": "1 offer from 1 brand (Extrudr). Only offer: Extrudr DuraPro PA12 CF black 1.75 mm 0.5 kg, 0.5 kg at 59.49 € (118.98 €/kg)."
         }
       },
       {
@@ -710,8 +710,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Fillamentum). Günstigstes Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg für 64,01 € (106,68 €/kg); teuerstes Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg für 64,01 € (106,68 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Fillamentum). Cheapest Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg at 64.01 € (106.68 €/kg); dearest Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg at 64.01 € (106.68 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Fillamentum). Einziges Angebot: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0,6 kg für 64,01 € (106,68 €/kg).",
+          "en": "1 offer from 1 brand (Fillamentum). Only offer: Fillamentum Nylon CF15 Carbon — 1.75 mm, 0.6 kg at 64.01 € (106.68 €/kg)."
         }
       },
       {
@@ -724,8 +724,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {
@@ -779,8 +779,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt nicht für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: caprolactam (PA6) or laurolactam (PA12) from butadiene, petrochemical. This does not apply to PA11, which comes from castor oil and is not listed here. The filler does not change that — carbon and glass fibre are not bio-based either. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

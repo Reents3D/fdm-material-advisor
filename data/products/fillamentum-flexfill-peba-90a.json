@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Mit 1,0 g/cm³ das leichteste Elastomer im Bestand. Das Blatt nennt Abriebverlust nach ISO 4649 und hebt die Beständigkeit gegen ASTM-Öle und -Kraftstoffe hervor — genau der Punkt, an dem polyesterbasiertes TPU versagt.",
+    "de": "Mit 1,0 g/cm³ das leichteste Elastomer in der Datenbank. Das Blatt nennt Abriebverlust nach ISO 4649 und hebt die Beständigkeit gegen ASTM-Öle und -Kraftstoffe hervor — genau der Punkt, an dem polyesterbasiertes TPU versagt.",
     "en": "At 1.0 g/cm³ the lightest elastomer in the dataset. The sheet gives abrasion loss to ISO 4649 and stresses resistance to ASTM oils and fuels — precisely where polyester-based TPU fails."
   },
   "datasheet": {

@@ -63,13 +63,11 @@ const SOURCE = {
   retrievedAt: CONFIRMED, confidenceCeiling: "medium",
   note: t(
     "Eigene Fertigungserfahrung aus laufender XXL-Produktion (Bauraum bis 1.800 × 2.400 × 1.800 mm), "
-    + "keine Versuchsreihe. Eine Quelle, deshalb höchstens `medium`. Sie beantwortet, was in DIESER "
-    + "Fertigung zuverlässig läuft — mit Kammer, Brim und geübtem Personal. Eine andere Werkstatt "
-    + "kann andere Grenzen haben.",
+    + "keine Versuchsreihe. Sie zeigt, was in dieser Fertigung zuverlässig läuft: mit Kammer, Brim "
+    + "und geübtem Personal. Eine andere Werkstatt kann andere Grenzen haben.",
     "Own production experience from ongoing XXL manufacturing (build volume up to 1,800 × 2,400 × "
-    + "1,800 mm), not a test series. A single source, therefore `medium` at most. It answers what runs "
-    + "reliably in THIS shop — with chamber, brim and practised staff. Another workshop may find "
-    + "different limits."),
+    + "1,800 mm), not a test series. It shows what runs reliably in this shop: with chamber, brim "
+    + "and practised staff. Another workshop may find different limits."),
 };
 
 /* Ueber einen Meter zuverlaessig gefertigt. Die Reihenfolge stammt aus derselben Auskunft:
@@ -154,7 +152,7 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json"))) {
       /* Wert NICHT anfassen: 800 ist der grösste gefertigte Fall, keine gefundene Grenze. */
       node.note = t(
         `Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. `
-        + `Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein `
+        + `Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Hinweis. Das ist ein `
         + `unterer Rand und keine Grenze; dort war schlicht das größte Teil.`
         + (NO_XXL.includes(m.id)
           ? " Im echten Großformat wurde dieser Werkstoff noch nicht gefahren — bisher nur auf den"

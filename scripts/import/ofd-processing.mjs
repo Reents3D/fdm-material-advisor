@@ -110,8 +110,8 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
     /* Knapp halten - der Text steht in 19 Datensaetzen und geht ins Anwendungspaket
        (CI-Budget 400 kB gzip). Begruendung in ADR-035. */
     const basis = t(
-      `Marktkorridor über ${products} Produkte (Open Filament Database ${meta.version}), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.`,
-      `Market corridor across ${products} products (Open Filament Database ${meta.version}), 10th–90th percentile. Not a measurement but the spread of the offering.`,
+      `Bandbreite am Markt über ${products} Produkte (Open Filament Database, Stand ${meta.version}), ohne die äußersten 10 % nach oben und unten. Kein Messwert, sondern die Streuung der Herstellerangaben.`,
+      `Market range across ${products} products (Open Filament Database, version ${meta.version}), excluding the top and bottom 10 %. Not a measurement but the spread of manufacturer figures.`,
     );
 
     const node = m[grp]?.[key];
@@ -159,7 +159,7 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
 }
 
 console.log(`Marktkorridor aus ${all.filaments.length} Filamenten (Stand ${meta.version}).`);
-console.log(`${touched} Datensätze geändert · ${spans.length} Spannen ergänzt · ${fills.length} Felder erstmals belegt.\n`);
+console.log(`${touched} Einträge geändert · ${spans.length} Spannen ergänzt · ${fills.length} Felder erstmals belegt.\n`);
 
 if (fills.length) {
   console.log("  Erstmals belegt (Wert + Spanne, Quelle src_ofd, Konfidenz low):");

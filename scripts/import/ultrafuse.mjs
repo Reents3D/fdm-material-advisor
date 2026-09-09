@@ -47,7 +47,7 @@ const XZ = (v, u, o = {}) => q(v, u, { ...o, orientation: "XZ" });
 const ZX = (v, u, o = {}) => q(v, u, { ...o, orientation: "Z" });
 
 const SPECIMEN_NOTE = t(
-  "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard im gesamten Bestand: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
+  "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard in der gesamten Datenbank: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
   "Printed specimens in three build orientations: XY flat, XZ on edge, ZX upright. The sheet additionally states the print parameters used to make the specimens — nozzle temperature, bed temperature, nozzle diameter and print speed. That is the highest evidentiary standard in the entire dataset: the values can not only be placed in context, they can be reprinted.");
 
 const P = [
@@ -92,7 +92,7 @@ const P = [
       minNozzleDiameter: q(0.6, "mm", { conditions: "Rubin oder gehärtet" }),
       dryingTemperature: q(65, "°C", { conditions: "4 bis 16 h im Umluft- oder Vakuumtrockner" }),
     },
-    features: t("Der Anisotropiefaktor steht hier nicht als Ableitung, sondern schwarz auf weiss im Blatt: 12,5 von 63,2 MPa bleiben stehend erhalten — 20 %. Bei der ungekerbten Schlagzähigkeit sind es 1,3 von 27,8 kJ/m², also knapp 5 %. Wer ein Bauteil aus PET CF15 stehend druckt und liegend rechnet, verrechnet sich um den Faktor fünf bis zwanzig. Bemerkenswert ist auch die Dichte: Sie wurde am gedruckten Teil bestimmt (1,366 g/cm³) und nicht am Filament — das schliesst die Porosität mit ein.",
+    features: t("Der Anisotropiefaktor steht hier nicht als Ableitung, sondern schwarz auf weiss im Blatt: 12,5 von 63,2 MPa bleiben stehend erhalten — 20 %. Bei der ungekerbten Schlagzähigkeit sind es 1,3 von 27,8 kJ/m², also knapp 5 %. Wer ein Bauteil aus PET CF15 stehend druckt und liegend rechnet, verrechnet sich um den Faktor fünf bis zwanzig. Bemerkenswert ist auch die Dichte: Sie wurde am gedruckten Teil bestimmt (1,366 g/cm³) und nicht am Filament — das schließt die Porosität mit ein.",
                 "The anisotropy factor is not a derivation here but stated in black and white: 12.5 of 63.2 MPa remain when printed upright — 20 %. For unnotched impact it is 1.3 of 27.8 kJ/m², barely 5 %. Anyone printing a PET CF15 part upright while calculating with flat values is out by a factor of five to twenty. The density is notable too: it was determined on the printed part (1.366 g/cm³) rather than on the filament — which includes the porosity."),
   },
 
@@ -141,7 +141,7 @@ const P = [
       minNozzleDiameter: q(0.6, "mm", { conditions: "Rubin oder gehärtet" }),
       dryingTemperature: q(80, "°C", { conditions: "mindestens 4 bis 16 h im Umluft- oder Vakuumtrockner" }),
     },
-    features: t("Das einzige Blatt im Bestand, das dieselben Kennwerte TROCKEN und KONDITIONIERT nebeneinanderstellt (23 °C, 50 % rF, 72 h). Der Unterschied ist kein Detail: Die HDT bei 0,45 MPa fällt von 145 auf 128 °C, die Poisson-Zahl steigt von 0,44 auf 0,51. Ein Polyamid nimmt Wasser auf, und das Datenblatt sagt hier ausnahmsweise, was das kostet. Stehend gedruckt bleiben von 103,2 MPa noch 18,2 übrig — 18 %.",
+    features: t("Das einzige Blatt in der Datenbank, das dieselben Kennwerte TROCKEN und KONDITIONIERT nebeneinanderstellt (23 °C, 50 % rF, 72 h). Der Unterschied ist kein Detail: Die HDT bei 0,45 MPa fällt von 145 auf 128 °C, die Poisson-Zahl steigt von 0,44 auf 0,51. Ein Polyamid nimmt Wasser auf, und das Datenblatt sagt hier ausnahmsweise, was das kostet. Stehend gedruckt bleiben von 103,2 MPa noch 18,2 übrig — 18 %.",
                 "The only sheet in the dataset that places the same values DRY and CONDITIONED side by side (23 °C, 50 % RH, 72 h). The difference is no detail: HDT at 0.45 MPa falls from 145 to 128 °C, Poisson's ratio rises from 0.44 to 0.51. A polyamide takes up water, and for once the datasheet says what that costs. Printed upright, 18.2 MPa remain of 103.2 — 18 %."),
   },
 ];

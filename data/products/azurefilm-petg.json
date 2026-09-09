@@ -109,8 +109,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit deklarierten Prüfkörper-Druckparametern. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, sind die Kennwerte keine Werkstoffkennwerte — das Ceiling steht dort auf 'low'.",
-          "en": "Manufacturer datasheet with declared specimen print parameters. Where the specimen was printed at 20 % infill the values are not material data — the ceiling is set to 'low' in those cases."
+          "de": "Herstellerdatenblatt mit angegebenen Druckparametern der Prüfkörper. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, beschreiben die Kennwerte die Geometrie mit und gelten deshalb nur als schwach belegt.",
+          "en": "Manufacturer datasheet with the specimens' print parameters stated. Where the specimen was printed at 20 % infill, the values partly describe the geometry and therefore count as weakly substantiated."
         }
       }
     ]

@@ -9,11 +9,11 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Ein europäisches Blatt mit ISO-Normen führt die Schlagzähigkeit in ft·lbf/in² und die HDT-Last in psi. Die Zahlen sind eindeutig umrechenbar und stehen hier in kJ/m² beziehungsweise mit der Lastangabe in MPa; die Blattangaben stehen jeweils in `conditions`. Der Mischmasch aus ISO-Norm und imperialer Einheit deutet auf eine übernommene Vorlage aus einer anderen Quelle — die Schlagwerte tragen deshalb `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: A European sheet with ISO standards carries impact strength in ft·lbf/in² and the HDT load in psi. The figures convert unambiguously and appear here in kJ/m² and with the load in MPa; the sheet's own figures stand in `conditions` in each case. The mixture of ISO standard and imperial unit suggests a template taken from another source — the impact values therefore carry `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Ein europäisches Blatt mit ISO-Normen führt die Schlagzähigkeit in ft·lbf/in² und die HDT-Last in psi. Die Zahlen sind eindeutig umrechenbar und stehen hier in kJ/m² beziehungsweise mit der Lastangabe in MPa; die Blattangaben stehen jeweils bei den Prüfbedingungen. Der Mischmasch aus ISO-Norm und imperialer Einheit deutet auf eine übernommene Vorlage aus einer anderen Quelle — die Schlagwerte gelten deshalb als schwach belegt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: A European sheet with ISO standards carries impact strength in ft·lbf/in² and the HDT load in psi. The figures convert unambiguously and appear here in kJ/m² and with the load in MPa; the sheet's own figures stand under the test conditions in each case. The mixture of ISO standard and imperial unit suggests a template taken from another source — the impact values therefore count as weakly substantiated."
   },
   "features": {
-    "de": "Der steifste ASA-Werkstoff des Bestands: 7580 MPa gegenüber 2020 MPa beim unverstärkten ApolloX desselben Herstellers, also fast das Vierfache. Anders als bei PETG steigt hier auch die Wärmeformbeständigkeit deutlich mit — HDT-B 100,5 °C. Bezahlt wird mit 1,8 % Bruchdehnung gegenüber 15 %.",
+    "de": "Der steifste ASA-Werkstoff der Datenbank: 7580 MPa gegenüber 2020 MPa beim unverstärkten ApolloX desselben Herstellers, also fast das Vierfache. Anders als bei PETG steigt hier auch die Wärmeformbeständigkeit deutlich mit — HDT-B 100,5 °C. Bezahlt wird mit 1,8 % Bruchdehnung gegenüber 15 %.",
     "en": "The stiffest ASA material in the dataset: 7580 MPa against 2020 MPa for the same manufacturer's unreinforced ApolloX, almost fourfold. Unlike with PETG the heat deflection rises markedly too — HDT-B 100.5 °C. The price is 1.8 % elongation at break against 15 %."
   },
   "datasheet": {
@@ -68,7 +68,7 @@
     "charpyNotchedXy": {
       "value": 5.4,
       "unit": "kJ/m²",
-      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.",
+      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die ungekerbte Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit LOW.",
       "orientation": "XY",
       "source": "src_tds",
       "confidence": "low"
@@ -111,8 +111,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

@@ -37,6 +37,19 @@ Datenvollständigkeit; ein erfundenes beschädigt das ganze Projekt.
 
 Feldreferenz: [DATA_MODEL.md](DATA_MODEL.md) · Zitierregeln: [SOURCES.md](SOURCES.md)
 
+## Die zweite Regel
+
+**Anzeigetexte erklären den Werkstoff, nicht die Methode.**
+
+Jede Notiz, jede offene Frage und jede Prüfbedingung erscheint wörtlich in der Oberfläche.
+Sie richtet sich an jemanden, der dieses Repository nicht kennt: keine ADR-Nummern, keine
+Feld- oder Dateipfade, keine Konfidenz-Schlüssel in Backticks, keine Kalibrierungsbefunde.
+Statt `low` heißt es „schwach belegt", statt `medium` „einfach belegt". Die CI prüft das
+(Regel R20); Hintergrund in [ADR-045](DECISIONS.md#adr-045).
+
+Wer eine Notiz in `data/**` ändert, zieht den erzeugenden Importer unter `scripts/import/`
+mit — sonst schreibt der nächste `npm run import:all` den alten Text zurück.
+
 ## Worauf wir beim Review achten
 
 - [ ] Jeder Zahlenwert hat Einheit, Quelle, Konfidenz

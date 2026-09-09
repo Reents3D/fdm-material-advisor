@@ -9,8 +9,8 @@
   "origin": "Polen",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nDieses Blatt ist eine reine Bild-PDF ohne Textebene; die Werte wurden von der gerenderten Seite abgelesen statt maschinell extrahiert.\n\nBefund zu diesem Datenblatt: Zwei Prüfnormen passen nicht zur Eigenschaft. Die Zugwerte stehen unter ASTM D882 — das ist die Norm für dünne FOLIEN, nicht für Formteile; für Zug an Kunststoffprüfkörpern wäre D638 einschlägig. Und die Wärmeformbeständigkeit steht unter ASTM E2092, einer thermomechanischen Analyse; die HDT ist ASTM D648. Dieselbe Folien-Verwechslung steht auch im PLA-Blatt von Material4Print — offenbar reist sie mit dem Rohstoffdatenblatt durch die Branche.",
-    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nThis sheet is a pure image PDF without a text layer; the values were read off the rendered page rather than extracted mechanically.\n\nFinding on this datasheet: Two test standards do not fit the property. The tensile values sit under ASTM D882 — the standard for thin FILMS, not for mouldings; for tensile on plastic specimens D638 would apply. And heat deflection sits under ASTM E2092, a thermomechanical analysis; HDT is ASTM D648. The same film mix-up appears in the PLA sheet from Material4Print — apparently it travels with the raw-material datasheet through the industry."
+    "de": "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heißt zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.\n\nDieses Blatt ist eine reine Bild-PDF ohne Textebene; die Werte wurden von der gerenderten Seite abgelesen statt maschinell extrahiert.\n\nHinweis zu diesem Datenblatt: Zwei Prüfnormen passen nicht zur Eigenschaft. Die Zugwerte stehen unter ASTM D882 — das ist die Norm für dünne FOLIEN, nicht für Formteile; für Zug an Kunststoffprüfkörpern wäre D638 einschlägig. Und die Wärmeformbeständigkeit steht unter ASTM E2092, einer thermomechanischen Analyse; die HDT ist ASTM D648. Dieselbe Folien-Verwechslung steht auch im PLA-Blatt von Material4Print — offenbar reist sie mit dem Rohstoffdatenblatt durch die Branche.",
+    "en": "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.\n\nThis sheet is a pure image PDF without a text layer; the values were read off the rendered page rather than extracted mechanically.\n\nNote on this datasheet: Two test standards do not fit the property. The tensile values sit under ASTM D882 — the standard for thin FILMS, not for mouldings; for tensile on plastic specimens D638 would apply. And heat deflection sits under ASTM E2092, a thermomechanical analysis; HDT is ASTM D648. The same film mix-up appears in the PLA sheet from Material4Print — apparently it travels with the raw-material datasheet through the industry."
   },
   "datasheet": {
     "title": "Fiberlogy Easy PLA — Technical Data Sheet",
@@ -29,7 +29,7 @@
     "tensileStrengthXy": {
       "value": 60,
       "unit": "MPa",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "conditions": "Streckspannung; Bruchspannung 53 MPa",
       "source": "src_tds",
       "confidence": "low"
@@ -37,14 +37,14 @@
     "tensileModulusXy": {
       "value": 3500,
       "unit": "MPa",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
     "elongationAtYieldXy": {
       "value": 6,
       "unit": "%",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
@@ -72,7 +72,7 @@
     "hdtB": {
       "value": 55,
       "unit": "°C",
-      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
+      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
@@ -125,8 +125,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. Reine Bild-PDF, Werte von der gerenderten Seite abgelesen.",
-          "en": "Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. Pure image PDF, values read off the rendered page."
+          "de": "Herstellerdatenblatt. Der Hersteller gibt selbst an, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung; sie gelten deshalb als schwach belegt. Reine Bild-PDF, Werte von der dargestellten Seite abgelesen.",
+          "en": "Manufacturer datasheet. The manufacturer itself states that the values come from reference works and supplier data rather than its own measurements, so they count as weakly substantiated. Pure image PDF, values read off the rendered page."
         }
       }
     ]
@@ -153,8 +153,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "8 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Damit sind es nicht 9 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "8 values in this record appear identically at: Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. That makes them not 9 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "8 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Es handelt sich also nicht um 9 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "8 values on this datasheet appear digit for digit at Fillamentum Fillamentum PLA Extrafill · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium as well. They are therefore not 9 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

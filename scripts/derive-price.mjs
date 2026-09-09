@@ -131,12 +131,12 @@ const median = (xs) => {
 };
 
 const ESTIMATE_NOTE = t(
-  `Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom ${SURVEYED} hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.`,
-  `Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of ${SURVEYED} showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low.`);
+  `Geschätzte Marktspanne, kein erhobener Preis: Bei der Erhebung vom ${SURVEYED} wurde zu diesem Werkstoff kein Händlerangebot gefunden. Solche Schätzungen lagen bisher meist eher zu hoch als zu niedrig.`,
+  `Estimated market range, not a surveyed price: the survey of ${SURVEYED} found no retail offer for this material. Such estimates have so far tended to run high rather than low.`);
 
 const INDEX_NOTE = t(
-  "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-  "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation.");
+  "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+  "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation.");
 
 /** Was fuer diesen Werkstoff gilt: erhoben oder geschaetzt. */
 function priceFor(id) {
@@ -243,8 +243,12 @@ for (const f of files) {
            quelloffen. Hier stehen die Zahlen, die man beim Lesen braucht: wie viele,
            welche Marken, und die beiden Enden der Spanne. */
         note: t(
-          `${list.length} Angebot${list.length === 1 ? "" : "e"} von ${brandsHere.length} Marke${brandsHere.length === 1 ? "" : "n"} (${brandsHere.join(", ")}). Günstigstes ${cheap.brand} ${cheap.product}, ${String(cheap.spoolKg).replace(".", ",")} kg für ${eur(cheap.priceEur)} € (${eur(cheap.pricePerKg)} €/kg); teuerstes ${dear.brand} ${dear.product}, ${String(dear.spoolKg).replace(".", ",")} kg für ${eur(dear.priceEur)} € (${eur(dear.pricePerKg)} €/kg). Die vollständige Liste steht in data/prices.json.`,
-          `${list.length} offer${list.length === 1 ? "" : "s"} from ${brandsHere.length} brand${brandsHere.length === 1 ? "" : "s"} (${brandsHere.join(", ")}). Cheapest ${cheap.brand} ${cheap.product}, ${cheap.spoolKg} kg at ${cheap.priceEur.toFixed(2)} € (${cheap.pricePerKg.toFixed(2)} €/kg); dearest ${dear.brand} ${dear.product}, ${dear.spoolKg} kg at ${dear.priceEur.toFixed(2)} € (${dear.pricePerKg.toFixed(2)} €/kg). The full list is in data/prices.json.`),
+          `${list.length} Angebot${list.length === 1 ? "" : "e"} von ${brandsHere.length} Marke${brandsHere.length === 1 ? "" : "n"} (${brandsHere.join(", ")}). ${list.length === 1
+            ? `Einziges Angebot: ${cheap.brand} ${cheap.product}, ${String(cheap.spoolKg).replace(".", ",")} kg für ${eur(cheap.priceEur)} € (${eur(cheap.pricePerKg)} €/kg).`
+            : `Günstigstes ${cheap.brand} ${cheap.product}, ${String(cheap.spoolKg).replace(".", ",")} kg für ${eur(cheap.priceEur)} € (${eur(cheap.pricePerKg)} €/kg); teuerstes ${dear.brand} ${dear.product}, ${String(dear.spoolKg).replace(".", ",")} kg für ${eur(dear.priceEur)} € (${eur(dear.pricePerKg)} €/kg).`}`,
+          `${list.length} offer${list.length === 1 ? "" : "s"} from ${brandsHere.length} brand${brandsHere.length === 1 ? "" : "s"} (${brandsHere.join(", ")}). ${list.length === 1
+            ? `Only offer: ${cheap.brand} ${cheap.product}, ${cheap.spoolKg} kg at ${cheap.priceEur.toFixed(2)} € (${cheap.pricePerKg.toFixed(2)} €/kg).`
+            : `Cheapest ${cheap.brand} ${cheap.product}, ${cheap.spoolKg} kg at ${cheap.priceEur.toFixed(2)} € (${cheap.pricePerKg.toFixed(2)} €/kg); dearest ${dear.brand} ${dear.product}, ${dear.spoolKg} kg at ${dear.priceEur.toFixed(2)} € (${dear.pricePerKg.toFixed(2)} €/kg).`}`),
       });
     }
     const brands = [...new Set(p.offers.map((o) => o.brand))];
@@ -316,11 +320,11 @@ for (const f of files) {
          sie nicht vollstaendig, aber sie nehmen ihr die Sprengkraft. */
       oq[idx].blocking = p.offers.length === 0;
       oq[idx].question = t(
-        `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} und ${p.brands ?? 0} Marke${p.brands === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
-        `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} and ${p.brands ?? 0} brand${p.brands === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
+        `Preisbasis noch schmal: bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} und ${p.brands ?? 0} Marke${p.brands === 1 ? "" : "n"} (Stand ${SURVEYED}). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis ${p.surveyed ? "nur ein Anhaltspunkt" : "eine Schätzung"}.`,
+        `Price basis still thin: so far ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} and ${p.brands ?? 0} brand${p.brands === 1 ? "" : "s"} (as of ${SURVEYED}). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is ${p.surveyed ? "only a rough guide" : "an estimate"}.`);
     }
     /* `oq` kann eine frisch angelegte Liste sein - dann haengt sie noch nicht am
-       Datensatz und ein `push` oben waere spurlos verpufft. */
+       Eintrag und ein `push` oben waere spurlos verpufft. */
     if (oq.length) m.governance.openQuestions = oq;
     else delete m.governance.openQuestions;
   }

@@ -9,8 +9,8 @@
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Der Biege-E-Modul von 23500 kg/cm² wurde nicht übernommen: umgerechnet sind das rund 2300 MPa. Ein Elastomer mit Shore 95A liegt bei 20 bis 80 MPa — der Wert ist um etwa den Faktor dreißig zu hoch und liegt verdächtig nah am Zug-E-Modul im ASA-Blatt desselben Hauses (22100 kg/cm²). Ebenso stehen die VICAT A von 95 °C und die Schmelztemperatur von 190 °C wortgleich im ASA-Blatt.",
-    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: The flexural modulus of 23500 kg/cm² was not imported: converted, that is about 2300 MPa. An elastomer at Shore 95A sits at 20 to 80 MPa — the value is roughly thirty times too high and lies suspiciously close to the tensile modulus in this house's ASA sheet (22100 kg/cm²). Likewise the VICAT A of 95 °C and the melting temperature of 190 °C appear verbatim in the ASA sheet."
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nHinweis zu diesem Datenblatt: Der Biege-E-Modul von 23500 kg/cm² wurde nicht übernommen: umgerechnet sind das rund 2300 MPa. Ein Elastomer mit Shore 95A liegt bei 20 bis 80 MPa — der Wert ist um etwa den Faktor dreißig zu hoch und liegt verdächtig nah am Zug-E-Modul im ASA-Blatt desselben Hauses (22100 kg/cm²). Ebenso stehen die VICAT A von 95 °C und die Schmelztemperatur von 190 °C wortgleich im ASA-Blatt.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nNote on this datasheet: The flexural modulus of 23500 kg/cm² was not imported: converted, that is about 2300 MPa. An elastomer at Shore 95A sits at 20 to 80 MPa — the value is roughly thirty times too high and lies suspiciously close to the tensile modulus in this house's ASA sheet (22100 kg/cm²). Likewise the VICAT A of 95 °C and the melting temperature of 190 °C appear verbatim in the ASA sheet."
   },
   "datasheet": {
     "title": "3DJAKE TPU A95 — Technical Data Sheet",
@@ -86,8 +86,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
-          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt sich selbst widerspricht, gilt der Wert als schwach belegt.",
+          "en": "Manufacturer datasheet without a stated specimen type. Where the sheet contradicts itself, the value counts as weakly substantiated."
         }
       }
     ]

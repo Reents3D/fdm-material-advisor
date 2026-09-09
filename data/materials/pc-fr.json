@@ -150,10 +150,10 @@
         "mechanics.tensileStrengthZ",
         "mechanics.tensileStrengthXy"
       ],
-      "conditions": "Beide Operanden aus dem Blatt von Bambu Lab Bambu PC FR — nicht aus diesem Datensatz",
+      "conditions": "Beide Zahlen aus dem Datenblatt von Bambu Lab Bambu PC FR, nicht aus den Werten des Werkstofftyps",
       "note": {
-        "de": "Senkrecht zur Schicht bleiben 35 % der Zugfestigkeit erhalten (21 von 60 MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von Bambu Lab Bambu PC FR — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `estimated` und nicht die Konfidenz des Blattes.",
-        "en": "Perpendicular to the layers 35 % of the tensile strength remains (21 of 60 MPa). Both operands come from ONE datasheet, that of Bambu Lab Bambu PC FR — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence `estimated` rather than the sheet's confidence."
+        "de": "Senkrecht zur Schicht bleiben 35 % der Zugfestigkeit erhalten (21 von 60 MPa). Beide Zahlen stammen aus einem einzigen Datenblatt, dem von Bambu Lab Bambu PC FR; für den Werkstofftyp selbst liegt keine Z-Festigkeit vor. Der Faktor beschreibt damit dieses eine Produkt, nicht den Typ als Ganzes, und ein anderer Hersteller kann deutlich abweichen. Er ist deshalb als Schätzung gekennzeichnet.",
+        "en": "Perpendicular to the layers 35 % of the tensile strength remains (21 of 60 MPa). Both figures come from a single datasheet, that of Bambu Lab Bambu PC FR; no Z strength exists for the material type itself. The factor therefore describes this one product, not the type as a whole, and another manufacturer may differ markedly. It is therefore marked as an estimate."
       }
     }
   },
@@ -162,7 +162,7 @@
       "value": 98,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -170,7 +170,7 @@
       "value": 106,
       "unit": "°C",
       "testStandard": "ISO 75, 0.45 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -178,7 +178,7 @@
       "value": 115,
       "unit": "°C",
       "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -490,8 +490,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -575,8 +575,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -602,8 +602,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt. Dieser Werkstoff wird bisher nur auf den Engineering-Druckern gefahren, nicht im Großformat — es gibt also keine eigene Erfahrung, gegen die sich die Schätzung prüfen ließe.",
-          "en": "Estimated, not established. This material is so far run only on the engineering printers, not at large format — so there is no own experience against which the estimate could be checked."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff läuft bisher nur auf den Engineering-Druckern, nicht im Großformat; eigene Erfahrung, an der sich die Schätzung prüfen ließe, gibt es deshalb noch nicht.",
+          "en": "Estimated, not established. So far this material runs only on the engineering printers, not at large format, so there is no own experience yet against which the estimate could be checked."
         }
       }
     },
@@ -646,8 +646,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
         }
       },
       {
@@ -657,8 +657,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -670,8 +670,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote von 2 Marken (Bambu Lab, Spectrum). Günstigstes Spectrum PC/ABS FR V0 Black, 1 kg für 35,99 € (35,99 €/kg); teuerstes Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg für 56,99 € (56,99 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "5 offers from 2 brands (Bambu Lab, Spectrum). Cheapest Spectrum PC/ABS FR V0 Black, 1 kg at 35.99 € (35.99 €/kg); dearest Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg at 56.99 € (56.99 €/kg). The full list is in data/prices.json."
+          "de": "5 Angebote von 2 Marken (Bambu Lab, Spectrum). Günstigstes Spectrum PC/ABS FR V0 Black, 1 kg für 35,99 € (35,99 €/kg); teuerstes Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg für 56,99 € (56,99 €/kg).",
+          "en": "5 offers from 2 brands (Bambu Lab, Spectrum). Cheapest Spectrum PC/ABS FR V0 Black, 1 kg at 35.99 € (35.99 €/kg); dearest Bambu Lab Bambu Lab PC FR Black, Spule, 1 kg at 56.99 € (56.99 €/kg)."
         }
       },
       {
@@ -683,8 +683,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Extrudr). Günstigstes Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg für 49,58 € (49,58 €/kg); teuerstes Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg für 49,58 € (49,58 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Extrudr). Cheapest Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg at 49.58 € (49.58 €/kg); dearest Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg at 49.58 € (49.58 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Extrudr). Einziges Angebot: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg für 49,58 € (49,58 €/kg).",
+          "en": "1 offer from 1 brand (Extrudr). Only offer: Extrudr DuraPro PC FR V0 black 1.75 mm 1 kg, 1 kg at 49.58 € (49.58 €/kg)."
         }
       },
       {
@@ -696,8 +696,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (3DXTech). Günstigstes 3DXTech Firewire FR-ABS Schwarz, 0,75 kg für 79,90 € (106,53 €/kg); teuerstes 3DXTech Firewire FR-ABS Schwarz, 0,75 kg für 79,90 € (106,53 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (3DXTech). Cheapest 3DXTech Firewire FR-ABS Schwarz, 0.75 kg at 79.90 € (106.53 €/kg); dearest 3DXTech Firewire FR-ABS Schwarz, 0.75 kg at 79.90 € (106.53 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (3DXTech). Einziges Angebot: 3DXTech Firewire FR-ABS Schwarz, 0,75 kg für 79,90 € (106,53 €/kg).",
+          "en": "1 offer from 1 brand (3DXTech). Only offer: 3DXTech Firewire FR-ABS Schwarz, 0.75 kg at 79.90 € (106.53 €/kg)."
         }
       },
       {
@@ -741,8 +741,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. The filler does not change that — carbon and glass fibre are not bio-based either. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: bisphenol A and phosgene or diphenyl carbonate, both petrochemical. The filler does not change that — carbon and glass fibre are not bio-based either. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

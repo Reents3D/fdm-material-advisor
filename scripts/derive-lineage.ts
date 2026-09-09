@@ -143,25 +143,25 @@ for (const members of groups.values()) {
 
     const tail = isOrigin
       ? t(
-          `Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: ${ORIGINS.get(r.id)} Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.`,
-          `For this record it is established that it is not the copy: ${ORIGINS.get(r.id)} Its values therefore keep their confidence — those of the other parties do not.`,
+          `Dieses Blatt ist nachweislich das Original: ${ORIGINS.get(r.id)} Seine Werte bleiben deshalb voll gültig; die der übrigen Beteiligten gelten als übernommen.`,
+          `This sheet is demonstrably the original: ${ORIGINS.get(r.id)} Its values therefore remain fully valid; those of the other parties count as copied.`,
         )
       : origin
         ? t(
-            `Als Ursprung dieser Zahlen ist ${origin.brand} ${origin.productName} belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb ` + "`low`" + `.`,
-            `${origin.brand} ${origin.productName} is established as the origin of these figures; this record passes them on. The shared values therefore carry ` + "`low`" + `.`,
+            `Die Zahlen stammen ursprünglich von ${origin.brand} ${origin.productName}; dieses Blatt übernimmt sie. Die übernommenen Werte gelten deshalb als schwach belegt.`,
+            `The figures originate from ${origin.brand} ${origin.productName}; this sheet takes them over. The copied values therefore count as weakly substantiated.`,
           )
         : t(
-            `Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten ` + "`low`" + `.`,
-            `Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry ` + "`low`" + ` for every party involved.`,
+            `Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.`,
+            `Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved.`,
           );
 
     r.sharedLineage = {
       with: others.map((o) => o.id).sort(),
       sharedFields: [...shared].sort(),
       note: t(
-        `${shared.size} Kennwerte dieses Datensatzes stehen zifferngleich auch bei: ${partnerLabels.join(" · ")}. Damit sind es nicht ${members.length} Belege, sondern einer. ${tail.de}`,
-        `${shared.size} values in this record appear identically at: ${partnerLabels.join(" · ")}. That makes them not ${members.length} pieces of evidence but one. ${tail.en}`,
+        `${shared.size} Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei ${partnerLabels.join(" · ")}. Es handelt sich also nicht um ${members.length} unabhängige Belege, sondern um eine einzige Messung. ${tail.de}`,
+        `${shared.size} values on this datasheet appear digit for digit at ${partnerLabels.join(" · ")} as well. They are therefore not ${members.length} independent pieces of evidence but a single measurement. ${tail.en}`,
       ),
     };
     stamped++;
@@ -186,7 +186,7 @@ for (const members of groups.values()) {
 
 console.log(`${groups.size} Dublettengruppen · ${stamped} Datensaetze gekennzeichnet · ${downgraded} Werte auf \`low\` gesetzt.`);
 console.log(`  ${untouched} geteilte Werte trugen bereits \`low\` oder \`estimated\` · ${originsKept} Datensaetze als belegter Ursprung verschont.\n`);
-console.log("  Datensatz                              geteilt  abgewertet  Gruppe");
+console.log("  Eintrag                              geteilt  abgewertet  Gruppe");
 for (const [name, sh, dn, brands] of report.sort((a, b) => Number(b[1]) - Number(a[1]))) {
   console.log(`  ${name!.padEnd(38)}${sh!.padStart(5)}${dn!.padStart(11)}   ${brands}`);
 }
@@ -197,4 +197,4 @@ console.log("  Verschont wird nur, wessen Vorrang aus den DATEN hervorgeht - die
 console.log("  als ORIGINS im Skript, jeder Eintrag mit seinem Beleg.");
 console.log("  Werte, die nur EIN Produkt der Gruppe fuehrt, bleiben immer unangetastet.");
 
-if (byId.size !== records.length) console.warn("WARNUNG: doppelte Produkt-IDs im Bestand");
+if (byId.size !== records.length) console.warn("WARNUNG: doppelte Produkt-IDs in der Datenbank");

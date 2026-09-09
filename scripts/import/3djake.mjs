@@ -236,7 +236,7 @@ const P = [
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
       bedTemperature: q(30, "°C", { min: 0, max: 60 }),
     },
-    features: t("Die Dichte von 1,3 g/cm³ gegenüber 1,24 beim ecoPLA zeigt die mineralische Füllung, die den matten Effekt macht — sie kostet Steifigkeit (2600 statt 3500 MPa). Bemerkenswert ist die Fussnote: Die Temperaturbeständigkeit gilt ausdrücklich erst ab 4 mm Wandstärke. Solche Einschränkungen stehen selten im Blatt, obwohl sie für dünnwandige Teile den Unterschied machen.",
+    features: t("Die Dichte von 1,3 g/cm³ gegenüber 1,24 beim ecoPLA zeigt die mineralische Füllung, die den matten Effekt macht — sie kostet Steifigkeit (2600 statt 3500 MPa). Bemerkenswert ist die Fußnote: Die Temperaturbeständigkeit gilt ausdrücklich erst ab 4 mm Wandstärke. Solche Einschränkungen stehen selten im Blatt, obwohl sie für dünnwandige Teile den Unterschied machen.",
                 "The density of 1.3 g/cm³ against 1.24 for ecoPLA shows the mineral filling that creates the matte effect — it costs stiffness (2600 instead of 3500 MPa). The footnote is notable: temperature resistance explicitly applies only from 4 mm wall thickness. Such qualifications rarely appear on a datasheet even though they make the difference for thin-walled parts.") },
 
   { id: "3djake-easypetg", material: "petg", name: "3DJAKE easyPETG", file: "3DJake_easyPETG", version: "1.0",
@@ -266,7 +266,7 @@ const P = [
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
       bedTemperature: q(30, "°C", { min: 0, max: 60 }),
     },
-    anomaly: t("Dieses Blatt widerspricht sich an drei Stellen. Erstens: „Breaking stress 2 %“ — eine Spannung in Prozent gibt es nicht; gemeint ist offenkundig die Bruchdehnung, aber weil das Blatt es nicht sagt, steht der Wert nicht in der Datenbank. Zweitens: VICAT A 146 °C neben HDT-B 54 °C. Zwischen beiden liegen 92 Kelvin; für denselben Werkstoff ist das nicht plausibel, und 146 °C wären für einen PLA-Biokompound aussergewöhnlich. Drittens: 43 kJ/m² gekerbte Schlagzähigkeit passen nicht zu einem Werkstoff, der laut demselben Blatt bei 2 % bricht — gekerbt liegt selbst Polycarbonat bei 10 bis 15 kJ/m². Die Werte stehen als Herstellerangabe mit niedriger Konfidenz, geglättet wird nichts.",
+    anomaly: t("Dieses Blatt widerspricht sich an drei Stellen. Erstens: „Breaking stress 2 %“ — eine Spannung in Prozent gibt es nicht; gemeint ist offenkundig die Bruchdehnung, aber weil das Blatt es nicht sagt, steht der Wert nicht in der Datenbank. Zweitens: VICAT A 146 °C neben HDT-B 54 °C. Zwischen beiden liegen 92 Kelvin; für denselben Werkstoff ist das nicht plausibel, und 146 °C wären für einen PLA-Biokompound außergewöhnlich. Drittens: 43 kJ/m² gekerbte Schlagzähigkeit passen nicht zu einem Werkstoff, der laut demselben Blatt bei 2 % bricht — gekerbt liegt selbst Polycarbonat bei 10 bis 15 kJ/m². Die Werte bleiben als Herstellerangabe stehen, gelten aber als schwach belegt; geglättet wird nichts.",
                "This sheet contradicts itself in three places. First: “Breaking stress 2 %” — there is no such thing as a stress in percent; elongation at break is obviously meant, but because the sheet does not say so, the value is not in the database. Second: VICAT A 146 °C next to HDT-B 54 °C. That is 92 kelvin apart; for the same material this is not plausible, and 146 °C would be exceptional for a PLA bio compound. Third: 43 kJ/m² notched impact does not fit a material that breaks at 2 % according to the same sheet — notched, even polycarbonate sits at 10 to 15 kJ/m². The values stand as manufacturer statements at low confidence; nothing is smoothed."),
     features: t("Kein unverstärktes PLA, sondern ein PLA-Biokompound: Dichte 1,33 g/cm³ und ein Biege-E-Modul von 5100 MPa liegen weit über dem ecoPLA desselben Hauses (1,24 g/cm³, 3500 MPa Zug-E-Modul). Der Hersteller gibt an, das Material sei industriell kompostierbar und enthalte neben PLA weitere Bestandteile.",
                 "Not an unfilled PLA but a PLA bio compound: density 1.33 g/cm³ and a flexural modulus of 5100 MPa sit far above this house's ecoPLA (1.24 g/cm³, 3500 MPa tensile modulus). The manufacturer states the material is industrially compostable and contains further components besides PLA.") },
@@ -288,8 +288,8 @@ for (const p of P) {
     brand: "3DJAKE", manufacturer: "Niceshops GmbH (3DJAKE)", productName: p.name, origin: "Österreich",
     specimenType: "undeclared",
     specimenNote: p.anomaly
-      ? t(`${SPECIMEN_NOTE.de}\n\nBefund zu diesem Datenblatt: ${p.anomaly.de}`,
-          `${SPECIMEN_NOTE.en}\n\nFinding on this datasheet: ${p.anomaly.en}`)
+      ? t(`${SPECIMEN_NOTE.de}\n\nHinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+          `${SPECIMEN_NOTE.en}\n\nNote on this datasheet: ${p.anomaly.en}`)
       : SPECIMEN_NOTE,
     ...(p.features ? { features: p.features } : {}),
     datasheet: { title: `${p.name} — Technical Data Sheet`, url, version: p.version, retrievedAt: RETRIEVED },
@@ -302,8 +302,8 @@ for (const p of P) {
         id: "src_tds", type: "manufacturer-tds", publisher: "Niceshops GmbH (3DJAKE)",
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED, confidenceCeiling: p.anomaly ? "low" : "medium",
-        note: t("Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
-                "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."),
+        note: t("Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt sich selbst widerspricht, gilt der Wert als schwach belegt.",
+                "Manufacturer datasheet without a stated specimen type. Where the sheet contradicts itself, the value counts as weakly substantiated."),
       }],
     },
   };
@@ -311,4 +311,4 @@ for (const p of P) {
   n++;
   if (p.anomaly) na++;
 }
-console.log(`${n} 3DJAKE-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund)`);
+console.log(`${n} 3DJAKE-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Hinweis)`);

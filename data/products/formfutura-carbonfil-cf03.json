@@ -14,7 +14,7 @@
   },
   "features": {
     "de": "Ein dritter unabhängiger Beleg für den Kernbefund zu PETG-CF: 3515 MPa gegenüber 1940 MPa beim HDglass desselben Herstellers — Kohlenstofffaser bringt bei PETG Steifigkeit, ungefähr das Doppelte. Eine Wärmeformbeständigkeit weist auch dieses Blatt nicht aus, womit die Aussage „CF bringt bei PETG keinen Temperaturgewinn“ weiter unwidersprochen bleibt.",
-    "en": "A third independent piece of evidence for the core finding on PETG-CF: 3515 MPa against 1940 MPa for the same manufacturer's HDglass — carbon fibre brings PETG stiffness, roughly double. This sheet too states no heat deflection temperature, leaving the statement “CF brings PETG no temperature gain” unchallenged."
+    "en": "A third independent piece of evidence for the core note on PETG-CF: 3515 MPa against 1940 MPa for the same manufacturer's HDglass — carbon fibre brings PETG stiffness, roughly double. This sheet too states no heat deflection temperature, leaving the statement “CF brings PETG no temperature gain” unchallenged."
   },
   "datasheet": {
     "title": "CarbonFil CF03 — Technical Data Sheet",
@@ -73,8 +73,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

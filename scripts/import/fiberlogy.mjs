@@ -42,7 +42,7 @@ const q = (value, unit, o = {}) => ({
 });
 
 const SPECIMEN_NOTE = t(
-  "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heisst zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.",
+  "Fiberlogy schreibt in jedes Datenblatt: „The information set forth herein has been gathered from standard reference materials and/or supplier test data.“ Der Hersteller sagt damit ausdrücklich, dass die Werte aus Referenzwerken und von den Rohstofflieferanten stammen und nicht aus eigener Messung. Das ist offener als das Schweigen der meisten Blätter — und es heißt zugleich, dass keine dieser Zahlen an einem gedruckten Bauteil entstanden ist. Für einen Vergleich mit den gedruckten Werten von Ultrafuse, Bambu Lab oder Prusa Polymers sind sie deshalb nicht geeignet.",
   "Fiberlogy writes in every datasheet: “The information set forth herein has been gathered from standard reference materials and/or supplier test data.” The manufacturer thereby says explicitly that the values come from reference works and from the raw-material suppliers, not from its own measurement. That is more open than the silence of most sheets — and it also means none of these figures arose on a printed part. They are therefore not suitable for comparison with the printed values from Ultrafuse, Bambu Lab or Prusa Polymers.");
 
 const IMAGE_ONLY = t(
@@ -115,7 +115,7 @@ const P = [
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
       bedTemperature: q(60, "°C", { min: 50, max: 70 }),
     },
-    features: t("Die Dichte von 1,27 g/cm³ gegenüber 1,24 beim Easy PLA desselben Hauses zeigt die Füllung, die den samtigen Effekt macht. Bemerkenswert ist der Abstand zwischen Streck- und Bruchspannung: 56 gegen 28 MPa — das Material fliesst deutlich, bevor es reisst.",
+    features: t("Die Dichte von 1,27 g/cm³ gegenüber 1,24 beim Easy PLA desselben Hauses zeigt die Füllung, die den samtigen Effekt macht. Bemerkenswert ist der Abstand zwischen Streck- und Bruchspannung: 56 gegen 28 MPa — das Material fließt deutlich, bevor es reißt.",
                 "The density of 1.27 g/cm³ against 1.24 for this house's Easy PLA shows the filler that creates the velvet effect. Notable is the gap between yield and break stress: 56 against 28 MPa — the material yields markedly before it tears.") },
 
   /* ---- Bild-PDF, Werte von der gerenderten Seite abgelesen ---------------- */
@@ -124,13 +124,13 @@ const P = [
     file: "c612c2bddb7a71aa950b9a3d64fad640/FIBERLOGY_EASYPLA_TDS.pdf",
     props: {
       density: q(1.24, "g/cm³", { std: "ASTM D792" }),
-      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Befund)", conditions: "Streckspannung; Bruchspannung 53 MPa" }),
-      tensileModulusXy: q(3500, "MPa", { std: "ASTM D882 (siehe Befund)" }),
-      elongationAtYieldXy: q(6, "%", { std: "ASTM D882 (siehe Befund)" }),
+      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Hinweis)", conditions: "Streckspannung; Bruchspannung 53 MPa" }),
+      tensileModulusXy: q(3500, "MPa", { std: "ASTM D882 (siehe Hinweis)" }),
+      elongationAtYieldXy: q(6, "%", { std: "ASTM D882 (siehe Hinweis)" }),
       flexuralStrengthXy: q(81, "MPa", { std: "ASTM D790" }),
       flexuralModulusXy: q(3800, "MPa", { std: "ASTM D790" }),
       izodNotchedXy: q(16, "J/m", { std: "ASTM D256, 23 °C" }),
-      hdtB: q(55, "°C", { std: "im Blatt als ASTM E2092 angegeben (siehe Befund)" }),
+      hdtB: q(55, "°C", { std: "stated on the sheet as ASTM E2092 (see note)" }),
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "ASTM D3418" }),
       meltingTemperature: q(152.5, "°C", { min: 145, max: 160, std: "ASTM D3418" }),
       nozzleTemperature: q(215, "°C", { min: 200, max: 230 }),
@@ -175,7 +175,7 @@ const P = [
       nozzleTemperature: q(235, "°C", { min: 220, max: 250 }),
       bedTemperature: q(90, "°C"),
     },
-    anomaly: t("Das Produkt heisst „PET-G V0“ — das Datenblatt nennt aber KEINE UL94-Klasse, keine Prüfdicke und keine Prüfstelle. Ein V-0 im Produktnamen ohne Klassifizierung im Blatt ist keine Brandschutzangabe, auf die sich eine Konstruktion stützen kann. Für eine Anwendung mit Brandschutzanforderung müsste ein Prüfzeugnis angefordert werden. Die Datenbank führt deshalb für dieses Produkt keine Flammklasse.",
+    anomaly: t("Das Produkt heißt „PET-G V0“ — das Datenblatt nennt aber KEINE UL94-Klasse, keine Prüfdicke und keine Prüfstelle. Ein V-0 im Produktnamen ohne Klassifizierung im Blatt ist keine Brandschutzangabe, auf die sich eine Konstruktion stützen kann. Für eine Anwendung mit Brandschutzanforderung müsste ein Prüfzeugnis angefordert werden. Die Datenbank führt deshalb für dieses Produkt keine Flammklasse.",
                "The product is called “PET-G V0” — but the datasheet names NO UL94 class, no test thickness and no test house. A V-0 in the product name without a classification on the sheet is not a flame-retardancy statement a design can rest on. For an application with a fire requirement a test certificate would have to be requested. The database therefore carries no flame class for this product."),
     features: t("Gegenüber dem Easy PET-G desselben Hauses kostet die Flammschutzausrüstung erkennbar Festigkeit (40 statt 51 MPa) und Wärmeformbeständigkeit (HDT-B 63 statt 68 °C) — dafür steigt die Bruchdehnung von 29 auf 40 %.",
                 "Against this house's Easy PET-G the flame-retardant package visibly costs strength (40 instead of 51 MPa) and heat resistance (HDT-B 63 instead of 68 °C) — in return elongation at break rises from 29 to 40 %.") },
@@ -243,8 +243,8 @@ for (const p of P) {
   const url = `${BASE}/${p.file}`;
   const parts = [SPECIMEN_NOTE];
   if (!p.text) parts.push(IMAGE_ONLY);
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`,
-                              `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+                              `Note on this datasheet: ${p.anomaly.en}`));
   const rec = {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
     id: p.id, materialId: p.material,
@@ -262,8 +262,8 @@ for (const p of P) {
         id: "src_tds", type: "manufacturer-tds", publisher: "Fiberlab S.A. (Fiberlogy)",
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url, retrievedAt: RETRIEVED, confidenceCeiling: "low",
-        note: t(`Herstellerdatenblatt. Der Hersteller weist selbst aus, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung — deshalb Ceiling 'low'. ${p.text ? "Blatt mit Textebene, maschinell ausgelesen." : "Reine Bild-PDF, Werte von der gerenderten Seite abgelesen."}`,
-                `Manufacturer datasheet. The manufacturer itself declares that the values come from reference works and supplier data rather than own measurement — hence ceiling 'low'. ${p.text ? "Sheet with text layer, read mechanically." : "Pure image PDF, values read off the rendered page."}`),
+        note: t(`Herstellerdatenblatt. Der Hersteller gibt selbst an, dass die Werte aus Referenzwerken und Lieferantendaten stammen und nicht aus eigener Messung; sie gelten deshalb als schwach belegt. ${p.text ? "Blatt mit Textebene, maschinell ausgelesen." : "Reine Bild-PDF, Werte von der dargestellten Seite abgelesen."}`,
+                `Manufacturer datasheet. The manufacturer itself states that the values come from reference works and supplier data rather than its own measurements, so they count as weakly substantiated. ${p.text ? "Sheet with text layer, read by machine." : "Pure image PDF, values read off the rendered page."}`),
       }],
     },
   };
@@ -272,5 +272,5 @@ for (const p of P) {
   if (p.anomaly) na++;
 }
 
-console.log(`${n} Fiberlogy-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund)`);
+console.log(`${n} Fiberlogy-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Hinweis)`);
 console.log(`  4 Blaetter mit Textebene, ${n - 4} als Bild-PDF abgelesen`);

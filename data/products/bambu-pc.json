@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- UND Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
-    "en": "Bambu Lab tests PRINTED specimens and reports X-Y AND Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far."
+    "de": "Bambu Lab prueft gedruckte Koerper und weist X-Y- und Z-Werte aus. Dadurch lässt sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; außerhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+    "en": "Bambu Lab tests printed specimens and reports X-Y and Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far."
   },
   "datasheet": {
     "title": "Bambu Filament Technical Data Sheet - PC",
@@ -109,8 +109,8 @@
       "confidence": "low",
       "testStandard": "ISO 75, 1.8 MPa",
       "note": {
-        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt über der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen; die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide gelten deshalb nur als schwach belegt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is above HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature; the values are swapped or were measured on different batches. Both therefore count as weakly substantiated only."
       }
     },
     "hdtB": {
@@ -120,8 +120,8 @@
       "confidence": "low",
       "testStandard": "ISO 75, 0.45 MPa",
       "note": {
-        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence."
+        "de": "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt über der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen; die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide gelten deshalb nur als schwach belegt.",
+        "en": "Datasheet error: HDT at 1.8 MPa (117 °C) is above HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature; the values are swapped or were measured on different batches. Both therefore count as weakly substantiated only."
       }
     },
     "glassTransition": {
@@ -163,8 +163,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Prüfkörper sind GEDRUCKT, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
-          "en": "Specimens are PRINTED, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
+          "de": "Prüfkörper sind gedruckt, nicht spritzgegossen, und mit X-Y- und Z-Werten ausgewiesen. Das macht die Werte für FDM-Auslegung brauchbar und über alle Bambu-Materialien vergleichbar - anders als Rohstoff-Datenblätter.",
+          "en": "Specimens are printed, not injection moulded, and reported with both X-Y and Z values. That makes the figures usable for FDM design and comparable across all Bambu materials - unlike resin datasheets."
         }
       }
     ]

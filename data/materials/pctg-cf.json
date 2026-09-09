@@ -77,8 +77,8 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "OHNE Prüfnorm, und das ist Absicht. Das Blatt beschriftet diese Zeile als „Izod Notched“, nennt als Norm aber ISO 179-1eU — das ist Charpy UNGEKERBT. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; eine der beiden Angaben ist falsch, und welche, sagt das Blatt nicht. Das ungefüllte Schwesterblatt nennt für dieselbe Zeile ISO 180 (Izod). Die Zahl selbst ist plausibel: 4 gegen 45 kJ/m² ungekerbt ist ein Verhältnis von 1:11, wie man es bei einem gefüllten, spröden Werkstoff erwartet.",
-        "en": "WITHOUT a test standard, deliberately. The sheet labels this row “Izod Notched” but names ISO 179-1eU as the standard — that is Charpy UNNOTCHED. A notched value cannot arise from an unnotched standard; one of the two statements is wrong, and the sheet does not say which. The unfilled sister sheet names ISO 180 (Izod) for the same row. The figure itself is plausible: 4 against 45 kJ/m² unnotched is a ratio of 1:11, as expected for a filled, brittle material."
+        "de": "Ohne Prüfnorm, und das ist Absicht. Das Blatt beschriftet diese Zeile als „Izod Notched“, nennt als Norm aber ISO 179-1eU — das ist Charpy ungekerbt. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; eine der beiden Angaben ist falsch, und welche, sagt das Blatt nicht. Das ungefüllte Schwesterblatt nennt für dieselbe Zeile ISO 180 (Izod). Die Zahl selbst ist plausibel: 4 gegen 45 kJ/m² ungekerbt ist ein Verhältnis von 1:11, wie man es bei einem gefüllten, spröden Werkstoff erwartet.",
+        "en": "Without a test standard, deliberately. The sheet labels this row “Izod Notched” but names ISO 179-1eU as the standard — that is Charpy unnotched. A notched value cannot arise from an unnotched standard; one of the two statements is wrong, and the sheet does not say which. The unfilled sister sheet names ISO 180 (Izod) for the same row. The figure itself is plausible: 4 against 45 kJ/m² unnotched is a ratio of 1:11, as expected for a filled, brittle material."
       }
     },
     "toughness": {
@@ -125,8 +125,8 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "OHNE Prüfnorm: Das Blatt nennt als Methode „DSC“. DSC misst Phasenübergänge, keine Vicat-Erweichung — das ist keine Vicat-Norm. Eine anzugeben, die das Blatt nicht nennt, wäre eine Erfindung. Derselbe Fehler steht im ungefüllten AthenaX-Blatt; es ist eine Vorlagenschwäche bei FormFutura, kein Einzelfall.",
-        "en": "WITHOUT a test standard: the sheet names “DSC” as the method. DSC measures phase transitions, not Vicat softening — that is not a Vicat standard. Stating one the sheet does not name would be an invention. The same error appears in the unfilled AthenaX sheet; it is a template weakness at FormFutura, not a one-off."
+        "de": "Ohne Prüfnorm: Das Blatt nennt als Methode „DSC“. DSC misst Phasenübergänge, keine Vicat-Erweichung — das ist keine Vicat-Norm. Eine anzugeben, die das Blatt nicht nennt, wäre eine Erfindung. Derselbe Fehler steht im ungefüllten AthenaX-Blatt; es ist eine Vorlagenschwäche bei FormFutura, kein Einzelfall.",
+        "en": "Without a test standard: the sheet names “DSC” as the method. DSC measures phase transitions, not Vicat softening — that is not a Vicat standard. Stating one the sheet does not name would be an invention. The same error appears in the unfilled AthenaX sheet; it is a template weakness at FormFutura, not a one-off."
       }
     },
     "recommendedMaxServiceTemperature": {
@@ -467,8 +467,8 @@
         "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -586,8 +586,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil.",
-          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht gemessen. Aus der eigenen Fertigung belegt ist bisher: bis 800 × 800 mm ohne Probleme. Das ist ein unterer Rand und keine Grenze; größere Teile wurden bisher schlicht nicht gefertigt.",
+          "en": "Estimated from warping tendency and chamber requirement, not measured. Established from own production so far: up to 800 × 800 mm without problems. That is a lower bound, not a limit; larger parts simply have not been made yet."
         }
       }
     },
@@ -596,8 +596,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Fließt unter keinen Umständen in Filterung oder Bewertung ein (ADR-004).",
-        "en": "Never enters filtering or scoring under any circumstances (ADR-004)."
+        "de": "Der Portfolio-Status beeinflusst weder Filterung noch Bewertung.",
+        "en": "Portfolio status affects neither filtering nor assessment."
       }
     }
   },
@@ -620,8 +620,8 @@
       {
         "id": "oq_pctg_cf_modulus",
         "question": {
-          "de": "E-Modul beschaffen — weder Zug noch Biegung steht auf dem Blatt. Das ist ausgerechnet die Zahl, die eine Faserfüllung am deutlichsten zeigt: Beim glasgefüllten Schwestertyp `pctg-gf` steigt sie von 1.650 auf 3.400 MPa. Ohne sie fehlt dem Typ die Steifigkeitsangabe, er kann in der Kompromissanalyse nicht auf Steifigkeit verglichen werden, und die Plausibilitätsregel R16 (Füllstoff muss den Modul heben) läuft für ihn ins Leere.",
-          "en": "Obtain a modulus — neither tensile nor flexural appears on the sheet. That is precisely the figure a fibre filling shows most clearly: for the glass-filled sister type `pctg-gf` it rises from 1,650 to 3,400 MPa. Without it the type carries no stiffness figure, it cannot be compared on stiffness in the trade-off analysis, and plausibility rule R16 (filler must raise the modulus) has nothing to check."
+          "de": "E-Modul beschaffen: Weder Zug- noch Biegemodul steht auf dem Blatt. Ausgerechnet diese Zahl zeigt eine Faserfüllung am deutlichsten; beim glasgefüllten Schwestertyp PCTG-GF steigt sie von 1.650 auf 3.400 MPa. Ohne sie fehlt dem Typ die Steifigkeitsangabe, und er kann im Vergleich nicht auf Steifigkeit beurteilt werden.",
+          "en": "Obtain a modulus: neither tensile nor flexural modulus appears on the sheet. That is precisely the figure a fibre filling shows most clearly; for the glass-filled sister type PCTG-GF it rises from 1,650 to 3,400 MPa. Without it the type has no stiffness figure and cannot be compared on stiffness."
         },
         "blocking": false,
         "affectsFields": [

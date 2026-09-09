@@ -59,12 +59,12 @@ const UNDECLARED = t(
   "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.");
 
 const PRINTED = t(
-  "Dieses Blatt deklariert den Prüfkörper vollständig: „Mechanical properties on 3D printed samples“, mit Werten für XY UND Z und mit Angabe von Düsentemperatur (200 °C), Betttemperatur (65 °C), Druckgeschwindigkeit (20 mm/s), zwei Perimetern und 100 % Infill. Das ist die vollständigste Prüfkörperdeklaration im gesamten Bestand.",
-  "This sheet declares the specimen in full: “Mechanical properties on 3D printed samples”, with values for XY AND Z and stating nozzle temperature (200 °C), bed temperature (65 °C), print speed (20 mm/s), two perimeters and 100 % infill. It is the most complete specimen declaration in the entire dataset.");
+  "Dieses Blatt deklariert den Prüfkörper vollständig: „Mechanical properties on 3D printed samples“, mit Werten für XY und Z und mit Angabe von Düsentemperatur (200 °C), Betttemperatur (65 °C), Druckgeschwindigkeit (20 mm/s), zwei Perimetern und 100 % Infill. Das ist die vollständigste Prüfkörperdeklaration in der gesamten Datenbank.",
+  "This sheet declares the specimen in full: “Mechanical properties on 3D printed samples”, with values for XY and Z and stating nozzle temperature (200 °C), bed temperature (65 °C), print speed (20 mm/s), two perimeters and 100 % infill. It is the most complete specimen declaration in the entire dataset.");
 
 /* Der Folienbefund taucht bei fuenf Marken auf und wird deshalb einmal formuliert. */
 const D882 = t(
-  "Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre ASTM D638 einschlägig. Fillamentum ist damit die fünfte Marke im Bestand mit genau diesem Fehler, nach Material4Print, Fiberlogy und Spectrum. Bei fünf unabhängigen Herstellern ist das kein Zufall, sondern ein Fehler, der mit dem Rohstoffdatenblatt des Granulatlieferanten durch die Branche wandert. Zusätzlich steht die Wärmeformbeständigkeit unter ASTM E2092, einer thermomechanischen Analyse, statt unter der HDT-Norm ASTM D648.",
+  "Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre ASTM D638 einschlägig. Fillamentum ist damit die fünfte Marke in der Datenbank mit genau diesem Fehler, nach Material4Print, Fiberlogy und Spectrum. Bei fünf unabhängigen Herstellern ist das kein Zufall, sondern ein Fehler, der mit dem Rohstoffdatenblatt des Granulatlieferanten durch die Branche wandert. Zusätzlich steht die Wärmeformbeständigkeit unter ASTM E2092, einer thermomechanischen Analyse, statt unter der HDT-Norm ASTM D648.",
   "The tensile values sit under ASTM D882, the standard for thin FILMS — for mouldings ASTM D638 would apply. Fillamentum is thus the fifth brand in the dataset with exactly this error, after Material4Print, Fiberlogy and Spectrum. Across five independent manufacturers that is no coincidence but an error travelling through the industry with the granulate supplier's raw-material datasheet. The heat deflection figure moreover sits under ASTM E2092, a thermomechanical analysis, instead of the HDT standard ASTM D648.");
 
 const FIBRE_MODULUS = t(
@@ -106,7 +106,7 @@ const P = [
       bedTemperature: q(97, "°C", { min: 90, max: 105 }),
       printSpeed: q(30, "mm/s", { min: 20, max: 40 }),
     },
-    features: t("184 kJ/m² ungekerbt ist der höchste Schlagzähigkeitswert der ganzen Datenbank. Das Blatt nennt ausserdem Medienbeständigkeiten mit Temperaturangabe und weist ausdrücklich darauf hin, dass PP ohne Haftvermittler und Brim nicht auf dem Bett hält.",
+    features: t("184 kJ/m² ungekerbt ist der höchste Schlagzähigkeitswert der ganzen Datenbank. Das Blatt nennt außerdem Medienbeständigkeiten mit Temperaturangabe und weist ausdrücklich darauf hin, dass PP ohne Haftvermittler und Brim nicht auf dem Bett hält.",
                 "184 kJ/m² unnotched is the highest impact figure in the whole database. The sheet also states media resistances with temperature and points out explicitly that PP will not stay on the bed without an adhesion promoter and a brim.") },
 
   { id: "fillamentum-fluorodur", material: "pvdf", name: "Fillamentum Fluorodur (PVDF)",
@@ -138,8 +138,8 @@ const P = [
       nozzleTemperature: q(222, "°C", { min: 215, max: 230 }),
       bedTemperature: q(80, "°C"),
     },
-    anomaly: t("Zugfestigkeit, Bruchdehnung und Härte stehen unter „10-LA 049“ und „10-LA 031“ — werkseigenen Prüfvorschriften, die nicht veröffentlicht sind. Diese drei Werte sind mit keinem anderen Produkt im Bestand vergleichbar und tragen deshalb `low` statt `medium`. Nur die Vicat-Erweichung steht unter einer öffentlichen Norm. Zudem erwähnt das Blatt die Chlorwasserstoffabspaltung bei Überhitzung nicht, obwohl sie das eigentliche Verarbeitungsrisiko von PVC ist.",
-               "Tensile strength, elongation at break and hardness sit under “10-LA 049” and “10-LA 031” — in-house test procedures that are not published. These three values are comparable with no other product in the dataset and therefore carry `low` instead of `medium`. Only the Vicat softening point sits under a public standard. The sheet moreover does not mention hydrogen chloride release on overheating, although that is PVC's actual processing risk.") },
+    anomaly: t("Zugfestigkeit, Bruchdehnung und Härte stehen unter „10-LA 049“ und „10-LA 031“ — werkseigenen Prüfvorschriften, die nicht veröffentlicht sind. Diese drei Werte sind mit keinem anderen Produkt in der Datenbank vergleichbar und gelten deshalb als schwach belegt. Nur die Vicat-Erweichung steht unter einer öffentlichen Norm. Zudem erwähnt das Blatt die Chlorwasserstoffabspaltung bei Überhitzung nicht, obwohl sie das eigentliche Verarbeitungsrisiko von PVC ist.",
+               "Tensile strength, elongation at break and hardness sit under “10-LA 049” and “10-LA 031” — in-house test procedures that are not published. These three values are comparable with no other product in the dataset and therefore count as weakly substantiated. Only the Vicat softening point sits under a public standard. The sheet moreover does not mention hydrogen chloride release on overheating, although that is PVC's actual processing risk.") },
 
   { id: "fillamentum-flexfill-peba-90a", material: "peba", name: "Fillamentum Flexfill PEBA 90A",
     file: "2020/11/TDS_Flexfill-PEBA-90A_EN.pdf",
@@ -153,7 +153,7 @@ const P = [
       nozzleTemperature: q(235, "°C", { min: 225, max: 245 }),
       bedTemperature: q(80, "°C", { min: 70, max: 90 }),
     },
-    features: t("Mit 1,0 g/cm³ das leichteste Elastomer im Bestand. Das Blatt nennt Abriebverlust nach ISO 4649 und hebt die Beständigkeit gegen ASTM-Öle und -Kraftstoffe hervor — genau der Punkt, an dem polyesterbasiertes TPU versagt.",
+    features: t("Mit 1,0 g/cm³ das leichteste Elastomer in der Datenbank. Das Blatt nennt Abriebverlust nach ISO 4649 und hebt die Beständigkeit gegen ASTM-Öle und -Kraftstoffe hervor — genau der Punkt, an dem polyesterbasiertes TPU versagt.",
                 "At 1.0 g/cm³ the lightest elastomer in the dataset. The sheet gives abrasion loss to ISO 4649 and stresses resistance to ASTM oils and fuels — precisely where polyester-based TPU fails.") },
 
   { id: "fillamentum-obc-905", material: "obc", name: "Fillamentum OBC 905", printed: true,
@@ -171,8 +171,8 @@ const P = [
       izodNotchedXy: q(34.3, "kJ/m²", { std: "ASTM D256", orientation: "XY", conditions: "gekerbt, gedruckt" }),
       izodNotchedZ: q(43.1, "kJ/m²", { std: "ASTM D256", orientation: "Z", confidence: "low",
         conditions: "gekerbt, gedruckt — höher als der X-Y-Wert (34,3), was bei FDM erklärungsbedürftig ist",
-        note: t("Quer zur Schicht steht hier mehr als längs, und das ist bei FDM zunächst unplausibel: Die Schichtgrenze ist die schwächste Ebene. Die übrigen Größen desselben Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 14 gegen 11, Bruchdehnung 700 gegen 480, Biegefestigkeit 7,8 gegen 6,8), ein bloßer Zahlendreher ist also nicht belegt. Bei einem Werkstoff dieser Weichheit — Shore D 53, 700 % Bruchdehnung — bricht die gekerbte Izod-Probe häufig nicht durch, sondern klappt um; der Messwert beschreibt dann aufgenommene Verformungsarbeit statt Bruchenergie, und eine Probe, die entlang der Schichtgrenzen nachgibt, kann dabei mehr aufnehmen als eine, die als Block widersteht. Ob das hier zutrifft, sagt das Blatt nicht — es nennt keinen Bruchtyp. Der Wert bleibt deshalb stehen und trägt `low`.",
-                "Across the layers more is reported than along them, and in FDM that is implausible at first sight: the layer boundary is the weakest plane. The other quantities on the same sheet behave as expected (tensile 14 against 11, elongation 700 against 480, flexural 7.8 against 6.8), so a mere transposition is not established. In a material this soft — Shore D 53, 700 % elongation — the notched Izod specimen frequently does not break through but hinges; the value then describes absorbed deformation work rather than fracture energy, and a specimen that yields along the layer boundaries can absorb more than one resisting as a block. Whether that applies here the sheet does not say — it states no break type. The value therefore stands and carries `low`.") }),
+        note: t("Quer zur Schicht steht hier mehr als längs, und das ist bei FDM zunächst unplausibel: Die Schichtgrenze ist die schwächste Ebene. Die übrigen Größen desselben Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 14 gegen 11, Bruchdehnung 700 gegen 480, Biegefestigkeit 7,8 gegen 6,8), ein bloßer Zahlendreher ist also nicht belegt. Bei einem Werkstoff dieser Weichheit — Shore D 53, 700 % Bruchdehnung — bricht die gekerbte Izod-Probe häufig nicht durch, sondern klappt um; der Messwert beschreibt dann aufgenommene Verformungsarbeit statt Bruchenergie, und eine Probe, die entlang der Schichtgrenzen nachgibt, kann dabei mehr aufnehmen als eine, die als Block widersteht. Ob das hier zutrifft, sagt das Blatt nicht — es nennt keinen Bruchtyp. Der Wert bleibt deshalb stehen, gilt aber als schwach belegt.",
+                "Across the layers more is reported than along them, and in FDM that is implausible at first sight: the layer boundary is the weakest plane. The other quantities on the same sheet behave as expected (tensile 14 against 11, elongation 700 against 480, flexural 7.8 against 6.8), so a mere transposition is not established. In a material this soft — Shore D 53, 700 % elongation — the notched Izod specimen frequently does not break through but hinges; the value then describes absorbed deformation work rather than fracture energy, and a specimen that yields along the layer boundaries can absorb more than one resisting as a block. Whether that applies here the sheet does not say — it states no break type. The value therefore stands but counts as weakly substantiated.") }),
       hardnessShoreD: q(53, "Shore D", { std: "ISO 7619" }),
       meltingTemperature: q(130, "°C", { std: "ISO 11357" }),
       glassTransition: q(-13, "°C", { std: "ISO 11357" }),
@@ -181,7 +181,7 @@ const P = [
       bedTemperature: q(65, "°C", { conditions: "Prüfkörperbedingung" }),
       printSpeed: q(20, "mm/s", { conditions: "Prüfkörperbedingung" }),
     },
-    features: t("Das aussagekräftigste Blatt im gesamten Bestand. Es weist alle mechanischen Werte getrennt für XY und Z aus, an ausdrücklich GEDRUCKTEN Prüfkörpern, und nennt dazu Düsentemperatur, Betttemperatur, Druckgeschwindigkeit, Perimeterzahl und Infill. Es beantwortet zudem vier Ja-Nein-Fragen, um die sich fast alle Blätter drücken: UV-Stabilität nein, Lebensmittelkontakt nein, biologisch abbaubar nein, transparent nein.",
+    features: t("Das aussagekräftigste Blatt in der gesamten Datenbank. Es weist alle mechanischen Werte getrennt für XY und Z aus, an ausdrücklich GEDRUCKTEN Prüfkörpern, und nennt dazu Düsentemperatur, Betttemperatur, Druckgeschwindigkeit, Perimeterzahl und Infill. Es beantwortet zudem vier Ja-Nein-Fragen, um die sich fast alle Blätter drücken: UV-Stabilität nein, Lebensmittelkontakt nein, biologisch abbaubar nein, transparent nein.",
                 "The most informative sheet in the entire dataset. It gives every mechanical value separately for XY and Z, on explicitly PRINTED specimens, and states nozzle temperature, bed temperature, print speed, perimeter count and infill. It moreover answers four yes-no questions almost every sheet dodges: UV stability no, food contact no, biodegradable no, transparent no."),
     anomaly: t("Ein innerer Widerspruch: Die Schlagzähigkeit steht zweimal da, einmal in J/m und einmal in kJ/m². In XY passen die beiden Angaben zusammen (347 J/m ÷ 10,16 mm Restligament = 34,2 ≈ 34,3 kJ/m²). In Z passen sie nicht: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Je nachdem, welche Einheit man liest, ist der Werkstoff stehend gedruckt gleich schlagzäh (Faktor 1,01) oder ein Viertel zäher (Faktor 1,26). Übernommen sind beide kJ/m²-Angaben, der abgeleitete Faktor im Werkstofftyp nutzt die konservativere Rechnung.",
                "An internal contradiction: impact strength appears twice, once in J/m and once in kJ/m². In XY the two agree (347 J/m ÷ 10.16 mm remaining ligament = 34.2 ≈ 34.3 kJ/m²). In Z they do not: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. Depending on which unit one reads, the material printed upright is either equally tough (factor 1.01) or a quarter tougher (factor 1.26). Both kJ/m² figures are imported; the derived factor in the material type uses the more conservative calculation.") },
@@ -207,13 +207,13 @@ const P = [
     props: {
       density: q(1.24, "g/cm³"),
       meltFlowRate: q(6, "g/10min", { std: "ASTM D1238", conditions: "210 °C, 2,16 kg" }),
-      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Befund)", conditions: "Streckspannung; Bruchspannung 53 MPa", confidence: "low" }),
-      elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (siehe Befund)", confidence: "low" }),
-      tensileModulusXy: q(3600, "MPa", { std: "ASTM D882 (siehe Befund)", confidence: "low" }),
+      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Hinweis)", conditions: "Streckspannung; Bruchspannung 53 MPa", confidence: "low" }),
+      elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (siehe Hinweis)", confidence: "low" }),
+      tensileModulusXy: q(3600, "MPa", { std: "ASTM D882 (siehe Hinweis)", confidence: "low" }),
       flexuralStrengthXy: q(83, "MPa", { std: "ASTM D790" }),
       flexuralModulusXy: q(3800, "MPa", { std: "ASTM D790" }),
       izodNotchedXy: q(16, "J/m", { std: "ASTM D256", conditions: "23 °C, gekerbt" }),
-      hdtB: q(55, "°C", { std: "im Blatt als ASTM E2092 angegeben (siehe Befund)", conditions: "0,45 MPa", confidence: "low" }),
+      hdtB: q(55, "°C", { std: "stated on the sheet as ASTM E2092 (see note)", conditions: "0,45 MPa", confidence: "low" }),
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "ASTM D3418" }),
       nozzleTemperature: q(200, "°C", { min: 190, max: 210 }),
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
@@ -273,12 +273,12 @@ const P = [
     file: "2020/10/Technical-Data-Sheet_CPE-HG100_03012019.pdf",
     props: {
       density: q(1.25, "g/cm³"),
-      tensileStrengthXy: q(47, "MPa", { std: "ASTM D638", conditions: "Streckspannung, 50 mm/min; Bruchspannung 48 MPa (siehe Befund)" }),
+      tensileStrengthXy: q(47, "MPa", { std: "ASTM D638", conditions: "Streckspannung, 50 mm/min; Bruchspannung 48 MPa (siehe Hinweis)" }),
       elongationAtBreakXy: q(150, "%", { std: "ASTM D638", conditions: "50 mm/min" }),
       flexuralStrengthXy: q(71, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min" }),
       flexuralModulusXy: q(1860, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min" }),
       hdtB: q(80, "°C", { std: "ASTM D648", conditions: "0,455 MPa" }),
-      glassTransition: q(90, "°C", { std: "im Blatt als ASTM D1525 angegeben (siehe Befund)" }),
+      glassTransition: q(90, "°C", { std: "im Blatt als ASTM D1525 angegeben (siehe Hinweis)" }),
       nozzleTemperature: q(265, "°C", { min: 255, max: 275 }),
       bedTemperature: q(77, "°C", { min: 70, max: 85 }),
       dryingTemperature: q(60, "°C", { conditions: "3 bis 4 Stunden" }),
@@ -320,7 +320,7 @@ const P = [
       nozzleTemperature: q(270, "°C", { min: 260, max: 280 }),
       bedTemperature: q(97, "°C", { min: 90, max: 105 }),
     },
-    features: t("Der beste Kälteschlagwert im Bestand: 55 kJ/m² gekerbt bei 23 °C fallen bei −30 °C nur auf 41 kJ/m² — ein Rückgang von 25 %, während ABS im selben Sprung 58 % verliert. Für Aussen- und Fahrzeuganwendungen ist das der entscheidende Unterschied. Das Blatt nennt zudem als eines von wenigen den Wärmeausdehnungskoeffizienten.",
+    features: t("Der beste Kälteschlagwert in der Datenbank: 55 kJ/m² gekerbt bei 23 °C fallen bei −30 °C nur auf 41 kJ/m² — ein Rückgang von 25 %, während ABS im selben Sprung 58 % verliert. Für Außen- und Fahrzeuganwendungen ist das der entscheidende Unterschied. Das Blatt nennt zudem als eines von wenigen den Wärmeausdehnungskoeffizienten.",
                 "The best low-temperature impact figure in the dataset: 55 kJ/m² notched at 23 °C fall to only 41 kJ/m² at −30 °C — a drop of 25 %, where ABS loses 58 % over the same step. For outdoor and vehicle applications that is the decisive difference. The sheet is also one of the few to give the coefficient of thermal expansion.") },
 
   { id: "fillamentum-nylon-fx256", material: "pa12", name: "Fillamentum Nylon FX256",
@@ -366,7 +366,7 @@ const P = [
       nozzleTemperature: q(245, "°C", { min: 235, max: 255 }),
       bedTemperature: q(100, "°C", { min: 90, max: 110 }),
     },
-    features: t("Der einzige aramidverstärkte Werkstoff im Bestand — und einer der wenigen mit einer Schlagzähigkeit, die bei −20 °C STEIGT statt zu fallen (58,8 gegen 53,2 kJ/m²). Das Grundpolymer nennt das Blatt ausdrücklich: Polyamid 12.",
+    features: t("Der einzige aramidverstärkte Werkstoff in der Datenbank — und einer der wenigen mit einer Schlagzähigkeit, die bei −20 °C STEIGT statt zu fallen (58,8 gegen 53,2 kJ/m²). Das Grundpolymer nennt das Blatt ausdrücklich: Polyamid 12.",
                 "The only aramid-reinforced material in the dataset — and one of the few whose impact strength RISES at −20 °C instead of falling (58.8 against 53.2 kJ/m²). The sheet names the base polymer explicitly: polyamide 12."),
     anomaly: FIBRE_MODULUS },
 
@@ -383,7 +383,7 @@ const P = [
       nozzleTemperature: q(160, "°C", { min: 150, max: 170 }),
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
-    features: t("Die niedrigste Drucktemperatur im gesamten Bestand: 150 bis 170 °C. Holzgefüllte Filamente verbrennen bei den üblichen PLA-Temperaturen, deshalb liegt das Fenster so tief — und deshalb ist es so eng.",
+    features: t("Die niedrigste Drucktemperatur in der gesamten Datenbank: 150 bis 170 °C. Holzgefüllte Filamente verbrennen bei den üblichen PLA-Temperaturen, deshalb liegt das Fenster so tief — und deshalb ist es so eng.",
                 "The lowest printing temperature in the entire dataset: 150 to 170 °C. Wood-filled filaments scorch at the usual PLA temperatures, which is why the window sits so low — and why it is so narrow.") },
 
   { id: "fillamentum-nonoilen", material: "pla", name: "Fillamentum NonOilen",
@@ -436,7 +436,7 @@ const P = [
       nozzleTemperature: q(230, "°C", { min: 220, max: 240 }),
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
-    features: t("Der beste Abriebwert im Bestand: 23 mm³ nach ISO 4649. Zum Vergleich liegt das weichere TPU 92A desselben Herstellers bei 30 mm³ und PEBA bei unter 48 mm³.",
+    features: t("Der beste Abriebwert in der Datenbank: 23 mm³ nach ISO 4649. Zum Vergleich liegt das weichere TPU 92A desselben Herstellers bei 30 mm³ und PEBA bei unter 48 mm³.",
                 "The best abrasion figure in the dataset: 23 mm³ to ISO 4649. For comparison, the same manufacturer's softer TPU 92A sits at 30 mm³ and PEBA below 48 mm³.") },
 ];
 
@@ -449,8 +449,8 @@ let n = 0, na = 0, np = 0;
 for (const p of P) {
   const url = `${U}/${p.file}`;
   const parts = [p.printed ? PRINTED : UNDECLARED];
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`,
-                              `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+                              `Note on this datasheet: ${p.anomaly.en}`));
   const rec = {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
     id: p.id, materialId: p.material,
@@ -482,7 +482,7 @@ for (const p of P) {
   if (p.printed) np++;
 }
 
-console.log(`${n} Fillamentum-Produkte geschrieben (${na} mit Befund, ${np} mit gedruckten Pruefkoerpern)`);
+console.log(`${n} Fillamentum-Produkte geschrieben (${na} mit Hinweis, ${np} mit gedruckten Pruefkoerpern)`);
 console.log(`  6 davon tragen die neuen Werkstofftypen: HIPS, PP, PVDF, PVC, PEBA, OBC`);
 console.log(`  Ausgelassen: ABS Extrafill transparent (PDF ohne Textebene),`);
 console.log(`               Flexfill TPE 90A und 96A (kein passender Typ, alle Werte aus Hausmethode)`);

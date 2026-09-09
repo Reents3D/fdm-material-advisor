@@ -32,8 +32,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 1.05 g/cm³ (FormFutura) bis 1.17 g/cm³ (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 1183 (3), ASTM D792 (1). Nicht mitgezählt: 1× Spritzguss, 1× zifferngleich weitergereicht.",
-        "en": "Median of 4 manufacturer datasheets, range 1.05 g/cm³ (FormFutura) to 1.17 g/cm³ (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 1183 (3), ASTM D792 (1). Not counted: 1× moulded, 1× passed on digit-identical."
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.05 g/cm³ (FormFutura) bis 1.17 g/cm³ (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 1183 (3), ASTM D792 (1). Nicht mitgezählt: 1× Spritzguss, 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 4 manufacturer datasheets, range 1.05 g/cm³ (FormFutura) to 1.17 g/cm³ (FormFutura). Specimens: 1 of 4 printed, remainder not stated. Mixed test standards: ISO 1183 (3), ASTM D792 (1). Not counted: 1× moulded, 1× copied from another sheet."
       },
       "min": 1.05,
       "max": 1.17,
@@ -47,8 +47,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 40 MPa (SUNLU) bis 60 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss, 1× zifferngleich weitergereicht.",
-        "en": "Median of 4 manufacturer datasheets, range 40 MPa (SUNLU) to 60 MPa (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded, 1× passed on digit-identical."
+        "de": "Median aus 4 Herstellerblättern, Spanne 40 MPa (SUNLU) bis 60 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss, 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 4 manufacturer datasheets, range 40 MPa (SUNLU) to 60 MPa (FormFutura). Specimens: 1 of 4 printed, remainder not stated. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded, 1× copied from another sheet."
       },
       "min": 40,
       "max": 60,
@@ -62,8 +62,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 7 % (Fillamentum) bis 50 % (Spectrum). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss.",
-        "en": "Median of 4 manufacturer datasheets, range 7 % (Fillamentum) to 50 % (Spectrum). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded."
+        "de": "Median aus 4 Herstellerblättern, Spanne 7 % (Fillamentum) bis 50 % (Spectrum). Prüfkörper: 1 von 4 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 527 (3), ASTM D638 (1). Nicht mitgezählt: 1× Spritzguss.",
+        "en": "Median of 4 manufacturer datasheets, range 7 % (Fillamentum) to 50 % (Spectrum). Specimens: 1 of 4 printed, remainder not stated. Mixed test standards: ISO 527 (3), ASTM D638 (1). Not counted: 1× moulded."
       },
       "min": 7,
       "max": 50,
@@ -77,8 +77,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2452 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (2), ASTM D790 (1). Nicht mitgezählt: 1× Spritzguss.",
-        "en": "Median of 3 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2452 MPa (FormFutura). Specimens: 1 of 3 printed, remainder undeclared. Mixed test standards: ISO 178 (2), ASTM D790 (1). Not counted: 1× moulded."
+        "de": "Median aus 3 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2452 MPa (FormFutura). Prüfkörper: 1 von 3 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 178 (2), ASTM D790 (1). Nicht mitgezählt: 1× Spritzguss.",
+        "en": "Median of 3 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2452 MPa (FormFutura). Specimens: 1 of 3 printed, remainder not stated. Mixed test standards: ISO 178 (2), ASTM D790 (1). Not counted: 1× moulded."
       },
       "min": 2000,
       "max": 2452,
@@ -102,8 +102,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 2 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2850 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 2 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2850 MPa (FormFutura). Specimens: 0 of 2 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+        "de": "Median aus 2 Herstellerblättern, Spanne 2000 MPa (Fillamentum) bis 2850 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe. Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 2 manufacturer datasheets, range 2000 MPa (Fillamentum) to 2850 MPa (FormFutura). Specimens: 0 of 2 printed, remainder not stated. Not counted: 1× copied from another sheet."
       },
       "orientation": "XY",
       "min": 2000,
@@ -116,8 +116,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 68 MPa (Fillamentum) bis 110 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest undeklariert. Prüfnormen gemischt: ISO 178 (3), ASTM D790 (1). Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 4 manufacturer datasheets, range 68 MPa (Fillamentum) to 110 MPa (FormFutura). Specimens: 1 of 4 printed, remainder undeclared. Mixed test standards: ISO 178 (3), ASTM D790 (1). Not counted: 1× passed on digit-identical."
+        "de": "Median aus 4 Herstellerblättern, Spanne 68 MPa (Fillamentum) bis 110 MPa (FormFutura). Prüfkörper: 1 von 4 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 178 (3), ASTM D790 (1). Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 4 manufacturer datasheets, range 68 MPa (Fillamentum) to 110 MPa (FormFutura). Specimens: 1 of 4 printed, remainder not stated. Mixed test standards: ISO 178 (3), ASTM D790 (1). Not counted: 1× copied from another sheet."
       },
       "orientation": "XY",
       "min": 68,
@@ -131,8 +131,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest undeklariert.",
-        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder undeclared."
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder not stated."
       },
       "orientation": "XY",
       "testStandard": "ISO 179"
@@ -143,8 +143,8 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 35 kJ/m² (FormFutura) bis 70 kJ/m² (SUNLU). Prüfkörper: 1 von 3 gedruckt, Rest undeklariert. Nicht mitgezählt: 1× zifferngleich weitergereicht.",
-        "en": "Median of 3 manufacturer datasheets, range 35 kJ/m² (FormFutura) to 70 kJ/m² (SUNLU). Specimens: 1 of 3 printed, remainder undeclared. Not counted: 1× passed on digit-identical."
+        "de": "Median aus 3 Herstellerblättern, Spanne 35 kJ/m² (FormFutura) bis 70 kJ/m² (SUNLU). Prüfkörper: 1 von 3 gedruckt, Rest ohne Angabe. Nicht mitgezählt: 1× von einem anderen Blatt übernommen.",
+        "en": "Median of 3 manufacturer datasheets, range 35 kJ/m² (FormFutura) to 70 kJ/m² (SUNLU). Specimens: 1 of 3 printed, remainder not stated. Not counted: 1× copied from another sheet."
       },
       "orientation": "XY",
       "min": 35,
@@ -195,8 +195,8 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 2 Herstellerblättern, Spanne 104 °C (Spectrum) bis 113 °C (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest undeklariert.",
-        "en": "Median of 2 manufacturer datasheets, range 104 °C (Spectrum) to 113 °C (Fillamentum). Specimens: 0 of 2 printed, remainder undeclared."
+        "de": "Median aus 2 Herstellerblättern, Spanne 104 °C (Spectrum) bis 113 °C (Fillamentum). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 2 manufacturer datasheets, range 104 °C (Spectrum) to 113 °C (Fillamentum). Specimens: 0 of 2 printed, remainder not stated."
       },
       "min": 104,
       "max": 113,
@@ -488,8 +488,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -516,8 +516,8 @@
         "source": "src_flame_formfutura_abspro_fr",
         "confidence": "low",
         "note": {
-          "de": "ABS-PC als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
-          "en": "ABS-PC as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+          "de": "ABS-PC als Werkstofftyp ist nicht V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "ABS-PC as a material type is not V-0 — only an explicitly flame-retardant grade in this family is: FormFutura ABSpro Flame Retardant, Spectrum PC/ABS FR V0. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
         }
       }
     },
@@ -576,8 +576,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -603,8 +603,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included."
         }
       }
     },
@@ -646,8 +646,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für dieses Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for this product, not for the material type."
         }
       },
       {
@@ -671,8 +671,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -684,8 +684,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote von 5 Marken (AzureFilm, Fiberlogy, Polymaker, SUNLU, Spectrum). Günstigstes SUNLU PC-ABS Black, 1 kg für 27,99 € (27,99 €/kg); teuerstes Polymaker PC-ABS Black, 1 kg für 49,99 € (49,99 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "6 offers from 5 brands (AzureFilm, Fiberlogy, Polymaker, SUNLU, Spectrum). Cheapest SUNLU PC-ABS Black, 1 kg at 27.99 € (27.99 €/kg); dearest Polymaker PC-ABS Black, 1 kg at 49.99 € (49.99 €/kg). The full list is in data/prices.json."
+          "de": "6 Angebote von 5 Marken (AzureFilm, Fiberlogy, Polymaker, SUNLU, Spectrum). Günstigstes SUNLU PC-ABS Black, 1 kg für 27,99 € (27,99 €/kg); teuerstes Polymaker PC-ABS Black, 1 kg für 49,99 € (49,99 €/kg).",
+          "en": "6 offers from 5 brands (AzureFilm, Fiberlogy, Polymaker, SUNLU, Spectrum). Cheapest SUNLU PC-ABS Black, 1 kg at 27.99 € (27.99 €/kg); dearest Polymaker PC-ABS Black, 1 kg at 49.99 € (49.99 €/kg)."
         }
       },
       {
@@ -697,8 +697,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "31 Angebote von 1 Marke (M4P). Günstigstes M4P ABS-PC Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 20,95 € (27,93 €/kg); teuerstes M4P ABS-PC Sample Signalweiss — 2.85 mm / 0.05 Kg, 0,05 kg für 5,98 € (119,60 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "31 offers from 1 brand (M4P). Cheapest M4P ABS-PC Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 20.95 € (27.93 €/kg); dearest M4P ABS-PC Sample Signalweiss — 2.85 mm / 0.05 Kg, 0.05 kg at 5.98 € (119.60 €/kg). The full list is in data/prices.json."
+          "de": "31 Angebote von 1 Marke (M4P). Günstigstes M4P ABS-PC Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 20,95 € (27,93 €/kg); teuerstes M4P ABS-PC Sample Signalweiss — 2.85 mm / 0.05 Kg, 0,05 kg für 5,98 € (119,60 €/kg).",
+          "en": "31 offers from 1 brand (M4P). Cheapest M4P ABS-PC Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 20.95 € (27.93 €/kg); dearest M4P ABS-PC Sample Signalweiss — 2.85 mm / 0.05 Kg, 0.05 kg at 5.98 € (119.60 €/kg)."
         }
       },
       {
@@ -730,8 +730,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: bisphenol A and phosgene or diphenyl carbonate, both petrochemical. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

@@ -96,7 +96,7 @@
       "source": "src_tds",
       "confidence": "high",
       "note": {
-        "de": "Der niedrigste Schichthaftungswert der drei Prusament-Typen — ASA verbindet sich schlechter zwischen den Schichten als PLA und PETG. Deckt sich mit dem Einbruch der Schlagzähigkeit in Z bei anderen ASA-Datensätzen.",
+        "de": "Der niedrigste Schichthaftungswert der drei Prusament-Typen — ASA verbindet sich schlechter zwischen den Schichten als PLA und PETG. Deckt sich mit dem Einbruch der Schlagzähigkeit in Z bei anderen ASA-Einträgen.",
         "en": "The lowest interlayer adhesion of the three Prusament grades — ASA bonds between layers less well than PLA and PETG. Consistent with the collapse of Z impact strength seen in other ASA records."
       }
     },

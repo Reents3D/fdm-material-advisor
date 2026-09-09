@@ -188,7 +188,7 @@ export function pool(prods, field) {
   {
     const sound = cand.filter((c) => c.n.disputed !== true);
     if (sound.length && sound.length < cand.length) {
-      drop(dropped, cand.length - sound.length, "bestritten", "disputed");
+      drop(dropped, cand.length - sound.length, "wegen Widerspruch im Blatt ausgeschlossen", "excluded as contradictory");
       cand = sound;
     }
   }
@@ -230,7 +230,7 @@ export function pool(prods, field) {
     if (sl?.sharedFields?.includes(field)) for (const other of sl.with ?? []) spoken.add(other);
   }
   if (kept.length < cand.length) {
-    drop(dropped, cand.length - kept.length, "zifferngleich weitergereicht", "passed on digit-identical");
+    drop(dropped, cand.length - kept.length, "von einem anderen Blatt übernommen", "copied from another sheet");
     cand = kept;
   }
 
@@ -309,14 +309,14 @@ const SOURCE = {
   title: "Median der Produktdatenblätter dieses Werkstofftyps",
   confidenceCeiling: "medium",
   note: t(
-    "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein "
-    + "Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten "
-    + "Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist "
-    + "eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-    "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer "
-    + "datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 "
-    + "never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material "
-    + "type, not a measurement — see ADR-042.",
+    "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; "
+    + "Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen "
+    + "(ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den "
+    + "Werkstofftyp, nicht ein einzelnes Produkt.",
+    "Summary of several manufacturer datasheets for this material type. The median is recorded; "
+    + "moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) "
+    + "not with tensile tests (ISO 527). A median across several brands describes the material type, "
+    + "not an individual product.",
   ),
 };
 
@@ -385,7 +385,7 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
        Median seiner Blätter zu sein; schrumpft der Blätterbestand, weil ein Wert bestritten
        oder ins richtige Feld verschoben wurde, muss er mitgehen. Sonst steht dort eine Zahl
        mit der Provenienz „Median", die keiner mehr ist — und genau das hat der Test
-       `type-median.test.ts` bei `paht-cf` und `pla-tough` gefangen. */
+       `type-median.test.ts` bei `paht-cf` und PLA Tough gefangen. */
     const isGap = !cur || cur.value == null;
     const ours = cur?.source === SRC_ID;
     if (!isGap && !ours && pl.n < MIN_AGGREGATE) continue;
@@ -395,12 +395,12 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
     const conf = pl.n >= MIN_AGGREGATE && pl.spread <= SPREAD_TIGHT ? "medium" : "low";
 
     const specimen = pl.onlyMoulded
-      ? t("ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht",
+      ? t("ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht",
           "moulded specimens only — printed parts do not reach these figures")
       : pl.printed === pl.n
         ? t("alle gedruckt", "all printed")
-        : t(`${pl.printed} von ${pl.n} gedruckt, Rest undeklariert`,
-            `${pl.printed} of ${pl.n} printed, remainder undeclared`);
+        : t(`${pl.printed} von ${pl.n} gedruckt, Rest ohne Angabe`,
+            `${pl.printed} of ${pl.n} printed, remainder not stated`);
 
     const spanTxt = pl.n === 1
       ? t(`Einzelnes Blatt: ${pl.cand[0].p.brand ?? pl.cand[0].p.manufacturer}.`,
@@ -530,7 +530,7 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
         /* Notizen, die ihren Ursprung selbst nennen ("beide Operanden aus dem Blatt von
            X"), zitieren nicht den Nachbarwert, sondern ein fremdes Blatt. Sie veralten
            nicht, wenn der Nachbar sich ändert. */
-        if (n.derivedFrom?.length || /nicht aus diesem Datensatz/.test(n.conditions ?? "")) continue;
+        if (n.derivedFrom?.length || /nicht aus diesem Eintrag/.test(n.conditions ?? "")) continue;
         if (needle.test(n.note.de)) {
           log.stale.push(`${m.id} ${g}.${f}: Notiz zitiert ${old}, ${field} trägt jetzt ${now}`);
         }

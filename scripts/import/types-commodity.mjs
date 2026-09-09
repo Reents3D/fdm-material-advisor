@@ -67,12 +67,12 @@ const XXL_NOTE = t(
   "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. To be replaced by Reents3D shop-floor experience.");
 
 const PORTFOLIO_NOTE = t(
-  "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-  "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring.");
+  "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+  "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment.");
 
 const SINGLE_SOURCE = t(
-  "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
-  "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed.");
+  "Dieser Werkstofftyp beruht auf einem einzigen Herstellerdatenblatt. Eine Quelle kann keine Streuung zeigen, und gerade die Streuung zwischen Herstellern ist bei gut belegten Typen die eigentliche Information. Die Werte gelten deshalb bis zum zweiten Datenblatt als schwach belegt.",
+  "This material type rests on a single manufacturer datasheet. One source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for well-covered types. Until a second sheet exists, the values count as weakly substantiated.");
 
 const TYPES = [
   /* ------------------------------------------------------------------ HIPS */
@@ -83,7 +83,7 @@ const TYPES = [
     file: "2020/10/Technical-Data-Sheet_HIPS-Extrafill_03012019.pdf",
     title: "HIPS Extrafill — Technical Data Sheet",
     abstract: t(
-      "HIPS ist im FDM-Druck vor allem eines: das Stützmaterial, das sich in D-Limonen auflöst, während ABS und ASA unberührt bleiben. Als Konstruktionswerkstoff ist es gutmütig zu drucken, mit HDT-A 85 °C sogar wärmer belastbar als PLA, und dielektrisch sehr gut. Seine eigentliche Kennzahl steht im Kleingedruckten: Charpy ungekerbt bei 23 °C „kein Bruch“ — es zerbricht schlicht nicht. Gekerbt fällt derselbe Wert auf 17 kJ/m². Diese Spreizung ist die ehrlichste Kerbempfindlichkeitsangabe im ganzen Bestand.",
+      "HIPS ist im FDM-Druck vor allem eines: das Stützmaterial, das sich in D-Limonen auflöst, während ABS und ASA unberührt bleiben. Als Konstruktionswerkstoff ist es gutmütig zu drucken, mit HDT-A 85 °C sogar wärmer belastbar als PLA, und dielektrisch sehr gut. Seine eigentliche Kennzahl steht im Kleingedruckten: Charpy ungekerbt bei 23 °C „kein Bruch“ — es zerbricht schlicht nicht. Gekerbt fällt derselbe Wert auf 17 kJ/m². Diese Spreizung ist die ehrlichste Kerbempfindlichkeitsangabe in der ganzen Datenbank.",
       "In FDM printing HIPS is above all one thing: the support material that dissolves in D-limonene while ABS and ASA remain untouched. As a construction material it is forgiving to print, at HDT-A 85 °C it takes more heat than PLA, and it is dielectrically excellent. Its real figure hides in the fine print: Charpy unnotched at 23 °C reads “no break” — it simply does not fracture. Notched, the same figure drops to 17 kJ/m². That spread is the most honest notch-sensitivity statement in the whole dataset."),
     positioning: t(
       "Das lösliche Stützmaterial für ABS und ASA — und ein unterschätzter Gehäusewerkstoff.",
@@ -148,7 +148,7 @@ const TYPES = [
     file: "2020/10/Technical-Data-Sheet_PP-2320.pdf",
     title: "PP 2320 — Technical Data Sheet",
     abstract: t(
-      "PP ist der Chemikalienwerkstoff des Bestands und der leichteste dazu: 0,96 g/cm³ — es schwimmt. Gegen Säuren, Laugen, Salze und Alkohole ist es beständig, es lässt sich autoklavieren, und seine Charpy-Schlagzähigkeit von 184 kJ/m² ungekerbt ist der höchste Wert der Datenbank. Der Preis dafür ist der Druck: PP schwindet stark, haftet auf nahezu keinem Druckbett und braucht eine PP-Unterlage oder Spezialkleber. Die Zugfestigkeit von 23 MPa ist die niedrigste aller starren Werkstoffe hier.",
+      "PP ist der Chemikalienwerkstoff der Datenbank und der leichteste dazu: 0,96 g/cm³ — es schwimmt. Gegen Säuren, Laugen, Salze und Alkohole ist es beständig, es lässt sich autoklavieren, und seine Charpy-Schlagzähigkeit von 184 kJ/m² ungekerbt ist der höchste Wert der Datenbank. Der Preis dafür ist der Druck: PP schwindet stark, haftet auf nahezu keinem Druckbett und braucht eine PP-Unterlage oder Spezialkleber. Die Zugfestigkeit von 23 MPa ist die niedrigste aller starren Werkstoffe hier.",
       "PP is the dataset's chemicals material and the lightest one at that: 0.96 g/cm³ — it floats. It resists acids, alkalis, salts and alcohols, it can be autoclaved, and its Charpy impact strength of 184 kJ/m² unnotched is the highest figure in the database. The price is printing: PP shrinks heavily, adheres to almost no build surface and needs a PP sheet or special adhesive. Its tensile strength of 23 MPa is the lowest of any rigid material here."),
     positioning: t(
       "Wenn das Medium den Werkstoff bestimmt — und niemand auf Festigkeit angewiesen ist.",
@@ -173,7 +173,7 @@ const TYPES = [
         "PP can be steam sterilised; the limit here is creep under load, not softening. The sheet gives no HDT.")),
       minServiceTemperature: q(-40, "°C", {
         conditions: "Biegefestigkeit laut Blatt bis hierhin erhalten",
-        note: t("Das Blatt hebt ausdrücklich hervor, dass die Biegefestigkeit bis −40 °C gut bleibt. Bei den Styrolcopolymeren bricht die Schlagzähigkeit in diesem Bereich ein — PP ist damit der kältetauglichste starre Werkstoff im Bestand.",
+        note: t("Das Blatt hebt ausdrücklich hervor, dass die Biegefestigkeit bis −40 °C gut bleibt. Bei den Styrolcopolymeren bricht die Schlagzähigkeit in diesem Bereich ein — PP ist damit der kältetauglichste starre Werkstoff in der Datenbank.",
                 "The sheet explicitly stresses that flexural strength stays good down to −40 °C. With the styrenics impact strength collapses in this range — making PP the most cold-capable rigid material in the dataset."),
       }),
     },
@@ -183,7 +183,7 @@ const TYPES = [
       chamberRequirement: { value: "recommended", source: "estimate_reasoning", confidence: "estimated" },
       printSpeed: q(30, "mm/s", { min: 20, max: 40 }),
       printability: s(2, "printability", t(
-        "Der niedrigste Wert im Bestand, und das Blatt begründet ihn selbst: „Use of adhesive is necessary due to nonpolar polymer structure. Always use brim.“ PP haftet auf PEI, Glas und Klebeband praktisch nicht — es braucht eine PP-Platte oder einen PP-Haftvermittler.",
+        "Der niedrigste Wert in der Datenbank, und das Blatt begründet ihn selbst: „Use of adhesive is necessary due to nonpolar polymer structure. Always use brim.“ PP haftet auf PEI, Glas und Klebeband praktisch nicht — es braucht eine PP-Platte oder einen PP-Haftvermittler.",
         "The lowest figure in the dataset, and the sheet justifies it itself: “Use of adhesive is necessary due to nonpolar polymer structure. Always use brim.” PP barely adheres to PEI, glass or tape — it needs a PP sheet or a PP adhesion promoter.")),
       warpingTendency: s(5, "warpingTendency"),
       hygroscopy: s(1, "hygroscopy"),
@@ -194,7 +194,7 @@ const TYPES = [
       surfaceQuality: s(3, "surfaceQuality"), layerLineVisibility: s(3, "layerLineVisibility"),
       sandability: s(2, "sandability"), fillability: s(1, "fillability"),
       paintAdhesion: s(1, "paintAdhesion", t(
-        "Der schlechteste Wert im Bestand. Dieselbe unpolare Oberfläche, die PP am Druckbett scheitern lässt, lässt auch jeden Lack abplatzen. Ohne Beflammen oder Plasmavorbehandlung ist PP nicht lackierbar.",
+        "Der schlechteste Wert in der Datenbank. Dieselbe unpolare Oberfläche, die PP am Druckbett scheitern lässt, lässt auch jeden Lack abplatzen. Ohne Beflammen oder Plasmavorbehandlung ist PP nicht lackierbar.",
         "The worst figure in the dataset. The same non-polar surface that makes PP fail on the build plate makes every paint flake off. Without flame or plasma treatment PP cannot be painted.")),
       bondability: s(1, "bondability"),
       gloss: { value: "matte", source: "estimate_reasoning", confidence: "estimated" },
@@ -227,7 +227,7 @@ const TYPES = [
     file: "2021/01/Technical-Data-Sheet_Fluorodur_EN_09122020_FI.pdf",
     title: "Fluorodur (PVDF) — Technical Data Sheet",
     abstract: t(
-      "PVDF ist der chemisch beständigste Werkstoff, der sich noch auf einem gewöhnlichen FDM-Drucker verarbeiten lässt: beständig gegen Säuren, Laugen, Kraftstoffe, Öle und die meisten Lösemittel, dauerhaft UV- und witterungsfest, Einsatztemperatur bis etwa 100 bis 140 °C. Zwei Dinge muss man wissen. Erstens ist es mit 1,79 g/cm³ der schwerste Kunststoff im Bestand — fast doppelt so schwer wie PP bei gleichem Volumen. Zweitens hat es eine echte chemische Lücke: starke Laugen und Ketone greifen es an, ausgerechnet Aceton und MEK.",
+      "PVDF ist der chemisch beständigste Werkstoff, der sich noch auf einem gewöhnlichen FDM-Drucker verarbeiten lässt: beständig gegen Säuren, Laugen, Kraftstoffe, Öle und die meisten Lösemittel, dauerhaft UV- und witterungsfest, Einsatztemperatur bis etwa 100 bis 140 °C. Zwei Dinge muss man wissen. Erstens ist es mit 1,79 g/cm³ der schwerste Kunststoff in der Datenbank — fast doppelt so schwer wie PP bei gleichem Volumen. Zweitens hat es eine echte chemische Lücke: starke Laugen und Ketone greifen es an, ausgerechnet Aceton und MEK.",
       "PVDF is the most chemically resistant material still processable on an ordinary FDM printer: resistant to acids, alkalis, fuels, oils and most solvents, permanently UV and weather stable, service temperature to roughly 100 to 140 °C. Two things must be known. First, at 1.79 g/cm³ it is the heaviest polymer in the dataset — nearly twice the weight of PP at equal volume. Second, it has a genuine chemical gap: strong alkalis and ketones attack it, acetone and MEK of all things."),
     positioning: t(
       "Wenn das Medium alles andere auflöst — und Gewicht keine Rolle spielt.",
@@ -295,17 +295,17 @@ const TYPES = [
     mechanics: {
       density: q(1.35, "g/cm³"),
       tensileStrengthXy: q(46.1, "MPa", {
-        std: "werkseigene Methode 10-LA 049 (siehe Befund)", conditions: "bei Bruch", orientation: "n/a",
+        std: "werkseigene Methode 10-LA 049 (siehe Hinweis)", conditions: "bei Bruch", orientation: "n/a",
       }),
-      elongationAtBreakXy: q(13.1, "%", { std: "werkseigene Methode 10-LA 049 (siehe Befund)", orientation: "n/a" }),
-      hardnessShoreD: q(78, "Shore D", { std: "werkseigene Methode 10-LA 031 (siehe Befund)" }),
+      elongationAtBreakXy: q(13.1, "%", { std: "werkseigene Methode 10-LA 049 (siehe Hinweis)", orientation: "n/a" }),
+      hardnessShoreD: q(78, "Shore D", { std: "werkseigene Methode 10-LA 031 (siehe Hinweis)" }),
       toughness: s(2, "toughness"),
       notchSensitivity: s(4, "notchSensitivity"),
     },
     thermal: {
       vicatB50: q(71, "°C", { std: "ISO 306", conditions: "50 °C/h, 5 kg" }),
       recommendedMaxServiceTemperature: service(50, t(
-        "Deutlicher Abstand zur Vicat-Erweichung von 71 °C. PVC ist thermisch der engste starre Werkstoff im Bestand.",
+        "Deutlicher Abstand zur Vicat-Erweichung von 71 °C. PVC ist thermisch der engste starre Werkstoff in der Datenbank.",
         "Clear margin to the Vicat softening point of 71 °C. PVC is thermally the tightest rigid material in the dataset.")),
     },
     processing: {
@@ -324,7 +324,7 @@ const TYPES = [
       surfaceQuality: s(3, "surfaceQuality"), layerLineVisibility: s(3, "layerLineVisibility"),
       sandability: s(3, "sandability"), fillability: s(3, "fillability"),
       paintAdhesion: s(3, "paintAdhesion"), bondability: s(5, "bondability", t(
-        "Der einzige Werkstoff im Bestand mit einem echten Kaltschweißkleber: PVC-Kleber löst die Oberfläche an und verschweißt die Fügepartner stofflich.",
+        "Der einzige Werkstoff in der Datenbank mit einem echten Kaltschweißkleber: PVC-Kleber löst die Oberfläche an und verschweißt die Fügepartner stofflich.",
         "The only material in the dataset with a genuine solvent-weld adhesive: PVC cement dissolves the surface and fuses the parts materially.")),
       gloss: { value: "semi-gloss", source: "estimate_reasoning", confidence: "estimated" },
       colourAvailability: { value: "narrow", source: "estimate_reasoning", confidence: "estimated" },
@@ -363,8 +363,8 @@ const TYPES = [
       flexuralModulusXy: q(65, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min", orientation: "n/a" }),
       hardnessShoreD: q(42, "Shore D", { std: "ASTM D2240" }),
       wearResistance: s(4, "wearResistance", t(
-        "Das Blatt weist einen Abriebverlust unter 48 mm³ nach ISO 4649 aus (10 N, 40 m) — ein belegter Wert, für den das Schema kein eigenes Feld führt. Die Einstufung 4 leitet sich daraus ab.",
-        "The sheet gives an abrasion loss below 48 mm³ to ISO 4649 (10 N, 40 m) — a documented value for which the schema carries no dedicated field. The rating of 4 is derived from it.")),
+        "Das Blatt weist einen Abriebverlust unter 48 mm³ nach ISO 4649 aus (10 N, 40 m). Die Einstufung 4 leitet sich aus diesem belegten Wert ab.",
+        "The sheet gives an abrasion loss below 48 mm³ to ISO 4649 (10 N, 40 m). The rating of 4 is derived from this documented value.")),
       toughness: s(5, "toughness"),
       notchSensitivity: s(1, "notchSensitivity"),
     },
@@ -414,7 +414,7 @@ const TYPES = [
       "OBC ist ein weiches Polyolefin mit 0,905 g/cm³ — der leichteste Werkstoff der ganzen Datenbank, leichter als Wasser. Es kombiniert 700 % Bruchdehnung mit einem Glasübergang von −13 °C und einer vom Hersteller genannten Temperaturbeständigkeit bis 100 °C, ist wasserdicht und beständig gegen Wasser, Säuren, Alkohol und Aceton. Bemerkenswert ist auch die Quellenlage: Von 13 Werkstofftypen mit Z-Kennwert ist OBC der einzige, dessen Blatt NICHT von Bambu Lab stammt — Fillamentum weist XY und Z an gedruckten Prüfkörpern aus.",
       "OBC is a soft polyolefin at 0.905 g/cm³ — the lightest material in the whole database, lighter than water. It combines 700 % elongation at break with a glass transition of −13 °C and a manufacturer-stated temperature resistance to 100 °C, is waterproof and resists water, acids, alcohol and acetone. Its sourcing is notable too: of 13 material types carrying a Z value, OBC is the only one whose sheet does NOT come from Bambu Lab — Fillamentum states XY and Z on printed specimens."),
     positioning: t(
-      "Das leichteste Material im Bestand — und der einzige Z-Kennwert, der nicht von Bambu Lab stammt.",
+      "Das leichteste Material in der Datenbank — und der einzige Z-Kennwert, der nicht von Bambu Lab stammt.",
       "The lightest material in the dataset — and the only Z value not sourced from Bambu Lab."),
     mechanics: {
       density: q(0.905, "g/cm³", { std: "ISO 1183" }),
@@ -426,8 +426,8 @@ const TYPES = [
       flexuralModulusXy: q(244, "MPa", { std: "ASTM D790", orientation: "XY", conditions: "1 % Dehnung" }),
       izodNotchedXy: q(34.3, "kJ/m²", {
         std: "ASTM D256", orientation: "XY", conditions: "gekerbt, gedruckt",
-        note: t("Das Blatt nennt denselben Versuch zweimal: 347 J/m und 34,3 kJ/m². Beide passen zueinander (347 ÷ 10,16 mm Restligament = 34,2). In Z passen sie NICHT: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Übernommen ist die kJ/m²-Angabe, weil das Schema diese Einheit führt.",
-                "The sheet gives the same test twice: 347 J/m and 34.3 kJ/m². The two agree (347 ÷ 10.16 mm remaining ligament = 34.2). In Z they do NOT: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. The kJ/m² figure is imported because the schema carries that unit."),
+        note: t("Das Blatt nennt denselben Versuch zweimal: 347 J/m und 34,3 kJ/m². Beide passen zueinander (347 ÷ 10,16 mm Restligament = 34,2). In Z passen sie nicht: 352 J/m ergäben 34,6 kJ/m², das Blatt nennt aber 43,1. Übernommen ist die Angabe in kJ/m², der hier durchgängig verwendeten Einheit.",
+                "The sheet gives the same test twice: 347 J/m and 34.3 kJ/m². The two agree (347 ÷ 10.16 mm remaining ligament = 34.2). In Z they do not: 352 J/m would give 34.6 kJ/m², yet the sheet states 43.1. The kJ/m² figure is used, as that is the unit used throughout here."),
       }),
       hardnessShoreD: q(53, "Shore D", { std: "ISO 7619" }),
       anisotropyFactorImpact: {

@@ -92,7 +92,7 @@ function parseHash(): { route: Route; params: URLSearchParams } {
 }
 
 /* Die URL ist die einzige Wahrheit dieses Werkzeugs - und damit die einzige Eingabe, die
-   von aussen kommt. Ein geteilter Link ist beworbenes Merkmal, also ist ein
+   von außen kommt. Ein geteilter Link ist beworbenes Merkmal, also ist ein
    BOESARTIGER geteilter Link der realistische Angriffsweg: Es gibt kein Backend, keine
    Anmeldung und keinen gespeicherten Zustand, den man stehlen koennte, aber es gibt
    einen Browser-Tab, den man zum Stehen bringen kann.

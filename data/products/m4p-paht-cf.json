@@ -9,7 +9,7 @@
   "origin": "Deutschland",
   "specimenType": "moulded",
   "specimenNote": {
-    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
+    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit in der ganzen Datenbank — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
     "en": "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible."
   },
   "features": {
@@ -108,8 +108,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "5 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: LUVOCOM 3F LUVOCOM 3F PAHT CF 9891. Damit sind es nicht 2 Belege, sondern einer. Als Ursprung dieser Zahlen ist LUVOCOM 3F LUVOCOM 3F PAHT CF 9891 belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
-      "en": "5 values in this record appear identically at: LUVOCOM 3F LUVOCOM 3F PAHT CF 9891. That makes them not 2 pieces of evidence but one. LUVOCOM 3F LUVOCOM 3F PAHT CF 9891 is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+      "de": "5 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei LUVOCOM 3F LUVOCOM 3F PAHT CF 9891. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Die Zahlen stammen ursprünglich von LUVOCOM 3F LUVOCOM 3F PAHT CF 9891; dieses Blatt übernimmt sie. Die übernommenen Werte gelten deshalb als schwach belegt.",
+      "en": "The figures originate from 5 values on this datasheet appear digit for digit at LUVOCOM 3F LUVOCOM 3F PAHT CF 9891 as well. They are therefore not 2 independent pieces of evidence but a single measurement. LUVOCOM 3F LUVOCOM 3F PAHT CF 9891; this sheet takes them over. The copied values therefore count as weakly substantiated."
     }
   }
 }

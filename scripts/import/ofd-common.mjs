@@ -165,8 +165,8 @@ export function ofdSource(meta) {
        Anwendungspaket gebunden. Die ausfuehrliche Abwaegung gehoert in ADR-035, wo sie
        einmal steht und nichts kostet. */
     note: t(
-      `Gemeinschaftlich gepflegte Marktdatenbank (${meta.stats.brands} Marken, ${meta.stats.filaments} Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling \`low\` — siehe ADR-035.`,
-      `Community-maintained market database (${meta.stats.brands} brands, ${meta.stats.filaments} filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling \`low\` — see ADR-035.`,
+      `Gemeinschaftlich gepflegte Marktdatenbank (${meta.stats.brands} Marken, ${meta.stats.filaments} Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.`,
+      `Community-maintained market database (${meta.stats.brands} brands, ${meta.stats.filaments} filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only.`,
     ),
   };
 }

@@ -82,10 +82,10 @@ for (const file of files) {
       transitions.estimated.push([prev.value, now.value]);
     }
     /* duenn -> breit. `derive-price.mjs` vergibt `medium` erst, wenn die Erhebung breit
-       ist; `low` heisst dort "erhoben, aber duenn".
+       ist; `low` heißt dort "erhoben, aber duenn".
 
-       NUR MIT ECHTEM MARKENWECHSEL. Zwei Uebergaenge in der Historie - `tpu-58d` und
-       `tpu-85a` - fuehrten auf ein `medium`, das ausschliesslich auf Extrudr-Angeboten
+       nur MIT ECHTEM MARKENWECHSEL. Zwei Uebergaenge in der Historie - `tpu-58d` und
+       `tpu-85a` - fuehrten auf ein `medium`, das ausschließlich auf Extrudr-Angeboten
        stand: einmal bei Extrudr selbst, einmal bei 3DJAKE. Beide bewegten den Preis um
        0,0 %, und das ist keine Bestaetigung, sondern eine Tautologie - dieselbe
        Herstellerliste, zweimal gelesen. Solche Paare haben die gemessene

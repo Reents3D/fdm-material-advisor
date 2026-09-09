@@ -20,7 +20,7 @@
       "en": "PAHT is a high-temperature polyamide with the rarest statement of all: a continuous service temperature WITH a time base — 120 °C over 20,000 hours to IEC 60216, and 160 °C short-term for at most 200 hours. 85 MPa strength, no break in the unnotched impact test. For permanently warm functional parts in engine bays and plant engineering. Limits: strongly hygroscopic, chamber and drying mandatory."
     },
     "positioning": {
-      "de": "Dauerwarm statt kurz heiss — der einzige Werkstoff hier mit belegter Lebensdauer.",
+      "de": "Dauerwarm statt kurz heiß — der einzige Werkstoff hier mit belegter Lebensdauer.",
       "en": "Permanently warm rather than briefly hot — the only material here with a documented service life."
     }
   },
@@ -32,7 +32,7 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (LUVOCOM 3F) bis 1.49 g/cm³ (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Median aus 3 Herstellerblättern, Spanne 1.2 g/cm³ (LUVOCOM 3F) bis 1.49 g/cm³ (LUVOCOM 3F). Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Median of 3 manufacturer datasheets, range 1.2 g/cm³ (LUVOCOM 3F) to 1.49 g/cm³ (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "min": 1.2,
@@ -46,7 +46,7 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 55 MPa (LUVOCOM 3F) bis 85 MPa (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Median aus 4 Herstellerblättern, Spanne 55 MPa (LUVOCOM 3F) bis 85 MPa (LUVOCOM 3F). Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Median of 4 manufacturer datasheets, range 55 MPa (LUVOCOM 3F) to 85 MPa (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "min": 55,
@@ -60,7 +60,7 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 3400 MPa (LUVOCOM 3F) bis 6000 MPa (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Median aus 4 Herstellerblättern, Spanne 3400 MPa (LUVOCOM 3F) bis 6000 MPa (LUVOCOM 3F). Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Median of 4 manufacturer datasheets, range 3400 MPa (LUVOCOM 3F) to 6000 MPa (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "min": 3400,
@@ -74,7 +74,7 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 1.2 % (LUVOCOM 3F) bis 4.4 % (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Median aus 4 Herstellerblättern, Spanne 1.2 % (LUVOCOM 3F) bis 4.4 % (LUVOCOM 3F). Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Median of 4 manufacturer datasheets, range 1.2 % (LUVOCOM 3F) to 4.4 % (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "min": 1.2,
@@ -110,7 +110,7 @@
       "source": "src_type_datasheets",
       "confidence": "low",
       "note": {
-        "de": "Einzelnes Blatt: LUVOCOM 3F. Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Einzelnes Blatt: LUVOCOM 3F. Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Single datasheet: LUVOCOM 3F. Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "orientation": "XY",
@@ -125,7 +125,7 @@
       "source": "src_type_datasheets",
       "confidence": "medium",
       "note": {
-        "de": "Median aus 4 Herstellerblättern, Spanne 90 °C (LUVOCOM 3F) bis 90 °C (LUVOCOM 3F). Prüfkörper: ausschliesslich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "de": "Median aus 4 Herstellerblättern, Spanne 90 °C (LUVOCOM 3F) bis 90 °C (LUVOCOM 3F). Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
         "en": "Median of 4 manufacturer datasheets, range 90 °C (LUVOCOM 3F) to 90 °C (LUVOCOM 3F). Specimens: moulded specimens only — printed parts do not reach these figures."
       },
       "min": 90,
@@ -138,7 +138,7 @@
       "source": "src_m4p_tds",
       "confidence": "medium",
       "note": {
-        "de": "Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe im ganzen Bestand.",
+        "de": "Vom Hersteller mit Zeitbasis angegeben — die belastbarste Form dieser Angabe in der ganzen Datenbank.",
         "en": "Stated by the manufacturer with a time base — the most robust form of this figure in the entire database."
       }
     }
@@ -434,8 +434,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -457,8 +457,8 @@
         "source": "src_flame_formfutura_luvocom_paht_kk_fr",
         "confidence": "medium",
         "note": {
-          "de": "PAHT als Werkstofftyp ist NICHT V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: LUVOCOM 3F PAHT KK 50056 BK FR. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
-          "en": "PAHT as a material type is NOT V-0 — only an explicitly flame-retardant grade in this family is: LUVOCOM 3F PAHT KK 50056 BK FR. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
+          "de": "PAHT als Werkstofftyp ist nicht V-0 — nur eine ausdrücklich flammgeschützte Type dieser Familie ist es: LUVOCOM 3F PAHT KK 50056 BK FR. Das ist ein anderer Werkstoff als die Standardtype, und der Flammschutz kostet regelmäßig Zähigkeit. Wer diese Anforderung hat, muss genau diese Type bestellen und sich das Prüfzeugnis geben lassen — eine Datenblattzeile ist kein Zeugnis.",
+          "en": "PAHT as a material type is not V-0 — only an explicitly flame-retardant grade in this family is: LUVOCOM 3F PAHT KK 50056 BK FR. That is a different material from the standard grade, and flame retardancy regularly costs toughness. Anyone with this requirement must order precisely that grade and obtain the test certificate — a datasheet line is not a certificate."
         }
       }
     },
@@ -517,8 +517,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -544,8 +544,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt. Dieser Werkstoff wird bisher nur auf den Engineering-Druckern gefahren, nicht im Großformat — es gibt also keine eigene Erfahrung, gegen die sich die Schätzung prüfen ließe.",
-          "en": "Estimated, not established. This material is so far run only on the engineering printers, not at large format — so there is no own experience against which the estimate could be checked."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff läuft bisher nur auf den Engineering-Druckern, nicht im Großformat; eigene Erfahrung, an der sich die Schätzung prüfen ließe, gibt es deshalb noch nicht.",
+          "en": "Estimated, not established. So far this material runs only on the engineering printers, not at large format, so there is no own experience yet against which the estimate could be checked."
         }
       }
     },
@@ -586,8 +586,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für DIESES Produkt, nicht für den Werkstofftyp.",
-          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for THIS product, not for the material type."
+          "de": "Datenblatt der flammgeschützten Type dieser Familie. Belegt die UL94-Klasse für dieses Produkt, nicht für den Werkstofftyp.",
+          "en": "Datasheet of the flame-retardant grade in this family. Documents the UL94 class for this product, not for the material type."
         }
       },
       {
@@ -611,8 +611,8 @@
         "title": "Median der Produktdatenblätter dieses Werkstofftyps",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Zusammenfassung mehrerer Herstellerdatenblätter aus data/products. Jeder Operand ist ein Herstellerdatenblatt; die Zusammenfassung ist es nicht. Spritzguss wird nicht mit gedruckten Prüfkörpern gemischt, ISO 37 nicht mit ISO 527. Ceiling `medium`: Ein Median über Marken ist eine Aussage über den Werkstofftyp, keine Messung — siehe ADR-042.",
-          "en": "Aggregate of several manufacturer datasheets from data/products. Every operand is a manufacturer datasheet; the aggregate is not. Moulded specimens are never mixed with printed ones, ISO 37 never with ISO 527. Ceiling `medium`: a cross-brand median is a statement about the material type, not a measurement — see ADR-042."
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -624,8 +624,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "20 Angebote von 1 Marke (M4P). Günstigstes M4P PAHT Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 59,95 € (79,93 €/kg); teuerstes M4P PAHT Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0,05 kg für 5,95 € (119,00 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "20 offers from 1 brand (M4P). Cheapest M4P PAHT Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 59.95 € (79.93 €/kg); dearest M4P PAHT Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0.05 kg at 5.95 € (119.00 €/kg). The full list is in data/prices.json."
+          "de": "20 Angebote von 1 Marke (M4P). Günstigstes M4P PAHT Gipsy-Color — 1.75 mm / 0.75 Kg, 0,75 kg für 59,95 € (79,93 €/kg); teuerstes M4P PAHT Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0,05 kg für 5,95 € (119,00 €/kg).",
+          "en": "20 offers from 1 brand (M4P). Cheapest M4P PAHT Gipsy-Color — 1.75 mm / 0.75 Kg, 0.75 kg at 59.95 € (79.93 €/kg); dearest M4P PAHT Sample Tiefschwarz — 2.85 mm / 0.05 Kg, 0.05 kg at 5.95 € (119.00 €/kg)."
         }
       },
       {
@@ -651,8 +651,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 20 Angebote von 1 Anbieter und 1 Marke (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 20 offers from 1 retailer and 1 brand (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 20 Angebote von 1 Anbieter und 1 Marke (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 20 offers from 1 retailer and 1 brand (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -668,8 +668,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet, soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Zero percent is a statement here, not a gap: anyone weighting sustainability should see the difference between `fossil` and `unknown`."
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt nicht für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: caprolactam (PA6) or laurolactam (PA12) from butadiene, petrochemical. This does not apply to PA11, which comes from castor oil and is not listed here. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
       }
     }
   }

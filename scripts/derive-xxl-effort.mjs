@@ -55,20 +55,20 @@ const BY_CHAMBER = { "not-required": 1.0, recommended: 0.9, mandatory: 0.75 };
 
 /* Ausnahmen mit Begruendung - dieselbe Systematik wie bei der Chemikalienmatrix. */
 const OVERRIDE = {
-  "tpu-95a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  "tpu-85a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  "tpu-98a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  "tpu-58d": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  "tpu-esd": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  peba: [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei grossen Teilen zum eigentlichen Hindernis."],
-  "asa-aero": [1200, "Schaeumende Filamente werden mit stark reduziertem Materialfluss verarbeitet; die Schaumstruktur macht die Schichthaftung empfindlicher gegen lange Bruecken und grosse Flaechen. Der Werkstoff ist fuer LEICHTE Bauteile gedacht, nicht fuer grosse."],
+  "tpu-95a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  "tpu-85a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  "tpu-98a": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  "tpu-58d": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  "tpu-esd": [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  peba: [900, "Bei Elastomeren begrenzt nicht der Verzug, sondern die Druckgeschwindigkeit: Weiche Filamente laufen mit einem Bruchteil der Geschwindigkeit starrer Werkstoffe, und die Bauzeit wird bei großen Teilen zum eigentlichen Hindernis."],
+  "asa-aero": [1200, "Schaeumende Filamente werden mit stark reduziertem Materialfluss verarbeitet; die Schaumstruktur macht die Schichthaftung empfindlicher gegen lange Bruecken und große Flaechen. Der Werkstoff ist fuer LEICHTE Bauteile gedacht, nicht fuer große."],
 };
 
 const t = (de, en) => ({ de, en });
 
 const NOTE = t(
-  "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-  "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included.");
+  "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
+  "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are NOT included.");
 
 const num = (n) => (n && typeof n === "object" && "value" in n ? n.value : null);
 

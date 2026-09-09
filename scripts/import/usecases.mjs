@@ -148,7 +148,7 @@ const U = [
                        "V-0 is the classification usually demanded in rail and switchgear specifications."),
       serviceTemperatureC: t("Schaltschränke erreichen im Betrieb regelmäßig 80 °C.",
                              "Switchgear cabinets regularly reach 80 °C in operation.") },
-    caveat: t("Dieses Profil liefert derzeit KEIN Ergebnis, und das ist der Befund: Der einzige V-0-Werkstoff der Datenbank (PC-FR) ist konservativ mit 75 °C Dauergebrauchstemperatur geführt und scheitert damit knapp an den 80 °C. Die Ergebnisseite nennt ihn als Beinahe-Treffer samt Abstand. Zusätzlich gilt: Die Werkstoffeinstufung ersetzt keine Bauteilprüfung — UL94 wird an genormten Stäbchen definierter Dicke geprüft, nicht an Ihrem Bauteil.",
+    caveat: t("Dieses Profil liefert derzeit KEIN Ergebnis, und das ist der Hinweis: Der einzige V-0-Werkstoff der Datenbank (PC-FR) ist konservativ mit 75 °C Dauergebrauchstemperatur geführt und scheitert damit knapp an den 80 °C. Die Ergebnisseite nennt ihn als Beinahe-Treffer samt Abstand. Zusätzlich gilt: Die Werkstoffeinstufung ersetzt keine Bauteilprüfung — UL94 wird an genormten Stäbchen definierter Dicke geprüft, nicht an Ihrem Bauteil.",
               "This profile currently returns NO result, and that is the finding: the only V-0 material in the database (PC-FR) is conservatively rated at 75 °C continuous and therefore just misses the 80 °C mark. The results page names it as a near miss with the margin. In addition: the material classification does not replace part testing — UL94 is tested on standard bars of defined thickness, not on your part.") },
 
   { id: "messebau-xxl", group: "fertigung",

@@ -48,7 +48,7 @@ import type { AppState } from "../App";
 type Req = AppState["req"];
 
 /* Jeder Schritt weiss, welche Anforderungsfelder ihm gehoeren. Nur so kann
-   "Ueberspringen" wirklich ueberspringen, statt bloss weiterzublaettern. */
+   "Ueberspringen" wirklich ueberspringen, statt bloß weiterzublaettern. */
 const STEPS: { key: string; owns: (keyof Req)[]; ownsWeights?: string[] }[] = [
   { key: "env", owns: ["outdoorYears", "serviceTemperatureC", "thermalLoad"] },
   { key: "load", owns: ["minTensileStrengthMPa", "flexible"] },

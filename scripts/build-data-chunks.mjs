@@ -164,5 +164,5 @@ console.log(`  src/data/generated/material-notes.json   ${kb(n.json).padStart(7)
 console.log(`  src/data/generated/products.json         ${kb(p.json).padStart(7)}   Herstellerprodukte            (${p.texts} Texte)`);
 console.log("\n  Der Kern liegt im Erstaufruf, die Notizen werden nachgeladen - von der");
 console.log("  Datenblattansicht, der Brandschutzansicht und dem CSV-Export.");
-console.log("  Zweisprachige Texte stehen je Buendel EINMAL in einer Tabelle (ADR-041).");
+console.log("  Zweisprachige Texte stehen je Buendel EINMAL in einer Tabelle.");
 console.log("  Kanonisch bleiben data/materials/*.json und data/products/*.json.");

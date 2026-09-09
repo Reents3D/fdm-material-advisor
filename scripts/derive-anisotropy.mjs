@@ -138,7 +138,7 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json")).sort()) {
       value: round(mid), min: round(lo), max: round(hi), unit: "-", orientation: "Z",
       source: "estimate_reasoning", confidence: "estimated",
       derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
-      conditions: `Median aus ${cands.length} Produktblättern, Spanne ${round(lo)} bis ${round(hi)} — jeder Operand aus je EINEM Blatt`,
+      conditions: `Median aus ${cands.length} Produktblättern, Spanne ${round(lo)} bis ${round(hi)} — jeder Wert aus je einem Blatt`,
       note: t(
         `Senkrecht zur Schicht bleiben im Median ${Math.round(mid * 100)} % der Zugfestigkeit erhalten — die Blätter reichen aber von ${Math.round(lo * 100)} bis ${Math.round(hi * 100)} %, also um den Faktor ${round(hi / lo)} auseinander: ${list}.${cands.length === 2 ? " ACHTUNG: Bei nur ZWEI Blättern ist der Median schlicht deren Mitte — eine Zahl, die keine Quelle gemessen hat. Die Spanne ist hier die eigentliche Aussage, nicht der Wert." : " Bei dieser Zahl von Blättern bildet die Streuung überwiegend echte Produktunterschiede ab, nicht Messunsicherheit."} Wer ein bestimmtes Produkt einsetzt, sollte dessen Blatt lesen statt diesen Median.`,
         `Perpendicular to the layers a median of ${Math.round(mid * 100)} % of the tensile strength remains — but the sheets range from ${Math.round(lo * 100)} to ${Math.round(hi * 100)} %, a factor of ${round(hi / lo)} apart: ${list}.${cands.length === 2 ? " NOTE: with only TWO sheets the median is simply their midpoint — a figure no source measured. The range, not the value, is the statement here." : " At this number of sheets the spread mostly reflects genuine product differences rather than measurement uncertainty."} Anyone using a specific product should read its sheet rather than this median.`),
@@ -182,10 +182,10 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json")).sort()) {
     source: "estimate_reasoning",
     confidence: "estimated",
     derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
-    conditions: `Beide Operanden aus dem Blatt von ${p.brand} ${p.productName}${srcId ? "" : ""} — nicht aus diesem Datensatz`,
+    conditions: `Beide Zahlen aus dem Datenblatt von ${p.brand} ${p.productName}${srcId ? "" : ""}, nicht aus den Werten des Werkstofftyps`,
     note: t(
-      `Senkrecht zur Schicht bleiben ${Math.round(factor * 100)} % der Zugfestigkeit erhalten (${best.z} von ${best.x} MPa). Beide Operanden stammen aus EINEM Datenblatt, dem von ${p.brand} ${p.productName} — dieser Werkstofftyp führt selbst keine Z-Festigkeit. Der Faktor beschreibt damit dieses Produkt, nicht den Typ als Ganzes; ein anderer Hersteller kann deutlich abweichen. Deshalb `+ "`estimated`" + ` und nicht die Konfidenz des Blattes.`,
-      `Perpendicular to the layers ${Math.round(factor * 100)} % of the tensile strength remains (${best.z} of ${best.x} MPa). Both operands come from ONE datasheet, that of ${p.brand} ${p.productName} — this material type carries no Z strength of its own. The factor therefore describes this product, not the type as a whole; another manufacturer may differ markedly. Hence ` + "`estimated`" + ` rather than the sheet's confidence.`,
+      `Senkrecht zur Schicht bleiben ${Math.round(factor * 100)} % der Zugfestigkeit erhalten (${best.z} von ${best.x} MPa). Beide Zahlen stammen aus einem einzigen Datenblatt, dem von ${p.brand} ${p.productName}; für den Werkstofftyp selbst liegt keine Z-Festigkeit vor. Der Faktor beschreibt damit dieses eine Produkt, nicht den Typ als Ganzes, und ein anderer Hersteller kann deutlich abweichen. Er ist deshalb als Schätzung gekennzeichnet.`,
+      `Perpendicular to the layers ${Math.round(factor * 100)} % of the tensile strength remains (${best.z} of ${best.x} MPa). Both figures come from a single datasheet, that of ${p.brand} ${p.productName}; no Z strength exists for the material type itself. The factor therefore describes this one product, not the type as a whole, and another manufacturer may differ markedly. It is therefore marked as an estimate.`,
     ),
   };
   writeFileSync(fp, `${JSON.stringify(m, null, 2)}\n`);

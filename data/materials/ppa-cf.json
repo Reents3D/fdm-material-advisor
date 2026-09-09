@@ -27,7 +27,7 @@
       "en": "Polyphthalamide is a semi-aromatic polyamide: benzene rings sit in the chain, stiffening it and restricting its mobility. That raises melting point and heat deflection markedly above the aliphatic polyamides while lowering moisture uptake — saturated water absorption is 1.30 % against 2.56 % for a glass-fibre reinforced PA6. Filled with carbon fibre this gives the strongest material in this database: 168 MPa in plane at 11,800 MPa stiffness."
     },
     "positioning": {
-      "de": "Der Werkstoff für Bauteile, die heiß und tragend zugleich sind — Motorraum, Werkzeug, Vorrichtung. Zwei Dinge muss man wissen, bevor man ihn wählt. Erstens verliert er quer zur Schicht zwei Drittel seiner Festigkeit (57 statt 168 MPa); die Aufbaurichtung ist hier keine Feinheit, sondern die Auslegung. Zweitens hängt der gesamte Datensatz an einem einzigen Herstellerdatenblatt — es gibt im Bestand keine zweite Quelle, an der sich die Zahlen prüfen ließen.",
+      "de": "Der Werkstoff für Bauteile, die heiß und tragend zugleich sind — Motorraum, Werkzeug, Vorrichtung. Zwei Dinge muss man wissen, bevor man ihn wählt. Erstens verliert er quer zur Schicht zwei Drittel seiner Festigkeit (57 statt 168 MPa); die Aufbaurichtung ist hier keine Feinheit, sondern die Auslegung. Zweitens hängt der gesamte Eintrag an einem einzigen Herstellerdatenblatt — es gibt in der Datenbank keine zweite Quelle, an der sich die Zahlen prüfen ließen.",
       "en": "The material for parts that are hot and load-bearing at once — engine bay, tooling, fixtures. Two things must be known before choosing it. First, it loses two thirds of its strength across the layers (57 instead of 168 MPa); build direction here is not a detail but the design itself. Second, the entire record rests on a single manufacturer datasheet — there is no second source in the dataset against which the figures could be checked."
     }
   },
@@ -163,7 +163,7 @@
         "mechanics.tensileStrengthZ",
         "mechanics.tensileStrengthXy"
       ],
-      "conditions": "57 von 168 MPa, beide Operanden aus demselben Blatt und Prüfdurchgang",
+      "conditions": "57 von 168 MPa, beide Zahlen aus demselben Blatt und Prüfdurchgang",
       "orientation": "Z",
       "source": "estimate_reasoning",
       "confidence": "estimated",
@@ -179,7 +179,7 @@
         "mechanics.charpyUnnotchedZ",
         "mechanics.charpyUnnotchedXy"
       ],
-      "conditions": "4,3 von 41,7 kJ/m², beide Operanden aus demselben Blatt",
+      "conditions": "4,3 von 41,7 kJ/m², beide Zahlen aus demselben Blatt",
       "orientation": "Z",
       "source": "estimate_reasoning",
       "confidence": "estimated",
@@ -204,7 +204,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Die niedrigste Kriechneigung im Bestand. Teilaromatisches Polyamid mit 196 °C HDT-A und 40 % Faseranteil hält Dauerlast bei erhöhter Temperatur besser als jeder andere hier geführte Werkstoff — genau dafür wird PPA in der Serienfertigung eingesetzt.",
+        "de": "Die niedrigste Kriechneigung in der Datenbank. Teilaromatisches Polyamid mit 196 °C HDT-A und 40 % Faseranteil hält Dauerlast bei erhöhter Temperatur besser als jeder andere hier geführte Werkstoff — genau dafür wird PPA in der Serienfertigung eingesetzt.",
         "en": "The lowest creep tendency in the dataset. Semi-aromatic polyamide with 196 °C HDT-A and a high fibre content holds sustained load at elevated temperature better than any other material listed here — precisely what PPA is used for in series production."
       }
     },
@@ -332,7 +332,7 @@
       "source": "src_bambu_tds",
       "confidence": "medium",
       "note": {
-        "de": "Das Blatt nennt 50 bis 80 °C Kammertemperatur — der höchste Wert im gesamten Bestand, bisher lagen 53 °C an der Spitze. Bei 258 °C Schmelzpunkt und teilkristalliner Erstarrung schrumpft der Werkstoff beim Abkühlen stark; ohne temperierte Kammer löst sich das Bauteil von der Platte oder delaminiert zwischen den Schichten. Für kleine Teile mag es notfalls gehen, für die Bauteilgrößen, um die es hier meist geht, nicht.",
+        "de": "Das Blatt nennt 50 bis 80 °C Kammertemperatur — der höchste Wert in der gesamten Datenbank, bisher lagen 53 °C an der Spitze. Bei 258 °C Schmelzpunkt und teilkristalliner Erstarrung schrumpft der Werkstoff beim Abkühlen stark; ohne temperierte Kammer löst sich das Bauteil von der Platte oder delaminiert zwischen den Schichten. Für kleine Teile mag es notfalls gehen, für die Bauteilgrößen, um die es hier meist geht, nicht.",
         "en": "The sheet states 50 to 80 °C chamber temperature — the highest value in the entire dataset, the previous maximum being 53 °C. At a melting point of 258 °C and semi-crystalline solidification the material shrinks strongly on cooling; without a tempered chamber the part detaches from the plate or delaminates between layers. For small parts it may work at a pinch, for the part sizes usually at issue here it does not."
       }
     },
@@ -390,7 +390,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Die schwierigste Verarbeitung im Bestand. Acht bis zwölf Stunden Trocknung bei 100 bis 140 °C, Lagerung unter 20 % relativer Feuchte, beheizte Kammer, gehärtete Düse, Klebestift auf der Platte — jeder dieser Punkte ist eine eigene Fehlerquelle. Niedriger als PA6-CF (2), das ohne Trockenofen auskommt.",
+        "de": "Die schwierigste Verarbeitung in der Datenbank. Acht bis zwölf Stunden Trocknung bei 100 bis 140 °C, Lagerung unter 20 % relativer Feuchte, beheizte Kammer, gehärtete Düse, Klebestift auf der Platte — jeder dieser Punkte ist eine eigene Fehlerquelle. Niedriger als PA6-CF (2), das ohne Trockenofen auskommt.",
         "en": "The most difficult processing in the dataset. Eight to twelve hours of drying at 100 to 140 °C, storage below 20 % relative humidity, heated chamber, hardened nozzle, glue stick on the plate — each of these is a failure mode of its own. Lower than PA6-CF (2), which manages without a drying oven."
       }
     },
@@ -706,8 +706,8 @@
         }
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen, die sich nicht sicher reinigen lassen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches that cannot be reliably cleaned."
       }
     },
     "flameRetardancy": {
@@ -824,8 +824,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -834,7 +834,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Ein Hersteller im Bestand. PPA-Filamente gibt es auch von anderen Anbietern, aber keines davon ist hier mit einem Datenblatt belegt.",
+        "de": "Ein Hersteller in der Datenbank. PPA-Filamente gibt es auch von anderen Anbietern, aber keines davon ist hier mit einem Datenblatt belegt.",
         "en": "One manufacturer in the dataset. PPA filaments exist from other suppliers too, but none of them is documented here with a datasheet."
       }
     },
@@ -853,8 +853,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-        "en": "Not yet reconciled with the Reents3D material stock. Per ADR-004 this does NOT enter the scoring."
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+        "en": "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."
       }
     },
     "spoolSizes": [
@@ -871,8 +871,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Geschätzt, nicht belegt — die Zahl bleibt eine Ableitung aus Verzugsneigung und Kammerbedarf. Aus der eigenen Fertigung belegt ist bisher nur: bis 800 × 800 mm ohne Befund. Das ist ein unterer Rand und keine Grenze; dort war schlicht das größte Teil. Im echten Großformat wurde dieser Werkstoff noch nicht gefahren — bisher nur auf den Engineering-Druckern.",
-          "en": "Estimated, not established — the figure remains a derivation from warping tendency and chamber requirement. What own production has established so far is only: up to 800 × 800 mm without incident. That is a lower bound, not a limit; it was simply the largest part. This material has not yet been run at true large format — so far only on the engineering printers."
+          "de": "Geschätzt aus Verzugsneigung und Kammerbedarf, nicht gemessen. Aus der eigenen Fertigung belegt ist bisher: bis 800 × 800 mm ohne Probleme. Das ist ein unterer Rand und keine Grenze; größere Teile wurden bisher schlicht nicht gefertigt. Im echten Großformat lief dieser Werkstoff bisher nicht, nur auf den Engineering-Druckern.",
+          "en": "Estimated from warping tendency and chamber requirement, not measured. Established from own production so far: up to 800 × 800 mm without problems. That is a lower bound, not a limit; larger parts simply have not been made yet. This material has not yet been run at true large format, only on the engineering printers."
         }
       }
     },
@@ -907,8 +907,8 @@
         "retrievedAt": "2026-08-05",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Prüfkörper GEDRUCKT (290 °C Düse, 110 °C Bett), Kennwerte getrennt nach X-Y und Z, Streuungsangaben durchgehend. Die Obergrenze steht dennoch auf `medium` und nicht auf `high`: Dieser Werkstofftyp hat im ganzen Bestand nur diese eine Quelle, es gibt also keinen zweiten Beleg, an dem sich die Zahlen prüfen ließen.",
-          "en": "Specimens PRINTED (290 °C nozzle, 110 °C bed), values separated by X-Y and Z, scatter stated throughout. The ceiling nevertheless stands at `medium` and not `high`: this material type has only this one source in the entire dataset, so there is no second piece of evidence against which the figures could be checked."
+          "de": "Prüfkörper gedruckt (290 °C Düse, 110 °C Bett), Kennwerte getrennt nach X-Y und Z, Streuungsangaben durchgehend. Dennoch gelten die Werte nur als einfach belegt: Dieser Werkstofftyp hat in der ganzen Datenbank nur diese eine Quelle, es gibt also keinen zweiten Beleg, an dem sich die Zahlen prüfen ließen.",
+          "en": "Specimens printed (290 °C nozzle, 110 °C bed), values separated by X-Y and Z, scatter stated throughout. The values nevertheless count as singly substantiated only: this material type has just this one source in the entire database, so there is no second piece of evidence against which the figures could be checked."
         }
       },
       {
@@ -920,8 +920,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot von 1 Marke (Bambu Lab). Günstigstes Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 € (207,99 €/kg); teuerstes Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 € (207,99 €/kg). Die vollständige Liste steht in data/prices.json.",
-          "en": "1 offer from 1 brand (Bambu Lab). Cheapest Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg at 155.99 € (207.99 €/kg); dearest Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg at 155.99 € (207.99 €/kg). The full list is in data/prices.json."
+          "de": "1 Angebot von 1 Marke (Bambu Lab). Einziges Angebot: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0,75 kg für 155,99 € (207,99 €/kg).",
+          "en": "1 offer from 1 brand (Bambu Lab). Only offer: Bambu Lab Bambu Lab PPA-CF Black, 750 g / Spule, 0.75 kg at 155.99 € (207.99 €/kg)."
         }
       },
       {
@@ -949,8 +949,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 1 Angebot von 1 Anbieter und 1 Marke (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 1 offer from 1 retailer and 1 brand (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 1 Angebot von 1 Anbieter und 1 Marke (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 1 offer from 1 retailer and 1 brand (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [

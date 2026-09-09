@@ -9,12 +9,12 @@
   "origin": "Niederlande",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard im gesamten Bestand: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
+    "de": "Gedruckte Prüfkörper in drei Bauorientierungen: XY liegend, XZ hochkant, ZX stehend. Das Blatt nennt zusätzlich die Druckparameter, mit denen die Prüfkörper hergestellt wurden — Düsentemperatur, Betttemperatur, Düsendurchmesser und Druckgeschwindigkeit. Das ist der höchste Belegstandard in der gesamten Datenbank: Die Werte lassen sich nicht nur einordnen, sie lassen sich nachdrucken.",
     "en": "Printed specimens in three build orientations: XY flat, XZ on edge, ZX upright. The sheet additionally states the print parameters used to make the specimens — nozzle temperature, bed temperature, nozzle diameter and print speed. That is the highest evidentiary standard in the entire dataset: the values can not only be placed in context, they can be reprinted."
   },
   "features": {
-    "de": "Das einzige Blatt im Bestand, das dieselben Kennwerte TROCKEN und KONDITIONIERT nebeneinanderstellt (23 °C, 50 % rF, 72 h). Der Unterschied ist kein Detail: Die HDT bei 0,45 MPa fällt von 145 auf 128 °C, die Poisson-Zahl steigt von 0,44 auf 0,51. Ein Polyamid nimmt Wasser auf, und das Datenblatt sagt hier ausnahmsweise, was das kostet. Stehend gedruckt bleiben von 103,2 MPa noch 18,2 übrig — 18 %.",
-    "en": "The only sheet in the dataset that places the same values DRY and CONDITIONED side by side (23 °C, 50 % RH, 72 h). The difference is no detail: HDT at 0.45 MPa falls from 145 to 128 °C, Poisson's ratio rises from 0.44 to 0.51. A polyamide takes up water, and for once the datasheet says what that costs. Printed upright, 18.2 MPa remain of 103.2 — 18 %."
+    "de": "Das einzige Blatt in der Datenbank, das dieselben Kennwerte trocken und konditioniert nebeneinanderstellt (23 °C, 50 % rF, 72 h). Der Unterschied ist kein Detail: Die HDT bei 0,45 MPa fällt von 145 auf 128 °C, die Poisson-Zahl steigt von 0,44 auf 0,51. Ein Polyamid nimmt Wasser auf, und das Datenblatt sagt hier ausnahmsweise, was das kostet. Stehend gedruckt bleiben von 103,2 MPa noch 18,2 übrig — 18 %.",
+    "en": "The only sheet in the dataset that places the same values dry and conditioned side by side (23 °C, 50 % RH, 72 h). The difference is no detail: HDT at 0.45 MPa falls from 145 to 128 °C, Poisson's ratio rises from 0.44 to 0.51. A polyamide takes up water, and for once the datasheet says what that costs. Printed upright, 18.2 MPa remain of 103.2 — 18 %."
   },
   "datasheet": {
     "title": "Ultrafuse PAHT CF15 — Technical Data Sheet",
@@ -207,7 +207,7 @@
       "value": 145,
       "unit": "°C",
       "testStandard": "ISO 75-2, 0,45 MPa",
-      "conditions": "trocken; KONDITIONIERT nur 128 °C (23 °C, 50 % rF, 72 h)",
+      "conditions": "trocken; konditioniert nur 128 °C (23 °C, 50 % rF, 72 h)",
       "source": "src_tds",
       "confidence": "high"
     },

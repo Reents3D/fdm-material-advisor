@@ -251,7 +251,7 @@ const DISPUTED = {
 
 mkdirSync(OUT, { recursive: true });
 const SPECIMEN_NOTE = t(
-  "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet. Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf diese Blätter; ausserhalb nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+  "Bambu Lab misst an GEDRUCKTEN Prüfkörpern und veröffentlicht für jeden Kennwert beide Orientierungen — X-Y in der Schichtebene und Z quer dazu — samt Streuung. Nur daraus lässt sich ablesen, wie viel Festigkeit eine falsche Bauteilorientierung kostet. Von 13 Werkstofftypen mit Z-Kennwert stützen sich 12 auf diese Blätter; außerhalb nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
   "Bambu Lab measures on PRINTED specimens and publishes both orientations for every value — X-Y in the layer plane and Z across it — including scatter. Only from that can one read how much strength a wrong part orientation costs. Of 13 material types carrying a Z value, 12 rest on these sheets; outside them only Fillamentum (OBC 905) states both directions so far.");
 
 let sheets;
@@ -262,7 +262,7 @@ try {
   console.error(
     `\nQuellverzeichnis fehlt: ${path.relative(ROOT, SRC)}\n\n` +
     `data/_sources/ ist lokaler Arbeitsplatz und nicht Teil des Repositorys —\n` +
-    `Herstellerdatenblaetter werden nicht weiterverbreitet (ADR-034).\n` +
+    `Herstellerdatenblaetter werden nicht weiterverbreitet.\n` +
     `Zum Befuellen siehe data/_sources/README.md.\n\n` +
     `Der Build braucht diesen Importer nicht: "npm run ci" laeuft ohne ihn.\n`
   );
@@ -409,8 +409,8 @@ writeFileSync(path.join(ROOT, "data/materials/pps-cf.json"), JSON.stringify({
       { id: "src_bambu_tds", type: "manufacturer-tds", publisher: "Bambu Lab", productName: "Bambu PPS-CF",
         title: "Bambu PPS-CF — Technical Data Sheet", url: `${CDN}/Bambu_PPS-CF_Technical_Data_Sheet.pdf`,
         retrievedAt: RETRIEVED, confidenceCeiling: "high",
-        note: t("Datenblatt mit gedruckten Prüfkörpern, beiden Orientierungen, Streuungen UND vollständig offengelegten Druckparametern der Prüfkörper.",
-                "Datasheet with printed specimens, both orientations, scatter figures AND fully disclosed specimen print parameters.") },
+        note: t("Datenblatt mit gedruckten Prüfkörpern, beiden Orientierungen, Streuungen und vollständig offengelegten Druckparametern der Prüfkörper.",
+                "Datasheet with printed specimens, both orientations, scatter figures and fully disclosed specimen print parameters.") },
       { id: "estimate_reasoning", type: "estimate", publisher: "FDM-Materialberater",
         title: "Fachliche Ableitung ohne Primärquelle", confidenceCeiling: "estimated" },
     ],

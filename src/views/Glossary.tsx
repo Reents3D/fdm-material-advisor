@@ -34,8 +34,8 @@ export function Glossary({ lang }: { t: T; lang: Lang }) {
       <h1 className="text-2xl font-display font-bold mb-1">{de ? "Glossar" : "Glossary"}</h1>
       <p className="text-sm muted mb-5 max-w-3xl leading-relaxed">
         {de
-          ? "Die Begriffe, mit denen Datenblätter arbeiten — und woran man sich bei jedem von ihnen üblicherweise verrechnet."
-          : "The terms datasheets work with — and how each of them is commonly misread."}
+          ? "Die Begriffe, mit denen Datenblätter arbeiten, und woran man sich bei jedem von ihnen üblicherweise verrechnet."
+          : "The terms datasheets work with, and how each of them is commonly misread."}
       </p>
 
       <div className="mb-6 no-print">
@@ -109,8 +109,8 @@ export function Glossary({ lang }: { t: T; lang: Lang }) {
 
       <p className={cx("text-sm muted max-w-3xl leading-relaxed", hits.length === 0 && "mt-0")}>
         {de
-          ? "Fehlt ein Begriff oder ist eine Erklärung schief? Die Datei liegt als data/glossary.json offen im Repository — ein Issue oder Pull Request ist willkommen."
-          : "A term missing or an explanation off? The file sits openly as data/glossary.json in the repository — an issue or pull request is welcome."}
+          ? "Fehlt ein Begriff oder ist eine Erklärung schief? Das Glossar ist quelloffen; Hinweise nehmen wir gern über GitHub entgegen."
+          : "A term missing or an explanation off? The glossary is open source; we welcome suggestions via GitHub."}
       </p>
     </div>
   );

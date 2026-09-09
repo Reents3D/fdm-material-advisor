@@ -47,8 +47,8 @@ export function UseCases({ lang }: { t: T; lang: Lang }) {
       </h1>
       <p className="text-sm muted mb-6 max-w-3xl leading-relaxed">
         {de
-          ? "Der Assistent fragt nach Dauergebrauchstemperatur und Brandklasse. Wer diese Antworten kennt, braucht das Werkzeug nur halb. Suchen Sie stattdessen Ihre Situation — das Anforderungsprofil kommt mit, jeder Wert mit Begründung."
-          : "The wizard asks for continuous service temperature and flame class. Anyone who knows those answers only half needs this tool. Find your situation instead — the requirement profile comes with it, every value with its reasoning."}
+          ? "Sie kennen Ihre Situation, aber nicht die Kennwerte dahinter? Wählen Sie einen Anwendungsfall: Das Anforderungsprofil ist vorbelegt, und jede Vorgabe ist begründet."
+          : "You know your situation but not the figures behind it? Pick a use case: the requirement profile is preset, and every value comes with its reasoning."}
       </p>
 
       {USECASE_GROUPS.map((g) => {
@@ -119,8 +119,8 @@ export function UseCases({ lang }: { t: T; lang: Lang }) {
 
       <p className="text-sm muted max-w-3xl leading-relaxed">
         {de
-          ? "Die Profile sind Startpunkte, keine Vorschriften. Jeder Wert lässt sich im Assistenten ändern — die Empfehlung rechnet sich sofort neu, und die Adresszeile hält das Ergebnis fest, sodass Sie es weitergeben können."
-          : "The profiles are starting points, not prescriptions. Every value can be changed in the wizard — the recommendation recalculates immediately, and the address bar holds the result so you can pass it on."}
+          ? "Die Profile sind Startpunkte, keine Vorschriften. Jeder Wert lässt sich im Assistenten ändern; die Empfehlung rechnet sich sofort neu, und der Link in der Adresszeile hält das Ergebnis fest, sodass Sie es weitergeben können."
+          : "The profiles are starting points, not prescriptions. Every value can be changed in the wizard; the recommendation recalculates immediately, and the link in the address bar holds the result so you can pass it on."}
       </p>
     </div>
   );

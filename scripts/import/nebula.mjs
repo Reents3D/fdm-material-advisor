@@ -87,8 +87,8 @@ const PLA_GENERIC = {
 };
 
 const PLA_SHARED = t(
-  "Diese Tabelle gehört nicht diesem Produkt allein. Sie steht identisch auf den Blättern von Nebula PLA Premium und fünf PLA-Art-Varianten — und zusätzlich, mit umgerechneten Zahlen, auf denen von FormFutura EasyFil ePLA und Galaxy PLA. Acht Produkte zweier Hersteller hängen damit an EINER Messung, vermutlich dem Blatt des Granulatlieferanten. Für diese Datenbank zählt das als ein Beleg; alle Werte tragen `low`. Die Zugkennwerte sind zudem nach ASTM D882 geprüft, der Norm für dünne Folien — für starre Formteile gilt D638 beziehungsweise ISO 527. Die Schlagzähigkeit steht in J/m und ist nicht übernommen, weil ihre Umrechnung die Probendicke braucht.",
-  "This table does not belong to this product alone. It appears identically on the sheets of Nebula PLA Premium and five PLA Art variants — and additionally, with converted figures, on those of FormFutura EasyFil ePLA and Galaxy PLA. Eight products from two manufacturers thus hang on ONE measurement, presumably the resin supplier's sheet. For this database that counts as one piece of evidence; all values carry `low`. The tensile values are moreover tested to ASTM D882, the standard for thin film — for rigid mouldings D638 or ISO 527 applies. The impact strength is in J/m and is not imported because its conversion needs the specimen thickness.",
+  "Diese Tabelle gehört nicht diesem Produkt allein. Sie steht identisch auf den Blättern von Nebula PLA Premium und fünf PLA-Art-Varianten — und zusätzlich, mit umgerechneten Zahlen, auf denen von FormFutura EasyFil ePLA und Galaxy PLA. Acht Produkte zweier Hersteller hängen damit an EINER Messung, vermutlich dem Blatt des Granulatlieferanten. Für diese Datenbank zählt das als ein Beleg; alle Werte gelten als schwach belegt. Die Zugkennwerte sind zudem nach ASTM D882 geprüft, der Norm für dünne Folien — für starre Formteile gilt D638 beziehungsweise ISO 527. Die Schlagzähigkeit steht in J/m und ist nicht übernommen, weil ihre Umrechnung die Probendicke braucht.",
+  "This table does not belong to this product alone. It appears identically on the sheets of Nebula PLA Premium and five PLA Art variants — and additionally, with converted figures, on those of FormFutura EasyFil ePLA and Galaxy PLA. Eight products from two manufacturers thus hang on ONE measurement, presumably the resin supplier's sheet. For this database that counts as one piece of evidence; all values count as weakly substantiated. The tensile values are moreover tested to ASTM D882, the standard for thin film — for rigid mouldings D638 or ISO 527 applies. The impact strength is in J/m and is not imported because its conversion needs the specimen thickness.",
 );
 
 const PLA_RESOLVES = t(
@@ -113,7 +113,7 @@ const ABS_SHARED = t(
 );
 
 const UL94_THREE = t(
-  "Die einzige UL94-Angabe im ganzen Bestand mit MEHREREN Materialdicken: HB bei 1,5 mm, bei 3,0 mm und bei 6,0 mm. Eine UL94-Klasse ohne Dickenangabe ist nicht übertragbar, weil dieselbe Rezeptur je nach Dicke unterschiedlich eingestuft wird — hier steht sie dreimal und ist damit belastbar. HB bleibt allerdings die unterste Stufe und bedeutet nur „brennt langsam“; als Brandschutz im Sinne einer Bahn- oder Innenraumanforderung zählt sie nicht. Eine Prüfstelle und eine Zeugnisnummer nennt auch dieses Blatt nicht.",
+  "Die einzige UL94-Angabe in der ganzen Datenbank mit MEHREREN Materialdicken: HB bei 1,5 mm, bei 3,0 mm und bei 6,0 mm. Eine UL94-Klasse ohne Dickenangabe ist nicht übertragbar, weil dieselbe Rezeptur je nach Dicke unterschiedlich eingestuft wird — hier steht sie dreimal und ist damit belastbar. HB bleibt allerdings die unterste Stufe und bedeutet nur „brennt langsam“; als Brandschutz im Sinne einer Bahn- oder Innenraumanforderung zählt sie nicht. Eine Prüfstelle und eine Zeugnisnummer nennt auch dieses Blatt nicht.",
   "The only UL 94 statement in the entire dataset with SEVERAL material thicknesses: HB at 1.5 mm, at 3.0 mm and at 6.0 mm. A UL 94 class without a thickness is not transferable, because the same formulation is rated differently depending on thickness — here it appears three times and is therefore solid. HB remains the lowest rating and means only “burns slowly”; it does not count as flame protection in the sense of a rail or interior requirement. This sheet too names no test house and no certificate number.",
 );
 
@@ -172,7 +172,7 @@ const P = [
       meltFlowRate: q(6, "g/10min", { min: 5, max: 7, std: "ASTM D1238" }),
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "ASTM D3418" }),
       tensileStrengthXy: q(40, "MPa", { std: "ASTM D638", conditions: "Blattangabe 5.802 psi", orientation: "XY" }),
-      tensileModulusXy: q(2865, "MPa", { std: "ASTM D638", conditions: "Blattangabe 416 kpsi; siehe Befund zur zweiten Modulzeile", orientation: "XY", confidence: "low" }),
+      tensileModulusXy: q(2865, "MPa", { std: "ASTM D638", conditions: "Blattangabe 416 kpsi; siehe Hinweis zur zweiten Modulzeile", orientation: "XY", confidence: "low" }),
       elongationAtBreakXy: q(2.3, "%", { std: "im Blatt als ASTM D256 angegeben — das ist die Schlagprüfnorm; für die Dehnung gilt D638", orientation: "XY", confidence: "low" }),
       hdtB: q(85, "°C", { min: 80, max: 90, std: "ASTM E2092", conditions: "66 psi = 0,45 MPa" }),
     },
@@ -195,8 +195,8 @@ const P = [
       flexuralModulusXy: q(3827, "MPa", { std: "ASTM D790", conditions: "Blattangabe 555.000 psi (3,8 GPa)", orientation: "XY" }),
       hdtB: q(80, "°C", { min: 75, max: 85, std: "ASTM E2092", conditions: "66 psi = 0,45 MPa" }),
     },
-    features: t("Das einzige PLA-Blatt im Bestand, das die Schlagzähigkeit für den amorphen UND den kristallinen Zustand getrennt ausweist: 2,99 gegen 4,37 ft·lb/in. Kristallisieren macht dieses PLA also um knapp die Hälfte zäher — die Angabe erklärt, wofür das „HD“ im Namen steht, und sie ist der Grund, warum die Wärmeformbeständigkeit mit 75 bis 85 °C weit über gewöhnlichem PLA liegt.",
-                "The only PLA sheet in the dataset to state impact strength separately for the amorphous AND the crystalline state: 2.99 against 4.37 ft·lb/in. Crystallising thus makes this PLA nearly half as tough again — the statement explains what the “HD” in the name stands for, and it is the reason the heat deflection lies at 75 to 85 °C, far above ordinary PLA."),
+    features: t("Das einzige PLA-Blatt in der Datenbank, das die Schlagzähigkeit für den amorphen und den kristallinen Zustand getrennt ausweist: 2,99 gegen 4,37 ft·lb/in. Kristallisieren macht dieses PLA also um knapp die Hälfte zäher — die Angabe erklärt, wofür das „HD“ im Namen steht, und sie ist der Grund, warum die Wärmeformbeständigkeit mit 75 bis 85 °C weit über gewöhnlichem PLA liegt.",
+                "The only PLA sheet in the dataset to state impact strength separately for the amorphous and the crystalline state: 2.99 against 4.37 ft·lb/in. Crystallising thus makes this PLA nearly half as tough again — the statement explains what the “HD” in the name stands for, and it is the reason the heat deflection lies at 75 to 85 °C, far above ordinary PLA."),
     anomaly: t("Beide Schlagwerte stehen in ft·lb/in beziehungsweise J/m (160 und 233 J/m). J/m ist Energie je Probenbreite, die hier geführte Einheit kJ/m² Energie je Bruchfläche; die Umrechnung braucht die Probendicke. Beide sind deshalb nicht übernommen, obwohl gerade der Vergleich amorph/kristallin die aussagekräftigste Angabe des Blattes wäre.",
                "Both impact figures are in ft·lb/in and J/m respectively (160 and 233 J/m). J/m is energy per specimen width, the unit used here, kJ/m², energy per fracture area; the conversion needs the specimen thickness. Both are therefore not imported, although the amorphous/crystalline comparison would be the sheet's most informative statement."),
   },
@@ -228,10 +228,10 @@ const P = [
     },
     ul94: { value: "HB", thicknessMm: 3, note: t("HB bei 3,0 mm, mit Dickenangabe. HB ist die unterste UL94-Stufe und bedeutet nur „brennt langsam“.",
                                                  "HB at 3.0 mm, with the thickness stated. HB is the lowest UL 94 rating and means only “burns slowly”.") },
-    features: t("Eine Bruchdehnung von 55 % ist für ein ASA ungewöhnlich hoch — die übrigen ASA-Datensätze im Bestand liegen zwischen 1,8 und 15 %. Zusammen mit einer Vicat-Temperatur von 105 °C ergibt das ein für den Außeneinsatz interessantes Profil: zäh und wärmefest zugleich.",
+    features: t("Eine Bruchdehnung von 55 % ist für ein ASA ungewöhnlich hoch — die übrigen ASA-Einträge in der Datenbank liegen zwischen 1,8 und 15 %. Zusammen mit einer Vicat-Temperatur von 105 °C ergibt das ein für den Außeneinsatz interessantes Profil: zäh und wärmefest zugleich.",
                 "An elongation at break of 55 % is unusually high for an ASA — the other ASA records in the dataset lie between 1.8 and 15 %. Together with a Vicat temperature of 105 °C that gives a profile interesting for outdoor use: tough and heat-resistant at once."),
-    anomaly: t("Die Festigkeiten stehen in kg/cm², einer seit Jahrzehnten außer Gebrauch gekommenen Einheit; sie sind umgerechnet und tragen `low`, die Blattangabe steht in `conditions`. Eine Wärmeformbeständigkeit weist das Blatt nicht aus — bei einem Außenwerkstoff wäre gerade sie die entscheidende Angabe.",
-               "The strengths are in kg/cm², a unit out of use for decades; they are converted and carry `low`, with the sheet figure in `conditions`. The sheet states no heat deflection temperature — for an outdoor material that would be precisely the decisive figure."),
+    anomaly: t("Die Festigkeiten stehen in kg/cm², einer seit Jahrzehnten außer Gebrauch gekommenen Einheit; sie sind umgerechnet und gelten als schwach belegt, die Blattangabe steht bei den Prüfbedingungen. Eine Wärmeformbeständigkeit weist das Blatt nicht aus — bei einem Außenwerkstoff wäre gerade sie die entscheidende Angabe.",
+               "The strengths are in kg/cm², a unit out of use for decades; they are converted and count as weakly substantiated, with the sheet figure bei den Prüfbedingungen. The sheet states no heat deflection temperature — for an outdoor material that would be precisely the decisive figure."),
   },
   {
     id: "nebula-hips-tech-404", material: "hips", name: "HIPS Tech 404", file: "TDS-HIPS-404",
@@ -242,9 +242,9 @@ const P = [
       flexuralStrengthXy: q(38, "MPa", { std: "ISO 178", orientation: "XY" }),
       vicatA: q(100, "°C", { std: "ISO 306/A120", conditions: "Methode A, 120 °C/h" }),
     },
-    features: t("Der dritte HIPS-Beleg im Bestand und der einzige, der die Vicat-Methode vollständig nennt (ISO 306/A120 — Methode A bei 120 °C/h). Das Blatt weist den Werkstoff ausdrücklich als Stützmaterial aus, was die dünne Kennwertlage erklärt: Für ein Material, das nach dem Druck weggelöst wird, sind Zugfestigkeit und Schlagzähigkeit nachrangig.",
+    features: t("Der dritte HIPS-Beleg in der Datenbank und der einzige, der die Vicat-Methode vollständig nennt (ISO 306/A120 — Methode A bei 120 °C/h). Das Blatt weist den Werkstoff ausdrücklich als Stützmaterial aus, was die dünne Kennwertlage erklärt: Für ein Material, das nach dem Druck weggelöst wird, sind Zugfestigkeit und Schlagzähigkeit nachrangig.",
                 "The third HIPS record in the dataset and the only one to name the Vicat method in full (ISO 306/A120 — method A at 120 °C/h). The sheet explicitly designates the material as support material, which explains the thin data: for a material dissolved away after printing, tensile strength and impact are secondary."),
-    anomaly: t("Die Tabelle nennt weder Zugfestigkeit noch Bruchdehnung, Schlagzähigkeit oder Wärmeformbeständigkeit — vier Zeilen insgesamt. Für einen Vergleich mit den beiden anderen HIPS-Datensätzen reicht das nur beim E-Modul und bei der Biegefestigkeit.",
+    anomaly: t("Die Tabelle nennt weder Zugfestigkeit noch Bruchdehnung, Schlagzähigkeit oder Wärmeformbeständigkeit — vier Zeilen insgesamt. Für einen Vergleich mit den beiden anderen HIPS-Einträgen reicht das nur beim E-Modul und bei der Biegefestigkeit.",
                "The table names neither tensile strength nor elongation, impact or heat deflection — four rows in total. For a comparison with the two other HIPS records that suffices only for modulus and flexural strength."),
   },
   { id: "nebula-petg-premium", material: "petg", name: "PETG Premium", file: "TDS-PETG-PREMIUM", props: PETG_TABLE,
@@ -269,7 +269,7 @@ const byMaterial = new Map();
 for (const p of P) {
   const url = `${BASE}/${p.file}.pdf`;
   const parts = [POLISH];
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`, `Note on this datasheet: ${p.anomaly.en}`));
 
   const props = {
     ...p.props,
@@ -311,8 +311,8 @@ for (const p of P) {
         id: "src_tds", type: "manufacturer-tds", publisher: "Nebula Filaments",
         productName: p.name, title: `${p.name} — Karta techniczna`,
         url, retrievedAt: RETRIEVED, confidenceCeiling: "medium",
-        note: t("Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; mehrere Blätter teilen sich eine Tabelle, siehe Befunde am Datensatz.",
-                "Polish-language manufacturer datasheet with text layer. Specimen not declared; several sheets share one table, see findings on the record."),
+        note: t("Polnischsprachiges Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; mehrere Blätter teilen sich eine Tabelle, siehe die Hinweise an den betroffenen Werten.",
+                "Polish-language manufacturer datasheet with text layer. Specimen not stated; several sheets share one table, see the notes on the affected values."),
       }],
     },
   };
@@ -324,8 +324,8 @@ for (const p of P) {
   byMaterial.set(p.material, (byMaterial.get(p.material) ?? 0) + 1);
 }
 
-console.log(`${n} Nebula-Produkte geschrieben - neue Marke im Bestand.`);
-console.log(`  ${na} mit eigenem Befund · ${nu} mit UL94-Angabe (alle mit Dickenangabe)\n`);
+console.log(`${n} Nebula-Produkte geschrieben - neue Marke in der Datenbank.`);
+console.log(`  ${na} mit eigenem Hinweis · ${nu} mit UL94-Angabe (alle mit Dickenangabe)\n`);
 console.log("  Werkstofftyp   Produkte");
 for (const [m, c] of [...byMaterial.entries()].sort((a, b) => b[1] - a[1])) {
   console.log(`  ${m.padEnd(14)}${String(c).padStart(4)}`);

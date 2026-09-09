@@ -50,15 +50,24 @@ const t = (de, en) => ({ de, en });
  * naechsten ABS- oder PC-Typ gelten, ohne dass jemand daran denken muss.
  */
 const FOSSIL = {
-  ABS: "Acrylnitril, Butadien und Styrol stammen sämtlich aus der Erdölfraktionierung.",
-  ASA: "Wie ABS, mit Acrylester statt Butadien — alle drei Monomere petrochemisch.",
-  PC: "Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch.",
-  PMMA: "Methylmethacrylat aus Aceton und Blausäure, petrochemisch.",
-  PPS: "p-Dichlorbenzol und Natriumsulfid, petrochemisch.",
-  TPU: "Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert.",
-  PA: "Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt NICHT für PA11, das aus Rizinusöl stammt und hier nicht geführt wird.",
-  PETG: "Terephthalsäure, Ethylenglykol und CHDM — sämtlich petrochemisch. Der geführte PETG-Typ steht seit jeher bei 0 %; die ESD-Variante erbt das, weil Leitruss ebenfalls nicht biobasiert ist.",
-  PET: "Terephthalsäure und Ethylenglykol; biobasiertes MEG existiert, ist bei diesen Typen aber nicht deklariert.",
+  ABS: t("Acrylnitril, Butadien und Styrol stammen sämtlich aus der Erdölfraktionierung.",
+         "acrylonitrile, butadiene and styrene all come from petroleum fractionation."),
+  ASA: t("Wie ABS, mit Acrylester statt Butadien — alle drei Monomere petrochemisch.",
+         "like ABS, with acrylic ester instead of butadiene; all three monomers are petrochemical."),
+  PC: t("Bisphenol A und Phosgen bzw. Diphenylcarbonat, beide petrochemisch.",
+        "bisphenol A and phosgene or diphenyl carbonate, both petrochemical."),
+  PMMA: t("Methylmethacrylat aus Aceton und Blausäure, petrochemisch.",
+          "methyl methacrylate from acetone and hydrogen cyanide, petrochemical."),
+  PPS: t("p-Dichlorbenzol und Natriumsulfid, petrochemisch.",
+         "p-dichlorobenzene and sodium sulphide, petrochemical."),
+  TPU: t("Diisocyanat und Polyol; biobasierte Polyole gibt es, sie sind aber weder bei diesen Typen noch marktüblich deklariert.",
+         "diisocyanate and polyol; bio-based polyols exist, but they are declared neither for these grades nor commonly on the market."),
+  PA: t("Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt nicht für PA11, das aus Rizinusöl stammt und hier nicht geführt wird.",
+        "caprolactam (PA6) or laurolactam (PA12) from butadiene, petrochemical. This does not apply to PA11, which comes from castor oil and is not listed here."),
+  PETG: t("Terephthalsäure, Ethylenglykol und CHDM — sämtlich petrochemisch. Der geführte PETG-Typ steht seit jeher bei 0 %; die ESD-Variante erbt das, weil Leitruß ebenfalls nicht biobasiert ist.",
+          "terephthalic acid, ethylene glycol and CHDM, all petrochemical. The PETG type listed here has always been at 0 %; the ESD variant inherits that, since conductive carbon black is not bio-based either."),
+  PET: t("Terephthalsäure und Ethylenglykol; biobasiertes MEG existiert, ist bei diesen Typen aber nicht deklariert.",
+         "terephthalic acid and ethylene glycol; bio-based MEG exists but is not declared for these grades."),
 };
 
 /** Was der Werkstoff-ID nach eine gefüllte oder modifizierte Variante ist. */
@@ -108,14 +117,12 @@ for (const file of readdirSync(MAT).filter((f) => f.endsWith(".json"))) {
     source: "estimate_reasoning",
     confidence: "estimated",
     note: t(
-      `Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: ${reason}`
+      `Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: ${reason.de}`
       + (isFilled ? " Der Füllstoff ändert daran nichts — Kohle- und Glasfaser sind ebenfalls nicht biobasiert." : "")
-      + " Null Prozent ist hier eine Auskunft und keine Lücke: Wer Nachhaltigkeit gewichtet,"
-      + " soll den Unterschied zwischen `fossil` und `unbekannt` sehen.",
-      `Derived from the origin of the base polymer, not measured per ISO 16620-2: ${reason}`
+      + " Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+      `Derived from the origin of the base polymer, not measured per ISO 16620-2: ${reason.en}`
       + (isFilled ? " The filler does not change that — carbon and glass fibre are not bio-based either." : "")
-      + " Zero percent is a statement here, not a gap: anyone weighting sustainability should see"
-      + " the difference between `fossil` and `unknown`."),
+      + " The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."),
   };
   filled++;
   rows.push(`${m.id.padEnd(11)} ${family}`);

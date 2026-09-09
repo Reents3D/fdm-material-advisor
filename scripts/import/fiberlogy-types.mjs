@@ -85,8 +85,8 @@ const XXL_NOTE = t(
   "Estimated from chamber requirement, warping tendency and layer adhesion — not backed by our own production. Not a manufacturing limit but the edge length from which it becomes demanding.");
 
 const PORTFOLIO_NOTE = t(
-  "Fließt unter keinen Umständen in Filterung oder Bewertung ein (ADR-004).",
-  "Never enters filtering or scoring under any circumstances (ADR-004).");
+  "Der Portfolio-Status beeinflusst weder Filterung noch Bewertung.",
+  "Portfolio status affects neither filtering nor assessment.");
 
 const SINGLE_SOURCE = t(
   "Zweite unabhängige Quelle für diesen Werkstofftyp finden. Alle Kennwerte stammen aus einem einzigen Fiberlogy-Blatt; eine einzelne Quelle zeigt keine Streuung.",
@@ -159,27 +159,27 @@ const TYPES = [
     aliases: ["Carbon-PLA", "PLA CF", "carbon filled PLA"],
     file: "FIBERLOGY_PLACF_TDS.pdf", title: "Fiberlogy PLA CF — Technical Data Sheet",
     abstract: t(
-      "Mit 8.500 MPa E-Modul der mit Abstand steifste Werkstoff im ganzen Bestand — PA6-CF liegt bei 4.900, ungefülltes PLA bei 3.100. Dafür ist es spröde: 2,4 % Bruchdehnung und 3,1 kJ/m² gekerbte Schlagzähigkeit. Der große Vorbehalt steht in der Fußnote des Blatts: Die genannten 137 °C Formbeständigkeit gelten NUR NACH TEMPERUNG im Umluftofen. Ohne Ofen bleibt es beim thermischen Verhalten von normalem PLA.",
+      "Mit 8.500 MPa E-Modul der mit Abstand steifste Werkstoff in der ganzen Datenbank — PA6-CF liegt bei 4.900, ungefülltes PLA bei 3.100. Dafür ist es spröde: 2,4 % Bruchdehnung und 3,1 kJ/m² gekerbte Schlagzähigkeit. Der große Vorbehalt steht in der Fußnote des Blatts: Die genannten 137 °C Formbeständigkeit gelten nur NACH TEMPERUNG im Umluftofen. Ohne Ofen bleibt es beim thermischen Verhalten von normalem PLA.",
       "At 8,500 MPa tensile modulus by far the stiffest material in the entire dataset — PA6-CF sits at 4,900, unfilled PLA at 3,100. The price is brittleness: 2.4 % elongation at break and 3.1 kJ/m² notched impact strength. The major caveat is in the sheet's own footnote: the stated 137 °C heat deflection applies ONLY AFTER ANNEALING in a convection oven. Without one, the thermal behaviour stays that of ordinary PLA."),
     positioning: t(
-      "Der steifste Werkstoff im Bestand — spröde, und die Wärmewerte gelten nur getempert.",
+      "Der steifste Werkstoff in der Datenbank — spröde, und die Wärmewerte gelten nur getempert.",
       "The stiffest material in the dataset — brittle, and its heat figures only apply annealed."),
     mechanics: {
       density: q(1.26, "g/cm³", { std: "ISO 1183" }),
       tensileStrengthXy: q(55, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze", orientation: "n/a", note: NO_ORIENTATION }),
       tensileModulusXy: q(8500, "MPa", { std: "ISO 527", orientation: "n/a", note: t(
-        "Höchster E-Modul im gesamten Bestand. Zum Vergleich: PA6-CF 4.900 MPa, ungefülltes PLA 3.100 MPa.",
+        "Höchster E-Modul in der gesamten Datenbank. Zum Vergleich: PA6-CF 4.900 MPa, ungefülltes PLA 3.100 MPa.",
         "Highest tensile modulus in the entire dataset. For comparison: PA6-CF 4,900 MPa, unfilled PLA 3,100 MPa.") }),
       elongationAtBreakXy: q(2.4, "%", { std: "ISO 527", orientation: "n/a" }),
       charpyUnnotchedXy: q(100, "kJ/m²", {
         std: "ISO 179", conditions: "ungekerbt, 23 °C", orientation: "n/a",
-        note: t("BEFUND, nicht geglättet: 100 kJ/m² ungekerbt gegen 3,1 kJ/m² gekerbt ist Faktor 32. Ungefülltes PLA liegt ungekerbt bei etwa 15 bis 25 — ein carbongefülltes PLA ist spröder, nicht viermal zäher. Der gekerbte Wert passt zum erwarteten Verhalten, dieser nicht. Er ist dokumentiert und geht nicht in die Zähigkeitsbewertung ein.",
-                "FINDING, not smoothed over: 100 kJ/m² unnotched against 3.1 kJ/m² notched is a factor of 32. Unfilled PLA sits at roughly 15 to 25 unnotched — a carbon-filled PLA is more brittle, not four times tougher. The notched value matches expected behaviour, this one does not. It is documented and does not feed the toughness rating."),
+        note: t("Widersprüchliche Angabe: 100 kJ/m² ungekerbt gegen 3,1 kJ/m² gekerbt ist Faktor 32. Ungefülltes PLA liegt ungekerbt bei etwa 15 bis 25; ein carbongefülltes PLA ist spröder, nicht viermal zäher. Der gekerbte Wert passt zum erwarteten Verhalten, dieser nicht. Er bleibt dokumentiert, wird für die Zähigkeitsbewertung aber nicht verwendet.",
+                "Contradictory figure: 100 kJ/m² unnotched against 3.1 kJ/m² notched is a factor of 32. Unfilled PLA sits at roughly 15 to 25 unnotched; a carbon-filled PLA is more brittle, not four times tougher. The notched value matches expected behaviour, this one does not. It stays documented but is not used for the toughness rating."),
       }),
       charpyNotchedXy: q(3.1, "kJ/m²", { std: "ISO 179", conditions: "gekerbt, 23 °C", orientation: "n/a" }),
       toughness: s(1, "toughness", t(
-        "Aus Bruchdehnung (2,4 %) und gekerbter Schlagzähigkeit (3,1 kJ/m²) abgeleitet. Der ungekerbte Datenblattwert bleibt bewusst außen vor — siehe Befund dort.",
-        "Derived from elongation at break (2.4 %) and notched impact strength (3.1 kJ/m²). The unnotched datasheet value is deliberately left out — see the finding there.")),
+        "Aus Bruchdehnung (2,4 %) und gekerbter Schlagzähigkeit (3,1 kJ/m²) abgeleitet. Der ungekerbte Datenblattwert bleibt bewusst außen vor, siehe Hinweis dort.",
+        "Derived from elongation at break (2.4 %) and notched impact strength (3.1 kJ/m²). The unnotched datasheet value is deliberately left out, see the note there.")),
       notchSensitivity: s(5, "notchSensitivity"),
     },
     thermal: {
@@ -371,4 +371,4 @@ console.log("  Alle aus je EINEM Blatt — Datenblattwerte daher 'low', nicht 'm
 console.log("  Kein Blatt nennt eine Bauorientierung: Zugwerte stehen ohne Richtung, nicht als X-Y.");
 console.log("  Zwei Datenblattbefunde dokumentiert statt geglättet:");
 console.log("    PLA CF    Charpy ungekerbt 100 gegen gekerbt 3,1 kJ/m² — Faktor 32");
-console.log("    PLA CF    HDT und Vicat gelten NUR nach Temperung (Fußnote des Blatts)");
+console.log("    PLA CF    HDT und Vicat gelten nur nach Temperung (Fußnote des Blatts)");

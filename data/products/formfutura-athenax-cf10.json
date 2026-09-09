@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Zwei Beschriftungsfehler, beide auch im ungefüllten Schwesterblatt. Erstens tragen BEIDE Schlagzeilen die Norm ISO 179-1eU, also Charpy UNGEKERBT — eine davon ist aber als „Izod Notched“ beschriftet. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; die gekerbte Zahl steht deshalb ohne Norm und mit `low`. Zweitens nennt die Vicat-Zeile als Methode „DSC“, was keine Vicat-Norm ist. Kein Kennwert des Blattes ist zifferngleich mit dem ungefüllten AthenaX — anders als beim Kratos PC CF10 desselben Herstellers, das deshalb keinen Werkstofftyp bekommen hat.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: Two labelling errors, both present in the unfilled sister sheet as well. First, BOTH impact rows carry the standard ISO 179-1eU, that is Charpy UNNOTCHED — yet one of them is labelled “Izod Notched”. A notched value cannot arise from an unnotched standard; the notched figure therefore carries no standard and `low`. Second, the Vicat row names “DSC” as the method, which is not a Vicat standard. No value on this sheet is digit-identical with unfilled AthenaX — unlike the same manufacturer's Kratos PC CF10, which for that reason received no material type."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Zwei Beschriftungsfehler, beide auch im ungefüllten Schwesterblatt. Erstens tragen beide Schlagzeilen die Norm ISO 179-1eU, also Charpy ungekerbt — eine davon ist aber als „Izod Notched“ beschriftet. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; die gekerbte Zahl steht deshalb ohne Norm und mit LOW. Zweitens nennt die Vicat-Zeile als Methode „DSC“, was keine Vicat-Norm ist. Kein Kennwert des Blattes ist zifferngleich mit dem ungefüllten AthenaX — anders als beim Kratos PC CF10 desselben Herstellers, das deshalb keinen Werkstofftyp bekommen hat.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: Two labelling errors, both present in the unfilled sister sheet as well. First, both impact rows carry the standard ISO 179-1eU, that is Charpy unnotched — yet one of them is labelled “Izod Notched”. A notched value cannot arise from an unnotched standard; the notched figure therefore carries no standard and LOW. Second, the Vicat row names “DSC” as the method, which is not a Vicat standard. No value on this sheet is digit-identical with unfilled AthenaX — unlike the same manufacturer's Kratos PC CF10, which for that reason received no material type."
   },
   "features": {
     "de": "Das Blatt rechnet seinen eigenen Zugewinn vor — „59 % higher tensile strength than AthenaX“ —, und die Rechnung geht auf: 44 auf 70 MPa sind 59,1 %. Wichtiger als der Zugewinn ist der Preis dafür: 5 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX. Bemerkenswert ist die Verarbeitung: „No enclosure, or heated chamber needed“ — für einen faserverstärkten Werkstoff die Ausnahme.",
@@ -104,8 +104,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

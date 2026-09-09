@@ -25,7 +25,7 @@ export function ConfidenceMark({ c, lang }: { c: Confidence | null | undefined; 
   const label: Record<Confidence, string> = {
     high: lang === "de" ? "belegt (mehrere Quellen)" : "substantiated (multiple sources)",
     medium: lang === "de" ? "belegt (eine Quelle)" : "substantiated (one source)",
-    low: lang === "de" ? "Quelle zweifelhaft" : "source questionable",
+    low: lang === "de" ? "schwach belegt" : "weakly substantiated",
     estimated: lang === "de" ? "geschätzt, keine Quelle" : "estimated, no source",
   };
   const style: Record<Confidence, string> = {
@@ -70,7 +70,7 @@ export function Value({ q, lang, showRange = true, lab = true }: { q?: Quantity;
         <span
           className="ml-1 text-xs text-ok align-middle"
           title={lang === "de"
-            ? "Keine Prüfnorm genannt — die Zahl ist nicht nachprüfbar."
+            ? "Keine Prüfnorm genannt; die Zahl ist nicht nachprüfbar."
             : "No test standard named — the figure is not verifiable."}
           aria-label={lang === "de" ? "keine Prüfnorm" : "no test standard"}
         >⌀</span>

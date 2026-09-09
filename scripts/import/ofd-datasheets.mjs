@@ -106,7 +106,7 @@ lines.push("## Lage");
 lines.push("");
 lines.push("| | |");
 lines.push("|---|---|");
-lines.push(`| Filamente im Bestand | ${all.filaments.length} |`);
+lines.push(`| Filamente in der Datenbank | ${all.filaments.length} |`);
 lines.push(`| davon mit Datenblatt-Link | **${withTds.length}** (${Math.round((100 * withTds.length) / all.filaments.length)} %) |`);
 lines.push(`| davon mit Sicherheitsdatenblatt | ${withSds.length} |`);
 lines.push(`| bereits bei uns ausgewertet | ${dup} |`);
@@ -134,7 +134,7 @@ for (const [brand, list] of byBrand) {
 lines.push("## Marken ohne jeden Blattlink");
 lines.push("");
 lines.push(
-  "Diese Marken sind mit Produkten im Bestand, aber ohne eine einzige hinterlegte " +
+  "Diese Marken sind mit Produkten in der Datenbank, aber ohne eine einzige hinterlegte " +
     "Fundstelle. Hier liegt der groessere Hebel als bei den Nachzueglern oben — " +
     "die Blaetter existieren, sie sind nur nirgends erfasst.",
 );

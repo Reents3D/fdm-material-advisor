@@ -86,7 +86,7 @@ for (const [name, content] of files) {
  * niemand nachnutzen darf.
  */
 const readme = [
-  "FDM-Materialberater — offener Datensatz",
+  "FDM-Materialberater — offener Eintrag",
   "=======================================",
   "",
   `Stand: ${TODAY}`,
@@ -106,10 +106,10 @@ const readme = [
   "-------------",
   "Eine leere Zelle bedeutet: keine Angabe. Sie bedeutet nicht null.",
   "Jeder Kennwert in materialien-kennwerte.csv trägt Quelle, Prüfnorm und Konfidenz.",
-  "Konfidenz 'geschätzt' heisst: fachlich hergeleitet, ohne Primärquelle.",
+  "Konfidenz 'geschätzt' heißt: fachlich hergeleitet, ohne Primärquelle.",
   "Vor einem Markenvergleich die Spalte 'Prüfkörper' lesen — Werte an gedruckten",
   "Prüfkörpern und Rohstoffkennwerte aus dem Spritzguss sind nicht vergleichbar.",
-  "Die Spalte 'Reents3D-Portfolio' beschreibt unsere Verfügbarkeit und fliesst in keine",
+  "Die Spalte 'Reents3D-Portfolio' beschreibt unsere Verfügbarkeit und fließt in keine",
   "Bewertung ein.",
   "",
   "Lizenz",

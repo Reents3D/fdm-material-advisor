@@ -9,11 +9,11 @@
   "origin": "Deutschland",
   "specimenType": "moulded",
   "specimenNote": {
-    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit im ganzen Bestand — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
+    "de": "Material4Print erklärt unter jedem Datenblatt wörtlich: „These data were taken from the raw material manufacturer.“ Die Kennwerte stammen also vom Rohstofflieferanten und wurden nicht an gedruckten Bauteilen ermittelt. Das ist der offenste Umgang damit in der ganzen Datenbank — andere Marken veröffentlichen dieselbe Art von Zahlen ohne diesen Hinweis. Ein gedrucktes Bauteil erreicht diese Werte nicht; ein Vergleich mit Bambu Lab oder Prusa Polymers ist unzulässig.",
     "en": "Material4Print states verbatim under every datasheet: “These data were taken from the raw material manufacturer.” The values therefore come from the resin supplier and were not measured on printed parts. This is the most candid handling of the matter in the entire database — other brands publish the same kind of figures without the notice. A printed part does not reach these values; comparison with Bambu Lab or Prusa Polymers is not admissible."
   },
   "features": {
-    "de": "Die seltenste Angabe im ganzen Bestand: eine Dauergebrauchstemperatur mit Zeitangabe. 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig bis 160 °C für maximal 200 Stunden. Im ungekerbten Schlagversuch kein Bruch. Oberflächenwiderstand über 10^12 Ohm, also isolierend.",
+    "de": "Die seltenste Angabe in der ganzen Datenbank: eine Dauergebrauchstemperatur mit Zeitangabe. 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig bis 160 °C für maximal 200 Stunden. Im ungekerbten Schlagversuch kein Bruch. Oberflächenwiderstand über 10^12 Ohm, also isolierend.",
     "en": "The rarest statement in the whole database: a continuous service temperature with a time base. 120 °C over 20,000 hours to IEC 60216, and up to 160 °C short-term for at most 200 hours. No break in the unnotched impact test. Surface resistance above 10^12 ohm, i.e. insulating."
   },
   "datasheet": {

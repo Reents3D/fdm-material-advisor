@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "184 kJ/m² ungekerbt ist der höchste Schlagzähigkeitswert der ganzen Datenbank. Das Blatt nennt ausserdem Medienbeständigkeiten mit Temperaturangabe und weist ausdrücklich darauf hin, dass PP ohne Haftvermittler und Brim nicht auf dem Bett hält.",
+    "de": "184 kJ/m² ungekerbt ist der höchste Schlagzähigkeitswert der ganzen Datenbank. Das Blatt nennt außerdem Medienbeständigkeiten mit Temperaturangabe und weist ausdrücklich darauf hin, dass PP ohne Haftvermittler und Brim nicht auf dem Bett hält.",
     "en": "184 kJ/m² unnotched is the highest impact figure in the whole database. The sheet also states media resistances with temperature and points out explicitly that PP will not stay on the bed without an adhesion promoter and a brim."
   },
   "datasheet": {

@@ -92,7 +92,7 @@ export function Header({ lang, onLang, t, view }: {
         {/* Die Begrenzung auf 1152 px liegt AUSSEN, das Scrollen innen. Vorher stand
             `overflow-x-auto` am <nav> und die Eintraege hatten nur `px-4` - dadurch begann
             die Navigation als einziger Block im Layout am Fensterrand, waehrend Logo,
-            Inhalt und Fuss in der 1152er Box sitzen. Auf breiten Schirmen sprang sie
+            Inhalt und Fuß in der 1152er Box sitzen. Auf breiten Schirmen sprang sie
             sichtbar nach links heraus. In dieser Reihenfolge fluchtet sie mit dem
             uebrigen Raster und scrollt trotzdem, sobald die acht Eintraege nicht passen. */}
         <nav className="border-t border-hairline dark:border-[#1E2B3D]" aria-label="Hauptnavigation">
@@ -163,7 +163,7 @@ export function Footer({ t, lang }: { t: T; lang: Lang }) {
     <footer className="mt-16 bg-petrol-700 text-petrol-100 no-print">
       <div className="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3 text-sm">
         <div>
-          {/* Der Fuss steht immer auf Petrol — hier gibt es nichts umzuschalten. */}
+          {/* Der Fuß steht immer auf Petrol — hier gibt es nichts umzuschalten. */}
           <img src={logoWhite} alt={SITE.legalEntity} className="h-9 w-auto mb-4"
             width={200} height={36} />
           <p className="leading-relaxed opacity-90">

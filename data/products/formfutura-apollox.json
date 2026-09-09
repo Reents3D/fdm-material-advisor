@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Das Blatt nennt für ASA eine Schmelztemperatur von „≈ 230 ± 10 °C“ nach ISO 294. ASA ist amorph und hat keinen Schmelzpunkt, sondern einen Erweichungsbereich — ISO 294 ist zudem die Norm für das Spritzgießen von Probekörpern, keine Schmelzpunktbestimmung. Gemeint ist offenkundig eine Verarbeitungstemperatur. Nicht als Schmelzpunkt übernommen.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The sheet gives ASA a melting temperature of “≈ 230 ± 10 °C” to ISO 294. ASA is amorphous and has no melting point but a softening range — and ISO 294 is the standard for injection moulding of test specimens, not a melting point determination. A processing temperature is evidently meant. Not imported as a melting point."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Das Blatt nennt für ASA eine Schmelztemperatur von „≈ 230 ± 10 °C“ nach ISO 294. ASA ist amorph und hat keinen Schmelzpunkt, sondern einen Erweichungsbereich — ISO 294 ist zudem die Norm für das Spritzgießen von Probekörpern, keine Schmelzpunktbestimmung. Gemeint ist offenkundig eine Verarbeitungstemperatur. Nicht als Schmelzpunkt übernommen.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The sheet gives ASA a melting temperature of “≈ 230 ± 10 °C” to ISO 294. ASA is amorphous and has no melting point but a softening range — and ISO 294 is the standard for injection moulding of test specimens, not a melting point determination. A processing temperature is evidently meant. Not imported as a melting point."
   },
   "datasheet": {
     "title": "ApolloX — Technical Data Sheet",
@@ -93,8 +93,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

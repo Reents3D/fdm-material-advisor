@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Streckspannung von 25 MPa liegt bei der Hälfte dessen, was die übrigen PETG-Blätter dieses Herstellers ausweisen (Bulk PETG 50,2 MPa, Hdglass 50 MPa) — bei einem E-Modul von 2980 MPa, das über beiden liegt. Hohe Steifigkeit bei halber Festigkeit ist bei derselben Polymerfamilie erklärungsbedürftig. Der Wert ist übernommen und trägt `low`. Für die Schlagzähigkeit nennt das Blatt keine Prüfnorm.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The yield stress of 25 MPa is half of what the same manufacturer's other PETG sheets state (Bulk PETG 50.2 MPa, Hdglass 50 MPa) — at a modulus of 2980 MPa that lies above both. High stiffness at half the strength calls for explanation within the same polymer family. The value is imported and carries `low`. For the impact strength the sheet names no test standard."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die Streckspannung von 25 MPa liegt bei der Hälfte dessen, was die übrigen PETG-Blätter dieses Herstellers ausweisen (Bulk PETG 50,2 MPa, Hdglass 50 MPa) — bei einem E-Modul von 2980 MPa, das über beiden liegt. Hohe Steifigkeit bei halber Festigkeit ist bei derselben Polymerfamilie erklärungsbedürftig. Der Wert ist übernommen, gilt aber als schwach belegt. Für die Schlagzähigkeit nennt das Blatt keine Prüfnorm.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The yield stress of 25 MPa is half of what the same manufacturer's other PETG sheets state (Bulk PETG 50.2 MPa, Hdglass 50 MPa) — at a modulus of 2980 MPa that lies above both. High stiffness at half the strength calls for explanation within the same polymer family. The value is imported but counts as weakly substantiated. For the impact strength the sheet names no test standard."
   },
   "datasheet": {
     "title": "EasyFil ePETG — Technical Data Sheet",
@@ -67,8 +67,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

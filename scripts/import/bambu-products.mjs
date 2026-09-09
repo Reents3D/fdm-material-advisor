@@ -77,8 +77,8 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith(".json"))) {
        wichtigste, nicht die einzige Quelle - und genau diese Sorte Superlativ ist es,
        die dieses Projekt bei Herstellern anmahnt. Also auch bei sich selbst. */
     specimenNote: {
-      de: "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- UND Z-Werte aus. Dadurch laesst sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; ausserhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
-      en: "Bambu Lab tests PRINTED specimens and reports X-Y AND Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far.",
+      de: "Bambu Lab prueft GEDRUCKTE Koerper und weist X-Y- und Z-Werte aus. Dadurch lässt sich die Anisotropie direkt ablesen - bei den meisten Marken fehlt diese Angabe. Von 13 Werkstofftypen mit Z-Wert stuetzen sich 12 auf Bambu-Blaetter; außerhalb dieser Quelle nennt bislang nur Fillamentum (OBC 905) beide Richtungen.",
+      en: "Bambu Lab tests PRINTED specimens and reports X-Y and Z values. That makes anisotropy directly readable - most brands omit it. Of 13 material types carrying a Z value, 12 rest on Bambu sheets; outside that source only Fillamentum (OBC 905) states both directions so far.",
     },
     datasheet: {
       title: tds.title,

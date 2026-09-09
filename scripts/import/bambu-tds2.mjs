@@ -97,7 +97,7 @@ const P = [
       ixy: [14.5, 1.5], iz: [5.3, 1.4],
     }),
     features: t(
-      "Schliesst die letzte Anisotropieluecke unter den gefüllten Typen: 29 MPa quer zur Schicht gegen 36 MPa längs, also 81 % — der mit Abstand beste Wert aller faserverstärkten Werkstoffe im Bestand. Zum Vergleich: Bambus eigenes PA6-GF kommt auf 36 %. Der Grund liegt beim Grundpolymer, nicht bei der Faser: ABS verschweisst Schichten thermisch, Polyamid erstarrt zu schnell dafür. Bezahlt wird es mit der Schlagzähigkeit, die quer von 14,5 auf 5,3 kJ/m² einbricht — Faktor knapp drei, während die Zugfestigkeit kaum nachgibt.",
+      "Schliesst die letzte Anisotropieluecke unter den gefüllten Typen: 29 MPa quer zur Schicht gegen 36 MPa längs, also 81 % — der mit Abstand beste Wert aller faserverstärkten Werkstoffe in der Datenbank. Zum Vergleich: Bambus eigenes PA6-GF kommt auf 36 %. Der Grund liegt beim Grundpolymer, nicht bei der Faser: ABS verschweisst Schichten thermisch, Polyamid erstarrt zu schnell dafür. Bezahlt wird es mit der Schlagzähigkeit, die quer von 14,5 auf 5,3 kJ/m² einbricht — Faktor knapp drei, während die Zugfestigkeit kaum nachgibt.",
       "Closes the last anisotropy gap among the filled types: 29 MPa across the layers against 36 MPa along, i.e. 81 % — by far the best figure of all fibre-reinforced materials in the dataset. For comparison: Bambu's own PA6-GF reaches 36 %. The reason lies with the base polymer, not the fibre: ABS fuses layers thermally, polyamide solidifies too fast for that. It is paid for in impact strength, which drops across from 14.5 to 5.3 kJ/m² — a factor of nearly three, while tensile strength barely gives way.",
     ),
     anomaly: t(
@@ -117,7 +117,7 @@ const P = [
       ixy: [7.2, 2.3], iz: [4.1, 0.7],
     }),
     features: t(
-      "Die stärkste Anisotropie im ganzen Bestand: 75 MPa längs zur Schicht gegen 27 MPa quer — quer bleiben 36 % übrig, gegenüber 89 % bei ungefülltem PLA. Glasfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält nur die Matrix. Wer ein Bauteil aus diesem Werkstoff auslegt, muss die Aufbaurichtung kennen, sonst rechnet er mit dem Dreifachen dessen, was das Teil trägt. Die Wassersättigung von 2,56 % ist die zweithöchste im Bestand — Trocknen ist bei diesem Werkstoff keine Empfehlung, sondern Voraussetzung.",
+      "Die stärkste Anisotropie in der ganzen Datenbank: 75 MPa längs zur Schicht gegen 27 MPa quer — quer bleiben 36 % übrig, gegenüber 89 % bei ungefülltem PLA. Glasfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält nur die Matrix. Wer ein Bauteil aus diesem Werkstoff auslegt, muss die Aufbaurichtung kennen, sonst rechnet er mit dem Dreifachen dessen, was das Teil trägt. Die Wassersättigung von 2,56 % ist die zweithöchste in der Datenbank — Trocknen ist bei diesem Werkstoff keine Empfehlung, sondern Voraussetzung.",
       "The strongest anisotropy in the entire dataset: 75 MPa along the layers against 27 MPa across — 36 % remains across, compared with 89 % for unfilled PLA. Glass fibres align in the extrusion direction and contribute nothing across it; between layers only the matrix holds. Anyone designing a part from this material must know the build direction, otherwise they calculate with three times what the part carries. The saturated water absorption of 2.56 % is the second highest in the dataset — drying is not a recommendation for this material but a precondition.",
     ),
   },
@@ -139,8 +139,8 @@ const P = [
       },
     }),
     anomaly: t(
-      "Der Zug-E-Modul in Z steht als „1230 ± 1430 MPa“ im Blatt. Eine Streuung, die größer ist als der Messwert, beschreibt kein Ergebnis — das Intervall reichte bis ins Negative. Vermutlich ist ± 130 oder ± 140 gemeint, wie in den Nachbarzeilen; welches, sagt das Blatt nicht. Der Wert ist übernommen und trägt `low`.",
-      "The tensile modulus in Z is stated as “1230 ± 1430 MPa”. A scatter larger than the measured value describes no result — the interval would extend into the negative. Presumably ± 130 or ± 140 is meant, as in the neighbouring rows; which one, the sheet does not say. The value is imported and carries `low`.",
+      "Der Zug-E-Modul in Z steht als „1230 ± 1430 MPa“ im Blatt. Eine Streuung, die größer ist als der Messwert, beschreibt kein Ergebnis — das Intervall reichte bis ins Negative. Vermutlich ist ± 130 oder ± 140 gemeint, wie in den Nachbarzeilen; welches, sagt das Blatt nicht. Der Wert ist übernommen, gilt aber als schwach belegt.",
+      "The tensile modulus in Z is stated as “1230 ± 1430 MPa”. A scatter larger than the measured value describes no result — the interval would extend into the negative. Presumably ± 130 or ± 140 is meant, as in the neighbouring rows; which one, the sheet does not say. The value is imported but counts as weakly substantiated.",
     ),
   },
   {
@@ -156,8 +156,8 @@ const P = [
       opts: { izNote: IMPACT_INVERTED("19,8", "8,8") },
     }),
     anomaly: t(
-      "Die Schlagzähigkeit steht in Z mit 19,8 kJ/m² höher als in X-Y mit 8,8 — mehr als das Doppelte quer zur Schicht. Bei FDM ist die Schichtgrenze die schwächste Ebene; ein Prüfkörper bricht dort leichter, nicht schwerer. Alle anderen Größen dieses Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 32 gegen 26, Biegefestigkeit 76 gegen 55), was einen Zahlendreher in genau dieser Zeile nahelegt. Der Z-Wert trägt `low`.",
-      "The impact strength is stated higher in Z at 19.8 kJ/m² than in X-Y at 8.8 — more than double across the layers. In FDM the layer boundary is the weakest plane; a specimen breaks there more easily, not less. Every other quantity on this sheet behaves as expected (tensile 32 against 26, flexural 76 against 55), which suggests a transposition in precisely this row. The Z value carries `low`.",
+      "Die Schlagzähigkeit steht in Z mit 19,8 kJ/m² höher als in X-Y mit 8,8 — mehr als das Doppelte quer zur Schicht. Bei FDM ist die Schichtgrenze die schwächste Ebene; ein Prüfkörper bricht dort leichter, nicht schwerer. Alle anderen Größen dieses Blattes verhalten sich erwartungsgemäß (Zugfestigkeit 32 gegen 26, Biegefestigkeit 76 gegen 55), was einen Zahlendreher in genau dieser Zeile nahelegt. Der Z-Wert gilt deshalb als schwach belegt.",
+      "The impact strength is stated higher in Z at 19.8 kJ/m² than in X-Y at 8.8 — more than double across the layers. In FDM the layer boundary is the weakest plane; a specimen breaks there more easily, not less. Every other quantity on this sheet behaves as expected (tensile 32 against 26, flexural 76 against 55), which suggests a transposition in precisely this row. The Z value therefore counts as weakly substantiated.",
     ),
   },
   {
@@ -193,8 +193,8 @@ const P = [
       "The strongest PLA in the Bambu range: 55.4 MPa against 39 for PLA Basic, with 11 % elongation at break at the same time. A translucent material that outperforms the standard grade mechanically is unusual — transparency normally costs strength.",
     ),
     anomaly: t(
-      "Wie bei PLA Glow steht die Schlagzähigkeit in Z höher als in X-Y (8,5 gegen 6,7 kJ/m²), hier weniger deutlich. Der Z-Wert trägt `low`.",
-      "As with PLA Glow the impact strength is stated higher in Z than in X-Y (8.5 against 6.7 kJ/m²), less markedly here. The Z value carries `low`.",
+      "Wie bei PLA Glow steht die Schlagzähigkeit in Z höher als in X-Y (8,5 gegen 6,7 kJ/m²), hier weniger deutlich. Der Z-Wert gilt deshalb als schwach belegt.",
+      "As with PLA Glow the impact strength is stated higher in Z than in X-Y (8.5 against 6.7 kJ/m²), less markedly here. The Z value therefore counts as weakly substantiated.",
     ),
   },
   {
@@ -228,7 +228,7 @@ const P = [
       },
     }),
     features: t(
-      "Das weichste Elastomer im Bestand mit einem Zug-E-Modul von 6,8 MPa — zum Vergleich: Bambu TPU 95A liegt bei 26 MPa. Bemerkenswert ist die Schichthaftung: 10,5 von 12,0 MPa bleiben quer zur Schicht erhalten, ein Verhältnis von 0,88. Weiche Werkstoffe verschweißen besser, weil die Schmelze länger fließfähig bleibt und die Grenzfläche nicht als Sprödbruchebene wirkt. Die Schlagzähigkeit von 124,3 kJ/m² ist der höchste Wert der Datenbank.",
+      "Das weichste Elastomer in der Datenbank mit einem Zug-E-Modul von 6,8 MPa — zum Vergleich: Bambu TPU 95A liegt bei 26 MPa. Bemerkenswert ist die Schichthaftung: 10,5 von 12,0 MPa bleiben quer zur Schicht erhalten, ein Verhältnis von 0,88. Weiche Werkstoffe verschweißen besser, weil die Schmelze länger fließfähig bleibt und die Grenzfläche nicht als Sprödbruchebene wirkt. Die Schlagzähigkeit von 124,3 kJ/m² ist der höchste Wert der Datenbank.",
       "The softest elastomer in the dataset with a tensile modulus of 6.8 MPa — for comparison, Bambu TPU 95A sits at 26 MPa. Remarkable is the layer adhesion: 10.5 of 12.0 MPa remain across the layers, a ratio of 0.88. Soft materials weld better because the melt stays flowable longer and the interface does not act as a brittle fracture plane. The impact strength of 124.3 kJ/m² is the highest in the database.",
     ),
     anomaly: t(
@@ -253,7 +253,7 @@ const byMaterial = new Map();
 
 for (const p of P) {
   const parts = [PRINTED];
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`, `Note on this datasheet: ${p.anomaly.en}`));
 
   const rec = {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
@@ -295,7 +295,7 @@ for (const [m, c] of [...byMaterial.entries()].sort((a, b) => b[1] - a[1])) {
 }
 console.log("\n  Sieben weitere Blaetter warten auf eine Werkstofftyp-Entscheidung:");
 console.log("    PPA-CF (Polyphthalamid) · TPU 90A · PVA · 4x Support-Material");
-console.log("  Einen Typ anzulegen heisst dreissig redaktionelle Bewertungen zu vergeben -");
+console.log("  Einen Typ anzulegen heißt dreissig redaktionelle Bewertungen zu vergeben -");
 console.log("  das ist eine fachliche Entscheidung, keine Uebertragung.\n");
-console.log("  Staerkste Anisotropie des Bestands: PA6-GF mit 75 MPa laengs gegen 27 quer.");
+console.log("  Staerkste Anisotropie der Datenbank: PA6-GF mit 75 MPa laengs gegen 27 quer.");
 console.log("  Quer bleiben 36 % - bei ungefuelltem PLA sind es 89 %.");

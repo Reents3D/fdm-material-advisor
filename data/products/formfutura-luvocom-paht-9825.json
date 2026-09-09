@@ -9,11 +9,11 @@
   "origin": "Deutschland",
   "specimenType": "moulded",
   "specimenNote": {
-    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nBefund zu diesem Datenblatt: Die Tabelle des Blattes hat leere Zellen: Biegefestigkeit, Biegedehnung, Biege-E-Modul, alle vier Charpy-Zeilen und die Vicat-Temperatur stehen ohne Wert da. Auch die UL-94-Zeile ist angelegt, aber nicht gefüllt. Das ist kein Fehler — es ist eine Vorlage mit offenen Feldern —, begrenzt aber, was dieses Blatt beitragen kann.",
-    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nFinding on this datasheet: The sheet's table has empty cells: flexural strength, flexural strain, flexural modulus, all four Charpy rows and the Vicat temperature stand without a value. The UL 94 row too is laid out but not filled. This is not an error — it is a template with open fields — but it limits what this sheet can contribute."
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil nicht erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.\n\nHinweis zu diesem Datenblatt: Die Tabelle des Blattes hat leere Zellen: Biegefestigkeit, Biegedehnung, Biege-E-Modul, alle vier Charpy-Zeilen und die Vicat-Temperatur stehen ohne Wert da. Auch die UL-94-Zeile ist angelegt, aber nicht gefüllt. Das ist kein Fehler — es ist eine Vorlage mit offenen Feldern —, begrenzt aber, was dieses Blatt beitragen kann.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and not achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values.\n\nNote on this datasheet: The sheet's table has empty cells: flexural strength, flexural strain, flexural modulus, all four Charpy rows and the Vicat temperature stand without a value. The UL 94 row too is laid out but not filled. This is not an error — it is a template with open fields — but it limits what this sheet can contribute."
   },
   "features": {
-    "de": "Ein Blatt, das den Prüfkörper benennt — im Bestand die Ausnahme. „MPTS ISO 3167 A“ ist der spritzgegossene Mehrzweckprüfkörper; damit ist eindeutig, worauf sich die Zahlen beziehen, und ebenso eindeutig, dass ein gedrucktes Bauteil sie nicht erreicht. Diese Klarheit ist mehr wert als eine Nachkommastelle.",
+    "de": "Ein Blatt, das den Prüfkörper benennt — in der Datenbank die Ausnahme. „MPTS ISO 3167 A“ ist der spritzgegossene Mehrzweckprüfkörper; damit ist eindeutig, worauf sich die Zahlen beziehen, und ebenso eindeutig, dass ein gedrucktes Bauteil sie nicht erreicht. Diese Klarheit ist mehr wert als eine Nachkommastelle.",
     "en": "A sheet that names the specimen — the exception in this dataset. “MPTS ISO 3167 A” is the injection-moulded multi-purpose specimen; that makes clear what the figures refer to, and equally clear that a printed part will not reach them. This clarity is worth more than a decimal place."
   },
   "datasheet": {
@@ -114,8 +114,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
-          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm und Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — in der Datenbank die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard and specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
         }
       }
     ]

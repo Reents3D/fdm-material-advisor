@@ -57,12 +57,12 @@ const P = [
     file: "2021/12/en_tds_spectrum_pla_premium.pdf",
     props: {
       density: q(1.24, "g/cm³", { std: "ASTM D792" }),
-      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Befund)", conditions: "Streckspannung; Bruchspannung 53 MPa" }),
-      tensileModulusXy: q(3500, "MPa", { std: "ASTM D882 (siehe Befund)" }),
-      elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (siehe Befund)" }),
+      tensileStrengthXy: q(60, "MPa", { std: "ASTM D882 (siehe Hinweis)", conditions: "Streckspannung; Bruchspannung 53 MPa" }),
+      tensileModulusXy: q(3500, "MPa", { std: "ASTM D882 (siehe Hinweis)" }),
+      elongationAtBreakXy: q(6, "%", { std: "ASTM D882 (siehe Hinweis)" }),
       flexuralStrengthXy: q(83, "MPa", { std: "ASTM D790" }),
       izodNotchedXy: q(16, "J/m", { std: "ASTM D256" }),
-      hdtB: q(55, "°C", { std: "im Blatt als ASTM E2092 angegeben (siehe Befund)" }),
+      hdtB: q(55, "°C", { std: "stated on the sheet as ASTM E2092 (see note)" }),
       glassTransition: q(57.5, "°C", { min: 55, max: 60, std: "ASTM D3418" }),
       nozzleTemperature: q(200, "°C", { min: 185, max: 215 }),
       bedTemperature: q(22, "°C", { min: 0, max: 45 }),
@@ -84,8 +84,8 @@ const P = [
       hdtB: q(80, "°C", { min: 75, max: 85, conditions: "gedruckt, getempert" }),
       glassTransition: q(57.5, "°C", { min: 55, max: 60 }),
     },
-    features: t("Das aussagekräftigste PLA-Blatt im Bestand: Es nennt Infill, Bauorientierung UND Temperung der Prüfkörper („3D printed at 100% infill and annealed at 110°C/20 min, XY axis“) — und unterscheidet zusätzlich zwischen amorphem und teilkristallinem Zustand bei der Schlagzähigkeit (160 gegen 233 J/m). Die HDT von 75 bis 85 °C gilt entsprechend nur getempert; ungetempertes PLA liegt bei 55 °C.",
-                "The most informative PLA sheet in the dataset: it states infill, build orientation AND annealing of the specimens (“3D printed at 100% infill and annealed at 110°C/20 min, XY axis”) — and additionally distinguishes amorphous from semi-crystalline state for impact strength (160 against 233 J/m). The HDT of 75 to 85 °C accordingly applies only after annealing; unannealed PLA sits at 55 °C.") },
+    features: t("Das aussagekräftigste PLA-Blatt in der Datenbank: Es nennt Infill, Bauorientierung und Temperung der Prüfkörper („3D printed at 100% infill and annealed at 110°C/20 min, XY axis“) — und unterscheidet zusätzlich zwischen amorphem und teilkristallinem Zustand bei der Schlagzähigkeit (160 gegen 233 J/m). Die HDT von 75 bis 85 °C gilt entsprechend nur getempert; ungetempertes PLA liegt bei 55 °C.",
+                "The most informative PLA sheet in the dataset: it states infill, build orientation and annealing of the specimens (“3D printed at 100% infill and annealed at 110°C/20 min, XY axis”) — and additionally distinguishes amorphous from semi-crystalline state for impact strength (160 against 233 J/m). The HDT of 75 to 85 °C accordingly applies only after annealing; unannealed PLA sits at 55 °C.") },
 
   { id: "spectrum-pla-matt", material: "pla", name: "Spectrum PLA Matt", printed: true,
     file: "2022/05/en_tds_spectrum_pla_matt.pdf",
@@ -115,7 +115,7 @@ const P = [
       hdtB: q(55, "°C"),
       glassTransition: q(57.5, "°C", { min: 55, max: 60 }),
     },
-    anomaly: t("Der E-Modul steht mit 432,8 MPa im Blatt. Für PLA ist das rund ein Achtel des Üblichen (3000 bis 3900 MPa), und der Biege-E-Modul desselben Blattes liegt mit 2493 MPa fünfmal höher — beides zusammen kann nicht stimmen. Der Wert wurde nicht übernommen. Denselben Fehler in derselben Grössenordnung tragen die Blätter von magicPLA und mysteryPLA bei 3DJAKE.",
+    anomaly: t("Der E-Modul steht mit 432,8 MPa im Blatt. Für PLA ist das rund ein Achtel des Üblichen (3000 bis 3900 MPa), und der Biege-E-Modul desselben Blattes liegt mit 2493 MPa fünfmal höher — beides zusammen kann nicht stimmen. Der Wert wurde nicht übernommen. Denselben Fehler in derselben Größenordnung tragen die Blätter von magicPLA und mysteryPLA bei 3DJAKE.",
                "The modulus reads 432.8 MPa on the sheet. For PLA that is about an eighth of the usual figure (3000 to 3900 MPa), and the same sheet's flexural modulus is five times higher at 2493 MPa — the two cannot both be right. The value was not imported. The same error of the same magnitude appears in the magicPLA and mysteryPLA sheets at 3DJAKE.") },
 
   { id: "spectrum-smart-abs", material: "abs", name: "Spectrum Smart ABS",
@@ -162,7 +162,7 @@ const P = [
       vicatB50: q(94, "°C", { std: "ISO 306, 50 N, 50 °C/h" }),
     },
     ul94: { value: "HB", thicknessMm: 1.5 },
-    anomaly: t("435 J/m gekerbte Izod-Schlagzähigkeit sind für ASA aussergewöhnlich hoch — üblich sind 100 bis 200 J/m, und bei −30 °C nennt dasselbe Blatt nur 60 J/m. Ein Abfall auf ein Siebtel bei 53 Kelvin Temperaturunterschied ist ungewöhnlich steil. Der Wert steht mit niedriger Konfidenz.",
+    anomaly: t("435 J/m gekerbte Izod-Schlagzähigkeit sind für ASA außergewöhnlich hoch — üblich sind 100 bis 200 J/m, und bei −30 °C nennt dasselbe Blatt nur 60 J/m. Ein Abfall auf ein Siebtel bei 53 Kelvin Temperaturunterschied ist ungewöhnlich steil. Der Wert gilt als schwach belegt.",
                "435 J/m notched Izod is exceptionally high for ASA — 100 to 200 J/m is usual, and at −30 °C the same sheet gives only 60 J/m. A drop to a seventh over 53 kelvin is unusually steep. The value stands at low confidence.") },
 
   { id: "spectrum-pc-abs-fr-v0", material: "abs-pc", name: "Spectrum PC/ABS FR V0",
@@ -179,8 +179,8 @@ const P = [
       hdtA: q(90, "°C", { std: "ISO 75-2/A, 1,8 MPa" }),
     },
     ul94: { value: "V-0", thicknessMm: 1.5, strong: true },
-    features: t("Der Gegenentwurf zu Brandschutz im Produktnamen: Dieses Blatt belegt UL 94 V-0 bei 1,5 UND 3,0 mm und nennt zusätzlich den Glühdrahtindex von 960 °C nach IEC 60695-2-12. Dazu halogenfrei. Die Charpy-Schlagzähigkeit ungekerbt ist bei 23 °C UND bei −30 °C mit „NB“ angegeben — no break, der Prüfkörper bricht gar nicht. Für ein flammgeschütztes Material ist das ungewöhnlich, weil Flammschutzmittel Zähigkeit üblicherweise kosten.",
-                "The counter-example to flame retardancy in the product name: this sheet documents UL 94 V-0 at 1.5 AND 3.0 mm and additionally states the glow wire index of 960 °C to IEC 60695-2-12. Halogen-free too. Unnotched Charpy impact is given as “NB” at 23 °C AND at −30 °C — no break, the specimen does not fracture at all. For a flame-retardant material that is unusual, because flame retardants normally cost toughness.") },
+    features: t("Der Gegenentwurf zu Brandschutz im Produktnamen: Dieses Blatt belegt UL 94 V-0 bei 1,5 und 3,0 mm und nennt zusätzlich den Glühdrahtindex von 960 °C nach IEC 60695-2-12. Dazu halogenfrei. Die Charpy-Schlagzähigkeit ungekerbt ist bei 23 °C und bei −30 °C mit „NB“ angegeben — no break, der Prüfkörper bricht gar nicht. Für ein flammgeschütztes Material ist das ungewöhnlich, weil Flammschutzmittel Zähigkeit üblicherweise kosten.",
+                "The counter-example to flame retardancy in the product name: this sheet documents UL 94 V-0 at 1.5 and 3.0 mm and additionally states the glow wire index of 960 °C to IEC 60695-2-12. Halogen-free too. Unnotched Charpy impact is given as “NB” at 23 °C and at −30 °C — no break, the specimen does not fracture at all. For a flame-retardant material that is unusual, because flame retardants normally cost toughness.") },
 
   { id: "spectrum-pctg-premium", material: "pctg", name: "Spectrum PCTG Premium",
     file: "2022/05/en_tds_spectrum_pctg.pdf",
@@ -195,7 +195,7 @@ const P = [
       hdtA: q(64, "°C", { std: "ISO 75, 1,820 MPa" }),
       hdtB: q(76, "°C", { std: "ISO 75, 0,455 MPa" }),
     },
-    features: t("Das dritte PCTG-Blatt im Bestand mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
+    features: t("Das dritte PCTG-Blatt in der Datenbank mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
                 "The third PCTG sheet in the dataset with practically identical figures — 44/46 MPa, 220 % elongation at break, 1600 MPa flexural modulus, HDT 76/64 °C appear verbatim at 3DJAKE and Fiberlogy too. Three brands, one pellet grade. Such triple confirmations are rare and make the values more dependable than any single source.") },
 
   /* ---------------------------------------------------------------------------
@@ -224,7 +224,7 @@ const P = [
       flexuralModulusXy: q(90, "MPa", { std: "ISO 178", conditions: "23 °C, Spritzguss" }),
       flexuralStrengthXy: q(5, "MPa", { std: "ISO 178", conditions: "23 °C, Spritzguss" }),
     },
-    features: t("Das erste PEBA-Blatt im Bestand neben Fillamentum — und es sagt etwas, was die meisten verschweigen: Jede mechanische Zeile trägt den Zusatz „injection moulding“. Das sind Spritzgusswerte, keine gedruckten. Für ein Elastomer mit über 500 % Bruchdehnung ist der Unterschied erheblich, weil die Schichthaftung genau die Eigenschaft ist, die der Spritzguss nicht misst. Shore 92A bei 43 Shore D, Zugmodul 100 MPa: weicher als TPU 95A und deutlich rückstellfähiger.",
+    features: t("Das erste PEBA-Blatt in der Datenbank neben Fillamentum — und es sagt etwas, was die meisten verschweigen: Jede mechanische Zeile trägt den Zusatz „injection moulding“. Das sind Spritzgusswerte, keine gedruckten. Für ein Elastomer mit über 500 % Bruchdehnung ist der Unterschied erheblich, weil die Schichthaftung genau die Eigenschaft ist, die der Spritzguss nicht misst. Shore 92A bei 43 Shore D, Zugmodul 100 MPa: weicher als TPU 95A und deutlich rückstellfähiger.",
                 "The first PEBA sheet in the dataset alongside Fillamentum — and it states what most leave out: every mechanical row carries the qualifier “injection moulding”. These are moulded values, not printed ones. For an elastomer with over 500 % elongation at break the difference matters, because layer adhesion is precisely the property moulding does not measure. Shore 92A at 43 Shore D, tensile modulus 100 MPa: softer than TPU 95A and markedly more resilient."),
     anomaly: t("Die Werte gelten laut Blatt für SPRITZGEGOSSENE Prüfkörper — das steht in jeder einzelnen mechanischen Zeile. Ein gedrucktes Bauteil erreicht sie in Z nicht; wie weit darunter, sagt das Blatt nicht.",
                "The values apply to INJECTION MOULDED specimens per the sheet — it says so in every single mechanical row. A printed part will not reach them in Z; by how much, the sheet does not say.") },
@@ -242,8 +242,8 @@ const P = [
     },
     features: t("Acht von acht Kennwerten stehen zifferngleich im AthenaX-GF10-Blatt von FormFutura: 1,31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Zwei Marken, eine Messung — und beide tragen dieselbe Auffälligkeit, nämlich eine Vicat-Temperatur (77 °C) UNTER der HDT-B (78 °C), was normalerweise nicht vorkommt. Der Wert dieses Blattes liegt deshalb nicht in neuen Zahlen, sondern darin, dass es die Herkunft der alten sichtbar macht.",
                 "Eight of eight values appear digit for digit in FormFutura's AthenaX GF10 sheet: 1.31 g/cm³, 8 %, 55 MPa, 25 MPa, 45 kJ/m², 78 °C, 68 °C, 77 °C. Two brands, one measurement — and both carry the same oddity, a Vicat temperature (77 °C) BELOW the HDT-B (78 °C), which normally does not happen. The value of this sheet therefore lies not in new figures but in making the origin of the old ones visible."),
-    anomaly: t("Kein eigenständiger Beleg. Alle acht Kennwerte sind mit dem FormFutura-AthenaX-GF10-Blatt identisch, samt der Vicat-Anomalie. Beide Marken compoundieren erkennbar dasselbe Granulat und geben dessen Datenblatt weiter. Nach ADR-038 zählt das als EIN Beleg, nicht als zwei — die Konfidenz beider Seiten ist entsprechend gedeckelt.",
-               "Not an independent piece of evidence. All eight values are identical with FormFutura's AthenaX GF10 sheet, including the Vicat anomaly. Both brands evidently compound the same pellet grade and pass on its datasheet. Per ADR-038 that counts as ONE piece of evidence, not two — the confidence of both sides is capped accordingly.") },
+    anomaly: t("Kein eigenständiger Beleg. Alle acht Kennwerte sind mit dem FormFutura-AthenaX-GF10-Blatt identisch, samt der Vicat-Anomalie. Beide Marken compoundieren erkennbar dasselbe Granulat und geben dessen Datenblatt weiter. Das zählt als ein Beleg, nicht als zwei; die Werte beider Seiten gelten deshalb nur als schwach belegt.",
+               "Not an independent piece of evidence. All eight values are identical with FormFutura's AthenaX GF10 sheet, including the Vicat anomaly. Both brands evidently compound the same pellet grade and pass on its datasheet. That counts as one piece of evidence, not two; the values on both sides therefore count as weakly substantiated only.") },
 
   /* HIPS-X lag seit dem ersten Spectrum-Import ausgewertet da und wurde uebersprungen -
      damals gab es keinen `hips`-Werkstofftyp. Den gibt es seit dem Fiberlogy-Import;
@@ -282,7 +282,7 @@ const P = [
       charpyNotchedXy: q(4, "kJ/m²", { std: "23 °C" }),
       hdtA: q(65, "°C", { conditions: "1,8 MPa" }),
     },
-    anomaly: t("Die Festigkeitswerte liegen im selben Bereich wie beim SUNLU PA6-CF (120 gegen 170 MPa) und damit weit über dem gedruckten PA6-CF von Bambu Lab (102 MPa) — bei einer HDT-A von nur 65 °C. 9000 MPa Steifigkeit neben einer Wärmeformbeständigkeit von 65 °C passen schlecht zusammen; carbonverstärkte Polyamide erreichen üblicherweise 150 bis 200 °C. Die mechanischen Werte stehen deshalb mit niedriger Konfidenz. Bemerkenswert ehrlich ist dagegen die Feuchteangabe: 8 % Wasseraufnahme bis zur Sättigung, 2,5 % im Normklima — diese Zahl verschweigen die meisten Polyamidblätter.",
+    anomaly: t("Die Festigkeitswerte liegen im selben Bereich wie beim SUNLU PA6-CF (120 gegen 170 MPa) und damit weit über dem gedruckten PA6-CF von Bambu Lab (102 MPa) — bei einer HDT-A von nur 65 °C. 9000 MPa Steifigkeit neben einer Wärmeformbeständigkeit von 65 °C passen schlecht zusammen; carbonverstärkte Polyamide erreichen üblicherweise 150 bis 200 °C. Die mechanischen Werte gelten deshalb als schwach belegt. Bemerkenswert ehrlich ist dagegen die Feuchteangabe: 8 % Wasseraufnahme bis zur Sättigung, 2,5 % im Normklima — diese Zahl verschweigen die meisten Polyamidblätter.",
                "The strength figures sit in the same range as SUNLU's PA6-CF (120 against 170 MPa) and thus far above Bambu Lab's printed PA6-CF (102 MPa) — with an HDT-A of only 65 °C. 9000 MPa stiffness alongside a heat deflection temperature of 65 °C sit poorly together; carbon-reinforced polyamides usually reach 150 to 200 °C. The mechanical values therefore stand at low confidence. Remarkably honest by contrast is the moisture statement: 8 % water uptake to saturation, 2.5 % in standard climate — a figure most polyamide sheets keep quiet about.") },
 
   { id: "spectrum-s-flex-98a", material: "tpu-98a", name: "Spectrum S-Flex 98A",
@@ -298,7 +298,7 @@ const P = [
       compressionSet: q(32, "%", { conditions: "70 h bei 23 °C; bei 24 h und 70 °C sind es 50 %" }),
       reboundResilience: q(30, "%", { conditions: "Bayshore" }),
     },
-    features: t("Ein Elastomerblatt, wie es sein sollte: Spannung bei definierter Dehnung (15,4 MPa bei 100 %, 25 MPa bei 300 %), Abrieb, Druckverformungsrest bei zwei Bedingungen und Rückprallelastizität. Genau diese Grössen entscheiden bei einer Dichtung oder einem Dämpfer — und genau sie fehlen in fast allen TPU-Blättern.",
+    features: t("Ein Elastomerblatt, wie es sein sollte: Spannung bei definierter Dehnung (15,4 MPa bei 100 %, 25 MPa bei 300 %), Abrieb, Druckverformungsrest bei zwei Bedingungen und Rückprallelastizität. Genau diese Größen entscheiden bei einer Dichtung oder einem Dämpfer — und genau sie fehlen in fast allen TPU-Blättern.",
                 "An elastomer sheet as it should be: stress at defined strain (15.4 MPa at 100 %, 25 MPa at 300 %), abrasion, compression set at two conditions and rebound resilience. Precisely these figures decide the matter for a seal or a damper — and precisely they are missing from almost every TPU sheet.") },
 
   { id: "spectrum-s-flex-90a", material: "tpu-95a", name: "Spectrum S-Flex 90A",
@@ -322,8 +322,8 @@ let n = 0, na = 0, nu = 0;
 for (const p of P) {
   const url = `${U}/${p.file}`;
   const parts = [p.printed ? PRINTED : UNDECLARED];
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`,
-                              `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+                              `Note on this datasheet: ${p.anomaly.en}`));
   const rec = {
     $schema: "../../schema/product.schema.json", schemaVersion: "1.0.0",
     id: p.id, materialId: p.material,
@@ -340,8 +340,8 @@ for (const p of P) {
           value: p.ul94.value, thicknessMm: p.ul94.thicknessMm, testStandard: "UL 94",
           source: "src_tds", confidence: p.ul94.strong ? "medium" : "low",
           note: p.ul94.strong
-            ? t("Belegt bei 1,5 UND 3,0 mm, zusätzlich Glühdrahtindex 960 °C nach IEC 60695-2-12 und halogenfrei. Das Blatt nennt keine Prüfstelle und keine Zeugnisnummer — für eine Bahn- oder Luftfahrtanwendung wäre das noch anzufordern.",
-                "Documented at 1.5 AND 3.0 mm, plus glow wire index 960 °C to IEC 60695-2-12 and halogen-free. The sheet names no test house and no certificate number — for a rail or aerospace application that would still have to be requested.")
+            ? t("Belegt bei 1,5 und 3,0 mm, zusätzlich Glühdrahtindex 960 °C nach IEC 60695-2-12 und halogenfrei. Das Blatt nennt keine Prüfstelle und keine Zeugnisnummer — für eine Bahn- oder Luftfahrtanwendung wäre das noch anzufordern.",
+                "Documented at 1.5 and 3.0 mm, plus glow wire index 960 °C to IEC 60695-2-12 and halogen-free. The sheet names no test house and no certificate number — for a rail or aerospace application that would still have to be requested.")
             : t("HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung.",
                 "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement."),
         },
@@ -366,7 +366,7 @@ for (const p of P) {
   if (p.ul94) nu++;
 }
 
-console.log(`${n} Spectrum-Produkte geschrieben (${na} mit Befund, ${nu} mit UL94-Angabe)`);
+console.log(`${n} Spectrum-Produkte geschrieben (${na} mit Hinweis, ${nu} mit UL94-Angabe)`);
 console.log(`  2 Blaetter deklarieren gedruckte Pruefkoerper (PLA Pro, PLA Matt)`);
 console.log("  PEBA, PCTG GF10 und HIPS-X am 2026-08-06 nachgetragen (siehe Kopf)");
 console.log("  4 weitere Blaetter liegen ausgewertet, aber unlesbar ausgerichtet - RUECKFRAGEN.md");

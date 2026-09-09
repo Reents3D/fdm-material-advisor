@@ -262,8 +262,8 @@ const record = {
     },
     reentsPortfolioStatus: {
       value: "unknown", source: "estimate_reasoning", confidence: "estimated",
-      note: t("Fließt unter keinen Umständen in Filterung oder Bewertung ein (ADR-004).",
-              "Never enters filtering or scoring under any circumstances (ADR-004)."),
+      note: t("Der Portfolio-Status beeinflusst weder Filterung noch Bewertung.",
+              "Portfolio status affects neither filtering nor assessment."),
     },
   },
   governance: {
@@ -281,8 +281,8 @@ const record = {
       {
         id: "oq_pctg_cf_modulus",
         question: t(
-          "E-Modul beschaffen — weder Zug noch Biegung steht auf dem Blatt. Das ist ausgerechnet die Zahl, die eine Faserfüllung am deutlichsten zeigt: Beim glasgefüllten Schwestertyp `pctg-gf` steigt sie von 1.650 auf 3.400 MPa. Ohne sie fehlt dem Typ die Steifigkeitsangabe, er kann in der Kompromissanalyse nicht auf Steifigkeit verglichen werden, und die Plausibilitätsregel R16 (Füllstoff muss den Modul heben) läuft für ihn ins Leere.",
-          "Obtain a modulus — neither tensile nor flexural appears on the sheet. That is precisely the figure a fibre filling shows most clearly: for the glass-filled sister type `pctg-gf` it rises from 1,650 to 3,400 MPa. Without it the type carries no stiffness figure, it cannot be compared on stiffness in the trade-off analysis, and plausibility rule R16 (filler must raise the modulus) has nothing to check."),
+          "E-Modul beschaffen: Weder Zug- noch Biegemodul steht auf dem Blatt. Ausgerechnet diese Zahl zeigt eine Faserfüllung am deutlichsten; beim glasgefüllten Schwestertyp PCTG-GF steigt sie von 1.650 auf 3.400 MPa. Ohne sie fehlt dem Typ die Steifigkeitsangabe, und er kann im Vergleich nicht auf Steifigkeit beurteilt werden.",
+          "Obtain a modulus: neither tensile nor flexural modulus appears on the sheet. That is precisely the figure a fibre filling shows most clearly; for the glass-filled sister type PCTG-GF it rises from 1,650 to 3,400 MPa. Without it the type has no stiffness figure and cannot be compared on stiffness."),
         blocking: false,
         affectsFields: ["mechanics.tensileModulusXy", "mechanics.flexuralModulusXy"],
       },

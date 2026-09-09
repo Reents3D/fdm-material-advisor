@@ -45,7 +45,7 @@ function at(m: Material, path: string):
   if (cur == null || typeof cur !== "object" || !("value" in (cur as object))) return null;
   const q = cur as { value: unknown; confidence?: string; min?: number; max?: number };
   /* `min`/`max` sind die Spanne ueber die Herstellerblaetter (ADR-042), nicht die
-     Streuung einer Messung - die traegt `tolerance` und bleibt hier aussen vor. */
+     Streuung einer Messung - die traegt `tolerance` und bleibt hier außen vor. */
   return typeof q.value === "number"
     ? { value: q.value, confidence: q.confidence, min: q.min, max: q.max }
     : null;
@@ -86,7 +86,7 @@ const AXES: Axis[] = [
   /* Bleibt als Achse, obwohl die Kantenlaenge seit 2026-08-07 kein Bewertungskriterium
      mehr ist: Hier traegt sie niemanden vor oder zurueck, sie laesst sich nur auftragen.
      Die Beschriftung sagt deshalb, was sie ist - Werkstatterfahrung, keine Maschinengrenze. */
-  { id: "xxl", group: G_COM, label: ["Grossformat-Erfahrung (Kante)", "Large-format experience (edge)"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
+  { id: "xxl", group: G_COM, label: ["Großformat-Erfahrung (Kante)", "Large-format experience (edge)"], unit: "mm", path: "commercial.xxl.maxSensibleEdgeMm" },
   { id: "bio", group: G_COM, label: ["Biobasierter Anteil", "Bio-based content"], unit: "%", path: "sustainability.bioBasedContent" },
 ];
 
@@ -201,7 +201,7 @@ export function Explorer({ t, lang, params, navigate }: {
       a.log ? Math.exp(Math.log(s.lo) + (i / 4) * (Math.log(s.hi) - Math.log(s.lo))) : s.lo + (i / 4) * (s.hi - s.lo));
 
   /* Punktgrösse aus der dritten Grösse. Radius über die Wurzel, damit die FLÄCHE
-     proportional ist - Radius-proportional übertreibt grosse Werte grob. */
+     proportional ist - Radius-proportional übertreibt große Werte grob. */
   const sVals = points.map((p) => p.s).filter((v): v is number => v != null);
   const sLo = sVals.length ? Math.min(...sVals) : 0;
   const sHi = sVals.length ? Math.max(...sVals) : 1;
@@ -252,8 +252,8 @@ export function Explorer({ t, lang, params, navigate }: {
       <h1 className="text-2xl font-display font-bold mb-1">{t("ui.start.explorer")}</h1>
       <p className="text-sm muted mb-5 max-w-3xl leading-relaxed">
         {de
-          ? "Zwei Kennwerte gegeneinander auftragen und sehen, welcher Werkstoff das Feld anführt — und um welchen Preis. Die dritte Grösse steckt in der Punktfläche, die Konfidenz im Ring."
-          : "Plot two properties against each other and see which material leads the field — and at what cost. The third quantity sits in the point area, the confidence in the ring."}
+          ? "Zwei Kennwerte gegeneinander auftragen und sehen, welcher Werkstoff das Feld anführt und was das kostet. Eine dritte Größe lässt sich über die Punktfläche darstellen; der Ring zeigt, wie gut ein Wert belegt ist."
+          : "Plot two properties against each other and see which material leads the field and at what cost. A third quantity can be shown through the point area; the ring shows how well a value is substantiated."}
       </p>
 
       <div className="flex flex-wrap gap-3 mb-4 no-print">
@@ -330,7 +330,7 @@ export function Explorer({ t, lang, params, navigate }: {
             {L(ya)} {ya.unit && `[${ya.unit}]`}{ya.log ? (de ? " · logarithmisch" : " · log") : ""}
           </text>
 
-          {/* Grosse Punkte zuerst, damit kleine nicht verschwinden. */}
+          {/* Große Punkte zuerst, damit kleine nicht verschwinden. */}
           {[...points].sort((a, b) => radius(b) - radius(a)).map((p) => {
             const on = pinned.has(p.m.id);
             const r = radius(p);
@@ -414,8 +414,8 @@ export function Explorer({ t, lang, params, navigate }: {
             : `Not shown: ${missing.length} materials without a sourced value on one axis`}>
           <p className="text-xs muted mb-2.5 max-w-3xl leading-relaxed">
             {de
-              ? "Diese Werkstoffe werden nicht mit null angenommen und nicht weggelassen, ohne es zu sagen — eine Lücke in der Datenlage ist keine Eigenschaft des Werkstoffs."
-              : "These materials are neither assumed to be zero nor quietly dropped — a gap in the data is not a property of the material."}
+              ? "Für diese Werkstoffe liegt auf einer der beiden Achsen kein belegter Wert vor. Sie fehlen deshalb im Diagramm; eine Lücke in den Daten ist keine Eigenschaft des Werkstoffs."
+              : "These materials have no sourced value on one of the two axes. They are therefore missing from the chart; a gap in the data is not a property of the material."}
           </p>
           <div className="flex flex-wrap gap-1.5">
             {missing.map(({ m, axes }) => (
