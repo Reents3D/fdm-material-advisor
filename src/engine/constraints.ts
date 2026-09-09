@@ -117,14 +117,14 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
      ueber das Polymer.
 
      Genau das hat unsere eigene Zahl verschwiegen. Sie stand als "unbelastet, Luft,
-     dauerhaft" in den Daten, war aber Tg minus 12 K - und die Fussnote daneben sagte,
+     dauerhaft" in den Daten, war aber Tg minus 12 K - und die Fußnote daneben sagte,
      fuer ein unbelastetes Teil liege die Wahrheit zwischen dieser Zahl und dem
      Datenblattwert. Beides zusammen ging nicht auf.
 
      Jetzt fragt der Assistent nach der Last, und die Antwort entscheidet, welche Zahl
      das Urteil traegt:
        unbelastet  -> der gemessene Wert (HDT-B/HDT-A/Vicat) gilt, ohne Vorbehalt.
-       unter Last  -> die konservative Zahl gilt; reisst sie, bleibt es eine WARNUNG
+       unter Last  -> die konservative Zahl gilt; reißt sie, bleibt es eine WARNUNG
                       (ADR-018) mit dem Hinweis auf Wandstaerke und Fuellgrad.
        nichts gesagt -> wie bisher vorsichtig: Schaetzung warnt, Datenblatt entscheidet. */
   if (req.serviceTemperatureC != null) {
@@ -142,7 +142,7 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
        traegt. `constraintReserve` rechnet die Reserve gegen genau diesen Parameter -
        stuende er auch bei einem Freispruch auf der konservativen Zahl daneben, waere die
        gemeldete Reserve die des Datenblattwerts und damit groesser als die, auf die das
-       Urteil sich stuetzt. Ein zu grosser Sicherheitsabstand ist hier die gefaehrlichere
+       Urteil sich stuetzt. Ein zu großer Sicherheitsabstand ist hier die gefaehrlichere
        Falschaussage von beiden. */
     if (value === null && documented === null) {
       unknown("serviceTemperature", "constraint.temperature.unknown", p, "thermal.hdtB");
@@ -309,19 +309,17 @@ export function evaluateConstraints(m: Material, req: Requirements): ConstraintV
 
      Der hinterlegte Wert sagt jetzt: ab hier wird es aufwendig (Kammer, Brim,
      Segmentierung). Er stuft ab und warnt, er streicht nicht. Alle 38 Werte sind
-     ausserdem Schaetzungen - damit greift ohnehin die Regel von oben.
+     außerdem Schaetzungen - damit greift ohnehin die Regel von oben.
 
      Ausdruecklich NICHT hinterlegt ist der Bauraum irgendeiner konkreten Maschine.
      Dieses Werkzeug ist herstellerneutral (ADR-004); der Maschinenpark seines
      Herausgebers ist kein Massstab fuer die Werkstoffwahl anderer. */
-  if (req.maxEdgeMm != null) {
-    const xxl = (m.commercial as { xxl?: { maxSensibleEdgeMm?: Quantity } } | undefined)?.xxl?.maxSensibleEdgeMm;
-    const v = xxl?.value ?? null;
-    const p = { required: req.maxEdgeMm, actual: v ?? 0 };
-    if (v === null) unknown("partSize", "constraint.size.unknown", p, "commercial.xxl.maxSensibleEdgeMm");
-    else if (v >= req.maxEdgeMm) pass("partSize", "constraint.size.pass", p, "commercial.xxl.maxSensibleEdgeMm");
-    else pass("partSize", "constraint.size.effort", p, "commercial.xxl.maxSensibleEdgeMm");
-  }
+  /* Die Bauteilgroesse ist hier BEWUSST keine Anforderung mehr (2026-08-07). Sie fragte
+     nach der Kantenlaenge und stufte Werkstoffe daran ab - eine Fertigungsaussage, keine
+     Werkstoffaussage. Ob ein Modell an einem Stueck druckbar ist, entscheiden Geometrie,
+     Segmentierung und Schrumpfkompensation, nicht die Werkstoffwahl. Was der Werkstoff
+     beitraegt, ist seine Verzugsneigung; die steht als Kriterium `lowWarping` weiterhin in
+     der Bewertung. Siehe criteria.ts zum selben Datum. */
 
   /* --- flexible / rigid ---------------------------------------------------- */
   if (req.flexible != null) {
@@ -369,7 +367,7 @@ export function constraintReserve(v: ConstraintVerdict): number | null {
   /* Ein BESTANDENER Constraint, dessen konservativer Wert unter der Anforderung liegt,
      hat die Pruefung ueber einen anderen Beleg bestanden - ueber den gemessenen
      Datenblattwert (`documented`) oder, bei der Bauteilgroesse, weil die Schwelle
-     ueberhaupt nicht ausschliesst. Die Reserve gegen den konservativen Wert waere dann
+     ueberhaupt nicht ausschließt. Die Reserve gegen den konservativen Wert waere dann
      negativ, und eine negative Reserve auf einem bestandenen Constraint ist keine
      Information, sondern ein Widerspruch. Denselben Fehler gab es schon einmal, als die
      Reserve auf FEHLENDEN Daten gerechnet wurde ("nur -100 % Reserve"). */

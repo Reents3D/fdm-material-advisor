@@ -15,7 +15,7 @@
       "PA 6"
     ],
     "abstract": {
-      "de": "PA6 unverstärkt ist der zähe, verschleissfeste Grundtyp der Polyamidreihe: hohe Schlagzähigkeit, gute Gleiteigenschaften und Beständigkeit gegen Öle, Fette und Kraftstoffe. Der Preis dafür ist Wasser — PA6 nimmt bis zu 3 % auf und verändert dabei Steifigkeit, Mass und Glasübergangstemperatur. Im Druck heisst das: trocknen, trocken halten, beheizte Kammer.",
+      "de": "PA6 unverstärkt ist der zähe, verschleißfeste Grundtyp der Polyamidreihe: hohe Schlagzähigkeit, gute Gleiteigenschaften und Beständigkeit gegen Öle, Fette und Kraftstoffe. Der Preis dafür ist Wasser — PA6 nimmt bis zu 3 % auf und verändert dabei Steifigkeit, Mass und Glasübergangstemperatur. Im Druck heißt das: trocknen, trocken halten, beheizte Kammer.",
       "en": "Unfilled PA6 is the tough, wear-resistant base grade of the polyamide range: high impact strength, good sliding properties and resistance to oils, greases and fuels. The price is water — PA6 takes up to 3 % and changes stiffness, dimensions and glass transition in the process. In printing that means: dry it, keep it dry, heated chamber."
     },
     "positioning": {
@@ -33,7 +33,7 @@
       {
         "materialId": "pa12",
         "reason": {
-          "de": "PA12 nimmt deutlich weniger Wasser auf (rund 1 % gegen 3 %) und ist damit masshaltiger und im Druck gutmütiger. PA6 ist dafür fester, steifer und wärmeformbeständiger. Die Wahl zwischen beiden ist fast immer eine Feuchtefrage, keine Festigkeitsfrage.",
+          "de": "PA12 nimmt deutlich weniger Wasser auf (rund 1 % gegen 3 %) und ist damit maßhaltiger und im Druck gutmütiger. PA6 ist dafür fester, steifer und wärmeformbeständiger. Die Wahl zwischen beiden ist fast immer eine Feuchtefrage, keine Festigkeitsfrage.",
           "en": "PA12 takes up considerably less water (around 1 % against 3 %) and is therefore more dimensionally stable and better behaved in printing. PA6 in return is stronger, stiffer and more heat resistant. The choice between them is almost always a moisture question, not a strength question."
         }
       }
@@ -49,8 +49,8 @@
       "confidence": "low",
       "conditions": "31 Produkte am Markt",
       "note": {
-        "de": "Marktkorridor über 31 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Market corridor across 31 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Bandbreite am Markt über 31 Produkte (Open Filament Database, Stand 2026.07.31), ohne die äußersten 10 % nach oben und unten. Kein Messwert, sondern die Streuung der Herstellerangaben.",
+        "en": "Market range across 31 products (Open Filament Database, version 2026.07.31), excluding the top and bottom 10 %. Not a measurement but the spread of manufacturer figures."
       }
     },
     "tensileStrengthXy": {
@@ -120,9 +120,51 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Gute Gleit- und Verschleisseigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
+        "de": "Gute Gleit- und Verschleißeigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
         "en": "Good sliding and wear properties even without lubrication — the classic use for bearing bushes and gears."
       }
+    },
+    "flexuralStrengthXy": {
+      "value": 105,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 98 MPa (SUNLU) bis 112 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 98 MPa (SUNLU) to 112 MPa (FormFutura). Specimens: 0 of 2 printed, remainder not stated. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 98,
+      "max": 112,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "flexuralModulusXy": {
+      "value": 2575,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 2 Herstellerblättern, Spanne 2350 MPa (SUNLU) bis 2800 MPa (FormFutura). Prüfkörper: 0 von 2 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 178 (1), ASTM D790 (1).",
+        "en": "Median of 2 manufacturer datasheets, range 2350 MPa (SUNLU) to 2800 MPa (FormFutura). Specimens: 0 of 2 printed, remainder not stated. Mixed test standards: ISO 178 (1), ASTM D790 (1)."
+      },
+      "orientation": "XY",
+      "min": 2350,
+      "max": 2800,
+      "testStandard": "ISO 178",
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
+    },
+    "charpyNotchedXy": {
+      "value": 6.8,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: FormFutura. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: FormFutura. Specimens: 0 of 1 printed, remainder not stated."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -135,7 +177,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Der grosse Abstand zwischen HDT-A und HDT-B ist bei teilkristallinen Polyamiden typisch und keine Datenblattschwäche: Unter kleiner Last trägt die Kristallphase weit über den Glasübergang hinaus, unter grosser Last nicht.",
+        "de": "Der große Abstand zwischen HDT-A und HDT-B ist bei teilkristallinen Polyamiden typisch und keine Datenblattschwäche: Unter kleiner Last trägt die Kristallphase weit über den Glasübergang hinaus, unter großer Last nicht.",
         "en": "The large gap between HDT-A and HDT-B is typical of semi-crystalline polyamides and no datasheet weakness: under low load the crystalline phase carries far beyond the glass transition, under high load it does not."
       }
     },
@@ -178,6 +220,17 @@
         "de": "Konservativ angesetzt und bewusst nicht an der HDT-B orientiert. Oberhalb des Glasübergangs kriecht das Material unter Dauerlast.",
         "en": "Set conservatively and deliberately not oriented on HDT-B. Above the glass transition the material creeps under sustained load."
       }
+    },
+    "vicatB50": {
+      "value": 135,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: SUNLU. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: SUNLU. Specimens: 0 of 1 printed, remainder not stated."
+      },
+      "testStandard": "ASTM D1525"
     }
   },
   "processing": {
@@ -190,8 +243,8 @@
       "confidence": "low",
       "conditions": "21 Produkte am Markt",
       "note": {
-        "de": "Marktkorridor über 21 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Market corridor across 21 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Bandbreite am Markt über 21 Produkte (Open Filament Database, Stand 2026.07.31), ohne die äußersten 10 % nach oben und unten. Kein Messwert, sondern die Streuung der Herstellerangaben.",
+        "en": "Market range across 21 products (Open Filament Database, version 2026.07.31), excluding the top and bottom 10 %. Not a measurement but the spread of manufacturer figures."
       }
     },
     "bedTemperature": {
@@ -203,8 +256,8 @@
       "confidence": "low",
       "conditions": "21 Produkte am Markt",
       "note": {
-        "de": "Marktkorridor über 21 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Market corridor across 21 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
+        "de": "Bandbreite am Markt über 21 Produkte (Open Filament Database, Stand 2026.07.31), ohne die äußersten 10 % nach oben und unten. Kein Messwert, sondern die Streuung der Herstellerangaben.",
+        "en": "Market range across 21 products (Open Filament Database, version 2026.07.31), excluding the top and bottom 10 %. Not a measurement but the spread of manufacturer figures."
       }
     },
     "chamberRequirement": {
@@ -212,7 +265,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Ohne beheizte Kammer sind grössere Bauteile durch Verzug kaum beherrschbar. Für kleine Teile geht es, für XXL nicht.",
+        "de": "Ohne beheizte Kammer sind größere Bauteile durch Verzug kaum beherrschbar. Für kleine Teile geht es, für XXL nicht.",
         "en": "Without a heated chamber, larger parts are barely controllable due to warping. For small parts it works, for XXL it does not."
       }
     },
@@ -260,8 +313,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Unverstärkt ist PA6 nicht abrasiv — eine Messingdüse reicht. Das gilt für die gefüllten Varianten ausdrücklich NICHT.",
-        "en": "Unfilled, PA6 is not abrasive — a brass nozzle suffices. That expressly does NOT hold for the filled variants."
+        "de": "Unverstärkt ist PA6 nicht abrasiv — eine Messingdüse reicht. Das gilt für die gefüllten Varianten ausdrücklich nicht.",
+        "en": "Unfilled, PA6 is not abrasive — a brass nozzle suffices. That expressly does not hold for the filled variants."
       }
     }
   },
@@ -519,7 +572,7 @@
       },
       "partLevelWarning": {
         "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Spalten, in denen sich Keime halten.",
-        "en": "Even with a food-contact compliant material the FDM PART is not automatically compliant: the layer structure forms crevices in which germs survive."
+        "en": "Even with a food-contact compliant material the FDM part is not automatically compliant: the layer structure forms crevices in which germs survive."
       }
     }
   },
@@ -563,8 +616,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -590,17 +643,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff läuft bisher nur auf den Engineering-Druckern, nicht im Großformat; eigene Erfahrung, an der sich die Schätzung prüfen ließe, gibt es deshalb noch nicht.",
+          "en": "Estimated, not established. So far this material runs only on the engineering printers, not at large format, so there is no own experience yet against which the estimate could be checked."
         }
       },
       "maxSpoolWeightKg": {
@@ -665,6 +709,17 @@
     "dataCompleteness": null,
     "sources": [
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
+        }
+      },
+      {
         "id": "src_price_pa6_3djake",
         "type": "retailer-listing",
         "publisher": "3DJAKE",
@@ -673,8 +728,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "5 Angebote: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0,5 kg, 34,99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0,5 kg, 34,99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0,75 kg, 69,99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg, 69,99 €",
-          "en": "5 offers: FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Signal White, 1,75 mm / 500 g, 0.5 kg, 34.99 € · FormFutura FormFutura STYX PA6 Traffic Black, 1,75 mm / 500 g, 0.5 kg, 34.99 € · Spectrum Spectrum PA6 Neat Natural, 1,75 mm / 750 g, 0.75 kg, 69.99 € · Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg, 69.99 €"
+          "de": "5 Angebote von 2 Marken (FormFutura, Spectrum). Günstigstes FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0,5 kg für 34,99 € (69,98 €/kg); teuerstes Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0,75 kg für 69,99 € (93,32 €/kg).",
+          "en": "5 offers from 2 brands (FormFutura, Spectrum). Cheapest FormFutura FormFutura STYX PA6 Natural, 1,75 mm / 500 g, 0.5 kg at 34.99 € (69.98 €/kg); dearest Spectrum Spectrum PA6 Neat Black, 1,75 mm / 750 g, 0.75 kg at 69.99 € (93.32 €/kg)."
         }
       },
       {
@@ -687,8 +742,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {
@@ -698,7 +753,7 @@
         "title": "Fachliche Ableitung ohne Primärquelle",
         "confidenceCeiling": "estimated",
         "note": {
-          "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
+          "de": "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen in der Datenbank (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
           "en": "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."
         }
       }
@@ -720,8 +775,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 5 Angebote von 1 Anbieter und 2 Marken (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 5 offers from 1 retailer and 2 brands (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 5 Angebote von 1 Anbieter und 2 Marken (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 5 offers from 1 retailer and 2 brands (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -729,5 +784,17 @@
         ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt nicht für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: caprolactam (PA6) or laurolactam (PA12) from butadiene, petrochemical. This does not apply to PA11, which comes from castor oil and is not listed here. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
+      }
+    }
   }
 }

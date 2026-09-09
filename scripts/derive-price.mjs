@@ -131,12 +131,12 @@ const median = (xs) => {
 };
 
 const ESTIMATE_NOTE = t(
-  `Geschätzte Marktspanne, KEIN Erhebungswert: Zu diesem Werkstoff wurde bei der Erhebung kein einziges Händlerangebot gefunden. Die Erhebung vom ${SURVEYED} hat gezeigt, dass solche Schätzungen bei 14 von 16 prüfbaren Werkstoffen zu hoch lagen — teils um mehr als die Hälfte. Diese Zahl ist deshalb im Zweifel eher zu hoch als zu niedrig.`,
-  `Estimated market range, NOT a surveyed figure: the survey found no retail offer at all for this material. The survey of ${SURVEYED} showed such estimates ran high for 14 of 16 checkable materials — several by more than half. Read this figure as more likely too high than too low.`);
+  `Geschätzte Marktspanne, kein erhobener Preis: Bei der Erhebung vom ${SURVEYED} wurde zu diesem Werkstoff kein Händlerangebot gefunden. Solche Schätzungen lagen bisher meist eher zu hoch als zu niedrig.`,
+  `Estimated market range, not a surveyed price: the survey of ${SURVEYED} found no retail offer for this material. Such estimates have so far tended to run high rather than low.`);
 
 const INDEX_NOTE = t(
-  "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-  "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation.");
+  "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+  "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation.");
 
 /** Was fuer diesen Werkstoff gilt: erhoben oder geschaetzt. */
 function priceFor(id) {
@@ -184,7 +184,26 @@ for (const f of files) {
   const file = path.join(DIR, f);
   const m = JSON.parse(readFileSync(file, "utf8"));
   const p = priceFor(m.id);
-  if (!p) { missing.push(m.id); continue; }
+  if (!p) {
+    /* GAR KEIN Preis - weder erhoben noch geschaetzt. Das ist der schwerste Fall und
+       muss am Datensatz stehen, nicht nur in der Konsolenausgabe dieses Skripts.
+       `ppa-cf` trug dafuer bis 2026-08-06 eine von Hand geschriebene Frage; als der
+       Preis kam, wurde sie geloescht - und `pctg-cf` fiel am selben Tag in dieselbe
+       Luecke, nur durch einen anderen Zweig. Ein Vorbehalt, den es nur auf einem von
+       zwei Pfaden gibt, ist keine Buchfuehrung. */
+    const oq = m.governance.openQuestions ?? [];
+    let idx = oq.findIndex((x) => x.id === "oq_price_survey");
+    if (idx < 0) { oq.push({ id: "oq_price_survey", question: t("", ""), blocking: true, affectsFields: ["commercial.pricePerKg"] }); idx = oq.length - 1; }
+    oq[idx].blocking = true;
+    oq[idx].affectsFields = ["commercial.pricePerKg"];
+    oq[idx].question = t(
+      `Preis erheben: Für diesen Werkstoff liegt kein Preis je Kilogramm vor — weder ein Händlerangebot (${SURVEYED}) noch eine Schätzbandbreite. Folge: Er fehlt in der Ansicht „Festigkeit gegen Preis“, und die Kompromissanalyse kann seinen wirtschaftlichen Preis nicht beziffern.`,
+      `Collect a price: no price per kilogram is available for this material — neither a retailer offer (${SURVEYED}) nor an estimated band. Consequence: it is missing from the “strength against price” view, and the trade-off analysis cannot quantify its economic price.`);
+    m.governance.openQuestions = oq;
+    writeFileSync(file, `${JSON.stringify(m, null, 2)}\n`);
+    missing.push(m.id);
+    continue;
+  }
 
   m.commercial ??= {};
   /* Quellen aus dem vorigen Lauf entfernen, damit sich nichts anhaeuft. */
@@ -204,14 +223,32 @@ for (const f of files) {
       const r = SURVEY.retailers[rid];
       const srcId = `src_price_${m.id.replace(/-/g, "_")}_${rid.replace(/-/g, "_")}`;
       srcIds.push(srcId);
+      const sorted = [...list].sort((a, b) => a.pricePerKg - b.pricePerKg);
+      const cheap = sorted[0];
+      const dear = sorted[sorted.length - 1];
+      const brandsHere = [...new Set(list.map((o) => o.brand))].sort();
       m.governance.sources.push({
         id: srcId, type: "retailer-listing", publisher: r.name,
         title: `${r.name} — Listenpreise ${m.identity.name}`,
         url: list[0].listingUrl, retrievedAt: list[0].retrievedAt,
         confidenceCeiling: "medium",
+        /* NUR DIE ECKPUNKTE, NICHT JEDES ANGEBOT.
+           Bis 2026-08-06 listete diese Notiz jedes einzelne Angebot mit Marke, Produkt,
+           Spulengewicht und Preis. Bei `pla` waren das 182 Positionen und 20 kB in EINER
+           Notiz; ueber fuenf Werkstoffe 73 kB, die mit jedem Besucher ausgeliefert
+           wurden. Gelesen hat sie so niemand - eine Aufzaehlung von 182 Farbvarianten
+           desselben Filaments ist keine Notiz, sondern ein Rohdatenauszug.
+
+           Vollstaendig steht die Liste weiterhin in `data/prices.json`, und die ist
+           quelloffen. Hier stehen die Zahlen, die man beim Lesen braucht: wie viele,
+           welche Marken, und die beiden Enden der Spanne. */
         note: t(
-          `${list.length} Angebot${list.length === 1 ? "" : "e"}: ${list.map((o) => `${o.brand} ${o.product}, ${String(o.spoolKg).replace(".", ",")} kg, ${eur(o.priceEur)} €`).join(" · ")}`,
-          `${list.length} offer${list.length === 1 ? "" : "s"}: ${list.map((o) => `${o.brand} ${o.product}, ${o.spoolKg} kg, ${o.priceEur.toFixed(2)} €`).join(" · ")}`),
+          `${list.length} Angebot${list.length === 1 ? "" : "e"} von ${brandsHere.length} Marke${brandsHere.length === 1 ? "" : "n"} (${brandsHere.join(", ")}). ${list.length === 1
+            ? `Einziges Angebot: ${cheap.brand} ${cheap.product}, ${String(cheap.spoolKg).replace(".", ",")} kg für ${eur(cheap.priceEur)} € (${eur(cheap.pricePerKg)} €/kg).`
+            : `Günstigstes ${cheap.brand} ${cheap.product}, ${String(cheap.spoolKg).replace(".", ",")} kg für ${eur(cheap.priceEur)} € (${eur(cheap.pricePerKg)} €/kg); teuerstes ${dear.brand} ${dear.product}, ${String(dear.spoolKg).replace(".", ",")} kg für ${eur(dear.priceEur)} € (${eur(dear.pricePerKg)} €/kg).`}`,
+          `${list.length} offer${list.length === 1 ? "" : "s"} from ${brandsHere.length} brand${brandsHere.length === 1 ? "" : "s"} (${brandsHere.join(", ")}). ${list.length === 1
+            ? `Only offer: ${cheap.brand} ${cheap.product}, ${cheap.spoolKg} kg at ${cheap.priceEur.toFixed(2)} € (${cheap.pricePerKg.toFixed(2)} €/kg).`
+            : `Cheapest ${cheap.brand} ${cheap.product}, ${cheap.spoolKg} kg at ${cheap.priceEur.toFixed(2)} € (${cheap.pricePerKg.toFixed(2)} €/kg); dearest ${dear.brand} ${dear.product}, ${dear.spoolKg} kg at ${dear.priceEur.toFixed(2)} € (${dear.pricePerKg.toFixed(2)} €/kg).`}`),
       });
     }
     const brands = [...new Set(p.offers.map((o) => o.brand))];
@@ -283,11 +320,11 @@ for (const f of files) {
          sie nicht vollstaendig, aber sie nehmen ihr die Sprengkraft. */
       oq[idx].blocking = p.offers.length === 0;
       oq[idx].question = t(
-        `Preiserhebung vertiefen: Bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} und ${p.brands ?? 0} Marke${p.brands === 1 ? "" : "n"} (${SURVEYED}). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin ${p.surveyed ? "trägt der Median mit niedriger Konfidenz" : "bleibt die Schätzung stehen"}.`,
-        `Deepen the price survey: ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} and ${p.brands ?? 0} brand${p.brands === 1 ? "" : "s"} (${SURVEYED}). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then ${p.surveyed ? "the median carries at low confidence" : "the estimate stands"}.`);
+        `Preisbasis noch schmal: bisher ${p.offers.length} Angebot${p.offers.length === 1 ? "" : "e"} von ${p.retailers ?? 0} Anbieter${p.retailers === 1 ? "" : "n"} und ${p.brands ?? 0} Marke${p.brands === 1 ? "" : "n"} (Stand ${SURVEYED}). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis ${p.surveyed ? "nur ein Anhaltspunkt" : "eine Schätzung"}.`,
+        `Price basis still thin: so far ${p.offers.length} offer${p.offers.length === 1 ? "" : "s"} from ${p.retailers ?? 0} retailer${p.retailers === 1 ? "" : "s"} and ${p.brands ?? 0} brand${p.brands === 1 ? "" : "s"} (as of ${SURVEYED}). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is ${p.surveyed ? "only a rough guide" : "an estimate"}.`);
     }
     /* `oq` kann eine frisch angelegte Liste sein - dann haengt sie noch nicht am
-       Datensatz und ein `push` oben waere spurlos verpufft. */
+       Eintrag und ein `push` oben waere spurlos verpufft. */
     if (oq.length) m.governance.openQuestions = oq;
     else delete m.governance.openQuestions;
   }

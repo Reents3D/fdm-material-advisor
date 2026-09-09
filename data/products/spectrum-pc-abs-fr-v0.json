@@ -13,8 +13,8 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Der Gegenentwurf zu Brandschutz im Produktnamen: Dieses Blatt belegt UL 94 V-0 bei 1,5 UND 3,0 mm und nennt zusätzlich den Glühdrahtindex von 960 °C nach IEC 60695-2-12. Dazu halogenfrei. Die Charpy-Schlagzähigkeit ungekerbt ist bei 23 °C UND bei −30 °C mit „NB“ angegeben — no break, der Prüfkörper bricht gar nicht. Für ein flammgeschütztes Material ist das ungewöhnlich, weil Flammschutzmittel Zähigkeit üblicherweise kosten.",
-    "en": "The counter-example to flame retardancy in the product name: this sheet documents UL 94 V-0 at 1.5 AND 3.0 mm and additionally states the glow wire index of 960 °C to IEC 60695-2-12. Halogen-free too. Unnotched Charpy impact is given as “NB” at 23 °C AND at −30 °C — no break, the specimen does not fracture at all. For a flame-retardant material that is unusual, because flame retardants normally cost toughness."
+    "de": "Der Gegenentwurf zu Brandschutz im Produktnamen: Dieses Blatt belegt UL 94 V-0 bei 1,5 und 3,0 mm und nennt zusätzlich den Glühdrahtindex von 960 °C nach IEC 60695-2-12. Dazu halogenfrei. Die Charpy-Schlagzähigkeit ungekerbt ist bei 23 °C und bei −30 °C mit „NB“ angegeben — no break, der Prüfkörper bricht gar nicht. Für ein flammgeschütztes Material ist das ungewöhnlich, weil Flammschutzmittel Zähigkeit üblicherweise kosten.",
+    "en": "The counter-example to flame retardancy in the product name: this sheet documents UL 94 V-0 at 1.5 and 3.0 mm and additionally states the glow wire index of 960 °C to IEC 60695-2-12. Halogen-free too. Unnotched Charpy impact is given as “NB” at 23 °C and at −30 °C — no break, the specimen does not fracture at all. For a flame-retardant material that is unusual, because flame retardants normally cost toughness."
   },
   "datasheet": {
     "title": "Spectrum PC/ABS FR V0 — Technical Data Sheet",
@@ -97,8 +97,8 @@
       "source": "src_tds",
       "confidence": "medium",
       "note": {
-        "de": "Belegt bei 1,5 UND 3,0 mm, zusätzlich Glühdrahtindex 960 °C nach IEC 60695-2-12 und halogenfrei. Das Blatt nennt keine Prüfstelle und keine Zeugnisnummer — für eine Bahn- oder Luftfahrtanwendung wäre das noch anzufordern.",
-        "en": "Documented at 1.5 AND 3.0 mm, plus glow wire index 960 °C to IEC 60695-2-12 and halogen-free. The sheet names no test house and no certificate number — for a rail or aerospace application that would still have to be requested."
+        "de": "Belegt bei 1,5 und 3,0 mm, zusätzlich Glühdrahtindex 960 °C nach IEC 60695-2-12 und halogenfrei. Das Blatt nennt keine Prüfstelle und keine Zeugnisnummer — für eine Bahn- oder Luftfahrtanwendung wäre das noch anzufordern.",
+        "en": "Documented at 1.5 and 3.0 mm, plus glow wire index 960 °C to IEC 60695-2-12 and halogen-free. The sheet names no test house and no certificate number — for a rail or aerospace application that would still have to be requested."
       }
     }
   },
@@ -135,8 +135,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "6 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: FormFutura ABSpro Flame Retardant. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "6 values in this record appear identically at: FormFutura ABSpro Flame Retardant. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "6 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei FormFutura ABSpro Flame Retardant. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "6 values on this datasheet appear digit for digit at FormFutura ABSpro Flame Retardant as well. They are therefore not 2 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

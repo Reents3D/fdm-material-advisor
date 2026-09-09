@@ -9,8 +9,8 @@
   "origin": "Tschechien",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Das Blatt beschreibt Fluorodur im Fließtext als „high impact strength“, weist im Tabellenteil aber 5 kJ/m² gekerbt aus — einen niedrigen Wert. Beides ist vereinbar, wenn der Fließtext den ungekerbten Fall meint; das Blatt sagt es nicht. Zur Einsatztemperatur nennt es „100 bis 140 °C, abhängig von Substanz, Temperatur und Zeit“ statt eines Kennwerts nach Norm.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The sheet describes Fluorodur in prose as “high impact strength” but gives 5 kJ/m² notched in the table — a low figure. Both are reconcilable if the prose means the unnotched case; the sheet does not say so. For service temperature it names “100 to 140 °C, depending on substance, temperature and time” instead of a value to a standard."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nHinweis zu diesem Datenblatt: Das Blatt beschreibt Fluorodur im Fließtext als „high impact strength“, weist im Tabellenteil aber 5 kJ/m² gekerbt aus — einen niedrigen Wert. Beides ist vereinbar, wenn der Fließtext den ungekerbten Fall meint; das Blatt sagt es nicht. Zur Einsatztemperatur nennt es „100 bis 140 °C, abhängig von Substanz, Temperatur und Zeit“ statt eines Kennwerts nach Norm.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nNote on this datasheet: The sheet describes Fluorodur in prose as “high impact strength” but gives 5 kJ/m² notched in the table — a low figure. Both are reconcilable if the prose means the unnotched case; the sheet does not say so. For service temperature it names “100 to 140 °C, depending on substance, temperature and time” instead of a value to a standard."
   },
   "datasheet": {
     "title": "Fillamentum Fluorodur (PVDF) — Technical Data Sheet",
@@ -63,7 +63,7 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 5,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256",

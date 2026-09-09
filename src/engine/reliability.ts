@@ -91,3 +91,65 @@ export function creditable(
   if (rel === null || rel >= 1) return { score, discounted: false };
   return { score: NEUTRAL + rel * (score - NEUTRAL), discounted: true };
 }
+
+/**
+ * Derselbe Gedanke, andere Frage — und diesmal ohne Kalibrierung.
+ *
+ * Seit ADR-042 traegt jeder zusammengefasste Kennwert die Spanne, in der die Blaetter
+ * seines Werkstofftyps liegen. Damit steht schwarz auf weiss, dass PLA mit 45,8 MPa und
+ * ABS mit 44,0 MPa nicht auseinanderliegen: Ihre Spannen (23-63 und 33-59) ueberdecken
+ * einander fast vollstaendig. Der Median allein verschweigt das und laesst die Rangfolge
+ * eine Trennschaerfe behaupten, die die Datenlage nicht hergibt.
+ *
+ * DIE REGEL
+ * Ein Wert darf so viel Vorsprung behaupten, wie sein PLAUSIBLER BEREICH ueberhaupt im
+ * Vorsprung liegt. Reicht die Spanne zur Haelfte unter das Mittelfeld, zaehlt der
+ * Vorsprung zur Haelfte. Liegt sie ganz darueber, bleibt er unangetastet.
+ *
+ *   Spanne komplett ueber dem Median des Feldes   -> voller Vorsprung
+ *   Spanne halb darunter                          -> halber Vorsprung
+ *   Spanne ganz darunter (Median knapp darueber)   -> kein Vorsprung
+ *
+ * WARUM HIER KEINE GEMESSENE KONSTANTE NOETIG IST
+ * Anders als bei ADR-040 wird nichts geschaetzt: Die Spanne IST die Messung. Sie kommt
+ * aus den Blaettern selbst, und der Anteil oberhalb des Mittelfeldes ist eine Division,
+ * keine Kalibrierung.
+ *
+ * WARUM WIEDER EINSEITIG
+ * Aus demselben Grund wie in ADR-040: Eine Anhebung schlechter Werte, die schlecht belegt
+ * sind, waere der Freifahrtschein, den ADR-006 fuer fehlende Daten ausschliesst.
+ *
+ * Werte ohne Spanne — Bewertungsskalen, Einzelblaetter, alles vor ADR-042 — bleiben
+ * unberuehrt. Keine Spanne ist keine Aussage ueber Streuung, sondern deren Abwesenheit.
+ *
+ * NICHT FUER DEN PREIS, UND ZWAR AUS EINEM SACHLICHEN GRUND
+ * Eine Messspanne sagt: "Die Blaetter sind sich uneinig, wo der Wert liegt." Eine
+ * PREISSPANNE sagt etwas ganz anderes: "So teuer war das billigste und das teuerste
+ * Angebot, das wir gefunden haben." Das ist Marktstreuung, keine Unsicherheit ueber den
+ * Wert - und sie ist beeinflussbar, indem man woanders kauft.
+ *
+ * Aufgefallen ist der Unterschied an einem Test: Bei "Funktionsprototyp, schnell und
+ * guenstig" schob die Stauchung PLA-Tough vor PLA. PLA kostet im Median 23,93 EUR/kg,
+ * PLA-Tough 26,99 - aber PLAs Angebote reichen bis 106,53 EUR/kg (Sonderfarben,
+ * Kleinspulen), die von PLA-Tough nur bis 79. Die breitere Angebotspalette liess den
+ * guenstigeren Werkstoff schlechter dastehen. Das ist nicht bloss ein schiefes Ergebnis,
+ * es ist die falsche Frage: Wer guenstig drucken will, kauft nicht die teuerste Spule.
+ *
+ * Fuer den Preis bleibt es deshalb bei ADR-040 - dort ist der Abschlag an der eigenen
+ * Historie GEMESSEN und beantwortet die Frage, die hier zaehlt: Wie sehr verschiebt sich
+ * ein Preis noch, wenn man weiter sucht?
+ */
+const MARKET_SPREAD = new Set(["price"]);
+export function spanCredit(
+  criterionId: string,
+  score: number,
+  spanLow: number | null,
+  spanHigh: number | null,
+): { score: number; widelySpread: boolean } {
+  if (MARKET_SPREAD.has(criterionId)) return { score, widelySpread: false };
+  if (score <= NEUTRAL || spanLow === null || spanHigh === null) return { score, widelySpread: false };
+  if (spanHigh <= spanLow) return { score, widelySpread: false };
+  if (spanLow >= NEUTRAL) return { score, widelySpread: false };
+  const share = Math.max(0, (spanHigh - NEUTRAL) / (spanHigh - spanLow));
+  return { score: NEUTRAL + share * (score - NEUTRAL), widelySpread: true };
+}

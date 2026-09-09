@@ -97,8 +97,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
-          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt sich selbst widerspricht, gilt der Wert als schwach belegt.",
+          "en": "Manufacturer datasheet without a stated specimen type. Where the sheet contradicts itself, the value counts as weakly substantiated."
         }
       }
     ]

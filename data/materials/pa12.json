@@ -29,44 +29,60 @@
   },
   "mechanics": {
     "density": {
-      "value": 1.01,
+      "value": 1.1,
       "unit": "g/cm³",
-      "testStandard": "ISO 1183",
-      "source": [
-        "src_extrudr_tds",
-        "src_ofd"
-      ],
+      "testStandard": "ISO 527",
+      "source": "src_type_datasheets",
       "confidence": "medium",
-      "min": 1.01,
-      "max": 1.18,
       "note": {
-        "de": "Spanne: Marktkorridor über 17 Produkte (Open Filament Database 2026.07.31), 10.–90. Perzentil. Kein Messwert, sondern die Streuung des Angebots.",
-        "en": "Range: Market corridor across 17 products (Open Filament Database 2026.07.31), 10th–90th percentile. Not a measurement but the spread of the offering."
-      }
+        "de": "Median aus 7 Herstellerblättern, Spanne 0.99 g/cm³ (Fillamentum) bis 1.3 g/cm³ (add:north). Prüfkörper: 0 von 7 gedruckt, Rest ohne Angabe. Prüfnormen gemischt: ISO 527 (4), ISO 1183 (2).",
+        "en": "Median of 7 manufacturer datasheets, range 0.99 g/cm³ (Fillamentum) to 1.3 g/cm³ (add:north). Specimens: 0 of 7 printed, remainder not stated. Mixed test standards: ISO 527 (4), ISO 1183 (2)."
+      },
+      "min": 0.99,
+      "max": 1.3,
+      "conditions": "mehrere Prüfnormfamilien - siehe Notiz"
     },
     "tensileStrengthXy": {
-      "value": 43,
-      "unit": "MPa",
-      "testStandard": "ISO 527 bzw. ASTM D638",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
-    },
-    "tensileModulusXy": {
-      "value": 1440,
+      "value": 50,
       "unit": "MPa",
       "testStandard": "ISO 527",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 43 MPa (Extrudr) bis 58 MPa (add:north). Prüfkörper: 0 von 7 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 7 manufacturer datasheets, range 43 MPa (Extrudr) to 58 MPa (add:north). Specimens: 0 of 7 printed, remainder not stated."
+      },
+      "min": 43,
+      "max": 58
+    },
+    "tensileModulusXy": {
+      "value": 1460,
+      "unit": "MPa",
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 510 MPa (Fillamentum) bis 1720 MPa (add:north). Prüfkörper: 0 von 7 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 7 manufacturer datasheets, range 510 MPa (Fillamentum) to 1720 MPa (add:north). Specimens: 0 of 7 printed, remainder not stated."
+      },
+      "min": 510,
+      "max": 1720
     },
     "elongationAtBreakXy": {
-      "value": 50,
+      "value": 46,
       "unit": "%",
-      "testStandard": "ISO 527 (nominell)",
-      "orientation": "n/a",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 527",
+      "orientation": "XY",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 7 Herstellerblättern, Spanne 5.8 % (Fillamentum) bis 50 % (Extrudr). Prüfkörper: 0 von 7 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 7 manufacturer datasheets, range 5.8 % (Fillamentum) to 50 % (Extrudr). Specimens: 0 of 7 printed, remainder not stated."
+      },
+      "min": 5.8,
+      "max": 50
     },
     "toughness": {
       "value": 5,
@@ -91,6 +107,58 @@
       "scale": "wearResistance",
       "source": "estimate_reasoning",
       "confidence": "estimated"
+    },
+    "flexuralStrengthXy": {
+      "value": 59.25,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 52 MPa (add:north) bis 81 MPa (add:north). Prüfkörper: 0 von 4 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 4 manufacturer datasheets, range 52 MPa (add:north) to 81 MPa (add:north). Specimens: 0 of 4 printed, remainder not stated."
+      },
+      "orientation": "XY",
+      "min": 52,
+      "max": 81,
+      "testStandard": "ISO 178"
+    },
+    "flexuralModulusXy": {
+      "value": 1981,
+      "unit": "MPa",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 1425 MPa (add:north) bis 3650 MPa (add:north). Prüfkörper: 0 von 4 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 4 manufacturer datasheets, range 1425 MPa (add:north) to 3650 MPa (add:north). Specimens: 0 of 4 printed, remainder not stated."
+      },
+      "orientation": "XY",
+      "min": 1425,
+      "max": 3650,
+      "testStandard": "ISO 178"
+    },
+    "charpyUnnotchedXy": {
+      "value": 53.2,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Fillamentum. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: Fillamentum. Specimens: 0 of 1 printed, remainder not stated."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
+    },
+    "charpyNotchedXy": {
+      "value": 11,
+      "unit": "kJ/m²",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Extrudr. Prüfkörper: 0 von 1 gedruckt, Rest ohne Angabe.",
+        "en": "Single datasheet: Extrudr. Specimens: 0 of 1 printed, remainder not stated."
+      },
+      "orientation": "XY",
+      "testStandard": "ISO 179"
     }
   },
   "thermal": {
@@ -98,23 +166,29 @@
       "value": 55,
       "unit": "°C",
       "testStandard": "ISO 75, 1.8 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
     "hdtB": {
-      "value": 135,
+      "value": 120,
       "unit": "°C",
-      "testStandard": "ISO 75, 0.45 MPa",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
-      "source": "src_extrudr_tds",
-      "confidence": "medium"
+      "testStandard": "ISO 75",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 4 Herstellerblättern, Spanne 105 °C (add:north) bis 145 °C (add:north). Prüfkörper: 0 von 4 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 4 manufacturer datasheets, range 105 °C (add:north) to 145 °C (add:north). Specimens: 0 of 4 printed, remainder not stated."
+      },
+      "min": 105,
+      "max": 145
     },
     "vicatB50": {
       "value": 142,
       "unit": "°C",
       "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_extrudr_tds",
       "confidence": "medium"
     },
@@ -128,6 +202,19 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze. Bei teilkristallinen Polyamiden bewusst an HDT-A (1,8 MPa) orientiert, nicht am deutlich höheren HDT-B.",
         "en": "Our own conservative recommendation with margin to the softening limit. For semi-crystalline polyamides deliberately based on HDT-A (1.8 MPa) rather than the much higher HDT-B."
       }
+    },
+    "glassTransition": {
+      "value": 51,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "medium",
+      "note": {
+        "de": "Median aus 3 Herstellerblättern, Spanne 51 °C (add:north) bis 51 °C (add:north). Prüfkörper: 0 von 3 gedruckt, Rest ohne Angabe.",
+        "en": "Median of 3 manufacturer datasheets, range 51 °C (add:north) to 51 °C (add:north). Specimens: 0 of 3 printed, remainder not stated."
+      },
+      "min": 51,
+      "max": 51,
+      "testStandard": "DSC"
     }
   },
   "processing": {
@@ -421,8 +508,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -487,8 +574,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -514,17 +601,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Geschätzt, nicht belegt. Dieser Werkstoff läuft bisher nur auf den Engineering-Druckern, nicht im Großformat; eigene Erfahrung, an der sich die Schätzung prüfen ließe, gibt es deshalb noch nicht.",
+          "en": "Estimated, not established. So far this material runs only on the engineering printers, not at large format, so there is no own experience yet against which the estimate could be checked."
         }
       },
       "maxSpoolWeightKg": {
@@ -594,8 +672,19 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
+        }
+      },
+      {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
         }
       },
       {
@@ -607,8 +696,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: Fiberlogy Nylon PA12 Natural, 1 kg, 60,99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0,75 kg, 46,99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65,99 € · Fiberlogy Nylon PA12 Blue, 0,75 kg, 51,99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0,75 kg, 51,99 € · eSUN PA12 White, 1 kg, 69,99 €",
-          "en": "6 offers: Fiberlogy Nylon PA12 Natural, 1 kg, 60.99 € · Fiberlogy Fiberlogy Nylon PA12 Natural, 1,75 mm, 0.75 kg, 46.99 € · Fiberlogy Fiberlogy Nylon PA12 Black, 1,75 mm / 1000 g, 1 kg, 65.99 € · Fiberlogy Nylon PA12 Blue, 0.75 kg, 51.99 € · Fiberlogy Fiberlogy Nylon PA12 Blue, 1,75 mm, 0.75 kg, 51.99 € · eSUN PA12 White, 1 kg, 69.99 €"
+          "de": "6 Angebote von 2 Marken (Fiberlogy, eSUN). Günstigstes Fiberlogy Nylon PA12 Natural, 1 kg für 60,99 € (60,99 €/kg); teuerstes eSUN PA12 White, 1 kg für 69,99 € (69,99 €/kg).",
+          "en": "6 offers from 2 brands (Fiberlogy, eSUN). Cheapest Fiberlogy Nylon PA12 Natural, 1 kg at 60.99 € (60.99 €/kg); dearest eSUN PA12 White, 1 kg at 69.99 € (69.99 €/kg)."
         }
       },
       {
@@ -620,8 +709,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "1 Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg, 54,53 €",
-          "en": "1 offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg, 54.53 €"
+          "de": "1 Angebot von 1 Marke (Extrudr). Einziges Angebot: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0,7 kg für 54,53 € (77,90 €/kg).",
+          "en": "1 offer from 1 brand (Extrudr). Only offer: Extrudr DuraPro PA12 black 1.75 mm 0.7 kg, 0.7 kg at 54.53 € (77.90 €/kg)."
         }
       },
       {
@@ -633,8 +722,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "6 Angebote: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0,75 kg, 52,01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0,6 kg, 81,00 €",
-          "en": "6 offers: Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Sky Blue\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Vertigo Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Signal Red\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon FX256 \"Metallic Grey\" — 1.75 mm, 0.75 kg, 52.01 € · Fillamentum Nylon AF80 Aramid — 2.85 mm, 0.6 kg, 81.00 €"
+          "de": "6 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0,75 kg für 52,01 € (69,35 €/kg); teuerstes Fillamentum Nylon AF80 Aramid — 2.85 mm, 0,6 kg für 81,00 € (135,00 €/kg).",
+          "en": "6 offers from 1 brand (Fillamentum). Cheapest Fillamentum Nylon FX256 \"Traffic Black\" — 1.75 mm, 0.75 kg at 52.01 € (69.35 €/kg); dearest Fillamentum Nylon AF80 Aramid — 2.85 mm, 0.6 kg at 81.00 € (135.00 €/kg)."
         }
       },
       {
@@ -647,8 +736,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie führt keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot. Daher Ceiling `low` — siehe ADR-035.",
-          "en": "Community-maintained market database (155 brands, 2020 filaments). It carries no material values and no test standards, it describes the offering. Hence ceiling `low` — see ADR-035."
+          "de": "Gemeinschaftlich gepflegte Marktdatenbank (155 Marken, 2020 Filamente). Sie enthält keine Kennwerte und keine Prüfnormen, sondern beschreibt das Angebot am Markt. Ihre Angaben dienen deshalb nur der Einordnung.",
+          "en": "Community-maintained market database (155 brands, 2020 filaments). It contains no material values and no test standards; it describes what is on the market. Its figures therefore serve orientation only."
         }
       },
       {
@@ -670,19 +759,19 @@
         "affectsFields": [
           "mechanics"
         ]
-      },
-      {
-        "id": "oq_second_source",
-        "question": {
-          "de": "Zweite unabhängige Herstellerquelle für diesen Werkstofftyp ergänzen.",
-          "en": "Add a second independent manufacturer source for this material type."
-        },
-        "blocking": false,
-        "affectsFields": [
-          "mechanics",
-          "thermal"
-        ]
       }
     ]
+  },
+  "sustainability": {
+    "bioBasedContent": {
+      "value": 0,
+      "unit": "%",
+      "source": "estimate_reasoning",
+      "confidence": "estimated",
+      "note": {
+        "de": "Aus der Herkunft des Grundpolymers abgeleitet, nicht nach ISO 16620-2 gemessen: Caprolactam (PA6) bzw. Laurinlactam (PA12) aus Butadien — petrochemisch. Gilt nicht für PA11, das aus Rizinusöl stammt und hier nicht geführt wird. Die 0 % sind eine bewusste Angabe: Das Polymer ist fossil, nicht unbekannt.",
+        "en": "Derived from the origin of the base polymer, not measured per ISO 16620-2: caprolactam (PA6) or laurolactam (PA12) from butadiene, petrochemical. This does not apply to PA11, which comes from castor oil and is not listed here. The 0 % is a deliberate statement: the polymer is fossil-based, not unknown."
+      }
+    }
   }
 }

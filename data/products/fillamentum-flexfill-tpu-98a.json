@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Der beste Abriebwert im Bestand: 23 mm³ nach ISO 4649. Zum Vergleich liegt das weichere TPU 92A desselben Herstellers bei 30 mm³ und PEBA bei unter 48 mm³.",
+    "de": "Der beste Abriebwert in der Datenbank: 23 mm³ nach ISO 4649. Zum Vergleich liegt das weichere TPU 92A desselben Herstellers bei 30 mm³ und PEBA bei unter 48 mm³.",
     "en": "The best abrasion figure in the dataset: 23 mm³ to ISO 4649. For comparison, the same manufacturer's softer TPU 92A sits at 30 mm³ and PEBA below 48 mm³."
   },
   "datasheet": {

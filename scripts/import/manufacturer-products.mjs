@@ -139,7 +139,7 @@ const PRODUCTS = [
       charpyUnnotchedXy: q(25, "kJ/m²", { tol: 3, std: "ISO 179-1 (ungekerbt)", orientation: "XY" }),
       charpyNotchedXy: q(12, "kJ/m²", { tol: 1, std: "ISO 179-1 (gekerbt)", orientation: "XY" }),
       interlayerAdhesion: q(11, "MPa", { tol: 1, std: "Prusa Polymers (herstellereigene Methode)", orientation: "Z",
-        note: t("Der niedrigste Schichthaftungswert der drei Prusament-Typen — ASA verbindet sich schlechter zwischen den Schichten als PLA und PETG. Deckt sich mit dem Einbruch der Schlagzähigkeit in Z bei anderen ASA-Datensätzen.",
+        note: t("Der niedrigste Schichthaftungswert der drei Prusament-Typen — ASA verbindet sich schlechter zwischen den Schichten als PLA und PETG. Deckt sich mit dem Einbruch der Schlagzähigkeit in Z bei anderen ASA-Einträgen.",
                 "The lowest interlayer adhesion of the three Prusament grades — ASA bonds between layers less well than PLA and PETG. Consistent with the collapse of Z impact strength seen in other ASA records.") }),
       hdtA: q(86, "°C", { std: "ISO 75, 1.8 MPa" }),
       hdtB: q(93, "°C", { std: "ISO 75, 0.45 MPa" }),

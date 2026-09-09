@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die gekerbte Schlagzähigkeit von 58 kJ/m² nach ISO 179 ist für ABS außergewöhnlich hoch — übliche Werte liegen bei 10 bis 25 kJ/m², das Premium ABS Medical desselben Vertriebs nennt 14 kJ/m² (ISO 180). Ein Rezyklat übertrifft Neuware in der Zähigkeit normalerweise nicht. Wahrscheinlich ist eine UNGEKERBTE Messung als gekerbt ausgewiesen; entscheiden lässt sich das aus dem Blatt nicht. Der Wert ist unverändert übernommen und trägt `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The notched impact strength of 58 kJ/m² to ISO 179 is exceptionally high for ABS — usual values lie at 10 to 25 kJ/m², and the same distributor's Premium ABS Medical states 14 kJ/m² (ISO 180). A recyclate does not normally exceed virgin material in toughness. An UNNOTCHED measurement reported as notched is likely; this cannot be decided from the sheet. The value is imported unchanged and carries `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die gekerbte Schlagzähigkeit von 58 kJ/m² nach ISO 179 ist für ABS außergewöhnlich hoch — übliche Werte liegen bei 10 bis 25 kJ/m², das Premium ABS Medical desselben Vertriebs nennt 14 kJ/m² (ISO 180). Ein Rezyklat übertrifft Neuware in der Zähigkeit normalerweise nicht. Wahrscheinlich ist eine ungekerbte Messung als gekerbt ausgewiesen; entscheiden lässt sich das aus dem Blatt nicht. Der Wert ist unverändert übernommen und gilt als schwach belegt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The notched impact strength of 58 kJ/m² to ISO 179 is exceptionally high for ABS — usual values lie at 10 to 25 kJ/m², and the same distributor's Premium ABS Medical states 14 kJ/m² (ISO 180). A recyclate does not normally exceed virgin material in toughness. An unnotched measurement reported as notched is likely; this cannot be decided from the sheet. The value is imported unchanged and counts as weakly substantiated."
   },
   "features": {
     "de": "Ein Rezyklat-ABS, dessen Kennwerte sich vor dem Neuware-ABS desselben Herstellers nicht verstecken müssen: 43,6 gegenüber 48 MPa Streckspannung. Für Anwendungen, bei denen die Herkunft des Materials zählt, ist der Abstand von rund einem Zehntel eine brauchbare Größe.",
@@ -72,8 +72,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

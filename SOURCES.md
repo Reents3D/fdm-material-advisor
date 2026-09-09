@@ -311,6 +311,59 @@ führt Zugfestigkeit X-Y und Z mit demselben Wert (26,1 MPa) — ein Anisotropie
 unter „Composition" den Eintrag „Polyvinyl alcohol" und unter „Solubility" „Soluble in
 water", also die Chemietabelle eines wasserlöslichen Stützmaterials.
 
+**FormFutura AthenaX CF10 und Kratos PC CF10 — dasselbe Haus, gegensätzlicher Befund
+(2026-08-06).** Beide Blätter lagen seit dem ersten FormFutura-Import ausgewertet, aber
+ohne Werkstofftyp im Arbeitsplatz. Beide sind gegen ihr ungefülltes Schwesterblatt
+gehalten worden.
+
+| | AthenaX → CF10 | Kratos PC → CF10 |
+|---|---|---|
+| Dichte | 1,23 → **1,28** | 1,20 → 1,22 |
+| Zugfestigkeit | 44 → **70 MPa** | 61,8 → 76 MPa |
+| Bruchdehnung | 220 % → **5 %** | > 100 % → **> 100 %** |
+| Biege-E-Modul | *fehlt auf dem Blatt* | 24.000 → **24.000 kg/cm²** |
+| Biegefestigkeit | *fehlt auf dem Blatt* | 920 → **920 kg/cm²** |
+| Schlagzähigkeit | 93 → **4 kJ/m²** | 70 → **70 kgcm/cm** |
+
+AthenaX CF10 ist als `pctg-cf` aufgenommen: Jeder Wert bewegt sich in die von einer
+Kohlefaserfüllung erzwungene Richtung, und die Bruchdehnung von 220 auf 5 Prozent ist
+nichts, was man abschreiben könnte. Kratos PC CF10 trägt vier von acht Kennwerten
+zifferngleich mit dem ungefüllten Blatt — darunter eine Bruchdehnung über 100 %, die bei
+10 % Kohlefaser ausgeschlossen ist. **`pc-cf` ist deshalb nicht angelegt.**
+
+Beide AthenaX-Blätter tragen zwei Beschriftungsfehler, die an den betroffenen Werten
+dokumentiert sind: Die Schlagzeilen nennen ISO 179-1eU (Charpy **ungekerbt**), obwohl eine
+davon als „Izod Notched" beschriftet ist, und die Vicat-Zeile nennt als Methode „DSC" —
+keine Vicat-Norm. Beide Werte stehen deshalb ohne Prüfnorm.
+
+**Spectrum, nachgetragen 2026-08-06 — und zwei Marken, die sich eine Messung teilen.**
+Sieben weitere Spectrum-Blätter geholt (robots.txt erlaubt es, nur `/wp-admin/` gesperrt,
+kein KI-Agent genannt), drei aufgenommen: **PEBA**, **PCTG GF10** und **HIPS-X**.
+
+Der Ertrag liegt weniger in neuen Zahlen als darin, was der Dublettenprüfer daraus machte:
+
+| | | identisch |
+|---|---|---|
+| Spectrum PCTG GF10 | ↔ FormFutura AthenaX GF10 | **8 von 8** Kennwerten |
+| Spectrum HIPS-X | ↔ FormFutura EasyFil HIPS | **7 von 7** Kennwerten |
+
+Das erste Paar war vermutet — beide Blätter tragen sogar dieselbe Auffälligkeit, nämlich
+eine Vicat-Temperatur (77 °C) **unter** der HDT-B (78 °C), was normalerweise nicht
+vorkommt. Das zweite fand die Maschine; danach war nicht gesucht worden. Beide sind nach
+ADR-038 gekennzeichnet und gedeckelt: zwei Marken, eine Messung, **ein** Beleg.
+
+**Vier Blätter bleiben liegen, und zwar begründet.** PA6 Neat, PA12 CF15, LW-ASA
+UltraFoam und PLA ESD sind zweispaltig gesetzt; im Textauszug verschieben sich
+Beschriftungs-, Wert- und Normspalte gegeneinander. Bei PEBA, PCTG GF10 und HIPS-X richten
+sie sich sauber aus, und bei PEBA bestätigt der Fließtext die Zuordnung zweifach („Shore
+hardness 92A", „density 1.02 g/cm³"). Bei den vier anderen tut er das nicht — eine Zahl in
+der falschen Zeile ist kein Wert. Sie stehen in `RUECKFRAGEN.md`.
+
+**Spectrum PEBA misst an SPRITZGEGOSSENEN Prüfkörpern**, und das steht in jeder einzelnen
+mechanischen Zeile. Bei einem Elastomer mit über 500 % Bruchdehnung ist der Unterschied
+erheblich, weil die Schichthaftung genau die Eigenschaft ist, die der Spritzguss nicht
+misst. Der Datensatz führt entsprechend `specimenType: moulded`.
+
 **Zusätzlich erforderlich, weil Herstellerangaben es nicht hergeben:**
 
 - Preiserhebung über ≥ 5 Händler je Material (`oq_price_survey`) — **das Ziel ist weiter

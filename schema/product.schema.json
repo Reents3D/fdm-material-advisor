@@ -179,6 +179,10 @@
           },
           "note": {
             "$ref": "#/$defs/i18n"
+          },
+          "disputed": {
+            "const": true,
+            "description": "Diese Zahl widerspricht ihrem eigenen Umfeld so deutlich, dass sie nicht zusammengefasst werden darf - ein Einheitenfehler, eine vertauschte Spalte oder eine Zahl, die neben den uebrigen Blaettern desselben Polymers um eine Groessenordnung steht. Der Wert BLEIBT im Datensatz, weil er im Blatt steht; er wird nur nicht mehr mitgerechnet (ADR-042) und muss seinen Befund in `note` tragen."
           }
         }
       }

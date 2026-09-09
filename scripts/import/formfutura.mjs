@@ -98,8 +98,13 @@
  * Fuer diese Werkstoffe fuehrt die Datenbank keinen Typ. PEI wurde in ac59507
  * ausdruecklich wieder entfernt ("kein gaengiges Material"). Ein Produkt ohne
  * Werkstofftyp waere eine tote Referenz - die Blaetter bleiben im Arbeitsplatz liegen,
- * bis ueber die Typen entschieden ist. Ebenso AthenaX CF10 und Kratos PC CF10: Es gibt
- * weder `pctg-cf` noch `pc-cf`.
+ * bis ueber die Typen entschieden ist.
+ *
+ * NACHTRAG 2026-08-06: AthenaX CF10 ist aufgenommen - `pctg-cf` gibt es jetzt. Kratos PC
+ * CF10 bleibt liegen, und zwar dauerhaft: Sein Blatt traegt vier von acht Kennwerten
+ * zifferngleich mit dem ungefuellten Kratos PC - darunter eine Bruchdehnung von ueber
+ * 100 %, die bei 10 % Kohlefaser ausgeschlossen ist. Begruendung in
+ * `formfutura-types.mjs`.
  */
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -109,6 +114,15 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const RETRIEVED = "2026-08-04";
 const BASE = "https://www.formfutura.com/web/content";
+
+/* Sechs FormFutura-Blaetter zitieren in der GEKERBTEN Zeile die ungekerbte Norm ISO
+   179/1eU - dieselbe, die eine Zeile darueber steht. Ein gekerbter Wert kann daraus
+   nicht entstehen; die Norm ist im Blatt uebernommen. Der Wert bleibt (er ist die
+   einzige Angabe, die es gibt), aber ohne Norm und mit `low` - dieselbe Behandlung,
+   die AthenaX CF10 seit dem ersten Import bekommen hat. Regel R18 haelt fest, dass
+   diese Klasse kuenftig auffaellt. */
+const COND_1EU =
+  "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die UNGEKERBTE Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit `low`.";
 
 const t = (de, en) => ({ de, en });
 
@@ -176,8 +190,8 @@ const ABS_TABLE = {
 };
 
 const ABS_COPY = t(
-  "Die gesamte Kennwerttabelle — 1,05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — steht Ziffer für Ziffer auch auf den Blättern von ABSpro, TitanX, EasyFil ABS und EasyFil ABS Glow in the Dark. ABSpro ist dabei ein PC-ABS, TitanX ein modifiziertes ABS: zwei verschiedene Grundwerkstoffe mit derselben Zahlenreihe. Für diese Datenbank zählen alle vier als EIN Beleg, nicht als vier. Sämtliche Werte tragen deshalb `low`. Zwei weitere Mängel derselben Tabelle: Festigkeiten in kg/cm² (umgerechnet, Blattangabe in `conditions`), und die Schlagzähigkeit in kgcm/cm — eine Einheit, deren Umrechnung die Probengeometrie braucht; sie ist nicht übernommen.",
-  "The entire property table — 1.05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — appears digit for digit on the sheets of ABSpro, TitanX, EasyFil ABS and EasyFil ABS Glow in the Dark as well. ABSpro is a PC-ABS, TitanX a modified ABS: two different base materials with the same row of figures. For this database all four count as ONE piece of evidence, not four. All values therefore carry `low`. Two further defects in the same table: strengths in kg/cm² (converted, sheet figure in `conditions`), and impact strength in kgcm/cm — a unit whose conversion needs the specimen geometry; it is not imported.",
+  "Die gesamte Kennwerttabelle — 1,05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — steht Ziffer für Ziffer auch auf den Blättern von ABSpro, TitanX, EasyFil ABS und EasyFil ABS Glow in the Dark. ABSpro ist dabei ein PC-ABS, TitanX ein modifiziertes ABS: zwei verschiedene Grundwerkstoffe mit derselben Zahlenreihe. Für diese Datenbank zählen alle vier als EIN Beleg, nicht als vier. Sämtliche Werte gelten deshalb als schwach belegt. Zwei weitere Mängel derselben Tabelle: Festigkeiten in kg/cm² (umgerechnet, Blattangabe bei den Prüfbedingungen), und die Schlagzähigkeit in kgcm/cm — eine Einheit, deren Umrechnung die Probengeometrie braucht; sie ist nicht übernommen.",
+  "The entire property table — 1.05 · 21 · 33 · 460 · 10 · 740 · 25000 · 85 · 93 — appears digit for digit on the sheets of ABSpro, TitanX, EasyFil ABS and EasyFil ABS Glow in the Dark as well. ABSpro is a PC-ABS, TitanX a modified ABS: two different base materials with the same row of figures. For this database all four count as ONE piece of evidence, not four. All values therefore count as weakly substantiated. Two further defects in the same table: strengths in kg/cm² (converted, sheet figure bei den Prüfbedingungen), and impact strength in kgcm/cm — a unit whose conversion needs the specimen geometry; it is not imported.",
 );
 
 /* Die kopierte PLA-Tabelle. Zwei Produkte, eine Messung. */
@@ -211,10 +225,10 @@ const P = [
       hdtA: q(64, "°C", { std: "ISO 75", conditions: "1,82 MPa" }),
       vicatB50: q(88, "°C", { std: "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig", confidence: "low" }),
     },
-    features: t("Die Bruchdehnung von 220 % ist der höchste Wert unter allen nicht-elastomeren Werkstoffen des Bestands — PETG desselben Marktes liegt bei 20 bis 30 %. Zusammen mit einer HDT-B von 76 °C erklärt das, warum PCTG als zäher PETG-Ersatz gehandelt wird.",
+    features: t("Die Bruchdehnung von 220 % ist der höchste Wert unter allen nicht-elastomeren Werkstoffen der Datenbank — PETG desselben Marktes liegt bei 20 bis 30 %. Zusammen mit einer HDT-B von 76 °C erklärt das, warum PCTG als zäher PETG-Ersatz gehandelt wird.",
                 "The elongation at break of 220 % is the highest figure among all non-elastomeric materials in the dataset — PETG in the same market sits at 20 to 30 %. Together with an HDT-B of 76 °C this explains why PCTG is traded as a tough PETG substitute."),
     anomaly: t("Zwei Mängel auf einem Blatt. Erstens steht die Schlagzähigkeit als „93°C KJ/m2“ da — eine Temperatureinheit an einem Schlagwert. Was gemeint ist, lässt sich nicht entscheiden, der Wert ist deshalb nicht übernommen. Zweitens ist die Vicat-Erweichungstemperatur unter „DSC“ geführt; DSC ist die Kalorimetrie, für Vicat gilt ISO 306. Der Zahlenwert 88 °C ist plausibel und übernommen, trägt aber `low`.",
-               "Two defects on one sheet. First, the impact strength appears as “93°C KJ/m2” — a temperature unit on an impact value. What is meant cannot be decided, so the value is not imported. Second, the Vicat softening temperature is filed under “DSC”; DSC is calorimetry, ISO 306 applies to Vicat. The figure of 88 °C is plausible and imported but carries `low`."),
+               "Two defects on one sheet. First, the impact strength appears as “93°C KJ/m2” — a temperature unit on an impact value. What is meant cannot be decided, so the value is not imported. Second, the Vicat softening temperature is filed under “DSC”; DSC is calorimetry, ISO 306 applies to Vicat. The figure of 88 °C is plausible and imported but counts as weakly substantiated."),
   },
   {
     id: "formfutura-athenax-gf10", material: "pctg-gf", name: "AthenaX GF10", doc: 256483, date: "07-10-2024",
@@ -231,6 +245,26 @@ const P = [
                 "Glass fibre costs almost all of the toughness here: 8 % elongation at break against 220 % for the same manufacturer's unreinforced AthenaX, a twenty-eighth. Heat deflection rises by two kelvin in return. Anyone choosing GF10 for the temperature has the wrong reason."),
     anomaly: t("Die Schlagzähigkeit ist als „Izod“ bezeichnet, die Norm daneben lautet ISO 179 — das ist der Charpy-Versuch, Izod wäre ISO 180. Beide Versuche belasten den Prüfkörper unterschiedlich und liefern nicht dieselbe Zahl. Geführt als Charpy nach der genannten Norm, mit `low`. Zudem liegt die Vicat-Temperatur mit 77 °C UNTER der HDT-B von 78 °C; normalerweise liegt sie darüber.",
                "The impact strength is labelled “Izod” while the standard next to it reads ISO 179 — that is the Charpy test, Izod would be ISO 180. The two tests load the specimen differently and do not give the same figure. Held as Charpy per the named standard, with `low`. The Vicat temperature of 77 °C moreover sits BELOW the HDT-B of 78 °C; normally it lies above."),
+  },
+  {
+    /* Nachgezogen am 2026-08-06, als `pctg-cf` angelegt wurde. Das Blatt lag seit dem
+       ersten Import ausgewertet im Arbeitsplatz und war nur deshalb zurueckgehalten,
+       weil es keinen Werkstofftyp gab (siehe Kopf dieser Datei). */
+    id: "formfutura-athenax-cf10", material: "pctg-cf", name: "AthenaX CF10", doc: 256481, date: "07-10-2024",
+    props: {
+      density: q(1.28, "g/cm³", { std: "ASTM D792" }),
+      tensileStrengthXy: q(70, "MPa", { std: "ISO 527", conditions: "bei Streckgrenze", orientation: "XY" }),
+      elongationAtBreakXy: q(5, "%", { std: "ISO 527", orientation: "XY" }),
+      charpyUnnotchedXy: q(45, "kJ/m²", { std: "ISO 179-1eU", conditions: "ungekerbt, 23 °C", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: "gekerbt, 23 °C; im Blatt als „Izod Notched“ mit der UNGEKERBTEN Norm ISO 179-1eU bezeichnet", orientation: "XY", confidence: "low" }),
+      hdtB: q(78, "°C", { std: "ISO 75", conditions: "0,455 MPa" }),
+      hdtA: q(68, "°C", { std: "ISO 75", conditions: "1,82 MPa" }),
+      vicatB50: q(89, "°C", { std: "im Blatt als DSC angegeben; für Vicat wäre ISO 306 einschlägig", confidence: "low" }),
+    },
+    features: t("Das Blatt rechnet seinen eigenen Zugewinn vor — „59 % higher tensile strength than AthenaX“ —, und die Rechnung geht auf: 44 auf 70 MPa sind 59,1 %. Wichtiger als der Zugewinn ist der Preis dafür: 5 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX. Bemerkenswert ist die Verarbeitung: „No enclosure, or heated chamber needed“ — für einen faserverstärkten Werkstoff die Ausnahme.",
+                "The sheet works out its own gain — “59 % higher tensile strength than AthenaX” — and the arithmetic holds: 44 to 70 MPa is 59.1 %. More important than the gain is what it costs: 5 % elongation at break against 220 % for unreinforced AthenaX. Processing is the remarkable part: “No enclosure, or heated chamber needed” — the exception among fibre-reinforced materials."),
+    anomaly: t("Zwei Beschriftungsfehler, beide auch im ungefüllten Schwesterblatt. Erstens tragen BEIDE Schlagzeilen die Norm ISO 179-1eU, also Charpy UNGEKERBT — eine davon ist aber als „Izod Notched“ beschriftet. Ein gekerbter Wert kann nicht nach einer ungekerbten Norm entstehen; die gekerbte Zahl steht deshalb ohne Norm und mit `low`. Zweitens nennt die Vicat-Zeile als Methode „DSC“, was keine Vicat-Norm ist. Kein Kennwert des Blattes ist zifferngleich mit dem ungefüllten AthenaX — anders als beim Kratos PC CF10 desselben Herstellers, das deshalb keinen Werkstofftyp bekommen hat.",
+               "Two labelling errors, both present in the unfilled sister sheet as well. First, BOTH impact rows carry the standard ISO 179-1eU, that is Charpy UNNOTCHED — yet one of them is labelled “Izod Notched”. A notched value cannot arise from an unnotched standard; the notched figure therefore carries no standard and `low`. Second, the Vicat row names “DSC” as the method, which is not a Vicat standard. No value on this sheet is digit-identical with unfilled AthenaX — unlike the same manufacturer's Kratos PC CF10, which for that reason received no material type."),
   },
 
   /* ---------------------------------------------------------------- ASA */
@@ -256,15 +290,15 @@ const P = [
       tensileModulusXy: q(7580, "MPa", { std: "ISO 527", orientation: "XY" }),
       elongationAtBreakXy: q(1.8, "%", { std: "ISO 527", conditions: "23 °C, 50 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: ftlb(8, { std: "ISO 179/1eU", orientation: "XY" }),
-      charpyNotchedXy: ftlb(2.57, { std: "ISO 179/1eU", orientation: "XY" }),
+      charpyNotchedXy: ftlb(2.57, { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       vicatA: q(101.6, "°C", { std: "ISO 306" }),
       hdtB: q(100.5, "°C", { std: "ISO 75", conditions: "66 psi = 0,45 MPa" }),
       hdtA: q(95, "°C", { std: "ISO 75", conditions: "264 psi = 1,82 MPa" }),
     },
-    features: t("Der steifste ASA-Werkstoff des Bestands: 7580 MPa gegenüber 2020 MPa beim unverstärkten ApolloX desselben Herstellers, also fast das Vierfache. Anders als bei PETG steigt hier auch die Wärmeformbeständigkeit deutlich mit — HDT-B 100,5 °C. Bezahlt wird mit 1,8 % Bruchdehnung gegenüber 15 %.",
+    features: t("Der steifste ASA-Werkstoff der Datenbank: 7580 MPa gegenüber 2020 MPa beim unverstärkten ApolloX desselben Herstellers, also fast das Vierfache. Anders als bei PETG steigt hier auch die Wärmeformbeständigkeit deutlich mit — HDT-B 100,5 °C. Bezahlt wird mit 1,8 % Bruchdehnung gegenüber 15 %.",
                 "The stiffest ASA material in the dataset: 7580 MPa against 2020 MPa for the same manufacturer's unreinforced ApolloX, almost fourfold. Unlike with PETG the heat deflection rises markedly too — HDT-B 100.5 °C. The price is 1.8 % elongation at break against 15 %."),
-    anomaly: t("Ein europäisches Blatt mit ISO-Normen führt die Schlagzähigkeit in ft·lbf/in² und die HDT-Last in psi. Die Zahlen sind eindeutig umrechenbar und stehen hier in kJ/m² beziehungsweise mit der Lastangabe in MPa; die Blattangaben stehen jeweils in `conditions`. Der Mischmasch aus ISO-Norm und imperialer Einheit deutet auf eine übernommene Vorlage aus einer anderen Quelle — die Schlagwerte tragen deshalb `low`.",
-               "A European sheet with ISO standards carries impact strength in ft·lbf/in² and the HDT load in psi. The figures convert unambiguously and appear here in kJ/m² and with the load in MPa; the sheet's own figures stand in `conditions` in each case. The mixture of ISO standard and imperial unit suggests a template taken from another source — the impact values therefore carry `low`."),
+    anomaly: t("Ein europäisches Blatt mit ISO-Normen führt die Schlagzähigkeit in ft·lbf/in² und die HDT-Last in psi. Die Zahlen sind eindeutig umrechenbar und stehen hier in kJ/m² beziehungsweise mit der Lastangabe in MPa; die Blattangaben stehen jeweils bei den Prüfbedingungen. Der Mischmasch aus ISO-Norm und imperialer Einheit deutet auf eine übernommene Vorlage aus einer anderen Quelle — die Schlagwerte gelten deshalb als schwach belegt.",
+               "A European sheet with ISO standards carries impact strength in ft·lbf/in² and the HDT load in psi. The figures convert unambiguously and appear here in kJ/m² and with the load in MPa; the sheet's own figures stand bei den Prüfbedingungen in each case. The mixture of ISO standard and imperial unit suggests a template taken from another source — the impact values therefore count as weakly substantiated."),
   },
   {
     id: "formfutura-apollox-kevlar", material: "asa", name: "ApolloX Kevlar", doc: 256474,
@@ -275,15 +309,15 @@ const P = [
       elongationAtYieldXy: q(2.8, "%", { std: "ISO 527-1", orientation: "XY" }),
       elongationAtBreakXy: q(6, "%", { std: "ISO 527-1", orientation: "XY" }),
       charpyUnnotchedXy: q(25, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(7.5, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(7.5, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       vicatA: q(94, "°C", { std: "ISO 306" }),
-      hdtB: q(89, "°C", { std: "ISO 75", conditions: "0,45 MPa — siehe Befund zur Reihenfolge", confidence: "low" }),
-      hdtA: q(95, "°C", { std: "ISO 75", conditions: "1,81 MPa — siehe Befund zur Reihenfolge", confidence: "low" }),
+      hdtB: q(89, "°C", { std: "ISO 75", conditions: "0,45 MPa — siehe Hinweis zur Reihenfolge", confidence: "low" }),
+      hdtA: q(95, "°C", { std: "ISO 75", conditions: "1,81 MPa — siehe Hinweis zur Reihenfolge", confidence: "low" }),
     },
-    features: t("Der einzige aramidverstärkte Werkstoff im Bestand: ASA mit 10 % Kevlar. Aramidfaser ist im Gegensatz zu Kohlenstoff- und Glasfaser nicht spröde, und das zeigt sich — 7,5 kJ/m² gekerbte Schlagzähigkeit bei 2200 MPa Steifigkeit. Zum Vergleich bricht ApolloX CF10 desselben Herstellers bei 1,8 % Dehnung, dieses hier bei 6 %.",
+    features: t("Der einzige aramidverstärkte Werkstoff in der Datenbank: ASA mit 10 % Kevlar. Aramidfaser ist im Gegensatz zu Kohlenstoff- und Glasfaser nicht spröde, und das zeigt sich — 7,5 kJ/m² gekerbte Schlagzähigkeit bei 2200 MPa Steifigkeit. Zum Vergleich bricht ApolloX CF10 desselben Herstellers bei 1,8 % Dehnung, dieses hier bei 6 %.",
                 "The only aramid-reinforced material in the dataset: ASA with 10 % Kevlar. Unlike carbon and glass fibre, aramid fibre is not brittle, and it shows — 7.5 kJ/m² notched impact at 2200 MPa stiffness. For comparison, the same manufacturer's ApolloX CF10 breaks at 1.8 % strain, this one at 6 %."),
-    anomaly: t("Die HDT-Werte stehen in der falschen Reihenfolge: Das Blatt nennt bei 0,45 MPa 89 °C und bei 1,81 MPa 95 °C. Eine HÖHERE Last muss zu einer NIEDRIGEREN Temperatur führen — bei jedem Thermoplast, ausnahmslos. Einer der beiden Werte ist falsch zugeordnet oder falsch gemessen; welcher, lässt sich aus dem Blatt nicht entscheiden. Beide sind unverändert übernommen und tragen `low`. Sie zu vertauschen wäre geraten.",
-               "The HDT values stand in the wrong order: the sheet gives 89 °C at 0.45 MPa and 95 °C at 1.81 MPa. A HIGHER load must lead to a LOWER temperature — in every thermoplastic, without exception. One of the two values is mis-assigned or mis-measured; which one cannot be decided from the sheet. Both are imported unchanged and carry `low`. Swapping them would be guesswork."),
+    anomaly: t("Die HDT-Werte stehen in der falschen Reihenfolge: Das Blatt nennt bei 0,45 MPa 89 °C und bei 1,81 MPa 95 °C. Eine HÖHERE Last muss zu einer NIEDRIGEREN Temperatur führen — bei jedem Thermoplast, ausnahmslos. Einer der beiden Werte ist falsch zugeordnet oder falsch gemessen; welcher, lässt sich aus dem Blatt nicht entscheiden. Beide sind unverändert übernommen und gelten als schwach belegt. Sie zu vertauschen wäre geraten.",
+               "The HDT values stand in the wrong order: the sheet gives 89 °C at 0.45 MPa and 95 °C at 1.81 MPa. A HIGHER load must lead to a LOWER temperature — in every thermoplastic, without exception. One of the two values is mis-assigned or mis-measured; which one cannot be decided from the sheet. Both are imported unchanged and count as weakly substantiated. Swapping them would be guesswork."),
   },
   {
     id: "formfutura-apollox-fr", material: "asa", name: "ApolloX Flame Retardant", doc: 256472, date: "20-01-2025",
@@ -300,7 +334,7 @@ const P = [
       continuousServiceTemperature: q(50, "°C", { std: "UL 746B", conditions: "RTI mechanisch mit Schlag" }),
     },
     ul94: { value: "V-0", note: SELF_DECLARED_V0 },
-    features: t("Die Dauergebrauchstemperatur von 50 °C nach UL 746B ist die ehrlichste Zahl auf diesem Blatt und die unbequemste: Sie liegt 36 K unter der HDT. Der RTI ist eine Langzeitgröße mit Alterung, die HDT eine Kurzzeitmessung — wer ein Bauteil auf Jahre auslegt, rechnet mit 50 °C, nicht mit 86 °C. Nur wenige Blätter im Bestand geben diese Zahl überhaupt an.",
+    features: t("Die Dauergebrauchstemperatur von 50 °C nach UL 746B ist die ehrlichste Zahl auf diesem Blatt und die unbequemste: Sie liegt 36 K unter der HDT. Der RTI ist eine Langzeitgröße mit Alterung, die HDT eine Kurzzeitmessung — wer ein Bauteil auf Jahre auslegt, rechnet mit 50 °C, nicht mit 86 °C. Nur wenige Blätter in der Datenbank geben diese Zahl überhaupt an.",
                 "The continuous service temperature of 50 °C to UL 746B is the most honest figure on this sheet and the most inconvenient: it sits 36 K below the HDT. The RTI is a long-term figure including ageing, the HDT a short-term measurement — anyone designing a part for years counts on 50 °C, not 86 °C. Few sheets in the dataset state this figure at all."),
     anomaly: t("Die Schlagzähigkeit steht in J/m nach ASTM D256 (435 J/m bei 3,2 mm, 60 J/m bei −30 °C). J/m ist Energie je Probenbreite, die hier geführte Einheit kJ/m² ist Energie je Bruchfläche — die Umrechnung braucht die Probendicke und verschiebt die Aussage. Die Werte sind deshalb nicht übernommen. Ebenso fehlt bei der HDT die Lastangabe, ohne die eine HDT nicht einzuordnen ist.",
                "The impact strength appears in J/m to ASTM D256 (435 J/m at 3.2 mm, 60 J/m at −30 °C). J/m is energy per specimen width, the unit used here, kJ/m², is energy per fracture area — the conversion requires the specimen thickness and shifts the meaning. The values are therefore not imported. The HDT likewise lacks the load without which an HDT cannot be placed."),
@@ -314,7 +348,7 @@ const P = [
     },
     features: t("Das Blatt nennt eine Gewichtsersparnis von bis zu 66 % durch Aufschäumen und gibt dazu eine Vorgehensweise zur Flusskalibrierung an — typische Flusswerte 28 bis 40 %, Lüfter auf 0 bis 10 %. Solche Verarbeitungshinweise sind für ein schäumendes Filament wertvoller als jeder Kennwert, weil das Ergebnis fast vollständig an der Einstellung hängt.",
                 "The sheet states a weight saving of up to 66 % through foaming and gives a procedure for flow calibration alongside — typical flow values 28 to 40 %, fan at 0 to 10 %. For a foaming filament such processing notes are worth more than any material value, because the result hangs almost entirely on the setting."),
-    anomaly: t("Der schwerwiegendste Befund dieses Imports. Sämtliche mechanischen Kennwerte des Blattes — 42 MPa, 35 %, 1800 MPa, 64 MPa, 1900 MPa, 435 J/m, 60 J/m, Rockwell 92, HDT 86 °C — stehen Ziffer für Ziffer auch im Blatt von ApolloX Flame Retardant desselben Herstellers. Abweichend sind nur Dichte (1,07 gegen 1,08) und Vicat (94 gegen 90). Ein schäumendes und ein flammgeschütztes Filament haben keine gemeinsame Rezeptur; hier wurde eine Tabelle übernommen. Dazu kommt das grundsätzliche Problem: Ein GESCHÄUMT gedrucktes Bauteil erreicht die Kennwerte des kompakten Werkstoffs prinzipiell nicht — genau dafür wird geschäumt. Die mechanischen Werte sind deshalb NICHT übernommen; geführt sind nur Dichte, Schmelzindex und Vicat.",
+    anomaly: t("Der schwerwiegendste Hinweis dieses Imports. Sämtliche mechanischen Kennwerte des Blattes — 42 MPa, 35 %, 1800 MPa, 64 MPa, 1900 MPa, 435 J/m, 60 J/m, Rockwell 92, HDT 86 °C — stehen Ziffer für Ziffer auch im Blatt von ApolloX Flame Retardant desselben Herstellers. Abweichend sind nur Dichte (1,07 gegen 1,08) und Vicat (94 gegen 90). Ein schäumendes und ein flammgeschütztes Filament haben keine gemeinsame Rezeptur; hier wurde eine Tabelle übernommen. Dazu kommt das grundsätzliche Problem: Ein GESCHÄUMT gedrucktes Bauteil erreicht die Kennwerte des kompakten Werkstoffs prinzipiell nicht — genau dafür wird geschäumt. Die mechanischen Werte sind deshalb NICHT übernommen; geführt sind nur Dichte, Schmelzindex und Vicat.",
                "The most serious finding of this import. Every mechanical value on the sheet — 42 MPa, 35 %, 1800 MPa, 64 MPa, 1900 MPa, 435 J/m, 60 J/m, Rockwell 92, HDT 86 °C — appears digit for digit in the same manufacturer's ApolloX Flame Retardant sheet as well. Only density (1.07 against 1.08) and Vicat (94 against 90) differ. A foaming and a flame-retardant filament share no formulation; a table was copied here. On top of that comes the fundamental problem: a FOAMED printed part cannot in principle reach the values of the compact material — that is precisely why one foams. The mechanical values are therefore NOT imported; only density, melt index and Vicat are held."),
   },
 
@@ -330,10 +364,10 @@ const P = [
       hdtA: q(128, "°C", { std: "ASTM D648", conditions: "1,81 MPa; im Blatt fälschlich ebenfalls als „HDT B“ bezeichnet", confidence: "low" }),
       vicatA: q(150, "°C", { std: "ASTM D1525" }),
     },
-    features: t("HDT-B 139 °C und Vicat 150 °C — nach dem add:north PC Blend HT LCF der wärmeformbeständigste unverstärkte Werkstoff des Bestands. Die Bruchdehnung gibt das Blatt mit „> 100 %“ an, was zu Polycarbonat passt: Es ist einer der wenigen technischen Thermoplaste, die zäh bleiben statt zu splittern.",
+    features: t("HDT-B 139 °C und Vicat 150 °C — nach dem add:north PC Blend HT LCF der wärmeformbeständigste unverstärkte Werkstoff der Datenbank. Die Bruchdehnung gibt das Blatt mit „> 100 %“ an, was zu Polycarbonat passt: Es ist einer der wenigen technischen Thermoplaste, die zäh bleiben statt zu splittern.",
                 "HDT-B 139 °C and Vicat 150 °C — after the add:north PC Blend HT LCF the most heat-resistant unreinforced material in the dataset. The sheet gives the elongation at break as “> 100 %”, which fits polycarbonate: it is one of the few engineering thermoplastics that stay tough instead of splintering."),
-    anomaly: t("Zwei Punkte. Erstens führt das Blatt Festigkeiten in kg/cm² und die Schlagzähigkeit in kgcm/cm — Einheiten, die seit Jahrzehnten außer Gebrauch sind. Die Festigkeiten sind umgerechnet und tragen `low`, die Schlagzähigkeit ist nicht übernommen. Zweitens sind BEIDE HDT-Zeilen mit „HDT B“ beschriftet, obwohl die zweite mit 1,81 MPa geprüft wurde — das ist HDT A. Der niedrigere Wert bei höherer Last bestätigt die Zuordnung; die Beschriftung ist trotzdem falsch. Die Bruchdehnung „> 100 %“ ist als offene Angabe nicht als Zahl übernommen.",
-               "Two points. First, the sheet carries strengths in kg/cm² and impact strength in kgcm/cm — units out of use for decades. The strengths are converted and carry `low`, the impact strength is not imported. Second, BOTH HDT rows are labelled “HDT B” although the second was tested at 1.81 MPa — that is HDT A. The lower value at the higher load confirms the assignment; the labelling is wrong nonetheless. The elongation at break of “> 100 %” is an open statement and not imported as a figure."),
+    anomaly: t("Zwei Punkte. Erstens führt das Blatt Festigkeiten in kg/cm² und die Schlagzähigkeit in kgcm/cm — Einheiten, die seit Jahrzehnten außer Gebrauch sind. Die Festigkeiten sind umgerechnet und gelten als schwach belegt, die Schlagzähigkeit ist nicht übernommen. Zweitens sind BEIDE HDT-Zeilen mit „HDT B“ beschriftet, obwohl die zweite mit 1,81 MPa geprüft wurde — das ist HDT A. Der niedrigere Wert bei höherer Last bestätigt die Zuordnung; die Beschriftung ist trotzdem falsch. Die Bruchdehnung „> 100 %“ ist als offene Angabe nicht als Zahl übernommen.",
+               "Two points. First, the sheet carries strengths in kg/cm² and impact strength in kgcm/cm — units out of use for decades. The strengths are converted and count as weakly substantiated, the impact strength is not imported. Second, BOTH HDT rows are labelled “HDT B” although the second was tested at 1.81 MPa — that is HDT A. The lower value at the higher load confirms the assignment; the labelling is wrong nonetheless. The elongation at break of “> 100 %” is an open statement and not imported as a figure."),
   },
 
   /* ---------------------------------------------------------------- PA6 (Styx) */
@@ -347,14 +381,14 @@ const P = [
       elongationAtBreakXy: q(1.9, "%", { std: "ISO 527-1/-2", conditions: "23 °C, 50 mm/min", orientation: "XY" }),
       flexuralStrengthXy: q(112, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(2800, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
-      charpyNotchedXy: q(6.8, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(6.8, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       meltingTemperature: q(185, "°C", { std: "ISO 3146", conditions: "DSC, 10 °C/min", confidence: "low" }),
       hdtB: q(60, "°C", { std: "ISO 75-1/-2", conditions: "Last im Blatt nicht genannt", confidence: "low" }),
     },
     features: t("Die Wasseraufnahme bis zur Sättigung ist mit 9,5 % ausgewiesen — eine Angabe, die kaum ein Blatt macht und die bei Polyamid die wichtigste überhaupt ist: Ein gesättigtes PA6-Bauteil verliert einen erheblichen Teil seiner Steifigkeit und wächst maßlich. Dazu die Konditionierung bei 23 °C und 50 % relativer Feuchte mit 3,0 %.",
                 "Water absorption to saturation is stated at 9.5 % — a figure hardly any sheet gives and the single most important one for polyamide: a saturated PA6 part loses a substantial part of its stiffness and grows dimensionally. Alongside it the conditioning at 23 °C and 50 % relative humidity at 3.0 %."),
-    anomaly: t("Zwei Werte passen nicht zu PA6. Die Schmelztemperatur von 185 °C liegt rund 35 K unter dem Literaturwert für PA6 (etwa 220 °C) und deutet auf ein Copolyamid statt auf reines PA6 — das Blatt sagt dazu nichts. Und eine Bruchdehnung von 1,9 % ist für trockenes PA6 außergewöhnlich niedrig; übliche Werte liegen bei 20 bis 50 %. Beide Zahlen sind übernommen und tragen `low`. Der HDT fehlt zudem die Lastangabe.",
-               "Two values do not fit PA6. The melting temperature of 185 °C sits some 35 K below the literature figure for PA6 (about 220 °C) and points to a co-polyamide rather than pure PA6 — the sheet says nothing about it. And an elongation at break of 1.9 % is exceptionally low for dry PA6; usual values lie at 20 to 50 %. Both figures are imported and carry `low`. The HDT moreover lacks its load."),
+    anomaly: t("Zwei Werte passen nicht zu PA6. Die Schmelztemperatur von 185 °C liegt rund 35 K unter dem Literaturwert für PA6 (etwa 220 °C) und deutet auf ein Copolyamid statt auf reines PA6 — das Blatt sagt dazu nichts. Und eine Bruchdehnung von 1,9 % ist für trockenes PA6 außergewöhnlich niedrig; übliche Werte liegen bei 20 bis 50 %. Beide Zahlen sind übernommen und gelten als schwach belegt. Der HDT fehlt zudem die Lastangabe.",
+               "Two values do not fit PA6. The melting temperature of 185 °C sits some 35 K below the literature figure for PA6 (about 220 °C) and points to a co-polyamide rather than pure PA6 — the sheet says nothing about it. And an elongation at break of 1.9 % is exceptionally low for dry PA6; usual values lie at 20 to 50 %. Both figures are imported and count as weakly substantiated. The HDT moreover lacks its load."),
   },
   {
     id: "formfutura-styx-pa6-cf15", material: "pa6-cf", name: "STYX PA6-CF15", doc: 256638,
@@ -367,14 +401,14 @@ const P = [
       flexuralStrengthXy: q(180, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(8000, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: q(60, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(4, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       hdtB: q(180, "°C", { std: "ISO 75", conditions: "0,45 MPa", confidence: "low" }),
       hdtA: q(65, "°C", { std: "ISO 75", conditions: "1,8 MPa", confidence: "low" }),
     },
-    features: t("120 MPa Zugfestigkeit bei 9000 MPa Steifigkeit — das dritthöchste Wertepaar des Bestands. Der Abstand zwischen HDT-B (180 °C) und HDT-A (65 °C) beträgt 115 K und ist typisch für ein faserverstärktes teilkristallines Polyamid: Unter geringer Last trägt die Kristallphase weit über den Glasübergang hinaus, unter hoher Last nicht.",
+    features: t("120 MPa Zugfestigkeit bei 9000 MPa Steifigkeit — das dritthöchste Wertepaar der Datenbank. Der Abstand zwischen HDT-B (180 °C) und HDT-A (65 °C) beträgt 115 K und ist typisch für ein faserverstärktes teilkristallines Polyamid: Unter geringer Last trägt die Kristallphase weit über den Glasübergang hinaus, unter hoher Last nicht.",
                 "120 MPa tensile strength at 9000 MPa stiffness — the third highest value pair in the dataset. The gap between HDT-B (180 °C) and HDT-A (65 °C) is 115 K and is typical of a fibre-reinforced semi-crystalline polyamide: under low load the crystalline phase carries far beyond the glass transition, under high load it does not."),
-    anomaly: t("Die HDT-Werte 180 °C und 65 °C sowie die gekerbte Schlagzähigkeit von 4 kJ/m² stehen zeichengleich auch im Blatt des STYX PA6-GF30 desselben Herstellers — bei einem anderen Fasertyp und einem um mehr als das Doppelte abweichenden Fasergehalt. Zwei so verschiedene Compounds mit identischen thermischen Kennwerten deuten auf eine übernommene Vorlage statt auf zwei Messungen. Alle drei Werte tragen `low`.",
-               "The HDT values of 180 °C and 65 °C as well as the notched impact strength of 4 kJ/m² appear character for character in the same manufacturer's STYX PA6-GF30 sheet — with a different fibre type and a fibre content differing by more than a factor of two. Two such different compounds with identical thermal values point to a copied template rather than two measurements. All three values carry `low`."),
+    anomaly: t("Die HDT-Werte 180 °C und 65 °C sowie die gekerbte Schlagzähigkeit von 4 kJ/m² stehen zeichengleich auch im Blatt des STYX PA6-GF30 desselben Herstellers — bei einem anderen Fasertyp und einem um mehr als das Doppelte abweichenden Fasergehalt. Zwei so verschiedene Compounds mit identischen thermischen Kennwerten deuten auf eine übernommene Vorlage statt auf zwei Messungen. Alle drei Werte gelten als schwach belegt.",
+               "The HDT values of 180 °C and 65 °C as well as the notched impact strength of 4 kJ/m² appear character for character in the same manufacturer's STYX PA6-GF30 sheet — with a different fibre type and a fibre content differing by more than a factor of two. Two such different compounds with identical thermal values point to a copied template rather than two measurements. All three values count as weakly substantiated."),
   },
   {
     id: "formfutura-styx-pa6-gf30", material: "pa6-gf", name: "STYX PA6-GF30", doc: 256639,
@@ -387,14 +421,14 @@ const P = [
       flexuralStrengthXy: q(125, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(4500, "MPa", { std: "ISO 178", conditions: "23 °C, 2 mm/min", orientation: "XY" }),
       charpyUnnotchedXy: q(25, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C", orientation: "XY" }),
-      charpyNotchedXy: q(4, "kJ/m²", { std: "ISO 179/1eU", conditions: "23 °C, gekerbt", orientation: "XY" }),
+      charpyNotchedXy: q(4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       hdtB: q(180, "°C", { std: "ISO 75", conditions: "0,45 MPa", confidence: "low" }),
       hdtA: q(65, "°C", { std: "ISO 75", conditions: "1,8 MPa", confidence: "low" }),
     },
-    features: t("Der bislang einzige zweite Beleg für PA6-GF im Bestand. Aufschlussreich ist der Vergleich mit dem PA6-CF15 desselben Herstellers: 30 % Glasfaser bringen 5500 MPa, 15 % Kohlenstofffaser 9000 MPa. Die doppelte Fasermenge des billigeren Werkstoffs erreicht nicht zwei Drittel der Steifigkeit — dafür bleibt die ungekerbte Schlagzähigkeit bei 25 statt 60 kJ/m².",
+    features: t("Der bislang einzige zweite Beleg für PA6-GF in der Datenbank. Aufschlussreich ist der Vergleich mit dem PA6-CF15 desselben Herstellers: 30 % Glasfaser bringen 5500 MPa, 15 % Kohlenstofffaser 9000 MPa. Die doppelte Fasermenge des billigeren Werkstoffs erreicht nicht zwei Drittel der Steifigkeit — dafür bleibt die ungekerbte Schlagzähigkeit bei 25 statt 60 kJ/m².",
                 "So far the only second piece of evidence for PA6-GF in the dataset. The comparison with the same manufacturer's PA6-CF15 is instructive: 30 % glass fibre yields 5500 MPa, 15 % carbon fibre 9000 MPa. Twice the fibre load of the cheaper material does not reach two thirds of the stiffness — in exchange the unnotched impact stays at 25 instead of 60 kJ/m²."),
-    anomaly: t("Siehe den Befund beim STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C und gekerbte Schlagzähigkeit 4 kJ/m² sind auf beiden Blättern identisch, obwohl Fasertyp und Fasergehalt sich deutlich unterscheiden. Die drei Werte tragen deshalb `low`.",
-               "See the finding on the STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C and notched impact strength 4 kJ/m² are identical on both sheets although fibre type and fibre content differ markedly. The three values therefore carry `low`."),
+    anomaly: t("Siehe den Hinweis beim STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C und gekerbte Schlagzähigkeit 4 kJ/m² sind auf beiden Blättern identisch, obwohl Fasertyp und Fasergehalt sich deutlich unterscheiden. Die drei Werte gelten deshalb als schwach belegt.",
+               "See the finding on the STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C and notched impact strength 4 kJ/m² are identical on both sheets although fibre type and fibre content differ markedly. The three values therefore count as weakly substantiated."),
   },
 
   /* ---------------------------------------------------------------- PAHT (LUVOCOM 3F) */
@@ -411,7 +445,7 @@ const P = [
       hdtA: q(90, "°C", { std: "ISO 75", conditions: "1,8 MPa (HDT A)" }),
       continuousServiceTemperature: q(120, "°C", { std: "UL 746B", conditions: "MPTS ISO 3167 A" }),
     },
-    features: t("Ein Blatt, das den Prüfkörper benennt — im Bestand die Ausnahme. „MPTS ISO 3167 A“ ist der spritzgegossene Mehrzweckprüfkörper; damit ist eindeutig, worauf sich die Zahlen beziehen, und ebenso eindeutig, dass ein gedrucktes Bauteil sie nicht erreicht. Diese Klarheit ist mehr wert als eine Nachkommastelle.",
+    features: t("Ein Blatt, das den Prüfkörper benennt — in der Datenbank die Ausnahme. „MPTS ISO 3167 A“ ist der spritzgegossene Mehrzweckprüfkörper; damit ist eindeutig, worauf sich die Zahlen beziehen, und ebenso eindeutig, dass ein gedrucktes Bauteil sie nicht erreicht. Diese Klarheit ist mehr wert als eine Nachkommastelle.",
                 "A sheet that names the specimen — the exception in this dataset. “MPTS ISO 3167 A” is the injection-moulded multi-purpose specimen; that makes clear what the figures refer to, and equally clear that a printed part will not reach them. This clarity is worth more than a decimal place."),
     anomaly: t("Die Tabelle des Blattes hat leere Zellen: Biegefestigkeit, Biegedehnung, Biege-E-Modul, alle vier Charpy-Zeilen und die Vicat-Temperatur stehen ohne Wert da. Auch die UL-94-Zeile ist angelegt, aber nicht gefüllt. Das ist kein Fehler — es ist eine Vorlage mit offenen Feldern —, begrenzt aber, was dieses Blatt beitragen kann.",
                "The sheet's table has empty cells: flexural strength, flexural strain, flexural modulus, all four Charpy rows and the Vicat temperature stand without a value. The UL 94 row too is laid out but not filled. This is not an error — it is a template with open fields — but it limits what this sheet can contribute."),
@@ -449,7 +483,7 @@ const P = [
       shortTermTemperature: q(180, "°C", { conditions: "max. 200 h über die Lebensdauer, ISO 3167 A" }),
       thermalConductivity: q(1, "W/(m·K)", { std: "ISO 22007", conditions: "Hot-Disk, 60 × 60 × 3 mm, in der Ebene" }),
     },
-    features: t("Der steifste Werkstoff des gesamten Bestands: 15.000 MPa Zug-E-Modul bei 170 MPa Festigkeit. Der bisherige Spitzenreiter, add:north PC Blend HT LCF, lag bei 9.800 MPa. Dazu HDT-A 200 °C und eine Dauergebrauchstemperatur von 150 °C über 20.000 Stunden — kein anderer Datensatz erreicht diese Kombination. Die Wärmeleitfähigkeit von 1 W/(m·K) ist etwa das Vierfache eines ungefüllten Thermoplasten und für Bauteile mit Wärmeabfuhr interessant.",
+    features: t("Der steifste Werkstoff der gesamten Datenbank: 15.000 MPa Zug-E-Modul bei 170 MPa Festigkeit. Der bisherige Spitzenreiter, add:north PC Blend HT LCF, lag bei 9.800 MPa. Dazu HDT-A 200 °C und eine Dauergebrauchstemperatur von 150 °C über 20.000 Stunden — kein anderer Eintrag erreicht diese Kombination. Die Wärmeleitfähigkeit von 1 W/(m·K) ist etwa das Vierfache eines ungefüllten Thermoplasten und für Bauteile mit Wärmeabfuhr interessant.",
                 "The stiffest material in the entire dataset: 15,000 MPa tensile modulus at 170 MPa strength. The previous leader, add:north PC Blend HT LCF, sat at 9,800 MPa. Alongside it HDT-A 200 °C and a continuous service temperature of 150 °C over 20,000 hours — no other record reaches this combination. The thermal conductivity of 1 W/(m·K) is about four times that of an unfilled thermoplastic and interesting for parts that must shed heat."),
     anomaly: t("Der lineare Wärmeausdehnungskoeffizient steht mit dem Wert 0,4 und der Einheit „10/K“ da. Gemeint ist ersichtlich eine Zehnerpotenz, deren Exponent bei der Erstellung des Blattes verloren gegangen ist; ob 10⁻⁴ oder 10⁻⁵ gemeint war, entscheidet über den Faktor zehn. Nicht übernommen. Die Bruchdehnung von 1 % ist kein Fehler, sondern der Preis der Steifigkeit: Dieses Material bricht ohne Vorwarnung.",
                "The linear coefficient of thermal expansion appears with the value 0.4 and the unit “10/K”. A power of ten is evidently meant whose exponent was lost when the sheet was produced; whether 10⁻⁴ or 10⁻⁵ was intended decides a factor of ten. Not imported. The elongation at break of 1 % is not an error but the price of the stiffness: this material breaks without warning."),
@@ -469,8 +503,8 @@ const P = [
       continuousServiceTemperature: q(120, "°C", { std: "IEC 60216", conditions: "20.000 h, MPTS ISO 3167 A", confidence: "low" }),
       shortTermTemperature: q(160, "°C", { conditions: "max. 200 h über die Lebensdauer, MPTS ISO 3167 A", confidence: "low" }),
     },
-    anomaly: t("Die thermischen Kennwerte passen nicht zum mechanischen Befund. Dieses Compound erreicht mit 10.500 MPa mehr als das Dreifache der Steifigkeit des unverstärkten PAHT 9936 — bei den Temperaturen steht aber exakt derselbe Satz wie dort: HDT-A 90 °C, Dauergebrauch 120 °C, kurzzeitig 160 °C. Beim PAHT CF 9742 desselben Herstellers, mechanisch vergleichbar aufgebaut, liegt die HDT-A stattdessen bei 200 °C. Kohlenstofffaser hebt bei teilkristallinen Polyamiden die Wärmeformbeständigkeit erfahrungsgemäß deutlich; dass sie es hier nicht tut, ist erklärungsbedürftig und wird vom Blatt nicht erklärt. Die drei Temperaturwerte tragen `low`.",
-               "The thermal values do not fit the mechanical finding. At 10,500 MPa this compound reaches more than three times the stiffness of the unreinforced PAHT 9936 — yet for the temperatures it carries exactly the same set as that sheet: HDT-A 90 °C, continuous service 120 °C, short-term 160 °C. On the same manufacturer's PAHT CF 9742, comparably built mechanically, the HDT-A sits at 200 °C instead. In semi-crystalline polyamides carbon fibre raises heat deflection markedly by experience; that it does not here calls for explanation, and the sheet gives none. The three temperature values carry `low`."),
+    anomaly: t("Die thermischen Kennwerte passen nicht zu den mechanischen Werten. Dieses Compound erreicht mit 10.500 MPa mehr als das Dreifache der Steifigkeit des unverstärkten PAHT 9936 — bei den Temperaturen steht aber exakt derselbe Satz wie dort: HDT-A 90 °C, Dauergebrauch 120 °C, kurzzeitig 160 °C. Beim PAHT CF 9742 desselben Herstellers, mechanisch vergleichbar aufgebaut, liegt die HDT-A stattdessen bei 200 °C. Kohlenstofffaser hebt bei teilkristallinen Polyamiden die Wärmeformbeständigkeit erfahrungsgemäß deutlich; dass sie es hier nicht tut, ist erklärungsbedürftig und wird vom Blatt nicht erklärt. Die drei Temperaturwerte gelten als schwach belegt.",
+               "The thermal values do not fit the mechanical finding. At 10,500 MPa this compound reaches more than three times the stiffness of the unreinforced PAHT 9936 — yet for the temperatures it carries exactly the same set as that sheet: HDT-A 90 °C, continuous service 120 °C, short-term 160 °C. On the same manufacturer's PAHT CF 9742, comparably built mechanically, the HDT-A sits at 200 °C instead. In semi-crystalline polyamides carbon fibre raises heat deflection markedly by experience; that it does not here calls for explanation, and the sheet gives none. The three temperature values count as weakly substantiated."),
   },
   {
     id: "formfutura-luvocom-paht-kk-fr", material: "paht", name: "LUVOCOM 3F PAHT KK 50056 BK FR", doc: 256575, date: "04-02-2025", lehvoss: true,
@@ -490,7 +524,7 @@ const P = [
       note: t("Anders als bei den ApolloX- und PETG-Flammschutztypen desselben Vertriebs nennt dieses Blatt die Materialdicke: 1/16 Zoll, also 1,6 mm. Ohne Dickenangabe ist eine UL-94-Klasse nicht übertragbar — mit ihr ist sie eine belastbare Aussage. Eine Zeugnisnummer und eine Prüfstelle nennt auch dieses Blatt nicht.",
               "Unlike the ApolloX and PETG flame-retardant grades from the same distributor, this sheet names the material thickness: 1/16 inch, that is 1.6 mm. Without a thickness a UL 94 class is not transferable — with it, it is a solid statement. This sheet too names no certificate number and no test house."),
     },
-    features: t("Der einzige Werkstoff im Bestand mit Bahnzulassungsdaten: EN 45545 mit den Anforderungssätzen R22 und R23 in den Gefährdungsstufen HL1, HL2 und HL3, belegt über ISO 4589-2 (Sauerstoffindex) und ISO 5659-2 (Rauchdichte). Wer im Schienenfahrzeugbau fertigt, braucht genau diese Nachweise — und findet sie sonst auf keinem FDM-Datenblatt. Der Füllstoff sind Keramikmikrokugeln, was die Dichte von 1,49 g/cm³ erklärt, die höchste aller geführten Polyamide.",
+    features: t("Der einzige Werkstoff in der Datenbank mit Bahnzulassungsdaten: EN 45545 mit den Anforderungssätzen R22 und R23 in den Gefährdungsstufen HL1, HL2 und HL3, belegt über ISO 4589-2 (Sauerstoffindex) und ISO 5659-2 (Rauchdichte). Wer im Schienenfahrzeugbau fertigt, braucht genau diese Nachweise — und findet sie sonst auf keinem FDM-Datenblatt. Der Füllstoff sind Keramikmikrokugeln, was die Dichte von 1,49 g/cm³ erklärt, die höchste aller geführten Polyamide.",
                 "The only material in the dataset with rail approval data: EN 45545 with requirement sets R22 and R23 at hazard levels HL1, HL2 and HL3, evidenced via ISO 4589-2 (oxygen index) and ISO 5659-2 (smoke density). Anyone manufacturing for rail vehicles needs exactly these proofs — and finds them on no other FDM datasheet. The filler is ceramic microspheres, which explains the density of 1.49 g/cm³, the highest of all polyamides held here."),
     anomaly: t("Das Blatt bezeichnet den Werkstoff im Fließtext als „PA6 filament filled with ceramic microspheres“, führt ihn im Produktnamen aber als PAHT. PA6 und Hochtemperatur-Polyamid sind nicht dasselbe; die Zuordnung zu `paht` in dieser Datenbank folgt dem Produktnamen und der Linie, nicht der Beschreibung. Die Temperaturkennwerte (HDT-A 90 °C, Dauergebrauch 120 °C) stimmen mit den übrigen PAHT-Blättern dieser Linie überein und stützen die Zuordnung — auflösen lässt sich der Widerspruch aus dem Blatt allein nicht.",
                "In its body text the sheet calls the material a “PA6 filament filled with ceramic microspheres” but carries it in the product name as PAHT. PA6 and high-temperature polyamide are not the same; the assignment to `paht` in this database follows the product name and the product line, not the description. The temperature values (HDT-A 90 °C, continuous service 120 °C) agree with the other PAHT sheets of this line and support the assignment — the contradiction cannot be resolved from the sheet alone."),
@@ -513,8 +547,8 @@ const P = [
       tensileModulusXy: q(2980, "MPa", { std: "ASTM D638", orientation: "XY" }),
       izodNotchedXy: q(4.7, "kJ/m²", { std: "Norm im Blatt nicht genannt", conditions: "gekerbt", orientation: "XY", confidence: "low" }),
     },
-    anomaly: t("Die Streckspannung von 25 MPa liegt bei der Hälfte dessen, was die übrigen PETG-Blätter dieses Herstellers ausweisen (Bulk PETG 50,2 MPa, Hdglass 50 MPa) — bei einem E-Modul von 2980 MPa, das über beiden liegt. Hohe Steifigkeit bei halber Festigkeit ist bei derselben Polymerfamilie erklärungsbedürftig. Der Wert ist übernommen und trägt `low`. Für die Schlagzähigkeit nennt das Blatt keine Prüfnorm.",
-               "The yield stress of 25 MPa is half of what the same manufacturer's other PETG sheets state (Bulk PETG 50.2 MPa, Hdglass 50 MPa) — at a modulus of 2980 MPa that lies above both. High stiffness at half the strength calls for explanation within the same polymer family. The value is imported and carries `low`. For the impact strength the sheet names no test standard."),
+    anomaly: t("Die Streckspannung von 25 MPa liegt bei der Hälfte dessen, was die übrigen PETG-Blätter dieses Herstellers ausweisen (Bulk PETG 50,2 MPa, Hdglass 50 MPa) — bei einem E-Modul von 2980 MPa, das über beiden liegt. Hohe Steifigkeit bei halber Festigkeit ist bei derselben Polymerfamilie erklärungsbedürftig. Der Wert ist übernommen, gilt aber als schwach belegt. Für die Schlagzähigkeit nennt das Blatt keine Prüfnorm.",
+               "The yield stress of 25 MPa is half of what the same manufacturer's other PETG sheets state (Bulk PETG 50.2 MPa, Hdglass 50 MPa) — at a modulus of 2980 MPa that lies above both. High stiffness at half the strength calls for explanation within the same polymer family. The value is imported but counts as weakly substantiated. For the impact strength the sheet names no test standard."),
   },
   {
     id: "formfutura-hdglass", material: "petg", name: "HDglass", doc: 256561,
@@ -525,10 +559,10 @@ const P = [
       flexuralStrengthXy: q(70.6, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min", orientation: "XY" }),
       flexuralModulusXy: q(2147.6, "MPa", { std: "ASTM D790", conditions: "1,27 mm/min", orientation: "XY" }),
       izodNotchedXy: q(7.2, "kJ/m²", { std: "ASTM D256", conditions: "gekerbt, 23 °C", orientation: "XY" }),
-      hdtB: q(70, "°C", { std: "ASTM D648", conditions: "0,455 MPa (66 psi); im Blatt fälschlich als Vicat bezeichnet — siehe Befund", confidence: "low" }),
+      hdtB: q(70, "°C", { std: "ASTM D648", conditions: "0,455 MPa (66 psi); im Blatt fälschlich als Vicat bezeichnet — siehe Hinweis", confidence: "low" }),
     },
-    anomaly: t("Die Zeile „Viscat softening temp.“ trägt die Norm ASTM D648 und die Bedingung „@ 0.455 Mpa (66psi)“. ASTM D648 ist die Wärmeformbeständigkeit unter Last, nicht der Vicat-Versuch — und eine Lastangabe gibt es beim Vicat gar nicht in dieser Form. Der Wert ist deshalb als HDT-B geführt, nicht als Vicat. Die Schreibweise „Viscat“ und der Biege-E-Modul mit 2147,6 MPa auf eine Zehntelstelle genau runden das Bild ab: Dieses Blatt ist nicht sorgfältig gepflegt. Der Wert trägt `low`.",
-               "The row “Viscat softening temp.” carries the standard ASTM D648 and the condition “@ 0.455 Mpa (66psi)”. ASTM D648 is heat deflection under load, not the Vicat test — and a load statement does not exist for Vicat in this form at all. The value is therefore held as HDT-B, not as Vicat. The spelling “Viscat” and a flexural modulus given as 2147.6 MPa to a tenth complete the picture: this sheet is not carefully maintained. The value carries `low`."),
+    anomaly: t("Die Zeile „Viscat softening temp.“ trägt die Norm ASTM D648 und die Bedingung „@ 0.455 Mpa (66psi)“. ASTM D648 ist die Wärmeformbeständigkeit unter Last, nicht der Vicat-Versuch — und eine Lastangabe gibt es beim Vicat gar nicht in dieser Form. Der Wert ist deshalb als HDT-B geführt, nicht als Vicat. Die Schreibweise „Viscat“ und der Biege-E-Modul mit 2147,6 MPa auf eine Zehntelstelle genau runden das Bild ab: Dieses Blatt ist nicht sorgfältig gepflegt. Der Wert gilt als schwach belegt.",
+               "The row “Viscat softening temp.” carries the standard ASTM D648 and the condition “@ 0.455 Mpa (66psi)”. ASTM D648 is heat deflection under load, not the Vicat test — and a load statement does not exist for Vicat in this form at all. The value is therefore held as HDT-B, not as Vicat. The spelling “Viscat” and a flexural modulus given as 2147.6 MPa to a tenth complete the picture: this sheet is not carefully maintained. The value counts as weakly substantiated."),
   },
   {
     id: "formfutura-carbonfil-cf03", material: "petg-cf", name: "CarbonFil CF03", doc: 256494, date: "15-05-2024",
@@ -579,8 +613,8 @@ const P = [
     },
     features: t("Ein Rezyklat-ABS, dessen Kennwerte sich vor dem Neuware-ABS desselben Herstellers nicht verstecken müssen: 43,6 gegenüber 48 MPa Streckspannung. Für Anwendungen, bei denen die Herkunft des Materials zählt, ist der Abstand von rund einem Zehntel eine brauchbare Größe.",
                 "A recycled ABS whose values need not hide behind the same manufacturer's virgin ABS: 43.6 against 48 MPa yield stress. For applications where the origin of the material matters, a gap of about a tenth is a workable figure."),
-    anomaly: t("Die gekerbte Schlagzähigkeit von 58 kJ/m² nach ISO 179 ist für ABS außergewöhnlich hoch — übliche Werte liegen bei 10 bis 25 kJ/m², das Premium ABS Medical desselben Vertriebs nennt 14 kJ/m² (ISO 180). Ein Rezyklat übertrifft Neuware in der Zähigkeit normalerweise nicht. Wahrscheinlich ist eine UNGEKERBTE Messung als gekerbt ausgewiesen; entscheiden lässt sich das aus dem Blatt nicht. Der Wert ist unverändert übernommen und trägt `low`.",
-               "The notched impact strength of 58 kJ/m² to ISO 179 is exceptionally high for ABS — usual values lie at 10 to 25 kJ/m², and the same distributor's Premium ABS Medical states 14 kJ/m² (ISO 180). A recyclate does not normally exceed virgin material in toughness. An UNNOTCHED measurement reported as notched is likely; this cannot be decided from the sheet. The value is imported unchanged and carries `low`."),
+    anomaly: t("Die gekerbte Schlagzähigkeit von 58 kJ/m² nach ISO 179 ist für ABS außergewöhnlich hoch — übliche Werte liegen bei 10 bis 25 kJ/m², das Premium ABS Medical desselben Vertriebs nennt 14 kJ/m² (ISO 180). Ein Rezyklat übertrifft Neuware in der Zähigkeit normalerweise nicht. Wahrscheinlich ist eine UNGEKERBTE Messung als gekerbt ausgewiesen; entscheiden lässt sich das aus dem Blatt nicht. Der Wert ist unverändert übernommen und gilt als schwach belegt.",
+               "The notched impact strength of 58 kJ/m² to ISO 179 is exceptionally high for ABS — usual values lie at 10 to 25 kJ/m², and the same distributor's Premium ABS Medical states 14 kJ/m² (ISO 180). A recyclate does not normally exceed virgin material in toughness. An UNNOTCHED measurement reported as notched is likely; this cannot be decided from the sheet. The value is imported unchanged and counts as weakly substantiated."),
   },
 
   /* ---------------------------------------------------------------- PLA */
@@ -592,7 +626,7 @@ const P = [
       tensileModulusXy: q(3400, "MPa", { std: "ASTM D882", orientation: "XY", confidence: "low" }),
     },
     anomaly: t("Beide Zugkennwerte sind nach ASTM D882 geprüft. Das ist die Norm für dünne Kunststofffolien unter 1 mm Dicke; für starre Formteile gilt ASTM D638 beziehungsweise ISO 527. An einer Folie gemessene Zugwerte sind nicht auf ein gedrucktes Bauteil übertragbar, weil Probengeometrie und Spannungszustand andere sind. Die Zahlen sind plausibel und übernommen, tragen aber `low`.",
-               "Both tensile values are tested to ASTM D882. That is the standard for thin plastic sheeting below 1 mm thickness; for rigid mouldings ASTM D638 or ISO 527 applies. Tensile values measured on film do not transfer to a printed part because specimen geometry and stress state differ. The figures are plausible and imported but carry `low`."),
+               "Both tensile values are tested to ASTM D882. That is the standard for thin plastic sheeting below 1 mm thickness; for rigid mouldings ASTM D638 or ISO 527 applies. Tensile values measured on film do not transfer to a printed part because specimen geometry and stress state differ. The figures are plausible and imported but count as weakly substantiated."),
   },
 
   /* ======================= Aus Rasterseiten abgelesen (2026-08-05) ======================= */
@@ -670,10 +704,10 @@ const P = [
       flexuralModulusXy: q(2900, "MPa", { std: "im Blatt als ISO 527 angegeben; für die Biegung wäre ISO 178 einschlägig", orientation: "XY", confidence: "low" }),
       meltingTemperature: q(155, "°C", { std: "ISO 3146-C" }),
     },
-    features: t("Das Blatt nennt den Füllgrad ausdrücklich: 40 % Holzpartikel in PLA. Die Dichte von 1,15 g/cm³ deckt sich exakt mit dem add:north PLA Wood, das ebenfalls 40 % Holzfaser angibt — zwei unabhängige Hersteller, dieselbe Zahl. Das ist im Bestand die seltene Ausnahme: eine Bestätigung statt eines Widerspruchs.",
+    features: t("Das Blatt nennt den Füllgrad ausdrücklich: 40 % Holzpartikel in PLA. Die Dichte von 1,15 g/cm³ deckt sich exakt mit dem add:north PLA Wood, das ebenfalls 40 % Holzfaser angibt — zwei unabhängige Hersteller, dieselbe Zahl. Das ist in der Datenbank die seltene Ausnahme: eine Bestätigung statt eines Widerspruchs.",
                 "The sheet states the filler content explicitly: 40 % wood particles in PLA. The density of 1.15 g/cm³ matches the add:north PLA Wood exactly, which also states 40 % wood fibre — two independent manufacturers, the same figure. In this dataset that is the rare exception: a confirmation instead of a contradiction."),
-    anomaly: t("Der Biege-E-Modul steht unter ISO 527, der Norm für den Zugversuch. Auf diesem Blatt trägt ISO 527 schon die beiden Zugzeilen darüber — die Norm ist also nach unten kopiert worden, nicht die Beschriftung vertauscht. Der Wert ist deshalb als Biege-E-Modul geführt und trägt `low`.",
-               "The flexural modulus is filed under ISO 527, the standard for tensile testing. On this sheet ISO 527 already carries the two tensile rows above it — the standard has been copied downwards, rather than the label being wrong. The value is therefore held as flexural modulus and carries `low`."),
+    anomaly: t("Der Biege-E-Modul steht unter ISO 527, der Norm für den Zugversuch. Auf diesem Blatt trägt ISO 527 schon die beiden Zugzeilen darüber — die Norm ist also nach unten kopiert worden, nicht die Beschriftung vertauscht. Der Wert ist deshalb als Biege-E-Modul geführt und gilt als schwach belegt.",
+               "The flexural modulus is filed under ISO 527, the standard for tensile testing. On this sheet ISO 527 already carries the two tensile rows above it — the standard has been copied downwards, rather than the label being wrong. The value is therefore held as flexural modulus and counts as weakly substantiated."),
   },
   {
     id: "formfutura-high-gloss-pla", material: "pla", name: "High Gloss PLA", doc: 256566, date: "23-08-2024", scan: true,
@@ -706,7 +740,7 @@ const P = [
       vicatB50: q(87, "°C", { std: "ISO 306/B50" }),
     },
     ul94: { value: "HB" },
-    features: t("Der zweite Beleg für HIPS im Bestand — bis hierher hing der Werkstofftyp an einem einzigen Produkt. Durchgehend ISO-Normen mit Methodenangabe (527-2/5, 306/B50), was auf den Blättern dieses Herstellers die Ausnahme ist.",
+    features: t("Der zweite Beleg für HIPS in der Datenbank — bis hierher hing der Werkstofftyp an einem einzigen Produkt. Durchgehend ISO-Normen mit Methodenangabe (527-2/5, 306/B50), was auf den Blättern dieses Herstellers die Ausnahme ist.",
                 "The second piece of evidence for HIPS in the dataset — until now the material type hung on a single product. ISO standards throughout with method suffixes (527-2/5, 306/B50), which is the exception on this manufacturer's sheets."),
     anomaly: t("Zwei Punkte. Die Wärmeformbeständigkeit ist nach ISO 75-2 Methode B geprüft — das sind 0,45 MPa, also HDT-B —, die Bedingungsspalte daneben sagt aber „HDT A“. Geführt ist sie nach der genannten Methode als HDT-B, mit `low`. Und Streckspannung und Bruchspannung sind beide mit 16 MPa angegeben; bei einem schlagzähmodifizierten Polystyrol, das sich vor dem Bruch merklich dehnt, wäre ein Unterschied zu erwarten.",
                "Two points. The heat deflection temperature is tested to ISO 75-2 method B — that is 0.45 MPa, so HDT-B — yet the condition column next to it says “HDT A”. It is held per the named method as HDT-B, with `low`. And yield stress and break stress are both given as 16 MPa; in an impact-modified polystyrene that stretches noticeably before breaking, a difference would be expected."),
@@ -746,13 +780,13 @@ const P = [
     id: "formfutura-carbonfil", material: "petg-cf", name: "CarbonFil", doc: 256493, date: "23-08-2024", scan: true,
     props: {
       density: q(1.32, "g/cm³", { std: "ISO 1183" }),
-      charpyNotchedXy: q(5.4, "kJ/m²", { std: "ISO 179-1eU", conditions: "Blattangabe „Charpy notched“; das Normsuffix eU bezeichnet den UNGEKERBTEN Versuch", orientation: "XY", confidence: "low" }),
+      charpyNotchedXy: q(5.4, "kJ/m²", { conditions: COND_1EU, orientation: "XY", confidence: "low" }),
       tensileStrengthXy: q(45, "MPa", { std: "ISO 527-1", conditions: "bei Bruch", orientation: "XY" }),
       elongationAtBreakXy: q(4.9, "%", { std: "ISO 527-1", orientation: "XY" }),
       flexuralModulusXy: q(4250, "MPa", { std: "im Blatt als ISO 527-1 angegeben; für die Biegung wäre ISO 178 einschlägig", orientation: "XY", confidence: "low" }),
       vicatA: q(80, "°C", { std: "ISO 306", conditions: "Methode nicht genannt", confidence: "low" }),
     },
-    features: t("Das Blatt nennt den Faseranteil ausdrücklich: 15 % Kohlenstofffaser in PETG. Damit ist es der einzige PETG-CF-Datensatz im Bestand mit deklariertem Fasergehalt — bei Bambu ist er undeklariert, bei Flashforge liegt er bei 10 %. Für die Vergleichbarkeit gefüllter Typen ist genau diese Angabe die wichtigste.",
+    features: t("Das Blatt nennt den Faseranteil ausdrücklich: 15 % Kohlenstofffaser in PETG. Damit ist es der einzige PETG-CF-Eintrag in der Datenbank mit deklariertem Fasergehalt — bei Bambu ist er undeklariert, bei Flashforge liegt er bei 10 %. Für die Vergleichbarkeit gefüllter Typen ist genau diese Angabe die wichtigste.",
                 "The sheet states the fibre content explicitly: 15 % carbon fibre in PETG. It is thereby the only PETG-CF record in the dataset with a declared fibre content — Bambu leaves it undeclared, Flashforge states 10 %. For comparing filled grades this is the single most important statement."),
     anomaly: t("Drei Punkte. Erstens widerspricht der Fließtext der eigenen Tabelle: „10 % more impact resistant than HDglass“ steht über einem Schlagwert von 5,4 kJ/m², während das HDglass desselben Herstellers 7,2 kJ/m² ausweist — das sind 25 % WENIGER, nicht 10 % mehr. Zweitens ist die Schlagzähigkeit als „Charpy notched“ bezeichnet, das Normsuffix ISO 179-1eU steht aber für den ungekerbten Versuch. Drittens trägt der Biege-E-Modul die Norm ISO 527-1, die auf diesem Blatt schon über den beiden Zugzeilen steht und offensichtlich nach unten kopiert wurde; geführt ist der Wert nach seiner Beschriftung als Biege-E-Modul, mit `low`.",
                "Three points. First, the body text contradicts its own table: “10 % more impact resistant than HDglass” sits above an impact figure of 5.4 kJ/m², while the same manufacturer's HDglass states 7.2 kJ/m² — that is 25 % LESS, not 10 % more. Second, the impact strength is labelled “Charpy notched” but the standard suffix ISO 179-1eU denotes the unnotched test. Third, the flexural modulus carries the standard ISO 527-1, which on this sheet already sits above the two tensile rows and has evidently been copied downwards; the value is held per its label as flexural modulus, with `low`."),
@@ -773,7 +807,7 @@ for (const p of P) {
   const parts = [p.lehvoss ? MOULDED : UNDECLARED];
   if (p.scan) parts.push(SCANNED);
   if (p.anomaly) {
-    parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`));
+    parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`, `Note on this datasheet: ${p.anomaly.en}`));
   }
 
   const rec = {
@@ -822,13 +856,13 @@ for (const p of P) {
         retrievedAt: RETRIEVED,
         confidenceCeiling: p.lehvoss ? "high" : "medium",
         note: p.lehvoss
-          ? t("Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
-              "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset.")
+          ? t("Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm und Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — in der Datenbank die Ausnahme.",
+              "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard and specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset.")
           : p.scan
             ? t("Herstellerdatenblatt OHNE Textebene — die Seite ist ein Bild. Werte aus einem 200-dpi-Rendering abgelesen, nicht maschinell extrahiert. Prüfkörper nicht deklariert.",
                 "Manufacturer datasheet WITHOUT a text layer — the page is an image. Values read from a 200 dpi rendering, not extracted mechanically. Specimen not declared.")
-            : t("Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-                "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."),
+            : t("Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+                "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."),
       }],
     },
   };
@@ -842,7 +876,7 @@ for (const p of P) {
 }
 
 console.log(`${n} FormFutura-Produkte geschrieben (${nm} davon LUVOCOM 3F von Lehvoss).`);
-console.log(`  ${na} mit eigenem Befund · ${nu} mit UL94-Angabe · ${nm} mit deklariertem Pruefkoerper (moulded)\n`);
+console.log(`  ${na} mit eigenem Hinweis · ${nu} mit UL94-Angabe · ${nm} mit deklariertem Pruefkoerper (moulded)\n`);
 console.log("  Werkstofftyp   Produkte");
 for (const [m, c] of [...byMaterial.entries()].sort((a, b) => b[1] - a[1])) {
   console.log(`  ${m.padEnd(14)}${String(c).padStart(4)}`);
@@ -855,4 +889,4 @@ console.log("      EasyFil ePLA = Galaxy PLA                          (zwei Prod
 console.log("    Aufgenommen sind sie trotzdem - sie zaehlen als EIN Beleg, und jeder Satz sagt das.");
 console.log("\n  Nicht importiert:");
 console.log("    7 Blaetter ohne Werkstofftyp in dieser Datenbank (PEEK x2, PEI x2, PCL x2, BVOH)");
-console.log("    2 Blaetter ohne passenden Variantentyp (AthenaX CF10 -> pctg-cf, Kratos PC CF10 -> pc-cf)");
+console.log("    1 Blatt ohne passenden Variantentyp (Kratos PC CF10 -> pc-cf, abgelehnt: Tabelle des ungefuellten PC)");

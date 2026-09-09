@@ -9,11 +9,11 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Siehe den Befund beim STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C und gekerbte Schlagzähigkeit 4 kJ/m² sind auf beiden Blättern identisch, obwohl Fasertyp und Fasergehalt sich deutlich unterscheiden. Die drei Werte tragen deshalb `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: See the finding on the STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C and notched impact strength 4 kJ/m² are identical on both sheets although fibre type and fibre content differ markedly. The three values therefore carry `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Siehe den Hinweis beim STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C und gekerbte Schlagzähigkeit 4 kJ/m² sind auf beiden Blättern identisch, obwohl Fasertyp und Fasergehalt sich deutlich unterscheiden. Die drei Werte gelten deshalb als schwach belegt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: See the note on the STYX PA6-CF15: HDT-B 180 °C, HDT-A 65 °C and notched impact strength 4 kJ/m² are identical on both sheets although fibre type and fibre content differ markedly. The three values therefore count as weakly substantiated."
   },
   "features": {
-    "de": "Der bislang einzige zweite Beleg für PA6-GF im Bestand. Aufschlussreich ist der Vergleich mit dem PA6-CF15 desselben Herstellers: 30 % Glasfaser bringen 5500 MPa, 15 % Kohlenstofffaser 9000 MPa. Die doppelte Fasermenge des billigeren Werkstoffs erreicht nicht zwei Drittel der Steifigkeit — dafür bleibt die ungekerbte Schlagzähigkeit bei 25 statt 60 kJ/m².",
+    "de": "Der bislang einzige zweite Beleg für PA6-GF in der Datenbank. Aufschlussreich ist der Vergleich mit dem PA6-CF15 desselben Herstellers: 30 % Glasfaser bringen 5500 MPa, 15 % Kohlenstofffaser 9000 MPa. Die doppelte Fasermenge des billigeren Werkstoffs erreicht nicht zwei Drittel der Steifigkeit — dafür bleibt die ungekerbte Schlagzähigkeit bei 25 statt 60 kJ/m².",
     "en": "So far the only second piece of evidence for PA6-GF in the dataset. The comparison with the same manufacturer's PA6-CF15 is instructive: 30 % glass fibre yields 5500 MPa, 15 % carbon fibre 9000 MPa. Twice the fibre load of the cheaper material does not reach two thirds of the stiffness — in exchange the unnotched impact stays at 25 instead of 60 kJ/m²."
   },
   "datasheet": {
@@ -97,11 +97,10 @@
     "charpyNotchedXy": {
       "value": 4,
       "unit": "kJ/m²",
-      "testStandard": "ISO 179/1eU",
-      "conditions": "23 °C, gekerbt",
+      "conditions": "Blattangabe „Charpy notched“; dieselbe Zeile zitiert die ungekerbte Norm ISO 179/1eU wie die Zeile darüber — im Blatt übernommen. Der Wert steht deshalb ohne Norm und mit LOW.",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtB": {
       "value": 180,
@@ -134,8 +133,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

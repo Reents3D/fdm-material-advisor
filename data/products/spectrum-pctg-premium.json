@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Das dritte PCTG-Blatt im Bestand mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
+    "de": "Das dritte PCTG-Blatt in der Datenbank mit praktisch identischen Zahlen — 44/46 MPa, 220 % Bruchdehnung, 1600 MPa Biegemodul, HDT 76/64 °C stehen wortgleich auch bei 3DJAKE und Fiberlogy. Drei Marken, ein Granulat. Solche Dreifachbestätigungen sind selten und machen die Werte belastbarer als jede Einzelquelle.",
     "en": "The third PCTG sheet in the dataset with practically identical figures — 44/46 MPa, 220 % elongation at break, 1600 MPa flexural modulus, HDT 76/64 °C appear verbatim at 3DJAKE and Fiberlogy too. Three brands, one pellet grade. Such triple confirmations are rare and make the values more dependable than any single source."
   },
   "datasheet": {
@@ -119,8 +119,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "8 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: 3DJAKE 3DJAKE PCTG · FormFutura AthenaX. Damit sind es nicht 3 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "8 values in this record appear identically at: 3DJAKE 3DJAKE PCTG · FormFutura AthenaX. That makes them not 3 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "8 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei 3DJAKE 3DJAKE PCTG · FormFutura AthenaX. Es handelt sich also nicht um 3 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "8 values on this datasheet appear digit for digit at 3DJAKE 3DJAKE PCTG · FormFutura AthenaX as well. They are therefore not 3 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

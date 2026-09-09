@@ -78,7 +78,7 @@ const C = [
   { id: "chem_steam", cat: "wasser", agg: 4,
     name: t("Heißdampf", "Steam"),
     ex: t("Autoklav 121 °C, Dampfreiniger, Sterilisation", "Autoclave at 121 °C, steam cleaner, sterilisation"),
-    eff: t("Die Kombination aus Temperatur, Druck und Feuchte ist deutlich schärfer als heißes Wasser und schliesst fast alle Standardwerkstoffe aus.",
+    eff: t("Die Kombination aus Temperatur, Druck und Feuchte ist deutlich schärfer als heißes Wasser und schließt fast alle Standardwerkstoffe aus.",
            "The combination of temperature, pressure and moisture is far harsher than hot water and rules out almost every standard material."),
     note: t("Wo ein Werkstoff hierzu keinen belegten Wert hat, ist das kein Freibrief — bitte selbst prüfen.",
             "Where a material has no sourced value here, that is not a licence — please test it yourself.") },

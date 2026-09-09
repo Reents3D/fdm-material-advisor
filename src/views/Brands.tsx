@@ -229,7 +229,7 @@ export function Brands({ lang, params, navigate }: {
   );
 
   /* Werkstofftyp UND Produktauswahl stehen in der Adresszeile, nicht in `useState`.
-     Diese Ansicht heisst "Hersteller vergleichen" - ein Vergleich, den man nicht
+     Diese Ansicht heißt "Hersteller vergleichen" - ein Vergleich, den man nicht
      verlinken kann, taugt nicht zum Argumentieren (ADR-008). Alle Aenderungen gehen in
      EINEM Schreibvorgang raus, sonst liest der zweite Aufruf den alten Stand. */
   const setParams = (patch: Record<string, string | null>) => {
@@ -294,13 +294,13 @@ export function Brands({ lang, params, navigate }: {
         }>
         <p className="leading-relaxed max-w-3xl">
           {lang === "de"
-            ? "Dieselbe Zeile bedeutet bei zwei Herstellern nicht dasselbe. Bambu Lab und Prusa Polymers messen an gedruckten Prüfkörpern, Extrudr und 3DJAKE sagen gar nicht, woran gemessen wurde. In einer gemeinsamen Rangliste wären diese Zahlen irreführend — deshalb stehen sie hier getrennt."
-            : "The same row does not mean the same thing for two manufacturers. Bambu Lab and Prusa Polymers measure on printed specimens; Extrudr and 3DJAKE do not state what was measured at all. In a shared ranking these figures would mislead — hence the separation."}
+            ? "Dieselbe Zeile bedeutet bei zwei Herstellern nicht dasselbe. Bambu Lab und Prusa Polymers messen an gedruckten Prüfkörpern, Extrudr und 3DJAKE sagen gar nicht, woran gemessen wurde. In einer gemeinsamen Rangliste wären diese Zahlen irreführend; deshalb stehen sie hier getrennt."
+            : "The same row does not mean the same thing for two manufacturers. Bambu Lab and Prusa Polymers measure on printed specimens; Extrudr and 3DJAKE do not state what was measured at all. In a shared ranking these figures would mislead, hence the separation."}
         </p>
         <p className="leading-relaxed max-w-3xl mt-3">
           {lang === "de"
-            ? "Die Angabe allein reicht allerdings nicht. AzureFilm deklariert gedruckte Prüfkörper und nennt als einziger Hersteller die vollständigen Druckparameter — und genau dadurch wird sichtbar, dass PLA, PLA Silk und ASA mit nur 20 % Infill geprüft wurden. Ein Kennwert aus einem halb gefüllten Prüfkörper beschreibt eine Geometrie, keinen Werkstoff. Deshalb steht die Prüfbedingung hier an jedem einzelnen Wert und nicht nur in einer Fussnote."
-            : "The declaration alone is not enough. AzureFilm declares printed specimens and is the only manufacturer to state the full print parameters — which is precisely what reveals that PLA, PLA Silk and ASA were tested at only 20 % infill. A value from a half-filled specimen describes a geometry, not a material. That is why the test condition appears here on every single value, not just in a footnote."}
+            ? "Die Angabe allein reicht allerdings nicht. AzureFilm deklariert gedruckte Prüfkörper und nennt als einziger Hersteller die vollständigen Druckparameter. Genau dadurch wird sichtbar, dass PLA, PLA Silk und ASA mit nur 20 % Infill geprüft wurden. Ein Kennwert aus einem halb gefüllten Prüfkörper beschreibt eine Geometrie, keinen Werkstoff. Deshalb steht die Prüfbedingung hier an jedem einzelnen Wert und nicht nur in einer Fußnote."
+            : "The declaration alone is not enough. AzureFilm declares printed specimens and is the only manufacturer to state the full print parameters. That is precisely what reveals that PLA, PLA Silk and ASA were tested at only 20 % infill. A value from a half-filled specimen describes a geometry, not a material. That is why the test condition appears here on every single value, not just in a footnote."}
         </p>
 
         {/* Der beste Beleg fuer die These dieses Werkzeugs stammt von einem Rohstoffhersteller
@@ -308,7 +308,7 @@ export function Brands({ lang, params, navigate }: {
         <div className="mt-4 pt-4 border-t border-hairline dark:border-[#1E2B3D]">
           <p className="leading-relaxed max-w-3xl">
             {lang === "de"
-              ? "Wie gross der Unterschied ist, beziffert ein Rohstoffhersteller selbst. Shenzhen Zhinengpai stellt in einem PLA-Datenblatt beide Spalten nebeneinander — dasselbe Material, einmal gedruckt (210 °C, 0,4 mm Düse, 2 Perimeter, 100 % Infill), einmal spritzgegossen:"
+              ? "Wie groß der Unterschied ist, beziffert ein Rohstoffhersteller selbst. Shenzhen Zhinengpai stellt in einem PLA-Datenblatt beide Spalten nebeneinander — dasselbe Material, einmal gedruckt (210 °C, 0,4 mm Düse, 2 Perimeter, 100 % Infill), einmal spritzgegossen:"
               : "How large the difference is has been quantified by a raw-material producer itself. Shenzhen Zhinengpai places both columns side by side in one PLA datasheet — the same material, once printed (210 °C, 0.4 mm nozzle, 2 perimeters, 100 % infill), once injection moulded:"}
           </p>
           <div className="overflow-x-auto mt-3">
@@ -477,13 +477,29 @@ function Group({ title, products, lang }: { title: string; products: Product[]; 
                     <td key={p.id} className="py-2 px-3 align-top">
                       {v ? (
                         <>
-                          <span className={cx("tabular-nums font-medium", v.confidence === "low" && "estimated")}>
+                          {/* Eine bestrittene Zahl steht im Blatt und wird nicht mitgerechnet
+                              (ADR-042). Sie hier ungekennzeichnet zu zeigen wäre das Schlimmste
+                              von beidem: Der Leser hielte sie für belastbar, und die Notiz, die
+                              den Befund trägt, stünde nur in der Datei. */}
+                          <span className={cx("tabular-nums font-medium",
+                            v.confidence === "low" && "estimated",
+                            v.disputed && "line-through decoration-warn decoration-2 opacity-60")}>
                             {fmt(v.value)}
                           </span>
                           <span className="muted text-xs ml-0.5">{v.unit}</span>
                           {v.tolerance ? <span className="muted text-xs"> ±{fmt(v.tolerance)}</span> : null}
                           {v.min != null && v.max != null && v.min !== v.max && (
                             <span className="muted text-xs"> ({fmt(v.min)}–{fmt(v.max)})</span>
+                          )}
+                          {v.disputed && (
+                            <span className="block text-[11px] mt-0.5 font-medium text-warn">
+                              {lang === "de" ? "bestritten — nicht mitgerechnet" : "disputed — not aggregated"}
+                            </span>
+                          )}
+                          {v.note && (
+                            <span className="block text-[11px] mt-0.5 text-warn/90 max-w-[13rem] leading-snug">
+                              {v.note[lang]}
+                            </span>
                           )}
                           {v.testStandard && <span className="block text-[11px] muted mt-0.5">{v.testStandard}</span>}
                           {/* Nur abweichende Bedingungen — die Spaltenvorgabe steht im Kopf. */}

@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nBefund zu diesem Datenblatt: Wie bei PLA Glow steht die Schlagzähigkeit in Z höher als in X-Y (8,5 gegen 6,7 kJ/m²), hier weniger deutlich. Der Z-Wert trägt `low`.",
-    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nFinding on this datasheet: As with PLA Glow the impact strength is stated higher in Z than in X-Y (8.5 against 6.7 kJ/m²), less markedly here. The Z value carries `low`."
+    "de": "Prüfkörper gedruckt: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.\n\nHinweis zu diesem Datenblatt: Wie bei PLA Glow steht die Schlagzähigkeit in Z höher als in X-Y (8,5 gegen 6,7 kJ/m²), hier weniger deutlich. Der Z-Wert gilt deshalb als schwach belegt.",
+    "en": "Specimens printed: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen.\n\nNote on this datasheet: As with PLA Glow the impact strength is stated higher in Z than in X-Y (8.5 against 6.7 kJ/m²), less markedly here. The Z value therefore counts as weakly substantiated."
   },
   "features": {
     "de": "Das festeste PLA der Bambu-Reihe: 55,4 MPa gegen 39 bei PLA Basic, bei zugleich 11 % Bruchdehnung. Ein durchscheinender Werkstoff, der mechanisch über dem Standardtyp liegt, ist ungewöhnlich — Transparenz kostet sonst Festigkeit.",

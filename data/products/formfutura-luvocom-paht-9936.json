@@ -9,8 +9,8 @@
   "origin": "Deutschland",
   "specimenType": "moulded",
   "specimenNote": {
-    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil NICHT erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.",
-    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and NOT achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values."
+    "de": "Das Blatt deklariert den Prüfkörper ausdrücklich als „MPTS ISO 3167 A“ — den spritzgegossenen Mehrzweckprüfkörper. Diese Werte sind Rohstoffkennwerte und von einem gedruckten Bauteil nicht erreichbar; die Schichtstruktur kostet je nach Werkstoff und Richtung ein Drittel bis die Hälfte. Sie dürfen nicht gegen gedruckte Werte gestellt werden.",
+    "en": "The sheet declares the specimen explicitly as “MPTS ISO 3167 A” — the injection-moulded multi-purpose specimen. These are raw-material values and not achievable by a printed part; the layer structure costs a third to a half depending on material and direction. They must not be set against printed values."
   },
   "features": {
     "de": "Die Dauergebrauchstemperatur steht hier MIT Zeitbasis: 120 °C über 20.000 Stunden nach IEC 60216, kurzzeitig 160 °C für höchstens 200 Stunden über die gesamte Lebensdauer. Genau diese Trennung fehlt fast überall — eine Temperaturangabe ohne Zeitbasis ist für die Auslegung eines dauerwarmen Bauteils wertlos. Dazu 90 kJ/m² ungekerbte Schlagzähigkeit bei 78 MPa Festigkeit.",
@@ -130,8 +130,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm UND Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — im Bestand die Ausnahme.",
-          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard AND specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
+          "de": "Herstellerdatenblatt der Lehvoss Group mit Textebene. Prüfnorm und Prüfkörper deklariert (MPTS ISO 3167 A, spritzgegossen) — in der Datenbank die Ausnahme.",
+          "en": "Manufacturer datasheet from the Lehvoss Group with text layer. Test standard and specimen declared (MPTS ISO 3167 A, injection-moulded) — the exception in this dataset."
         }
       }
     ]

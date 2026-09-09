@@ -24,6 +24,19 @@ const chemLabel = (id: string, lang: Lang) => {
   return c ? text(c.name, lang) : id;
 };
 
+/* Die Obergrenze einer Quelle stand bisher als roher Schlüssel („max. medium") auf der
+   Karte. Der Leser bekommt dieselbe Wortwahl wie an den Werten selbst. */
+const ceilingLabel = (c: string, lang: Lang): string => {
+  const de: Record<string, string> = {
+    high: "bis mehrfach belegt", medium: "bis einfach belegt", low: "höchstens schwach belegt", estimated: "nur Schätzung",
+  };
+  const en: Record<string, string> = {
+    high: "up to substantiated by several sources", medium: "up to substantiated by one source",
+    low: "at most weakly substantiated", estimated: "estimate only",
+  };
+  return (lang === "de" ? de : en)[c] ?? c;
+};
+
 const isQ = (v: unknown): v is Quantity => !!v && typeof v === "object" && "unit" in (v as object);
 const isR = (v: unknown): v is Rating => !!v && typeof v === "object" && "scale" in (v as object);
 
@@ -125,6 +138,12 @@ export function Detail({ id, t, lang, navigate, state, update }: {
           maxSensibleEdgeMm: (m.commercial as { xxl?: { maxSensibleEdgeMm?: unknown } })?.xxl?.maxSensibleEdgeMm,
           maxSpoolWeightKg: (m.commercial as { xxl?: { maxSpoolWeightKg?: unknown } })?.xxl?.maxSpoolWeightKg,
           largeSpoolShare: (m.commercial as { xxl?: { largeSpoolShare?: unknown } })?.xxl?.largeSpoolShare,
+          /* Werkstatterfahrung: Bei diesen Werkstoffen wird 100 % Fuellung im Grossformat
+             zum Problem. Der Hinweis steht neben der Kantenlaenge, weil er nur dort gilt -
+             im normalen Format ist mehr Fuellung unbedenklich. Ein Feld, das niemand
+             anzeigt, ist eine Karteileiche; genau deshalb ist `segmentationRecommended`
+             am selben Tag geflogen. */
+          infillWarningXxl: (m.commercial as { xxl?: { infillWarningXxl?: unknown } })?.xxl?.infillWarningXxl,
         }}
         lang={lang} t={t} lab={false} />
 
@@ -137,7 +156,7 @@ export function Detail({ id, t, lang, navigate, state, update }: {
               <div className="flex flex-wrap items-baseline gap-2">
                 <span className="font-medium">{s.publisher}</span>
                 <Chip tone="neutral">{s.type}</Chip>
-                <span className="text-xs muted">max. {s.confidenceCeiling}</span>
+                <span className="text-xs muted">{ceilingLabel(s.confidenceCeiling, lang)}</span>
               </div>
               <div className="text-sm mt-0.5">{s.title}{s.documentVersion ? ` (${s.documentVersion})` : ""}</div>
               {s.url && (
@@ -333,9 +352,10 @@ const LABELS: Record<string, [string, string]> = {
   priceIndex: ["Preisniveau (abgeleitet)", "Price level (derived)"],
   availability: ["Verfügbarkeit", "Availability"],
   smallSeriesSuitability: ["Kleinserientauglichkeit", "Small-series suitability"],
-  maxSensibleEdgeMm: ["Kante ohne Sonderaufwand", "Edge without special effort"],
+  maxSensibleEdgeMm: ["Großformat: bewährte Kantenlänge", "Large format: proven edge length"],
   maxSpoolWeightKg: ["Größte Spule am Markt", "Largest spool on the market"],
   largeSpoolShare: ["Angebote ab 2 kg", "Offers from 2 kg"],
+  infillWarningXxl: ["100 % Füllung im XXL-Format kritisch", "100 % infill critical at XXL scale"],
   bioBasedContent: ["Biobasierter Anteil", "Bio-based content"],
 
   density: ["Dichte", "Density"],

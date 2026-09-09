@@ -133,6 +133,6 @@ if (skipped.length) {
   for (const [id, why] of skipped) console.log(`    ${id.padEnd(13)} ${why}`);
 }
 console.log(
-  `\n  Schwellen: mindestens ${MIN_PRODUCTS} Produkte UND ${MIN_SPOOLS} Spulen.` +
+  `\n  Schwellen: mindestens ${MIN_PRODUCTS} Produkte und ${MIN_SPOOLS} Spulen.` +
     "\n  Zwei Zaehlungen, weil zwei Produkte mit je zwoelf Farben sonst wie ein Markt aussehen.",
 );

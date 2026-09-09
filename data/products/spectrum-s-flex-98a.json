@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that two other sheets from the same manufacturer (PLA Pro and PLA Matt) do so explicitly — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Ein Elastomerblatt, wie es sein sollte: Spannung bei definierter Dehnung (15,4 MPa bei 100 %, 25 MPa bei 300 %), Abrieb, Druckverformungsrest bei zwei Bedingungen und Rückprallelastizität. Genau diese Grössen entscheiden bei einer Dichtung oder einem Dämpfer — und genau sie fehlen in fast allen TPU-Blättern.",
+    "de": "Ein Elastomerblatt, wie es sein sollte: Spannung bei definierter Dehnung (15,4 MPa bei 100 %, 25 MPa bei 300 %), Abrieb, Druckverformungsrest bei zwei Bedingungen und Rückprallelastizität. Genau diese Größen entscheiden bei einer Dichtung oder einem Dämpfer — und genau sie fehlen in fast allen TPU-Blättern.",
     "en": "An elastomer sheet as it should be: stress at defined strain (15.4 MPa at 100 %, 25 MPa at 300 %), abrasion, compression set at two conditions and rebound resilience. Precisely these figures decide the matter for a seal or a damper — and precisely they are missing from almost every TPU sheet."
   },
   "datasheet": {

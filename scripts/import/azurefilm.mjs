@@ -71,7 +71,7 @@ const P = [
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
     anomaly: INFILL_FINDING,
-    features: t("AzureFilm legt die vollständigen Druckparameter der Prüfkörper offen — Drucker, Slicer, Düse, Schichthöhe, Infill und Geschwindigkeit. Das tun ausser AzureFilm nur wenige, Fillamentum etwa. Genau diese Offenlegung macht hier überhaupt sichtbar, dass die Werte nicht als Werkstoffkennwerte gelesen werden dürfen.",
+    features: t("AzureFilm legt die vollständigen Druckparameter der Prüfkörper offen — Drucker, Slicer, Düse, Schichthöhe, Infill und Geschwindigkeit. Das tun außer AzureFilm nur wenige, Fillamentum etwa. Genau diese Offenlegung macht hier überhaupt sichtbar, dass die Werte nicht als Werkstoffkennwerte gelesen werden dürfen.",
                 "AzureFilm discloses the full print parameters of its specimens — printer, slicer, nozzle, layer height, infill and speed. Few others do, Fillamentum among them. It is precisely that disclosure which makes it visible here that the values must not be read as material data.") },
 
   { id: "azurefilm-pla-silk", material: "pla", name: "AzureFilm PLA Silk",
@@ -156,8 +156,8 @@ for (const p of P) {
     brand: "AzureFilm", manufacturer: "AzureFilm d.o.o.", productName: p.name, origin: "Slowenien",
     specimenType: p.specimen,
     specimenNote: p.anomaly
-      ? t(`${SPECIMEN_NOTE.de}\n\nBefund zu diesem Datenblatt: ${p.anomaly.de}`,
-          `${SPECIMEN_NOTE.en}\n\nFinding on this datasheet: ${p.anomaly.en}`)
+      ? t(`${SPECIMEN_NOTE.de}\n\nHinweis zu diesem Datenblatt: ${p.anomaly.de}`,
+          `${SPECIMEN_NOTE.en}\n\nNote on this datasheet: ${p.anomaly.en}`)
       : SPECIMEN_NOTE,
     ...(p.features ? { features: p.features } : {}),
     datasheet: { title: `${p.name} — Technical Data Sheet`, url: p.url, retrievedAt: RETRIEVED },
@@ -171,8 +171,8 @@ for (const p of P) {
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url: p.url, retrievedAt: RETRIEVED,
         confidenceCeiling: p.anomaly ? "low" : "medium",
-        note: t("Herstellerdatenblatt mit deklarierten Prüfkörper-Druckparametern. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, sind die Kennwerte keine Werkstoffkennwerte — das Ceiling steht dort auf 'low'.",
-                "Manufacturer datasheet with declared specimen print parameters. Where the specimen was printed at 20 % infill the values are not material data — the ceiling is set to 'low' in those cases."),
+        note: t("Herstellerdatenblatt mit angegebenen Druckparametern der Prüfkörper. Wo der Prüfkörper mit 20 % Infill gedruckt wurde, beschreiben die Kennwerte die Geometrie mit und gelten deshalb nur als schwach belegt.",
+                "Manufacturer datasheet with the specimens' print parameters stated. Where the specimen was printed at 20 % infill, the values partly describe the geometry and therefore count as weakly substantiated."),
       }],
     },
   };
@@ -180,4 +180,4 @@ for (const p of P) {
   n++;
   if (p.anomaly) na++;
 }
-console.log(`${n} AzureFilm-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund)`);
+console.log(`${n} AzureFilm-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Hinweis)`);

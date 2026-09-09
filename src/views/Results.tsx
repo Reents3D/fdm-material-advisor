@@ -344,7 +344,6 @@ function Deltas({ title, rows, tone, t }: {
 const WARN_KEYS = new Set([
   "constraint.temperature.tight",
   "constraint.temperature.tightLoaded",
-  "constraint.size.effort",
   "constraint.flame.passViaProduct",
   "constraint.chamber.warn",
   "constraint.chemical.limited",

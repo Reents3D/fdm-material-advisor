@@ -13,7 +13,7 @@
  */
 
 import { CRITERIA, type Criterion } from "./criteria";
-import { creditable } from "./reliability";
+import { creditable, spanCredit } from "./reliability";
 import type { Confidence, CriterionScore, Material, Recommendation, Requirements } from "./types";
 
 export interface NormalisationTable {
@@ -53,14 +53,24 @@ export function scoreCriterion(
   table: NormalisationTable,
   weight: number,
 ): CriterionScore {
-  const { value, confidence } = c.extract(m);
+  const { value, confidence, min, max } = c.extract(m);
   if (value === null || !Number.isFinite(value)) {
     return { criterionId: c.id, score: null, raw: null, unit: c.unit, confidence: null, weight, evidence: c.evidence };
   }
-  const rank = percentileRank(value, table.values[c.id] ?? []);
+  const sorted = table.values[c.id] ?? [];
+  const rank = percentileRank(value, sorted);
+  const orient = (r: number) => (c.higherIsBetter ? r : 1 - r);
+
+  /* Die beobachtete Spanne, in Rangpunkten desselben Feldes ausgedrueckt. Erst so wird
+     vergleichbar, was 23 bis 63 MPa fuer die ENTSCHEIDUNG bedeuten - siehe spanCredit. */
+  const ends = min !== undefined && max !== undefined
+    ? [orient(percentileRank(min, sorted)), orient(percentileRank(max, sorted))].sort((a, b) => a - b)
+    : null;
+
+  const spread = spanCredit(c.id, orient(rank), ends?.[0] ?? null, ends?.[1] ?? null);
   /* Eine schwach belegte Angabe darf keine Staerke behaupten, die sie nicht zeigen kann.
      Der Abschlag ist gemessen, nicht gewaehlt - siehe reliability.ts und ADR-040. */
-  const { score, discounted } = creditable(c.id, confidence, c.higherIsBetter ? rank : 1 - rank);
+  const { score, discounted } = creditable(c.id, confidence, spread.score);
   return {
     criterionId: c.id,
     score,
@@ -70,6 +80,9 @@ export function scoreCriterion(
     weight,
     evidence: c.evidence,
     ...(discounted ? { discounted: true as const } : {}),
+    ...(spread.widelySpread ? { widelySpread: true as const } : {}),
+    ...(min !== undefined ? { spanMin: min } : {}),
+    ...(max !== undefined ? { spanMax: max } : {}),
   };
 }
 

@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit ist als „Izod“ bezeichnet, die Norm daneben lautet ISO 179 — das ist der Charpy-Versuch, Izod wäre ISO 180. Beide Versuche belasten den Prüfkörper unterschiedlich und liefern nicht dieselbe Zahl. Geführt als Charpy nach der genannten Norm, mit `low`. Zudem liegt die Vicat-Temperatur mit 77 °C UNTER der HDT-B von 78 °C; normalerweise liegt sie darüber.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The impact strength is labelled “Izod” while the standard next to it reads ISO 179 — that is the Charpy test, Izod would be ISO 180. The two tests load the specimen differently and do not give the same figure. Held as Charpy per the named standard, with `low`. The Vicat temperature of 77 °C moreover sits BELOW the HDT-B of 78 °C; normally it lies above."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die Schlagzähigkeit ist als „Izod“ bezeichnet, die Norm daneben lautet ISO 179 — das ist der Charpy-Versuch, Izod wäre ISO 180. Beide Versuche belasten den Prüfkörper unterschiedlich und liefern nicht dieselbe Zahl. Geführt als Charpy nach der genannten Norm, mit LOW. Zudem liegt die Vicat-Temperatur mit 77 °C unter der HDT-B von 78 °C; normalerweise liegt sie darüber.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The impact strength is labelled “Izod” while the standard next to it reads ISO 179 — that is the Charpy test, Izod would be ISO 180. The two tests load the specimen differently and do not give the same figure. Held as Charpy per the named standard, with LOW. The Vicat temperature of 77 °C moreover sits below the HDT-B of 78 °C; normally it lies above."
   },
   "features": {
     "de": "Glasfaser kostet hier die Zähigkeit fast vollständig: 8 % Bruchdehnung gegenüber 220 % beim unverstärkten AthenaX desselben Herstellers, also ein Achtundzwanzigstel. Die Wärmeformbeständigkeit steigt dabei um zwei Kelvin. Wer GF10 wegen der Temperatur wählt, hat den falschen Grund.",
@@ -29,7 +29,7 @@
       "unit": "g/cm³",
       "testStandard": "ASTM D792",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "tensileStrengthXy": {
       "value": 55,
@@ -38,7 +38,7 @@
       "conditions": "bei Streckgrenze",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "elongationAtBreakXy": {
       "value": 8,
@@ -46,7 +46,7 @@
       "testStandard": "ISO 527",
       "orientation": "XY",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "charpyUnnotchedXy": {
       "value": 45,
@@ -63,7 +63,7 @@
       "testStandard": "ISO 75",
       "conditions": "0,455 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "hdtA": {
       "value": 68,
@@ -71,7 +71,7 @@
       "testStandard": "ISO 75",
       "conditions": "1,82 MPa",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low"
     },
     "vicatB50": {
       "value": 77,
@@ -96,10 +96,28 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]
+  },
+  "sharedLineage": {
+    "with": [
+      "spectrum-pctg-gf10"
+    ],
+    "sharedFields": [
+      "charpyUnnotchedXy",
+      "density",
+      "elongationAtBreakXy",
+      "hdtA",
+      "hdtB",
+      "tensileStrengthXy",
+      "vicatB50"
+    ],
+    "note": {
+      "de": "7 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Spectrum Spectrum PCTG GF10. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "7 values on this datasheet appear digit for digit at Spectrum Spectrum PCTG GF10 as well. They are therefore not 2 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
+    }
   }
 }

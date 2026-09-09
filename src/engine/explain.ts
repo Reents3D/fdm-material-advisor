@@ -79,6 +79,27 @@ export function buildExplanations(
     });
   }
 
+  /* Eine breite Spanne ist keine Schwaeche des Werkstoffs, sondern eine Aussage ueber
+     den TYPNAMEN: Unter "PETG" verkaufen 17 Hersteller Rezepturen, deren Bruchdehnung
+     zwischen 5 und 150 % liegt. Wer das nicht erfaehrt, liest den Median als Zusage.
+     Deshalb steht der Hinweis auch dann, wenn das Kriterium eine Staerke ist (ADR-042). */
+  for (const c of byImportance) {
+    if (!c.widelySpread || c.spanMin === undefined || c.spanMax === undefined) continue;
+    const def = criterionById(c.criterionId);
+    const asPct = def?.displayAsPercent ? 100 : 1;
+    out.push({
+      type: "risk",
+      criterionId: c.criterionId,
+      key: "risk.wideSpread",
+      params: {
+        ...display(c),
+        min: round(c.spanMin * asPct),
+        max: round(c.spanMax * asPct),
+      },
+      evidence: c.evidence,
+    });
+  }
+
   /* constraints that only just hold */
   for (const v of verdicts) {
     if (!v.passed) continue;
@@ -109,9 +130,6 @@ export function buildExplanations(
        Ausweg: Kriechen haengt an der Spannung, und die senkt man mit Querschnitt. */
     if (v.key === "constraint.temperature.tightLoaded") {
       out.push({ type: "risk", key: "risk.temperatureLoaded", params: { ...v.params }, evidence: v.evidence });
-    }
-    if (v.key === "constraint.size.effort") {
-      out.push({ type: "risk", key: "risk.sizeEffort", params: { ...v.params }, evidence: v.evidence });
     }
     /* Wer die Brandschutzklasse nur ueber eine bestimmte Type erfuellt, MUSS das auf der
        Karte lesen. "PETG erfuellt V-0" ohne den Zusatz "aber nur diese eine Type" ist

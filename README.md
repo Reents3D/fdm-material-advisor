@@ -6,7 +6,7 @@ Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffene
 Materialberater mit einer offenen Datenbank, in der jeder Kennwert seine Quelle, seine
 Prüfnorm und seine Konfidenz mitführt.
 
-**42 Werkstofftypen · 240 Produkte von 16 Marken · 2.984 belegte Einzelaussagen ·
+**43 Werkstofftypen · 254 Produkte von 17 Marken · 3.182 belegte Einzelaussagen ·
 20 Anwendungsfälle · 21 Medien · 29 Glossareinträge**
 
 [![CI](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/Reents3D/fdm-material-advisor/actions/workflows/ci.yml)
@@ -26,33 +26,44 @@ Dieses Werkzeug ist um genau diese drei Probleme herum gebaut.
 
 ### 1. Sie zeigen Rohstoffwerte, nicht Bauteilwerte
 
-In den meisten Tabellen steht PLA mit 60 MPa. Hier steht es mit **35 MPa** — weil die
-zugrunde liegende Quelle **gedruckte** Prüfkörper misst, nicht spritzgegossene. Für ein
-FDM-Bauteil ist der gedruckte Wert der ehrliche.
+In den meisten Tabellen steht PLA mit einer Zahl. Hier steht es mit **45,8 MPa und der
+Spanne 23 bis 63** — dem Median aus 61 Herstellerdatenblättern, deren Prüfkörper überwiegend
+**gedruckt** sind statt spritzgegossen. Die Spanne ist dabei nicht der Fehlerbalken, sondern
+die Auskunft: „PLA" ist keine Rezeptur, sondern eine Familie, und welche Sie kaufen,
+entscheidet mehr als die Wahl des Polymers.
 
 ### 2. Sie verschweigen die Anisotropie
 
 Ein FDM-Bauteil ist senkrecht zur Schicht schwächer als in der Ebene. Wie viel schwächer,
 steht praktisch nirgends. Hier steht es überall dort, wo ein Hersteller den Z-Wert
-überhaupt angibt — bei 19 von 42 Werkstofftypen:
+überhaupt angibt — bei 21 von 43 Werkstofftypen:
 
-| Material | Zug X-Y | Zug Z | **bleibt in Z** |
-|---|---:|---:|---:|
-| TPU 85A | 12,0 MPa | 10,5 MPa | **88 %** |
-| PLA | 35 MPa | 31 MPa | **89 %** |
-| ABS | 33 MPa | 28 MPa | **85 %** |
-| PETG | 51 MPa | 35 MPa | **69 %** |
-| PETG-CF | 48 MPa | 38 MPa | **64 %** |
-| PLA-CF | 31 MPa | 15 MPa | **48 %** |
-| PA6-CF | 102 MPa | 48 MPa | **47 %** |
-| **PA6-GF** | **75 MPa** | **27 MPa** | **36 %** |
-| **PPA-CF** | **168 MPa** | **57 MPa** | **34 %** |
-| PPS-CF | 87 MPa | 24 MPa | **28 %** |
+| Material | **bleibt in Z** | beobachtete Spanne |
+|---|---:|---:|
+| PC | **90 %** | 84–97 % |
+| ABS | **85 %** | 72–100 % |
+| ASA | **84 %** | 68–103 % |
+| PLA | **72 %** | 32–89 % (20 Blätter) |
+| PETG | **69 %** | 56–82 % |
+| TPU 95A | **66 %** | 50–82 % (4 Blätter) |
+| PETG-CF | **64 %** | 56–75 % |
+| PA6-CF | **47 %** | 39–57 % |
+| PAHT-CF | **45 %** | 18–73 % (2 Blätter) |
+| **PA6-GF** | **36 %** | einzelnes Blatt |
+| **PPA-CF** | **34 %** | einzelnes Blatt |
+| PPS-CF | **28 %** | einzelnes Blatt |
 
 Die faserverstärkten Hochleistungswerkstoffe verlieren senkrecht zur Schicht **die Hälfte
 bis fast drei Viertel** ihrer Festigkeit. Bei der Schlagzähigkeit ist der Einbruch noch
-drastischer. Wer PPS-CF wegen der 87 MPa wählt und das Bauteil falsch orientiert, bekommt
-24 — weniger als ein ABS.
+drastischer. Wer PPS-CF wegen seiner Zugfestigkeit wählt und das Bauteil falsch orientiert,
+bekommt gut ein Viertel davon — weniger als ein ABS.
+
+**Warum hier kein „X-Y geteilt durch Z" steht.** Der Faktor wird immer aus BEIDEN Werten
+EINES Datenblattes gerechnet, nie aus dem X-Y-Wert des einen und dem Z-Wert des anderen —
+das wäre eine Phantasiezahl (Regel R10). Die Werkstoffwerte daneben sind dagegen Mediane
+über alle Blätter des Typs (ADR-042). Beide Zahlen sind richtig und lassen sich trotzdem
+nicht ineinander umrechnen; deshalb steht hier der Faktor mit seiner Spanne statt einer
+Division, die nicht aufginge.
 
 Die beiden Enden der Tabelle zeigen denselben Mechanismus von zwei Seiten. Fasern richten
 sich in Extrusionsrichtung aus und tragen quer dazu nichts bei — zwischen den Schichten
@@ -68,14 +79,14 @@ Z-Wert nicht.** Genau daran hängt die Aussage, um die es beim FDM geht.
 Eine vollständig gefüllte Tabelle sieht professionell aus. Sie ist meist geraten.
 
 Hier trägt jeder Wert eine Konfidenzstufe, und geschätzte Werte sind in der Oberfläche
-sichtbar markiert. Über die gesamte Datenbank, 2.984 Einzelaussagen:
+sichtbar markiert. Über die gesamte Datenbank, 3.182 Einzelaussagen:
 
 | Konfidenz | Anteil | bedeutet |
 |---|---:|---|
-| `high` | 2 % | Prüfbericht oder Normkonformitätserklärung |
-| `medium` | 23 % | Herstellerdatenblatt mit Prüfnorm |
-| `low` | 8 % | Datenblatt ohne Norm, eine einzige Quelle, oder eine Messung, die mehrere Marken teilen |
-| `estimated` | 68 % | begründete Ableitung, kein Messwert |
+| `high` | 1 % | Prüfbericht oder Normkonformitätserklärung |
+| `medium` | 21 % | Herstellerdatenblatt mit Prüfnorm |
+| `low` | 13 % | Datenblatt ohne Norm, eine einzige Quelle, eine Messung, die mehrere Marken teilen — oder ein Median, dessen Blätter weit auseinanderliegen |
+| `estimated` | 65 % | begründete Ableitung, kein Messwert |
 
 **Zwei Drittel sind Schätzungen.** Diese Zahl steht im Werkzeug auf jeder Ergebniskarte,
 nicht im Kleingedruckten. Und sie kostet: Der Eignungswert wird mit der Datenabdeckung
@@ -406,18 +417,20 @@ The interface switches to English in the header.
 An open-source FDM material advisor with an open database in which every property value
 carries its source, its test standard and a confidence rating.
 
-**41 material types · 168 products from 12 brands · 2,820 sourced statements ·
+**43 material types · 254 products from 17 brands · 3,182 sourced statements ·
 20 use cases · 21 media · 29 glossary entries**
 
 **What makes it different:**
 
-- **Printed specimens, not resin data.** PLA is listed at 35 MPa, not the 60 MPa found in
-  resin datasheets — because the underlying source tests printed specimens.
+- **Printed specimens, not resin data.** PLA is listed at 45.8 MPa with a range of 23–63 —
+  the median across 61 manufacturer datasheets, mostly measured on printed specimens. The
+  range is not an error bar, it is the answer: "PLA" is a family of formulations, and which
+  one you buy matters more than the choice of polymer.
 - **Anisotropy is reported.** How much strength remains perpendicular to the layers:
   between 28 % (PPS-CF) and 90 % (PC). Almost no comparable tool states this — and that
-  only 13 of 41 types carry a Z value at all is itself the finding.
-- **Estimated values are marked.** 69 % of statements in the database are flagged
-  estimates rather than measurements; 2 % come from test reports. That number is
+  only 21 of 43 types carry a Z value at all is itself the finding.
+- **Estimated values are marked.** 65 % of statements in the database are flagged
+  estimates rather than measurements; 1 % come from test reports. That number is
   displayed, not hidden — and it costs: the suitability score is multiplied by data
   coverage, so what is not documented is not credited.
 - **Limits that depend on the part, not the polymer.** A continuous service temperature

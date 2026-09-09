@@ -9,13 +9,13 @@
         "en": "Tensile strength"
       },
       "aliases": [
-        "Reissfestigkeit",
+        "Reißfestigkeit",
         "Tensile"
       ],
       "category": "mechanik",
       "unit": "MPa",
       "short": {
-        "de": "Die höchste Spannung, die ein Prüfstab aushält, bevor er nachgibt oder reisst.",
+        "de": "Die höchste Spannung, die ein Prüfstab aushält, bevor er nachgibt oder reißt.",
         "en": "The highest stress a test bar withstands before it yields or breaks."
       },
       "detail": {
@@ -23,7 +23,7 @@
         "en": "The most quoted value — and the most overrated. It describes a slow pull on a standard bar at room temperature. A part that takes impacts, vibrates, gets warm or has a notch fails well below it."
       },
       "pitfall": {
-        "de": "Höhere Zugfestigkeit heisst nicht robusteres Bauteil. PLA hat mehr Zugfestigkeit als ABS und zerspringt trotzdem beim ersten Sturz — dafür zählt die Schlagzähigkeit.",
+        "de": "Höhere Zugfestigkeit heißt nicht robusteres Bauteil. PLA hat mehr Zugfestigkeit als ABS und zerspringt trotzdem beim ersten Sturz — dafür zählt die Schlagzähigkeit.",
         "en": "Higher tensile strength does not mean a tougher part. PLA beats ABS on tensile strength and still shatters on the first drop — that is what impact strength is for."
       },
       "seeAlso": [
@@ -70,7 +70,7 @@
         "en": "Elongation at break"
       },
       "aliases": [
-        "Reissdehnung",
+        "Reißdehnung",
         "Dehnung"
       ],
       "category": "mechanik",
@@ -134,11 +134,11 @@
         "en": "How much energy a part absorbs before breaking under impact."
       },
       "detail": {
-        "de": "Gemessen mit einem Pendelhammer, entweder nach Charpy (liegend) oder Izod (eingespannt). GEKERBT heisst: Der Prüfstab hat eine eingefräste Kerbe — das simuliert eine scharfe Innenecke im Bauteil und liefert regelmässig nur einen Bruchteil des ungekerbten Wertes.",
+        "de": "Gemessen mit einem Pendelhammer, entweder nach Charpy (liegend) oder Izod (eingespannt). GEKERBT heißt: Der Prüfstab hat eine eingefräste Kerbe — das simuliert eine scharfe Innenecke im Bauteil und liefert regelmässig nur einen Bruchteil des ungekerbten Wertes.",
         "en": "Measured with a pendulum hammer, either Charpy (supported) or Izod (clamped). NOTCHED means the bar has a machined notch — this simulates a sharp internal corner and regularly yields a fraction of the unnotched value."
       },
       "pitfall": {
-        "de": "Gekerbte und ungekerbte Werte stehen oft in derselben Tabelle und unterscheiden sich um den Faktor zehn. Wer sie verwechselt, verschätzt sich um eine Grössenordnung. Für Bauteile mit Innenecken zählt der gekerbte Wert.",
+        "de": "Gekerbte und ungekerbte Werte stehen oft in derselben Tabelle und unterscheiden sich um den Faktor zehn. Wer sie verwechselt, verschätzt sich um eine Größenordnung. Für Bauteile mit Innenecken zählt der gekerbte Wert.",
         "en": "Notched and unnotched values often sit in the same table and differ by a factor of ten. Confusing them is an order-of-magnitude error. For parts with internal corners the notched value is the one that counts."
       },
       "seeAlso": [
@@ -256,7 +256,7 @@
         "en": "Cracks that only appear when internal stress and a medium act together."
       },
       "detail": {
-        "de": "Der heimtückischste Ausfallmechanismus: Weder die Last allein noch das Medium allein richten Schaden an. Polycarbonat reisst nach Wochen an einer Flächendesinfektion, die es beim Wischtest unbeschadet übersteht. Gedruckte Teile sind besonders anfällig, weil die Abkühlung Eigenspannungen einbaut.",
+        "de": "Der heimtückischste Ausfallmechanismus: Weder die Last allein noch das Medium allein richten Schaden an. Polycarbonat reißt nach Wochen an einer Flächendesinfektion, die es beim Wischtest unbeschadet übersteht. Gedruckte Teile sind besonders anfällig, weil die Abkühlung Eigenspannungen einbaut.",
         "en": "The most insidious failure mode: neither the load alone nor the medium alone does damage. Polycarbonate cracks after weeks against a surface disinfectant it survives unharmed in a wipe test. Printed parts are especially prone because cooling builds in residual stress."
       },
       "pitfall": {
@@ -314,7 +314,7 @@
         "en": "There are two load levels and they differ substantially. HDT-A tests at 1.8 MPa, HDT-B at 0.45 MPa — a quarter of the load. With semi-crystalline polyamides the two can be over 100 kelvin apart."
       },
       "pitfall": {
-        "de": "HDT-B ist die geschmeichelte Zahl, und genau die steht im Marketing. Ein Datenblatt, das HDT-A nennt, macht es sich schwerer und ist deshalb aussagekräftiger. Beides ist ausserdem KEINE Dauergebrauchstemperatur — die liegt deutlich darunter.",
+        "de": "HDT-B ist die geschmeichelte Zahl, und genau die steht im Marketing. Ein Datenblatt, das HDT-A nennt, macht es sich schwerer und ist deshalb aussagekräftiger. Beides ist außerdem KEINE Dauergebrauchstemperatur — die liegt deutlich darunter.",
         "en": "HDT-B is the flattering figure, and that is the one in the marketing. A datasheet stating HDT-A makes it harder for itself and is therefore more informative. Neither is a continuous service temperature — that lies well below."
       },
       "seeAlso": [
@@ -398,7 +398,7 @@
         "en": "The temperature a part withstands over its service life without losing properties."
       },
       "detail": {
-        "de": "Die einzige Grösse, die für die Auslegung wirklich taugt — und die fast kein Filamenthersteller angibt. Sie liegt deutlich unter HDT, weil hier nicht nur Erweichung zählt, sondern auch die langsame thermische Alterung.",
+        "de": "Die einzige Größe, die für die Auslegung wirklich taugt — und die fast kein Filamenthersteller angibt. Sie liegt deutlich unter HDT, weil hier nicht nur Erweichung zählt, sondern auch die langsame thermische Alterung.",
         "en": "The only figure genuinely suited to design work — and one almost no filament maker states. It sits well below HDT because it accounts not only for softening but also for slow thermal ageing."
       },
       "pitfall": {
@@ -430,7 +430,7 @@
         "en": "For some materials annealing changes the values dramatically. Extrudr PLA Tough jumps from 65 °C Vicat to over 150 °C; Bambu PET-CF and PA6-CF reach their datasheet values ONLY when annealed. Side effect: residual stress is relieved, which prevents stress cracking."
       },
       "pitfall": {
-        "de": "Ohne Umluftofen sind diese Werte schlicht nicht erreichbar. Deshalb fragt der Assistent danach — und blendet Werkstoffe aus, deren Zahlen ohne Ofen eine Illusion wären. Tempern kostet ausserdem Massgenauigkeit: Das Bauteil schrumpft.",
+        "de": "Ohne Umluftofen sind diese Werte schlicht nicht erreichbar. Deshalb fragt der Assistent danach — und blendet Werkstoffe aus, deren Zahlen ohne Ofen eine Illusion wären. Tempern kostet außerdem Massgenauigkeit: Das Bauteil schrumpft.",
         "en": "Without a convection oven these values are simply unattainable. That is why the wizard asks — and hides materials whose figures would be an illusion without one. Annealing also costs dimensional accuracy: the part shrinks."
       },
       "seeAlso": [
@@ -668,7 +668,7 @@
         "en": "The lifting of part corners because the plastic shrinks as it cools."
       },
       "detail": {
-        "de": "Der begrenzende Faktor bei grossen Bauteilen — nicht die Festigkeit. Je grösser die Grundfläche und je höher die Schwindung, desto stärker. Bei XXL-Teilen entscheidet die Verzugsneigung darüber, was in einem Stück überhaupt fertigbar ist.",
+        "de": "Der begrenzende Faktor bei großen Bauteilen — nicht die Festigkeit. Je größer die Grundfläche und je höher die Schwindung, desto stärker. Bei XXL-Teilen entscheidet die Verzugsneigung darüber, was in einem Stück überhaupt fertigbar ist.",
         "en": "The limiting factor for large parts — not strength. The larger the footprint and the higher the shrinkage, the worse. For XXL parts, warping tendency decides what can be produced in one piece at all."
       },
       "seeAlso": [
@@ -743,12 +743,12 @@
         "en": "Every value in this database carries where it came from and how dependable it is."
       },
       "detail": {
-        "de": "Vier Stufen: `high` (Herstellermessung an gedruckten Prüfkörpern), `medium` (Herstellerangabe ohne deklarierten Prüfkörper), `low` (belegt, aber mit dokumentiertem Vorbehalt), `estimated` (fachlich abgeleitet, ohne Primärquelle). Geschätzte Werte sind in der Oberfläche sichtbar markiert.",
-        "en": "Four levels: `high` (manufacturer measurement on printed specimens), `medium` (manufacturer figure without a declared specimen), `low` (sourced but with a documented caveat), `estimated` (professionally derived, no primary source). Estimated values are visibly marked in the interface."
+        "de": "Vier Stufen: mehrfach belegt (Herstellermessung an gedruckten Prüfkörpern), einfach belegt (Herstellerangabe ohne angegebenen Prüfkörper), schwach belegt (belegt, aber mit dokumentiertem Vorbehalt) und geschätzt (fachlich abgeleitet, ohne Primärquelle). Geschätzte Werte sind in der Oberfläche sichtbar markiert.",
+        "en": "Four levels: substantiated by several sources (manufacturer measurement on printed specimens), substantiated by one source (manufacturer figure without a stated specimen), weakly substantiated (sourced but with a documented caveat) and estimated (professionally derived, no primary source). Estimated values are visibly marked in the interface."
       },
       "pitfall": {
-        "de": "Rund zwei Drittel der Aussagen sind gekennzeichnete Schätzungen. Das klingt nach wenig — ist aber ehrlicher als eine Lücke, die im Filter wie eine Freigabe aussieht. Ein Wert mit Konfidenz `high` oder `medium` ohne echte Quelle bricht die automatische Prüfung.",
-        "en": "About two thirds of statements are flagged estimates. That sounds like little — but it is more honest than a gap that looks like a clearance in the filter. A value with confidence `high` or `medium` and no real source breaks the automated check."
+        "de": "Rund zwei Drittel der Aussagen sind gekennzeichnete Schätzungen. Das klingt nach wenig, ist aber ehrlicher als eine Lücke, die im Filter wie eine Freigabe aussieht. Ein als belegt geführter Wert ohne echte Quelle wird von der automatischen Prüfung zurückgewiesen.",
+        "en": "About two thirds of statements are flagged estimates. That sounds like little, but it is more honest than a gap that looks like a clearance in the filter. A value recorded as substantiated without a real source is rejected by the automated check."
       },
       "seeAlso": [
         "streuung",

@@ -81,7 +81,7 @@ const DIRECT = {
       "Lackierbar, aber nur mit geeignetem Haftvermittler — nicht mit jedem Grundierungssystem. Werkstatterfahrung Reents3D.",
       "Paintable, but only with a suitable adhesion promoter — not with every primer system. Reents3D shop-floor experience.")],
     bondability: [3, t(
-      "Braucht nach Werkstatterfahrung einen Haftvermittler. Die frühere 5 beruhte auf der Lösemittelschweissung mit Aceton — die funktioniert hervorragend, aber nur ABS auf ABS, nicht als allgemeine Fügung.",
+      "Braucht nach Werkstatterfahrung einen Haftvermittler. Die frühere 5 beruhte auf der Lösemittelschweißung mit Aceton — die funktioniert hervorragend, aber nur ABS auf ABS, nicht als allgemeine Fügung.",
       "Needs an adhesion promoter according to shop-floor experience. The earlier 5 rested on acetone solvent welding — excellent, but only ABS to ABS, not as general joining.")],
   },
   asa: {
@@ -89,13 +89,13 @@ const DIRECT = {
       "Lackierbar, aber nur mit geeignetem Haftvermittler — nicht mit jedem Grundierungssystem. Werkstatterfahrung Reents3D.",
       "Paintable, but only with a suitable adhesion promoter — not with every primer system. Reents3D shop-floor experience.")],
     bondability: [3, t(
-      "Braucht nach Werkstatterfahrung einen Haftvermittler. Die frühere 5 beruhte auf der Lösemittelschweissung mit Aceton — die funktioniert hervorragend, aber nur ASA auf ASA, nicht als allgemeine Fügung.",
+      "Braucht nach Werkstatterfahrung einen Haftvermittler. Die frühere 5 beruhte auf der Lösemittelschweißung mit Aceton — die funktioniert hervorragend, aber nur ASA auf ASA, nicht als allgemeine Fügung.",
       "Needs an adhesion promoter according to shop-floor experience. The earlier 5 rested on acetone solvent welding — excellent, but only ASA to ASA, not as general joining.")],
   },
 };
 
 /* Uebertragung auf Typen mit identischem Grundpolymer. Getrennt gefuehrt, weil sie NICHT
-   einzeln bestaetigt sind - sie tragen deshalb `low` und einen Vermerk. */
+   einzeln bestaetigt sind - sie gelten deshalb als schwach belegt und einen Vermerk. */
 const FAMILY = {
   petg: ["pctg", "esd-petg"],
   pla: ["pla-tough", "esd-pla"],
@@ -113,8 +113,8 @@ const SOURCE = {
   id: SRC, type: "field-experience", publisher: "Reents Technologies GmbH",
   title: "Werkstatterfahrung Reents3D — Lackierung und Fügung",
   retrievedAt: CONFIRMED, confidenceCeiling: "medium",
-  note: t("Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."),
+  note: t("Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409.",
+          "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409."),
 };
 
 const DERIVED_HINT = t(

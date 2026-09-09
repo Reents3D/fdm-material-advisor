@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit ist als „Izod Notched“ bezeichnet, die Norm daneben lautet ISO 179-1eA — das ist der Charpy-Versuch mit Kerbe A. Geführt als Charpy nach der genannten Norm, mit `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The impact strength is labelled “Izod Notched” while the standard next to it reads ISO 179-1eA — that is the Charpy test with notch A. Held as Charpy per the named standard, with `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die Schlagzähigkeit ist als „Izod Notched“ bezeichnet, die Norm daneben lautet ISO 179-1eA — das ist der Charpy-Versuch mit Kerbe A. Geführt als Charpy nach der genannten Norm, mit LOW.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The impact strength is labelled “Izod Notched” while the standard next to it reads ISO 179-1eA — that is the Charpy test with notch A. Held as Charpy per the named standard, with LOW."
   },
   "features": {
     "de": "Der Preis des Flammschutzes ist hier nachrechenbar: 3 kJ/m² gekerbte Schlagzähigkeit gegenüber 7,2 kJ/m² beim HDglass desselben Herstellers, und 40 MPa Streckspannung gegenüber 50 MPa. Flammschutzadditive stören die Molekülbeweglichkeit — das ist keine Rezepturschwäche, sondern der Mechanismus.",
@@ -86,8 +86,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

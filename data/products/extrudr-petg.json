@@ -9,7 +9,7 @@
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.",
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fußnote erst ab 4 mm Wanddicke geprüft.",
     "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote."
   },
   "features": {
@@ -58,7 +58,7 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 4.7,
       "unit": "kJ/m²",
       "testStandard": "ISO 180",
@@ -69,7 +69,7 @@
       "value": 78,
       "unit": "°C",
       "testStandard": "ISO 306",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -111,8 +111,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
         }
       }
     ]

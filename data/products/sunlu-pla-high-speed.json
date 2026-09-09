@@ -230,8 +230,8 @@
       "source": "src_tds",
       "confidence": "low",
       "note": {
-        "de": "HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt kein Prüfzeugnis und keine Prüfstelle, deshalb niedrige Konfidenz.",
-        "en": "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement. The sheet names no certificate and no test house, hence low confidence."
+        "de": "HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt; das ist kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt weder Prüfzeugnis noch Prüfstelle, die Angabe ist deshalb nur schwach belegt.",
+        "en": "HB is the lowest level of the UL94 scale and only means the material burns slowly; that is not flame retardancy in the sense of a rail or aerospace requirement. The sheet names neither a certificate nor a test house, so the statement is only weakly substantiated."
       }
     }
   },
@@ -249,8 +249,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'.",
-          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."
+          "de": "Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. Prüfkörper nicht angegeben; die Zeile zur Spritzguss-Schwindung deutet auf Rohstoffkennwerte hin, die Werte gelten deshalb als schwach belegt.",
+          "en": "Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. Specimen not stated; the injection-moulding shrinkage row points to raw-material values, so the figures count as weakly substantiated."
         }
       }
     ]

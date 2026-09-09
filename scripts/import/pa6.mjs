@@ -65,7 +65,7 @@ const material = {
     variant: ["basic"],
     aliases: ["Polyamid 6", "Nylon 6", "PA 6"],
     abstract: t(
-      "PA6 unverstärkt ist der zähe, verschleissfeste Grundtyp der Polyamidreihe: hohe Schlagzähigkeit, gute Gleiteigenschaften und Beständigkeit gegen Öle, Fette und Kraftstoffe. Der Preis dafür ist Wasser — PA6 nimmt bis zu 3 % auf und verändert dabei Steifigkeit, Mass und Glasübergangstemperatur. Im Druck heisst das: trocknen, trocken halten, beheizte Kammer.",
+      "PA6 unverstärkt ist der zähe, verschleißfeste Grundtyp der Polyamidreihe: hohe Schlagzähigkeit, gute Gleiteigenschaften und Beständigkeit gegen Öle, Fette und Kraftstoffe. Der Preis dafür ist Wasser — PA6 nimmt bis zu 3 % auf und verändert dabei Steifigkeit, Mass und Glasübergangstemperatur. Im Druck heißt das: trocknen, trocken halten, beheizte Kammer.",
       "Unfilled PA6 is the tough, wear-resistant base grade of the polyamide range: high impact strength, good sliding properties and resistance to oils, greases and fuels. The price is water — PA6 takes up to 3 % and changes stiffness, dimensions and glass transition in the process. In printing that means: dry it, keep it dry, heated chamber."),
     positioning: t(
       "Der zähe Grundtyp — wenn das Bauteil einstecken muss statt steif zu sein.",
@@ -75,7 +75,7 @@ const material = {
         "PA6-CF ist derselbe Grundwerkstoff mit rund 20 % Carbonfaser. Die Faser vervierfacht die Steifigkeit und hebt die Wärmeformbeständigkeit massiv — sie kostet aber genau das, wofür man unverstärktes PA6 nimmt: die Zähigkeit. Wer ein Bauteil braucht, das nachgibt statt zu brechen, ist beim unverstärkten Typ richtig.",
         "PA6-CF is the same base material with about 20 % carbon fibre. The fibre quadruples stiffness and lifts heat resistance massively — but it costs exactly what unfilled PA6 is chosen for: toughness. Anyone needing a part that yields rather than breaks belongs with the unfilled grade.") },
       { materialId: "pa12", reason: t(
-        "PA12 nimmt deutlich weniger Wasser auf (rund 1 % gegen 3 %) und ist damit masshaltiger und im Druck gutmütiger. PA6 ist dafür fester, steifer und wärmeformbeständiger. Die Wahl zwischen beiden ist fast immer eine Feuchtefrage, keine Festigkeitsfrage.",
+        "PA12 nimmt deutlich weniger Wasser auf (rund 1 % gegen 3 %) und ist damit maßhaltiger und im Druck gutmütiger. PA6 ist dafür fester, steifer und wärmeformbeständiger. Die Wahl zwischen beiden ist fast immer eine Feuchtefrage, keine Festigkeitsfrage.",
         "PA12 takes up considerably less water (around 1 % against 3 %) and is therefore more dimensionally stable and better behaved in printing. PA6 in return is stronger, stiffer and more heat resistant. The choice between them is almost always a moisture question, not a strength question.") },
     ],
   },
@@ -93,13 +93,13 @@ const material = {
     notchSensitivity: r(2, "notchSensitivity"),
     creepTendency: r(3, "creepTendency"),
     wearResistance: r(4, "wearResistance", { note: t(
-      "Gute Gleit- und Verschleisseigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
+      "Gute Gleit- und Verschleißeigenschaften auch ohne Schmierung — der klassische Einsatz für Lagerbuchsen und Zahnräder.",
       "Good sliding and wear properties even without lubrication — the classic use for bearing bushes and gears.") }),
   },
 
   thermal: {
     hdtA: q(60, "°C", { min: 50, max: 75, std: "ISO 75, 1,8 MPa", note: t(
-      "Der grosse Abstand zwischen HDT-A und HDT-B ist bei teilkristallinen Polyamiden typisch und keine Datenblattschwäche: Unter kleiner Last trägt die Kristallphase weit über den Glasübergang hinaus, unter grosser Last nicht.",
+      "Der große Abstand zwischen HDT-A und HDT-B ist bei teilkristallinen Polyamiden typisch und keine Datenblattschwäche: Unter kleiner Last trägt die Kristallphase weit über den Glasübergang hinaus, unter großer Last nicht.",
       "The large gap between HDT-A and HDT-B is typical of semi-crystalline polyamides and no datasheet weakness: under low load the crystalline phase carries far beyond the glass transition, under high load it does not.") }),
     hdtB: q(160, "°C", { min: 140, max: 180, std: "ISO 75, 0,45 MPa" }),
     glassTransition: q(60, "°C", { conditions: "trocken", note: MOISTURE }),
@@ -113,7 +113,7 @@ const material = {
     nozzleTemperature: q(260, "°C", { min: 240, max: 280 }),
     bedTemperature: q(75, "°C", { min: 60, max: 90 }),
     chamberRequirement: c("recommended", { note: t(
-      "Ohne beheizte Kammer sind grössere Bauteile durch Verzug kaum beherrschbar. Für kleine Teile geht es, für XXL nicht.",
+      "Ohne beheizte Kammer sind größere Bauteile durch Verzug kaum beherrschbar. Für kleine Teile geht es, für XXL nicht.",
       "Without a heated chamber, larger parts are barely controllable due to warping. For small parts it works, for XXL it does not.") }),
     dryingTemperature: q(80, "°C", { min: 70, max: 90 }),
     dryingTime: q(10, "h", { min: 6, max: 16 }),
@@ -176,7 +176,7 @@ const material = {
       title: "Fachliche Ableitung ohne Primärquelle",
       confidenceCeiling: "estimated",
       note: t(
-        "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen im Bestand (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
+        "Zu diesem Typ liegt kein einzelnes Datenblatt vor. Die Werte stützen sich auf die beiden gefüllten PA6-Typen in der Datenbank (gleiche Matrix, bekannter Fasereinfluss) und auf allgemeines Werkstoffwissen zu PA6. Sie sind Richtwerte für die Vorauswahl und ersetzen kein Herstellerdatenblatt.",
         "No single datasheet exists for this type. The values rest on the two filled PA6 types in the dataset (same matrix, known fibre effect) and on general PA6 material knowledge. They are guide values for pre-selection and do not replace a manufacturer datasheet."),
     }],
     openQuestions: [{

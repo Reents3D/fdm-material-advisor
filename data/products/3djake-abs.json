@@ -9,8 +9,8 @@
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nBefund zu diesem Datenblatt: Zwei Zeilen des Blattes nennen die falsche Norm beziehungsweise die falsche Einheit: Die VICAT-Temperatur steht unter ASTM D792 — das ist die Dichtebestimmung im Auftriebsverfahren, der Vicat-Versuch ist ASTM D1525. Und der Schmelzindex steht mit „21 g/cm³“ da; ein MFR wird in g/10 min gemessen, g/cm³ ist eine Dichte. Beide Zeilen wurden nicht übernommen beziehungsweise nur mit Vermerk. Die übrigen Werte sind in sich schlüssig.",
-    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nFinding on this datasheet: Two rows of the sheet cite the wrong standard or the wrong unit: the VICAT temperature sits under ASTM D792 — that is density by buoyancy, the Vicat test is ASTM D1525. And the melt flow rate reads “21 g/cm³”; an MFR is measured in g/10 min, g/cm³ is a density. Both rows were left out or carried with a note. The remaining values are internally consistent."
+    "de": "3DJAKE deklariert in keinem Datenblatt, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Die Werte sind deshalb nicht direkt mit Bambu Lab oder Prusa Polymers vergleichbar, die gedruckte Prüfkörper ausweisen.\n\nHinweis zu diesem Datenblatt: Zwei Zeilen des Blattes nennen die falsche Norm beziehungsweise die falsche Einheit: Die VICAT-Temperatur steht unter ASTM D792 — das ist die Dichtebestimmung im Auftriebsverfahren, der Vicat-Versuch ist ASTM D1525. Und der Schmelzindex steht mit „21 g/cm³“ da; ein MFR wird in g/10 min gemessen, g/cm³ ist eine Dichte. Beide Zeilen wurden nicht übernommen beziehungsweise nur mit Vermerk. Die übrigen Werte sind in sich schlüssig.",
+    "en": "3DJAKE does not declare in any datasheet whether values were measured on printed or moulded specimens. The values are therefore not directly comparable with Bambu Lab or Prusa Polymers, which declare printed specimens.\n\nNote on this datasheet: Two rows of the sheet cite the wrong standard or the wrong unit: the VICAT temperature sits under ASTM D792 — that is density by buoyancy, the Vicat test is ASTM D1525. And the melt flow rate reads “21 g/cm³”; an MFR is measured in g/10 min, g/cm³ is a density. Both rows were left out or carried with a note. The remaining values are internally consistent."
   },
   "features": {
     "de": "Das jüngere der beiden ABS-Blätter des Hauses (01.10.2024) und das schlüssigere: 49 MPa Zugfestigkeit bei 10 % Bruchdehnung passen zusammen, während das Schwesterprodukt niceABS mit 34 % Bruchdehnung und 58 kJ/m² ungekerbter Schlagzähigkeit eher das Granulat beschreibt.",
@@ -118,8 +118,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "low",
         "note": {
-          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt einen in sich widersprüchlichen Wert enthält, steht das Ceiling auf 'low'.",
-          "en": "Manufacturer datasheet without a declared specimen type. Where the sheet contains an internally inconsistent value the ceiling is set to 'low'."
+          "de": "Herstellerdatenblatt ohne Angabe des Prüfkörpertyps. Wo das Blatt sich selbst widerspricht, gilt der Wert als schwach belegt.",
+          "en": "Manufacturer datasheet without a stated specimen type. Where the sheet contradicts itself, the value counts as weakly substantiated."
         }
       }
     ]
@@ -142,8 +142,8 @@
       "vicatA"
     ],
     "note": {
-      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF. Damit sind es nicht 3 Belege, sondern einer. Als Ursprung dieser Zahlen ist Extrudr Extrudr DuraPro ABS CF belegt; dieser Datensatz gibt sie weiter. Die geteilten Werte tragen deshalb `low`.",
-      "en": "10 values in this record appear identically at: Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF. That makes them not 3 pieces of evidence but one. Extrudr Extrudr DuraPro ABS CF is established as the origin of these figures; this record passes them on. The shared values therefore carry `low`."
+      "de": "10 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF. Es handelt sich also nicht um 3 unabhängige Belege, sondern um eine einzige Messung. Die Zahlen stammen ursprünglich von Extrudr Extrudr DuraPro ABS CF; dieses Blatt übernimmt sie. Die übernommenen Werte gelten deshalb als schwach belegt.",
+      "en": "The figures originate from 10 values on this datasheet appear digit for digit at Extrudr Extrudr DuraPro ABS · Extrudr Extrudr DuraPro ABS CF as well. They are therefore not 3 independent pieces of evidence but a single measurement. Extrudr Extrudr DuraPro ABS CF; this sheet takes them over. The copied values therefore count as weakly substantiated."
     }
   }
 }

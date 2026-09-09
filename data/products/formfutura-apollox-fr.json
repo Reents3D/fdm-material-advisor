@@ -9,11 +9,11 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Schlagzähigkeit steht in J/m nach ASTM D256 (435 J/m bei 3,2 mm, 60 J/m bei −30 °C). J/m ist Energie je Probenbreite, die hier geführte Einheit kJ/m² ist Energie je Bruchfläche — die Umrechnung braucht die Probendicke und verschiebt die Aussage. Die Werte sind deshalb nicht übernommen. Ebenso fehlt bei der HDT die Lastangabe, ohne die eine HDT nicht einzuordnen ist.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The impact strength appears in J/m to ASTM D256 (435 J/m at 3.2 mm, 60 J/m at −30 °C). J/m is energy per specimen width, the unit used here, kJ/m², is energy per fracture area — the conversion requires the specimen thickness and shifts the meaning. The values are therefore not imported. The HDT likewise lacks the load without which an HDT cannot be placed."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die Schlagzähigkeit steht in J/m nach ASTM D256 (435 J/m bei 3,2 mm, 60 J/m bei −30 °C). J/m ist Energie je Probenbreite, die hier geführte Einheit kJ/m² ist Energie je Bruchfläche — die Umrechnung braucht die Probendicke und verschiebt die Aussage. Die Werte sind deshalb nicht übernommen. Ebenso fehlt bei der HDT die Lastangabe, ohne die eine HDT nicht einzuordnen ist.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The impact strength appears in J/m to ASTM D256 (435 J/m at 3.2 mm, 60 J/m at −30 °C). J/m is energy per specimen width, the unit used here, kJ/m², is energy per fracture area — the conversion requires the specimen thickness and shifts the meaning. The values are therefore not imported. The HDT likewise lacks the load without which an HDT cannot be placed."
   },
   "features": {
-    "de": "Die Dauergebrauchstemperatur von 50 °C nach UL 746B ist die ehrlichste Zahl auf diesem Blatt und die unbequemste: Sie liegt 36 K unter der HDT. Der RTI ist eine Langzeitgröße mit Alterung, die HDT eine Kurzzeitmessung — wer ein Bauteil auf Jahre auslegt, rechnet mit 50 °C, nicht mit 86 °C. Nur wenige Blätter im Bestand geben diese Zahl überhaupt an.",
+    "de": "Die Dauergebrauchstemperatur von 50 °C nach UL 746B ist die ehrlichste Zahl auf diesem Blatt und die unbequemste: Sie liegt 36 K unter der HDT. Der RTI ist eine Langzeitgröße mit Alterung, die HDT eine Kurzzeitmessung — wer ein Bauteil auf Jahre auslegt, rechnet mit 50 °C, nicht mit 86 °C. Nur wenige Blätter in der Datenbank geben diese Zahl überhaupt an.",
     "en": "The continuous service temperature of 50 °C to UL 746B is the most honest figure on this sheet and the most inconvenient: it sits 36 K below the HDT. The RTI is a long-term figure including ageing, the HDT a short-term measurement — anyone designing a part for years counts on 50 °C, not 86 °C. Few sheets in the dataset state this figure at all."
   },
   "datasheet": {
@@ -136,8 +136,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]
@@ -155,8 +155,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "6 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Spectrum Spectrum ASA 275. Damit sind es nicht 2 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "6 values in this record appear identically at: Spectrum Spectrum ASA 275. That makes them not 2 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "6 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Spectrum Spectrum ASA 275. Es handelt sich also nicht um 2 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "6 values on this datasheet appear digit for digit at Spectrum Spectrum ASA 275 as well. They are therefore not 2 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

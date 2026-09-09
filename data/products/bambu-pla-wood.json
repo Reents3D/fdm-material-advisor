@@ -9,8 +9,8 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.",
-    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen."
+    "de": "Prüfkörper gedruckt: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.",
+    "en": "Specimens printed: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen."
   },
   "features": {
     "de": "Holzgefülltes PLA, und die Füllung kostet: 26 MPa Zugfestigkeit gegen 39 bei PLA Basic. Auffällig ist die Wassersättigung von 1,25 % — fast das Dreifache des ungefüllten PLA (0,46 %) und der höchste Wert der PLA-Familie. Holzfasern nehmen Feuchtigkeit auf, was Lagerung und Trocknung zu einer laufenden Aufgabe macht. Die Bruchdehnung von 15,3 % in X-Y fällt in Z auf 4,5 %; der Werkstoff ist in der Fläche nachgiebig und zwischen den Schichten spröde.",

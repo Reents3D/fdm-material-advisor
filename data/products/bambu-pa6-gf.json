@@ -9,11 +9,11 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Prüfkörper GEDRUCKT: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.",
-    "en": "Specimens PRINTED: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen."
+    "de": "Prüfkörper gedruckt: Das Blatt weist alle mechanischen Kennwerte getrennt nach X-Y und Z aus, und eine Z-Richtung gibt es nur an einem additiv gefertigten Prüfkörper.",
+    "en": "Specimens printed: the sheet reports every mechanical value separately for X-Y and Z, and a Z direction exists only on an additively manufactured specimen."
   },
   "features": {
-    "de": "Die stärkste Anisotropie im ganzen Bestand: 75 MPa längs zur Schicht gegen 27 MPa quer — quer bleiben 36 % übrig, gegenüber 89 % bei ungefülltem PLA. Glasfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält nur die Matrix. Wer ein Bauteil aus diesem Werkstoff auslegt, muss die Aufbaurichtung kennen, sonst rechnet er mit dem Dreifachen dessen, was das Teil trägt. Die Wassersättigung von 2,56 % ist die zweithöchste im Bestand — Trocknen ist bei diesem Werkstoff keine Empfehlung, sondern Voraussetzung.",
+    "de": "Die stärkste Anisotropie in der ganzen Datenbank: 75 MPa längs zur Schicht gegen 27 MPa quer — quer bleiben 36 % übrig, gegenüber 89 % bei ungefülltem PLA. Glasfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei; zwischen den Schichten hält nur die Matrix. Wer ein Bauteil aus diesem Werkstoff auslegt, muss die Aufbaurichtung kennen, sonst rechnet er mit dem Dreifachen dessen, was das Teil trägt. Die Wassersättigung von 2,56 % ist die zweithöchste in der Datenbank — Trocknen ist bei diesem Werkstoff keine Empfehlung, sondern Voraussetzung.",
     "en": "The strongest anisotropy in the entire dataset: 75 MPa along the layers against 27 MPa across — 36 % remains across, compared with 89 % for unfilled PLA. Glass fibres align in the extrusion direction and contribute nothing across it; between layers only the matrix holds. Anyone designing a part from this material must know the build direction, otherwise they calculate with three times what the part carries. The saturated water absorption of 2.56 % is the second highest in the dataset — drying is not a recommendation for this material but a precondition."
   },
   "datasheet": {

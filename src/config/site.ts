@@ -54,7 +54,6 @@ export const SITE = {
     { name: "XXL", x: 1800, y: 2400, z: 1800 },
     { name: "Hochformat", x: 1200, y: 1200, z: 2200 },
   ],
-  maxEdgeMm: 2400,
 
   /** Verifiable facts only. No superlatives — credibility is the marketing. */
   facts: {

@@ -34,7 +34,7 @@
     "tensileStrengthXy": {
       "value": 46.1,
       "unit": "MPa",
-      "testStandard": "werkseigene Methode 10-LA 049 (siehe Befund)",
+      "testStandard": "werkseigene Methode 10-LA 049 (siehe Hinweis)",
       "orientation": "n/a",
       "conditions": "bei Bruch",
       "source": "src_tds",
@@ -43,7 +43,7 @@
     "elongationAtBreakXy": {
       "value": 13.1,
       "unit": "%",
-      "testStandard": "werkseigene Methode 10-LA 049 (siehe Befund)",
+      "testStandard": "werkseigene Methode 10-LA 049 (siehe Hinweis)",
       "orientation": "n/a",
       "source": "src_tds",
       "confidence": "low"
@@ -51,7 +51,7 @@
     "hardnessShoreD": {
       "value": 78,
       "unit": "Shore D",
-      "testStandard": "werkseigene Methode 10-LA 031 (siehe Befund)",
+      "testStandard": "werkseigene Methode 10-LA 031 (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
@@ -84,7 +84,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Deutlicher Abstand zur Vicat-Erweichung von 71 °C. PVC ist thermisch der engste starre Werkstoff im Bestand.",
+        "de": "Deutlicher Abstand zur Vicat-Erweichung von 71 °C. PVC ist thermisch der engste starre Werkstoff in der Datenbank.",
         "en": "Clear margin to the Vicat softening point of 71 °C. PVC is thermally the tightest rigid material in the dataset."
       }
     }
@@ -372,8 +372,8 @@
         "confidence": "estimated"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -382,7 +382,7 @@
         "source": "estimate_reasoning",
         "confidence": "estimated",
         "note": {
-          "de": "Hart-PVC gilt wegen seines Chloranteils als von Haus aus schwer entflammbar, und in der Literatur wird es regelmäßig mit V-0 geführt. Diese Datenbank trägt hier trotzdem KEINE Klasse ein: Das Fillamentum-Blatt nennt weder eine UL94-Klassifizierung noch eine Materialdicke noch eine Prüfstelle. Eine Brandschutzklasse ist eine regulatorische Aussage über ein geprüftes Bauteil einer bestimmten Dicke — sie lässt sich nicht aus der Polymerklasse ableiten. Wer PVC für eine V-0-Anforderung einsetzen will, braucht ein Zeugnis, keine Lehrbuchstelle.",
+          "de": "Hart-PVC gilt wegen seines Chloranteils als von Haus aus schwer entflammbar, und in der Literatur wird es regelmäßig mit V-0 geführt. Diese Datenbank trägt hier trotzdem keine Klasse ein: Das Fillamentum-Blatt nennt weder eine UL94-Klassifizierung noch eine Materialdicke noch eine Prüfstelle. Eine Brandschutzklasse ist eine regulatorische Aussage über ein geprüftes Bauteil einer bestimmten Dicke — sie lässt sich nicht aus der Polymerklasse ableiten. Wer PVC für eine V-0-Anforderung einsetzen will, braucht ein Zeugnis, keine Lehrbuchstelle.",
           "en": "Rigid PVC counts as inherently flame retardant because of its chlorine content, and the literature routinely lists it as V-0. This database nevertheless enters NO class here: the Fillamentum sheet names neither a UL94 classification nor a material thickness nor a test house. A fire class is a regulatory statement about a tested part of a given thickness — it cannot be inferred from the polymer class. Anyone wanting to use PVC for a V-0 requirement needs a certificate, not a textbook passage."
         }
       }
@@ -454,7 +454,7 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Der einzige Werkstoff im Bestand mit einem echten Kaltschweißkleber: PVC-Kleber löst die Oberfläche an und verschweißt die Fügepartner stofflich.",
+        "de": "Der einzige Werkstoff in der Datenbank mit einem echten Kaltschweißkleber: PVC-Kleber löst die Oberfläche an und verschweißt die Fügepartner stofflich.",
         "en": "The only material in the dataset with a genuine solvent-weld adhesive: PVC cement dissolves the surface and fuses the parts materially."
       }
     },
@@ -479,8 +479,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -506,17 +506,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included."
         }
       }
     },
@@ -525,8 +516,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-        "en": "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."
+        "de": "Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+        "en": "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."
       }
     },
     "pricePerKg": {
@@ -552,8 +543,8 @@
       {
         "id": "oq_pvc_single_source",
         "question": {
-          "de": "Dieser Werkstofftyp steht auf einem einzigen Herstellerdatenblatt. Die Datenblattwerte tragen deshalb `low` statt `medium`: Eine Quelle kann keine Streuung zeigen, und genau die Streuung zwischen Herstellern ist bei den gut belegten Typen die eigentliche Information. Sobald ein zweites Blatt vorliegt, gehören die Werte neu bewertet.",
-          "en": "This material type rests on a single manufacturer datasheet. Its datasheet values therefore carry `low` instead of `medium`: one source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for the well-covered types. As soon as a second sheet exists, the values should be reassessed."
+          "de": "Dieser Werkstofftyp beruht auf einem einzigen Herstellerdatenblatt. Eine Quelle kann keine Streuung zeigen, und gerade die Streuung zwischen Herstellern ist bei gut belegten Typen die eigentliche Information. Die Werte gelten deshalb bis zum zweiten Datenblatt als schwach belegt.",
+          "en": "This material type rests on a single manufacturer datasheet. One source cannot show scatter, and it is precisely the scatter between manufacturers that carries the information for well-covered types. Until a second sheet exists, the values count as weakly substantiated."
         },
         "blocking": false,
         "affectsFields": [
@@ -565,8 +556,8 @@
       {
         "id": "oq_price_survey",
         "question": {
-          "de": "Preiserhebung vertiefen: Bisher 3 Angebote von 1 Anbieter und 1 Marke (2026-08-06). Angestrebt sind fünf Angebote von mindestens zwei Anbietern UND zwei Marken — fünf Preise aus demselben Shop sind eine Preisliste, und zwei Shops mit derselben Herstellerliste sind kein Marktvergleich. Bis dahin trägt der Median mit niedriger Konfidenz.",
-          "en": "Deepen the price survey: 3 offers from 1 retailer and 1 brand (2026-08-06). The target is five offers from at least two retailers AND two brands — five prices from one shop are a price list, and two shops carrying the same manufacturer's list are not a market comparison. Until then the median carries at low confidence."
+          "de": "Preisbasis noch schmal: bisher 3 Angebote von 1 Anbieter und 1 Marke (Stand 2026-08-06). Angestrebt sind mindestens fünf Angebote von zwei Anbietern und zwei Marken, denn mehrere Preise aus demselben Shop sind nur eine Preisliste. Bis dahin ist der Preis nur ein Anhaltspunkt.",
+          "en": "Price basis still thin: so far 3 offers from 1 retailer and 1 brand (as of 2026-08-06). The target is at least five offers from two retailers and two brands, since several prices from one shop are merely a price list. Until then the price is only a rough guide."
         },
         "blocking": false,
         "affectsFields": [
@@ -597,8 +588,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0,75 kg, 42,00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg, 42,00 €",
-          "en": "3 offers: Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 1.75 mm, 0.75 kg, 42.00 € · Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg, 42.00 €"
+          "de": "3 Angebote von 1 Marke (Fillamentum). Günstigstes Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg); teuerstes Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0,75 kg für 42,00 € (56,00 €/kg).",
+          "en": "3 offers from 1 brand (Fillamentum). Cheapest Fillamentum Vinyl 303 \"Black\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg); dearest Fillamentum Vinyl 303 \"Natural\" — 2.85 mm, 0.75 kg at 42.00 € (56.00 €/kg)."
         }
       },
       {

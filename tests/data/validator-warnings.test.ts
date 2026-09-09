@@ -23,14 +23,30 @@ import path from "node:path";
 
 const ROOT = path.resolve(__dirname, "../..");
 
-/* Stand 2026-08-05. Untergrenze, kein Ziel: Wer einen Befund aufklaert, zieht die Zahl
-   nach. Die sieben sind:
-     R4  pc            HDT-A ueber HDT-B im Blatt
+/* Stand 2026-08-07. OBERGRENZE, kein Ziel: Wer einen Befund aufklaert, zieht die Zahl
+   nach. Die elf sind:
      R12 pa6-cf, pla   Schlagzaehigkeit in Z groesser als in X-Y (Werkstoffebene)
      R16 extrudr-durapro-abs-cf   CF-Variante ohne Steifigkeitsgewinn
      R17 bambu-pla-glow, bambu-pla-translucent, fillamentum-obc-905
-         dasselbe auf der Produktebene, alle drei am Datensatz benannt */
-const KNOWN_WARNINGS = 7;
+         dasselbe auf der Produktebene, alle drei am Datensatz benannt
+     R19 sieben bestrittene Zahlen (siehe unten)
+
+   ZWEI VERAENDERUNGEN AM 2026-08-07, beide gewollt:
+
+   R4 bei `pc` ist WEGGEFALLEN. Nicht weil das Blatt sich geaendert haette - Bambu meldet
+   die HDT bei 1,8 MPa weiterhin ueber der bei 0,45 MPa -, sondern weil die HDT-B seit
+   ADR-042 auf drei Blaettern ruht (Median 139 °C) statt allein auf diesem einen. Die
+   REIHENFOLGE im Datensatz stimmt damit wieder; der Widerspruch im Blatt steht weiter in
+   der Notiz und in der offenen Frage.
+
+   R19 ist NEU und meldet sieben bestrittene Zahlen. Sie sind kein Zuwachs an Problemen,
+   sondern der Ertrag einer Suche: Der Blaetterabgleich meldete fuer `abs` eine Izod-Spanne
+   von Faktor 16, und dahinter standen Extrudrs 220 kJ/m² - zehnmal der ungekerbte Wert
+   desselben Polymers und exakt der Lehrbuchwert fuer ABS in J/M. Vier solche Faelle bei
+   Extrudr, dazu Bambus 1.190 MPa E-Modul fuer ein Shore-95A-Elastomer. Alle sieben
+   bleiben im Datensatz stehen und werden nur nicht mehr mitgerechnet - deshalb `warn`
+   und nicht `error`. */
+const KNOWN_WARNINGS = 11;
 
 const out = execFileSync("node", [path.join(ROOT, "scripts/validate-data.mjs")], {
   cwd: ROOT, encoding: "utf8",

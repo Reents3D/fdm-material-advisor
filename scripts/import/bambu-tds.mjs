@@ -354,7 +354,7 @@ const META = {
       "ASA Aero schäumt beim Druck auf und erreicht mit 0,99 g/cm³ die geringste Dichte im Feld - bei voller ASA-Witterungsbeständigkeit. Ideal für sehr große, leichte Außenbauteile, bei denen Gewicht und Transport das Problem sind. Grenzen: deutlich niedrigere Festigkeit, besonders in Z, und HDT nur rund 78 °C.",
       "ASA Aero foams during printing and reaches the lowest density in this field at 0.99 g/cm³ - with full ASA weather resistance. Ideal for very large, light outdoor parts where weight and transport are the problem. Limits: markedly lower strength, especially in Z, and HDT only around 78 °C."),
     positioning: t(
-      "Leichtbau für XXL-Außenteile: maximale Grösse pro Kilo Material.",
+      "Leichtbau für XXL-Außenteile: maximale Größe pro Kilo Material.",
       "Lightweight construction for XXL outdoor parts: maximum size per kilo of material."),
     ratings: {
       printability: 3, warpingTendency: 3, hygroscopy: 3, abrasiveness: 1, stringingTendency: 2,
@@ -519,7 +519,7 @@ function buildMaterial(id, d, m) {
     mech.anisotropyFactorTensile = q(f, "-", {
       min: lo, max: hi, orientation: "Z", source: SRC,
       derivedFrom: ["mechanics.tensileStrengthZ", "mechanics.tensileStrengthXy"],
-      conditions: "Beide Operanden aus demselben Datenblatt und Prüfdurchgang",
+      conditions: "Beide Zahlen aus demselben Datenblatt und Prüfdurchgang",
       note: t(
         `Senkrecht zur Schicht bleiben ${Math.round(f * 100)} % der Zugfestigkeit erhalten (${d.tsZ[0]} von ${d.tsXY[0]} MPa).`,
         `Perpendicular to the layers ${Math.round(f * 100)} % of the tensile strength remains (${d.tsZ[0]} of ${d.tsXY[0]} MPa).`),
@@ -556,8 +556,16 @@ function buildMaterial(id, d, m) {
   if (d.hdtB != null) thermal.hdtB = q(d.hdtB, "°C", { std: "ISO 75, 0.45 MPa", source: SRC, confidence: d.hdtInverted ? "low" : "medium" });
   if (d.hdtInverted) {
     const n = t(
-      "Datenblattfehler: Die HDT bei 1,8 MPa (117 °C) liegt ÜBER der HDT bei 0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind vertauscht oder an unterschiedlichen Chargen gemessen. Beide Werte hier mit niedriger Konfidenz geführt.",
-      "Datasheet error: HDT at 1.8 MPa (117 °C) is ABOVE HDT at 0.45 MPa (112 °C). Higher load must give a lower temperature - the values are swapped or measured on different batches. Both are carried here with low confidence.");
+      "Widerspruch im Datenblatt: Bambu meldet die HDT bei 1,8 MPa (117 °C) höher als die eigene bei "
+      + "0,45 MPa (112 °C). Höhere Last muss zu niedrigerer Temperatur führen - die beiden Werte sind "
+      + "vertauscht oder an verschiedenen Chargen gemessen. Beide hier als schwach belegt geführt. "
+      + "Der Abgleich mit den übrigen Blättern kann die HDT-B auf mehrere Quellen stellen und "
+      + "die Reihenfolge damit heilen - der Widerspruch dieses Blattes bleibt davon unberührt.",
+      "Contradiction within the datasheet: Bambu reports HDT at 1.8 MPa (117 °C) above its own at "
+      + "0.45 MPa (112 °C). A higher load must give a lower temperature - the two are swapped or "
+      + "measured on different batches. Both are carried here with low confidence. Reconciliation with "
+      + "the remaining sheets may put HDT-B on several sources and heal the ordering - the "
+      + "contradiction in this sheet is untouched by that.");
     thermal.hdtA.note = n; thermal.hdtB.note = n;
   }
   if (d.vicat != null) thermal.vicatB50 = q(d.vicat, "°C", { std: "ISO 306 (Methode und Last im Datenblatt nicht spezifiziert)", source: SRC, confidence: "low" });
@@ -583,7 +591,7 @@ function buildMaterial(id, d, m) {
        mit Sicherheitsabstand. Wer nur eine der beiden sieht, zieht den falschen Schluss.
 
        DIE BEDINGUNG STAND FALSCH DARAN. Bis 2026-08-02 trug dieser Wert
-       `conditions: "unbelastet, Luft, dauerhaft"` - und die Fussnote daneben sagte, fuer
+       `conditions: "unbelastet, Luft, dauerhaft"` - und die Fußnote daneben sagte, fuer
        ein unbelastetes Bauteil liege die Wahrheit zwischen dieser Zahl und dem
        Datenblattwert. Beides zusammen ging nicht auf: Entweder gilt die Zahl unbelastet,
        oder sie liegt darunter. Sie liegt darunter. Tg minus 12 K ist eine Zahl fuer ein
@@ -629,7 +637,7 @@ function buildMaterial(id, d, m) {
         ? t("Das Datenblatt nennt 45-60 °C Kammertemperatur. Für kleine Teile geht es notfalls ohne; für große Bauteile führt fehlende Kammertemperierung zu Delamination. Für den XXL-Einsatz daher als zwingend eingestuft.",
             "The datasheet states 45-60 °C chamber temperature. Small parts may work without; on large parts a missing heated chamber leads to delamination. Classified as mandatory for XXL use.")
         : m.chamber === "recommended"
-        ? t("Ohne temperierte Kammer sind Verzug und Delamination bei grösseren Bauteilen wahrscheinlich.",
+        ? t("Ohne temperierte Kammer sind Verzug und Delamination bei größeren Bauteilen wahrscheinlich.",
             "Without a heated chamber, warping and delamination are likely on larger parts.")
         : t("Keine beheizte Kammer erforderlich - entscheidender Vorteil auf offenen Großformatanlagen.",
             "No heated chamber required - a decisive advantage on open large-format machines."),
@@ -756,11 +764,10 @@ function buildMaterial(id, d, m) {
         "Geschätzt aus Kammerbedarf, Verzugsneigung und Schichthaftung - nicht durch eigene Fertigung belegt. Muss durch Reents3D-Werkstatterfahrung ersetzt werden.",
         "Estimated from chamber requirement, warping tendency and layer adhesion - not backed by our own production. To be replaced by Reents3D shop-floor experience."),
     }),
-    segmentationRecommended: flag(m.xxl < 1500, { confidence: "estimated" }),
   };
   commercial.reentsPortfolioStatus = choice("unknown", {
-    note: t("Noch nicht mit dem Reents3D-Materiallager abgeglichen. Geht per ADR-004 NICHT in das Scoring ein.",
-            "Not yet reconciled with the Reents3D inventory. Per ADR-004 this does NOT enter scoring."),
+    note: t("Noch nicht mit dem Reents3D-Materiallager abgeglichen. Der Portfolio-Status beeinflusst die Bewertung nicht.",
+            "Not yet reconciled with the Reents3D material stock. Portfolio status does not affect the assessment."),
   });
 
   /* sustainability */
@@ -789,8 +796,10 @@ function buildMaterial(id, d, m) {
       blocking: false, affectsFields: ["mechanics", "thermal"] },
   ];
   if (d.hdtInverted) oq.push({ id: "oq_hdt_inverted", question: t(
-      "Bambu meldet HDT bei 1,8 MPa höher als bei 0,45 MPa. Beim Hersteller klären oder durch eine zweite Quelle ersetzen.",
-      "Bambu reports HDT at 1.8 MPa higher than at 0.45 MPa. Clarify with the manufacturer or replace with a second source."),
+      "Bambu meldet HDT bei 1,8 MPa höher als bei 0,45 MPa. Eine zweite Quelle für die HDT-A beschaffen "
+      + "oder beim Hersteller klären; der Vergleich mit anderen Blättern kann nur die HDT-B breiter stellen.",
+      "Bambu reports HDT at 1.8 MPa higher than at 0.45 MPa. Obtain a second source for HDT-A or clarify "
+      + "with the manufacturer; comparison with other sheets can only broaden HDT-B."),
     blocking: false, affectsFields: ["thermal.hdtA", "thermal.hdtB"] });
   if (d.imXY && d.imZ && d.imZ[0] > d.imXY[0]) oq.push({ id: "oq_impact_inverted", question: t(
       "Das Datenblatt weist in Z eine höhere Schlagzähigkeit aus als in X-Y. Kerbzustand der Z-Prüfkörper klären.",
@@ -845,4 +854,4 @@ for (const [id, d] of Object.entries(TDS)) {
   console.log(`wrote data/materials/${id}.json`);
   n++;
 }
-console.log(`\n${n} Datensätze aus Bambu-Lab-Datenblättern erzeugt.`);
+console.log(`\n${n} Einträge aus Bambu-Lab-Datenblättern erzeugt.`);

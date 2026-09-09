@@ -60,10 +60,6 @@ export function activeRequirements(
     id: "flexible", constraintId: "flexible",
     label: t("wiz.chip.flexible"), patch: drop("flexible"),
   });
-  if (req.maxEdgeMm !== undefined) out.push({
-    id: "edge", constraintId: "size",
-    label: t("wiz.chip.edge", { n: req.maxEdgeMm }), patch: drop("maxEdgeMm"),
-  });
   if (req.quantity !== undefined) out.push({
     id: "qty", label: t("wiz.chip.qty", { n: req.quantity }), patch: drop("quantity"),
   });

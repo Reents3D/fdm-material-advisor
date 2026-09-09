@@ -86,6 +86,17 @@
         "de": "Eigene konservative Empfehlung mit Abstand zur Erweichungsgrenze.",
         "en": "Our own conservative recommendation with margin to the softening limit."
       }
+    },
+    "hdtB": {
+      "value": 67.5,
+      "unit": "°C",
+      "source": "src_type_datasheets",
+      "confidence": "low",
+      "note": {
+        "de": "Einzelnes Blatt: Material4Print. Prüfkörper: ausschließlich spritzgegossene Prüfkörper — gedruckte Bauteile erreichen diese Werte nicht.",
+        "en": "Single datasheet: Material4Print. Specimens: moulded specimens only — printed parts do not reach these figures."
+      },
+      "testStandard": "ASTM D648"
     }
   },
   "processing": {
@@ -373,8 +384,8 @@
         "confidence": "medium"
       },
       "partLevelWarning": {
-        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-BAUTEIL nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
-        "en": "Even with a food-compliant material the FDM PART is not automatically food safe: the layer structure forms capillaries and bacterial niches."
+        "de": "Auch bei einem lebensmittelkonformen Material ist das FDM-Bauteil nicht automatisch lebensmittelkonform: die Schichtstruktur bildet Kapillaren und Keimnischen.",
+        "en": "Even with a food-compliant material the FDM part is not automatically food safe: the layer structure forms capillaries and bacterial niches."
       }
     },
     "flameRetardancy": {
@@ -435,8 +446,8 @@
       "source": "field_experience_reents",
       "confidence": "low",
       "note": {
-        "de": "Lässt sich nach Werkstatterfahrung sehr gut lackieren (schleifen, grundieren, lackieren).\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.\n\nGilt nur nach Vorbereitung. Direkt auf den Druck zu lackieren führt zu keinem brauchbaren Ergebnis — geschliffen, entfettet und grundiert werden muss immer, unabhängig vom Werkstoff. Die Bewertung sagt, wie gut das Ergebnis DANACH wird.",
-        "en": "Paints very well according to shop-floor experience (sand, prime, paint).\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same.\n\nApplies only after preparation. Painting straight onto the print gives no usable result — sanding, degreasing and priming are always required, whatever the material. The rating states how good the result is AFTER that."
+        "de": "Lässt sich nach Werkstatterfahrung sehr gut lackieren (schleifen, grundieren, lackieren).\n\nVom Stammtyp derselben Polymerfamilie übernommen — dieser Typ wurde nicht einzeln bestätigt. Das Grundpolymer ist identisch, die Vorbehandlung entsprechend dieselbe.\n\nGilt nur nach Vorbereitung. Direkt auf den Druck zu lackieren führt zu keinem brauchbaren Ergebnis — geschliffen, entfettet und grundiert werden muss immer, unabhängig vom Werkstoff. Die Bewertung sagt, wie gut das Ergebnis danach wird.",
+        "en": "Paints very well according to shop-floor experience (sand, prime, paint).\n\nCarried over from the base type of the same polymer family — this grade was not confirmed individually. The base polymer is identical, so the surface preparation is the same.\n\nApplies only after preparation. Painting straight onto the print gives no usable result — sanding, degreasing and priming are always required, whatever the material. The rating states how good the result is after that."
       }
     },
     "bondability": {
@@ -467,8 +478,8 @@
       "source": "estimate_reasoning",
       "confidence": "estimated",
       "note": {
-        "de": "Abgeleitet aus commercial.pricePerKg (Quintile über alle Werkstoffe), damit beide Angaben nicht auseinanderlaufen können. Die belastbare Zahl ist der €/kg-Wert; diese Fünferskala dient nur der schnellen Einordnung.",
-        "en": "Derived from commercial.pricePerKg (quintiles across all materials) so the two figures cannot diverge. The meaningful figure is the €/kg value; this five-point scale serves only for quick orientation."
+        "de": "Aus dem Kilopreis abgeleitet: Alle Werkstoffe sind nach ihrem €/kg-Wert in fünf gleich große Preisstufen eingeteilt. Maßgeblich ist der Kilopreis; die Stufe dient nur der schnellen Einordnung.",
+        "en": "Derived from the price per kilogram: all materials are sorted into five equal price bands by their €/kg value. The per-kilogram price is what counts; the band is only for quick orientation."
       }
     },
     "availability": {
@@ -494,17 +505,8 @@
           "processing.chamberRequirement"
         ],
         "note": {
-          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf (Formel in scripts/derive-xxl-effort.mjs), nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin NICHT enthalten.",
-          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement (formula in scripts/derive-xxl-effort.mjs), not measured. Print time, spool logistics and handling are NOT included."
-        }
-      },
-      "segmentationRecommended": {
-        "value": true,
-        "source": "estimate_reasoning",
-        "confidence": "estimated",
-        "note": {
-          "de": "Bei Großteilen ist Segmentieren der Normalfall: Es erleichtert Nachbearbeitung, Lackierung und Transport — und hebt die Aufwandsschwelle praktisch auf.",
-          "en": "For large parts segmentation is the normal case: it eases finishing, painting and transport — and effectively removes the effort threshold."
+          "de": "Keine Fertigungsgrenze, sondern eine Aufwandsschwelle: Ab dieser Kantenlänge braucht es Brim, beheizte Kammer oder Segmentierung. Die Größe eines FDM-Bauteils begrenzt der Bauraum und das Verfahren, nicht das Polymer — mit Kammer und Segmentierung laufen praktisch alle diese Werkstoffe auf zwei Meter und darüber. Hergeleitet aus Verzugsneigung und Kammerbedarf, nicht gemessen. Druckzeit, Spulenlogistik und Handhabung sind darin nicht enthalten.",
+          "en": "Not a manufacturing limit but an effort threshold: from this edge length a brim, a heated chamber or segmentation becomes necessary. The size of an FDM part is limited by the build volume and the process, not by the polymer — with a chamber and segmentation practically all of these materials run to two metres and beyond. Derived from warping tendency and chamber requirement, not measured. Print time, spool logistics and handling are not included."
         }
       }
     },
@@ -551,6 +553,17 @@
         }
       },
       {
+        "id": "src_type_datasheets",
+        "type": "manufacturer-tds",
+        "publisher": "mehrere Hersteller",
+        "title": "Median der Produktdatenblätter dieses Werkstofftyps",
+        "confidenceCeiling": "medium",
+        "note": {
+          "de": "Zusammenfassung mehrerer Herstellerdatenblätter zu diesem Werkstofftyp. Geführt wird der Median; Spritzgusswerte werden nicht mit Werten an gedruckten Prüfkörpern vermischt und Elastomerprüfungen (ISO 37) nicht mit Zugversuchen (ISO 527). Ein Median über mehrere Marken beschreibt den Werkstofftyp, nicht ein einzelnes Produkt.",
+          "en": "Summary of several manufacturer datasheets for this material type. The median is recorded; moulded values are not mixed with values from printed specimens, and elastomer tests (ISO 37) not with tensile tests (ISO 527). A median across several brands describes the material type, not an individual product."
+        }
+      },
+      {
         "id": "field_experience_reents",
         "type": "field-experience",
         "publisher": "Reents Technologies GmbH",
@@ -558,8 +571,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409. Eine Quelle, deshalb höchstens `medium`.",
-          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409. A single source, therefore `medium` at most."
+          "de": "Eigene Fertigungserfahrung aus laufender Produktion, kein genormter Gitterschnitt nach ISO 2409.",
+          "en": "Own production experience from ongoing manufacturing, not a standardised cross-cut test to ISO 2409."
         }
       },
       {
@@ -571,8 +584,8 @@
         "retrievedAt": "2026-08-02",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "3 Angebote: Spectrum PLA ESD Light Grey, 0,5 kg, 44,99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89,99 € · Spectrum PLA ESD Traffic Black, 0,5 kg, 49,99 €",
-          "en": "3 offers: Spectrum PLA ESD Light Grey, 0.5 kg, 44.99 € · Spectrum PLA ESD Dark Grey, 1 kg, 89.99 € · Spectrum PLA ESD Traffic Black, 0.5 kg, 49.99 €"
+          "de": "3 Angebote von 1 Marke (Spectrum). Günstigstes Spectrum PLA ESD Light Grey, 0,5 kg für 44,99 € (89,98 €/kg); teuerstes Spectrum PLA ESD Traffic Black, 0,5 kg für 49,99 € (99,98 €/kg).",
+          "en": "3 offers from 1 brand (Spectrum). Cheapest Spectrum PLA ESD Light Grey, 0.5 kg at 44.99 € (89.98 €/kg); dearest Spectrum PLA ESD Traffic Black, 0.5 kg at 49.99 € (99.98 €/kg)."
         }
       },
       {
@@ -584,8 +597,8 @@
         "retrievedAt": "2026-08-06",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "10 Angebote: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215,95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4,5 kg, 485,95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863,95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0,05 kg, 5,95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0,75 kg, 89,95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg, 89,95 €",
-          "en": "10 offers: M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 2.85 mm / 2 Kg, 2 kg, 215.95 € · M4P ESD PLA — 1.75 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 2.85 mm / 4.5 Kg, 4.5 kg, 485.95 € · M4P ESD PLA — 1.75 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA — 2.85 mm / 8 Kg, 8 kg, 863.95 € · M4P ESD PLA Sample — 1.75 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA Sample — 2.85 mm / 0.05 Kg, 0.05 kg, 5.95 € · M4P ESD PLA — 1.75 mm / 0.75 Kg, 0.75 kg, 89.95 € · M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg, 89.95 €"
+          "de": "10 Angebote von 1 Marke (M4P). Günstigstes M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg für 215,95 € (107,98 €/kg); teuerstes M4P ESD PLA — 2.85 mm / 0.75 Kg, 0,75 kg für 89,95 € (119,93 €/kg).",
+          "en": "10 offers from 1 brand (M4P). Cheapest M4P ESD PLA — 1.75 mm / 2 Kg, 2 kg at 215.95 € (107.98 €/kg); dearest M4P ESD PLA — 2.85 mm / 0.75 Kg, 0.75 kg at 89.95 € (119.93 €/kg)."
         }
       },
       {
@@ -618,6 +631,17 @@
         "affectsFields": [
           "mechanics",
           "thermal"
+        ]
+      },
+      {
+        "id": "oq_biobased",
+        "question": {
+          "de": "Bioanteil nach ISO 16620-2 beschaffen. Die Familie PLA erlaubt keine Ableitung aus der Herkunft allein — hier entscheidet die Rezeptur, nicht das Grundpolymer.",
+          "en": "Obtain the bio-based content per ISO 16620-2. The family PLA does not allow a derivation from origin alone — the formulation decides here, not the base polymer."
+        },
+        "blocking": false,
+        "affectsFields": [
+          "sustainability.bioBasedContent"
         ]
       }
     ]

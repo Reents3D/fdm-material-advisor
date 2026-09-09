@@ -9,11 +9,11 @@
   "origin": "Schweden",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nBefund über alle Blätter dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den ZUGVERSUCH — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben tragen deshalb `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nFinding across all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for TENSILE TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore carry `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Es nennt auch keine Druckparameter, keine Prüfgeschwindigkeit und keine Prüftemperatur — nur Norm, Einheit und Zahl.\n\nHinweis zu allen Blättern dieses Herstellers: Alle fünfzehn add:north-Blätter führen die Dichte unter ISO 527, der Norm für den Zugversuch — für die Dichte wäre ISO 1183 einschlägig. Ein Fehler, der fünfzehnmal identisch auftritt, stammt aus der Vorlage und nicht aus dem Labor. Er sagt nichts über die Zahlenwerte selbst, aber etwas darüber, wie sorgfältig die Normangaben gepflegt werden. Die Dichteangaben gelten deshalb als schwach belegt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. It also names no print parameters, no test speed and no test temperature — only standard, unit and figure.\n\nNote on all sheets from this manufacturer: All fifteen add:north sheets carry density under ISO 527, the standard for tensile TESTING — for density ISO 1183 would apply. An error appearing identically fifteen times comes from the template, not the laboratory. It says nothing about the figures themselves but something about how carefully the standards are maintained. The density values therefore count as weakly substantiated."
   },
   "features": {
-    "de": "Der steifste und festeste Werkstoff des gesamten Bestands: 125 MPa Zugfestigkeit bei 9800 MPa Zug-E-Modul, dazu HDT-B 185 °C. Zum Vergleich liegt das nächstbeste kohlenstofffaserverstärkte Material bei rund 100 MPa. „LCF“ steht für Langfaser — die längere Faser überträgt mehr Last als die üblichen Kurzfasern und erklärt den Abstand. Das Blatt lässt Biegefestigkeit und Biege-E-Modul allerdings leer.",
+    "de": "Der steifste und festeste Werkstoff der gesamten Datenbank: 125 MPa Zugfestigkeit bei 9800 MPa Zug-E-Modul, dazu HDT-B 185 °C. Zum Vergleich liegt das nächstbeste kohlenstofffaserverstärkte Material bei rund 100 MPa. „LCF“ steht für Langfaser — die längere Faser überträgt mehr Last als die üblichen Kurzfasern und erklärt den Abstand. Das Blatt lässt Biegefestigkeit und Biege-E-Modul allerdings leer.",
     "en": "The stiffest and strongest material in the entire dataset: 125 MPa tensile strength at 9800 MPa tensile modulus, plus HDT-B 185 °C. For comparison, the next best carbon-fibre reinforced material sits at roughly 100 MPa. “LCF” stands for long carbon fibre — the longer fibre transfers more load than the usual short fibres and explains the gap. The sheet does, however, leave flexural strength and flexural modulus empty."
   },
   "datasheet": {
@@ -26,7 +26,7 @@
     "density": {
       "value": 1.3,
       "unit": "g/cm³",
-      "testStandard": "im Blatt als ISO 527 angegeben (siehe Befund); richtig wäre ISO 1183",
+      "testStandard": "im Blatt als ISO 527 angegeben (siehe Hinweis); richtig wäre ISO 1183",
       "source": "src_tds",
       "confidence": "low",
       "note": {

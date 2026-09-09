@@ -27,6 +27,7 @@
 
 import { useEffect, useState } from "react";
 import type { Material } from "../engine/types";
+import { expand, type I18nBlock } from "./intern";
 
 /** Spiegelt den Werkstoffbaum, trägt aber nur `note` und `question`. */
 export type NoteTree = Record<string, unknown>;
@@ -38,7 +39,7 @@ let pending: Promise<NoteTree> | null = null;
 export function loadMaterialNotes(): Promise<NoteTree> {
   if (cache) return Promise.resolve(cache);
   pending ??= import("./generated/material-notes.json").then((mod) => {
-    cache = mod.default as NoteTree;
+    cache = expand<NoteTree>(mod.default as unknown as { t: I18nBlock[]; d: unknown });
     return cache;
   });
   return pending;

@@ -9,8 +9,8 @@
   "origin": "Tschechien",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nBefund zu diesem Datenblatt: Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre ASTM D638 einschlägig. Fillamentum ist damit die fünfte Marke im Bestand mit genau diesem Fehler, nach Material4Print, Fiberlogy und Spectrum. Bei fünf unabhängigen Herstellern ist das kein Zufall, sondern ein Fehler, der mit dem Rohstoffdatenblatt des Granulatlieferanten durch die Branche wandert. Zusätzlich steht die Wärmeformbeständigkeit unter ASTM E2092, einer thermomechanischen Analyse, statt unter der HDT-Norm ASTM D648.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nFinding on this datasheet: The tensile values sit under ASTM D882, the standard for thin FILMS — for mouldings ASTM D638 would apply. Fillamentum is thus the fifth brand in the dataset with exactly this error, after Material4Print, Fiberlogy and Spectrum. Across five independent manufacturers that is no coincidence but an error travelling through the industry with the granulate supplier's raw-material datasheet. The heat deflection figure moreover sits under ASTM E2092, a thermomechanical analysis, instead of the HDT standard ASTM D648."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Bemerkenswert ist, dass ein anderes Blatt desselben Herstellers (OBC 905) es ausdrücklich tut und dort sogar Düsentemperatur, Betttemperatur, Druckgeschwindigkeit und Infill nennt — der Hersteller kann es also, tut es hier aber nicht.\n\nHinweis zu diesem Datenblatt: Die Zugwerte stehen unter ASTM D882, der Norm für dünne FOLIEN — für Formteile wäre ASTM D638 einschlägig. Fillamentum ist damit die fünfte Marke in der Datenbank mit genau diesem Fehler, nach Material4Print, Fiberlogy und Spectrum. Bei fünf unabhängigen Herstellern ist das kein Zufall, sondern ein Fehler, der mit dem Rohstoffdatenblatt des Granulatlieferanten durch die Branche wandert. Zusätzlich steht die Wärmeformbeständigkeit unter ASTM E2092, einer thermomechanischen Analyse, statt unter der HDT-Norm ASTM D648.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here.\n\nNote on this datasheet: The tensile values sit under ASTM D882, the standard for thin FILMS — for mouldings ASTM D638 would apply. Fillamentum is thus the fifth brand in the dataset with exactly this error, after Material4Print, Fiberlogy and Spectrum. Across five independent manufacturers that is no coincidence but an error travelling through the industry with the granulate supplier's raw-material datasheet. The heat deflection figure moreover sits under ASTM E2092, a thermomechanical analysis, instead of the HDT standard ASTM D648."
   },
   "datasheet": {
     "title": "Fillamentum PLA Extrafill — Technical Data Sheet",
@@ -36,7 +36,7 @@
     "tensileStrengthXy": {
       "value": 60,
       "unit": "MPa",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "conditions": "Streckspannung; Bruchspannung 53 MPa",
       "source": "src_tds",
       "confidence": "low"
@@ -44,14 +44,14 @@
     "elongationAtBreakXy": {
       "value": 6,
       "unit": "%",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
     "tensileModulusXy": {
       "value": 3600,
       "unit": "MPa",
-      "testStandard": "ASTM D882 (siehe Befund)",
+      "testStandard": "ASTM D882 (siehe Hinweis)",
       "source": "src_tds",
       "confidence": "low"
     },
@@ -80,7 +80,7 @@
     "hdtB": {
       "value": 55,
       "unit": "°C",
-      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Befund)",
+      "testStandard": "im Blatt als ASTM E2092 angegeben (siehe Hinweis)",
       "conditions": "0,45 MPa",
       "source": "src_tds",
       "confidence": "low"
@@ -155,8 +155,8 @@
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Damit sind es nicht 9 Belege, sondern einer. Welche Marke gemessen hat, ist nicht feststellbar — vermutlich keine von ihnen, sondern ein gemeinsamer Compoundeur, den kein Blatt nennt. Es wird deshalb keine Seite als Original geführt; die geteilten Werte tragen bei allen Beteiligten `low`.",
-      "en": "10 values in this record appear identically at: Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. That makes them not 9 pieces of evidence but one. Which brand did the measuring cannot be established — presumably none of them, but a shared compounder that no sheet names. Neither side is therefore treated as the original; the shared values carry `low` for every party involved."
+      "de": "10 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium. Es handelt sich also nicht um 9 unabhängige Belege, sondern um eine einzige Messung. Welche Marke gemessen hat, lässt sich nicht feststellen; vermutlich stammen die Zahlen von einem gemeinsamen Compoundeur, den kein Blatt nennt. Keines der Blätter gilt deshalb als Original, und die geteilten Werte gelten bei allen Beteiligten als schwach belegt.",
+      "en": "10 values on this datasheet appear digit for digit at Fiberlogy Fiberlogy Easy PLA · Nebula Filaments PLA Art Glitter · Nebula Filaments PLA Art Glowing · Nebula Filaments PLA Art Marble · Nebula Filaments PLA Art Mystic Green · Nebula Filaments PLA Art Thermo · Nebula Filaments PLA Premium · Spectrum Spectrum PLA Premium as well. They are therefore not 9 independent pieces of evidence but a single measurement. Which brand did the measuring cannot be established; the figures presumably come from a shared compounder that no sheet names. None of the sheets therefore counts as the original, and the shared values count as weakly substantiated for every party involved."
     }
   }
 }

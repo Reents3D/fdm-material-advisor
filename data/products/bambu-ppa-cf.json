@@ -9,11 +9,11 @@
   "origin": "China",
   "specimenType": "printed",
   "specimenNote": {
-    "de": "Prüfkörper GEDRUCKT, und das Blatt nennt die Bedingungen vollständig: 290 °C Düse, 110 °C Bett. Alle mechanischen Kennwerte sind getrennt nach X-Y und Z ausgewiesen.",
-    "en": "Specimens PRINTED, and the sheet states the conditions in full: 290 °C nozzle, 110 °C bed. All mechanical values are reported separately for X-Y and Z."
+    "de": "Prüfkörper gedruckt, und das Blatt nennt die Bedingungen vollständig: 290 °C Düse, 110 °C Bett. Alle mechanischen Kennwerte sind getrennt nach X-Y und Z ausgewiesen.",
+    "en": "Specimens printed, and the sheet states the conditions in full: 290 °C nozzle, 110 °C bed. All mechanical values are reported separately for X-Y and Z."
   },
   "features": {
-    "de": "Das einzige Produkt dieses Werkstofftyps im Bestand — der Typ und dieses Produkt sind derzeit dasselbe. Spulengröße 0,75 kg auf Karton, Spule bis 145 °C temperaturbeständig, was zum Trocknen im Ofen bei 100 bis 140 °C passt.",
+    "de": "Das einzige Produkt dieses Werkstofftyps in der Datenbank — der Typ und dieses Produkt sind derzeit dasselbe. Spulengröße 0,75 kg auf Karton, Spule bis 145 °C temperaturbeständig, was zum Trocknen im Ofen bei 100 bis 140 °C passt.",
     "en": "The only product of this material type in the dataset — the type and this product are currently the same thing. Spool size 0.75 kg on cardboard, spool temperature-resistant to 145 °C, which fits oven drying at 100 to 140 °C."
   },
   "datasheet": {

@@ -9,8 +9,8 @@
   "origin": "Österreich",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fussnote erst ab 4 mm Wanddicke geprüft.\n\nBefund zu diesem Datenblatt: Alle Kennwerte stimmen Zeile für Zeile mit dem unverstärkten DuraPro ABS überein — auch die Dichte von 1,06 g/cm³ und die Kerbschlagzähigkeit. Carbonfaser erhöht die Steifigkeit, senkt die Bruchdehnung und verändert die Dichte; dass sich keine dieser Größen unterscheidet, spricht dafür, dass die CF-Variante nicht eigenständig geprüft wurde. Einziger Unterschied im Datenblatt: die Empfehlung einer gehärteten Düse.",
-    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nFinding on this datasheet: Every value matches unfilled DuraPro ABS row for row — including the density of 1.06 g/cm³ and the notched impact strength. Carbon fibre raises stiffness, lowers elongation and changes density; that none of these differs suggests the CF grade was not separately tested. The only difference in the datasheet: the recommendation of a hardened nozzle."
+    "de": "Extrudr deklariert nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Nominelle Bruchdehnungen über 10 % deuten auf Rohstoffwerte hin. Temperaturwerte laut Fußnote erst ab 4 mm Wanddicke geprüft.\n\nHinweis zu diesem Datenblatt: Alle Kennwerte stimmen Zeile für Zeile mit dem unverstärkten DuraPro ABS überein — auch die Dichte von 1,06 g/cm³ und die Kerbschlagzähigkeit. Carbonfaser erhöht die Steifigkeit, senkt die Bruchdehnung und verändert die Dichte; dass sich keine dieser Größen unterscheidet, spricht dafür, dass die CF-Variante nicht eigenständig geprüft wurde. Einziger Unterschied im Datenblatt: die Empfehlung einer gehärteten Düse.",
+    "en": "Extrudr does not declare whether values were measured on printed or moulded specimens. Nominal elongations above 10 % suggest raw-material values. Temperature values verified only from 4 mm wall thickness per the footnote.\n\nNote on this datasheet: Every value matches unfilled DuraPro ABS row for row — including the density of 1.06 g/cm³ and the notched impact strength. Carbon fibre raises stiffness, lowers elongation and changes density; that none of these differs suggests the CF grade was not separately tested. The only difference in the datasheet: the recommendation of a hardened nozzle."
   },
   "datasheet": {
     "title": "Extrudr DuraPro ABS CF — Technisches Datenblatt (DE)",
@@ -54,18 +54,23 @@
       "source": "src_tds",
       "confidence": "medium"
     },
-    "charpyNotchedXy": {
+    "izodNotchedXy": {
       "value": 220,
       "unit": "kJ/m²",
       "testStandard": "ASTM D256, 23 °C",
       "source": "src_tds",
-      "confidence": "medium"
+      "confidence": "low",
+      "disputed": true,
+      "note": {
+        "de": "220 kJ/m² gekerbte Izod-Schlagzähigkeit ist für ABS nicht möglich: Die vier übrigen ABS-Blätter in der Datenbank nennen 14 bis 24 kJ/m², und ungekerbt liegt ABS bei 20 bis 40. Ein gekerbter Wert kann den ungekerbten nicht um das Zehnfache übertreffen. 220 ist dagegen der Lehrbuchwert für ABS in J/m — die Einheit ist beim Übertragen verlorengegangen. Der Wert bleibt als Blattangabe stehen, wird aber nicht mitgerechnet.",
+        "en": "220 kJ/m² notched Izod is impossible for ABS: the four other ABS sheets in the database state 14 to 24 kJ/m², and unnotched ABS sits at 20 to 40. A notched figure cannot exceed the unnotched one tenfold. 220 is however the textbook value for ABS in J/m — the unit was lost in transcription. The value stays on record but is not aggregated."
+      }
     },
     "hdtB": {
       "value": 85,
       "unit": "°C",
       "testStandard": "ASTM D648",
-      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fussnote nur bei Wanddicke ab 4 mm geprüft",
+      "conditions": "Temperaturbeständigkeit laut Datenblatt-Fußnote nur bei Wanddicke ab 4 mm geprüft",
       "source": "src_tds",
       "confidence": "medium"
     },
@@ -107,8 +112,8 @@
         "retrievedAt": "2026-08-01",
         "confidenceCeiling": "high",
         "note": {
-          "de": "Herstellerdatenblatt. Das Ceiling steht auf 'high', weil ZERTIFIZIERUNGEN (UL94, EN 45545) entweder erteilt sind oder nicht - da gibt es keine Prüfkörper-Mehrdeutigkeit. Die MECHANISCHEN Werte tragen dagegen einzeln nur 'medium', weil Extrudr nicht deklariert, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde. Temperaturwerte gelten laut Fussnote erst ab 4 mm Wanddicke.",
-          "en": "Manufacturer datasheet. The ceiling is 'high' because CERTIFICATIONS (UL94, EN 45545) are either granted or not - no specimen ambiguity applies. The MECHANICAL values individually carry only 'medium' because Extrudr does not declare whether they were measured on printed or moulded specimens. Temperature values apply only from 4 mm wall thickness per the footnote."
+          "de": "Herstellerdatenblatt. Die Brandschutz-Einstufungen (UL94, EN 45545) sind entweder erteilt oder nicht und gelten deshalb als gesichert. Bei den mechanischen Werten gibt Extrudr nicht an, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde; sie gelten deshalb nur als einfach belegt. Temperaturwerte gelten laut Fußnote erst ab 4 mm Wanddicke.",
+          "en": "Manufacturer datasheet. The fire ratings (UL94, EN 45545) are either granted or not and therefore count as reliable. For the mechanical values Extrudr does not state whether they were measured on printed or moulded specimens, so they count as singly substantiated only. Temperature values apply only from 4 mm wall thickness according to the footnote."
         }
       }
     ]
@@ -120,19 +125,19 @@
     ],
     "sharedFields": [
       "bedTemperature",
-      "charpyNotchedXy",
       "density",
       "elongationAtBreakXy",
       "flexuralModulusXy",
       "flexuralStrengthXy",
       "hdtB",
+      "izodNotchedXy",
       "nozzleTemperature",
       "tensileModulusXy",
       "tensileStrengthXy"
     ],
     "note": {
-      "de": "10 Kennwerte dieses Datensatzes stehen zifferngleich auch bei: 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS. Damit sind es nicht 3 Belege, sondern einer. Für diesen Datensatz ist belegt, dass er nicht die Übernahme ist: Wie DuraPro ABS. Seine Werte behalten deshalb ihre Konfidenz — die der übrigen Beteiligten nicht.",
-      "en": "10 values in this record appear identically at: 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS. That makes them not 3 pieces of evidence but one. For this record it is established that it is not the copy: Wie DuraPro ABS. Its values therefore keep their confidence — those of the other parties do not."
+      "de": "10 Kennwerte dieses Datenblatts stehen Ziffer für Ziffer auch bei 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS. Es handelt sich also nicht um 3 unabhängige Belege, sondern um eine einzige Messung. Dieses Blatt ist nachweislich das Original: Wie DuraPro ABS. Seine Werte bleiben deshalb voll gültig; die der übrigen Beteiligten gelten als übernommen.",
+      "en": "10 values on this datasheet appear digit for digit at 3DJAKE 3DJAKE ABS · Extrudr Extrudr DuraPro ABS as well. They are therefore not 3 independent pieces of evidence but a single measurement. This sheet is demonstrably the original: Wie DuraPro ABS. Its values therefore remain fully valid; those of the other parties count as copied."
     }
   }
 }

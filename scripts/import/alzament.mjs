@@ -92,8 +92,8 @@ const ISO1183 = "ISO 1183 / GB/T 1033";
 const LOW = { confidence: "low" };
 
 const BAMBU_LINEAGE = t(
-  "Dieses Blatt ist keine eigene Messung. Der Zeilenvergleich gegen das Bambu-Blatt desselben Werkstoffs ergibt 10 von 14 Zeilen ziffernidentisch — einschließlich der Toleranzen und einschließlich des Tippfehlers „MPA“ statt „MPa“ beim Z-Modul. Die abweichenden Zeilen sind die Festigkeiten, und die entsprechen der Bambu-Fassung V3.0, die dieser Datensatz führt. Das ABS-Blatt verweist zum Trocknen zusätzlich auf das „X1 Series Printer Heatbed“ — ein Bambu-Lab-Drucker. Alle Werte tragen deshalb `low`: Wer Alzament und Bambu nebeneinanderstellt, vergleicht nicht zwei Hersteller, sondern eine Messung mit sich selbst. Wer von wem abgeschrieben hat, sagen die Blätter nicht — belegt ist die gemeinsame Herkunft, nicht ihr Verlauf.",
-  "This sheet is not an independent measurement. A row-by-row comparison against the Bambu sheet for the same material gives 10 of 14 rows digit-identical — including the tolerances and including the typo “MPA” instead of “MPa” on the Z modulus. The differing rows are the strengths, and they match the Bambu revision V3.0 this dataset holds. The ABS sheet additionally points to the “X1 Series Printer Heatbed” for drying — a Bambu Lab printer. All values therefore carry `low`: placing Alzament next to Bambu does not compare two manufacturers, it compares one measurement with itself. Who copied from whom the sheets do not say — the shared origin is established, its direction is not.",
+  "Dieses Blatt ist keine eigene Messung. Der Zeilenvergleich gegen das Bambu-Blatt desselben Werkstoffs ergibt 10 von 14 Zeilen ziffernidentisch — einschließlich der Toleranzen und einschließlich des Tippfehlers „MPA“ statt „MPa“ beim Z-Modul. Die abweichenden Zeilen sind die Festigkeiten, und die entsprechen der Bambu-Fassung V3.0, die dieser Eintrag führt. Das ABS-Blatt verweist zum Trocknen zusätzlich auf das „X1 Series Printer Heatbed“ — ein Bambu-Lab-Drucker. Alle Werte gelten deshalb als schwach belegt: Wer Alzament und Bambu nebeneinanderstellt, vergleicht nicht zwei Hersteller, sondern eine Messung mit sich selbst. Wer von wem abgeschrieben hat, sagen die Blätter nicht — belegt ist die gemeinsame Herkunft, nicht ihr Verlauf.",
+  "This sheet is not an independent measurement. A row-by-row comparison against the Bambu sheet for the same material gives 10 of 14 rows digit-identical — including the tolerances and including the typo “MPA” instead of “MPa” on the Z modulus. The differing rows are the strengths, and they match the Bambu revision V3.0 this dataset holds. The ABS sheet additionally points to the “X1 Series Printer Heatbed” for drying — a Bambu Lab printer. All values therefore count as weakly substantiated: placing Alzament next to Bambu does not compare two manufacturers, it compares one measurement with itself. Who copied from whom the sheets do not say — the shared origin is established, its direction is not.",
 );
 
 const OEM = t(
@@ -165,7 +165,7 @@ const P = [
       }),
     },
     features: t(
-      "Das einzige der zehn Blätter, das Vicat UND Wärmeformbeständigkeit nennt — und die HDT mit Lastangabe (1,8 MPa, also Methode A). Weil die Zahlen aber aus derselben Quelle stammen wie die Bambu-Werte, ist das kein zusätzlicher Beleg, sondern dieselbe Angabe an zweiter Stelle.",
+      "Das einzige der zehn Blätter, das Vicat und Wärmeformbeständigkeit nennt — und die HDT mit Lastangabe (1,8 MPa, also Methode A). Weil die Zahlen aber aus derselben Quelle stammen wie die Bambu-Werte, ist das kein zusätzlicher Beleg, sondern dieselbe Angabe an zweiter Stelle.",
       "The only one of the ten sheets to state both Vicat and heat deflection temperature — and the HDT with its load (1.8 MPa, i.e. method A). But because the figures come from the same source as the Bambu values, this is not additional evidence, merely the same statement in a second place.",
     ),
   },
@@ -191,8 +191,8 @@ const P = [
       charpyUnnotchedXy: q(3.3, "kJ/m²", { tolerance: 0.2, std: ISO179, orientation: "XY", ...LOW }),
     },
     anomaly: t(
-      "Die Bruchdehnung in Z steht mit der Einheit MPa statt Prozent im Blatt — ein Übertragungsfehler in der Vorlage, der hier korrigiert übernommen wird; die Blattangabe steht in `conditions`.",
-      "The elongation at break in Z carries the unit MPa instead of per cent on the sheet — a transcription error in the template, imported corrected here, with the sheet's wording in `conditions`.",
+      "Die Bruchdehnung in Z steht mit der Einheit MPa statt Prozent im Blatt — ein Übertragungsfehler in der Vorlage, der hier korrigiert übernommen wird; die Blattangabe steht bei den Prüfbedingungen.",
+      "The elongation at break in Z carries the unit MPa instead of per cent on the sheet — a transcription error in the template, imported corrected here, with the sheet's wording bei den Prüfbedingungen.",
     ),
   },
 
@@ -214,7 +214,7 @@ const P = [
       charpyUnnotchedXy: q(2.6, "kJ/m²", { tolerance: 0.2, std: ISO179, orientation: "XY" }),
     },
     features: t(
-      "Das einzige der dreizehn Blätter, das seine Prüfkörper beschreibt: gedruckt bei 240 °C Düse, 80 °C Bett, 100 % Infill. Damit ist nicht nur belegt, DASS gedruckt wurde, sondern auch wie — im Bestand sagen das 31 % der Messwerte, hier steht es vollständig. Die Zahlen weichen von Bambu PETG ab und sind eine eigene Messung.",
+      "Das einzige der dreizehn Blätter, das seine Prüfkörper beschreibt: gedruckt bei 240 °C Düse, 80 °C Bett, 100 % Infill. Damit ist nicht nur belegt, DASS gedruckt wurde, sondern auch wie — in der Datenbank sagen das 31 % der Messwerte, hier steht es vollständig. Die Zahlen weichen von Bambu PETG ab und sind eine eigene Messung.",
       "The only one of the thirteen sheets to describe its specimens: printed at 240 °C nozzle, 80 °C bed, 100 % infill. That establishes not merely THAT printing took place but how — across the dataset 31 % of measured values say so, here it is stated in full. The figures differ from Bambu PETG and are an independent measurement.",
     ),
     anomaly: t(
@@ -243,8 +243,8 @@ const P = [
       charpyUnnotchedXy: q(3.5, "kJ/m²", { tolerance: 0.5, std: ISO179, orientation: "XY" }),
     },
     anomaly: t(
-      "Die Dichte ist mit „1,32 g/cm³ at 79 °C“ angegeben. Bei 79 °C misst niemand eine Filamentdichte, und das PETG-Blatt derselben Reihe schreibt an derselben Stelle 23 °C — vermutlich ein vertippter Zahlendreher. Der Wert trägt deshalb `low`.",
-      "The density is given as “1.32 g/cm³ at 79 °C”. Nobody measures filament density at 79 °C, and the PETG sheet of the same series writes 23 °C in the same place — presumably a typo. The value therefore carries `low`.",
+      "Die Dichte ist mit „1,32 g/cm³ at 79 °C“ angegeben. Bei 79 °C misst niemand eine Filamentdichte, und das PETG-Blatt derselben Reihe schreibt an derselben Stelle 23 °C — vermutlich ein vertippter Zahlendreher. Der Wert gilt deshalb als schwach belegt.",
+      "The density is given as “1.32 g/cm³ at 79 °C”. Nobody measures filament density at 79 °C, and the PETG sheet of the same series writes 23 °C in the same place — presumably a typo. The value therefore counts as weakly substantiated.",
     ),
   },
   {
@@ -259,7 +259,7 @@ const P = [
       tensileStrengthZ: q(15.1, "MPa", { tolerance: 0.7, std: ISO527, orientation: "Z" }),
       elongationAtBreakXy: q(13.2, "%", {
         tolerance: 1.7, std: ISO527, orientation: "XY", confidence: "low",
-        conditions: "13,2 % ist für ein kurzfaserverstärktes PLA außergewöhnlich hoch — die übrigen PLA-CF-Belege im Bestand liegen unter 3 %",
+        conditions: "13,2 % ist für ein kurzfaserverstärktes PLA außergewöhnlich hoch — die übrigen PLA-CF-Belege in der Datenbank liegen unter 3 %",
       }),
       elongationAtBreakZ: q(0.9, "%", { tolerance: 0.1, std: ISO527, orientation: "Z" }),
       flexuralModulusXy: q(3380.5, "MPa", { tolerance: 52.1, std: ISO178, orientation: "XY" }),
@@ -267,12 +267,12 @@ const P = [
       charpyUnnotchedXy: q(5.5, "kJ/m²", { tolerance: 0.2, std: ISO179, orientation: "XY" }),
     },
     features: t(
-      "Das wertvollste Blatt dieser Marke: Es führt Zugfestigkeit in X-Y UND Z aus demselben Prüfdurchgang — 31,2 gegen 15,1 MPa. Der Werkstofftyp `pla-cf` hatte bisher keinen Anisotropiefaktor; aus diesem Blatt ergibt er sich zu 0,48. Quer zur Schicht bleibt also weniger als die Hälfte der Festigkeit, deutlich weniger als bei ungefülltem PLA (0,89). Das passt zum Mechanismus: Kurzfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei.",
-      "The most valuable sheet of this brand: it carries tensile strength in X-Y AND Z from the same test run — 31.2 against 15.1 MPa. The material type `pla-cf` had no anisotropy factor so far; from this sheet it works out to 0.48. Perpendicular to the layers less than half the strength remains, markedly less than for unfilled PLA (0.89). That fits the mechanism: short fibres align in the extrusion direction and contribute nothing across it.",
+      "Das wertvollste Blatt dieser Marke: Es führt Zugfestigkeit in X-Y und Z aus demselben Prüfdurchgang — 31,2 gegen 15,1 MPa. Der Werkstofftyp `pla-cf` hatte bisher keinen Anisotropiefaktor; aus diesem Blatt ergibt er sich zu 0,48. Quer zur Schicht bleibt also weniger als die Hälfte der Festigkeit, deutlich weniger als bei ungefülltem PLA (0,89). Das passt zum Mechanismus: Kurzfasern richten sich in Extrusionsrichtung aus und tragen quer dazu nichts bei.",
+      "The most valuable sheet of this brand: it carries tensile strength in X-Y and Z from the same test run — 31.2 against 15.1 MPa. The material type `pla-cf` had no anisotropy factor so far; from this sheet it works out to 0.48. Perpendicular to the layers less than half the strength remains, markedly less than for unfilled PLA (0.89). That fits the mechanism: short fibres align in the extrusion direction and contribute nothing across it.",
     ),
     anomaly: t(
-      "Die Bruchdehnung in X-Y steht mit 13,2 % im Blatt. Für ein kurzfaserverstärktes PLA ist das außergewöhnlich hoch — Fasern versteifen und verspröden, die übrigen PLA-CF-Belege im Bestand liegen unter 3 %. Zusammen mit einer für PLA-CF niedrigen Zugfestigkeit von 31,2 MPa liest sich das eher wie ein schwach gefülltes Compound. Der Dehnungswert trägt deshalb `low`.",
-      "The elongation at break in X-Y is stated as 13.2 %. For a short-fibre reinforced PLA that is exceptionally high — fibres stiffen and embrittle, and the other PLA-CF records in the dataset lie below 3 %. Together with a tensile strength of 31.2 MPa, low for PLA-CF, this reads more like a lightly filled compound. The elongation value therefore carries `low`.",
+      "Die Bruchdehnung in X-Y steht mit 13,2 % im Blatt. Für ein kurzfaserverstärktes PLA ist das außergewöhnlich hoch — Fasern versteifen und verspröden, die übrigen PLA-CF-Belege in der Datenbank liegen unter 3 %. Zusammen mit einer für PLA-CF niedrigen Zugfestigkeit von 31,2 MPa liest sich das eher wie ein schwach gefülltes Compound. Der Dehnungswert gilt deshalb als schwach belegt.",
+      "The elongation at break in X-Y is stated as 13.2 %. For a short-fibre reinforced PLA that is exceptionally high — fibres stiffen and embrittle, and the other PLA-CF records in the dataset lie below 3 %. Together with a tensile strength of 31.2 MPa, low for PLA-CF, this reads more like a lightly filled compound. The elongation value therefore counts as weakly substantiated.",
     ),
   },
   {
@@ -295,8 +295,8 @@ const P = [
       }),
     },
     features: t(
-      "Bruchdehnung 23,4 % und Schlagzähigkeit 22,7 kJ/m² liegen weit über dem, was ein Standard-PLA erreicht (6,3 % und 3,3 kJ/m² auf dem PLA-Basic-Blatt derselben Marke). Das ist das Profil eines schlagzäh modifizierten PLA, und es deckt sich mit der Vermarktung als Hochgeschwindigkeitsmaterial. Der Werkstofftyp `pla-tough` wäre die genauere Zuordnung — das Blatt sagt aber nur „Hyper PLA“, und eine Modifikation wird nirgends benannt.",
-      "Elongation at break of 23.4 % and impact strength of 22.7 kJ/m² lie far above what a standard PLA reaches (6.3 % and 3.3 kJ/m² on the same brand's PLA Basic sheet). That is the profile of an impact-modified PLA and matches its marketing as a high-speed material. The material type `pla-tough` would be the more accurate assignment — but the sheet says only “Hyper PLA” and names no modification.",
+      "Bruchdehnung 23,4 % und Schlagzähigkeit 22,7 kJ/m² liegen weit über dem, was ein Standard-PLA erreicht (6,3 % und 3,3 kJ/m² auf dem PLA-Basic-Blatt derselben Marke). Das ist das Profil eines schlagzäh modifizierten PLA, und es deckt sich mit der Vermarktung als Hochgeschwindigkeitsmaterial. Der Werkstofftyp PLA Tough wäre die genauere Zuordnung — das Blatt sagt aber nur „Hyper PLA“, und eine Modifikation wird nirgends benannt.",
+      "Elongation at break of 23.4 % and impact strength of 22.7 kJ/m² lie far above what a standard PLA reaches (6.3 % and 3.3 kJ/m² on the same brand's PLA Basic sheet). That is the profile of an impact-modified PLA and matches its marketing as a high-speed material. The material type PLA Tough would be the more accurate assignment — but the sheet says only “Hyper PLA” and names no modification.",
     ),
     anomaly: t(
       "Der Einleitungssatz nennt das Produkt „Hyper PLA“, die Verpackung und der Händlereintrag „Hyper PLA+“. Ob das Blatt zu diesem Produkt gehört, sagt es selbst nicht eindeutig.",
@@ -327,8 +327,8 @@ const P = [
       izodNotchedXy: q(3, "kJ/m²", { std: "GB/T 1843", orientation: "XY", ...LOW }),
     },
     anomaly: t(
-      "Drei Befunde an einem Blatt. Erstens: Zugfestigkeit X-Y und Z stehen mit demselben Wert da (26,1 MPa). Ein Anisotropiefaktor von 1,00 kommt bei FDM nicht vor — quer zur Schicht liegt jeder gemessene Werkstoff darunter. Das ist ein Kopierfehler, geprüft an der gerenderten Seite; der Z-Wert ist deshalb NICHT übernommen. Zweitens: Der Einleitungssatz nennt „PLA-CF“ statt PLA Chameleon. Drittens: Der Schmelzindex ist ziffernidentisch mit dem PLA-CF-Blatt derselben Marke. Zusammen ergibt das ein aus einem anderen Blatt zusammengesetztes Dokument — alle Werte tragen `low`.",
-      "Three findings on one sheet. First: tensile strength X-Y and Z carry the same value (26.1 MPa). An anisotropy factor of 1.00 does not occur in FDM — every measured material lies below it across the layers. This is a copy error, verified against the rendered page; the Z value is therefore NOT imported. Second: the introductory sentence names “PLA-CF” instead of PLA Chameleon. Third: the melt index is digit-identical with the same brand's PLA-CF sheet. Together this is a document assembled from another one — all values carry `low`.",
+      "Drei Auffälligkeiten an einem Blatt. Erstens: Zugfestigkeit X-Y und Z stehen mit demselben Wert da (26,1 MPa). Ein Anisotropiefaktor von 1,00 kommt bei FDM nicht vor — quer zur Schicht liegt jeder gemessene Werkstoff darunter. Das ist ein Kopierfehler, geprüft an der gerenderten Seite; der Z-Wert ist deshalb NICHT übernommen. Zweitens: Der Einleitungssatz nennt „PLA-CF“ statt PLA Chameleon. Drittens: Der Schmelzindex ist ziffernidentisch mit dem PLA-CF-Blatt derselben Marke. Zusammen ergibt das ein aus einem anderen Blatt zusammengesetztes Dokument — alle Werte gelten als schwach belegt.",
+      "Three findings on one sheet. First: tensile strength X-Y and Z carry the same value (26.1 MPa). An anisotropy factor of 1.00 does not occur in FDM — every measured material lies below it across the layers. This is a copy error, verified against the rendered page; the Z value is therefore NOT imported. Second: the introductory sentence names “PLA-CF” instead of PLA Chameleon. Third: the melt index is digit-identical with the same brand's PLA-CF sheet. Together this is a document assembled from another one — all values count as weakly substantiated.",
     ),
   },
   {
@@ -352,8 +352,8 @@ const P = [
       }),
     },
     anomaly: t(
-      "Das Blatt trägt die Chemietabelle eines anderen Werkstoffs: Unter „Composition“ steht „Polyvinyl alcohol“ und unter „Solubility“ „Soluble in water“ — das beschreibt PVA, ein wasserlösliches Stützmaterial, nicht PLA. In der Zeile Schmelzindex steht statt eines Messwerts die Prüfbedingung („190 °C/2,16 kg“), der Wert fehlt also ganz. Und anders als die übrigen Blätter der Marke nennt dieses ausschließlich GB/T-Normen, keine ISO-Entsprechungen. Alle Werte tragen `low`; die Zugfestigkeit von 63 MPa ist für ein PLA+ zwar erreichbar, steht hier aber auf einem Blatt, das nachweislich fremde Abschnitte enthält.",
-      "The sheet carries another material's chemistry table: under “Composition” it says “Polyvinyl alcohol” and under “Solubility” “Soluble in water” — that describes PVA, a water-soluble support material, not PLA. In the melt index row the test condition (“190 °C/2.16 kg”) stands where the measured value should be, so the value is missing entirely. And unlike the brand's other sheets this one names only GB/T standards, no ISO equivalents. All values carry `low`; a tensile strength of 63 MPa is attainable for a PLA+, but here it stands on a sheet demonstrably containing foreign sections.",
+      "Das Blatt trägt die Chemietabelle eines anderen Werkstoffs: Unter „Composition“ steht „Polyvinyl alcohol“ und unter „Solubility“ „Soluble in water“ — das beschreibt PVA, ein wasserlösliches Stützmaterial, nicht PLA. In der Zeile Schmelzindex steht statt eines Messwerts die Prüfbedingung („190 °C/2,16 kg“), der Wert fehlt also ganz. Und anders als die übrigen Blätter der Marke nennt dieses ausschließlich GB/T-Normen, keine ISO-Entsprechungen. Alle Werte gelten als schwach belegt; die Zugfestigkeit von 63 MPa ist für ein PLA+ zwar erreichbar, steht hier aber auf einem Blatt, das nachweislich fremde Abschnitte enthält.",
+      "The sheet carries another material's chemistry table: under “Composition” it says “Polyvinyl alcohol” and under “Solubility” “Soluble in water” — that describes PVA, a water-soluble support material, not PLA. In the melt index row the test condition (“190 °C/2.16 kg”) stands where the measured value should be, so the value is missing entirely. And unlike the brand's other sheets this one names only GB/T standards, no ISO equivalents. All values count as weakly substantiated; a tensile strength of 63 MPa is attainable for a PLA+, but here it stands on a sheet demonstrably containing foreign sections.",
     ),
   },
   {
@@ -409,7 +409,7 @@ for (const p of P) {
     ));
   }
   if (p.lineage) parts.push(BAMBU_LINEAGE);
-  if (p.anomaly) parts.push(t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`));
+  if (p.anomaly) parts.push(t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`, `Note on this datasheet: ${p.anomaly.en}`));
 
   const props = { ...p.props };
   props.nozzleTemperature = q(Math.round((p.nozzle[0] + p.nozzle[1]) / 2), "°C",
@@ -439,8 +439,8 @@ for (const p of P) {
         url, retrievedAt: RETRIEVED,
         confidenceCeiling: p.lineage ? "low" : "medium",
         note: p.lineage
-          ? t("Englischsprachiges Herstellerdatenblatt mit Textebene. Der Zeilenvergleich weist es als Wiedergabe des Bambu-Blattes desselben Werkstoffs aus — deshalb Obergrenze `low`, siehe Befund am Datensatz.",
-              "English-language manufacturer datasheet with text layer. The row-by-row comparison identifies it as a rendering of the Bambu sheet for the same material — hence ceiling `low`, see the finding on the record.")
+          ? t("Englischsprachiges Herstellerdatenblatt mit Textebene. Der Zeilenvergleich zeigt, dass es die Werte des Bambu-Blattes desselben Werkstoffs wiedergibt; die Werte gelten deshalb als übernommen und schwach belegt, siehe Hinweis an diesem Eintrag.",
+              "English-language manufacturer datasheet with text layer. A row-by-row comparison shows it reproduces the Bambu sheet for the same material; its values therefore count as copied and weakly substantiated, see the note on this entry.")
           : t("Englischsprachiges Herstellerdatenblatt mit Textebene. Eigene Messung; die Werte weichen von den Bambu-Blättern derselben Werkstoffe ab.",
               "English-language manufacturer datasheet with text layer. Independent measurement; the values differ from the Bambu sheets for the same materials."),
       }],
@@ -454,7 +454,7 @@ for (const p of P) {
   byMaterial.set(p.material, (byMaterial.get(p.material) ?? 0) + 1);
 }
 
-console.log(`${n} Alzament-Produkte geschrieben - neue Marke im Bestand.`);
+console.log(`${n} Alzament-Produkte geschrieben - neue Marke in der Datenbank.`);
 console.log(`  ${nZ} mit Z-Zugfestigkeit aus demselben Pruefdurchgang · ${nLineage} als Bambu-Wiedergabe markiert\n`);
 console.log("  Werkstofftyp   Produkte");
 for (const [m, c] of [...byMaterial.entries()].sort((a, b) => b[1] - a[1])) {
@@ -464,7 +464,7 @@ console.log("\n  Der Fund: ABS, ASA und PLA Basic sind zeilenweise die Bambu-Bla
 console.log("  10 von 14 Zeilen ziffernidentisch, samt Toleranzen und samt dem Tippfehler");
 console.log("  \"MPA\". Sie tragen durchgaengig `low`, damit sie nicht als zweite Messung");
 console.log("  gelesen werden.\n");
-console.log("  Der Gewinn: PLA-CF fuehrt 31,2 MPa in X-Y gegen 15,1 MPa in Z und schliesst");
+console.log("  Der Gewinn: PLA-CF fuehrt 31,2 MPa in X-Y gegen 15,1 MPa in Z und schließt");
 console.log("  damit die Anisotropie-Luecke dieses Werkstofftyps (Faktor 0,48).\n");
 console.log(`  Nicht importiert - Sicherheitsdatenblatt statt technischem Blatt:`);
 for (const [name, id] of SDS_ONLY) {

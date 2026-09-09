@@ -13,7 +13,7 @@
     "en": "This sheet does not say whether values were measured on printed or moulded specimens. Notable is that another sheet from the same manufacturer (OBC 905) does so explicitly, even naming nozzle temperature, bed temperature, print speed and infill — the manufacturer is able to, but does not here."
   },
   "features": {
-    "de": "Die niedrigste Drucktemperatur im gesamten Bestand: 150 bis 170 °C. Holzgefüllte Filamente verbrennen bei den üblichen PLA-Temperaturen, deshalb liegt das Fenster so tief — und deshalb ist es so eng.",
+    "de": "Die niedrigste Drucktemperatur in der gesamten Datenbank: 150 bis 170 °C. Holzgefüllte Filamente verbrennen bei den üblichen PLA-Temperaturen, deshalb liegt das Fenster so tief — und deshalb ist es so eng.",
     "en": "The lowest printing temperature in the entire dataset: 150 to 170 °C. Wood-filled filaments scorch at the usual PLA temperatures, which is why the window sits so low — and why it is so narrow."
   },
   "datasheet": {

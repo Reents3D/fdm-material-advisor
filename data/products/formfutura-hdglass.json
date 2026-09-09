@@ -9,8 +9,8 @@
   "origin": "Niederlande",
   "specimenType": "undeclared",
   "specimenNote": {
-    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nBefund zu diesem Datenblatt: Die Zeile „Viscat softening temp.“ trägt die Norm ASTM D648 und die Bedingung „@ 0.455 Mpa (66psi)“. ASTM D648 ist die Wärmeformbeständigkeit unter Last, nicht der Vicat-Versuch — und eine Lastangabe gibt es beim Vicat gar nicht in dieser Form. Der Wert ist deshalb als HDT-B geführt, nicht als Vicat. Die Schreibweise „Viscat“ und der Biege-E-Modul mit 2147,6 MPa auf eine Zehntelstelle genau runden das Bild ab: Dieses Blatt ist nicht sorgfältig gepflegt. Der Wert trägt `low`.",
-    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nFinding on this datasheet: The row “Viscat softening temp.” carries the standard ASTM D648 and the condition “@ 0.455 Mpa (66psi)”. ASTM D648 is heat deflection under load, not the Vicat test — and a load statement does not exist for Vicat in this form at all. The value is therefore held as HDT-B, not as Vicat. The spelling “Viscat” and a flexural modulus given as 2147.6 MPa to a tenth complete the picture: this sheet is not carefully maintained. The value carries `low`."
+    "de": "Dieses Blatt sagt nicht, ob an gedruckten oder spritzgegossenen Prüfkörpern gemessen wurde.\n\nHinweis zu diesem Datenblatt: Die Zeile „Viscat softening temp.“ trägt die Norm ASTM D648 und die Bedingung „@ 0.455 Mpa (66psi)“. ASTM D648 ist die Wärmeformbeständigkeit unter Last, nicht der Vicat-Versuch — und eine Lastangabe gibt es beim Vicat gar nicht in dieser Form. Der Wert ist deshalb als HDT-B geführt, nicht als Vicat. Die Schreibweise „Viscat“ und der Biege-E-Modul mit 2147,6 MPa auf eine Zehntelstelle genau runden das Bild ab: Dieses Blatt ist nicht sorgfältig gepflegt. Der Wert gilt als schwach belegt.",
+    "en": "This sheet does not say whether values were measured on printed or moulded specimens.\n\nNote on this datasheet: The row “Viscat softening temp.” carries the standard ASTM D648 and the condition “@ 0.455 Mpa (66psi)”. ASTM D648 is heat deflection under load, not the Vicat test — and a load statement does not exist for Vicat in this form at all. The value is therefore held as HDT-B, not as Vicat. The spelling “Viscat” and a flexural modulus given as 2147.6 MPa to a tenth complete the picture: this sheet is not carefully maintained. The value counts as weakly substantiated."
   },
   "datasheet": {
     "title": "HDglass — Technical Data Sheet",
@@ -75,7 +75,7 @@
       "value": 70,
       "unit": "°C",
       "testStandard": "ASTM D648",
-      "conditions": "0,455 MPa (66 psi); im Blatt fälschlich als Vicat bezeichnet — siehe Befund",
+      "conditions": "0,455 MPa (66 psi); im Blatt fälschlich als Vicat bezeichnet — siehe Hinweis",
       "source": "src_tds",
       "confidence": "low"
     }
@@ -94,8 +94,8 @@
         "retrievedAt": "2026-08-04",
         "confidenceCeiling": "medium",
         "note": {
-          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht deklariert; Normangaben teils fehlerhaft, siehe Befunde am Datensatz.",
-          "en": "Manufacturer datasheet with text layer. Specimen not declared; standards partly erroneous, see findings on the record."
+          "de": "Herstellerdatenblatt mit Textebene. Prüfkörper nicht angegeben; einzelne Normangaben sind fehlerhaft, siehe die Hinweise an den betroffenen Werten.",
+          "en": "Manufacturer datasheet with text layer. Specimen not stated; some standard references are incorrect, see the notes on the affected values."
         }
       }
     ]

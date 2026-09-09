@@ -123,7 +123,7 @@ function readSheet(file) {
     console.error(
       `\nQuelldatei fehlt: ${path.relative(ROOT, p)}\n\n` +
       `data/_sources/ ist lokaler Arbeitsplatz und nicht Teil des Repositorys —\n` +
-      `Herstellerdatenblaetter werden nicht weiterverbreitet (ADR-034).\n` +
+      `Herstellerdatenblaetter werden nicht weiterverbreitet.\n` +
       `Zum Befuellen siehe data/_sources/README.md.\n\n` +
       `Der Build braucht diesen Importer nicht: "npm run ci" laeuft ohne ihn.\n`
     );
@@ -170,8 +170,8 @@ function ul94From(file) {
     ...(thickness ? { thicknessMm: Number(thickness[1]) } : {}),
     testStandard: "UL 94",
     source: "src_tds", confidence: "low",
-    note: t("HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt — kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt kein Prüfzeugnis und keine Prüfstelle, deshalb niedrige Konfidenz.",
-            "HB is the lowest level of the UL94 scale and only means the material burns slowly — not flame retardancy in the sense of a rail or aerospace requirement. The sheet names no certificate and no test house, hence low confidence."),
+    note: t("HB ist die unterste Stufe der UL94-Skala und bedeutet nur, dass das Material langsam brennt; das ist kein Brandschutz im Sinne einer Bahn- oder Luftfahrtanforderung. Das Blatt nennt weder Prüfzeugnis noch Prüfstelle, die Angabe ist deshalb nur schwach belegt.",
+            "HB is the lowest level of the UL94 scale and only means the material burns slowly; that is not flame retardancy in the sense of a rail or aerospace requirement. The sheet names neither a certificate nor a test house, so the statement is only weakly substantiated."),
   };
 }
 
@@ -238,7 +238,7 @@ const P = [
       nozzleTemperature: q(210, "°C", { min: 205, max: 215 }),
       bedTemperature: q(55, "°C", { min: 50, max: 60 }),
     },
-    anomaly: t("Der Zug-E-Modul von 4780 MPa liegt mehr als doppelt so hoch wie der Biege-E-Modul von 2234 MPa aus demselben Blatt. Bei Thermoplasten liegen beide Werte üblicherweise dicht beieinander, der Biegemodul eher leicht darüber. Zugleich wäre PLA Matte damit deutlich steifer als das PLA+ desselben Hauses (3170 MPa), obwohl es weniger fest ist. Der Wert steht mit niedriger Konfidenz.",
+    anomaly: t("Der Zug-E-Modul von 4780 MPa liegt mehr als doppelt so hoch wie der Biege-E-Modul von 2234 MPa aus demselben Blatt. Bei Thermoplasten liegen beide Werte üblicherweise dicht beieinander, der Biegemodul eher leicht darüber. Zugleich wäre PLA Matte damit deutlich steifer als das PLA+ desselben Hauses (3170 MPa), obwohl es weniger fest ist. Der Wert gilt als schwach belegt.",
                "The tensile modulus of 4780 MPa is more than twice the flexural modulus of 2234 MPa from the same sheet. For thermoplastics the two normally sit close together, with the flexural figure slightly higher if anything. At the same time PLA Matte would be markedly stiffer than this house's PLA+ (3170 MPa) while being less strong. The value stands at low confidence.") },
 
   { id: "sunlu-petg", material: "petg", name: "SUNLU PETG", file: "PETG", family: "astm",
@@ -357,7 +357,7 @@ const P = [
         conditions: "im Blatt als „Room Temp.“ geführt; der Hinweistext nennt „90-100 °C Box sealing printing“" }),
       dryingTemperature: q(75, "°C", { min: 70, max: 80 }),
     },
-    anomaly: t("70 kJ/m² gekerbte Schlagzähigkeit an einem gedruckten Prüfkörper ist aussergewöhnlich hoch — spritzgegossenes PC-ABS liegt bei 40 bis 55 kJ/m², gedruckt deutlich darunter, weil die Kerbe auf die Schichtgrenzen trifft. Der Wert steht mit niedriger Konfidenz. Die Zeile für den Zug-E-Modul ist im Blatt leer, ebenso die Werte quer zur Schichtebene (Z-X), obwohl die Zeile dafür vorgesehen ist.",
+    anomaly: t("70 kJ/m² gekerbte Schlagzähigkeit an einem gedruckten Prüfkörper ist außergewöhnlich hoch — spritzgegossenes PC-ABS liegt bei 40 bis 55 kJ/m², gedruckt deutlich darunter, weil die Kerbe auf die Schichtgrenzen trifft. Der Wert gilt als schwach belegt. Die Zeile für den Zug-E-Modul ist im Blatt leer, ebenso die Werte quer zur Schichtebene (Z-X), obwohl die Zeile dafür vorgesehen ist.",
                "70 kJ/m² notched impact on a printed specimen is exceptionally high — injection moulded PC-ABS sits at 40 to 55 kJ/m², printed considerably lower because the notch meets the layer boundaries. The value stands at low confidence. The tensile modulus row is empty in the sheet, as are the values across the layer plane (Z-X), although the row is provided for them."),
     features: t("Eines der wenigen Blätter überhaupt, das eine Bauraumtemperatur nennt: 90 bis 100 °C. Zusammen mit 105 °C Betttemperatur beschreibt das eine Maschine mit beheizter, geschlossener Kammer — ohne die ist dieser Werkstoff nicht sinnvoll zu verarbeiten.",
                 "One of very few sheets that states a chamber temperature at all: 90 to 100 °C. Together with a 105 °C bed this describes a machine with a heated, enclosed chamber — without one this material cannot sensibly be processed.") },
@@ -379,7 +379,7 @@ const P = [
       bedTemperature: q(60, "°C", { min: 50, max: 70 }),
       dryingTemperature: q(95, "°C", { min: 80, max: 110 }),
     },
-    anomaly: t("Die Festigkeitswerte sind die höchsten der ganzen Datenbank: 170 MPa Zugfestigkeit und 11000 MPa Biege-E-Modul an einem gedruckten Prüfkörper. Zum Vergleich steht das ebenfalls gedruckte PA6-CF von Bambu Lab mit 102 MPa und 4430 MPa im selben Werkstofftyp. Beide Blätter geben rund 20 % Carbonfaser an. Ein Unterschied dieser Grössenordnung zwischen zwei gedruckten Prüfkörpern desselben Werkstofftyps ist erklärungsbedürftig — die Werte stehen deshalb mit niedriger Konfidenz, bis sie sich gegenprüfen lassen.",
+    anomaly: t("Die Festigkeitswerte sind die höchsten der ganzen Datenbank: 170 MPa Zugfestigkeit und 11000 MPa Biege-E-Modul an einem gedruckten Prüfkörper. Zum Vergleich steht das ebenfalls gedruckte PA6-CF von Bambu Lab mit 102 MPa und 4430 MPa im selben Werkstofftyp. Beide Blätter geben rund 20 % Carbonfaser an. Ein Unterschied dieser Größenordnung zwischen zwei gedruckten Prüfkörpern desselben Werkstofftyps ist erklärungsbedürftig — die Werte gelten deshalb als schwach belegt, bis sie sich gegenprüfen lassen.",
                "The strength figures are the highest in the entire database: 170 MPa tensile strength and 11000 MPa flexural modulus on a printed specimen. For comparison, the equally printed PA6-CF from Bambu Lab sits at 102 MPa and 4430 MPa within the same material type. Both sheets state around 20 % carbon fibre. A difference of this magnitude between two printed specimens of the same material type calls for explanation — the values therefore stand at low confidence until they can be cross-checked."),
     features: t("Das aussagekräftigste Blatt des Herstellers: Es beschriftet jede mechanische Zeile mit der Orientierung, zeigt auf Seite zwei Zeichnungen der Prüfkörper mit eingetragener Z-Achse und liefert die Kerbschlagzähigkeit in beiden Richtungen — 9,7 kJ/m² in der Schichtebene gegen 3,8 kJ/m² quer dazu. Daraus ergibt sich ein Anisotropiefaktor von 0,39: Quer zur Schicht bleiben knapp 40 % der Schlagzähigkeit übrig. Genau diese Zahl fehlt in fast allen Datenblättern.",
                 "The manufacturer's most informative sheet: it labels every mechanical row with the orientation, shows drawings of the specimens with the Z axis marked on page two, and gives notched impact in both directions — 9.7 kJ/m² in the layer plane against 3.8 kJ/m² across it. That yields an anisotropy factor of 0.39: across the layers barely 40 % of the impact strength remains. Precisely this figure is missing from almost every datasheet.") },
@@ -404,7 +404,7 @@ for (const p of P) {
     brand: "SUNLU", manufacturer: "SUNLU Group", productName: p.name, origin: "China",
     specimenType: iso ? "printed" : "undeclared",
     specimenNote: p.anomaly
-      ? join(base, t(`Befund zu diesem Datenblatt: ${p.anomaly.de}`, `Finding on this datasheet: ${p.anomaly.en}`))
+      ? join(base, t(`Hinweis zu diesem Datenblatt: ${p.anomaly.de}`, `Note on this datasheet: ${p.anomaly.en}`))
       : base,
     ...(p.features ? { features: p.features } : {}),
     datasheet: {
@@ -425,8 +425,8 @@ for (const p of P) {
         productName: p.name, title: `${p.name} — Technical Data Sheet`,
         url: SITE, retrievedAt: RETRIEVED,
         confidenceCeiling: iso ? "medium" : "low",
-        note: t(`Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. ${iso ? "Prüfkörper deklariert (gedruckt, mit Orientierung)." : "Prüfkörper nicht deklariert; die Spritzguss-Schwindungszeile deutet auf Rohstoffkennwerte, deshalb Ceiling 'low'."}`,
-                `Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. ${iso ? "Specimen declared (printed, with orientation)." : "Specimen not declared; the injection-moulding shrinkage row points to raw-material values, hence ceiling 'low'."}`),
+        note: t(`Herstellerdatenblatt, vom Betreiber als PDF bereitgestellt; eine öffentliche Adresse des Dokuments ist nicht bekannt. Das Dokument wird nicht weiterverbreitet und ist auf Anfrage einsehbar. ${iso ? "Prüfkörper angegeben (gedruckt, mit Orientierung)." : "Prüfkörper nicht angegeben; die Zeile zur Spritzguss-Schwindung deutet auf Rohstoffkennwerte hin, die Werte gelten deshalb als schwach belegt."}`,
+                `Manufacturer datasheet, supplied as a PDF by the operator; no public address of the document is known. The document is not redistributed and can be inspected on request. ${iso ? "Specimen stated (printed, with orientation)." : "Specimen not stated; the injection-moulding shrinkage row points to raw-material values, so the figures count as weakly substantiated."}`),
       }],
     },
   };
@@ -437,4 +437,4 @@ for (const p of P) {
   if (rec.compliance) nu++;
 }
 
-console.log(`${n} SUNLU-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Befund, ${nc} Bestaendigkeitsangaben, ${nu} mit UL94)`);
+console.log(`${n} SUNLU-Produkte geschrieben (${na} mit dokumentiertem Datenblatt-Hinweis, ${nc} Bestaendigkeitsangaben, ${nu} mit UL94)`);
