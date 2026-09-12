@@ -23,7 +23,7 @@ export const SITE = {
     imprint: "https://reents3d.de/impressum/",
     privacy: "https://reents3d.de/datenschutz/",
     repo: "https://github.com/Reents3D/fdm-material-advisor",
-    live: "https://reents3d.github.io/fdm-material-advisor/",
+    live: "https://materialberater.reents3d.de/",
   },
 
   contact: {

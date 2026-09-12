@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Kostenloser, quelloffener FDM-Materialberater: welches 3D-Druck-Material passt zum Anwendungsfall - und warum. Offene Materialdatenbank mit Quellen und Konfidenzangaben.",
   "license": "MIT",
-  "homepage": "https://reents3d.github.io/fdm-material-advisor/",
+  "homepage": "https://materialberater.reents3d.de/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Reents3D/fdm-material-advisor.git"
