@@ -1,6 +1,6 @@
 # FDM-Materialberater
 
-**[→ Werkzeug öffnen](https://reents3d.github.io/fdm-material-advisor/)** · kostenlos, ohne Anmeldung
+**[→ Werkzeug öffnen](https://materialberater.reents3d.de/)** · kostenlos, ohne Anmeldung
 · ein Werkzeug der [Reents Technologies GmbH](https://reents3d.de/) (Reents3D), XXL-3D-Druck und Exponatebau in Holm bei Hamburg
 
 Welches FDM-Material passt zum Anwendungsfall — und **warum**. Ein quelloffener
@@ -412,7 +412,7 @@ NDA-fähig, Daten auf lokalem Server
 
 ## English
 
-**[→ Open the tool](https://reents3d.github.io/fdm-material-advisor/)** — free, no sign-up.
+**[→ Open the tool](https://materialberater.reents3d.de/)** — free, no sign-up.
 The interface switches to English in the header.
 
 An open-source FDM material advisor with an open database in which every property value

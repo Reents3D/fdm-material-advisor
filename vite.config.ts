@@ -68,7 +68,7 @@ function securityHeaders(): Plugin {
 // Base path is environment-driven so the same build works on GitHub Pages
 // (/fdm-material-advisor/) and later on materialberater.reents3d.de (/).
 export default defineConfig({
-  base: process.env.VITE_BASE ?? "/fdm-material-advisor/",
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react(), tailwindcss(), securityHeaders()],
   build: { outDir: "dist", sourcemap: false, target: "es2022" },
 });
