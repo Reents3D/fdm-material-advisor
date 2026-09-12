@@ -138,6 +138,25 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Statischer Fusszeilenblock fuer Abrufer ohne JavaScript (Verzeichnis-Crawler,
+         Linkpruefer, Vorschau-Bots). Die App entfernt ihn beim Start und rendert ihre
+         eigene Fusszeile mit denselben Zielen; siehe src/main.tsx. -->
+    <footer id="static-links" style="max-width: 64rem; margin: 2rem auto; padding: 0 1rem; font: 14px/1.6 system-ui, sans-serif; color: #0c4251">
+      <p>
+        Ein kostenloses, quelloffenes Werkzeug der
+        <a href="https://reents3d.de/">Reents Technologies GmbH</a>, Holm bei Hamburg:
+        <a href="https://reents3d.de/leistungen/xxl-3d-druck/">XXL-3D-Druck</a> ·
+        <a href="https://reents3d.de/branchen/messe-exponate/">Messe-Exponate</a> ·
+        <a href="https://reents3d.de/leistungen/3d-druck-service/fdm-3d-druck-service/">FDM-Druckservice</a> ·
+        <a href="https://reents3d.de/kontakt/">Kontakt</a> ·
+        <a href="https://reents3d.de/impressum/">Impressum</a> ·
+        <a href="https://reents3d.de/datenschutz/">Datenschutz</a> ·
+        <a href="https://github.com/Reents3D/fdm-material-advisor">Quelltext und Daten auf GitHub</a>
+      </p>
+      <noscript>
+        <p>Der Materialberater benötigt JavaScript. Ohne JavaScript bleibt diese Seite leer.</p>
+      </noscript>
+    </footer>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
